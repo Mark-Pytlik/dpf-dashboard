@@ -2313,9 +2313,8 @@ function renderRoster() {
   });
   html += '</table></div>';
 
-  // ── Trade Evaluator (Draft mode only) ──
-  const showTradeEval = state._mode === 'draft';
-  if (showTradeEval) {
+  // ── Trade Evaluator ──
+  {
   html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
   html += '<h3 style="font-size:13px;margin-bottom:4px;">Trade Evaluator</h3>';
   html += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Includes keeper round cost, surplus value, and years of control. R1-4 players cannot be kept.</div>';
@@ -2352,7 +2351,7 @@ function renderRoster() {
   // Trade summary
   html += '<div id="tradeSummary" style="margin-top:8px;padding:6px;background:var(--bg);border-radius:4px;font-size:11px;display:none;"></div>';
   html += '</div>';
-  } // end showTradeEval
+  }
 
   // Position needs analysis
   html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;">';
@@ -2526,7 +2525,7 @@ function renderRoster() {
   if (!state._tradeGet) state._tradeGet = [];
   if (!state._tradeGivePicks) state._tradeGivePicks = [];
   if (!state._tradeGetPicks) state._tradeGetPicks = [];
-  if (showTradeEval) {
+  {
 
   function tradePlayerTag(n) {
     const p = ALL.find(x => x.name === n);
@@ -2738,7 +2737,7 @@ function renderRoster() {
   renderPickList('tradeGivePickList', state._tradeGivePicks, 'give');
   renderPickList('tradeGetPickList', state._tradeGetPicks, 'get');
   updateTradeSummary();
-  } // end showTradeEval wiring
+  }
 }
 
 // ── Draft log view ────────────────────────────────────────────────────────
