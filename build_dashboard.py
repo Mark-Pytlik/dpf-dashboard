@@ -10,6 +10,8 @@ bat = pd.read_csv('data/dc_bat_full.csv', sep='|')
 pit = pd.read_csv('data/dc_pit_full.csv', sep='|')
 ages = json.load(open('data/mlb_ages.json'))
 cbs_pos = json.load(open('data/cbs_positions.json'))
+prospects = json.load(open('data/prospects_2026.json'))
+prospects_json = json.dumps(prospects)
 
 # ── 2025 actual stats ─────────────────────────────────────────────────────
 bat25 = pd.read_csv('data/bat_2025.csv', sep='|')
@@ -536,6 +538,7 @@ html = f'''<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23fff' stroke='%23dc2626' stroke-width='3'/><path d='M30 20 Q50 50 30 80' fill='none' stroke='%23dc2626' stroke-width='2'/><path d='M70 20 Q50 50 70 80' fill='none' stroke='%23dc2626' stroke-width='2'/></svg>">
 <title>DPF 2026 Draft Dashboard</title>
 <style>
 :root {{
@@ -654,9 +657,29 @@ a[title^="Sleeper"] {{ color:var(--green); }} a[title^="Avoid"] {{ color:var(--r
 .mock-player-row:hover {{ background:rgba(99,102,241,0.08); }}
 .paste-box {{ width:100%; min-height:50px; max-height:120px; background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:8px; color:var(--text); font-size:12px; font-family:monospace; resize:vertical; }}
 .paste-status {{ font-size:11px; color:var(--text2); margin-top:4px; }}
+#authGate {{ position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,.95); z-index:9999; display:flex; align-items:center; justify-content:center; }}
+#authGate.hidden {{ display:none; }}
+.auth-box {{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:32px; width:360px; max-width:90vw; text-align:center; }}
+.auth-box h2 {{ font-size:20px; font-weight:700; margin-bottom:12px; color:var(--text); }}
+.auth-box p {{ font-size:13px; color:var(--text2); margin-bottom:20px; }}
+.auth-input {{ width:100%; padding:10px 12px; font-size:13px; border:1px solid var(--border); border-radius:6px; background:var(--surface2); color:var(--text); margin-bottom:12px; outline:none; }}
+.auth-input:focus {{ border-color:var(--accent); }}
+.auth-btn {{ width:100%; padding:10px 12px; font-size:13px; font-weight:600; border:none; border-radius:6px; background:var(--accent2); color:#fff; cursor:pointer; }}
+.auth-btn:hover {{ background:var(--accent); }}
+.auth-error {{ font-size:12px; color:var(--red); margin-top:8px; }}
 </style>
 </head>
 <body>
+<div id="authGate">
+  <div class="auth-box">
+    <h2>DPF Dashboard</h2>
+    <p>This dashboard is password protected</p>
+    <input type="password" id="authInput" class="auth-input" placeholder="Enter password..." autocomplete="off">
+    <button id="authBtn" class="auth-btn">Unlock</button>
+    <div id="authError" class="auth-error"></div>
+  </div>
+</div>
+
 <div class="header">
   <h1><span>DPF</span> 2026 Dashboard</h1>
   <div class="tabs">
@@ -666,6 +689,7 @@ a[title^="Sleeper"] {{ color:var(--green); }} a[title^="Avoid"] {{ color:var(--r
     <div class="tab" data-tab="board">Draft Board</div>
     <div class="tab" data-tab="mock">Mock Draft</div>
     <div class="tab active" data-tab="league">League</div>
+    <div class="tab" data-tab="futures">Futures</div>
     <div class="tab" data-tab="txns">Transactions</div>
   </div>
   <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
@@ -773,6 +797,60 @@ a[title^="Sleeper"] {{ color:var(--green); }} a[title^="Avoid"] {{ color:var(--r
 </div>
 
 <script>
+// ── Password Authentication ────────────────────────────────────────────────
+const PASSWORD_HASH = '2b7051fbf461c99ef6ddd81b4dfd12f59555da74d37ba9d4221421fb67026a1e';
+const CONTENT_ELEMENTS = ['.header', '.controls', '#playerControls', '#tableWrap', '#draftPanel', '#rosterSection', '#txnsSection'];
+
+async function hashPassword(pwd) {{
+  const encoder = new TextEncoder();
+  const data = encoder.encode(pwd);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}}
+
+function checkAuth() {{
+  if (sessionStorage.getItem('dpf_auth') === 'ok') {{
+    document.getElementById('authGate').classList.add('hidden');
+    CONTENT_ELEMENTS.forEach(sel => {{
+      const el = document.querySelector(sel);
+      if (el) el.style.display = '';
+    }});
+    return;
+  }}
+  document.getElementById('authGate').classList.remove('hidden');
+  CONTENT_ELEMENTS.forEach(sel => {{
+    const el = document.querySelector(sel);
+    if (el) el.style.display = 'none';
+  }});
+}}
+
+async function submitPassword() {{
+  const input = document.getElementById('authInput');
+  const pwd = input.value;
+  if (!pwd) {{
+    document.getElementById('authError').textContent = 'Enter a password';
+    return;
+  }}
+  const hash = await hashPassword(pwd);
+  if (hash === PASSWORD_HASH) {{
+    sessionStorage.setItem('dpf_auth', 'ok');
+    document.getElementById('authError').textContent = '';
+    input.value = '';
+    checkAuth();
+  }} else {{
+    document.getElementById('authError').textContent = 'Incorrect password';
+  }}
+}}
+
+document.getElementById('authBtn').addEventListener('click', submitPassword);
+document.getElementById('authInput').addEventListener('keypress', (e) => {{
+  if (e.key === 'Enter') submitPassword();
+}});
+
+window.addEventListener('load', checkAuth);
+checkAuth();
+
 // ── Data ──────────────────────────────────────────────────────────────────
 const BATTERS = {bat_json};
 const PITCHERS = {pit_json};
@@ -781,6 +859,9 @@ ALL.forEach((p,i) => p._id = i);
 
 // ── CBS League Transactions (scraped daily) ─────────────────────────────
 const CBS_TRANSACTIONS = {cbs_txns_json};
+
+// ── Prospects data ───────────────────────────────────────────────────────
+const PROSPECTS = {prospects_json};
 
 // ── Draft Picks & Keeper Cost Model ──────────────────────────────────────
 const DRAFT_PICKS = {draft_picks_json};
@@ -1429,8 +1510,8 @@ tabs.forEach(t => t.addEventListener('click', () => {{
 
 // ── Mode toggle (Draft vs Season) ─────────────────────────────────────────
 if (!state._mode) state._mode = 'draft';
-const DRAFT_TABS = ['all','myRoster','roster','board','mock','league','txns'];
-const SEASON_TABS = ['all','myRoster','roster','league','txns'];
+const DRAFT_TABS = ['all','myRoster','roster','board','mock','league','futures','txns'];
+const SEASON_TABS = ['all','myRoster','roster','league','futures','txns'];
 
 function updateModeUI() {{
   const isDraft = state._mode === 'draft';
@@ -1939,6 +2020,178 @@ function renderTransactions() {{
   if (typeFilter) typeFilter.addEventListener('change', applyFilters);
 }}
 
+// ── Prospect lookup ────────────────────────────────────────────────────────
+const PROSPECT_BY_NAME = {{}};
+PROSPECTS.forEach(pr => {{
+  PROSPECT_BY_NAME[pr.name] = pr;
+  const normalized = pr.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  if (normalized !== pr.name) PROSPECT_BY_NAME[normalized] = pr;
+}});
+
+// ── Futures tab rendering ──────────────────────────────────────────────────
+function renderFutures() {{
+  const section = document.getElementById('rosterSection');
+  section.innerHTML = '';
+
+  let subView = state._futuresView || 'rankings';
+
+  // Header and view toggle buttons
+  let html = `
+    <div style="padding:12px 20px;background:var(--surface);border-bottom:1px solid var(--border);">
+      <h2 style="font-size:16px;font-weight:700;margin-bottom:8px;">Prospect Rankings</h2>
+      <p style="font-size:12px;color:var(--text2);margin-bottom:12px;">MiLB prospects ranked by potential fantasy impact</p>
+      <div style="display:flex;gap:4px;">
+        <button class="futures-view-btn" data-view="rankings" style="padding:6px 14px;font-size:12px;font-weight:600;border:1px solid var(--border);background:${{subView==='rankings'?'var(--accent2)':'var(--surface2)'}};color:${{subView==='rankings'?'#fff':'var(--text)'}};border-radius:4px;cursor:pointer;">Rankings</button>
+        <button class="futures-view-btn" data-view="rookies" style="padding:6px 14px;font-size:12px;font-weight:600;border:1px solid var(--border);background:${{subView==='rookies'?'var(--accent2)':'var(--surface2)'}};color:${{subView==='rookies'?'#fff':'var(--text)'}};border-radius:4px;cursor:pointer;">League Rookies</button>
+      </div>
+    </div>
+  `;
+
+  if (subView === 'rankings') {{
+    // Rankings sub-view
+    html += '<div style="padding:12px 20px;">';
+    html += '<input type="text" id="prospectSearch" class="search-box" placeholder="Search prospects..." style="width:300px;margin-bottom:12px;">';
+
+    // Create sortable table
+    html += `<div style="overflow:auto;max-height:calc(100vh-250px);">
+      <table id="prospectsTable" style="width:100%;border-collapse:collapse;">
+        <thead style="position:sticky;top:0;z-index:10;background:var(--surface2);">
+          <tr>
+            <th style="padding:8px 10px;text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Rank</th>
+            <th style="padding:8px 10px;text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Player</th>
+            <th style="padding:8px 10px;text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Team</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Pos</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Age</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">FV</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">FG Rank</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">JB Rank</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">BP Rank</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Avg Rank</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Trend</th>
+          </tr>
+        </thead>
+        <tbody id="prospectsBody"></tbody>
+      </table>
+    </div>`;
+    html += '</div>';
+
+    section.innerHTML = html;
+
+    // Populate prospects table
+    const prospectsBody = document.getElementById('prospectsBody');
+    const buildProspectsRows = (prospects) => {{
+      const q = document.getElementById('prospectSearch')?.value.toLowerCase() || '';
+      const filtered = prospects.filter(p => p.name.toLowerCase().includes(q));
+
+      prospectsBody.innerHTML = filtered.map((p, idx) => {{
+        const fvColor = p.fv >= 70 ? '#daa520' : p.fv >= 60 ? 'var(--green)' : p.fv >= 55 ? '#4a90e2' : p.fv >= 50 ? 'var(--text)' : 'var(--text2)';
+        const fvBg = p.fv >= 70 ? 'rgba(218,165,32,0.1)' : p.fv >= 60 ? 'rgba(22,163,74,0.1)' : p.fv >= 55 ? 'rgba(74,144,226,0.1)' : 'transparent';
+
+        // Check if rostered
+        const rosterPlayer = ALL.find(pl => pl.name === p.name);
+        let ownerBadge = '';
+        if (rosterPlayer) {{
+          let owner = '';
+          if (state.myTeam && state.myTeam.includes(p.name)) owner = 'Me';
+          else {{
+            for (let tkey in state.leagueTeams) {{
+              if (state.leagueTeams[tkey].includes(p.name)) {{ owner = tkey; break; }}
+            }}
+          }}
+          if (owner) ownerBadge = `<span class="owner-badge${{owner==='Me'?' mine':''}}">${{owner}}</span>`;
+        }}
+
+        // Helium indicator
+        let heliumIcon = '';
+        if (p.helium >= 2) heliumIcon = '🔥';
+
+        // Trend arrow
+        let trendArrow = '';
+        if (p.trend < -3) trendArrow = '<span style="color:var(--green);font-weight:700;">↑</span>';
+        else if (p.trend > 3) trendArrow = '<span style="color:var(--red);font-weight:700;">↓</span>';
+
+        return `<tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:6px 10px;font-size:12px;">${{idx+1}}</td>
+          <td style="padding:6px 10px;font-size:12px;">${{p.name}}${{ownerBadge}}</td>
+          <td style="padding:6px 10px;font-size:12px;">${{p.team}}</td>
+          <td style="padding:6px 10px;text-align:center;font-size:12px;">${{p.pos}}</td>
+          <td style="padding:6px 10px;text-align:center;font-size:12px;">${{p.age.toFixed(1)}}</td>
+          <td style="padding:6px 10px;text-align:center;font-size:12px;background:${{fvBg}};color:${{fvColor}};font-weight:600;">${{p.fv}}</td>
+          <td style="padding:6px 10px;text-align:center;font-size:12px;">${{p.fg_rank}}</td>
+          <td style="padding:6px 10px;text-align:center;font-size:12px;">${{p.jb_rank}}</td>
+          <td style="padding:6px 10px;text-align:center;font-size:12px;">${{p.bp_rank || '—'}}</td>
+          <td style="padding:6px 10px;text-align:center;font-size:12px;font-weight:600;">${{p.avg_rank.toFixed(1)}}</td>
+          <td style="padding:6px 10px;text-align:center;font-size:12px;">${{heliumIcon}}${{trendArrow}}</td>
+        </tr>`;
+      }}).join('');
+    }};
+
+    // Initial render sorted by avg_rank
+    const sortedProspects = [...PROSPECTS].sort((a, b) => a.avg_rank - b.avg_rank);
+    buildProspectsRows(sortedProspects);
+
+    // Wire search
+    document.getElementById('prospectSearch')?.addEventListener('input', () => buildProspectsRows(sortedProspects));
+
+  }} else {{
+    // League Rookies sub-view
+    html += '<div style="padding:12px 20px;">';
+
+    const allRookies = {{}};
+    for (let tkey in state.leagueTeams) {{
+      allRookies[tkey] = state.leagueTeams[tkey]
+        .filter(pname => PROSPECT_BY_NAME[pname])
+        .map(pname => {{
+          const pr = PROSPECT_BY_NAME[pname];
+          const pl = ALL.find(x => x.name === pname);
+          const ki = getKeeperInfo(pname);
+          return {{ name: pname, prospect: pr, player: pl, keeperInfo: ki }};
+        }});
+    }}
+
+    // Also add my team rookies
+    const myRookies = (state.myTeam || [])
+      .filter(pname => PROSPECT_BY_NAME[pname])
+      .map(pname => {{
+        const pr = PROSPECT_BY_NAME[pname];
+        const pl = ALL.find(x => x.name === pname);
+        const ki = getKeeperInfo(pname);
+        return {{ name: pname, prospect: pr, player: pl, keeperInfo: ki }};
+      }});
+    if (myRookies.length > 0) allRookies['Me'] = myRookies;
+
+    for (let tkey in allRookies) {{
+      if (allRookies[tkey].length === 0) continue;
+      html += `<div style="margin-bottom:16px;">
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:8px;">${{tkey}}</h3>
+        <div style="border-left:2px solid var(--accent2);padding-left:12px;">`;
+
+      allRookies[tkey].forEach(r => {{
+        const lcvStr = r.player && r.player.lcv ? `(LCV: ${{(r.player.lcv).toFixed(1)}})` : '';
+        html += `<div style="padding:8px;background:var(--surface2);border-radius:4px;margin-bottom:6px;font-size:12px;">
+          <div style="font-weight:600;">${{r.name}}</div>
+          <div style="color:var(--text2);font-size:11px;margin-top:2px;">
+            Rank #${{r.prospect.avg_rank.toFixed(0)}} • FV ${{r.prospect.fv}} • Keeper cost: ${{r.keeperInfo.nextKeepCost}}<${{r.keeperInfo.nextKeepRound}}> ${{lcvStr}}
+          </div>
+        </div>`;
+      }});
+
+      html += '</div></div>';
+    }}
+
+    html += '</div>';
+    section.innerHTML = html;
+  }}
+
+  // Wire view toggle buttons
+  document.querySelectorAll('.futures-view-btn').forEach(btn => {{
+    btn.addEventListener('click', () => {{
+      state._futuresView = btn.dataset.view;
+      renderFutures();
+    }});
+  }});
+}}
+
 // ── Render ─────────────────────────────────────────────────────────────────
 function render() {{
   const isPlayerTab = (currentTab === 'all');
@@ -1946,7 +2199,7 @@ function render() {{
   document.getElementById('draftPanel').classList.toggle('show', currentTab === 'all' && state._mode === 'draft');
   document.getElementById('tableWrap').style.display = isPlayerTab ? '' : 'none';
   document.getElementById('liveSidebar').style.display = 'none';
-  document.getElementById('rosterSection').style.display = ['myRoster','roster','board','mock','league'].includes(currentTab) ? '' : 'none';
+  document.getElementById('rosterSection').style.display = ['myRoster','roster','board','mock','league','futures'].includes(currentTab) ? '' : 'none';
   document.getElementById('txnsSection').style.display = currentTab === 'txns' ? '' : 'none';
 
   if (currentTab === 'txns') {{ renderTransactions(); return; }}
@@ -1955,6 +2208,7 @@ function render() {{
   if (currentTab === 'board') {{ renderDraftBoard(); return; }}
   if (currentTab === 'mock') {{ renderMockDraft(); return; }}
   if (currentTab === 'league') {{ renderLeague(); return; }}
+  if (currentTab === 'futures') {{ renderFutures(); return; }}
 
   buildPosFilters();
   recalcPNAV();
@@ -3181,17 +3435,27 @@ function renderRoster() {{
     const pickDiff = getPickVal - givePickVal;
     const pickClr = pickDiff >= 0 ? 'var(--green)' : 'var(--red)';
 
-    // Keeper surplus totals (multi-year) + pick values as future assets
-    // Clamp surplus to 0 minimum: negative surplus means bad keeper deal, not negative trade value
-    const giveSurplus = g.reduce((s,n) => s + Math.max(0, getKeeperInfo(n).multiYearSurplus), 0) + givePickVal;
-    const getSurplus = r.reduce((s,n) => s + Math.max(0, getKeeperInfo(n).multiYearSurplus), 0) + getPickVal;
-    const surplusDiff = getSurplus - giveSurplus;
-    const surpClr = surplusDiff >= 0 ? 'var(--green)' : 'var(--red)';
-
     // Years of control
     const giveYrs = g.reduce((s,n) => s + getKeeperInfo(n).yearsLeft, 0);
     const getYrs = r.reduce((s,n) => s + getKeeperInfo(n).yearsLeft, 0);
     const yrsDiff = getYrs - giveYrs;
+
+    // Prospect value for rookies/MiLB players
+    const giveProspectVal = g.reduce((s,n) => {{
+      const pr = PROSPECT_BY_NAME[n];
+      return s + (pr ? Math.max(0, (pr.fv - 40) * 0.15) : 0);
+    }}, 0);
+    const getProspectVal = r.reduce((s,n) => {{
+      const pr = PROSPECT_BY_NAME[n];
+      return s + (pr ? Math.max(0, (pr.fv - 40) * 0.15) : 0);
+    }}, 0);
+
+    // Keeper surplus totals (multi-year) + pick values + prospect values as future assets
+    // Clamp surplus to 0 minimum: negative surplus means bad keeper deal, not negative trade value
+    const giveSurplus = g.reduce((s,n) => s + Math.max(0, getKeeperInfo(n).multiYearSurplus), 0) + givePickVal + giveProspectVal;
+    const getSurplus = r.reduce((s,n) => s + Math.max(0, getKeeperInfo(n).multiYearSurplus), 0) + getPickVal + getProspectVal;
+    const surplusDiff = getSurplus - giveSurplus;
+    const surpClr = surplusDiff >= 0 ? 'var(--green)' : 'var(--red)';
 
     // Unkepable player warnings
     const unkepableGive = g.filter(n => {{ const ki = getKeeperInfo(n); return ki.draftRound && ki.draftRound <= 4 && !ki.keepable2027; }});
@@ -3224,6 +3488,10 @@ function renderRoster() {{
     sh += '<tr style="color:var(--text2);border-bottom:1px solid var(--border);"><th style="text-align:left;padding:2px;">Metric</th><th style="text-align:right;padding:2px;">I Give</th><th style="text-align:right;padding:2px;">I Get</th><th style="text-align:right;padding:2px;">Net</th></tr>';
 
     sh += `<tr><td style="padding:2px;">LCV (production)</td><td style="text-align:right;padding:2px;">${{giveLCV.toFixed(1)}}</td><td style="text-align:right;padding:2px;">${{getLCV.toFixed(1)}}</td><td style="text-align:right;padding:2px;color:${{lcvClr}};font-weight:700;">${{lcvDiff>=0?'+':''}}${{lcvDiff.toFixed(1)}}</td></tr>`;
+
+    const prospectDiff = getProspectVal - giveProspectVal;
+    const prospectClr = prospectDiff >= 0 ? 'var(--green)' : 'var(--red)';
+    sh += `<tr><td style="padding:2px;">Prospect Upside</td><td style="text-align:right;padding:2px;">${{giveProspectVal.toFixed(1)}}</td><td style="text-align:right;padding:2px;">${{getProspectVal.toFixed(1)}}</td><td style="text-align:right;padding:2px;color:${{prospectClr}};font-weight:700;">${{prospectDiff>=0?'+':''}}${{prospectDiff.toFixed(1)}}</td></tr>`;
 
     if (gPicks.length > 0 || getPicks.length > 0) {{
       sh += `<tr><td style="padding:2px;">2027 Draft Picks</td><td style="text-align:right;padding:2px;">${{givePickVal.toFixed(1)}} (${{gPicks.map(r=>'R'+r).join(',')}})</td><td style="text-align:right;padding:2px;">${{getPickVal.toFixed(1)}} (${{getPicks.map(r=>'R'+r).join(',')}})</td><td style="text-align:right;padding:2px;color:${{pickClr}};font-weight:700;">${{pickDiff>=0?'+':''}}${{pickDiff.toFixed(1)}}</td></tr>`;
