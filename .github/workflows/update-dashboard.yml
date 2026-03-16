@@ -4,6 +4,8 @@ on:
   schedule:
     # Runs daily at 12:00 UTC (8am ET / 5am PT)
     - cron: '0 12 * * *'
+  push:
+    branches: [main]
   workflow_dispatch: # Allow manual trigger from GitHub UI
 
 permissions:
@@ -13,6 +15,8 @@ permissions:
 
 jobs:
   update:
+    # Only fetch stats + rebuild on schedule or manual trigger, not on every push
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -43,7 +47,9 @@ jobs:
           git push
 
   deploy:
-    needs: update
+    # Run deploy after update (if it ran), or directly on push
+    if: always() && !cancelled()
+    needs: [update]
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -52,7 +58,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          ref: main  # Get the latest commit from the update job
+          ref: main
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
