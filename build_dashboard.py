@@ -659,10 +659,9 @@ a[title^="Sleeper"] {{ color:var(--green); }} a[title^="Avoid"] {{ color:var(--r
 <div class="header">
   <h1><span>DPF</span> 2026 Dashboard</h1>
   <div class="tabs">
-    <div class="tab active" data-tab="all">All</div>
-    <div class="tab" data-tab="bat">Hitters</div>
-    <div class="tab" data-tab="pit">Pitchers</div>
-    <div class="tab" data-tab="roster">Roster</div>
+    <div class="tab active" data-tab="all">Players</div>
+    <div class="tab" data-tab="myRoster">My Roster</div>
+    <div class="tab" data-tab="roster">Teams</div>
     <div class="tab" data-tab="board">Draft Board</div>
     <div class="tab" data-tab="mock">Mock Draft</div>
     <div class="tab" data-tab="league">League</div>
@@ -1422,16 +1421,14 @@ tabs.forEach(t => t.addEventListener('click', () => {{
   t.classList.add('active');
   currentTab = t.dataset.tab;
   // Sync filterType from tab
-  if (currentTab === 'bat') {{ filterType = 'bat'; currentTab = 'all'; }}
-  else if (currentTab === 'pit') {{ filterType = 'pit'; currentTab = 'all'; }}
-  else if (currentTab === 'all') {{ filterType = 'all'; }}
+  if (currentTab === 'all') {{ filterType = 'all'; }}
   render();
 }}));
 
 // ── Mode toggle (Draft vs Season) ─────────────────────────────────────────
 if (!state._mode) state._mode = 'draft';
-const DRAFT_TABS = ['all','bat','pit','roster','board','mock','league','txns'];
-const SEASON_TABS = ['all','bat','pit','roster','league','txns'];
+const DRAFT_TABS = ['all','myRoster','roster','board','mock','league','txns'];
+const SEASON_TABS = ['all','myRoster','roster','league','txns'];
 
 function updateModeUI() {{
   const isDraft = state._mode === 'draft';
@@ -1490,12 +1487,10 @@ const posGroups = {{ all: ['ALL','C','1B','2B','3B','SS','LF','CF','RF','DH','SP
                     pit: ['ALL','SP','RP'] }};
 
 function syncNavTabs() {{
-  // Highlight the correct nav tab based on filterType
-  const tabMap = {{ all: 'all', bat: 'bat', pit: 'pit' }};
-  const targetTab = tabMap[filterType] || 'all';
+  // Highlight the Players tab when switching filter types
   document.querySelectorAll('.tab').forEach(t => {{
-    if (['all','bat','pit'].includes(t.dataset.tab)) {{
-      t.classList.toggle('active', t.dataset.tab === targetTab);
+    if (t.dataset.tab === 'all') {{
+      t.classList.toggle('active', currentTab === 'all');
     }}
   }});
 }}
@@ -1934,15 +1929,16 @@ function renderTransactions() {{
 
 // ── Render ─────────────────────────────────────────────────────────────────
 function render() {{
-  const isPlayerTab = ['all','bat','pit'].includes(currentTab);
+  const isPlayerTab = (currentTab === 'all');
   document.getElementById('playerControls').style.display = isPlayerTab ? 'flex' : 'none';
   document.getElementById('draftPanel').classList.toggle('show', currentTab === 'all');
   document.getElementById('tableWrap').style.display = isPlayerTab ? '' : 'none';
   document.getElementById('liveSidebar').style.display = 'none';
-  document.getElementById('rosterSection').style.display = ['roster','board','mock','league'].includes(currentTab) ? '' : 'none';
+  document.getElementById('rosterSection').style.display = ['myRoster','roster','board','mock','league'].includes(currentTab) ? '' : 'none';
   document.getElementById('txnsSection').style.display = currentTab === 'txns' ? '' : 'none';
 
   if (currentTab === 'txns') {{ renderTransactions(); return; }}
+  if (currentTab === 'myRoster') {{ state._rosterTeam = '__mine__'; renderRoster(); return; }}
   if (currentTab === 'roster') {{ renderRoster(); return; }}
   if (currentTab === 'board') {{ renderDraftBoard(); return; }}
   if (currentTab === 'mock') {{ renderMockDraft(); return; }}
