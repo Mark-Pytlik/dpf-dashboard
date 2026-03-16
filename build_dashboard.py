@@ -818,10 +818,11 @@ function getKeeperInfo(playerName) {{
 
   // Surplus value: player's LCV minus the "replacement value" at their keeper cost round
   // A round-4 player is essentially a 4th-round talent (~top 48 pick)
-  // We normalize: round 1 pick is worth ~20 LCV, round 31 pick ~0 LCV
-  // Linear approximation: roundValue = max(0, (32 - round) * 0.65)
-  const roundValue = Math.max(0, (32 - effectiveRound) * 0.65);
-  const costValue2027 = keepable2027 ? Math.max(0, (32 - cost2027) * 0.65) : 0;
+  // We normalize: round 1 pick is worth ~6.2 LCV, round 31 pick ~0 LCV
+  // In a 12-team keeper league (~60 keepers), draft picks are less valuable
+  // Linear approximation: roundValue = max(0, (32 - round) * 0.20)
+  const roundValue = Math.max(0, (32 - effectiveRound) * 0.20);
+  const costValue2027 = keepable2027 ? Math.max(0, (32 - cost2027) * 0.20) : 0;
   const p = ALL.find(x => x.name === playerName);
   const playerLCV = p ? (p.lcv || 0) : 0;
   // Surplus = production above what you'd expect from that draft slot
@@ -836,7 +837,7 @@ function getKeeperInfo(playerName) {{
   while (r - KEEPER_ADVANCE > KEEPER_FLOOR) {{
     r -= KEEPER_ADVANCE;
     yr++;
-    const futureSlotVal = Math.max(0, (32 - r) * 0.65);
+    const futureSlotVal = Math.max(0, (32 - r) * 0.20);
     multiYearSurplus += (playerLCV - futureSlotVal) * Math.pow(0.85, yr); // 15% annual discount
   }}
 
@@ -3070,7 +3071,8 @@ function renderRoster() {{
     const keeperBadge = ki.keepable2027
       ? `<span style="color:var(--green);font-size:10px;" title="2027 keeper cost R${{ki.cost2027}}, ${{ki.yearsLeft}}yr control">${{rdStr}}→R${{ki.cost2027}} (${{ki.yearsLeft}}yr)</span>`
       : `<span style="color:var(--red);font-size:10px;font-weight:600;" title="R1-4 players cannot be kept">${{rdStr}} NOT KEEPABLE</span>`;
-    const surpStr = ki.multiYearSurplus !== 0 ? `<span style="color:var(--text2);font-size:10px;">S:${{ki.multiYearSurplus.toFixed(1)}}</span>` : '';
+    const clampedSurplus = Math.max(0, ki.multiYearSurplus);
+    const surpStr = clampedSurplus > 0 ? `<span style="color:var(--text2);font-size:10px;">S:${{clampedSurplus.toFixed(1)}}</span>` : '';
     return `<div style="display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:11px;border-bottom:1px solid var(--border);">` +
       `<div><b>${{n}}</b></div>` +
       `<div style="display:flex;gap:6px;align-items:center;">` +
@@ -3082,7 +3084,7 @@ function renderRoster() {{
   }}
 
   function tradePickTag(rd, side) {{
-    const val = Math.max(0, (32 - rd) * 0.65);
+    const val = Math.max(0, (32 - rd) * 0.20);
     return `<div style="display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:11px;border-bottom:1px solid var(--border);">` +
       `<div><b>2027 Round ${{rd}} Pick</b></div>` +
       `<div style="display:flex;gap:6px;align-items:center;">` +
@@ -3164,14 +3166,15 @@ function renderRoster() {{
     const lcvClr = lcvDiff >= 0 ? 'var(--green)' : 'var(--red)';
 
     // Draft pick value (round value approximation)
-    const givePickVal = gPicks.reduce((s,rd) => s + Math.max(0, (32 - rd) * 0.65), 0);
-    const getPickVal = getPicks.reduce((s,rd) => s + Math.max(0, (32 - rd) * 0.65), 0);
+    const givePickVal = gPicks.reduce((s,rd) => s + Math.max(0, (32 - rd) * 0.20), 0);
+    const getPickVal = getPicks.reduce((s,rd) => s + Math.max(0, (32 - rd) * 0.20), 0);
     const pickDiff = getPickVal - givePickVal;
     const pickClr = pickDiff >= 0 ? 'var(--green)' : 'var(--red)';
 
     // Keeper surplus totals (multi-year) + pick values as future assets
-    const giveSurplus = g.reduce((s,n) => s + getKeeperInfo(n).multiYearSurplus, 0) + givePickVal;
-    const getSurplus = r.reduce((s,n) => s + getKeeperInfo(n).multiYearSurplus, 0) + getPickVal;
+    // Clamp surplus to 0 minimum: negative surplus means bad keeper deal, not negative trade value
+    const giveSurplus = g.reduce((s,n) => s + Math.max(0, getKeeperInfo(n).multiYearSurplus), 0) + givePickVal;
+    const getSurplus = r.reduce((s,n) => s + Math.max(0, getKeeperInfo(n).multiYearSurplus), 0) + getPickVal;
     const surplusDiff = getSurplus - giveSurplus;
     const surpClr = surplusDiff >= 0 ? 'var(--green)' : 'var(--red)';
 
@@ -3226,8 +3229,6 @@ function renderRoster() {{
     sh += `<div style="color:var(--text2);font-size:10px;">Post-trade starting LCV: ${{postLCV.startingLCV.toFixed(1)}} (current: ${{preLCV.startingLCV.toFixed(1)}})</div>`;
 
     // Verdict
-    const totalGive = giveLCV + givePickVal + g.reduce((s,n) => s + getKeeperInfo(n).multiYearSurplus, 0);
-    const totalGet = getLCV + getPickVal + r.reduce((s,n) => s + getKeeperInfo(n).multiYearSurplus, 0);
     const isWin = lcvDiff > 0 && surplusDiff > 0;
     const isLoss = lcvDiff < -1 && surplusDiff < -1;
     const isMixed = (lcvDiff > 0 && surplusDiff < 0) || (lcvDiff < 0 && surplusDiff > 0);

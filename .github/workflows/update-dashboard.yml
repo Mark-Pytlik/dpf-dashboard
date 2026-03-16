@@ -71,3 +71,21 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Deploy to Porkbun via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: pixie-ss1-ftp.porkbun.com
+          username: markpytlik.com
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /dpf/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/data/**
+            **/build_dashboard.py
+            **/fetch_stats.py
+            **/requirements.txt
+            **/*.md
+            **/*.py
