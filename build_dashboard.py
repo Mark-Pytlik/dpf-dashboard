@@ -864,6 +864,22 @@ const CBS_TRANSACTIONS = {cbs_txns_json};
 // ── Prospects data ───────────────────────────────────────────────────────
 const PROSPECTS = {prospects_json};
 
+// ── League Rookie Rosters (from DPF 2026 spreadsheet) ───────────────────
+const LEAGUE_ROOKIES = {{
+  'Azar': ['Doyle', 'Burns', 'Smith', 'Lawlar'],
+  'Dennewitz': ['Ralphy Velazquez', 'Zyhir Hope', 'Emmanuel Rodriguez'],
+  'Devinney': ['Travis Bazzana', 'Justin Crawford', 'Josue De Paula', 'Andrew Painter'],
+  'Gaerig': ['Konnor Griffin', 'Kevin McGonigle', 'Walker Jenkins', 'Luis Pena'],
+  'Kaskie': ['JJ Wetherholt', 'Carson Williams', 'Owen Caissie', 'George Lombard'],
+  'Murphy': ['Trey Yesavage', 'Jett Williams', 'Kade Anderson', 'Edward Florentino'],
+  'Brundrett': ['Jacob Reimer', 'Caleb Bonemer', 'Quinn Mathews', 'Robby Snelling'],
+  'Pytlik': ['Charlie Condon', 'Max Clark', 'Ethan Holliday', 'Eli Willits'],
+  'Rescan': ['Leo De Vries', 'Aidan Miller', 'Samuel Basallo', 'Bubba Chandler'],
+  'Roth': ['Nolan McLean', 'Carson Benge', 'Bryce Eldridge', 'Jonah Tong'],
+  'Sarris': ['Connolly Early', 'Tommy Troy', 'Chase deLauter', 'Spencer Jones'],
+  'Wolfe': ['Sal Stewart', 'Jesus Made', 'Colt Emerson', 'Sebastian Wolcott']
+}};
+
 // ── Draft Picks & Keeper Cost Model ──────────────────────────────────────
 const DRAFT_PICKS = {draft_picks_json};
 const KEEPER_ADVANCE = 4;  // rounds per year
@@ -2090,18 +2106,24 @@ function renderFutures() {{
         const fvColor = fv >= 70 ? '#daa520' : fv >= 60 ? 'var(--green)' : fv >= 55 ? '#4a90e2' : fv >= 50 ? 'var(--text)' : 'var(--text2)';
         const fvBg = fv >= 70 ? 'rgba(218,165,32,0.1)' : fv >= 60 ? 'rgba(22,163,74,0.1)' : fv >= 55 ? 'rgba(74,144,226,0.1)' : 'transparent';
 
-        // Check if rostered
-        const rosterPlayer = ALL.find(pl => pl.name === p.name);
+        // Check if rostered as a rookie in any league team
         let ownerBadge = '';
-        if (rosterPlayer) {{
-          let owner = '';
-          if (state.myTeam && state.myTeam.includes(p.name)) owner = 'Me';
+        let rookieOwner = '';
+        for (let tkey in LEAGUE_ROOKIES) {{
+          if (LEAGUE_ROOKIES[tkey].includes(p.name)) {{ rookieOwner = tkey; break; }}
+        }}
+        // Also check main roster data
+        if (!rookieOwner) {{
+          if (state.myTeam && state.myTeam.includes(p.name)) rookieOwner = 'Pytlik';
           else {{
             for (let tkey in state.leagueTeams) {{
-              if (state.leagueTeams[tkey].includes(p.name)) {{ owner = tkey; break; }}
+              if (state.leagueTeams[tkey].includes(p.name)) {{ rookieOwner = tkey; break; }}
             }}
           }}
-          if (owner) ownerBadge = `<span class="owner-badge${{owner==='Me'?' mine':''}}">${{owner}}</span>`;
+        }}
+        if (rookieOwner) {{
+          const isMe = rookieOwner === 'Pytlik';
+          ownerBadge = `<span class="owner-badge${{isMe?' mine':''}}">${{rookieOwner}}</span>`;
         }}
 
         // Helium indicator
@@ -2137,50 +2159,82 @@ function renderFutures() {{
     document.getElementById('prospectSearch')?.addEventListener('input', () => buildProspectsRows(sortedProspects));
 
   }} else {{
-    // League Rookies sub-view
+    // League Rookies sub-view — uses LEAGUE_ROOKIES from DPF spreadsheet
     html += '<div style="padding:12px 20px;">';
+    html += '<p style="font-size:12px;color:var(--text2);margin-bottom:16px;">Rookie/prospect keepers for all 12 teams. Prospect data matched from FanGraphs, JustBaseball, and Baseball Prospectus rankings.</p>';
 
-    const allRookies = {{}};
-    for (let tkey in state.leagueTeams) {{
-      allRookies[tkey] = state.leagueTeams[tkey]
-        .filter(pname => PROSPECT_BY_NAME[pname])
-        .map(pname => {{
-          const pr = PROSPECT_BY_NAME[pname];
-          const pl = ALL.find(x => x.name === pname);
-          const ki = getKeeperInfo(pname);
-          return {{ name: pname, prospect: pr, player: pl, keeperInfo: ki }};
-        }});
-    }}
+    // Build enriched rookie data per team, sorted by prospect rank
+    const teamNames = Object.keys(LEAGUE_ROOKIES).sort();
+    let totalRookieValue = {{}};
 
-    // Also add my team rookies
-    const myRookies = (state.myTeam || [])
-      .filter(pname => PROSPECT_BY_NAME[pname])
-      .map(pname => {{
-        const pr = PROSPECT_BY_NAME[pname];
-        const pl = ALL.find(x => x.name === pname);
-        const ki = getKeeperInfo(pname);
-        return {{ name: pname, prospect: pr, player: pl, keeperInfo: ki }};
-      }});
-    if (myRookies.length > 0) allRookies['Me'] = myRookies;
-
-    for (let tkey in allRookies) {{
-      if (allRookies[tkey].length === 0) continue;
-      html += `<div style="margin-bottom:16px;">
-        <h3 style="font-size:14px;font-weight:700;margin-bottom:8px;">${{tkey}}</h3>
-        <div style="border-left:2px solid var(--accent2);padding-left:12px;">`;
-
-      allRookies[tkey].forEach(r => {{
-        const lcvStr = r.player && r.player.lcv ? `(LCV: ${{(r.player.lcv).toFixed(1)}})` : '';
-        html += `<div style="padding:8px;background:var(--surface2);border-radius:4px;margin-bottom:6px;font-size:12px;">
-          <div style="font-weight:600;">${{r.name}}</div>
-          <div style="color:var(--text2);font-size:11px;margin-top:2px;">
-            Rank #${{r.prospect.avg_rank ? r.prospect.avg_rank.toFixed(0) : '?'}} • FV ${{r.prospect.fv || '?'}} • ${{r.keeperInfo.keepable2027 ? 'R' + r.keeperInfo.cost2027 + ' in 2027 (' + r.keeperInfo.yearsLeft + 'yr control)' : 'Not keepable'}} ${{lcvStr}}
-          </div>
-        </div>`;
+    teamNames.forEach(tkey => {{
+      const rookies = LEAGUE_ROOKIES[tkey].map(rname => {{
+        const pr = PROSPECT_BY_NAME[rname];
+        const pl = ALL.find(x => x.name === rname);
+        return {{ name: rname, prospect: pr, player: pl }};
+      }}).sort((a, b) => {{
+        const ra = a.prospect ? a.prospect.avg_rank : 999;
+        const rb = b.prospect ? b.prospect.avg_rank : 999;
+        return ra - rb;
       }});
 
-      html += '</div></div>';
-    }}
+      // Total prospect value for this team
+      const teamProspectVal = rookies.reduce((s, r) => {{
+        if (!r.prospect) return s;
+        return s + Math.max(0, ((r.prospect.fv || 0) - 40) * 0.15);
+      }}, 0);
+      totalRookieValue[tkey] = teamProspectVal;
+
+      const isMyTeam = tkey === 'Pytlik';
+      const teamBorder = isMyTeam ? 'var(--accent)' : 'var(--accent2)';
+      const teamBg = isMyTeam ? 'rgba(74,107,255,0.05)' : 'transparent';
+
+      html += `<div style="margin-bottom:20px;background:${{teamBg}};border-radius:8px;padding:${{isMyTeam ? '12px' : '0'}};">`;
+      html += `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">`;
+      html += `<h3 style="font-size:14px;font-weight:700;">${{tkey}}${{isMyTeam ? ' ★' : ''}}</h3>`;
+      html += `<span style="font-size:11px;color:var(--text2);">Prospect Value: <b style="color:var(--text);">${{teamProspectVal.toFixed(1)}}</b></span>`;
+      html += `</div>`;
+
+      html += `<table style="width:100%;border-collapse:collapse;font-size:12px;">`;
+      html += `<thead><tr style="font-size:10px;text-transform:uppercase;color:var(--text2);border-bottom:1px solid var(--border);">`;
+      html += `<th style="text-align:left;padding:4px 6px;">Rookie</th>`;
+      html += `<th style="text-align:center;padding:4px 6px;">Pos</th>`;
+      html += `<th style="text-align:center;padding:4px 6px;">FV</th>`;
+      html += `<th style="text-align:center;padding:4px 6px;">Avg Rank</th>`;
+      html += `<th style="text-align:center;padding:4px 6px;">Helium</th>`;
+      html += `<th style="text-align:right;padding:4px 6px;">LCV</th>`;
+      html += `</tr></thead><tbody>`;
+
+      rookies.forEach(r => {{
+        const pr = r.prospect;
+        const fv = pr ? (pr.fv || 0) : 0;
+        const fvColor = fv >= 70 ? '#daa520' : fv >= 60 ? 'var(--green)' : fv >= 55 ? '#4a90e2' : fv >= 50 ? 'var(--text)' : 'var(--text2)';
+        const avgRank = pr && pr.avg_rank ? pr.avg_rank.toFixed(1) : '—';
+        const pos = pr ? (pr.pos || '?') : '?';
+        const lcv = r.player && r.player.lcv ? r.player.lcv.toFixed(1) : '—';
+
+        let heliumStr = '';
+        if (pr) {{
+          if (pr.helium >= 2) heliumStr += '🔥';
+          if (pr.trend < -3) heliumStr += '<span style="color:var(--green);font-weight:700;">↑</span>';
+          else if (pr.trend > 3) heliumStr += '<span style="color:var(--red);font-weight:700;">↓</span>';
+        }}
+
+        const notRanked = !pr;
+        const rowStyle = notRanked ? 'opacity:0.5;' : '';
+
+        html += `<tr style="border-bottom:1px solid var(--border);${{rowStyle}}">`;
+        html += `<td style="padding:5px 6px;font-weight:600;">${{r.name}}${{notRanked ? ' <span style="font-size:10px;color:var(--text2);font-weight:400;">(unranked)</span>' : ''}}</td>`;
+        html += `<td style="text-align:center;padding:5px 6px;">${{pos}}</td>`;
+        html += `<td style="text-align:center;padding:5px 6px;color:${{fvColor}};font-weight:600;">${{fv || '—'}}</td>`;
+        html += `<td style="text-align:center;padding:5px 6px;">${{avgRank}}</td>`;
+        html += `<td style="text-align:center;padding:5px 6px;">${{heliumStr || '—'}}</td>`;
+        html += `<td style="text-align:right;padding:5px 6px;">${{lcv}}</td>`;
+        html += `</tr>`;
+      }});
+
+      html += `</tbody></table></div>`;
+    }});
 
     html += '</div>';
     section.innerHTML = html;
