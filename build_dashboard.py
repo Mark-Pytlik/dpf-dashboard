@@ -866,18 +866,18 @@ const PROSPECTS = {prospects_json};
 
 // ── League Rookie Rosters (from DPF 2026 spreadsheet) ───────────────────
 const LEAGUE_ROOKIES = {{
-  'Azar': ['Doyle', 'Burns', 'Smith', 'Lawlar'],
+  'Azar': ['Liam Doyle', 'Burns', 'Hagen Smith', 'Lawlar'],
   'Dennewitz': ['Ralphy Velazquez', 'Zyhir Hope', 'Emmanuel Rodriguez'],
   'Devinney': ['Travis Bazzana', 'Justin Crawford', 'Josue De Paula', 'Andrew Painter'],
-  'Gaerig': ['Konnor Griffin', 'Kevin McGonigle', 'Walker Jenkins', 'Luis Pena'],
-  'Kaskie': ['JJ Wetherholt', 'Carson Williams', 'Owen Caissie', 'George Lombard'],
+  'Gaerig': ['Konnor Griffin', 'Kevin McGonigle', 'Walker Jenkins', 'Luis Pe\u00f1a'],
+  'Kaskie': ['JJ Wetherholt', 'Carson Williams', 'Owen Caissie', 'George Lombard Jr.'],
   'Murphy': ['Trey Yesavage', 'Jett Williams', 'Kade Anderson', 'Edward Florentino'],
   'Brundrett': ['Jacob Reimer', 'Caleb Bonemer', 'Quinn Mathews', 'Robby Snelling'],
   'Pytlik': ['Charlie Condon', 'Max Clark', 'Ethan Holliday', 'Eli Willits'],
   'Rescan': ['Leo De Vries', 'Aidan Miller', 'Samuel Basallo', 'Bubba Chandler'],
   'Roth': ['Nolan McLean', 'Carson Benge', 'Bryce Eldridge', 'Jonah Tong'],
-  'Sarris': ['Connolly Early', 'Tommy Troy', 'Chase deLauter', 'Spencer Jones'],
-  'Wolfe': ['Sal Stewart', 'Jesus Made', 'Colt Emerson', 'Sebastian Wolcott']
+  'Sarris': ['Connelly Early', 'Tommy Troy', 'Chase DeLauter', 'Spencer Jones'],
+  'Wolfe': ['Sal Stewart', 'Jes\u00fas Made', 'Colt Emerson', 'Sebastian Walcott']
 }};
 
 // ── Draft Picks & Keeper Cost Model ──────────────────────────────────────
@@ -1514,12 +1514,18 @@ function recalcPNAV() {{
 }}
 
 // ── Tab management ────────────────────────────────────────────────────────
-let currentTab = 'league';
+let currentTab = state._currentTab || 'league';
 const tabs = document.querySelectorAll('.tab');
+// Restore active tab highlight from saved state
+tabs.forEach(t => {{
+  t.classList.toggle('active', t.dataset.tab === currentTab);
+}});
 tabs.forEach(t => t.addEventListener('click', () => {{
   tabs.forEach(x => x.classList.remove('active'));
   t.classList.add('active');
   currentTab = t.dataset.tab;
+  state._currentTab = currentTab;
+  save();
   // Sync filterType from tab
   if (currentTab === 'all') {{ filterType = 'all'; }}
   render();
@@ -2041,9 +2047,31 @@ function renderTransactions() {{
 const PROSPECT_BY_NAME = {{}};
 PROSPECTS.forEach(pr => {{
   PROSPECT_BY_NAME[pr.name] = pr;
+  // Also index by accent-stripped name
   const normalized = pr.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   if (normalized !== pr.name) PROSPECT_BY_NAME[normalized] = pr;
+  // Also index by last name for fuzzy matching
+  const parts = pr.name.split(' ');
+  if (parts.length >= 2) {{
+    const lastName = parts[parts.length - 1];
+    // Only store last-name key if it's not already taken (avoid collisions)
+    if (!PROSPECT_BY_NAME['_last_' + lastName]) PROSPECT_BY_NAME['_last_' + lastName] = pr;
+  }}
 }});
+function findProspect(name) {{
+  if (PROSPECT_BY_NAME[name]) return PROSPECT_BY_NAME[name];
+  // Try accent-stripped
+  const norm = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  if (PROSPECT_BY_NAME[norm]) return PROSPECT_BY_NAME[norm];
+  // Try last-name key (for single-name entries like "Doyle")
+  if (PROSPECT_BY_NAME['_last_' + name]) return PROSPECT_BY_NAME['_last_' + name];
+  // Try case-insensitive
+  const lower = name.toLowerCase();
+  for (const key in PROSPECT_BY_NAME) {{
+    if (key.toLowerCase() === lower) return PROSPECT_BY_NAME[key];
+  }}
+  return null;
+}}
 
 // ── Futures tab rendering ──────────────────────────────────────────────────
 function renderFutures() {{
@@ -2110,7 +2138,11 @@ function renderFutures() {{
         let ownerBadge = '';
         let rookieOwner = '';
         for (let tkey in LEAGUE_ROOKIES) {{
-          if (LEAGUE_ROOKIES[tkey].includes(p.name)) {{ rookieOwner = tkey; break; }}
+          const found = LEAGUE_ROOKIES[tkey].some(rn => {{
+            const rpr = findProspect(rn);
+            return rn === p.name || (rpr && rpr.name === p.name);
+          }});
+          if (found) {{ rookieOwner = tkey; break; }}
         }}
         // Also check main roster data
         if (!rookieOwner) {{
@@ -2169,9 +2201,9 @@ function renderFutures() {{
 
     teamNames.forEach(tkey => {{
       const rookies = LEAGUE_ROOKIES[tkey].map(rname => {{
-        const pr = PROSPECT_BY_NAME[rname];
-        const pl = ALL.find(x => x.name === rname);
-        return {{ name: rname, prospect: pr, player: pl }};
+        const pr = findProspect(rname);
+        const pl = ALL.find(x => x.name === rname) || (pr ? ALL.find(x => x.name === pr.name) : null);
+        return {{ name: pr ? pr.name : rname, prospect: pr, player: pl }};
       }}).sort((a, b) => {{
         const ra = a.prospect ? a.prospect.avg_rank : 999;
         const rb = b.prospect ? b.prospect.avg_rank : 999;
@@ -3499,12 +3531,12 @@ function renderRoster() {{
 
     // Prospect value for rookies/MiLB players
     const giveProspectVal = g.reduce((s,n) => {{
-      const pr = PROSPECT_BY_NAME[n];
-      return s + (pr ? Math.max(0, (pr.fv - 40) * 0.15) : 0);
+      const pr = findProspect(n);
+      return s + (pr ? Math.max(0, ((pr.fv||0) - 40) * 0.15) : 0);
     }}, 0);
     const getProspectVal = r.reduce((s,n) => {{
-      const pr = PROSPECT_BY_NAME[n];
-      return s + (pr ? Math.max(0, (pr.fv - 40) * 0.15) : 0);
+      const pr = findProspect(n);
+      return s + (pr ? Math.max(0, ((pr.fv||0) - 40) * 0.15) : 0);
     }}, 0);
 
     // Keeper surplus totals (multi-year) + pick values + prospect values as future assets
