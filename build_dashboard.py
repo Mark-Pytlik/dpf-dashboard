@@ -1461,8 +1461,8 @@ document.getElementById('modeDraft').addEventListener('click', () => {{
     currentTab = 'all';
     const allTab = document.querySelector('.tab[data-tab="all"]');
     if (allTab) allTab.classList.add('active');
-    render();
   }}
+  render();
 }});
 document.getElementById('modeSeason').addEventListener('click', () => {{
   state._mode = 'season'; save(); updateModeUI();
@@ -1471,8 +1471,8 @@ document.getElementById('modeSeason').addEventListener('click', () => {{
     currentTab = 'roster';
     const rTab = document.querySelector('.tab[data-tab="roster"]');
     if (rTab) rTab.classList.add('active');
-    render();
   }}
+  render();
 }});
 updateModeUI();
 
@@ -1931,7 +1931,7 @@ function renderTransactions() {{
 function render() {{
   const isPlayerTab = (currentTab === 'all');
   document.getElementById('playerControls').style.display = isPlayerTab ? 'flex' : 'none';
-  document.getElementById('draftPanel').classList.toggle('show', currentTab === 'all');
+  document.getElementById('draftPanel').classList.toggle('show', currentTab === 'all' && state._mode === 'draft');
   document.getElementById('tableWrap').style.display = isPlayerTab ? '' : 'none';
   document.getElementById('liveSidebar').style.display = 'none';
   document.getElementById('rosterSection').style.display = ['myRoster','roster','board','mock','league'].includes(currentTab) ? '' : 'none';
@@ -2738,20 +2738,23 @@ function renderRoster() {{
 
   // ── HTML ──
   let html = '';
+  const isMyRosterTab = (currentTab === 'myRoster');
 
-  // Team selector
-  html += '<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px;align-items:center;">';
-  html += '<span style="font-weight:700;margin-right:8px;font-size:13px;">Rosters</span>';
-  LEAGUE_TEAMS.forEach(t => {{
-    const isMe = t.mine;
-    const key = isMe ? '__mine__' : t.name;
-    const active = state._rosterTeam === key;
-    const bg = active ? (isMe ? 'var(--accent)' : 'var(--text)') : 'var(--surface2)';
-    const fg = active ? '#fff' : 'var(--text)';
-    const plCount = isMe ? (state.myTeam||[]).length : (state.leagueTeams[t.name]||[]).length;
-    html += `<button class="roster-team-btn btn" data-team="${{encodeURIComponent(key)}}" style="padding:3px 8px;font-size:10px;background:${{bg}};color:${{fg}};border:1px solid ${{active?'transparent':'var(--border)'}};border-radius:4px;cursor:pointer;white-space:nowrap;">${{isMe?'★ ':''}}${{(t.owner||t.name).slice(0,20)}} (${{plCount}})</button>`;
-  }});
-  html += '</div>';
+  // Team selector (hidden on My Roster tab)
+  if (!isMyRosterTab) {{
+    html += '<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px;align-items:center;">';
+    html += '<span style="font-weight:700;margin-right:8px;font-size:13px;">Rosters</span>';
+    LEAGUE_TEAMS.forEach(t => {{
+      const isMe = t.mine;
+      const key = isMe ? '__mine__' : t.name;
+      const active = state._rosterTeam === key;
+      const bg = active ? (isMe ? 'var(--accent)' : 'var(--text)') : 'var(--surface2)';
+      const fg = active ? '#fff' : 'var(--text)';
+      const plCount = isMe ? (state.myTeam||[]).length : (state.leagueTeams[t.name]||[]).length;
+      html += `<button class="roster-team-btn btn" data-team="${{encodeURIComponent(key)}}" style="padding:3px 8px;font-size:10px;background:${{bg}};color:${{fg}};border:1px solid ${{active?'transparent':'var(--border)'}};border-radius:4px;cursor:pointer;white-space:nowrap;">${{isMe?'★ ':''}}${{(t.owner||t.name).slice(0,20)}} (${{plCount}})</button>`;
+    }});
+    html += '</div>';
+  }}
 
   // Action bar
   html += '<div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;">';
@@ -2842,10 +2845,12 @@ function renderRoster() {{
   }});
   html += '</table></div>';
 
-  // ── Trade Evaluator (with keeper value) ──
+  // ── Trade Evaluator (Draft mode only) ──
+  const showTradeEval = state._mode === 'draft';
+  if (showTradeEval) {{
   html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
   html += '<h3 style="font-size:13px;margin-bottom:4px;">Trade Evaluator</h3>';
-  html += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Includes keeper round cost, surplus value, and years of control.</div>';
+  html += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Includes keeper round cost, surplus value, and years of control. R1-4 players cannot be kept.</div>';
   html += '<div style="display:flex;gap:8px;">';
   // I Give column
   html += '<div style="flex:1;">';
@@ -2853,6 +2858,13 @@ function renderRoster() {{
   html += '<input id="tradeGiveInput" type="text" placeholder="Search player..." style="width:100%;padding:4px 6px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);box-sizing:border-box;" autocomplete="off">';
   html += '<div id="tradeGiveAC" style="position:relative;"></div>';
   html += '<div id="tradeGiveList" style="margin-top:4px;"></div>';
+  html += '<div style="margin-top:6px;display:flex;gap:4px;align-items:center;">';
+  html += '<select id="tradeGivePickRound" style="padding:3px 4px;font-size:10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);"><option value="">+ 2027 Pick...</option>';
+  for (let rd = 1; rd <= 31; rd++) {{ html += `<option value="${{rd}}">Round ${{rd}}</option>`; }}
+  html += '</select>';
+  html += '<button id="tradeGivePickBtn" class="btn btn-secondary" style="padding:2px 8px;font-size:10px;">Add Pick</button>';
+  html += '</div>';
+  html += '<div id="tradeGivePickList" style="margin-top:4px;"></div>';
   html += '</div>';
   // I Get column
   html += '<div style="flex:1;">';
@@ -2860,11 +2872,19 @@ function renderRoster() {{
   html += '<input id="tradeGetInput" type="text" placeholder="Search player..." style="width:100%;padding:4px 6px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);box-sizing:border-box;" autocomplete="off">';
   html += '<div id="tradeGetAC" style="position:relative;"></div>';
   html += '<div id="tradeGetList" style="margin-top:4px;"></div>';
+  html += '<div style="margin-top:6px;display:flex;gap:4px;align-items:center;">';
+  html += '<select id="tradeGetPickRound" style="padding:3px 4px;font-size:10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);"><option value="">+ 2027 Pick...</option>';
+  for (let rd = 1; rd <= 31; rd++) {{ html += `<option value="${{rd}}">Round ${{rd}}</option>`; }}
+  html += '</select>';
+  html += '<button id="tradeGetPickBtn" class="btn btn-secondary" style="padding:2px 8px;font-size:10px;">Add Pick</button>';
+  html += '</div>';
+  html += '<div id="tradeGetPickList" style="margin-top:4px;"></div>';
   html += '</div>';
   html += '</div>';
   // Trade summary
   html += '<div id="tradeSummary" style="margin-top:8px;padding:6px;background:var(--bg);border-radius:4px;font-size:11px;display:none;"></div>';
   html += '</div>';
+  }} // end showTradeEval
 
   // Position needs analysis
   html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;">';
@@ -3033,24 +3053,39 @@ function renderRoster() {{
     }});
   }}
 
-  // ── Trade Evaluator wiring ──
+  // ── Trade Evaluator wiring (Draft mode only) ──
   if (!state._tradeGive) state._tradeGive = [];
   if (!state._tradeGet) state._tradeGet = [];
+  if (!state._tradeGivePicks) state._tradeGivePicks = [];
+  if (!state._tradeGetPicks) state._tradeGetPicks = [];
+  if (showTradeEval) {{
 
   function tradePlayerTag(n) {{
     const p = ALL.find(x => x.name === n);
     const ki = getKeeperInfo(n);
     const lcvStr = p ? (p.lcv||0).toFixed(1) : '?';
     const rdStr = ki.draftRound ? `R${{ki.draftRound}}` : 'FA';
-    const costStr = ki.keepable2027 ? `→R${{ki.cost2027}}` : '✕';
-    const yrsStr = ki.yearsLeft > 0 ? `${{ki.yearsLeft}}yr` : '';
+    const keeperBadge = ki.keepable2027
+      ? `<span style="color:var(--green);font-size:10px;" title="2027 keeper cost R${{ki.cost2027}}, ${{ki.yearsLeft}}yr control">${{rdStr}}→R${{ki.cost2027}} (${{ki.yearsLeft}}yr)</span>`
+      : `<span style="color:var(--red);font-size:10px;font-weight:600;" title="R1-4 players cannot be kept">${{rdStr}} NOT KEEPABLE</span>`;
+    const surpStr = ki.multiYearSurplus !== 0 ? `<span style="color:var(--text2);font-size:10px;">S:${{ki.multiYearSurplus.toFixed(1)}}</span>` : '';
     return `<div style="display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:11px;border-bottom:1px solid var(--border);">` +
       `<div><b>${{n}}</b></div>` +
       `<div style="display:flex;gap:6px;align-items:center;">` +
       `<span style="color:var(--text2);">LCV ${{lcvStr}}</span>` +
-      `<span style="color:var(--accent);font-size:10px;" title="Draft round → 2027 keeper cost">${{rdStr}}${{costStr}}</span>` +
-      `<span style="color:var(--text2);font-size:10px;">${{yrsStr}}</span>` +
+      keeperBadge +
+      surpStr +
       `<span class="trade-remove" data-name="${{encodeURIComponent(n)}}" style="cursor:pointer;color:var(--red);font-weight:700;font-size:10px;margin-left:2px;">✕</span>` +
+      `</div></div>`;
+  }}
+
+  function tradePickTag(rd, side) {{
+    const val = Math.max(0, (32 - rd) * 0.65);
+    return `<div style="display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:11px;border-bottom:1px solid var(--border);">` +
+      `<div><b>2027 Round ${{rd}} Pick</b></div>` +
+      `<div style="display:flex;gap:6px;align-items:center;">` +
+      `<span style="color:var(--text2);">Value ${{val.toFixed(1)}}</span>` +
+      `<span class="trade-pick-remove" data-round="${{rd}}" data-side="${{side}}" style="cursor:pointer;color:var(--red);font-weight:700;font-size:10px;margin-left:2px;">✕</span>` +
       `</div></div>`;
   }}
 
@@ -3095,23 +3130,46 @@ function renderRoster() {{
     renderList();
   }}
 
+  function renderPickList(listId, arr, side) {{
+    const listDiv = document.getElementById(listId);
+    if (!listDiv) return;
+    listDiv.innerHTML = arr.map(rd => tradePickTag(rd, side)).join('');
+    listDiv.querySelectorAll('.trade-pick-remove').forEach(btn => {{
+      btn.addEventListener('click', () => {{
+        const rd = parseInt(btn.dataset.round);
+        const s = btn.dataset.side;
+        const a = s === 'give' ? state._tradeGivePicks : state._tradeGetPicks;
+        const idx = a.indexOf(rd); if (idx >= 0) a.splice(idx, 1);
+        renderPickList(listId, a, s); updateTradeSummary();
+      }});
+    }});
+  }}
+
   function updateTradeSummary() {{
     const sumDiv = document.getElementById('tradeSummary');
     if (!sumDiv) return;
     const g = state._tradeGive || [];
     const r = state._tradeGet || [];
-    if (g.length === 0 && r.length === 0) {{ sumDiv.style.display = 'none'; return; }}
+    const gPicks = state._tradeGivePicks || [];
+    const getPicks = state._tradeGetPicks || [];
+    if (g.length === 0 && r.length === 0 && gPicks.length === 0 && getPicks.length === 0) {{ sumDiv.style.display = 'none'; return; }}
     sumDiv.style.display = 'block';
 
-    // LCV totals
+    // LCV totals (players only - picks don't produce stats this year)
     const giveLCV = g.reduce((s,n) => {{ const p=ALL.find(x=>x.name===n); return s+(p?(p.lcv||0):0); }}, 0);
     const getLCV = r.reduce((s,n) => {{ const p=ALL.find(x=>x.name===n); return s+(p?(p.lcv||0):0); }}, 0);
     const lcvDiff = getLCV - giveLCV;
     const lcvClr = lcvDiff >= 0 ? 'var(--green)' : 'var(--red)';
 
-    // Keeper surplus totals (multi-year)
-    const giveSurplus = g.reduce((s,n) => s + getKeeperInfo(n).multiYearSurplus, 0);
-    const getSurplus = r.reduce((s,n) => s + getKeeperInfo(n).multiYearSurplus, 0);
+    // Draft pick value (round value approximation)
+    const givePickVal = gPicks.reduce((s,rd) => s + Math.max(0, (32 - rd) * 0.65), 0);
+    const getPickVal = getPicks.reduce((s,rd) => s + Math.max(0, (32 - rd) * 0.65), 0);
+    const pickDiff = getPickVal - givePickVal;
+    const pickClr = pickDiff >= 0 ? 'var(--green)' : 'var(--red)';
+
+    // Keeper surplus totals (multi-year) + pick values as future assets
+    const giveSurplus = g.reduce((s,n) => s + getKeeperInfo(n).multiYearSurplus, 0) + givePickVal;
+    const getSurplus = r.reduce((s,n) => s + getKeeperInfo(n).multiYearSurplus, 0) + getPickVal;
     const surplusDiff = getSurplus - giveSurplus;
     const surpClr = surplusDiff >= 0 ? 'var(--green)' : 'var(--red)';
 
@@ -3119,6 +3177,10 @@ function renderRoster() {{
     const giveYrs = g.reduce((s,n) => s + getKeeperInfo(n).yearsLeft, 0);
     const getYrs = r.reduce((s,n) => s + getKeeperInfo(n).yearsLeft, 0);
     const yrsDiff = getYrs - giveYrs;
+
+    // Unkepable player warnings
+    const unkepableGive = g.filter(n => {{ const ki = getKeeperInfo(n); return ki.draftRound && ki.draftRound <= 4 && !ki.keepable2027; }});
+    const unkepableGet = r.filter(n => {{ const ki = getKeeperInfo(n); return ki.draftRound && ki.draftRound <= 4 && !ki.keepable2027; }});
 
     // Simulate post-trade roster LCV
     const myNames = [...(state.myTeam || [])];
@@ -3132,13 +3194,27 @@ function renderRoster() {{
     // Build summary HTML
     let sh = '<div style="font-weight:700;font-size:12px;margin-bottom:6px;">Trade Summary</div>';
 
+    // Keeper warnings
+    if (unkepableGive.length > 0 || unkepableGet.length > 0) {{
+      sh += '<div style="margin-bottom:6px;padding:4px 6px;background:rgba(234,179,8,0.15);border-radius:4px;font-size:10px;">';
+      sh += '<b style="color:var(--text);">Keeper Warning:</b> ';
+      const all = [...unkepableGive, ...unkepableGet];
+      sh += all.map(n => {{ const ki = getKeeperInfo(n); return `${{n}} (R${{ki.draftRound}}) cannot be kept`; }}).join(', ');
+      sh += ' — R1-4 players are permanently ineligible.';
+      sh += '</div>';
+    }}
+
     // Comparison table for each side
     sh += '<table style="width:100%;font-size:10px;border-collapse:collapse;margin-bottom:6px;">';
     sh += '<tr style="color:var(--text2);border-bottom:1px solid var(--border);"><th style="text-align:left;padding:2px;">Metric</th><th style="text-align:right;padding:2px;">I Give</th><th style="text-align:right;padding:2px;">I Get</th><th style="text-align:right;padding:2px;">Net</th></tr>';
 
     sh += `<tr><td style="padding:2px;">LCV (production)</td><td style="text-align:right;padding:2px;">${{giveLCV.toFixed(1)}}</td><td style="text-align:right;padding:2px;">${{getLCV.toFixed(1)}}</td><td style="text-align:right;padding:2px;color:${{lcvClr}};font-weight:700;">${{lcvDiff>=0?'+':''}}${{lcvDiff.toFixed(1)}}</td></tr>`;
 
-    sh += `<tr><td style="padding:2px;">Keeper Surplus (multi-yr)</td><td style="text-align:right;padding:2px;">${{giveSurplus.toFixed(1)}}</td><td style="text-align:right;padding:2px;">${{getSurplus.toFixed(1)}}</td><td style="text-align:right;padding:2px;color:${{surpClr}};font-weight:700;">${{surplusDiff>=0?'+':''}}${{surplusDiff.toFixed(1)}}</td></tr>`;
+    if (gPicks.length > 0 || getPicks.length > 0) {{
+      sh += `<tr><td style="padding:2px;">2027 Draft Picks</td><td style="text-align:right;padding:2px;">${{givePickVal.toFixed(1)}} (${{gPicks.map(r=>'R'+r).join(',')}})</td><td style="text-align:right;padding:2px;">${{getPickVal.toFixed(1)}} (${{getPicks.map(r=>'R'+r).join(',')}})</td><td style="text-align:right;padding:2px;color:${{pickClr}};font-weight:700;">${{pickDiff>=0?'+':''}}${{pickDiff.toFixed(1)}}</td></tr>`;
+    }}
+
+    sh += `<tr><td style="padding:2px;">Total Future Value (surplus+picks)</td><td style="text-align:right;padding:2px;">${{giveSurplus.toFixed(1)}}</td><td style="text-align:right;padding:2px;">${{getSurplus.toFixed(1)}}</td><td style="text-align:right;padding:2px;color:${{surpClr}};font-weight:700;">${{surplusDiff>=0?'+':''}}${{surplusDiff.toFixed(1)}}</td></tr>`;
 
     sh += `<tr><td style="padding:2px;">Years of Control</td><td style="text-align:right;padding:2px;">${{giveYrs}}</td><td style="text-align:right;padding:2px;">${{getYrs}}</td><td style="text-align:right;padding:2px;font-weight:600;">${{yrsDiff>=0?'+':''}}${{yrsDiff}}</td></tr>`;
 
@@ -3148,14 +3224,16 @@ function renderRoster() {{
     sh += `<div style="color:var(--text2);font-size:10px;">Post-trade starting LCV: ${{postLCV.startingLCV.toFixed(1)}} (current: ${{preLCV.startingLCV.toFixed(1)}})</div>`;
 
     // Verdict
+    const totalGive = giveLCV + givePickVal + g.reduce((s,n) => s + getKeeperInfo(n).multiYearSurplus, 0);
+    const totalGet = getLCV + getPickVal + r.reduce((s,n) => s + getKeeperInfo(n).multiYearSurplus, 0);
     const isWin = lcvDiff > 0 && surplusDiff > 0;
     const isLoss = lcvDiff < -1 && surplusDiff < -1;
     const isMixed = (lcvDiff > 0 && surplusDiff < 0) || (lcvDiff < 0 && surplusDiff > 0);
-    if (isWin) sh += `<div style="margin-top:4px;padding:3px 6px;background:rgba(34,197,94,0.1);border-radius:4px;font-size:11px;font-weight:600;color:var(--green);">Win — you gain both production and keeper value</div>`;
-    else if (isLoss) sh += `<div style="margin-top:4px;padding:3px 6px;background:rgba(239,68,68,0.1);border-radius:4px;font-size:11px;font-weight:600;color:var(--red);">Loss — you lose production and keeper value</div>`;
+    if (isWin) sh += `<div style="margin-top:4px;padding:3px 6px;background:rgba(34,197,94,0.1);border-radius:4px;font-size:11px;font-weight:600;color:var(--green);">Win — you gain both production and future value</div>`;
+    else if (isLoss) sh += `<div style="margin-top:4px;padding:3px 6px;background:rgba(239,68,68,0.1);border-radius:4px;font-size:11px;font-weight:600;color:var(--red);">Loss — you lose production and future value</div>`;
     else if (isMixed) {{
-      if (lcvDiff > 0) sh += `<div style="margin-top:4px;padding:3px 6px;background:rgba(234,179,8,0.1);border-radius:4px;font-size:11px;color:var(--text);">Win-now trade — better production but less keeper value</div>`;
-      else sh += `<div style="margin-top:4px;padding:3px 6px;background:rgba(234,179,8,0.1);border-radius:4px;font-size:11px;color:var(--text);">Dynasty trade — less production now but better keeper value</div>`;
+      if (lcvDiff > 0) sh += `<div style="margin-top:4px;padding:3px 6px;background:rgba(234,179,8,0.1);border-radius:4px;font-size:11px;color:var(--text);">Win-now trade — better production but less future value</div>`;
+      else sh += `<div style="margin-top:4px;padding:3px 6px;background:rgba(234,179,8,0.1);border-radius:4px;font-size:11px;color:var(--text);">Dynasty trade — less production now but better future value</div>`;
     }}
 
     sumDiv.innerHTML = sh;
@@ -3163,7 +3241,36 @@ function renderRoster() {{
 
   wireTradeInput('tradeGiveInput', 'tradeGiveAC', 'tradeGiveList', state._tradeGive);
   wireTradeInput('tradeGetInput', 'tradeGetAC', 'tradeGetList', state._tradeGet);
+
+  // Wire draft pick buttons
+  const givePickBtn = document.getElementById('tradeGivePickBtn');
+  const getPickBtn = document.getElementById('tradeGetPickBtn');
+  const givePickSel = document.getElementById('tradeGivePickRound');
+  const getPickSel = document.getElementById('tradeGetPickRound');
+  if (givePickBtn && givePickSel) {{
+    givePickBtn.addEventListener('click', () => {{
+      const rd = parseInt(givePickSel.value);
+      if (!rd) return;
+      state._tradeGivePicks.push(rd);
+      givePickSel.value = '';
+      renderPickList('tradeGivePickList', state._tradeGivePicks, 'give');
+      updateTradeSummary();
+    }});
+  }}
+  if (getPickBtn && getPickSel) {{
+    getPickBtn.addEventListener('click', () => {{
+      const rd = parseInt(getPickSel.value);
+      if (!rd) return;
+      state._tradeGetPicks.push(rd);
+      getPickSel.value = '';
+      renderPickList('tradeGetPickList', state._tradeGetPicks, 'get');
+      updateTradeSummary();
+    }});
+  }}
+  renderPickList('tradeGivePickList', state._tradeGivePicks, 'give');
+  renderPickList('tradeGetPickList', state._tradeGetPicks, 'get');
   updateTradeSummary();
+  }} // end showTradeEval wiring
 }}
 
 // ── Draft log view ────────────────────────────────────────────────────────
