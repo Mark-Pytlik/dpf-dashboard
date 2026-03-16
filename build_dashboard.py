@@ -1444,6 +1444,9 @@ function updateModeUI() {{
     seasonBtn.style.color = !isDraft ? '#fff' : 'var(--text)';
     seasonBtn.style.border = !isDraft ? '1px solid transparent' : '1px solid var(--border)';
   }}
+  // Hide draft panel in season mode
+  const dp = document.getElementById('draftPanel');
+  if (dp && !isDraft) dp.classList.remove('show');
   // Show/hide tabs based on mode
   document.querySelectorAll('.tab').forEach(t => {{
     const tab = t.dataset.tab;
