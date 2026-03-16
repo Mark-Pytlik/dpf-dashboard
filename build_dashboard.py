@@ -827,7 +827,7 @@ function checkAuth() {{
 
 async function submitPassword() {{
   const input = document.getElementById('authInput');
-  const pwd = input.value;
+  const pwd = input.value.trim();
   if (!pwd) {{
     document.getElementById('authError').textContent = 'Enter a password';
     return;
