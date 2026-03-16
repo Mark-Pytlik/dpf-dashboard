@@ -680,6 +680,7 @@ a[title^="Sleeper"] {{ color:var(--green); }} a[title^="Avoid"] {{ color:var(--r
   </div>
 </div>
 
+<div id="mainContent" style="display:none;">
 <div class="header">
   <h1><span>DPF</span> 2026 Dashboard</h1>
   <div class="tabs">
@@ -799,7 +800,6 @@ a[title^="Sleeper"] {{ color:var(--green); }} a[title^="Avoid"] {{ color:var(--r
 <script>
 // ── Password Authentication ────────────────────────────────────────────────
 const PASSWORD_HASH = '2b7051fbf461c99ef6ddd81b4dfd12f59555da74d37ba9d4221421fb67026a1e';
-const CONTENT_ELEMENTS = ['.header', '.controls', '#playerControls', '#tableWrap', '#draftPanel', '#rosterSection', '#txnsSection'];
 
 async function hashPassword(pwd) {{
   const encoder = new TextEncoder();
@@ -810,19 +810,15 @@ async function hashPassword(pwd) {{
 }}
 
 function checkAuth() {{
+  const mc = document.getElementById('mainContent');
   if (sessionStorage.getItem('dpf_auth') === 'ok') {{
     document.getElementById('authGate').classList.add('hidden');
-    CONTENT_ELEMENTS.forEach(sel => {{
-      const el = document.querySelector(sel);
-      if (el) el.style.display = '';
-    }});
-    return;
+    if (mc) mc.style.display = '';
+    return true;
   }}
   document.getElementById('authGate').classList.remove('hidden');
-  CONTENT_ELEMENTS.forEach(sel => {{
-    const el = document.querySelector(sel);
-    if (el) el.style.display = 'none';
-  }});
+  if (mc) mc.style.display = 'none';
+  return false;
 }}
 
 async function submitPassword() {{
@@ -849,7 +845,6 @@ document.getElementById('authInput').addEventListener('keypress', (e) => {{
   if (e.key === 'Enter') submitPassword();
 }});
 
-window.addEventListener('load', checkAuth);
 checkAuth();
 
 // ── Data ──────────────────────────────────────────────────────────────────
@@ -5029,6 +5024,7 @@ state.keepers.forEach(k => {{
 save();
 render();
 </script>
+</div><!-- /mainContent -->
 </body>
 </html>'''
 
