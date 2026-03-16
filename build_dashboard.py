@@ -535,6 +535,7 @@ html = f'''<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>DPF 2026 Draft Dashboard</title>
 <style>
 :root {{
@@ -659,12 +660,12 @@ a[title^="Sleeper"] {{ color:var(--green); }} a[title^="Avoid"] {{ color:var(--r
 <div class="header">
   <h1><span>DPF</span> 2026 Dashboard</h1>
   <div class="tabs">
-    <div class="tab active" data-tab="all">Players</div>
+    <div class="tab" data-tab="all">Players</div>
     <div class="tab" data-tab="myRoster">My Roster</div>
     <div class="tab" data-tab="roster">Teams</div>
     <div class="tab" data-tab="board">Draft Board</div>
     <div class="tab" data-tab="mock">Mock Draft</div>
-    <div class="tab" data-tab="league">League</div>
+    <div class="tab active" data-tab="league">League</div>
     <div class="tab" data-tab="txns">Transactions</div>
   </div>
   <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
@@ -924,12 +925,12 @@ const LEAGUE_TEAMS = [
   {{ pick: 4,  name: "Whoop Whoop that\\'s the sound of Dylan Cease", owner: 'Andrew Gaerig' }},
   {{ pick: 5,  name: 'Lil Thumpers', owner: 'Fran Devinney' }},
   {{ pick: 6,  name: 'A Pete Crow-Armstrong Looked at Me', owner: 'Ian Wolfe' }},
-  {{ pick: 7,  name: 'Dinosaur Jr Caminero', owner: 'Anthony Resca' }},
+  {{ pick: 7,  name: 'Dinosaur Jr Caminero', owner: 'Anthony Rescan' }},
   {{ pick: 8,  name: "No men in Nolan\\'s land", owner: 'Mark Azar' }},
   {{ pick: 9,  name: 'Misiorowski Business', owner: 'Blake Murphy' }},
   {{ pick: 10, name: 'Buddy Buddy Buddy All On Base', owner: 'Trei Brundrett' }},
   {{ pick: 11, name: 'Are we not men? We are Devers!', owner: 'Eno Sarris' }},
-  {{ pick: 12, name: 'Psycho Keller, Qu\\'est-ce que Cey', owner: 'Matt Dennewit' }}
+  {{ pick: 12, name: 'Psycho Keller, Qu\\'est-ce que Cey', owner: 'Matt Dennewitz' }}
 ];
 
 let _saved = JSON.parse(localStorage.getItem('dpf2026') || 'null');
@@ -1415,7 +1416,7 @@ function recalcPNAV() {{
 }}
 
 // ── Tab management ────────────────────────────────────────────────────────
-let currentTab = 'all';
+let currentTab = 'league';
 const tabs = document.querySelectorAll('.tab');
 tabs.forEach(t => t.addEventListener('click', () => {{
   tabs.forEach(x => x.classList.remove('active'));
@@ -1882,6 +1883,13 @@ function renderTransactions() {{
   html += '<th style="padding:10px 12px;text-align:right;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">LCV</th>';
   html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Effective</th>';
   html += '</tr></thead><tbody>';
+
+  // Sort by date descending (most recent first)
+  allTxns.sort((a, b) => {{
+    const da = new Date(a.date || '1970/1/1');
+    const db = new Date(b.date || '1970/1/1');
+    return db - da;
+  }});
 
   allTxns.forEach((tx, idx) => {{
     const actionColor = tx.action === 'Added' ? 'var(--green)' : tx.action === 'Dropped' ? 'var(--red)' : 'var(--accent)';
@@ -2804,7 +2812,9 @@ function renderRoster() {{
 
   // Bench
   html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">BENCH (${{bench.length}}/7)</span></div>`;
-  html += '<table style="width:100%;border-collapse:collapse;font-size:12px;"><tbody>';
+  html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
+  html += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);"><th style="text-align:left;padding:4px 6px;">Slot</th><th style="text-align:left;padding:4px 6px;">Player</th><th style="padding:4px 6px;">Team</th><th style="padding:4px 6px;">Elig</th><th style="text-align:right;padding:4px 6px;">LCV</th><th style="text-align:right;padding:4px 6px;">PNAV</th><th style="text-align:right;padding:4px 6px;">Age</th><th style="width:30px;"></th></tr></thead>';
+  html += '<tbody>';
   bench.forEach(p => {{ html += `<tr class="roster-section" data-slot="reserve">${{pRow(p, '', '').replace(/^<tr[^>]*>|<\\/tr>$/g, '')}}</tr>`; }});
   if (bench.length === 0) html += '<tr><td colspan="7" style="padding:4px 6px;color:var(--text2);font-size:11px;">No bench players</td></tr>';
   html += '</tbody></table>';
@@ -4167,6 +4177,7 @@ function renderLeague() {{
   }});
 
   // Sortable columns definition
+  const isDraftMode = state._mode === 'draft';
   const leagueCols = [
     {{ key: 'pick', label: 'Pick', w: '25px', numeric: true }},
     {{ key: 'name', label: 'Team', w: '', numeric: false }},
@@ -4175,9 +4186,11 @@ function renderLeague() {{
     {{ key: 'rookieCount', label: 'Rk', w: '35px', numeric: true, tip: 'Rookie/MiLB keepers', small: true }},
     {{ key: 'startingLCV', label: 'Start LCV', w: '70px', numeric: true, bar: true }},
     {{ key: 'totalLCV', label: 'Total LCV', w: '70px', numeric: true, bar: true }},
-    {{ key: 'openRounds', label: 'Open', w: '35px', numeric: true, small: true, tip: 'Open draft rounds (25 minus keeper count)' }},
-    {{ key: 'draftCapital', label: 'Draft Cap', w: '75px', numeric: true, bar: true, small: true, tip: 'Draft Capital — estimated total DP from remaining open picks (BPA simulation)' }},
-    {{ key: 'totalPower', label: 'Total Pwr', w: '75px', numeric: true, bar: true, small: true, tip: 'Total Power = Keeper LCV + Draft Capital' }}
+    ...(isDraftMode ? [
+      {{ key: 'openRounds', label: 'Open', w: '35px', numeric: true, small: true, tip: 'Open draft rounds (25 minus keeper count)' }},
+      {{ key: 'draftCapital', label: 'Draft Cap', w: '75px', numeric: true, bar: true, small: true, tip: 'Draft Capital — estimated total DP from remaining open picks (BPA simulation)' }},
+      {{ key: 'totalPower', label: 'Total Pwr', w: '75px', numeric: true, bar: true, small: true, tip: 'Total Power = Keeper LCV + Draft Capital' }}
+    ] : [])
   ];
 
   // Sort
@@ -4194,106 +4207,81 @@ function renderLeague() {{
   }});
 
   // Sub-view toggle
-  if (!state._leagueView) state._leagueView = 'kept';
+  if (!state._leagueView || state._leagueView === 'kept') state._leagueView = 'comparison';
+  if (state._leagueView === 'available') state._leagueView = 'rosters';
 
   let html = '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">';
   html += '<h2 style="margin:0;">League</h2>';
   html += '<div style="display:flex;gap:2px;background:var(--surface2);border-radius:6px;padding:2px;">';
-  ['kept','available','comparison'].forEach(v => {{
+  ['comparison','rosters'].forEach(v => {{
     const active = state._leagueView === v;
-    const label = v === 'kept' ? 'Keepers' : v === 'available' ? 'Available' : 'Comparison';
+    const label = v === 'rosters' ? 'Rosters' : 'Comparison';
     html += `<button class="league-view-btn" data-view="${{v}}" style="padding:4px 12px;font-size:11px;border:none;border-radius:4px;cursor:pointer;background:${{active?'var(--accent)':'transparent'}};color:${{active?'#fff':'var(--text2)'}};font-weight:${{active?'600':'400'}};">${{label}}</button>`;
   }});
   html += '</div></div>';
 
-  // ── KEEPERS VIEW ──
-  if (state._leagueView === 'kept') {{
-    html += '<p style="font-size:12px;color:var(--text2);margin-bottom:12px;">All 12 teams\\' major league keepers (5) and minor league keepers (4) with keeper cost and years of control.</p>';
-
-    LEAGUE_TEAMS.forEach(t => {{
-      const isMine = t.mine;
-      const keepers = DEFAULT_LEAGUE_KEEPERS[t.name] || [];
-      const milb = DEFAULT_LEAGUE_MILB_KEEPERS[t.name] || (t.mine ? (DEFAULT_MILB_KEEPERS || []) : []);
-      const borderClr = isMine ? 'var(--accent)' : 'var(--border)';
-      const bgClr = isMine ? 'rgba(74,107,255,0.04)' : '';
-      const ownerName = t.mine ? t.owner : (state.teamOwners[t.name] || t.owner || '');
-
-      html += `<div style="border:1px solid ${{borderClr}};border-radius:8px;padding:10px 12px;margin-bottom:8px;background:${{bgClr}};">`;
-      html += `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">`;
-      html += `<div><b style="font-size:13px;">#${{t.pick}} ${{t.name}}</b>${{isMine?' <span style="color:var(--accent);font-size:11px;">(you)</span>':''}}</div>`;
-      html += `<div style="font-size:11px;color:var(--text2);">${{ownerName}}</div>`;
-      html += `</div>`;
-
-      // ML Keepers table
-      if (keepers.length > 0) {{
-        html += '<table style="width:100%;border-collapse:collapse;font-size:11px;margin-bottom:4px;">';
-        html += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">R$</th><th style="text-align:right;padding:2px 4px;">2027 Cost</th><th style="text-align:right;padding:2px 4px;">Yrs</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">Surplus</th></tr>';
-        keepers.forEach(k => {{
-          const p = ALL.find(x => x.name === k.name);
-          const ki = getKeeperInfo(k.name);
-          const lcv = p ? (p.lcv||0).toFixed(1) : '?';
-          const pos = p ? p.primaryPos : '?';
-          const costStr = ki.keepable2027 ? `R${{ki.cost2027}}` : '✕';
-          const costClr = ki.keepable2027 ? 'var(--text)' : 'var(--red)';
-          const surp = ki.multiYearSurplus;
-          const surpClr = surp > 2 ? 'var(--green)' : surp < -2 ? 'var(--red)' : 'var(--text2)';
-          html += `<tr><td style="padding:2px 4px;font-weight:600;">${{k.name}}</td><td style="padding:2px 4px;text-align:center;">${{pos}}</td><td style="text-align:right;padding:2px 4px;color:var(--accent);">R${{k.rd}}</td><td style="text-align:right;padding:2px 4px;color:${{costClr}};">${{costStr}}</td><td style="text-align:right;padding:2px 4px;">${{ki.yearsLeft}}</td><td style="text-align:right;padding:2px 4px;font-weight:600;">${{lcv}}</td><td style="text-align:right;padding:2px 4px;color:${{surpClr}};font-weight:600;">${{surp > 0 ? '+' : ''}}${{surp.toFixed(1)}}</td></tr>`;
-        }});
-        html += '</table>';
-      }}
-      // MiLB keepers
-      if (milb.length > 0) {{
-        html += '<div style="font-size:10px;color:var(--text2);margin-top:2px;">MiLB: ' + milb.join(', ') + '</div>';
-      }}
-      html += '</div>';
-    }});
-  }}
-
-  // ── AVAILABLE VIEW ──
-  else if (state._leagueView === 'available') {{
-    html += '<p style="font-size:12px;color:var(--text2);margin-bottom:12px;">Non-keeper players on each team — drafted but not kept. Potential trade targets.</p>';
+  // ── ROSTERS VIEW (all players with keeper status) ──
+  if (state._leagueView === 'rosters') {{
+    html += '<p style="font-size:12px;color:var(--text2);margin-bottom:12px;">Full rosters for all 12 teams. Keepers shown with keeper round and cost.</p>';
 
     LEAGUE_TEAMS.forEach(t => {{
       const isMine = t.mine;
       const teamPlayers = isMine ? (state.myTeam || []) : (state.leagueTeams[t.name] || []);
       const keepers = DEFAULT_LEAGUE_KEEPERS[t.name] || [];
       const keeperNames = new Set(keepers.map(k => k.name));
+      const keeperRdMap = {{}};
+      keepers.forEach(k => {{ keeperRdMap[k.name] = k.rd; }});
       const milb = DEFAULT_LEAGUE_MILB_KEEPERS[t.name] || (t.mine ? (DEFAULT_MILB_KEEPERS || []) : []);
       const milbNames = new Set(milb);
-      // Available = on roster but not a keeper and not MiLB
-      const available = teamPlayers.filter(n => !keeperNames.has(n) && !milbNames.has(n));
-      if (available.length === 0) return;
+      // All rostered players (keepers + non-keepers, excluding MiLB)
+      const allRostered = teamPlayers.filter(n => !milbNames.has(n));
+      if (allRostered.length === 0 && milb.length === 0) return;
 
       const borderClr = isMine ? 'var(--accent)' : 'var(--border)';
+      const bgClr = isMine ? 'rgba(74,107,255,0.04)' : '';
       const ownerName = t.mine ? t.owner : (state.teamOwners[t.name] || t.owner || '');
 
-      html += `<div style="border:1px solid ${{borderClr}};border-radius:8px;padding:10px 12px;margin-bottom:8px;">`;
+      html += `<div style="border:1px solid ${{borderClr}};border-radius:8px;padding:10px 12px;margin-bottom:8px;background:${{bgClr}};">`;
       html += `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">`;
-      html += `<div><b style="font-size:13px;">#${{t.pick}} ${{t.name}}</b> <span style="font-size:11px;color:var(--text2);">(${{available.length}} available)</span></div>`;
+      html += `<div><b style="font-size:13px;">#${{t.pick}} ${{t.name}}</b>${{isMine?' <span style="color:var(--accent);font-size:11px;">(you)</span>':''}} <span style="font-size:11px;color:var(--text2);">(${{allRostered.length}} players)</span></div>`;
       html += `<div style="font-size:11px;color:var(--text2);">${{ownerName}}</div>`;
       html += `</div>`;
 
       html += '<table style="width:100%;border-collapse:collapse;font-size:11px;">';
-      html += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">R$</th><th style="text-align:right;padding:2px 4px;">2027 Cost</th><th style="text-align:right;padding:2px 4px;">Yrs</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">PNAV</th></tr>';
-      available.map(n => ({{ name: n, p: ALL.find(x => x.name === n), ki: getKeeperInfo(n) }}))
-        .sort((a,b) => ((b.p?b.p.lcv:0)||0) - ((a.p?a.p.lcv:0)||0))
+      html += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">Keeper</th><th style="text-align:right;padding:2px 4px;">2027 Cost</th><th style="text-align:right;padding:2px 4px;">Yrs</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">PNAV</th></tr>';
+      allRostered.map(n => ({{ name: n, p: ALL.find(x => x.name === n), ki: getKeeperInfo(n), isKeeper: keeperNames.has(n) }}))
+        .sort((a,b) => {{
+          // Keepers first, then by LCV
+          if (a.isKeeper !== b.isKeeper) return a.isKeeper ? -1 : 1;
+          return ((b.p?b.p.lcv:0)||0) - ((a.p?a.p.lcv:0)||0);
+        }})
         .forEach(row => {{
           const p = row.p;
           const ki = row.ki;
           const lcv = p ? (p.lcv||0).toFixed(1) : '?';
           const pnav = p ? (p.pnav||0).toFixed(1) : '?';
           const pos = p ? p.primaryPos : '?';
-          const rdStr = ki.draftRound ? `R${{ki.draftRound}}` : 'FA';
+          const keeperRd = keeperRdMap[row.name];
+          const keeperStr = keeperRd ? `<span style="color:var(--accent);font-weight:600;">R${{keeperRd}}</span>` : '<span style="color:var(--text2);">—</span>';
           const costStr = ki.keepable2027 ? `R${{ki.cost2027}}` : '✕';
-          html += `<tr><td style="padding:2px 4px;font-weight:600;">${{row.name}}</td><td style="padding:2px 4px;text-align:center;">${{pos}}</td><td style="text-align:right;padding:2px 4px;color:var(--accent);">${{rdStr}}</td><td style="text-align:right;padding:2px 4px;">${{costStr}}</td><td style="text-align:right;padding:2px 4px;">${{ki.yearsLeft}}</td><td style="text-align:right;padding:2px 4px;font-weight:600;">${{lcv}}</td><td style="text-align:right;padding:2px 4px;">${{pnav}}</td></tr>`;
+          const costClr = ki.keepable2027 ? '' : 'color:var(--red);';
+          const rowBg = row.isKeeper ? 'background:rgba(74,107,255,0.04);' : '';
+          html += `<tr style="${{rowBg}}"><td style="padding:2px 4px;font-weight:600;">${{row.name}}</td><td style="padding:2px 4px;text-align:center;">${{pos}}</td><td style="text-align:right;padding:2px 4px;">${{keeperStr}}</td><td style="text-align:right;padding:2px 4px;${{costClr}}">${{costStr}}</td><td style="text-align:right;padding:2px 4px;">${{ki.yearsLeft}}</td><td style="text-align:right;padding:2px 4px;font-weight:600;">${{lcv}}</td><td style="text-align:right;padding:2px 4px;">${{pnav}}</td></tr>`;
         }});
-      html += '</table></div>';
+      html += '</table>';
+      // MiLB keepers
+      if (milb.length > 0) {{
+        html += '<div style="font-size:10px;color:var(--text2);margin-top:4px;">MiLB: ' + milb.join(', ') + '</div>';
+      }}
+      html += '</div>';
     }});
   }}
 
   // ── COMPARISON VIEW (original league table) ──
   else {{
-  html += '<p style="font-size:12px;color:var(--text2);margin-bottom:16px;">Click any column header to sort. <b>Draft Cap</b> = estimated DP from open picks (BPA sim, updates as you draft). <b>Total Pwr</b> = Keeper LCV + Draft Cap.</p>';
+  html += isDraftMode
+    ? '<p style="font-size:12px;color:var(--text2);margin-bottom:16px;">Click any column header to sort. <b>Draft Cap</b> = estimated DP from open picks (BPA sim, updates as you draft). <b>Total Pwr</b> = Keeper LCV + Draft Cap.</p>'
+    : '<p style="font-size:12px;color:var(--text2);margin-bottom:16px;">Click any column header to sort.</p>';
 
   // Table header
   html += '<table style="width:100%"><thead><tr>';
@@ -4325,7 +4313,8 @@ function renderLeague() {{
       <td style="text-align:center;font-size:11px;color:var(--text2);" title="${{(t.rookies||[]).join(', ')}}">${{t.rookieCount}}</td>`;
 
     // Render each bar-metric column
-    ['startingLCV', 'totalLCV', 'openRounds', 'draftCapital', 'totalPower'].forEach(key => {{
+    const barKeys = isDraftMode ? ['startingLCV', 'totalLCV', 'openRounds', 'draftCapital', 'totalPower'] : ['startingLCV', 'totalLCV'];
+    barKeys.forEach(key => {{
       const val = t[key] || 0;
       if (key === 'openRounds') {{
         html += `<td style="text-align:center;font-size:12px;color:var(--text2);">${{val}}</td>`;
@@ -4344,7 +4333,8 @@ function renderLeague() {{
   }});
   html += '</tbody></table>';
 
-  // Team roster editor
+  // Team roster editor (draft mode only)
+  if (isDraftMode) {{
   html += `<div style="margin-top:24px;padding:16px;background:var(--surface2);border-radius:8px;">`;
   html += `<h3 style="margin:0 0 12px;font-size:14px;">Edit Team Roster</h3>`;
   html += `<div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;">`;
@@ -4378,6 +4368,7 @@ function renderLeague() {{
   html += `<p style="font-size:11px;color:var(--text2);margin:0 0 8px;">Simulates the entire draft using Best Player Available logic with snake positions. Excludes all kept and already-drafted players. Updates live as you draft.</p>`;
   html += `<div id="mockDraftResults" style="display:none;"></div>`;
   html += `</div>`;
+  }} // end isDraftMode (edit roster + mock draft)
   }} // end comparison view
 
   section.innerHTML = html;
@@ -4471,15 +4462,16 @@ function renderLeague() {{
   // Load selected team's players into textarea
   function loadTeamIntoEditor(teamName) {{
     const sel = document.getElementById('leagueTeamSelect');
+    if (!sel) return;
     sel.value = encodeURIComponent(teamName);
     const players = state.leagueTeams[teamName] || [];
     document.getElementById('leagueTeamPlayers').value = players.join('\\n');
   }}
 
-  // Click row to select team
+  // Click row to select team (draft mode only — editor present)
   section.querySelectorAll('.league-row').forEach(row => {{
     row.addEventListener('click', (e) => {{
-      if (e.target.classList.contains('owner-input')) return; // don't trigger on owner input
+      if (e.target.classList.contains('owner-input')) return;
       const tn = decodeURIComponent(row.dataset.team);
       const lt = LEAGUE_TEAMS.find(t => t.name === tn);
       if (lt && !lt.mine) loadTeamIntoEditor(tn);
