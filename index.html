@@ -38,10 +38,12 @@ th.sorted-asc::after { content:" \25B2"; color:var(--accent); }
 th.sorted-desc::after { content:" \25BC"; color:var(--accent); }
 td { padding:6px 10px; border-bottom:1px solid var(--border); white-space:nowrap; font-variant-numeric:tabular-nums; }
 tr:hover { background:var(--surface2); }
-tr.drafted { opacity:0.7; }
-tr.drafted td:first-child { position:relative; }
-.owner-badge { display:inline-block; font-size:9px; padding:1px 5px; border-radius:3px; background:var(--surface2); border:1px solid var(--border); color:var(--text2); margin-left:4px; font-weight:500; white-space:nowrap; }
-.owner-badge.mine { background:rgba(74,107,255,0.12); border-color:var(--accent); color:var(--accent); }
+tr.drafted { opacity:1; background:rgba(0,0,0,0.03); }
+tr.drafted td { color:var(--text2); }
+tr.drafted td:first-child { color:var(--text); }
+tr:not(.drafted):not(.keeper) td:first-child { font-weight:700; }
+.owner-badge { display:inline-block; font-size:9px; padding:2px 6px; border-radius:3px; margin-left:4px; font-weight:600; white-space:nowrap; }
+.owner-badge.mine { background:rgba(74,107,255,0.2); border:1px solid rgba(74,107,255,0.4); color:#4a6bff; }
 tr.keeper { background:rgba(108,140,255,0.08); }
 .pos-badge { display:inline-block; padding:2px 6px; border-radius:4px; font-size:11px; font-weight:600; }
 .pos-C { background:#7c3aed22; color:#a78bfa; } .pos-1B { background:#05966922; color:#34d399; }
@@ -167,14 +169,14 @@ a[title^="Sleeper"] { color:var(--green); } a[title^="Avoid"] { color:var(--red)
 
 <div class="controls" id="playerControls">
   <input type="text" class="search-box" id="searchBox" placeholder="Search players...">
-  <div id="typeFilters" style="display:flex;gap:2px;"></div>
-  <div style="width:1px;height:20px;background:var(--border);"></div>
-  <div id="posFilters"></div>
   <select id="draftFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;">
     <option value="all">All Players</option>
     <option value="available">Available</option>
     <option value="drafted">Drafted</option>
   </select>
+  <div id="typeFilters" style="display:flex;gap:2px;"></div>
+  <div style="width:1px;height:20px;background:var(--border);"></div>
+  <div id="posFilters"></div>
   <select id="tagFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;">
     <option value="all">All tags</option>
     <option value="want">Want only</option>
@@ -186,6 +188,7 @@ a[title^="Sleeper"] { color:var(--green); } a[title^="Avoid"] { color:var(--red)
     <option value="untagged">Untagged only</option>
   </select>
   <div class="view-toggle" id="viewToggle">
+    <button class="view-btn" data-view="gm">GM View</button>
     <button class="view-btn active" data-view="main">Analytics</button>
     <button class="view-btn" data-view="s25">2025 Stats</button>
     <button class="view-btn" data-view="p26">2026 Projected</button>
@@ -491,6 +494,21 @@ const LEAGUE_TEAMS = [
   { pick: 11, name: 'Are we not men? We are Devers!', owner: 'Eno Sarris' },
   { pick: 12, name: 'Psycho Keller, Qu\'est-ce que Cey', owner: 'Matt Dennewitz' }
 ];
+
+const TEAM_COLORS = {};
+const teamColorPalette = [
+  'rgba(239,68,68,0.15)', 'rgba(249,115,22,0.15)', 'rgba(234,179,8,0.15)',
+  'rgba(34,197,94,0.15)', 'rgba(6,182,212,0.15)', 'rgba(59,130,246,0.15)',
+  'rgba(139,92,246,0.15)', 'rgba(236,72,153,0.15)', 'rgba(168,85,247,0.15)',
+  'rgba(20,184,166,0.15)', 'rgba(251,146,60,0.15)', 'rgba(163,230,53,0.15)'
+];
+const teamTextPalette = [
+  '#dc2626', '#ea580c', '#ca8a04', '#16a34a', '#0891b2', '#2563eb',
+  '#7c3aed', '#db2777', '#a855f7', '#0d9488', '#ea580c', '#65a30d'
+];
+LEAGUE_TEAMS.forEach((t,i) => {
+  TEAM_COLORS[t.owner || t.name] = { bg: teamColorPalette[i % 12], text: teamTextPalette[i % 12] };
+});
 
 let _saved = JSON.parse(localStorage.getItem('dpf2026') || 'null');
 // Never wipe saved state on version change — migrate instead
@@ -1278,7 +1296,56 @@ const allCols = [
   {key:'s25_pitching',label:'Pit+',w:48,tip:'Pitching+ combined. 100=avg'}
 ];
 
+// GM View columns
+const batColsGM = [
+  {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:60},
+  {key:'age',label:'Age',w:40},
+  {key:'lcv',label:'LCV',w:60,cls:'lcv-col'},
+  {key:'upside',label:'Upside',w:65,cls:'pnav-col'},
+  {key:'keeperRound',label:'Keeper Rd',w:70},
+  {key:'keeperCost2027',label:'2027 Cost',w:70},
+  {key:'yearsControl',label:'Yrs Ctrl',w:60},
+  {key:'surplusNow',label:'Surplus',w:65},
+  {key:'multiYearSurplus',label:'MYS',w:60,tip:'Multi-Year Surplus: discounted sum of future keeper surplus values'},
+  {key:'prospectValue',label:'Prospect',w:65,tip:'Prospect value based on FV grade from scouting reports'},
+  {key:'tradeValue',label:'Trade Val',w:70,tip:'Total trade value = Multi-Year Surplus + Prospect Value'}
+];
+
+const pitColsGM = [
+  {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:60},
+  {key:'age',label:'Age',w:40},
+  {key:'lcv',label:'LCV',w:60,cls:'lcv-col'},
+  {key:'upside',label:'Upside',w:65,cls:'pnav-col'},
+  {key:'keeperRound',label:'Keeper Rd',w:70},
+  {key:'keeperCost2027',label:'2027 Cost',w:70},
+  {key:'yearsControl',label:'Yrs Ctrl',w:60},
+  {key:'surplusNow',label:'Surplus',w:65},
+  {key:'multiYearSurplus',label:'MYS',w:60,tip:'Multi-Year Surplus: discounted sum of future keeper surplus values'},
+  {key:'prospectValue',label:'Prospect',w:65,tip:'Prospect value based on FV grade from scouting reports'},
+  {key:'tradeValue',label:'Trade Val',w:70,tip:'Total trade value = Multi-Year Surplus + Prospect Value'}
+];
+
+const allColsGM = [
+  {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:60},
+  {key:'type',label:'Type',w:50},
+  {key:'age',label:'Age',w:40},
+  {key:'lcv',label:'LCV',w:60,cls:'lcv-col'},
+  {key:'upside',label:'Upside',w:65,cls:'pnav-col'},
+  {key:'keeperRound',label:'Keeper Rd',w:70},
+  {key:'keeperCost2027',label:'2027 Cost',w:70},
+  {key:'yearsControl',label:'Yrs Ctrl',w:60},
+  {key:'surplusNow',label:'Surplus',w:65},
+  {key:'multiYearSurplus',label:'MYS',w:60,tip:'Multi-Year Surplus: discounted sum of future keeper surplus values'},
+  {key:'prospectValue',label:'Prospect',w:65,tip:'Prospect value based on FV grade from scouting reports'},
+  {key:'tradeValue',label:'Trade Val',w:70,tip:'Total trade value = Multi-Year Surplus + Prospect Value'}
+];
+
 function getCols() {
+  if (currentView === 'gm') {
+    if (filterType === 'bat') return batColsGM;
+    if (filterType === 'pit') return pitColsGM;
+    return allColsGM;
+  }
   if (currentView === 's25') {
     if (filterType === 'bat') return batCols25;
     if (filterType === 'pit') return pitCols25;
@@ -1567,6 +1634,7 @@ function renderFutures() {
             <th style="padding:8px 10px;text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Player</th>
             <th style="padding:8px 10px;text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Team</th>
             <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Pos</th>
+            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Level</th>
             <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Age</th>
             <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">FV</th>
             <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">FG Rank</th>
@@ -1594,6 +1662,15 @@ function renderFutures() {
         const age = p.age || 0;
         const fvColor = fv >= 70 ? '#daa520' : fv >= 60 ? 'var(--green)' : fv >= 55 ? '#4a90e2' : fv >= 50 ? 'var(--text)' : 'var(--text2)';
         const fvBg = fv >= 70 ? 'rgba(218,165,32,0.1)' : fv >= 60 ? 'rgba(22,163,74,0.1)' : fv >= 55 ? 'rgba(74,144,226,0.1)' : 'transparent';
+
+        // Estimate league level based on age
+        const getLevel = (age) => {
+          if (age < 19) return 'DSL/Complex';
+          if (age < 21) return 'A/A+';
+          if (age < 23) return 'AA';
+          return 'AAA';
+        };
+        const level = getLevel(age);
 
         // Check if rostered as a rookie in any league team
         let ownerBadge = '';
@@ -1633,6 +1710,7 @@ function renderFutures() {
           <td style="padding:6px 10px;font-size:12px;">${p.name}${ownerBadge}</td>
           <td style="padding:6px 10px;font-size:12px;">${p.team}</td>
           <td style="padding:6px 10px;text-align:center;font-size:12px;">${p.pos}</td>
+          <td style="padding:6px 10px;text-align:center;font-size:11px;color:var(--text2);">${level}</td>
           <td style="padding:6px 10px;text-align:center;font-size:12px;">${age ? age.toFixed(1) : '—'}</td>
           <td style="padding:6px 10px;text-align:center;font-size:12px;background:${fvBg};color:${fvColor};font-weight:600;">${fv || '—'}</td>
           <td style="padding:6px 10px;text-align:center;font-size:12px;">${p.fg_rank || '—'}</td>
@@ -1828,9 +1906,52 @@ function render() {
     return `<tr class="${rowCls}" data-name="${p.name}">${rowCols.map(c => {
       let val = p[c.key];
       let cls = c.cls || '';
+      if (c.key === 'keeperRound') {
+        const ki = getKeeperInfo(p.name);
+        const rd = ki.draftRound;
+        return `<td style="text-align:center">${rd ? 'R' + rd : 'FA'}</td>`;
+      }
+      if (c.key === 'keeperCost2027') {
+        const ki = getKeeperInfo(p.name);
+        if (!ki.keepable2027) return `<td style="text-align:center;color:var(--red);font-size:10px;">Not keepable</td>`;
+        return `<td style="text-align:center;color:var(--green);">R${ki.cost2027}</td>`;
+      }
+      if (c.key === 'yearsControl') {
+        const ki = getKeeperInfo(p.name);
+        const yrs = ki.yearsLeft;
+        const clr = yrs >= 3 ? 'var(--green)' : yrs >= 1 ? 'var(--yellow)' : 'var(--red)';
+        return `<td style="text-align:center;color:${clr};font-weight:600;">${yrs}</td>`;
+      }
+      if (c.key === 'surplusNow') {
+        const ki = getKeeperInfo(p.name);
+        const v = ki.surplusNow;
+        const clr = v >= 0 ? 'var(--green)' : 'var(--red)';
+        return `<td style="text-align:right;color:${clr};">${v.toFixed(1)}</td>`;
+      }
+      if (c.key === 'multiYearSurplus') {
+        const ki = getKeeperInfo(p.name);
+        const v = Math.max(0, ki.multiYearSurplus);
+        return `<td style="text-align:right;color:${v > 0 ? 'var(--green)' : 'var(--text2)'};">${v.toFixed(1)}</td>`;
+      }
+      if (c.key === 'prospectValue') {
+        const pr = findProspect(p.name);
+        if (!pr) return `<td style="text-align:center;color:var(--text2);">—</td>`;
+        const v = Math.max(0, ((pr.fv||0) - 40) * 0.15);
+        return `<td style="text-align:right;color:var(--green);">${v.toFixed(1)}</td>`;
+      }
+      if (c.key === 'tradeValue') {
+        const ki = getKeeperInfo(p.name);
+        const mys = Math.max(0, ki.multiYearSurplus);
+        const pr = findProspect(p.name);
+        const pv = pr ? Math.max(0, ((pr.fv||0) - 40) * 0.15) : 0;
+        const tv = mys + pv;
+        const clr = tv > 3 ? 'var(--green)' : tv > 0 ? 'var(--text)' : 'var(--text2)';
+        return `<td style="text-align:right;color:${clr};font-weight:600;">${tv.toFixed(1)}</td>`;
+      }
       if (c.key === 'pos') {
-        const pc = p.primaryPos;
-        return `<td><span class="pos-badge pos-${pc}">${val}</span></td>`;
+        const positions = (p.elig || p.primaryPos || '').split('/');
+        const badges = positions.map(pos => `<span class="pos-badge pos-${pos}" style="margin-right:1px;font-size:10px;padding:1px 4px;">${pos}</span>`).join('');
+        return `<td style="white-space:nowrap;">${badges}</td>`;
       }
       // Handle empty 2025 stats (player not in 2025 data)
       if (val === '' || val === undefined || val === null) return `<td class="no-data">—</td>`;
@@ -1914,8 +2035,12 @@ function render() {
             ownerLabel = ownerTeam ? (ownerTeam.owner || ownerTeam.name) : 'Drafted';
           }
           const rdInfo = dInfo.round ? ' R' + dInfo.round : '';
-          const badgeCls = dInfo.mine ? 'owner-badge mine' : 'owner-badge';
-          ownerBadge = ` <span class="${badgeCls}">${ownerLabel}${rdInfo}</span>`;
+          if (!dInfo.mine) {
+            const tc = TEAM_COLORS[ownerLabel] || { bg:'rgba(100,100,100,0.1)', text:'var(--text2)' };
+            ownerBadge = ` <span class="owner-badge" style="background:${tc.bg};color:${tc.text};border:1px solid ${tc.text}22;">${ownerLabel}${rdInfo}</span>`;
+          } else {
+            ownerBadge = ` <span class="owner-badge mine">${ownerLabel}${rdInfo}</span>`;
+          }
         }
         const kpRd = state.keeperRounds && state.keeperRounds[p.name];
         const kp = isKeeper ? ` <small style="color:var(--accent)">[K${kpRd ? ' Rd'+kpRd : ''}]</small>` : '';
@@ -2537,7 +2662,9 @@ function renderRoster() {
     const c = tClr(p.pnav, slot||p.primaryPos);
     const ki = getKeeperInfo(p.name);
     const krd = ki.draftRound;
-    const kTag = krd ? `<span style="color:var(--accent);font-size:10px;margin-left:4px;" title="Drafted R${krd}${ki.keepable2027 ? ', 2027 cost R'+ki.cost2027+', '+ki.yearsLeft+'yr control' : ', not keepable'}">R${krd}${ki.keepable2027 ? '→'+ki.cost2027 : '✕'}</span>` : '';
+    const keepColor = ki.keepable2027 ? 'var(--accent)' : 'var(--red)';
+    const keepText = ki.keepable2027 ? 'R' + krd + '→' + ki.cost2027 : 'R' + krd;
+    const kTag = krd ? `<span style="color:${keepColor};font-size:10px;margin-left:4px;" title="Drafted R${krd}${ki.keepable2027 ? ', 2027 cost R'+ki.cost2027+', '+ki.yearsLeft+'yr control' : ', NOT keepable — rounds 1-4 ineligible'}">${keepText}</span>` : '';
     const natPos = (slot && p.primaryPos !== slot) ? `<span style="color:var(--text2);font-size:10px;margin-left:3px;">(nat ${p.primaryPos})</span>` : '';
     const extraTag = tag ? `<span style="font-size:10px;margin-left:4px;">${tag}</span>` : '';
     const dropBtn = isMine ? `<td style="padding:3px 4px;text-align:center;"><button class="drop-btn" data-name="${dn}" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:10px;opacity:0.4;padding:2px 4px;" title="Drop ${p.name}">✕</button></td>` : '<td></td>';
@@ -2589,7 +2716,7 @@ function renderRoster() {
 
   // Starting Lineup header
   const batSlotOrder = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
-  html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:6px;">';
+  html += '<table style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:12px;margin-bottom:6px;">';
   html += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);"><th style="text-align:left;padding:4px 6px;">Slot</th><th style="text-align:left;padding:4px 6px;">Player</th><th style="padding:4px 6px;">Team</th><th style="padding:4px 6px;">Elig</th><th style="text-align:right;padding:4px 6px;">LCV</th><th style="text-align:right;padding:4px 6px;">PNAV</th><th style="text-align:right;padding:4px 6px;">Age</th><th style="width:30px;"></th></tr></thead>';
   html += '<tbody>';
 
@@ -2616,7 +2743,7 @@ function renderRoster() {
 
   // Bench
   html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">BENCH (${bench.length}/7)</span></div>`;
-  html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
+  html += '<table style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:12px;">';
   html += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);"><th style="text-align:left;padding:4px 6px;">Slot</th><th style="text-align:left;padding:4px 6px;">Player</th><th style="padding:4px 6px;">Team</th><th style="padding:4px 6px;">Elig</th><th style="text-align:right;padding:4px 6px;">LCV</th><th style="text-align:right;padding:4px 6px;">PNAV</th><th style="text-align:right;padding:4px 6px;">Age</th><th style="width:30px;"></th></tr></thead>';
   html += '<tbody>';
   bench.forEach(p => { html += `<tr class="roster-section" data-slot="reserve">${pRow(p, '', '').replace(/^<tr[^>]*>|<\/tr>$/g, '')}</tr>`; });
