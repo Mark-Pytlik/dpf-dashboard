@@ -512,6 +512,17 @@ pit_json = json.dumps(pit_records)
 # ── Draft picks data for keeper cost calculations ────────────────────────
 draft_picks_raw = json.load(open('data/cbs_picks_full.json'))
 draft_picks_json = json.dumps(draft_picks_raw)
+
+# ── CBS transactions (scraped by scheduled task) ─────────────────────────
+cbs_txn_path = 'data/cbs_transactions.json'
+if os.path.exists(cbs_txn_path):
+    cbs_txns = json.load(open(cbs_txn_path))
+    print(f"CBS transactions loaded: {len(cbs_txns)} transactions")
+else:
+    cbs_txns = []
+    print("No CBS transactions file found (data/cbs_transactions.json)")
+cbs_txns_json = json.dumps(cbs_txns)
+
 print(f"Batter records: {len(bat_records)}, Pitcher records: {len(pit_records)}")
 
 # Spot check
@@ -655,6 +666,7 @@ a[title^="Sleeper"] {{ color:var(--green); }} a[title^="Avoid"] {{ color:var(--r
     <div class="tab" data-tab="board">Draft Board</div>
     <div class="tab" data-tab="mock">Mock Draft</div>
     <div class="tab" data-tab="league">League</div>
+    <div class="tab" data-tab="txns">Transactions</div>
   </div>
   <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
     <button id="modeDraft" class="mode-btn" style="padding:4px 12px;font-size:11px;font-weight:600;border-radius:4px;cursor:pointer;border:1px solid var(--border);background:var(--surface2);color:var(--text);">Draft</button>
@@ -745,6 +757,7 @@ a[title^="Sleeper"] {{ color:var(--green); }} a[title^="Avoid"] {{ color:var(--r
 </div>
 
 <div class="roster-section" id="rosterSection" style="display:none;"></div>
+<div id="txnsSection" style="display:none;padding:20px;max-width:900px;margin:0 auto;"></div>
 
 <div id="bulkModal">
   <div class="modal-content">
@@ -765,6 +778,9 @@ const BATTERS = {bat_json};
 const PITCHERS = {pit_json};
 const ALL = [...BATTERS, ...PITCHERS];
 ALL.forEach((p,i) => p._id = i);
+
+// ── CBS League Transactions (scraped daily) ─────────────────────────────
+const CBS_TRANSACTIONS = {cbs_txns_json};
 
 // ── Draft Picks & Keeper Cost Model ──────────────────────────────────────
 const DRAFT_PICKS = {draft_picks_json};
@@ -981,6 +997,57 @@ for (const [teamName, keepers] of Object.entries(DEFAULT_LEAGUE_KEEPERS)) {{
 }}
 const save = () => localStorage.setItem('dpf2026', JSON.stringify(state));
 const MY_TEAM = LEAGUE_TEAMS.find(t => t.mine);
+
+// ── Apply CBS Transactions to rosters ───────────────────────────────────
+// CBS team ID → team name mapping
+const CBS_TEAM_MAP = {{1:'Dennis Santana - Smooth ft. Rob Thomas',2:'Dinosaur Jr Caminero',3:'choured in the usa.',4:'Father Jhon Kensy',5:'Buddy Buddy Buddy All On Base',6:'A Pete Crow-Armstrong Looked at Me',7:"Whoop Whoop that\\'s the sound of Dylan Cease",8:"Psycho Keller, Qu\\'est-ce que Cey",9:'Yesavage Garden',10:"No men in Nolan\\'s land",11:'Are we not men? We are Devers!',12:'Popped A Mahle I\\'m Sweating'}};
+if (CBS_TRANSACTIONS.length > 0) {{
+  // Track last-applied transaction date so we don't re-process
+  const lastApplied = state._lastTxnDate || '';
+  const newTxns = [];
+  CBS_TRANSACTIONS.forEach(txn => {{
+    if (txn.date <= lastApplied) return;
+    const teamName = CBS_TEAM_MAP[txn.teamId] || txn.team;
+    const isMine = (txn.teamId === 4);
+    txn.players.forEach(p => {{
+      // Fuzzy match player name to pool
+      const found = ALL.find(x => x.name === p.name) || ALL.find(x => x.name.toLowerCase() === p.name.toLowerCase());
+      const playerName = found ? found.name : p.name;
+      if (p.action === 'Added') {{
+        // Add to team roster
+        if (isMine) {{
+          if (!state.myTeam.includes(playerName)) state.myTeam.push(playerName);
+        }} else {{
+          if (!state.leagueTeams[teamName]) state.leagueTeams[teamName] = [];
+          if (!state.leagueTeams[teamName].includes(playerName)) state.leagueTeams[teamName].push(playerName);
+        }}
+        if (!state.drafted[playerName]) state.drafted[playerName] = {{ time: Date.now(), mine: isMine }};
+      }} else if (p.action === 'Dropped') {{
+        // Remove from team roster
+        if (isMine) {{
+          state.myTeam = state.myTeam.filter(n => n !== playerName);
+        }} else if (state.leagueTeams[teamName]) {{
+          state.leagueTeams[teamName] = state.leagueTeams[teamName].filter(n => n !== playerName);
+        }}
+        delete state.drafted[playerName];
+      }}
+    }});
+    newTxns.push(txn);
+  }});
+  if (newTxns.length > 0) {{
+    // Update transaction log
+    if (!state.transactions) state.transactions = [];
+    newTxns.forEach(txn => {{
+      const teamName = CBS_TEAM_MAP[txn.teamId] || txn.team;
+      txn.players.forEach(p => {{
+        state.transactions.push({{ type: p.action === 'Added' ? 'add' : 'drop', player: p.name, date: txn.date.split(' ')[0], from: teamName, source: 'CBS' }});
+      }});
+    }});
+    state._lastTxnDate = CBS_TRANSACTIONS[0].date; // newest first
+    save();
+    console.log(`Applied ${{newTxns.length}} CBS transactions`);
+  }}
+}}
 
 // ── LIVE DRAFT PICKS (injected from CBS draft room) ─────────────────────
 // t: team pick position: 1=choured, 2=FJK(mine), 3=Turang, 4=Whoop, 5=LilT, 6=PCA, 7=Houcks, 8=Nolan, 9=Misi, 10=Crash, 11=Eno, 12=Psycho
@@ -1745,6 +1812,126 @@ function renderLiveSidebar() {{
   sidebar.innerHTML = html;
 }}
 
+// ── Transactions Tab ──────────────────────────────────────────────────────
+function renderTransactions() {{
+  const section = document.getElementById('txnsSection');
+  document.getElementById('tableWrap').style.display = 'none';
+  document.getElementById('rosterSection').style.display = 'none';
+
+  // Combine CBS transactions + local user transactions
+  const allTxns = [];
+
+  // CBS transactions (scraped from league page)
+  CBS_TRANSACTIONS.forEach(txn => {{
+    txn.players.forEach(p => {{
+      allTxns.push({{
+        date: txn.date,
+        team: txn.team,
+        teamId: txn.teamId,
+        player: p.name,
+        pos: p.pos,
+        mlbTeam: p.mlbTeam,
+        action: p.action,
+        effective: txn.effective,
+        source: 'CBS'
+      }});
+    }});
+  }});
+
+  // Local user transactions
+  (state.transactions || []).forEach(tx => {{
+    allTxns.push({{
+      date: tx.date || '',
+      team: tx.from || 'You',
+      teamId: 0,
+      player: tx.player,
+      pos: '',
+      mlbTeam: '',
+      action: tx.type === 'add' ? 'Added' : tx.type === 'drop' ? 'Dropped' : 'Trade',
+      effective: '',
+      source: tx.source || 'Local'
+    }});
+  }});
+
+  let html = '<h2 style="font-size:18px;font-weight:700;margin-bottom:16px;">League Transactions</h2>';
+
+  // Filter controls
+  html += '<div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center;">';
+  html += '<select id="txnTeamFilter" style="padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-size:12px;">';
+  html += '<option value="all">All Teams</option>';
+  const teamsSeen = new Set();
+  CBS_TRANSACTIONS.forEach(t => teamsSeen.add(t.team));
+  [...teamsSeen].sort().forEach(t => {{
+    html += `<option value="${{t}}">${{t}}</option>`;
+  }});
+  html += '</select>';
+  html += '<select id="txnTypeFilter" style="padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-size:12px;">';
+  html += '<option value="all">All Types</option><option value="Added">Adds</option><option value="Dropped">Drops</option></select>';
+  html += `<span style="margin-left:auto;font-size:11px;color:var(--text2);">${{allTxns.length}} moves</span>`;
+  html += '</div>';
+
+  // Transaction table
+  html += '<div style="background:var(--surface);border-radius:10px;border:1px solid var(--border);overflow:hidden;">';
+  html += '<table style="width:100%;border-collapse:collapse;" id="txnTable">';
+  html += '<thead><tr>';
+  html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Date</th>';
+  html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Team</th>';
+  html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Action</th>';
+  html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Player</th>';
+  html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Pos</th>';
+  html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">MLB</th>';
+  html += '<th style="padding:10px 12px;text-align:right;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">LCV</th>';
+  html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Effective</th>';
+  html += '</tr></thead><tbody>';
+
+  allTxns.forEach((tx, idx) => {{
+    const actionColor = tx.action === 'Added' ? 'var(--green)' : tx.action === 'Dropped' ? 'var(--red)' : 'var(--accent)';
+    const actionIcon = tx.action === 'Added' ? '+' : tx.action === 'Dropped' ? '−' : '↔';
+    const player = ALL.find(p => p.name === tx.player) || ALL.find(p => p.name.toLowerCase() === tx.player.toLowerCase());
+    const lcv = player ? player.lcv.toFixed(1) : '—';
+    const isMine = (tx.teamId === 4) || tx.team === 'Father Jhon Kensy';
+    const rowBg = isMine ? 'rgba(74,107,255,0.06)' : (idx % 2 === 0 ? 'transparent' : 'var(--surface)');
+    html += `<tr class="txn-row" data-team="${{tx.team}}" data-action="${{tx.action}}" style="background:${{rowBg}};">`;
+    html += `<td style="padding:8px 12px;font-size:12px;color:var(--text2);white-space:nowrap;">${{tx.date}}</td>`;
+    html += `<td style="padding:8px 12px;font-size:12px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${{tx.team}}">${{tx.team}}</td>`;
+    html += `<td style="padding:8px 12px;font-size:13px;font-weight:700;color:${{actionColor}};">${{actionIcon}} ${{tx.action}}</td>`;
+    html += `<td style="padding:8px 12px;font-size:13px;font-weight:600;">${{tx.player}}</td>`;
+    html += `<td style="padding:8px 12px;"><span class="pos-badge pos-${{(tx.pos||'').split(',')[0]}}">${{tx.pos}}</span></td>`;
+    html += `<td style="padding:8px 12px;font-size:12px;color:var(--text2);">${{tx.mlbTeam}}</td>`;
+    html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;">${{lcv}}</td>`;
+    html += `<td style="padding:8px 12px;font-size:12px;color:var(--text2);">${{tx.effective}}</td>`;
+    html += '</tr>';
+  }});
+
+  if (allTxns.length === 0) {{
+    html += '<tr><td colspan="8" style="padding:40px;text-align:center;color:var(--text2);font-size:13px;">No transactions yet. Transactions will appear here once the scheduled task runs.</td></tr>';
+  }}
+
+  html += '</tbody></table></div>';
+
+  // Last updated note
+  if (CBS_TRANSACTIONS.length > 0) {{
+    html += `<div style="margin-top:12px;font-size:11px;color:var(--text2);text-align:right;">Last scraped: ${{CBS_TRANSACTIONS[0].date}} · Source: CBS Fantasy</div>`;
+  }}
+
+  section.innerHTML = html;
+
+  // Wire filters
+  const teamFilter = document.getElementById('txnTeamFilter');
+  const typeFilter = document.getElementById('txnTypeFilter');
+  const applyFilters = () => {{
+    const tVal = teamFilter.value;
+    const aVal = typeFilter.value;
+    document.querySelectorAll('#txnTable .txn-row').forEach(row => {{
+      const matchTeam = tVal === 'all' || row.dataset.team === tVal;
+      const matchAction = aVal === 'all' || row.dataset.action === aVal;
+      row.style.display = (matchTeam && matchAction) ? '' : 'none';
+    }});
+  }};
+  if (teamFilter) teamFilter.addEventListener('change', applyFilters);
+  if (typeFilter) typeFilter.addEventListener('change', applyFilters);
+}}
+
 // ── Render ─────────────────────────────────────────────────────────────────
 function render() {{
   const isPlayerTab = ['all','bat','pit'].includes(currentTab);
@@ -1753,7 +1940,9 @@ function render() {{
   document.getElementById('tableWrap').style.display = isPlayerTab ? '' : 'none';
   document.getElementById('liveSidebar').style.display = 'none';
   document.getElementById('rosterSection').style.display = ['roster','board','mock','league'].includes(currentTab) ? '' : 'none';
+  document.getElementById('txnsSection').style.display = currentTab === 'txns' ? '' : 'none';
 
+  if (currentTab === 'txns') {{ renderTransactions(); return; }}
   if (currentTab === 'roster') {{ renderRoster(); return; }}
   if (currentTab === 'board') {{ renderDraftBoard(); return; }}
   if (currentTab === 'mock') {{ renderMockDraft(); return; }}
@@ -2723,7 +2912,8 @@ function renderRoster() {{
     html += '<div style="max-height:180px;overflow-y:auto;">';
     txns.forEach(tx => {{
       const icon = tx.type === 'add' ? '<span style="color:var(--green);font-weight:700;">+</span>' : tx.type === 'drop' ? '<span style="color:var(--red);font-weight:700;">−</span>' : '<span style="color:var(--accent);font-weight:700;">↔</span>';
-      const desc = tx.type === 'add' ? `Added ${{tx.player}} from ${{tx.from||'FA'}}` : tx.type === 'drop' ? `Dropped ${{tx.player}}` : `Trade: ${{tx.desc||''}}`;
+      const cbsBadge = tx.source === 'CBS' ? ' <span style="font-size:8px;background:var(--accent);color:#fff;padding:1px 3px;border-radius:2px;">CBS</span>' : '';
+      const desc = tx.type === 'add' ? `Added ${{tx.player}} from ${{tx.from||'FA'}}${{cbsBadge}}` : tx.type === 'drop' ? `Dropped ${{tx.player}}${{cbsBadge}}` : `Trade: ${{tx.desc||''}}`;
       html += `<div style="font-size:10px;padding:2px 0;border-bottom:1px solid var(--border);">${{icon}} <span style="color:var(--text2);">${{tx.date||''}}</span> ${{desc}}</div>`;
     }});
     html += '</div>';
