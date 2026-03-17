@@ -1186,42 +1186,41 @@ function parseCbsDate(s) {{
   return new Date(d).getTime() || 0;
 }}
 
+// Always apply ALL CBS transactions on every load.
+// This ensures trades, adds, and drops are always reflected in rosters
+// even if the transaction data was updated after the user last loaded the page.
 if (CBS_TRANSACTIONS.length > 0) {{
-  const lastAppliedTs = state._lastTxnTs || 0;
-  const newTxns = [];
+  // Build a hash of current transaction data to detect changes
+  const txnHash = CBS_TRANSACTIONS.map(t => t.date + t.teamId + t.players.map(p => p.name + p.action).join(',')).join('|');
+  const lastHash = state._txnHash || '';
 
-  // Process oldest-first so roster state builds up correctly
-  const sorted = [...CBS_TRANSACTIONS].sort((a,b) => parseCbsDate(a.date) - parseCbsDate(b.date));
-  sorted.forEach(txn => {{
-    const txnTs = parseCbsDate(txn.date);
-    if (txnTs <= lastAppliedTs) return;
-    const teamName = resolveCbsTeam(txn);
+  if (txnHash !== lastHash) {{
+    // Process oldest-first so roster state builds up correctly
+    const sorted = [...CBS_TRANSACTIONS].sort((a,b) => parseCbsDate(a.date) - parseCbsDate(b.date));
+    sorted.forEach(txn => {{
+      const teamName = resolveCbsTeam(txn);
+      txn.players.forEach(p => {{
+        const found = ALL.find(x => x.name === p.name) || ALL.find(x => x.name.toLowerCase() === p.name.toLowerCase());
+        const playerName = found ? found.name : p.name;
+        const action = p.action || '';
 
-    txn.players.forEach(p => {{
-      // Fuzzy match player name to pool
-      const found = ALL.find(x => x.name === p.name) || ALL.find(x => x.name.toLowerCase() === p.name.toLowerCase());
-      const playerName = found ? found.name : p.name;
-      const action = p.action || '';
-
-      if (action === 'Added') {{
-        addToRoster(playerName, teamName);
-      }} else if (action === 'Dropped') {{
-        removeFromRoster(playerName, teamName);
-        delete state.drafted[playerName];
-      }} else if (action.startsWith('Traded from')) {{
-        // "Traded from <source team name>" — player moves TO this txn's team FROM the named source
-        const srcDisplayName = action.replace('Traded from ', '');
-        const srcTeam = CBS_NAME_TO_LEAGUE[srcDisplayName] || srcDisplayName;
-        removeFromRoster(playerName, srcTeam);
-        addToRoster(playerName, teamName);
-      }}
+        if (action === 'Added') {{
+          addToRoster(playerName, teamName);
+        }} else if (action === 'Dropped') {{
+          removeFromRoster(playerName, teamName);
+          delete state.drafted[playerName];
+        }} else if (action.startsWith('Traded from')) {{
+          const srcDisplayName = action.replace('Traded from ', '');
+          const srcTeam = CBS_NAME_TO_LEAGUE[srcDisplayName] || srcDisplayName;
+          removeFromRoster(playerName, srcTeam);
+          addToRoster(playerName, teamName);
+        }}
+      }});
     }});
-    newTxns.push(txn);
-  }});
 
-  if (newTxns.length > 0) {{
-    if (!state.transactions) state.transactions = [];
-    newTxns.forEach(txn => {{
+    // Rebuild transaction log from CBS data (replace stale local entries)
+    state.transactions = [];
+    sorted.forEach(txn => {{
       const teamName = resolveCbsTeam(txn);
       txn.players.forEach(p => {{
         const action = p.action || '';
@@ -1231,11 +1230,10 @@ if (CBS_TRANSACTIONS.length > 0) {{
         state.transactions.push({{ type: txType, player: p.name, date: txn.date.split(' ')[0], from: teamName, source: 'CBS' }});
       }});
     }});
-    // Store timestamp of newest applied transaction
-    const newestTs = Math.max(...newTxns.map(t => parseCbsDate(t.date)));
-    state._lastTxnTs = newestTs;
+
+    state._txnHash = txnHash;
     save();
-    console.log(`Applied ${{newTxns.length}} CBS transactions`);
+    console.log(`Applied ${{CBS_TRANSACTIONS.length}} CBS transactions`);
   }}
 }}
 
