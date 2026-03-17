@@ -1187,54 +1187,49 @@ function parseCbsDate(s) {{
 }}
 
 // Always apply ALL CBS transactions on every load.
-// This ensures trades, adds, and drops are always reflected in rosters
-// even if the transaction data was updated after the user last loaded the page.
+// LIVE_PICKS above unconditionally re-adds drafted players to rosters,
+// so we must unconditionally re-apply transactions (trades, adds, drops)
+// to keep rosters correct. Without this, traded players reappear on their
+// original teams on every page load.
 if (CBS_TRANSACTIONS.length > 0) {{
-  // Build a hash of current transaction data to detect changes
-  const txnHash = CBS_TRANSACTIONS.map(t => t.date + t.teamId + t.players.map(p => p.name + p.action).join(',')).join('|');
-  const lastHash = state._txnHash || '';
+  // Process oldest-first so roster state builds up correctly
+  const sorted = [...CBS_TRANSACTIONS].sort((a,b) => parseCbsDate(a.date) - parseCbsDate(b.date));
+  sorted.forEach(txn => {{
+    const teamName = resolveCbsTeam(txn);
+    txn.players.forEach(p => {{
+      const found = ALL.find(x => x.name === p.name) || ALL.find(x => x.name.toLowerCase() === p.name.toLowerCase());
+      const playerName = found ? found.name : p.name;
+      const action = p.action || '';
 
-  if (txnHash !== lastHash) {{
-    // Process oldest-first so roster state builds up correctly
-    const sorted = [...CBS_TRANSACTIONS].sort((a,b) => parseCbsDate(a.date) - parseCbsDate(b.date));
-    sorted.forEach(txn => {{
-      const teamName = resolveCbsTeam(txn);
-      txn.players.forEach(p => {{
-        const found = ALL.find(x => x.name === p.name) || ALL.find(x => x.name.toLowerCase() === p.name.toLowerCase());
-        const playerName = found ? found.name : p.name;
-        const action = p.action || '';
-
-        if (action === 'Added') {{
-          addToRoster(playerName, teamName);
-        }} else if (action === 'Dropped') {{
-          removeFromRoster(playerName, teamName);
-          delete state.drafted[playerName];
-        }} else if (action.startsWith('Traded from')) {{
-          const srcDisplayName = action.replace('Traded from ', '');
-          const srcTeam = CBS_NAME_TO_LEAGUE[srcDisplayName] || srcDisplayName;
-          removeFromRoster(playerName, srcTeam);
-          addToRoster(playerName, teamName);
-        }}
-      }});
+      if (action === 'Added') {{
+        addToRoster(playerName, teamName);
+      }} else if (action === 'Dropped') {{
+        removeFromRoster(playerName, teamName);
+        delete state.drafted[playerName];
+      }} else if (action.startsWith('Traded from')) {{
+        const srcDisplayName = action.replace('Traded from ', '');
+        const srcTeam = CBS_NAME_TO_LEAGUE[srcDisplayName] || srcDisplayName;
+        removeFromRoster(playerName, srcTeam);
+        addToRoster(playerName, teamName);
+      }}
     }});
+  }});
 
-    // Rebuild transaction log from CBS data (replace stale local entries)
-    state.transactions = [];
-    sorted.forEach(txn => {{
-      const teamName = resolveCbsTeam(txn);
-      txn.players.forEach(p => {{
-        const action = p.action || '';
-        let txType = 'add';
-        if (action === 'Dropped') txType = 'drop';
-        else if (action.startsWith('Traded from')) txType = 'trade';
-        state.transactions.push({{ type: txType, player: p.name, date: txn.date.split(' ')[0], from: teamName, source: 'CBS' }});
-      }});
+  // Rebuild transaction log from CBS data
+  state.transactions = [];
+  sorted.forEach(txn => {{
+    const teamName = resolveCbsTeam(txn);
+    txn.players.forEach(p => {{
+      const action = p.action || '';
+      let txType = 'add';
+      if (action === 'Dropped') txType = 'drop';
+      else if (action.startsWith('Traded from')) txType = 'trade';
+      state.transactions.push({{ type: txType, player: p.name, date: txn.date.split(' ')[0], from: teamName, source: 'CBS' }});
     }});
+  }});
 
-    state._txnHash = txnHash;
-    save();
-    console.log(`Applied ${{CBS_TRANSACTIONS.length}} CBS transactions`);
-  }}
+  save();
+  console.log(`Applied ${{CBS_TRANSACTIONS.length}} CBS transactions`);
 }}
 
 // ── LIVE DRAFT PICKS (injected from CBS draft room) ─────────────────────
