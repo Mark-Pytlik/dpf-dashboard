@@ -1506,7 +1506,7 @@ function recalcPNAV() {{
   ALL.forEach(p => {{
     // For hitters, PNAV = best value across all eligible positions INCLUDING DH
     if (p.type === 'bat') {{
-      const positions = (p.elig || p.primaryPos || 'DH').split('/');
+      const positions = (p.pos || p.primaryPos || 'DH').split('/');
       if (!positions.includes('DH')) positions.push('DH');
       let best = 0;
       positions.forEach(pos => {{
@@ -1923,7 +1923,7 @@ function renderLiveSidebar() {{
     else pending.push(p);
   }});
   pending.forEach(p => {{
-    const positions = (p.elig || p.primaryPos || '').split('/');
+    const positions = (p.pos || p.primaryPos || '').split('/');
     let placed = false;
     for (const pos of positions) {{
       if (pos !== p.primaryPos && slotAssign[pos] && slotAssign[pos].length < rosterSlots[pos]) {{
@@ -2155,29 +2155,32 @@ function renderFutures() {{
   `;
 
   if (subView === 'rankings') {{
-    // Rankings sub-view
+    // Rankings sub-view with sortable columns
+    const fCols = [
+      {{key:'avg_rank',label:'Rank',align:'left'}},
+      {{key:'name',label:'Player',align:'left'}},
+      {{key:'team',label:'Team',align:'left'}},
+      {{key:'pos',label:'Pos',align:'center'}},
+      {{key:'level',label:'Level',align:'center'}},
+      {{key:'age',label:'Age',align:'center'}},
+      {{key:'fv',label:'FV',align:'center'}},
+      {{key:'fg_rank',label:'FG Rank',align:'center'}},
+      {{key:'jb_rank',label:'JB Rank',align:'center'}},
+      {{key:'bp_rank',label:'BP Rank',align:'center'}},
+      {{key:'avg_rank_val',label:'Avg Rank',align:'center'}},
+      {{key:'trend',label:'Trend',align:'center'}}
+    ];
+
+    // Sort state for Futures
+    if (!state._fSortCol) state._fSortCol = 'avg_rank';
+    if (!state._fSortDir) state._fSortDir = 1;
+
     html += '<div style="padding:12px 20px;">';
     html += '<input type="text" id="prospectSearch" class="search-box" placeholder="Search prospects..." style="width:300px;margin-bottom:12px;">';
 
-    // Create sortable table
     html += `<div style="overflow:auto;max-height:calc(100vh-250px);">
       <table id="prospectsTable" style="width:100%;border-collapse:collapse;">
-        <thead style="position:sticky;top:0;z-index:10;background:var(--surface2);">
-          <tr>
-            <th style="padding:8px 10px;text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Rank</th>
-            <th style="padding:8px 10px;text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Player</th>
-            <th style="padding:8px 10px;text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Team</th>
-            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Pos</th>
-            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Level</th>
-            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Age</th>
-            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">FV</th>
-            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">FG Rank</th>
-            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">JB Rank</th>
-            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">BP Rank</th>
-            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Avg Rank</th>
-            <th style="padding:8px 10px;text-align:center;font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">Trend</th>
-          </tr>
-        </thead>
+        <thead id="prospectsThead" style="position:sticky;top:0;z-index:10;background:var(--surface2);"></thead>
         <tbody id="prospectsBody"></tbody>
       </table>
     </div>`;
@@ -2185,28 +2188,59 @@ function renderFutures() {{
 
     section.innerHTML = html;
 
-    // Populate prospects table
     const prospectsBody = document.getElementById('prospectsBody');
-    const buildProspectsRows = (prospects) => {{
-      const q = document.getElementById('prospectSearch')?.value.toLowerCase() || '';
-      const filtered = prospects.filter(p => p.name.toLowerCase().includes(q));
+    const prospectsThead = document.getElementById('prospectsThead');
 
-      prospectsBody.innerHTML = filtered.map((p, idx) => {{
+    const getLevel = (age) => {{
+      if (!age || age < 19) return 'DSL/Complex';
+      if (age < 21) return 'A/A+';
+      if (age < 23) return 'AA';
+      return 'AAA';
+    }};
+
+    const levelOrder = {{'DSL/Complex':0,'A/A+':1,'AA':2,'AAA':3}};
+
+    const buildFuturesTable = () => {{
+      const q = document.getElementById('prospectSearch')?.value.toLowerCase() || '';
+      let prospects = [...PROSPECTS].filter(p => p.name.toLowerCase().includes(q));
+
+      // Sort
+      const sc = state._fSortCol;
+      const sd = state._fSortDir;
+      prospects.sort((a, b) => {{
+        let av, bv;
+        if (sc === 'avg_rank' || sc === 'avg_rank_val') {{ av = a.avg_rank; bv = b.avg_rank; }}
+        else if (sc === 'name' || sc === 'team' || sc === 'pos') {{ av = (a[sc]||'').toLowerCase(); bv = (b[sc]||'').toLowerCase(); return sd * av.localeCompare(bv); }}
+        else if (sc === 'level') {{ av = levelOrder[getLevel(a.age||0)]||0; bv = levelOrder[getLevel(b.age||0)]||0; }}
+        else if (sc === 'trend') {{ av = a.trend||0; bv = b.trend||0; }}
+        else {{ av = a[sc]||999; bv = b[sc]||999; }}
+        return sd * ((av||0) - (bv||0));
+      }});
+
+      // Build header
+      prospectsThead.innerHTML = '<tr>' + fCols.map(c => {{
+        const arrow = state._fSortCol === c.key ? (state._fSortDir === 1 ? ' ▲' : ' ▼') : '';
+        return `<th data-col="${{c.key}}" style="padding:8px 10px;text-align:${{c.align}};font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">${{c.label}}${{arrow}}</th>`;
+      }}).join('') + '</tr>';
+
+      // Wire header clicks
+      prospectsThead.querySelectorAll('th').forEach(th => {{
+        th.addEventListener('click', () => {{
+          const col = th.dataset.col;
+          if (state._fSortCol === col) state._fSortDir *= -1;
+          else {{ state._fSortCol = col; state._fSortDir = 1; }}
+          buildFuturesTable();
+        }});
+      }});
+
+      // Build rows
+      prospectsBody.innerHTML = prospects.map((p, idx) => {{
         const fv = p.fv || 0;
         const age = p.age || 0;
         const fvColor = fv >= 70 ? '#daa520' : fv >= 60 ? 'var(--green)' : fv >= 55 ? '#4a90e2' : fv >= 50 ? 'var(--text)' : 'var(--text2)';
         const fvBg = fv >= 70 ? 'rgba(218,165,32,0.1)' : fv >= 60 ? 'rgba(22,163,74,0.1)' : fv >= 55 ? 'rgba(74,144,226,0.1)' : 'transparent';
-
-        // Estimate league level based on age
-        const getLevel = (age) => {{
-          if (age < 19) return 'DSL/Complex';
-          if (age < 21) return 'A/A+';
-          if (age < 23) return 'AA';
-          return 'AAA';
-        }};
         const level = getLevel(age);
 
-        // Check if rostered as a rookie in any league team
         let ownerBadge = '';
         let rookieOwner = '';
         for (let tkey in LEAGUE_ROOKIES) {{
@@ -2216,7 +2250,6 @@ function renderFutures() {{
           }});
           if (found) {{ rookieOwner = tkey; break; }}
         }}
-        // Also check main roster data
         if (!rookieOwner) {{
           if (state.myTeam && state.myTeam.includes(p.name)) rookieOwner = 'Pytlik';
           else {{
@@ -2230,11 +2263,8 @@ function renderFutures() {{
           ownerBadge = `<span class="owner-badge${{isMe?' mine':''}}">${{rookieOwner}}</span>`;
         }}
 
-        // Helium indicator
         let heliumIcon = '';
         if (p.helium >= 2) heliumIcon = '🔥';
-
-        // Trend arrow
         let trendArrow = '';
         if (p.trend < -3) trendArrow = '<span style="color:var(--green);font-weight:700;">↑</span>';
         else if (p.trend > 3) trendArrow = '<span style="color:var(--red);font-weight:700;">↓</span>';
@@ -2256,12 +2286,10 @@ function renderFutures() {{
       }}).join('');
     }};
 
-    // Initial render sorted by avg_rank
-    const sortedProspects = [...PROSPECTS].sort((a, b) => a.avg_rank - b.avg_rank);
-    buildProspectsRows(sortedProspects);
+    buildFuturesTable();
 
     // Wire search
-    document.getElementById('prospectSearch')?.addEventListener('input', () => buildProspectsRows(sortedProspects));
+    document.getElementById('prospectSearch')?.addEventListener('input', () => buildFuturesTable());
 
   }} else {{
     // League Rookies sub-view — uses LEAGUE_ROOKIES from DPF spreadsheet
@@ -2402,8 +2430,27 @@ function render() {{
     return true;
   }});
 
+  // Compute sortable GM values if in GM view
+  if (currentView === 'gm') {{
+    filtered.forEach(p => {{
+      const ki = getKeeperInfo(p.name);
+      p._keeperRound = ki.draftRound || 99;
+      p._keeperCost2027 = ki.keepable2027 ? ki.cost2027 : 99;
+      p._yearsControl = ki.yearsLeft || 0;
+      p._surplusNow = ki.surplusNow || 0;
+      p._multiYearSurplus = Math.max(0, ki.multiYearSurplus || 0);
+      const pr = findProspect(p.name);
+      p._prospectValue = pr ? Math.max(0, ((pr.fv||0) - 40) * 0.15) : 0;
+      p._tradeValue = p._multiYearSurplus + p._prospectValue;
+    }});
+  }}
+
+  // Map GM sort keys to computed property names
+  const gmSortMap = {{keeperRound:'_keeperRound',keeperCost2027:'_keeperCost2027',yearsControl:'_yearsControl',surplusNow:'_surplusNow',multiYearSurplus:'_multiYearSurplus',prospectValue:'_prospectValue',tradeValue:'_tradeValue'}};
+
   filtered.sort((a,b) => {{
-    let av = a[sortCol], bv = b[sortCol];
+    const sc = gmSortMap[sortCol] || sortCol;
+    let av = a[sc], bv = b[sc];
     if (typeof av === 'string') return sortDir * av.localeCompare(bv);
     return sortDir * ((av||0) - (bv||0));
   }});
@@ -2483,7 +2530,7 @@ function render() {{
         return `<td style="text-align:right;color:${{clr}};font-weight:600;">${{tv.toFixed(1)}}</td>`;
       }}
       if (c.key === 'pos') {{
-        const positions = (p.elig || p.primaryPos || '').split('/');
+        const positions = (p.pos || p.primaryPos || '').split('/');
         const badges = positions.map(pos => `<span class="pos-badge pos-${{pos}}" style="margin-right:1px;font-size:10px;padding:1px 4px;">${{pos}}</span>`).join('');
         return `<td style="white-space:nowrap;">${{badges}}</td>`;
       }}
@@ -3161,7 +3208,7 @@ function renderRoster() {{
   // Pass 2: multi-elig
   const stillPending = [];
   pending.forEach(p => {{
-    const positions = (p.elig || p.primaryPos || '').split('/');
+    const positions = (p.pos || p.primaryPos || '').split('/');
     let placed = false;
     for (const pos of positions) {{
       if (pos !== p.primaryPos && ROSTER_SLOTS[pos] !== undefined && bySlot[pos].length < ROSTER_SLOTS[pos]) {{ bySlot[pos].push(p); placed = true; break; }}
@@ -3206,7 +3253,7 @@ function renderRoster() {{
       `<td style="padding:3px 6px;font-weight:600;width:30px;font-size:11px;">${{slot||''}}</td>` +
       `<td style="padding:3px 6px;font-weight:600;font-size:12px;">${{p.name}}${{natPos}}${{kTag}}${{extraTag}}</td>` +
       `<td style="padding:3px 6px;font-size:11px;color:var(--text2);">${{p.team||''}}</td>` +
-      `<td style="padding:3px 6px;font-size:11px;">${{(p.elig||p.primaryPos||'').replace(/\\//g,', ')}}</td>` +
+      `<td style="padding:3px 6px;font-size:11px;">${{(p.pos||p.primaryPos||'').replace(/\\//g,', ')}}</td>` +
       `<td style="padding:3px 6px;text-align:right;font-size:11px;color:${{c}};font-weight:600;">${{(p.lcv||0).toFixed(1)}}</td>` +
       `<td style="padding:3px 6px;text-align:right;font-size:11px;">${{(p.pnav||0).toFixed(1)}}</td>` +
       `<td style="padding:3px 6px;text-align:right;font-size:11px;color:var(--text2);">${{p.age||'?'}}</td>` +
@@ -3371,14 +3418,14 @@ function renderRoster() {{
   const needs = [];
   for (const [pos, slots] of Object.entries(ROSTER_SLOTS)) {{
     const isPit = ['SP','RP'].includes(pos);
-    const pool = isPit ? myPl.filter(p => p.primaryPos === pos) : myPl.filter(p => (p.elig||p.primaryPos||'').split('/').includes(pos));
+    const pool = isPit ? myPl.filter(p => p.primaryPos === pos) : myPl.filter(p => (p.pos||p.primaryPos||'').split('/').includes(pos));
     const top = pool.sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, slots);
     const avgLcv = top.length > 0 ? top.reduce((s,p) => s + (p.lcv||0), 0) / top.length : 0;
     // Compare to league average at this position
     const leagueAvgs = [];
     LEAGUE_TEAMS.filter(t => !t.mine).forEach(t => {{
       const tPl = (state.leagueTeams[t.name]||[]).map(n => ALL.find(x => x.name === n)).filter(Boolean);
-      const tPool = isPit ? tPl.filter(p => p.primaryPos === pos) : tPl.filter(p => (p.elig||p.primaryPos||'').split('/').includes(pos));
+      const tPool = isPit ? tPl.filter(p => p.primaryPos === pos) : tPl.filter(p => (p.pos||p.primaryPos||'').split('/').includes(pos));
       const tTop = tPool.sort((a,b)=>(b.lcv||0)-(a.lcv||0)).slice(0,slots);
       if (tTop.length > 0) leagueAvgs.push(tTop.reduce((s,p)=>s+(p.lcv||0),0)/tTop.length);
     }});
@@ -3441,7 +3488,7 @@ function renderRoster() {{
     const used = new Set();
     const bs = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
     for (const s of bs) {{ if (s==='DH') continue; const b = batters.find(p=>p.primaryPos===s&&!used.has(p.name)); if(b){{nOv[b.name]=s;used.add(b.name);}} }}
-    for (const s of bs) {{ if (s==='DH'||Object.values(nOv).filter(v=>v===s).length>=(ROSTER_SLOTS[s]||1)) continue; const b=batters.find(p=>{{if(used.has(p.name))return false; return (p.elig||p.primaryPos||'').split('/').includes(s);}}); if(b){{nOv[b.name]=s;used.add(b.name);}} }}
+    for (const s of bs) {{ if (s==='DH'||Object.values(nOv).filter(v=>v===s).length>=(ROSTER_SLOTS[s]||1)) continue; const b=batters.find(p=>{{if(used.has(p.name))return false; return (p.pos||p.primaryPos||'').split('/').includes(s);}}); if(b){{nOv[b.name]=s;used.add(b.name);}} }}
     const dh = batters.find(p => !used.has(p.name)); if(dh){{nOv[dh.name]='DH';used.add(dh.name);}}
     sps.slice(0,5).forEach(p=>{{nOv[p.name]='SP';used.add(p.name);}});
     rps.slice(0,5).forEach(p=>{{nOv[p.name]='RP';used.add(p.name);}});
@@ -3489,7 +3536,7 @@ function renderRoster() {{
       if (_isPitSlot && !_isPit) return;
       if (_isHitSlot && _isPit) return;
       if (_p && _isHitSlot && targetSlot !== 'DH') {{
-        const positions = (_p.elig || _p.primaryPos || '').split('/');
+        const positions = (_p.pos || _p.primaryPos || '').split('/');
         if (!positions.includes(targetSlot)) return;
       }}
       if (ROSTER_SLOTS[targetSlot] !== undefined) {{
@@ -3986,7 +4033,7 @@ function renderDraftBoard() {{
     else pend.push(p);
   }});
   pend.forEach(p => {{
-    const positions = (p.elig || p.primaryPos || '').split('/');
+    const positions = (p.pos || p.primaryPos || '').split('/');
     let placed = false;
     for (const pos of positions) {{
       if (pos !== p.primaryPos && sAssign[pos] && sAssign[pos].length < rSlots[pos]) {{
@@ -4091,7 +4138,7 @@ function calcOptimalLCV(playerNames) {{
     if (slot === 'DH' || filled[slot]) continue;
     const best = batters.find(p => {{
       if (used.has(p.name)) return false;
-      const positions = (p.elig || p.primaryPos || '').split('/');
+      const positions = (p.pos || p.primaryPos || '').split('/');
       return positions.includes(slot);
     }});
     if (best) {{ filled[slot] = best; used.add(best.name); }}
@@ -4170,7 +4217,7 @@ function calcRosterLCV(playerNames, overrides) {{
     if (have >= (ROSTER_SLOTS[slot] || 1)) continue;
     const best = batters.find(p => {{
       if (used.has(p.name)) return false;
-      return (p.elig || p.primaryPos || '').split('/').includes(slot);
+      return (p.pos || p.primaryPos || '').split('/').includes(slot);
     }});
     if (best) {{
       if (!filledBat[slot]) filledBat[slot] = [];
@@ -4402,7 +4449,7 @@ function renderMockDraftUI() {{
     else rPending.push(p);
   }});
   rPending.forEach(p => {{
-    const positions = (p.elig || p.primaryPos || '').split('/');
+    const positions = (p.pos || p.primaryPos || '').split('/');
     let placed = false;
     for (const pos of positions) {{
       if (pos !== p.primaryPos && slotAssign[pos] && slotAssign[pos].length < slotCounts[pos]) {{
