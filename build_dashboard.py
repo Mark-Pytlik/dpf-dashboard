@@ -584,8 +584,8 @@ tr.keeper {{ background:rgba(108,140,255,0.08); }}
 .pos-2B {{ background:#d9770622; color:#c2610a; }} .pos-3B {{ background:#dc262622; color:#dc2626; }}
 .pos-SS {{ background:#2563eb22; color:#2563eb; }} .pos-DH {{ background:#52525b22; color:#71717a; }}
 .pos-SP {{ background:#0891b222; color:#0e7490; }} .pos-RP {{ background:#c026d322; color:#a21caf; }}
-.pos-LF {{ background:#65a30d22; color:#4d7c0f; }} .pos-CF {{ background:#16a34a22; color:#15803d; }}
-.pos-RF {{ background:#84cc1622; color:#65a30d; }}
+.pos-LF {{ background:#16653022; color:#14532d; }} .pos-CF {{ background:#16653022; color:#14532d; }}
+.pos-RF {{ background:#4d6b2422; color:#3f5e1c; }}
 .val-pos {{ color:var(--green); }} .val-neg {{ color:var(--red); }}
 .eno-rank {{ display:inline-block; padding:0 4px; border-radius:3px; font-size:9px; font-weight:700; vertical-align:middle; background:rgba(59,130,246,0.15); color:#3b82f6; margin-left:3px; }}
 .tag-badge {{ display:inline-block; padding:0 5px; border-radius:3px; font-size:10px; font-weight:700; vertical-align:middle; }}
@@ -3270,7 +3270,7 @@ function renderRoster() {{
 
   // ── Build compact table row ──
   function pRow(p, slot, tag) {{
-    if (!p) return `<tr class="roster-section" data-slot="${{slot}}" style="opacity:0.3;"><td style="padding:3px 6px;font-weight:600;width:30px;">${{slot}}</td><td colspan="12" style="padding:3px 6px;color:var(--text2);">—</td></tr>`;
+    if (!p) return `<tr class="roster-section" data-slot="${{slot}}" style="opacity:0.3;"><td style="padding:3px 6px;font-weight:600;width:30px;">${{slot}}</td><td colspan="11" style="padding:3px 6px;color:var(--text2);">—</td></tr>`;
     const dn = encodeURIComponent(p.name);
     const c = tClr(p.pnav, slot||p.primaryPos);
     const ki = getKeeperInfo(p.name);
@@ -3280,7 +3280,7 @@ function renderRoster() {{
     const kTag = krd ? `<span style="color:${{keepColor}};font-size:10px;margin-left:4px;" title="Drafted R${{krd}}${{ki.keepable2027 ? ', 2027 cost R'+ki.cost2027+', '+ki.yearsLeft+'yr control' : ', NOT keepable — rounds 1-4 ineligible'}}">${{keepText}}</span>` : '';
     const natPos = (slot && p.primaryPos !== slot) ? `<span style="color:var(--text2);font-size:10px;margin-left:3px;">(nat ${{p.primaryPos}})</span>` : '';
     const extraTag = tag ? `<span style="font-size:10px;margin-left:4px;">${{tag}}</span>` : '';
-    const dropBtn = isMine ? `<td style="padding:3px 4px;text-align:center;"><button class="drop-btn" data-name="${{dn}}" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:10px;opacity:0.4;padding:2px 4px;" title="Drop ${{p.name}}">✕</button></td>` : '<td></td>';
+    const dropBtn = '<td></td>';
     // GM columns
     const costTd = ki.keepable2027 ? `<td style="padding:3px 4px;text-align:center;font-size:10px;color:var(--green);">R${{ki.cost2027}}</td>` : `<td style="padding:3px 4px;text-align:center;font-size:9px;color:var(--red);">—</td>`;
     const yrsClr = ki.yearsLeft >= 3 ? 'var(--green)' : ki.yearsLeft >= 1 ? 'var(--yellow)' : 'var(--red)';
@@ -3295,15 +3295,16 @@ function renderRoster() {{
     const tvClr = tv > 3 ? 'var(--green)' : tv > 0 ? 'var(--text)' : 'var(--text2)';
     const tvTd = `<td style="padding:3px 4px;text-align:right;font-size:10px;color:${{tvClr}};font-weight:600;">${{tv.toFixed(1)}}</td>`;
     return `<tr class="roster-row" draggable="true" data-player="${{dn}}" style="border-left:3px solid ${{c}};cursor:grab;">` +
-      `<td style="padding:3px 6px;font-weight:600;width:30px;font-size:11px;">${{slot||''}}</td>` +
-      `<td style="padding:3px 6px;font-weight:600;font-size:12px;">${{p.name}}${{natPos}}${{kTag}}${{extraTag}}</td>` +
-      `<td style="padding:3px 6px;font-size:11px;color:var(--text2);">${{p.team||''}}</td>` +
-      `<td style="padding:3px 6px;font-size:11px;">${{(p.pos||p.primaryPos||'').replace(/\\//g,', ')}}</td>` +
-      `<td style="padding:3px 6px;text-align:right;font-size:11px;color:${{c}};font-weight:600;">${{(p.lcv||0).toFixed(1)}}</td>` +
-      `<td style="padding:3px 6px;text-align:right;font-size:11px;">${{(p.pnav||0).toFixed(1)}}</td>` +
-      `<td style="padding:3px 6px;text-align:right;font-size:11px;color:var(--text2);">${{p.age||'?'}}</td>` +
+      `<td style="padding:3px 6px;font-weight:600;width:32px;font-size:11px;white-space:nowrap;">${{slot||''}}</td>` +
+      `<td style="padding:3px 6px;font-weight:600;font-size:12px;white-space:nowrap;">${{p.name}}${{natPos}}</td>` +
+      `<td style="padding:3px 4px;font-size:10px;white-space:nowrap;">${{kTag||''}}</td>` +
+      `<td style="padding:3px 4px;font-size:11px;color:var(--text2);white-space:nowrap;">${{p.team||''}}</td>` +
+      `<td style="padding:3px 4px;font-size:11px;white-space:nowrap;">${{(p.pos||p.primaryPos||'').replace(/\\//g,', ')}}</td>` +
+      `<td style="padding:3px 4px;text-align:right;font-size:11px;color:${{c}};font-weight:600;">${{(p.lcv||0).toFixed(1)}}</td>` +
+      `<td style="padding:3px 4px;text-align:right;font-size:11px;">${{(p.pnav||0).toFixed(1)}}</td>` +
+      `<td style="padding:3px 4px;text-align:right;font-size:11px;color:var(--text2);">${{p.age||'?'}}</td>` +
       costTd + yrsTd + surpTd + mysTd + tvTd +
-      dropBtn + `</tr>`;
+      `${{extraTag ? '<td style="padding:3px 4px;font-size:10px;">'+extraTag+'</td>' : ''}}</tr>`;
   }}
 
   // ── HTML ──
@@ -3349,17 +3350,16 @@ function renderRoster() {{
   const rosterCols = [
     {{key:null,label:'Slot',align:'left'}},
     {{key:'name',label:'Player',align:'left'}},
+    {{key:'_cost2027',label:'Keeper',align:'center',tip:'Keeper round → 2027 cost'}},
     {{key:'team',label:'Team',align:'left'}},
     {{key:'pos',label:'Elig',align:'left'}},
     {{key:'lcv',label:'LCV',align:'right'}},
     {{key:'pnav',label:'PNAV',align:'right'}},
     {{key:'age',label:'Age',align:'right'}},
-    {{key:'_cost2027',label:"'27",align:'center',tip:'2027 keeper cost'}},
     {{key:'_yrsCtrl',label:'Yrs',align:'center',tip:'Years of control remaining'}},
     {{key:'_surplus',label:'Surp',align:'right',tip:'Current surplus value'}},
     {{key:'_mys',label:'MYS',align:'right',tip:'Multi-year surplus'}},
-    {{key:'_tv',label:'TV',align:'right',tip:'Trade value (MYS + prospect value)'}},
-    {{key:null,label:'',align:'center'}}
+    {{key:'_tv',label:'TV',align:'right',tip:'Trade value (MYS + prospect value)'}}
   ];
 
   const batSlotOrder = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
@@ -3411,7 +3411,7 @@ function renderRoster() {{
     }});
   }} else {{
     // Normal slot-based view
-    html += `<tr><td colspan="13" style="padding:6px 6px 2px;font-weight:700;font-size:11px;color:var(--accent);border-bottom:1px solid var(--border);">OFFENSE (9)</td></tr>`;
+    html += `<tr><td colspan="12" style="padding:6px 6px 2px;font-weight:700;font-size:11px;color:var(--accent);border-bottom:1px solid var(--border);">OFFENSE (9)</td></tr>`;
     for (const slot of batSlotOrder) {{
       const count = ROSTER_SLOTS[slot] || 1;
       for (let i = 0; i < count; i++) {{
@@ -3420,7 +3420,7 @@ function renderRoster() {{
       }}
     }}
 
-    html += `<tr><td colspan="13" style="padding:8px 6px 2px;font-weight:700;font-size:11px;color:var(--green);border-bottom:1px solid var(--border);">PITCHING (${{(bySlot['SP']||[]).length + (bySlot['RP']||[]).length}})</td></tr>`;
+    html += `<tr><td colspan="12" style="padding:8px 6px 2px;font-weight:700;font-size:11px;color:var(--green);border-bottom:1px solid var(--border);">PITCHING (${{(bySlot['SP']||[]).length + (bySlot['RP']||[]).length}})</td></tr>`;
     for (const slot of ['SP','RP']) {{
       const count = ROSTER_SLOTS[slot] || 5;
       for (let i = 0; i < count; i++) {{
@@ -3436,14 +3436,14 @@ function renderRoster() {{
     html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">BENCH (${{bench.length}}/7)</span></div>`;
     html += '<table style="width:100%;border-collapse:collapse;font-size:12px;"><tbody>';
     bench.forEach(p => {{ html += pRow(p, 'BN', ''); }});
-    if (bench.length === 0) html += '<tr><td colspan="13" style="padding:4px 6px;color:var(--text2);font-size:11px;">No bench players</td></tr>';
+    if (bench.length === 0) html += '<tr><td colspan="12" style="padding:4px 6px;color:var(--text2);font-size:11px;">No bench players</td></tr>';
     html += '</tbody></table>';
 
     // IL
     html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--red);">IL (${{ilPlayers.length}}/4)</span></div>`;
     html += '<table style="width:100%;border-collapse:collapse;font-size:12px;"><tbody>';
     ilPlayers.forEach(p => {{ html += pRow(p, 'IL', '<span style="color:var(--red);">IL</span>'); }});
-    if (ilPlayers.length === 0) html += '<tr><td colspan="13" style="padding:4px 6px;color:var(--text2);font-size:11px;">No IL players</td></tr>';
+    if (ilPlayers.length === 0) html += '<tr><td colspan="12" style="padding:4px 6px;color:var(--text2);font-size:11px;">No IL players</td></tr>';
     html += '</tbody></table>';
   }}
 
@@ -3453,9 +3453,9 @@ function renderRoster() {{
   teamMilb.forEach(name => {{
     const p = ALL.find(x => x.name === name);
     if (p) html += pRow(p, 'MiLB', '<span style="color:var(--accent);">MiLB</span>');
-    else html += `<tr><td style="padding:3px 6px;font-weight:600;width:30px;font-size:11px;">MiLB</td><td colspan="12" style="padding:3px 6px;font-size:12px;">${{name}} <span style="color:var(--accent);font-size:10px;">MiLB</span></td></tr>`;
+    else html += `<tr><td style="padding:3px 6px;font-weight:600;width:30px;font-size:11px;">MiLB</td><td colspan="11" style="padding:3px 6px;font-size:12px;">${{name}} <span style="color:var(--accent);font-size:10px;">MiLB</span></td></tr>`;
   }});
-  if (teamMilb.length === 0) html += '<tr><td colspan="13" style="padding:4px 6px;color:var(--text2);font-size:11px;">No minor leaguers</td></tr>';
+  if (teamMilb.length === 0) html += '<tr><td colspan="12" style="padding:4px 6px;color:var(--text2);font-size:11px;">No minor leaguers</td></tr>';
   html += '</tbody></table>';
 
   html += '</div>'; // end left column
@@ -3524,25 +3524,63 @@ function renderRoster() {{
   html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;">';
   html += '<h3 style="font-size:13px;margin-bottom:6px;">Roster Needs</h3>';
   const myPl = (state.myTeam || []).map(n => ALL.find(x => x.name === n)).filter(Boolean);
+
+  // Helper: compute optimal position assignments then return avg LCV per slot
+  function computeNeedsForTeam(players) {{
+    const hitters = players.filter(p => !['SP','RP'].includes(p.primaryPos)).sort((a,b) => (b.lcv||0) - (a.lcv||0));
+    const assigned = {{}};
+    const used = new Set();
+    const batSlots = ['C','1B','2B','3B','SS','LF','CF','RF'];
+
+    // Pass 1: assign best player at their primary position
+    for (const pos of batSlots) {{
+      assigned[pos] = [];
+      const slots = ROSTER_SLOTS[pos] || 1;
+      for (const p of hitters) {{
+        if (used.has(p.name)) continue;
+        if (p.primaryPos === pos && assigned[pos].length < slots) {{
+          assigned[pos].push(p); used.add(p.name);
+        }}
+      }}
+    }}
+    // Pass 2: fill remaining slots with multi-eligible players
+    for (const pos of batSlots) {{
+      const slots = ROSTER_SLOTS[pos] || 1;
+      for (const p of hitters) {{
+        if (used.has(p.name) || assigned[pos].length >= slots) continue;
+        if ((p.pos||p.primaryPos||'').split('/').includes(pos)) {{
+          assigned[pos].push(p); used.add(p.name);
+        }}
+      }}
+    }}
+    // DH: best remaining hitter not in a starting spot
+    assigned['DH'] = [];
+    const dhSlots = ROSTER_SLOTS['DH'] || 1;
+    for (const p of hitters) {{
+      if (used.has(p.name) || assigned['DH'].length >= dhSlots) continue;
+      assigned['DH'].push(p); used.add(p.name);
+    }}
+    // Pitchers
+    assigned['SP'] = players.filter(p => p.primaryPos === 'SP').sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, ROSTER_SLOTS['SP'] || 5);
+    assigned['RP'] = players.filter(p => p.primaryPos === 'RP').sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, ROSTER_SLOTS['RP'] || 5);
+    return assigned;
+  }}
+
+  const myAssigned = computeNeedsForTeam(myPl);
   const needs = [];
   for (const [pos, slots] of Object.entries(ROSTER_SLOTS)) {{
-    const isPit = ['SP','RP'].includes(pos);
-    const isDH = pos === 'DH';
-    // DH: any non-pitcher hitter can fill DH, not just those with DH eligibility
-    const pool = isPit ? myPl.filter(p => p.primaryPos === pos) : isDH ? myPl.filter(p => !['SP','RP'].includes(p.primaryPos)) : myPl.filter(p => (p.pos||p.primaryPos||'').split('/').includes(pos));
-    const top = pool.sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, slots);
+    const top = myAssigned[pos] || [];
     const avgLcv = top.length > 0 ? top.reduce((s,p) => s + (p.lcv||0), 0) / top.length : 0;
-    // Compare to league average at this position
     const leagueAvgs = [];
     LEAGUE_TEAMS.filter(t => !t.mine).forEach(t => {{
       const tPl = (state.leagueTeams[t.name]||[]).map(n => ALL.find(x => x.name === n)).filter(Boolean);
-      const tPool = isPit ? tPl.filter(p => p.primaryPos === pos) : isDH ? tPl.filter(p => !['SP','RP'].includes(p.primaryPos)) : tPl.filter(p => (p.pos||p.primaryPos||'').split('/').includes(pos));
-      const tTop = tPool.sort((a,b)=>(b.lcv||0)-(a.lcv||0)).slice(0,slots);
+      const tAssigned = computeNeedsForTeam(tPl);
+      const tTop = tAssigned[pos] || [];
       if (tTop.length > 0) leagueAvgs.push(tTop.reduce((s,p)=>s+(p.lcv||0),0)/tTop.length);
     }});
     const leagueAvg = leagueAvgs.length > 0 ? leagueAvgs.reduce((s,v)=>s+v,0)/leagueAvgs.length : 0;
     const diff = avgLcv - leagueAvg;
-    needs.push({{ pos, avgLcv, leagueAvg, diff, count: pool.length }});
+    needs.push({{ pos, avgLcv, leagueAvg, diff, count: top.length }});
   }}
   needs.sort((a,b) => a.diff - b.diff);
   html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
@@ -3557,11 +3595,13 @@ function renderRoster() {{
   // ── Transaction Log ──
   html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-top:12px;">';
   html += '<h3 style="font-size:13px;margin-bottom:6px;">Transaction Log</h3>';
-  const txns = (state.transactions || []).slice().sort((a,b) => {{
+  const txnsRaw = (state.transactions || []).map((tx, i) => ({{...tx, _idx: i}}));
+  const txns = txnsRaw.slice().sort((a,b) => {{
     const pa = a.date ? a.date.replace(/(\\d{{1,2}})\/(\\d{{1,2}})\/(\\d{{2}})/, (m,mo,dy,yr) => `20${{yr}}-${{mo.padStart(2,'0')}}-${{dy.padStart(2,'0')}}`) : '';
     const pb = b.date ? b.date.replace(/(\\d{{1,2}})\/(\\d{{1,2}})\/(\\d{{2}})/, (m,mo,dy,yr) => `20${{yr}}-${{mo.padStart(2,'0')}}-${{dy.padStart(2,'0')}}`) : '';
-    return pb.localeCompare(pa);
-  }}).slice(0, 15);
+    const dc = pb.localeCompare(pa);
+    return dc !== 0 ? dc : b._idx - a._idx;
+  }}).slice(0, 20);
   if (txns.length === 0) {{
     html += '<div style="font-size:11px;color:var(--text2);">No transactions yet. Use Free Agents tab to add players, or drop players from roster below.</div>';
   }} else {{
@@ -3896,32 +3936,31 @@ function renderRoster() {{
 
     sh += `<div style="color:var(--text2);font-size:10px;">Post-trade starting LCV: ${{postLCV.startingLCV.toFixed(1)}} (current: ${{preLCV.startingLCV.toFixed(1)}})</div>`;
 
-    // Verdict — more nuanced analysis
+    // Verdict — balanced composite factoring in production, future value, and prospect upside
     const absLcv = Math.abs(lcvDiff);
     const absSurp = Math.abs(surplusDiff);
-    const lcvMag = absLcv > 5 ? 'significantly' : absLcv > 2 ? 'moderately' : 'slightly';
-    const isWin = lcvDiff > 0 && surplusDiff >= -0.5;
-    const isStrongWin = lcvDiff > 0 && surplusDiff > 0;
-    const isLoss = lcvDiff < -1 && surplusDiff < -1;
-    const isMixed = (lcvDiff > 0 && surplusDiff < -0.5) || (lcvDiff < 0 && surplusDiff > 0.5);
 
-    // Grade the trade on a simple A-F scale
-    const composite = rosterDiff * 0.5 + surplusDiff * 0.3 + prospectDiff * 0.2;
-    const grade = composite > 3 ? 'A' : composite > 1.5 ? 'B' : composite > 0 ? 'B-' : composite > -1.5 ? 'C' : composite > -3 ? 'D' : 'F';
-    const gradeClr = composite > 1.5 ? 'var(--green)' : composite > 0 ? '#4a90e2' : composite > -1.5 ? 'var(--text)' : 'var(--red)';
+    // Weight roster impact most heavily — this is what actually matters for your team
+    const composite = rosterDiff * 0.55 + surplusDiff * 0.25 + prospectDiff * 0.20;
+    const grade = composite > 4 ? 'A+' : composite > 2.5 ? 'A' : composite > 1.5 ? 'B+' : composite > 0.5 ? 'B' : composite > -0.5 ? 'C+' : composite > -1.5 ? 'C' : composite > -3 ? 'D' : 'F';
+    const gradeClr = composite > 2.5 ? 'var(--green)' : composite > 0.5 ? '#4a90e2' : composite > -0.5 ? 'var(--text)' : 'var(--red)';
 
-    sh += `<div style="margin-top:4px;padding:5px 8px;background:${{composite > 0 ? 'rgba(34,197,94,0.08)' : composite > -1.5 ? 'rgba(234,179,8,0.1)' : 'rgba(239,68,68,0.08)'}};border-radius:4px;font-size:11px;">`;
-    sh += `<span style="font-weight:700;font-size:13px;color:${{gradeClr}};margin-right:6px;">Grade: ${{grade}}</span> `;
+    sh += `<div style="margin-top:4px;padding:5px 8px;background:${{composite > 0.5 ? 'rgba(34,197,94,0.08)' : composite > -0.5 ? 'rgba(234,179,8,0.1)' : 'rgba(239,68,68,0.08)'}};border-radius:4px;font-size:11px;">`;
+    sh += `<span style="font-weight:700;font-size:13px;color:${{gradeClr}};margin-right:6px;">${{grade}}</span> `;
 
-    if (isStrongWin) sh += `<span>Clear win — ${{lcvMag}} better production and future value</span>`;
-    else if (isWin) sh += `<span>Favorable — ${{lcvMag}} more production with roughly equal future value</span>`;
-    else if (isLoss) sh += `<span>Unfavorable — losing production and future value</span>`;
-    else if (isMixed) {{
-      if (lcvDiff > 0) sh += `<span>Win-now — ${{lcvMag}} more production but less future value (${{absSurp < 1 ? 'marginal' : absSurp < 3 ? 'moderate' : 'significant'}} gap)</span>`;
-      else sh += `<span>Dynasty play — less production now but better future assets (${{absSurp < 1 ? 'marginal' : absSurp < 3 ? 'moderate' : 'significant'}} upside)</span>`;
-    }} else {{
-      sh += '<span>Roughly even trade</span>';
-    }}
+    // Describe the trade character
+    const prodUp = rosterDiff > 1;
+    const prodDown = rosterDiff < -1;
+    const futureUp = surplusDiff + prospectDiff > 0.5;
+    const futureDown = surplusDiff + prospectDiff < -0.5;
+
+    if (prodUp && futureUp) sh += `<span>Clear win — better production (+${{rosterDiff.toFixed(1)}} roster LCV) and future value</span>`;
+    else if (prodUp && futureDown) sh += `<span>Win-now trade — better production (+${{rosterDiff.toFixed(1)}} roster LCV) but less future value</span>`;
+    else if (prodDown && futureUp) sh += `<span>Dynasty play — less production now but building future assets (${{(surplusDiff+prospectDiff) > 2 ? 'significant' : 'moderate'}} upside)</span>`;
+    else if (prodDown && futureDown) sh += `<span>Unfavorable — losing both production and future value</span>`;
+    else if (prodUp) sh += `<span>Favorable — better production (+${{rosterDiff.toFixed(1)}} roster LCV) with roughly equal future value</span>`;
+    else if (prodDown) sh += `<span>Slight downgrade — marginally less production with similar future value</span>`;
+    else sh += '<span>Roughly even trade — similar production and future value</span>';
     sh += '</div>';
 
     sumDiv.innerHTML = sh;
