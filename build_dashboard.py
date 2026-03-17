@@ -708,6 +708,9 @@ a[title^="Sleeper"] {{ color:var(--green); }} a[title^="Avoid"] {{ color:var(--r
     <option value="available">Available</option>
     <option value="drafted">Drafted</option>
   </select>
+  <select id="teamFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;">
+    <option value="all">All Teams</option>
+  </select>
   <div id="typeFilters" style="display:flex;gap:2px;"></div>
   <div style="width:1px;height:20px;background:var(--border);"></div>
   <div id="posFilters"></div>
@@ -1566,6 +1569,9 @@ function updateModeUI() {{
   // Hide draft panel in season mode
   const dp = document.getElementById('draftPanel');
   if (dp && !isDraft) dp.classList.remove('show');
+  // Show tag filter only in draft mode
+  const tagFilt = document.getElementById('tagFilter');
+  if (tagFilt) tagFilt.style.display = isDraft ? '' : 'none';
   // Show/hide tabs based on mode
   document.querySelectorAll('.tab').forEach(t => {{
     const tab = t.dataset.tab;
@@ -1656,8 +1662,8 @@ const batCols25 = [
   {{key:'s25_pa',label:'PA',w:50}}, {{key:'s25_avg',label:'AVG',w:55}}, {{key:'s25_obp',label:'OBP',w:55}},
   {{key:'s25_slg',label:'SLG',w:55}}, {{key:'s25_hr',label:'HR',w:45}}, {{key:'s25_r',label:'R',w:45}},
   {{key:'s25_rbi',label:'RBI',w:45}}, {{key:'s25_sb',label:'SB',w:45}}, {{key:'s25_so',label:'K',w:45}},
-  {{key:'s25_barrel',label:'Brl%',w:50}}, {{key:'s25_hardhit',label:'HH%',w:50}},
-  {{key:'s25_woba',label:'wOBA',w:55}}, {{key:'s25_xwoba',label:'xwOBA',w:55}},
+  {{key:'s25_barrel',label:'Brl%',w:50,tip:'Barrel rate: batted balls with optimal launch angle + exit velo'}}, {{key:'s25_hardhit',label:'HH%',w:50,tip:'Hard hit rate: batted balls with 95+ mph exit velocity'}},
+  {{key:'s25_woba',label:'wOBA',w:55,tip:'Weighted On-Base Average: offensive value on a per-PA basis'}}, {{key:'s25_xwoba',label:'xwOBA',w:55,tip:'Expected wOBA based on exit velocity and launch angle'}},
   {{key:'s25_delta',label:'xw\u0394',w:50,tip:'xwOBA minus wOBA. Positive = underperforming (unlucky), negative = overperforming (lucky)'}}
 ];
 const pitCols25 = [
@@ -1682,8 +1688,8 @@ const allCols25 = [
   {{key:'s25_ip',label:'IP',w:45}}, {{key:'s25_era',label:'ERA',w:50}}, {{key:'s25_whip',label:'WHIP',w:55}},
   {{key:'s25_w',label:'W',w:38}}, {{key:'s25_sv',label:'SV',w:38}},
   {{key:'s25_hld',label:'HD',w:38}}, {{key:'s25_qs',label:'QS',w:38}},
-  {{key:'s25_barrel',label:'Brl%',w:48}}, {{key:'s25_hardhit',label:'HH%',w:48}},
-  {{key:'s25_woba',label:'wOBA',w:50}}, {{key:'s25_xwoba',label:'xwOBA',w:52}},
+  {{key:'s25_barrel',label:'Brl%',w:48,tip:'Barrel rate: optimal launch angle + exit velo'}}, {{key:'s25_hardhit',label:'HH%',w:48,tip:'Hard hit rate: 95+ mph exit velocity'}},
+  {{key:'s25_woba',label:'wOBA',w:50,tip:'Weighted On-Base Average'}}, {{key:'s25_xwoba',label:'xwOBA',w:52,tip:'Expected wOBA (Statcast)'}},
   {{key:'s25_delta',label:'xw\u0394',w:48,tip:'xwOBA minus wOBA. Positive = underperforming (unlucky), negative = overperforming (lucky)'}},
   {{key:'s25_stuff',label:'Stf+',w:48,tip:'Stuff+ measures pitch quality. 100=avg'}},
   {{key:'s25_loc',label:'Loc+',w:48,tip:'Location+. 100=avg'}},
@@ -1822,8 +1828,8 @@ const allCols = [
   {{key:'pnav',label:'PNAV',w:65,cls:'pnav-col',tip:'Positional Need-Adjusted Value = LCV × Position Multiplier × Scarcity Factor. Updates dynamically as you draft players and your positional needs change.'}},
   {{key:'upside',label:'Upside',w:65,cls:'pnav-col',tip:'UPSIDE = LCV × Age Factor. Raw value weighted by age — young players get boosted, older players penalized. Position-agnostic long-term ceiling.'}},
   {{key:'trend',label:'Trend',w:60,cls:'pnav-col',tip:trendTip}},
-  {{key:'s25_barrel',label:'Brl%',w:48}}, {{key:'s25_hardhit',label:'HH%',w:48}},
-  {{key:'s25_woba',label:'wOBA',w:50}}, {{key:'s25_xwoba',label:'xwOBA',w:52}},
+  {{key:'s25_barrel',label:'Brl%',w:48,tip:'Barrel rate: optimal launch angle + exit velo'}}, {{key:'s25_hardhit',label:'HH%',w:48,tip:'Hard hit rate: 95+ mph exit velocity'}},
+  {{key:'s25_woba',label:'wOBA',w:50,tip:'Weighted On-Base Average'}}, {{key:'s25_xwoba',label:'xwOBA',w:52,tip:'Expected wOBA (Statcast)'}},
   {{key:'s25_delta',label:'xw\u0394',w:48,tip:'xwOBA minus wOBA. Positive = underperforming (unlucky), negative = overperforming (lucky)'}},
   {{key:'s25_stuff',label:'Stf+',w:48,tip:'Stuff+ measures pitch quality. 100=avg'}},
   {{key:'s25_loc',label:'Loc+',w:48,tip:'Location+. 100=avg'}},
@@ -2167,7 +2173,7 @@ function renderFutures() {{
       {{key:'pos',label:'Pos',align:'center'}},
       {{key:'level',label:'Level',align:'center'}},
       {{key:'age',label:'Age',align:'center'}},
-      {{key:'fv',label:'FV',align:'center'}},
+      {{key:'fv',label:'FV',align:'center',tip:'Future Value grade (20-80 scouting scale)'}},
       {{key:'g_hit',label:'Hit',align:'center',tip:'Future hit tool (20-80)'}},
       {{key:'g_power',label:'Pwr',align:'center',tip:'Future game power (20-80)'}},
       {{key:'g_speed',label:'Spd',align:'center',tip:'Future speed/run tool (20-80)'}},
@@ -2175,11 +2181,11 @@ function renderFutures() {{
       {{key:'g_fb',label:'FB',align:'center',tip:'Future fastball grade (pitchers)'}},
       {{key:'g_secondary',label:'2nd',align:'center',tip:'Best future secondary pitch'}},
       {{key:'g_command',label:'Cmd',align:'center',tip:'Future command grade (pitchers)'}},
-      {{key:'fg_rank',label:'FG',align:'center'}},
-      {{key:'jb_rank',label:'JB',align:'center'}},
-      {{key:'bp_rank',label:'BP',align:'center'}},
-      {{key:'avg_rank_val',label:'Avg',align:'center'}},
-      {{key:'trend',label:'Trend',align:'center'}}
+      {{key:'fg_rank',label:'FG',align:'center',tip:'FanGraphs prospect ranking'}},
+      {{key:'jb_rank',label:'JB',align:'center',tip:'JustBaseball prospect ranking'}},
+      {{key:'bp_rank',label:'BP',align:'center',tip:'Baseball Prospectus ranking'}},
+      {{key:'avg_rank_val',label:'Avg',align:'center',tip:'Average rank across all sources'}},
+      {{key:'trend',label:'Trend',align:'center',tip:'Ranking trend vs. previous lists'}}
     ];
 
     // Sort state for Futures
@@ -2444,10 +2450,12 @@ function render() {{
   const q = document.getElementById('searchBox').value.toLowerCase();
   const draftFilter = document.getElementById('draftFilter').value;
   const tagFilter = document.getElementById('tagFilter').value;
+  const teamFilter = document.getElementById('teamFilter')?.value || 'all';
 
   let filtered = data.filter(p => {{
     if (q && !p.name.toLowerCase().includes(q) && !(p.team||'').toLowerCase().includes(q)) return false;
     if (filterPos !== 'ALL' && p.primaryPos !== filterPos && !p.pos.includes(filterPos)) return false;
+    if (teamFilter !== 'all' && p.team !== teamFilter) return false;
     if (draftFilter === 'available' && state.drafted[p.name]) return false;
     if (draftFilter === 'drafted' && !state.drafted[p.name]) return false;
     if (tagFilter === 'want' && state.tags[p.name] !== 'want') return false;
@@ -3268,6 +3276,63 @@ function renderRoster() {{
   // ── Compute LCV for this team ──
   const teamLCV = calcRosterLCV(teamPlayers, overrides);
 
+  // ── Trade target scoring (when viewing another team) ──
+  const tradeTargets = {{}};
+  if (!isMine) {{
+    // Compute my positional gaps using the same optimal assignment
+    const myPlayers = (state.myTeam || []).map(n => ALL.find(x => x.name === n)).filter(Boolean);
+    const myAssign = computeNeedsForTeam ? computeNeedsForTeam(myPlayers) : {{}};
+    const myGaps = {{}};
+    for (const [pos, slots] of Object.entries(ROSTER_SLOTS)) {{
+      const myTop = (myAssign[pos] || []);
+      const myAvg = myTop.length > 0 ? myTop.reduce((s,p) => s+(p.lcv||0),0)/myTop.length : 0;
+      // League avg at this position
+      const lAvgs = [];
+      LEAGUE_TEAMS.filter(t => !t.mine).forEach(t => {{
+        const tPl = (state.leagueTeams[t.name]||[]).map(n => ALL.find(x => x.name === n)).filter(Boolean);
+        const tAs = computeNeedsForTeam ? computeNeedsForTeam(tPl) : {{}};
+        const tTop = tAs[pos] || [];
+        if (tTop.length > 0) lAvgs.push(tTop.reduce((s,p)=>s+(p.lcv||0),0)/tTop.length);
+      }});
+      const lAvg = lAvgs.length > 0 ? lAvgs.reduce((s,v)=>s+v,0)/lAvgs.length : 0;
+      myGaps[pos] = myAvg - lAvg; // negative = I need this position
+    }};
+
+    // Score each player on this team
+    teamPlayers.forEach(name => {{
+      const p = ALL.find(x => x.name === name);
+      if (!p) return;
+      const ki = getKeeperInfo(name);
+      const positions = (p.pos || p.primaryPos || '').split('/');
+
+      // Position need score: how badly I need this player's position(s)
+      // Use the WORST (most negative) gap across eligible positions
+      let bestNeed = 0;
+      positions.forEach(pos => {{
+        const gap = myGaps[pos];
+        if (gap !== undefined && gap < bestNeed) bestNeed = gap;
+      }});
+      // Also consider DH for hitters
+      if (!['SP','RP'].includes(p.primaryPos) && myGaps['DH'] < bestNeed) bestNeed = myGaps['DH'];
+
+      // Keeper value score: keepable + affordable + years left
+      let keeperScore = 0;
+      if (ki.keepable2027) {{
+        keeperScore = (ki.yearsLeft || 0) * 0.3 + Math.max(0, ki.surplusNow || 0) * 0.2;
+      }}
+
+      // Trade fit = position need (inverted, bigger gap = higher score) + moderate LCV + keeper value
+      // Don't just pick superstars: weight need heavily, LCV moderately
+      const needScore = Math.max(0, -bestNeed) * 1.5; // bigger gap = higher score
+      const lcvScore = Math.min((p.lcv || 0) * 0.15, 2.0); // cap LCV contribution
+      const fitScore = needScore + lcvScore + keeperScore;
+
+      if (fitScore > 0.8) {{ // threshold to avoid highlighting everyone
+        tradeTargets[name] = {{ score: fitScore, needPos: positions.find(pos => myGaps[pos] < -0.5) || positions[0], gap: bestNeed }};
+      }}
+    }});
+  }}
+
   // ── Build compact table row ──
   function pRow(p, slot, tag) {{
     if (!p) return `<tr class="roster-section" data-slot="${{slot}}" style="opacity:0.3;"><td style="padding:3px 6px;font-weight:600;width:30px;">${{slot}}</td><td colspan="11" style="padding:3px 6px;color:var(--text2);">—</td></tr>`;
@@ -3294,9 +3359,14 @@ function renderRoster() {{
     const tv = mys + pv;
     const tvClr = tv > 3 ? 'var(--green)' : tv > 0 ? 'var(--text)' : 'var(--text2)';
     const tvTd = `<td style="padding:3px 4px;text-align:right;font-size:10px;color:${{tvClr}};font-weight:600;">${{tv.toFixed(1)}}</td>`;
-    return `<tr class="roster-row" draggable="true" data-player="${{dn}}" style="border-left:3px solid ${{c}};cursor:grab;">` +
+    // Trade target highlight
+    const tt = tradeTargets[p.name];
+    const ttBg = tt ? 'background:rgba(234,179,8,0.08);' : '';
+    const ttBadge = tt ? `<span style="font-size:8px;background:rgba(234,179,8,0.8);color:#000;padding:1px 4px;border-radius:2px;margin-left:4px;font-weight:600;" title="Trade target: fills your ${{tt.needPos}} gap (fit score ${{tt.score.toFixed(1)}})">TARGET</span>` : '';
+
+    return `<tr class="roster-row" draggable="true" data-player="${{dn}}" style="border-left:3px solid ${{c}};cursor:grab;${{ttBg}}">` +
       `<td style="padding:3px 6px;font-weight:600;width:32px;font-size:11px;white-space:nowrap;">${{slot||''}}</td>` +
-      `<td style="padding:3px 6px;font-weight:600;font-size:12px;white-space:nowrap;">${{p.name}}${{natPos}}</td>` +
+      `<td style="padding:3px 6px;font-weight:600;font-size:12px;white-space:nowrap;">${{p.name}}${{natPos}}${{ttBadge}}</td>` +
       `<td style="padding:3px 4px;font-size:10px;white-space:nowrap;">${{kTag||''}}</td>` +
       `<td style="padding:3px 4px;font-size:11px;color:var(--text2);white-space:nowrap;">${{p.team||''}}</td>` +
       `<td style="padding:3px 4px;font-size:11px;white-space:nowrap;">${{(p.pos||p.primaryPos||'').replace(/\\//g,', ')}}</td>` +
@@ -3353,8 +3423,8 @@ function renderRoster() {{
     {{key:'_cost2027',label:'Keeper',align:'center',tip:'Keeper round → 2027 cost'}},
     {{key:'team',label:'Team',align:'left'}},
     {{key:'pos',label:'Elig',align:'left'}},
-    {{key:'lcv',label:'LCV',align:'right'}},
-    {{key:'pnav',label:'PNAV',align:'right'}},
+    {{key:'lcv',label:'LCV',align:'right',tip:'League Category Value: sum of z-scores across 8 league categories'}},
+    {{key:'pnav',label:'PNAV',align:'right',tip:'Positional Need-Adjusted Value: LCV weighted by positional scarcity'}},
     {{key:'age',label:'Age',align:'right'}},
     {{key:'_yrsCtrl',label:'Yrs',align:'center',tip:'Years of control remaining'}},
     {{key:'_surplus',label:'Surp',align:'right',tip:'Current surplus value'}},
@@ -3514,6 +3584,11 @@ function renderRoster() {{
   html += '</div>';
   html += '<div id="tradeGetPickList" style="margin-top:4px;"></div>';
   html += '</div>';
+  html += '</div>';
+  // Suggested targets section
+  html += '<div style="margin-top:8px;">';
+  html += '<div id="tradeSuggestToggle" style="cursor:pointer;font-size:11px;color:var(--accent);font-weight:600;user-select:none;">▶ Suggested targets based on your needs</div>';
+  html += '<div id="tradeSuggestPanel" style="display:none;margin-top:6px;padding:6px;background:var(--bg);border-radius:4px;max-height:220px;overflow-y:auto;"></div>';
   html += '</div>';
   // Trade summary
   html += '<div id="tradeSummary" style="margin-top:8px;padding:6px;background:var(--bg);border-radius:4px;font-size:11px;display:none;"></div>';
@@ -3996,6 +4071,126 @@ function renderRoster() {{
   }}
   renderPickList('tradeGivePickList', state._tradeGivePicks, 'give');
   renderPickList('tradeGetPickList', state._tradeGetPicks, 'get');
+
+  // ── Suggested Targets ──
+  const sugToggle = document.getElementById('tradeSuggestToggle');
+  const sugPanel = document.getElementById('tradeSuggestPanel');
+  if (sugToggle && sugPanel) {{
+    sugToggle.addEventListener('click', () => {{
+      const open = sugPanel.style.display !== 'none';
+      sugPanel.style.display = open ? 'none' : 'block';
+      sugToggle.textContent = (open ? '▶' : '▼') + ' Suggested targets based on your needs';
+      if (!open) renderSuggestions();
+    }});
+  }}
+
+  function renderSuggestions() {{
+    if (!sugPanel) return;
+    // Compute my positional needs
+    const myPl2 = (state.myTeam || []).map(n => ALL.find(x => x.name === n)).filter(Boolean);
+    const myAssigned2 = computeNeedsForTeam(myPl2);
+    const myNeeds2 = {{}};
+    for (const [pos, slots] of Object.entries(ROSTER_SLOTS)) {{
+      const top = myAssigned2[pos] || [];
+      const avgLcv = top.length > 0 ? top.reduce((s,p) => s + (p.lcv||0), 0) / top.length : 0;
+      const leagueAvgs = [];
+      LEAGUE_TEAMS.filter(t => !t.mine).forEach(t => {{
+        const tPl = (state.leagueTeams[t.name]||[]).map(n => ALL.find(x => x.name === n)).filter(Boolean);
+        const tA = computeNeedsForTeam(tPl);
+        const tTop = tA[pos] || [];
+        if (tTop.length > 0) leagueAvgs.push(tTop.reduce((s,p)=>s+(p.lcv||0),0)/tTop.length);
+      }});
+      const leagueAvg = leagueAvgs.length > 0 ? leagueAvgs.reduce((s,v)=>s+v,0)/leagueAvgs.length : 0;
+      myNeeds2[pos] = avgLcv - leagueAvg;
+    }}
+
+    // Score all players on other teams
+    const candidates = [];
+    LEAGUE_TEAMS.filter(t => !t.mine).forEach(t => {{
+      const roster = state.leagueTeams[t.name] || [];
+      roster.forEach(name => {{
+        const p = ALL.find(x => x.name === name);
+        if (!p) return;
+        // Skip players already in trade lists
+        if ((state._tradeGet||[]).includes(name) || (state._tradeGive||[]).includes(name)) return;
+        const positions = (p.pos || p.primaryPos || '').split('/');
+        let bestNeed = 99;
+        let needPos = '';
+        positions.forEach(pos => {{
+          if (myNeeds2[pos] !== undefined && myNeeds2[pos] < bestNeed) {{
+            bestNeed = myNeeds2[pos]; needPos = pos;
+          }}
+        }});
+        // DH fallback
+        if (!['SP','RP'].includes(p.primaryPos) && myNeeds2['DH'] !== undefined && myNeeds2['DH'] < bestNeed) {{
+          bestNeed = myNeeds2['DH']; needPos = 'DH';
+        }}
+
+        const ki = getKeeperInfo(name);
+        const keeperScore = ki.keepable2027 ? Math.min(Math.max(0, ki.multiYearSurplus) * 0.3, 2.0) : 0;
+        const needScore = Math.max(0, -bestNeed) * 1.2;
+        const lcvScore = Math.min((p.lcv || 0) * 0.12, 1.5);
+        const fitScore = needScore + lcvScore + keeperScore;
+
+        if (fitScore > 0.5) {{
+          candidates.push({{ name, pos: needPos, gap: bestNeed, score: fitScore, lcv: p.lcv||0, team: t.name, ki, primaryPos: p.primaryPos }});
+        }}
+      }});
+    }});
+
+    candidates.sort((a,b) => b.score - a.score);
+    const top12 = candidates.slice(0, 12);
+
+    if (top12.length === 0) {{
+      sugPanel.innerHTML = '<div style="font-size:10px;color:var(--text2);padding:4px;">No strong trade targets found based on your current roster needs.</div>';
+      return;
+    }}
+
+    let sh = '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Click a player to add them to "I Get"</div>';
+    sh += '<table style="width:100%;font-size:10px;border-collapse:collapse;">';
+    sh += '<tr style="color:var(--text2);font-size:9px;"><th style="text-align:left;padding:2px 3px;">Player</th><th style="text-align:left;padding:2px 3px;">Team</th><th style="text-align:center;padding:2px 3px;">Fills</th><th style="text-align:right;padding:2px 3px;">LCV</th><th style="text-align:center;padding:2px 3px;">Keeper</th><th style="text-align:right;padding:2px 3px;">Fit</th></tr>';
+    top12.forEach(c => {{
+      const keepStr = c.ki.keepable2027 ? `R${{c.ki.cost2027}} (${{c.ki.yearsLeft}}yr)` : '<span style="color:var(--red);">N/A</span>';
+      const gapStr = c.gap < -1 ? '<span style="color:var(--red);">⚠</span>' : '';
+      sh += `<tr class="trade-suggest-row" data-name="${{encodeURIComponent(c.name)}}" style="cursor:pointer;border-bottom:1px solid var(--border);" onmouseover="this.style.background='rgba(234,179,8,0.1)'" onmouseout="this.style.background=''">`;
+      sh += `<td style="padding:3px;font-weight:600;">${{c.name}}</td>`;
+      sh += `<td style="padding:3px;color:var(--text2);">${{c.team}}</td>`;
+      sh += `<td style="text-align:center;padding:3px;">${{c.pos}} ${{gapStr}}</td>`;
+      sh += `<td style="text-align:right;padding:3px;">${{c.lcv.toFixed(1)}}</td>`;
+      sh += `<td style="text-align:center;padding:3px;">${{keepStr}}</td>`;
+      sh += `<td style="text-align:right;padding:3px;font-weight:600;color:var(--accent);">${{c.score.toFixed(1)}}</td>`;
+      sh += '</tr>';
+    }});
+    sh += '</table>';
+    sugPanel.innerHTML = sh;
+
+    // Wire click-to-add
+    sugPanel.querySelectorAll('.trade-suggest-row').forEach(row => {{
+      row.addEventListener('click', () => {{
+        const nm = decodeURIComponent(row.dataset.name);
+        if (!(state._tradeGet||[]).includes(nm)) {{
+          state._tradeGet.push(nm);
+          // Re-render the "I Get" list
+          const listDiv = document.getElementById('tradeGetList');
+          if (listDiv) {{
+            listDiv.innerHTML = state._tradeGet.map(n => tradePlayerTag(n)).join('');
+            listDiv.querySelectorAll('.trade-remove').forEach(btn => {{
+              btn.addEventListener('click', () => {{
+                const n2 = decodeURIComponent(btn.dataset.name);
+                const idx = state._tradeGet.indexOf(n2); if (idx >= 0) state._tradeGet.splice(idx, 1);
+                // Re-trigger full re-render by calling wireTradeInput pattern
+                listDiv.innerHTML = state._tradeGet.map(n3 => tradePlayerTag(n3)).join('');
+                updateTradeSummary();
+              }});
+            }});
+          }}
+          updateTradeSummary();
+          renderSuggestions(); // refresh to remove added player
+        }}
+      }});
+    }});
+  }}
+
   updateTradeSummary();
   }}
 }}
@@ -5372,6 +5567,13 @@ document.querySelectorAll('.view-btn').forEach(btn => {{
 document.getElementById('searchBox').addEventListener('input', render);
 document.getElementById('draftFilter').addEventListener('change', render);
 document.getElementById('tagFilter').addEventListener('change', render);
+// Populate team filter dropdown with all MLB teams
+(() => {{
+  const tf = document.getElementById('teamFilter');
+  const teams = [...new Set(ALL.map(p => p.team).filter(Boolean))].sort();
+  teams.forEach(t => {{ const o = document.createElement('option'); o.value = t; o.textContent = t; tf.appendChild(o); }});
+  tf.addEventListener('change', render);
+}})();
 document.addEventListener('click', e => {{
   if (!e.target.closest('.autocomplete') && !e.target.closest('.draft-input')) draftAC.style.display = 'none';
 }});
