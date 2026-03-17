@@ -2098,7 +2098,7 @@ function renderTransactions() {{
   html += '<h2 style="font-size:18px;font-weight:700;">League Transactions</h2>';
   html += '<div style="display:flex;gap:8px;align-items:center;">';
   html += `<span style="font-size:10px;color:var(--text2);">Updated: ${{TXN_BUILD_TIME}}</span>`;
-  html += '<a href="https://dpf.baseball.cbssports.com/transactions" target="_blank" class="btn btn-secondary" style="padding:4px 10px;font-size:11px;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">↻ Check CBS</a>';
+  html += '<button id="checkCbsBtn" class="btn btn-secondary" style="padding:4px 10px;font-size:11px;display:inline-flex;align-items:center;gap:4px;cursor:pointer;">↻ Check CBS</button>';
   html += '</div></div>';
 
   // Filter controls
@@ -2189,6 +2189,55 @@ function renderTransactions() {{
   }};
   if (teamFilter) teamFilter.addEventListener('change', applyFilters);
   if (typeFilter) typeFilter.addEventListener('change', applyFilters);
+
+  // Wire Check CBS button — fetch latest transactions from GitHub
+  const checkBtn = document.getElementById('checkCbsBtn');
+  if (checkBtn) checkBtn.addEventListener('click', async () => {{
+    checkBtn.disabled = true;
+    checkBtn.textContent = '↻ Checking...';
+    try {{
+      const resp = await fetch('https://raw.githubusercontent.com/Mark-Pytlik/dpf-dashboard/main/data/cbs_transactions.json?t=' + Date.now());
+      if (!resp.ok) throw new Error('Fetch failed: ' + resp.status);
+      const latest = await resp.json();
+      // Find new transactions not in baked-in data
+      const existingKeys = new Set(CBS_TRANSACTIONS.map(t => t.date + '|' + t.teamId + '|' + t.players.map(p => p.name).join(',')));
+      const newTxns = latest.filter(t => !existingKeys.has(t.date + '|' + t.teamId + '|' + t.players.map(p => p.name).join(',')));
+      if (newTxns.length === 0) {{
+        checkBtn.textContent = '✓ Up to date';
+        setTimeout(() => {{ checkBtn.textContent = '↻ Check CBS'; checkBtn.disabled = false; }}, 2000);
+        return;
+      }}
+      // Merge new transactions and apply to rosters
+      CBS_TRANSACTIONS.unshift(...newTxns);
+      const sorted = [...newTxns].sort((a,b) => parseCbsDate(a.date) - parseCbsDate(b.date));
+      sorted.forEach(txn => {{
+        const teamName = resolveCbsTeam(txn);
+        txn.players.forEach(p => {{
+          const found = ALL.find(x => x.name === p.name) || ALL.find(x => x.name.toLowerCase() === p.name.toLowerCase());
+          const playerName = found ? found.name : p.name;
+          const action = p.action || '';
+          if (action === 'Added') {{
+            addToRoster(playerName, teamName);
+          }} else if (action === 'Dropped') {{
+            removeFromRoster(playerName, teamName);
+            delete state.drafted[playerName];
+          }} else if (action.startsWith('Traded from')) {{
+            const srcDisplayName = action.replace('Traded from ', '');
+            const srcTeam = CBS_NAME_TO_LEAGUE[srcDisplayName] || srcDisplayName;
+            removeFromRoster(playerName, srcTeam);
+            addToRoster(playerName, teamName);
+          }}
+        }});
+      }});
+      save();
+      checkBtn.textContent = `✓ ${{newTxns.length}} new`;
+      setTimeout(() => {{ renderTransactions(); }}, 1500);
+    }} catch (err) {{
+      console.error('Check CBS error:', err);
+      checkBtn.textContent = '✗ Error';
+      setTimeout(() => {{ checkBtn.textContent = '↻ Check CBS'; checkBtn.disabled = false; }}, 2000);
+    }}
+  }});
 }}
 
 // ── Prospect lookup ────────────────────────────────────────────────────────
