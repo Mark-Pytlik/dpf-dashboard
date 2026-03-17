@@ -1186,52 +1186,6 @@ function parseCbsDate(s) {{
   return new Date(d).getTime() || 0;
 }}
 
-// Always apply ALL CBS transactions on every load.
-// LIVE_PICKS above unconditionally re-adds drafted players to rosters,
-// so we must unconditionally re-apply transactions (trades, adds, drops)
-// to keep rosters correct. Without this, traded players reappear on their
-// original teams on every page load.
-if (CBS_TRANSACTIONS.length > 0) {{
-  // Process oldest-first so roster state builds up correctly
-  const sorted = [...CBS_TRANSACTIONS].sort((a,b) => parseCbsDate(a.date) - parseCbsDate(b.date));
-  sorted.forEach(txn => {{
-    const teamName = resolveCbsTeam(txn);
-    txn.players.forEach(p => {{
-      const found = ALL.find(x => x.name === p.name) || ALL.find(x => x.name.toLowerCase() === p.name.toLowerCase());
-      const playerName = found ? found.name : p.name;
-      const action = p.action || '';
-
-      if (action === 'Added') {{
-        addToRoster(playerName, teamName);
-      }} else if (action === 'Dropped') {{
-        removeFromRoster(playerName, teamName);
-        delete state.drafted[playerName];
-      }} else if (action.startsWith('Traded from')) {{
-        const srcDisplayName = action.replace('Traded from ', '');
-        const srcTeam = CBS_NAME_TO_LEAGUE[srcDisplayName] || srcDisplayName;
-        removeFromRoster(playerName, srcTeam);
-        addToRoster(playerName, teamName);
-      }}
-    }});
-  }});
-
-  // Rebuild transaction log from CBS data
-  state.transactions = [];
-  sorted.forEach(txn => {{
-    const teamName = resolveCbsTeam(txn);
-    txn.players.forEach(p => {{
-      const action = p.action || '';
-      let txType = 'add';
-      if (action === 'Dropped') txType = 'drop';
-      else if (action.startsWith('Traded from')) txType = 'trade';
-      state.transactions.push({{ type: txType, player: p.name, date: txn.date.split(' ')[0], from: teamName, source: 'CBS' }});
-    }});
-  }});
-
-  save();
-  console.log(`Applied ${{CBS_TRANSACTIONS.length}} CBS transactions`);
-}}
-
 // ── LIVE DRAFT PICKS (injected from CBS draft room) ─────────────────────
 // t: team pick position: 1=choured, 2=FJK(mine), 3=Turang, 4=Whoop, 5=LilT, 6=PCA, 7=Houcks, 8=Nolan, 9=Misi, 10=Crash, 11=Eno, 12=Psycho
 const _TEAM_MAP = {{1:'choured in the usa.',2:'Father Jhon Kensy',3:'Turangerine Dream',4:"Whoop Whoop that\\'s the sound of Dylan Cease",5:'Lil Thumpers',6:'A Pete Crow-Armstrong Looked at Me',7:'Dinosaur Jr Caminero',8:"No men in Nolan\\'s land",9:'Misiorowski Business',10:'Buddy Buddy Buddy All On Base',11:'Are we not men? We are Devers!',12:"Psycho Keller, Qu\\'est-ce que Cey"}};
@@ -1409,6 +1363,50 @@ for (const [teamName, rookies] of Object.entries(DEFAULT_LEAGUE_MILB_KEEPERS)) {
   }});
 }}
 save();
+
+// ── Apply CBS Transactions AFTER LIVE_PICKS ──────────────────────────────
+// LIVE_PICKS above unconditionally re-adds all drafted players to rosters.
+// We must apply CBS transactions (trades, adds, drops) AFTER that so trades
+// properly remove players from their original teams.
+if (CBS_TRANSACTIONS.length > 0) {{
+  const sorted = [...CBS_TRANSACTIONS].sort((a,b) => parseCbsDate(a.date) - parseCbsDate(b.date));
+  sorted.forEach(txn => {{
+    const teamName = resolveCbsTeam(txn);
+    txn.players.forEach(p => {{
+      const found = ALL.find(x => x.name === p.name) || ALL.find(x => x.name.toLowerCase() === p.name.toLowerCase());
+      const playerName = found ? found.name : p.name;
+      const action = p.action || '';
+
+      if (action === 'Added') {{
+        addToRoster(playerName, teamName);
+      }} else if (action === 'Dropped') {{
+        removeFromRoster(playerName, teamName);
+        delete state.drafted[playerName];
+      }} else if (action.startsWith('Traded from')) {{
+        const srcDisplayName = action.replace('Traded from ', '');
+        const srcTeam = CBS_NAME_TO_LEAGUE[srcDisplayName] || srcDisplayName;
+        removeFromRoster(playerName, srcTeam);
+        addToRoster(playerName, teamName);
+      }}
+    }});
+  }});
+
+  // Rebuild transaction log from CBS data
+  state.transactions = [];
+  sorted.forEach(txn => {{
+    const teamName = resolveCbsTeam(txn);
+    txn.players.forEach(p => {{
+      const action = p.action || '';
+      let txType = 'add';
+      if (action === 'Dropped') txType = 'drop';
+      else if (action.startsWith('Traded from')) txType = 'trade';
+      state.transactions.push({{ type: txType, player: p.name, date: txn.date.split(' ')[0], from: teamName, source: 'CBS' }});
+    }});
+  }});
+
+  save();
+  console.log(`Applied ${{CBS_TRANSACTIONS.length}} CBS transactions`);
+}}
 
 // ── Sleepers & Busts buzz from expert articles ───────────────────────────
 const BUZZ = {{
