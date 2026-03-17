@@ -1117,51 +1117,123 @@ const save = () => localStorage.setItem('dpf2026', JSON.stringify(state));
 const MY_TEAM = LEAGUE_TEAMS.find(t => t.mine);
 
 // ── Apply CBS Transactions to rosters ───────────────────────────────────
-// CBS team ID → team name mapping
-const CBS_TEAM_MAP = {{1:'Dennis Santana - Smooth ft. Rob Thomas',2:'Dinosaur Jr Caminero',3:'choured in the usa.',4:'Father Jhon Kensy',5:'Buddy Buddy Buddy All On Base',6:'A Pete Crow-Armstrong Looked at Me',7:"Whoop Whoop that\\'s the sound of Dylan Cease",8:"Psycho Keller, Qu\\'est-ce que Cey",9:'Yesavage Garden',10:"No men in Nolan\\'s land",11:'Are we not men? We are Devers!',12:'Popped A Mahle I\\'m Sweating'}};
+// CBS team names (which change frequently) → LEAGUE_TEAMS name mapping
+// CBS teamId is stable; CBS team display names may differ from LEAGUE_TEAMS names
+const CBS_ID_TO_LEAGUE = {{}};
+// Map CBS team names to league team names by matching known CBS team IDs to LEAGUE_TEAMS
+// CBS IDs: 1=Kaskie's renamed team, 2=Rescan, 3=Kaskie, 4=Pytlik, 5=Brundrett, 6=Wolfe,
+//          7=Gaerig, 8=Dennewitz, 9=Murphy's renamed team, 10=Azar, 11=Sarris, 12=Dennewitz's renamed team
+const CBS_TEAM_MAP = {{
+  1: LEAGUE_TEAMS.find(t => t.owner === 'David Roth')?.name || 'Turangerine Dream',
+  2: LEAGUE_TEAMS.find(t => t.owner === 'Anthony Rescan')?.name || 'Dinosaur Jr Caminero',
+  3: LEAGUE_TEAMS.find(t => t.owner === 'Chris Kaskie')?.name || 'choured in the usa.',
+  4: LEAGUE_TEAMS.find(t => t.mine)?.name || 'Father Jhon Kensy',
+  5: LEAGUE_TEAMS.find(t => t.owner === 'Trei Brundrett')?.name || 'Buddy Buddy Buddy All On Base',
+  6: LEAGUE_TEAMS.find(t => t.owner === 'Ian Wolfe')?.name || 'A Pete Crow-Armstrong Looked at Me',
+  7: LEAGUE_TEAMS.find(t => t.owner === 'Andrew Gaerig')?.name || "Whoop Whoop that's the sound of Dylan Cease",
+  8: LEAGUE_TEAMS.find(t => t.owner === 'Matt Dennewitz')?.name || "Psycho Keller, Qu'est-ce que Cey",
+  9: LEAGUE_TEAMS.find(t => t.owner === 'Blake Murphy')?.name || 'Misiorowski Business',
+  10: LEAGUE_TEAMS.find(t => t.owner === 'Mark Azar')?.name || "No men in Nolan's land",
+  11: LEAGUE_TEAMS.find(t => t.owner === 'Eno Sarris')?.name || 'Are we not men? We are Devers!',
+  12: LEAGUE_TEAMS.find(t => t.owner === 'Fran Devinney')?.name || 'Lil Thumpers'
+}};
+// Also build reverse lookup: CBS display team name → league team name
+const CBS_NAME_TO_LEAGUE = {{}};
+for (const [id, name] of Object.entries(CBS_TEAM_MAP)) CBS_NAME_TO_LEAGUE[name] = name;
+// Map known CBS display names that differ from LEAGUE_TEAMS names
+CBS_TRANSACTIONS.forEach(txn => {{
+  if (txn.teamId && CBS_TEAM_MAP[txn.teamId]) CBS_NAME_TO_LEAGUE[txn.team] = CBS_TEAM_MAP[txn.teamId];
+}});
+
+function resolveCbsTeam(txn) {{
+  if (txn.teamId && CBS_TEAM_MAP[txn.teamId]) return CBS_TEAM_MAP[txn.teamId];
+  if (CBS_NAME_TO_LEAGUE[txn.team]) return CBS_NAME_TO_LEAGUE[txn.team];
+  return txn.team;
+}}
+
+function addToRoster(playerName, teamName) {{
+  const isMine = LEAGUE_TEAMS.find(t => t.name === teamName && t.mine);
+  if (isMine) {{
+    if (!state.myTeam.includes(playerName)) state.myTeam.push(playerName);
+  }} else {{
+    if (!state.leagueTeams[teamName]) state.leagueTeams[teamName] = [];
+    if (!state.leagueTeams[teamName].includes(playerName)) state.leagueTeams[teamName].push(playerName);
+  }}
+  if (!state.drafted[playerName]) state.drafted[playerName] = {{ time: Date.now(), mine: !!isMine }};
+}}
+
+function removeFromRoster(playerName, teamName) {{
+  const isMine = LEAGUE_TEAMS.find(t => t.name === teamName && t.mine);
+  if (isMine) {{
+    state.myTeam = state.myTeam.filter(n => n !== playerName);
+  }} else if (state.leagueTeams[teamName]) {{
+    state.leagueTeams[teamName] = state.leagueTeams[teamName].filter(n => n !== playerName);
+  }}
+}}
+
+function removeFromAllRosters(playerName) {{
+  state.myTeam = state.myTeam.filter(n => n !== playerName);
+  for (const tkey of Object.keys(state.leagueTeams)) {{
+    state.leagueTeams[tkey] = state.leagueTeams[tkey].filter(n => n !== playerName);
+  }}
+}}
+
+// Parse CBS date strings reliably for comparison
+function parseCbsDate(s) {{
+  if (!s) return 0;
+  let d = s.replace(/\\s*ET\\s*$/, '').trim();
+  d = d.replace(/^(\\d{{1,2}})\/(\\d{{1,2}})\/(\\d{{2}})\\b/, (m,mo,dy,yr) => `${{mo}}/${{dy}}/20${{yr}}`);
+  return new Date(d).getTime() || 0;
+}}
+
 if (CBS_TRANSACTIONS.length > 0) {{
-  // Track last-applied transaction date so we don't re-process
-  const lastApplied = state._lastTxnDate || '';
+  const lastAppliedTs = state._lastTxnTs || 0;
   const newTxns = [];
-  CBS_TRANSACTIONS.forEach(txn => {{
-    if (txn.date <= lastApplied) return;
-    const teamName = CBS_TEAM_MAP[txn.teamId] || txn.team;
-    const isMine = (txn.teamId === 4);
+
+  // Process oldest-first so roster state builds up correctly
+  const sorted = [...CBS_TRANSACTIONS].sort((a,b) => parseCbsDate(a.date) - parseCbsDate(b.date));
+  sorted.forEach(txn => {{
+    const txnTs = parseCbsDate(txn.date);
+    if (txnTs <= lastAppliedTs) return;
+    const teamName = resolveCbsTeam(txn);
+
     txn.players.forEach(p => {{
       // Fuzzy match player name to pool
       const found = ALL.find(x => x.name === p.name) || ALL.find(x => x.name.toLowerCase() === p.name.toLowerCase());
       const playerName = found ? found.name : p.name;
-      if (p.action === 'Added') {{
-        // Add to team roster
-        if (isMine) {{
-          if (!state.myTeam.includes(playerName)) state.myTeam.push(playerName);
-        }} else {{
-          if (!state.leagueTeams[teamName]) state.leagueTeams[teamName] = [];
-          if (!state.leagueTeams[teamName].includes(playerName)) state.leagueTeams[teamName].push(playerName);
-        }}
-        if (!state.drafted[playerName]) state.drafted[playerName] = {{ time: Date.now(), mine: isMine }};
-      }} else if (p.action === 'Dropped') {{
-        // Remove from team roster
-        if (isMine) {{
-          state.myTeam = state.myTeam.filter(n => n !== playerName);
-        }} else if (state.leagueTeams[teamName]) {{
-          state.leagueTeams[teamName] = state.leagueTeams[teamName].filter(n => n !== playerName);
-        }}
+      const action = p.action || '';
+
+      if (action === 'Added') {{
+        addToRoster(playerName, teamName);
+      }} else if (action === 'Dropped') {{
+        removeFromRoster(playerName, teamName);
         delete state.drafted[playerName];
+      }} else if (action.startsWith('Traded from')) {{
+        // "Traded from <source team name>" — player moves TO this txn's team FROM the named source
+        const srcDisplayName = action.replace('Traded from ', '');
+        const srcTeam = CBS_NAME_TO_LEAGUE[srcDisplayName] || srcDisplayName;
+        removeFromRoster(playerName, srcTeam);
+        addToRoster(playerName, teamName);
       }}
     }});
     newTxns.push(txn);
   }});
+
   if (newTxns.length > 0) {{
-    // Update transaction log
     if (!state.transactions) state.transactions = [];
     newTxns.forEach(txn => {{
-      const teamName = CBS_TEAM_MAP[txn.teamId] || txn.team;
+      const teamName = resolveCbsTeam(txn);
       txn.players.forEach(p => {{
-        state.transactions.push({{ type: p.action === 'Added' ? 'add' : 'drop', player: p.name, date: txn.date.split(' ')[0], from: teamName, source: 'CBS' }});
+        const action = p.action || '';
+        let txType = 'add';
+        if (action === 'Dropped') txType = 'drop';
+        else if (action.startsWith('Traded from')) txType = 'trade';
+        state.transactions.push({{ type: txType, player: p.name, date: txn.date.split(' ')[0], from: teamName, source: 'CBS' }});
       }});
     }});
-    state._lastTxnDate = CBS_TRANSACTIONS[0].date; // newest first
+    // Store timestamp of newest applied transaction
+    const newestTs = Math.max(...newTxns.map(t => parseCbsDate(t.date)));
+    state._lastTxnTs = newestTs;
     save();
     console.log(`Applied ${{newTxns.length}} CBS transactions`);
   }}
@@ -2046,7 +2118,7 @@ function renderTransactions() {{
   }});
   html += '</select>';
   html += '<select id="txnTypeFilter" style="padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-size:12px;">';
-  html += '<option value="all">All Types</option><option value="Added">Adds</option><option value="Dropped">Drops</option></select>';
+  html += '<option value="all">All Types</option><option value="Added">Adds</option><option value="Dropped">Drops</option><option value="Traded">Trades</option></select>';
   html += `<span style="margin-left:auto;font-size:11px;color:var(--text2);">${{allTxns.length}} moves</span>`;
   html += '</div>';
 
@@ -2076,13 +2148,15 @@ function renderTransactions() {{
   allTxns.sort((a, b) => parseTxDate(b.date) - parseTxDate(a.date));
 
   allTxns.forEach((tx, idx) => {{
+    const isTrade = (tx.action || '').startsWith('Traded');
     const actionColor = tx.action === 'Added' ? 'var(--green)' : tx.action === 'Dropped' ? 'var(--red)' : 'var(--accent)';
     const actionIcon = tx.action === 'Added' ? '+' : tx.action === 'Dropped' ? '−' : '↔';
     const player = ALL.find(p => p.name === tx.player) || ALL.find(p => p.name.toLowerCase() === tx.player.toLowerCase());
     const lcv = player ? player.lcv.toFixed(1) : '—';
     const isMine = (tx.teamId === 4) || tx.team === 'Father Jhon Kensy';
     const rowBg = isMine ? 'rgba(74,107,255,0.06)' : (idx % 2 === 0 ? 'transparent' : 'var(--surface)');
-    html += `<tr class="txn-row" data-team="${{tx.team}}" data-action="${{tx.action}}" style="background:${{rowBg}};">`;
+    const filterAction = isTrade ? 'Traded' : tx.action;
+    html += `<tr class="txn-row" data-team="${{tx.team}}" data-action="${{filterAction}}" style="background:${{rowBg}};">`;
     html += `<td style="padding:8px 12px;font-size:12px;color:var(--text2);white-space:nowrap;">${{tx.date}}</td>`;
     html += `<td style="padding:8px 12px;font-size:12px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${{tx.team}}">${{tx.team}}</td>`;
     html += `<td style="padding:8px 12px;font-size:13px;font-weight:700;color:${{actionColor}};">${{actionIcon}} ${{tx.action}}</td>`;
