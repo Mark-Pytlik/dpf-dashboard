@@ -1693,11 +1693,20 @@ function renderFutures() {
       const q = document.getElementById('prospectSearch')?.value.toLowerCase() || '';
       const availFilter = document.getElementById('prospectAvailFilter')?.value || 'all';
       state._prospectAvail = availFilter;
-      // Build set of rostered prospect names (drafted + on any league team + my MiLB)
+      // Build set of rostered prospect names (drafted + on any league team + my MiLB + league rookies)
       const rosteredNames = new Set();
       Object.keys(state.drafted || {}).forEach(n => rosteredNames.add(n));
       (state.milbKeepers || []).forEach(n => rosteredNames.add(n));
+      (state.myTeam || []).forEach(n => rosteredNames.add(n));
       Object.values(state.leagueTeams || {}).forEach(arr => (arr||[]).forEach(n => rosteredNames.add(n)));
+      // Also include LEAGUE_ROOKIES — resolve short/partial names via findProspect
+      for (const tkey in LEAGUE_ROOKIES) {
+        (LEAGUE_ROOKIES[tkey] || []).forEach(rn => {
+          rosteredNames.add(rn);
+          const pr = findProspect(rn);
+          if (pr) rosteredNames.add(pr.name);
+        });
+      }
       let prospects = [...PROSPECTS].filter(p => {
         if (!p.name.toLowerCase().includes(q)) return false;
         if (availFilter === 'available' && rosteredNames.has(p.name)) return false;
