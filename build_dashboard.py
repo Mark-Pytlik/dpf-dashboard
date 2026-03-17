@@ -3712,8 +3712,8 @@ function renderRoster() {{
   }});
   html += '</table></div>';
 
-  // ── Trade Evaluator ──
-  {{
+  // ── Trade Evaluator (My Roster tab only) ──
+  if (isMyRosterTab) {{
   html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
   html += '<h3 style="font-size:13px;margin-bottom:4px;">Trade Evaluator</h3>';
   html += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Includes keeper round cost, surplus value, and years of control. R1-4 players cannot be kept.</div>';
@@ -3755,12 +3755,23 @@ function renderRoster() {{
   // Trade summary
   html += '<div id="tradeSummary" style="margin-top:8px;padding:6px;background:var(--bg);border-radius:4px;font-size:11px;display:none;"></div>';
   html += '</div>';
+
+  // ── Mock Trade Generator ──
+  html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
+  html += '<div id="tradeGenToggle" style="cursor:pointer;display:flex;align-items:center;gap:6px;">';
+  html += '<h3 style="font-size:13px;margin:0;">Trade Ideas</h3>';
+  html += '<span style="font-size:10px;color:var(--accent);font-weight:600;">▶</span>';
+  html += '</div>';
+  html += '<div style="font-size:10px;color:var(--text2);margin-top:2px;">Auto-generated 1-for-1 and 2-for-2 trades that fill your needs and theirs, slightly favoring you.</div>';
+  html += '<div id="tradeGenPanel" style="display:none;margin-top:8px;"></div>';
+  html += '</div>';
   }}
 
-  // Position needs analysis
+  // Position needs analysis (for currently selected team)
   html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;">';
-  html += '<h3 style="font-size:13px;margin-bottom:6px;">Roster Needs</h3>';
-  const myPl = (state.myTeam || []).map(n => ALL.find(x => x.name === n)).filter(Boolean);
+  const needsTeamLabel = isMine ? 'My' : (LEAGUE_TEAMS.find(t => t.name === selTeamName)?.owner || selTeamName);
+  html += `<h3 style="font-size:13px;margin-bottom:6px;">${{needsTeamLabel}} Roster Needs</h3>`;
+  const myPl = teamPlayers.map(n => ALL.find(x => x.name === n)).filter(Boolean);
 
   // Helper: compute optimal position assignments then return avg LCV per slot
   function computeNeedsForTeam(players) {{
@@ -3797,9 +3808,11 @@ function renderRoster() {{
       if (used.has(p.name) || assigned['DH'].length >= dhSlots) continue;
       assigned['DH'].push(p); used.add(p.name);
     }}
-    // Pitchers
-    assigned['SP'] = players.filter(p => p.primaryPos === 'SP').sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, ROSTER_SLOTS['SP'] || 5);
-    assigned['RP'] = players.filter(p => p.primaryPos === 'RP').sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, ROSTER_SLOTS['RP'] || 5);
+    // Pitchers (include dual-eligible players like Ohtani)
+    const spPool = players.filter(p => p.primaryPos === 'SP' || DUAL_ELIGIBLE[p.name] === 'SP');
+    const rpPool = players.filter(p => p.primaryPos === 'RP' || DUAL_ELIGIBLE[p.name] === 'RP');
+    assigned['SP'] = spPool.sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, ROSTER_SLOTS['SP'] || 5);
+    assigned['RP'] = rpPool.sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, ROSTER_SLOTS['RP'] || 5);
     return assigned;
   }}
 
@@ -4354,6 +4367,203 @@ function renderRoster() {{
   }}
 
   updateTradeSummary();
+
+  // ── Trade Generator wiring ──
+  const tgToggle = document.getElementById('tradeGenToggle');
+  const tgPanel = document.getElementById('tradeGenPanel');
+  if (tgToggle && tgPanel) {{
+    tgToggle.addEventListener('click', () => {{
+      const open = tgPanel.style.display !== 'none';
+      tgPanel.style.display = open ? 'none' : 'block';
+      tgToggle.querySelector('span').textContent = open ? '▶' : '▼';
+      if (!open) generateTradeIdeas(tgPanel);
+    }});
+  }}
+
+  function generateTradeIdeas(panel) {{
+    // 1. Compute my positional gaps
+    const myPl3 = (state.myTeam || []).map(n => ALL.find(x => x.name === n)).filter(Boolean);
+    const myAssign3 = computeNeedsForTeam(myPl3);
+    const myGaps3 = {{}};
+    const myStrengths3 = {{}};
+    for (const [pos, slots] of Object.entries(ROSTER_SLOTS)) {{
+      const top = myAssign3[pos] || [];
+      const avgLcv = top.length > 0 ? top.reduce((s,p) => s + (p.lcv||0), 0) / top.length : 0;
+      const lAvgs = [];
+      LEAGUE_TEAMS.filter(t => !t.mine).forEach(t => {{
+        const tPl = (state.leagueTeams[t.name]||[]).map(n => ALL.find(x => x.name === n)).filter(Boolean);
+        const tA = computeNeedsForTeam(tPl);
+        const tTop = tA[pos] || [];
+        if (tTop.length > 0) lAvgs.push(tTop.reduce((s,p)=>s+(p.lcv||0),0)/tTop.length);
+      }});
+      const lAvg = lAvgs.length > 0 ? lAvgs.reduce((s,v)=>s+v,0)/lAvgs.length : 0;
+      myGaps3[pos] = avgLcv - lAvg;
+    }}
+
+    // 2. Helper to compute a team's positional gaps
+    function teamGaps(teamName) {{
+      const pl = (state.leagueTeams[teamName]||[]).map(n => ALL.find(x => x.name === n)).filter(Boolean);
+      const assign = computeNeedsForTeam(pl);
+      const gaps = {{}};
+      for (const [pos] of Object.entries(ROSTER_SLOTS)) {{
+        const top = assign[pos] || [];
+        const avg = top.length > 0 ? top.reduce((s,p) => s + (p.lcv||0), 0) / top.length : 0;
+        const lAvgs = [];
+        LEAGUE_TEAMS.filter(t => t.name !== teamName).forEach(t => {{
+          const tPl = (t.mine ? (state.myTeam||[]) : (state.leagueTeams[t.name]||[])).map(n => ALL.find(x => x.name === n)).filter(Boolean);
+          const tA = computeNeedsForTeam(tPl);
+          const tTop = tA[pos] || [];
+          if (tTop.length > 0) lAvgs.push(tTop.reduce((s,p)=>s+(p.lcv||0),0)/tTop.length);
+        }});
+        const lAvg = lAvgs.length > 0 ? lAvgs.reduce((s,v)=>s+v,0)/lAvgs.length : 0;
+        gaps[pos] = avg - lAvg;
+      }}
+      return gaps;
+    }}
+
+    // 3. Helper: compute trade value (MYS + prospect value)
+    function tradeVal(name) {{
+      const ki = getKeeperInfo(name);
+      const mys = Math.max(0, ki.multiYearSurplus || 0);
+      const pr = findProspect(name);
+      const pv = pr ? Math.max(0, ((pr.fv||0) - 40) * 0.15) : 0;
+      return mys + pv + (ki.surplusNow || 0) * 0.3;
+    }}
+
+    // 4. Helper: which positions does this player help?
+    function playerPositions(name) {{
+      const p = ALL.find(x => x.name === name);
+      if (!p) return [];
+      const positions = (p.pos || p.primaryPos || '').split('/');
+      if (!['SP','RP'].includes(p.primaryPos)) positions.push('DH');
+      return positions;
+    }}
+
+    // 5. Generate 1-for-1 and 2-for-2 trade ideas
+    const trades = [];
+    const myRoster = state.myTeam || [];
+
+    LEAGUE_TEAMS.filter(t => !t.mine).forEach(t => {{
+      const theirRoster = state.leagueTeams[t.name] || [];
+      if (theirRoster.length < 3) return;
+      const theirGaps = teamGaps(t.name);
+      const ownerName = t.owner || t.name;
+
+      // My players that fill THEIR needs (sorted by how well they fill needs)
+      const iCanGive = myRoster.map(name => {{
+        const p = ALL.find(x => x.name === name);
+        if (!p) return null;
+        const positions = playerPositions(name);
+        let bestFill = 0;
+        let fillPos = '';
+        positions.forEach(pos => {{
+          const gap = theirGaps[pos];
+          if (gap !== undefined && -gap > bestFill) {{ bestFill = -gap; fillPos = pos; }}
+        }});
+        return {{ name, lcv: p.lcv||0, tv: tradeVal(name), fillsTheirNeed: bestFill, fillPos }};
+      }}).filter(Boolean).filter(x => x.fillsTheirNeed > 0.3).sort((a,b) => b.fillsTheirNeed - a.fillsTheirNeed);
+
+      // Their players that fill MY needs
+      const theyCanGive = theirRoster.map(name => {{
+        const p = ALL.find(x => x.name === name);
+        if (!p) return null;
+        const positions = playerPositions(name);
+        let bestFill = 0;
+        let fillPos = '';
+        positions.forEach(pos => {{
+          const gap = myGaps3[pos];
+          if (gap !== undefined && -gap > bestFill) {{ bestFill = -gap; fillPos = pos; }}
+        }});
+        return {{ name, lcv: p.lcv||0, tv: tradeVal(name), fillsMyNeed: bestFill, fillPos }};
+      }}).filter(Boolean).filter(x => x.fillsMyNeed > 0.3).sort((a,b) => b.fillsMyNeed - a.fillsMyNeed);
+
+      // 1-for-1 trades
+      for (const give of iCanGive.slice(0, 8)) {{
+        for (const get of theyCanGive.slice(0, 8)) {{
+          if (give.name === get.name) continue;
+          const myGain = get.tv - give.tv;
+          const myLcvGain = get.lcv - give.lcv;
+          // "Slightly favors me": I gain 0.5-4.0 in trade value, don't lose too much LCV
+          if (myGain >= -0.5 && myGain <= 5.0 && myLcvGain > -3 && (get.fillsMyNeed > 0.5 || give.fillsTheirNeed > 0.5)) {{
+            const mutualFit = get.fillsMyNeed + give.fillsTheirNeed;
+            const favorMe = myGain * 0.5 + myLcvGain * 0.2;
+            trades.push({{
+              team: ownerName, teamName: t.name,
+              give: [give], get: [get],
+              mutualFit, favorMe,
+              score: mutualFit * 0.6 + Math.max(0, favorMe) * 0.4,
+              type: '1-for-1'
+            }});
+          }}
+        }}
+      }}
+
+      // 2-for-2 trades
+      for (let i = 0; i < Math.min(iCanGive.length, 5); i++) {{
+        for (let j = i+1; j < Math.min(iCanGive.length, 6); j++) {{
+          const g1 = iCanGive[i], g2 = iCanGive[j];
+          for (let k = 0; k < Math.min(theyCanGive.length, 5); k++) {{
+            for (let l = k+1; l < Math.min(theyCanGive.length, 6); l++) {{
+              const r1 = theyCanGive[k], r2 = theyCanGive[l];
+              if ([g1.name,g2.name].includes(r1.name) || [g1.name,g2.name].includes(r2.name)) continue;
+              const giveTv = g1.tv + g2.tv;
+              const getTv = r1.tv + r2.tv;
+              const giveLcv = g1.lcv + g2.lcv;
+              const getLcv = r1.lcv + r2.lcv;
+              const myGain = getTv - giveTv;
+              const myLcvGain = getLcv - giveLcv;
+              if (myGain >= -0.5 && myGain <= 8.0 && myLcvGain > -5 && ((r1.fillsMyNeed + r2.fillsMyNeed) > 1.0 || (g1.fillsTheirNeed + g2.fillsTheirNeed) > 1.0)) {{
+                const mutualFit = r1.fillsMyNeed + r2.fillsMyNeed + g1.fillsTheirNeed + g2.fillsTheirNeed;
+                const favorMe = myGain * 0.4 + myLcvGain * 0.15;
+                trades.push({{
+                  team: ownerName, teamName: t.name,
+                  give: [g1, g2], get: [r1, r2],
+                  mutualFit, favorMe,
+                  score: mutualFit * 0.5 + Math.max(0, favorMe) * 0.5,
+                  type: '2-for-2'
+                }});
+              }}
+            }}
+          }}
+        }}
+      }}
+    }});
+
+    // 6. Rank and display top trade ideas
+    trades.sort((a,b) => b.score - a.score);
+    // Deduplicate: keep best trade per unique player combination
+    const seen = new Set();
+    const unique = [];
+    for (const tr of trades) {{
+      const key = [...tr.give.map(g=>g.name), '|', ...tr.get.map(g=>g.name)].sort().join(',');
+      if (!seen.has(key)) {{ seen.add(key); unique.push(tr); }}
+      if (unique.length >= 15) break;
+    }}
+
+    if (unique.length === 0) {{
+      panel.innerHTML = '<div style="font-size:11px;color:var(--text2);padding:4px;">No trade ideas found. This can happen if rosters are incomplete or positions are evenly matched.</div>';
+      return;
+    }}
+
+    let th = '<div style="max-height:400px;overflow-y:auto;">';
+    unique.forEach((tr, idx) => {{
+      const giveStr = tr.give.map(g => `<span style="color:var(--red);font-weight:600;">${{g.name}}</span> <span style="color:var(--text2);font-size:9px;">(${{g.fillPos}})</span>`).join(' + ');
+      const getStr = tr.get.map(g => `<span style="color:var(--green);font-weight:600;">${{g.name}}</span> <span style="color:var(--text2);font-size:9px;">(${{g.fillPos}})</span>`).join(' + ');
+      const giveTv = tr.give.reduce((s,g) => s + g.tv, 0);
+      const getTv = tr.get.reduce((s,g) => s + g.tv, 0);
+      const diff = getTv - giveTv;
+      const diffClr = diff > 0 ? 'var(--green)' : diff < -0.5 ? 'var(--red)' : 'var(--text2)';
+      const badge = tr.type === '2-for-2' ? '<span style="background:var(--accent2);color:#fff;padding:0 4px;border-radius:3px;font-size:9px;margin-left:4px;">2×2</span>' : '';
+      th += `<div style="padding:8px;border-bottom:1px solid var(--border);${{idx === 0 ? 'background:rgba(74,107,255,0.04);' : ''}}">`;
+      th += `<div style="font-size:10px;color:var(--text2);margin-bottom:3px;">Trade with <b>${{tr.team}}</b>${{badge}}</div>`;
+      th += `<div style="font-size:11px;margin-bottom:2px;">Give: ${{giveStr}}</div>`;
+      th += `<div style="font-size:11px;margin-bottom:2px;">Get: ${{getStr}}</div>`;
+      th += `<div style="font-size:10px;color:var(--text2);">TV: ${{giveTv.toFixed(1)}} → ${{getTv.toFixed(1)}} <span style="color:${{diffClr}};font-weight:600;">(${{diff > 0 ? '+' : ''}}${{diff.toFixed(1)}})</span> | Fit: ${{tr.mutualFit.toFixed(1)}}</div>`;
+      th += '</div>';
+    }});
+    th += '</div>';
+    panel.innerHTML = th;
+  }}
   }}
 }}
 
@@ -4653,6 +4863,9 @@ function renderDraftBoard() {{
 }}
 
 // ── League comparison view ────────────────────────────────────────────────
+// Ohtani dual-eligibility: counts as both a position player (DH) and pitcher (SP)
+const DUAL_ELIGIBLE = {{ 'Shohei Ohtani': 'SP' }};
+
 function calcOptimalLCV(playerNames) {{
   // Given a list of player names, compute the best possible starting lineup LCV
   // by assigning players to roster slots optimally
@@ -4660,6 +4873,12 @@ function calcOptimalLCV(playerNames) {{
   const batters = players.filter(p => !['SP','RP'].includes(p.primaryPos));
   const sps = players.filter(p => p.primaryPos === 'SP');
   const rps = players.filter(p => p.primaryPos === 'RP');
+  // Add dual-eligible players (e.g., Ohtani) to pitcher pool too
+  players.forEach(p => {{
+    const dualPos = DUAL_ELIGIBLE[p.name];
+    if (dualPos === 'SP' && !sps.includes(p)) sps.push(p);
+    else if (dualPos === 'RP' && !rps.includes(p)) rps.push(p);
+  }});
 
   // Sort each pool by LCV descending
   batters.sort((a,b) => (b.lcv||0) - (a.lcv||0));
