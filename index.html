@@ -46,12 +46,12 @@ tr:not(.drafted):not(.keeper) td:first-child { font-weight:700; }
 .owner-badge.mine { background:rgba(74,107,255,0.2); border:1px solid rgba(74,107,255,0.4); color:#4a6bff; }
 tr.keeper { background:rgba(108,140,255,0.08); }
 .pos-badge { display:inline-block; padding:2px 6px; border-radius:4px; font-size:11px; font-weight:600; }
-.pos-C { background:#7c3aed22; color:#a78bfa; } .pos-1B { background:#05966922; color:#34d399; }
-.pos-2B { background:#d9770622; color:#fb923c; } .pos-3B { background:#dc262622; color:#f87171; }
-.pos-SS { background:#2563eb22; color:#60a5fa; } .pos-DH { background:#52525b22; color:#a1a1aa; }
-.pos-SP { background:#0891b222; color:#22d3ee; } .pos-RP { background:#c026d322; color:#e879f9; }
-.pos-LF { background:#65a30d22; color:#a3e635; } .pos-CF { background:#16a34a22; color:#4ade80; }
-.pos-RF { background:#84cc1622; color:#bef264; }
+.pos-C { background:#7c3aed22; color:#7c3aed; } .pos-1B { background:#05966922; color:#059669; }
+.pos-2B { background:#d9770622; color:#c2610a; } .pos-3B { background:#dc262622; color:#dc2626; }
+.pos-SS { background:#2563eb22; color:#2563eb; } .pos-DH { background:#52525b22; color:#71717a; }
+.pos-SP { background:#0891b222; color:#0e7490; } .pos-RP { background:#c026d322; color:#a21caf; }
+.pos-LF { background:#65a30d22; color:#4d7c0f; } .pos-CF { background:#16a34a22; color:#15803d; }
+.pos-RF { background:#84cc1622; color:#65a30d; }
 .val-pos { color:var(--green); } .val-neg { color:var(--red); }
 .eno-rank { display:inline-block; padding:0 4px; border-radius:3px; font-size:9px; font-weight:700; vertical-align:middle; background:rgba(59,130,246,0.15); color:#3b82f6; margin-left:3px; }
 .tag-badge { display:inline-block; padding:0 5px; border-radius:3px; font-size:10px; font-weight:700; vertical-align:middle; }
@@ -1517,11 +1517,15 @@ function renderTransactions() {
   html += '</tr></thead><tbody>';
 
   // Sort by date descending (most recent first)
-  allTxns.sort((a, b) => {
-    const da = new Date(a.date || '1970/1/1');
-    const db = new Date(b.date || '1970/1/1');
-    return db - da;
-  });
+  // Dates are like "3/16/26 12:55 PM ET" — fix 2-digit year and strip timezone for reliable parsing
+  function parseTxDate(s) {
+    if (!s) return new Date(0);
+    let d = s.replace(/\s*ET\s*$/, '').trim();
+    // Fix 2-digit year: "3/16/26" → "3/16/2026"
+    d = d.replace(/^(\d{1,2})\/(\d{1,2})\/(\d{2})\b/, (m,mo,dy,yr) => `${mo}/${dy}/20${yr}`);
+    return new Date(d);
+  }
+  allTxns.sort((a, b) => parseTxDate(b.date) - parseTxDate(a.date));
 
   allTxns.forEach((tx, idx) => {
     const actionColor = tx.action === 'Added' ? 'var(--green)' : tx.action === 'Dropped' ? 'var(--red)' : 'var(--accent)';
@@ -2989,14 +2993,16 @@ function renderRoster() {
   const needs = [];
   for (const [pos, slots] of Object.entries(ROSTER_SLOTS)) {
     const isPit = ['SP','RP'].includes(pos);
-    const pool = isPit ? myPl.filter(p => p.primaryPos === pos) : myPl.filter(p => (p.pos||p.primaryPos||'').split('/').includes(pos));
+    const isDH = pos === 'DH';
+    // DH: any non-pitcher hitter can fill DH, not just those with DH eligibility
+    const pool = isPit ? myPl.filter(p => p.primaryPos === pos) : isDH ? myPl.filter(p => !['SP','RP'].includes(p.primaryPos)) : myPl.filter(p => (p.pos||p.primaryPos||'').split('/').includes(pos));
     const top = pool.sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, slots);
     const avgLcv = top.length > 0 ? top.reduce((s,p) => s + (p.lcv||0), 0) / top.length : 0;
     // Compare to league average at this position
     const leagueAvgs = [];
     LEAGUE_TEAMS.filter(t => !t.mine).forEach(t => {
       const tPl = (state.leagueTeams[t.name]||[]).map(n => ALL.find(x => x.name === n)).filter(Boolean);
-      const tPool = isPit ? tPl.filter(p => p.primaryPos === pos) : tPl.filter(p => (p.pos||p.primaryPos||'').split('/').includes(pos));
+      const tPool = isPit ? tPl.filter(p => p.primaryPos === pos) : isDH ? tPl.filter(p => !['SP','RP'].includes(p.primaryPos)) : tPl.filter(p => (p.pos||p.primaryPos||'').split('/').includes(pos));
       const tTop = tPool.sort((a,b)=>(b.lcv||0)-(a.lcv||0)).slice(0,slots);
       if (tTop.length > 0) leagueAvgs.push(tTop.reduce((s,p)=>s+(p.lcv||0),0)/tTop.length);
     });
@@ -3017,7 +3023,11 @@ function renderRoster() {
   // ── Transaction Log ──
   html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-top:12px;">';
   html += '<h3 style="font-size:13px;margin-bottom:6px;">Transaction Log</h3>';
-  const txns = (state.transactions || []).slice().reverse().slice(0, 15);
+  const txns = (state.transactions || []).slice().sort((a,b) => {
+    const pa = a.date ? a.date.replace(/(\d{1,2})\/(\d{1,2})\/(\d{2})/, (m,mo,dy,yr) => `20${yr}-${mo.padStart(2,'0')}-${dy.padStart(2,'0')}`) : '';
+    const pb = b.date ? b.date.replace(/(\d{1,2})\/(\d{1,2})\/(\d{2})/, (m,mo,dy,yr) => `20${yr}-${mo.padStart(2,'0')}-${dy.padStart(2,'0')}`) : '';
+    return pb.localeCompare(pa);
+  }).slice(0, 15);
   if (txns.length === 0) {
     html += '<div style="font-size:11px;color:var(--text2);">No transactions yet. Use Free Agents tab to add players, or drop players from roster below.</div>';
   } else {
@@ -3352,16 +3362,33 @@ function renderRoster() {
 
     sh += `<div style="color:var(--text2);font-size:10px;">Post-trade starting LCV: ${postLCV.startingLCV.toFixed(1)} (current: ${preLCV.startingLCV.toFixed(1)})</div>`;
 
-    // Verdict
-    const isWin = lcvDiff > 0 && surplusDiff > 0;
+    // Verdict — more nuanced analysis
+    const absLcv = Math.abs(lcvDiff);
+    const absSurp = Math.abs(surplusDiff);
+    const lcvMag = absLcv > 5 ? 'significantly' : absLcv > 2 ? 'moderately' : 'slightly';
+    const isWin = lcvDiff > 0 && surplusDiff >= -0.5;
+    const isStrongWin = lcvDiff > 0 && surplusDiff > 0;
     const isLoss = lcvDiff < -1 && surplusDiff < -1;
-    const isMixed = (lcvDiff > 0 && surplusDiff < 0) || (lcvDiff < 0 && surplusDiff > 0);
-    if (isWin) sh += `<div style="margin-top:4px;padding:3px 6px;background:rgba(34,197,94,0.1);border-radius:4px;font-size:11px;font-weight:600;color:var(--green);">Win — you gain both production and future value</div>`;
-    else if (isLoss) sh += `<div style="margin-top:4px;padding:3px 6px;background:rgba(239,68,68,0.1);border-radius:4px;font-size:11px;font-weight:600;color:var(--red);">Loss — you lose production and future value</div>`;
+    const isMixed = (lcvDiff > 0 && surplusDiff < -0.5) || (lcvDiff < 0 && surplusDiff > 0.5);
+
+    // Grade the trade on a simple A-F scale
+    const composite = rosterDiff * 0.5 + surplusDiff * 0.3 + prospectDiff * 0.2;
+    const grade = composite > 3 ? 'A' : composite > 1.5 ? 'B' : composite > 0 ? 'B-' : composite > -1.5 ? 'C' : composite > -3 ? 'D' : 'F';
+    const gradeClr = composite > 1.5 ? 'var(--green)' : composite > 0 ? '#4a90e2' : composite > -1.5 ? 'var(--text)' : 'var(--red)';
+
+    sh += `<div style="margin-top:4px;padding:5px 8px;background:${composite > 0 ? 'rgba(34,197,94,0.08)' : composite > -1.5 ? 'rgba(234,179,8,0.1)' : 'rgba(239,68,68,0.08)'};border-radius:4px;font-size:11px;">`;
+    sh += `<span style="font-weight:700;font-size:13px;color:${gradeClr};margin-right:6px;">Grade: ${grade}</span> `;
+
+    if (isStrongWin) sh += `<span>Clear win — ${lcvMag} better production and future value</span>`;
+    else if (isWin) sh += `<span>Favorable — ${lcvMag} more production with roughly equal future value</span>`;
+    else if (isLoss) sh += `<span>Unfavorable — losing production and future value</span>`;
     else if (isMixed) {
-      if (lcvDiff > 0) sh += `<div style="margin-top:4px;padding:3px 6px;background:rgba(234,179,8,0.1);border-radius:4px;font-size:11px;color:var(--text);">Win-now trade — better production but less future value</div>`;
-      else sh += `<div style="margin-top:4px;padding:3px 6px;background:rgba(234,179,8,0.1);border-radius:4px;font-size:11px;color:var(--text);">Dynasty trade — less production now but better future value</div>`;
+      if (lcvDiff > 0) sh += `<span>Win-now — ${lcvMag} more production but less future value (${absSurp < 1 ? 'marginal' : absSurp < 3 ? 'moderate' : 'significant'} gap)</span>`;
+      else sh += `<span>Dynasty play — less production now but better future assets (${absSurp < 1 ? 'marginal' : absSurp < 3 ? 'moderate' : 'significant'} upside)</span>`;
+    } else {
+      sh += '<span>Roughly even trade</span>';
     }
+    sh += '</div>';
 
     sumDiv.innerHTML = sh;
   }
