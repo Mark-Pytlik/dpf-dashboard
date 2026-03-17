@@ -2193,7 +2193,13 @@ function renderFutures() {{
     if (!state._fSortDir) state._fSortDir = 1;
 
     html += '<div style="padding:12px 20px;">';
-    html += '<input type="text" id="prospectSearch" class="search-box" placeholder="Search prospects..." style="width:300px;margin-bottom:12px;">';
+    html += '<div style="display:flex;gap:12px;align-items:center;margin-bottom:12px;">';
+    html += '<input type="text" id="prospectSearch" class="search-box" placeholder="Search prospects..." style="width:300px;">';
+    html += '<select id="prospectAvailFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;">';
+    html += `<option value="all"${{(state._prospectAvail||'all')==='all'?' selected':''}}>All Prospects</option>`;
+    html += `<option value="available"${{state._prospectAvail==='available'?' selected':''}}>Available Only</option>`;
+    html += '</select>';
+    html += '</div>';
 
     html += `<div style="overflow:auto;max-height:calc(100vh-250px);">
       <table id="prospectsTable" style="width:100%;border-collapse:collapse;">
@@ -2219,7 +2225,18 @@ function renderFutures() {{
 
     const buildFuturesTable = () => {{
       const q = document.getElementById('prospectSearch')?.value.toLowerCase() || '';
-      let prospects = [...PROSPECTS].filter(p => p.name.toLowerCase().includes(q));
+      const availFilter = document.getElementById('prospectAvailFilter')?.value || 'all';
+      state._prospectAvail = availFilter;
+      // Build set of rostered prospect names (drafted + on any league team + my MiLB)
+      const rosteredNames = new Set();
+      Object.keys(state.drafted || {{}}).forEach(n => rosteredNames.add(n));
+      (state.milbKeepers || []).forEach(n => rosteredNames.add(n));
+      Object.values(state.leagueTeams || {{}}).forEach(arr => (arr||[]).forEach(n => rosteredNames.add(n)));
+      let prospects = [...PROSPECTS].filter(p => {{
+        if (!p.name.toLowerCase().includes(q)) return false;
+        if (availFilter === 'available' && rosteredNames.has(p.name)) return false;
+        return true;
+      }});
 
       // Sort
       const sc = state._fSortCol;
@@ -2326,8 +2343,9 @@ function renderFutures() {{
 
     buildFuturesTable();
 
-    // Wire search
+    // Wire search and availability filter
     document.getElementById('prospectSearch')?.addEventListener('input', () => buildFuturesTable());
+    document.getElementById('prospectAvailFilter')?.addEventListener('change', () => buildFuturesTable());
 
   }} else {{
     // League Rookies sub-view — uses LEAGUE_ROOKIES from DPF spreadsheet
@@ -2682,13 +2700,16 @@ function render() {{
         if (tag && tagMap[tag]) tagHtml = ` <span class="tag-badge ${{tagMap[tag].cls}}" title="${{tagMap[tag].title}}">${{tagMap[tag].label}}</span>`;
         // Tag buttons: W=want, A=avoid, IL=injured (sleeper/bust auto-set from BUZZ articles only)
         const tagBtns = `<span class="tag-btns" style="margin-left:4px;"><button class="tag-btn tag-w" data-player="${{encodeURIComponent(p.name)}}" data-tag="want" title="Want"${{tag==='want'?' style="opacity:1"':''}}>W</button><button class="tag-btn tag-a" data-player="${{encodeURIComponent(p.name)}}" data-tag="avoid" title="Avoid"${{tag==='avoid'?' style="opacity:1"':''}}>A</button><button class="tag-btn tag-i" data-player="${{encodeURIComponent(p.name)}}" data-tag="injured" title="Injured"${{tag==='injured'?' style="opacity:1"':''}}>IL</button></span>`;
-        // Buzz arrows from expert articles
-        const buzzItems = BUZZ[p.name] || [];
-        const buzzHtml = buzzItems.map(b => {{
-          if (b.type === 'up') return `<a href="${{b.url}}" target="_blank" title="Sleeper — ${{b.src}}" style="text-decoration:none;cursor:pointer;font-size:13px;">&#x25B2;<small style="font-size:9px;opacity:0.7">${{b.src}}</small></a>`;
-          return `<a href="${{b.url}}" target="_blank" title="Avoid — ${{b.src}}" style="text-decoration:none;cursor:pointer;font-size:13px;">&#x25BC;<small style="font-size:9px;opacity:0.7">${{b.src}}</small></a>`;
-        }}).join(' ');
-        const buzz = buzzHtml ? ` ${{buzzHtml}}` : '';
+        // Buzz arrows from expert articles (draft view only)
+        let buzz = '';
+        if (state._mode === 'draft') {{
+          const buzzItems = BUZZ[p.name] || [];
+          const buzzHtml = buzzItems.map(b => {{
+            if (b.type === 'up') return `<a href="${{b.url}}" target="_blank" title="Sleeper — ${{b.src}}" style="text-decoration:none;cursor:pointer;font-size:13px;">&#x25B2;<small style="font-size:9px;opacity:0.7">${{b.src}}</small></a>`;
+            return `<a href="${{b.url}}" target="_blank" title="Avoid — ${{b.src}}" style="text-decoration:none;cursor:pointer;font-size:13px;">&#x25BC;<small style="font-size:9px;opacity:0.7">${{b.src}}</small></a>`;
+          }}).join(' ');
+          buzz = buzzHtml ? ` ${{buzzHtml}}` : '';
+        }}
         const enoR = p.eno_rank ? ` <span class="eno-rank" title="Eno 150 Best Pitchers #${{p.eno_rank}}">P${{p.eno_rank}}</span>` : '';
         return `<td style="font-weight:600">${{val}}${{enoR}}${{tagHtml}}${{kp}}${{ownerBadge}}${{buzz}}${{tagBtns}}</td>`;
       }}
@@ -3339,46 +3360,49 @@ function renderRoster() {{
 
   // ── Build compact table row ──
   function pRow(p, slot, tag) {{
-    if (!p) return `<tr class="roster-section" data-slot="${{slot}}" style="opacity:0.3;"><td style="padding:3px 6px;font-weight:600;width:30px;">${{slot}}</td><td colspan="11" style="padding:3px 6px;color:var(--text2);">—</td></tr>`;
+    if (!p) return `<tr class="roster-section" data-slot="${{slot}}" style="opacity:0.3;"><td style="padding:3px 6px;font-weight:600;width:32px;font-size:11px;">${{slot}}</td><td colspan="11" style="padding:3px 6px;color:var(--text2);">—</td></tr>`;
     const dn = encodeURIComponent(p.name);
     const c = tClr(p.pnav, slot||p.primaryPos);
     const ki = getKeeperInfo(p.name);
-    const krd = ki.draftRound;
-    const keepColor = ki.keepable2027 ? 'var(--accent)' : 'var(--red)';
-    const keepText = ki.keepable2027 ? 'R' + krd + '→' + ki.cost2027 : 'R' + krd;
-    const kTag = krd ? `<span style="color:${{keepColor}};font-size:10px;margin-left:4px;" title="Drafted R${{krd}}${{ki.keepable2027 ? ', 2027 cost R'+ki.cost2027+', '+ki.yearsLeft+'yr control' : ', NOT keepable — rounds 1-4 ineligible'}}">${{keepText}}</span>` : '';
     const natPos = (slot && p.primaryPos !== slot) ? `<span style="color:var(--text2);font-size:10px;margin-left:3px;">(nat ${{p.primaryPos}})</span>` : '';
-    const extraTag = tag ? `<span style="font-size:10px;margin-left:4px;">${{tag}}</span>` : '';
-    const dropBtn = '<td></td>';
-    // GM columns
-    const costTd = ki.keepable2027 ? `<td style="padding:3px 4px;text-align:center;font-size:10px;color:var(--green);">R${{ki.cost2027}}</td>` : `<td style="padding:3px 4px;text-align:center;font-size:9px;color:var(--red);">—</td>`;
+    // Keeper column: show round→cost if keepable, round only if not, — if undrafted
+    let keepHtml = '<span style="color:var(--text2);font-size:10px;">—</span>';
+    if (ki.draftRound) {{
+      if (ki.keepable2027) {{
+        keepHtml = `<span style="color:var(--green);font-size:10px;font-weight:600;" title="Drafted R${{ki.draftRound}}, 2027 cost R${{ki.cost2027}}, ${{ki.yearsLeft}}yr control">R${{ki.draftRound}}→${{ki.cost2027}}</span>`;
+      }} else {{
+        keepHtml = `<span style="color:var(--red);font-size:10px;" title="R1-4 cannot be kept">R${{ki.draftRound}}</span>`;
+      }}
+    }}
+    // GM value columns
     const yrsClr = ki.yearsLeft >= 3 ? 'var(--green)' : ki.yearsLeft >= 1 ? 'var(--yellow)' : 'var(--red)';
-    const yrsTd = `<td style="padding:3px 4px;text-align:center;font-size:10px;color:${{yrsClr}};font-weight:600;">${{ki.yearsLeft}}</td>`;
     const surp = ki.surplusNow || 0;
-    const surpTd = `<td style="padding:3px 4px;text-align:right;font-size:10px;color:${{surp >= 0 ? 'var(--green)' : 'var(--red)'}};">${{surp.toFixed(1)}}</td>`;
     const mys = Math.max(0, ki.multiYearSurplus || 0);
-    const mysTd = `<td style="padding:3px 4px;text-align:right;font-size:10px;color:${{mys > 0 ? 'var(--green)' : 'var(--text2)'}};">${{mys.toFixed(1)}}</td>`;
     const pr = findProspect(p.name);
     const pv = pr ? Math.max(0, ((pr.fv||0) - 40) * 0.15) : 0;
     const tv = mys + pv;
     const tvClr = tv > 3 ? 'var(--green)' : tv > 0 ? 'var(--text)' : 'var(--text2)';
-    const tvTd = `<td style="padding:3px 4px;text-align:right;font-size:10px;color:${{tvClr}};font-weight:600;">${{tv.toFixed(1)}}</td>`;
     // Trade target highlight
     const tt = tradeTargets[p.name];
     const ttBg = tt ? 'background:rgba(234,179,8,0.08);' : '';
     const ttBadge = tt ? `<span style="font-size:8px;background:rgba(234,179,8,0.8);color:#000;padding:1px 4px;border-radius:2px;margin-left:4px;font-weight:600;" title="Trade target: fills your ${{tt.needPos}} gap (fit score ${{tt.score.toFixed(1)}})">TARGET</span>` : '';
+    // Slot label (include IL/MiLB tag inline)
+    const slotLabel = tag ? `${{slot||''}} ${{tag}}` : (slot||'');
 
     return `<tr class="roster-row" draggable="true" data-player="${{dn}}" style="border-left:3px solid ${{c}};cursor:grab;${{ttBg}}">` +
-      `<td style="padding:3px 6px;font-weight:600;width:32px;font-size:11px;white-space:nowrap;">${{slot||''}}</td>` +
+      `<td style="padding:3px 6px;font-weight:600;width:32px;font-size:11px;white-space:nowrap;">${{slotLabel}}</td>` +
       `<td style="padding:3px 6px;font-weight:600;font-size:12px;white-space:nowrap;">${{p.name}}${{natPos}}${{ttBadge}}</td>` +
-      `<td style="padding:3px 4px;font-size:10px;white-space:nowrap;">${{kTag||''}}</td>` +
+      `<td style="padding:3px 4px;text-align:center;white-space:nowrap;">${{keepHtml}}</td>` +
       `<td style="padding:3px 4px;font-size:11px;color:var(--text2);white-space:nowrap;">${{p.team||''}}</td>` +
       `<td style="padding:3px 4px;font-size:11px;white-space:nowrap;">${{(p.pos||p.primaryPos||'').replace(/\\//g,', ')}}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;color:${{c}};font-weight:600;">${{(p.lcv||0).toFixed(1)}}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;">${{(p.pnav||0).toFixed(1)}}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;color:var(--text2);">${{p.age||'?'}}</td>` +
-      costTd + yrsTd + surpTd + mysTd + tvTd +
-      `${{extraTag ? '<td style="padding:3px 4px;font-size:10px;">'+extraTag+'</td>' : ''}}</tr>`;
+      `<td style="padding:3px 4px;text-align:center;font-size:10px;color:${{yrsClr}};font-weight:600;">${{ki.yearsLeft}}</td>` +
+      `<td style="padding:3px 4px;text-align:right;font-size:10px;color:${{surp >= 0 ? 'var(--green)' : 'var(--red)'}};">${{surp.toFixed(1)}}</td>` +
+      `<td style="padding:3px 4px;text-align:right;font-size:10px;color:${{mys > 0 ? 'var(--green)' : 'var(--text2)'}};">${{mys.toFixed(1)}}</td>` +
+      `<td style="padding:3px 4px;text-align:right;font-size:10px;color:${{tvClr}};font-weight:600;">${{tv.toFixed(1)}}</td>` +
+      `</tr>`;
   }}
 
   // ── HTML ──
