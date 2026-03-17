@@ -1834,12 +1834,12 @@ const allCols = [
 const batColsGM = [
   {{key:'name',label:'Player',w:160}}, {{key:'team',label:'Team',w:50}}, {{key:'pos',label:'Pos',w:60}},
   {{key:'age',label:'Age',w:40}},
-  {{key:'lcv',label:'LCV',w:60,cls:'lcv-col'}},
-  {{key:'upside',label:'Upside',w:65,cls:'pnav-col'}},
-  {{key:'keeperRound',label:'Keeper Rd',w:70}},
-  {{key:'keeperCost2027',label:'2027 Cost',w:70}},
-  {{key:'yearsControl',label:'Yrs Ctrl',w:60}},
-  {{key:'surplusNow',label:'Surplus',w:65}},
+  {{key:'lcv',label:'LCV',w:60,cls:'lcv-col',tip:'League Category Value: sum of z-scores across 8 league categories'}},
+  {{key:'upside',label:'Upside',w:65,cls:'pnav-col',tip:'Upside score based on percentile ceiling and statcast metrics'}},
+  {{key:'keeperRound',label:'Keeper Rd',w:70,tip:'Round player was drafted. R1-4 cannot be kept.'}},
+  {{key:'keeperCost2027',label:'2027 Cost',w:70,tip:'Draft round cost to keep this player in 2027 (advances 4 rounds/year)'}},
+  {{key:'yearsControl',label:'Yrs Ctrl',w:60,tip:'Years of keeper eligibility remaining before reaching R1-4'}},
+  {{key:'surplusNow',label:'Surplus',w:65,tip:'Current surplus: LCV minus round value of keeper cost'}},
   {{key:'multiYearSurplus',label:'MYS',w:60,tip:'Multi-Year Surplus: discounted sum of future keeper surplus values'}},
   {{key:'prospectValue',label:'Prospect',w:65,tip:'Prospect value based on FV grade from scouting reports'}},
   {{key:'tradeValue',label:'Trade Val',w:70,tip:'Total trade value = Multi-Year Surplus + Prospect Value'}}
@@ -1848,12 +1848,12 @@ const batColsGM = [
 const pitColsGM = [
   {{key:'name',label:'Player',w:160}}, {{key:'team',label:'Team',w:50}}, {{key:'pos',label:'Pos',w:60}},
   {{key:'age',label:'Age',w:40}},
-  {{key:'lcv',label:'LCV',w:60,cls:'lcv-col'}},
-  {{key:'upside',label:'Upside',w:65,cls:'pnav-col'}},
-  {{key:'keeperRound',label:'Keeper Rd',w:70}},
-  {{key:'keeperCost2027',label:'2027 Cost',w:70}},
-  {{key:'yearsControl',label:'Yrs Ctrl',w:60}},
-  {{key:'surplusNow',label:'Surplus',w:65}},
+  {{key:'lcv',label:'LCV',w:60,cls:'lcv-col',tip:'League Category Value: sum of z-scores across 8 league categories'}},
+  {{key:'upside',label:'Upside',w:65,cls:'pnav-col',tip:'Upside score based on percentile ceiling and statcast metrics'}},
+  {{key:'keeperRound',label:'Keeper Rd',w:70,tip:'Round player was drafted. R1-4 cannot be kept.'}},
+  {{key:'keeperCost2027',label:'2027 Cost',w:70,tip:'Draft round cost to keep this player in 2027 (advances 4 rounds/year)'}},
+  {{key:'yearsControl',label:'Yrs Ctrl',w:60,tip:'Years of keeper eligibility remaining before reaching R1-4'}},
+  {{key:'surplusNow',label:'Surplus',w:65,tip:'Current surplus: LCV minus round value of keeper cost'}},
   {{key:'multiYearSurplus',label:'MYS',w:60,tip:'Multi-Year Surplus: discounted sum of future keeper surplus values'}},
   {{key:'prospectValue',label:'Prospect',w:65,tip:'Prospect value based on FV grade from scouting reports'}},
   {{key:'tradeValue',label:'Trade Val',w:70,tip:'Total trade value = Multi-Year Surplus + Prospect Value'}}
@@ -1863,12 +1863,12 @@ const allColsGM = [
   {{key:'name',label:'Player',w:160}}, {{key:'team',label:'Team',w:50}}, {{key:'pos',label:'Pos',w:60}},
   {{key:'type',label:'Type',w:50}},
   {{key:'age',label:'Age',w:40}},
-  {{key:'lcv',label:'LCV',w:60,cls:'lcv-col'}},
-  {{key:'upside',label:'Upside',w:65,cls:'pnav-col'}},
-  {{key:'keeperRound',label:'Keeper Rd',w:70}},
-  {{key:'keeperCost2027',label:'2027 Cost',w:70}},
-  {{key:'yearsControl',label:'Yrs Ctrl',w:60}},
-  {{key:'surplusNow',label:'Surplus',w:65}},
+  {{key:'lcv',label:'LCV',w:60,cls:'lcv-col',tip:'League Category Value: sum of z-scores across 8 league categories'}},
+  {{key:'upside',label:'Upside',w:65,cls:'pnav-col',tip:'Upside score based on percentile ceiling and statcast metrics'}},
+  {{key:'keeperRound',label:'Keeper Rd',w:70,tip:'Round player was drafted. R1-4 cannot be kept.'}},
+  {{key:'keeperCost2027',label:'2027 Cost',w:70,tip:'Draft round cost to keep this player in 2027 (advances 4 rounds/year)'}},
+  {{key:'yearsControl',label:'Yrs Ctrl',w:60,tip:'Years of keeper eligibility remaining before reaching R1-4'}},
+  {{key:'surplusNow',label:'Surplus',w:65,tip:'Current surplus: LCV minus round value of keeper cost'}},
   {{key:'multiYearSurplus',label:'MYS',w:60,tip:'Multi-Year Surplus: discounted sum of future keeper surplus values'}},
   {{key:'prospectValue',label:'Prospect',w:65,tip:'Prospect value based on FV grade from scouting reports'}},
   {{key:'tradeValue',label:'Trade Val',w:70,tip:'Total trade value = Multi-Year Surplus + Prospect Value'}}
@@ -2164,10 +2164,17 @@ function renderFutures() {{
       {{key:'level',label:'Level',align:'center'}},
       {{key:'age',label:'Age',align:'center'}},
       {{key:'fv',label:'FV',align:'center'}},
-      {{key:'fg_rank',label:'FG Rank',align:'center'}},
-      {{key:'jb_rank',label:'JB Rank',align:'center'}},
-      {{key:'bp_rank',label:'BP Rank',align:'center'}},
-      {{key:'avg_rank_val',label:'Avg Rank',align:'center'}},
+      {{key:'g_hit',label:'Hit',align:'center',tip:'Future hit tool (20-80)'}},
+      {{key:'g_power',label:'Pwr',align:'center',tip:'Future game power (20-80)'}},
+      {{key:'g_speed',label:'Spd',align:'center',tip:'Future speed/run tool (20-80)'}},
+      {{key:'g_field',label:'Fld',align:'center',tip:'Future fielding tool (20-80)'}},
+      {{key:'g_fb',label:'FB',align:'center',tip:'Future fastball grade (pitchers)'}},
+      {{key:'g_secondary',label:'2nd',align:'center',tip:'Best future secondary pitch'}},
+      {{key:'g_command',label:'Cmd',align:'center',tip:'Future command grade (pitchers)'}},
+      {{key:'fg_rank',label:'FG',align:'center'}},
+      {{key:'jb_rank',label:'JB',align:'center'}},
+      {{key:'bp_rank',label:'BP',align:'center'}},
+      {{key:'avg_rank_val',label:'Avg',align:'center'}},
       {{key:'trend',label:'Trend',align:'center'}}
     ];
 
@@ -2213,6 +2220,7 @@ function renderFutures() {{
         else if (sc === 'name' || sc === 'team' || sc === 'pos') {{ av = (a[sc]||'').toLowerCase(); bv = (b[sc]||'').toLowerCase(); return sd * av.localeCompare(bv); }}
         else if (sc === 'level') {{ av = levelOrder[getLevel(a.age||0)]||0; bv = levelOrder[getLevel(b.age||0)]||0; }}
         else if (sc === 'trend') {{ av = a.trend||0; bv = b.trend||0; }}
+        else if (sc.startsWith('g_')) {{ av = a[sc]||0; bv = b[sc]||0; }}
         else {{ av = a[sc]||999; bv = b[sc]||999; }}
         return sd * ((av||0) - (bv||0));
       }});
@@ -2220,7 +2228,8 @@ function renderFutures() {{
       // Build header
       prospectsThead.innerHTML = '<tr>' + fCols.map(c => {{
         const arrow = state._fSortCol === c.key ? (state._fSortDir === 1 ? ' ▲' : ' ▼') : '';
-        return `<th data-col="${{c.key}}" style="padding:8px 10px;text-align:${{c.align}};font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">${{c.label}}${{arrow}}</th>`;
+        const tipAttr = c.tip ? ` title="${{c.tip}}"` : '';
+        return `<th data-col="${{c.key}}"${{tipAttr}} style="padding:8px 6px;text-align:${{c.align}};font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">${{c.label}}${{arrow}}</th>`;
       }}).join('') + '</tr>';
 
       // Wire header clicks
@@ -2269,6 +2278,18 @@ function renderFutures() {{
         if (p.trend < -3) trendArrow = '<span style="color:var(--green);font-weight:700;">↑</span>';
         else if (p.trend > 3) trendArrow = '<span style="color:var(--red);font-weight:700;">↓</span>';
 
+        // Grade coloring helper
+        const gc = (v) => {{
+          if (!v) return 'color:var(--text2);';
+          if (v >= 70) return 'color:#daa520;font-weight:700;';
+          if (v >= 60) return 'color:var(--green);font-weight:600;';
+          if (v >= 55) return 'color:#4a90e2;';
+          if (v >= 50) return 'color:var(--text);';
+          if (v >= 45) return 'color:var(--text2);';
+          return 'color:var(--red);';
+        }};
+        const gv = (v) => v || '—';
+
         return `<tr style="border-bottom:1px solid var(--border);">
           <td style="padding:6px 10px;font-size:12px;">${{idx+1}}</td>
           <td style="padding:6px 10px;font-size:12px;">${{p.name}}${{ownerBadge}}</td>
@@ -2277,6 +2298,13 @@ function renderFutures() {{
           <td style="padding:6px 10px;text-align:center;font-size:11px;color:var(--text2);">${{level}}</td>
           <td style="padding:6px 10px;text-align:center;font-size:12px;">${{age ? age.toFixed(1) : '—'}}</td>
           <td style="padding:6px 10px;text-align:center;font-size:12px;background:${{fvBg}};color:${{fvColor}};font-weight:600;">${{fv || '—'}}</td>
+          <td style="padding:4px 6px;text-align:center;font-size:11px;${{gc(p.g_hit)}}">${{gv(p.g_hit)}}</td>
+          <td style="padding:4px 6px;text-align:center;font-size:11px;${{gc(p.g_power)}}">${{gv(p.g_power)}}</td>
+          <td style="padding:4px 6px;text-align:center;font-size:11px;${{gc(p.g_speed)}}">${{gv(p.g_speed)}}</td>
+          <td style="padding:4px 6px;text-align:center;font-size:11px;${{gc(p.g_field)}}">${{gv(p.g_field)}}</td>
+          <td style="padding:4px 6px;text-align:center;font-size:11px;${{gc(p.g_fb)}}">${{gv(p.g_fb)}}</td>
+          <td style="padding:4px 6px;text-align:center;font-size:11px;${{gc(p.g_secondary)}}">${{gv(p.g_secondary)}}</td>
+          <td style="padding:4px 6px;text-align:center;font-size:11px;${{gc(p.g_command)}}">${{gv(p.g_command)}}</td>
           <td style="padding:6px 10px;text-align:center;font-size:12px;">${{p.fg_rank || '—'}}</td>
           <td style="padding:6px 10px;text-align:center;font-size:12px;">${{p.jb_rank || '—'}}</td>
           <td style="padding:6px 10px;text-align:center;font-size:12px;">${{p.bp_rank || '—'}}</td>
@@ -3238,7 +3266,7 @@ function renderRoster() {{
 
   // ── Build compact table row ──
   function pRow(p, slot, tag) {{
-    if (!p) return `<tr class="roster-section" data-slot="${{slot}}" style="opacity:0.3;"><td style="padding:3px 6px;font-weight:600;width:30px;">${{slot}}</td><td colspan="7" style="padding:3px 6px;color:var(--text2);">—</td></tr>`;
+    if (!p) return `<tr class="roster-section" data-slot="${{slot}}" style="opacity:0.3;"><td style="padding:3px 6px;font-weight:600;width:30px;">${{slot}}</td><td colspan="12" style="padding:3px 6px;color:var(--text2);">—</td></tr>`;
     const dn = encodeURIComponent(p.name);
     const c = tClr(p.pnav, slot||p.primaryPos);
     const ki = getKeeperInfo(p.name);
@@ -3249,6 +3277,19 @@ function renderRoster() {{
     const natPos = (slot && p.primaryPos !== slot) ? `<span style="color:var(--text2);font-size:10px;margin-left:3px;">(nat ${{p.primaryPos}})</span>` : '';
     const extraTag = tag ? `<span style="font-size:10px;margin-left:4px;">${{tag}}</span>` : '';
     const dropBtn = isMine ? `<td style="padding:3px 4px;text-align:center;"><button class="drop-btn" data-name="${{dn}}" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:10px;opacity:0.4;padding:2px 4px;" title="Drop ${{p.name}}">✕</button></td>` : '<td></td>';
+    // GM columns
+    const costTd = ki.keepable2027 ? `<td style="padding:3px 4px;text-align:center;font-size:10px;color:var(--green);">R${{ki.cost2027}}</td>` : `<td style="padding:3px 4px;text-align:center;font-size:9px;color:var(--red);">—</td>`;
+    const yrsClr = ki.yearsLeft >= 3 ? 'var(--green)' : ki.yearsLeft >= 1 ? 'var(--yellow)' : 'var(--red)';
+    const yrsTd = `<td style="padding:3px 4px;text-align:center;font-size:10px;color:${{yrsClr}};font-weight:600;">${{ki.yearsLeft}}</td>`;
+    const surp = ki.surplusNow || 0;
+    const surpTd = `<td style="padding:3px 4px;text-align:right;font-size:10px;color:${{surp >= 0 ? 'var(--green)' : 'var(--red)'}};">${{surp.toFixed(1)}}</td>`;
+    const mys = Math.max(0, ki.multiYearSurplus || 0);
+    const mysTd = `<td style="padding:3px 4px;text-align:right;font-size:10px;color:${{mys > 0 ? 'var(--green)' : 'var(--text2)'}};">${{mys.toFixed(1)}}</td>`;
+    const pr = findProspect(p.name);
+    const pv = pr ? Math.max(0, ((pr.fv||0) - 40) * 0.15) : 0;
+    const tv = mys + pv;
+    const tvClr = tv > 3 ? 'var(--green)' : tv > 0 ? 'var(--text)' : 'var(--text2)';
+    const tvTd = `<td style="padding:3px 4px;text-align:right;font-size:10px;color:${{tvClr}};font-weight:600;">${{tv.toFixed(1)}}</td>`;
     return `<tr class="roster-row" draggable="true" data-player="${{dn}}" style="border-left:3px solid ${{c}};cursor:grab;">` +
       `<td style="padding:3px 6px;font-weight:600;width:30px;font-size:11px;">${{slot||''}}</td>` +
       `<td style="padding:3px 6px;font-weight:600;font-size:12px;">${{p.name}}${{natPos}}${{kTag}}${{extraTag}}</td>` +
@@ -3257,6 +3298,7 @@ function renderRoster() {{
       `<td style="padding:3px 6px;text-align:right;font-size:11px;color:${{c}};font-weight:600;">${{(p.lcv||0).toFixed(1)}}</td>` +
       `<td style="padding:3px 6px;text-align:right;font-size:11px;">${{(p.pnav||0).toFixed(1)}}</td>` +
       `<td style="padding:3px 6px;text-align:right;font-size:11px;color:var(--text2);">${{p.age||'?'}}</td>` +
+      costTd + yrsTd + surpTd + mysTd + tvTd +
       dropBtn + `</tr>`;
   }}
 
@@ -3295,58 +3337,121 @@ function renderRoster() {{
   // ── LEFT: Roster table ──
   html += '<div style="flex:1;min-width:0;">';
 
-  // Starting Lineup header
+  // Roster sort state
+  if (!state._rSortCol) state._rSortCol = null;
+  const rsc = state._rSortCol;
+  const rsd = state._rSortDir || -1;
+
+  const rosterCols = [
+    {{key:null,label:'Slot',align:'left'}},
+    {{key:'name',label:'Player',align:'left'}},
+    {{key:'team',label:'Team',align:'left'}},
+    {{key:'pos',label:'Elig',align:'left'}},
+    {{key:'lcv',label:'LCV',align:'right'}},
+    {{key:'pnav',label:'PNAV',align:'right'}},
+    {{key:'age',label:'Age',align:'right'}},
+    {{key:'_cost2027',label:"'27",align:'center',tip:'2027 keeper cost'}},
+    {{key:'_yrsCtrl',label:'Yrs',align:'center',tip:'Years of control remaining'}},
+    {{key:'_surplus',label:'Surp',align:'right',tip:'Current surplus value'}},
+    {{key:'_mys',label:'MYS',align:'right',tip:'Multi-year surplus'}},
+    {{key:'_tv',label:'TV',align:'right',tip:'Trade value (MYS + prospect value)'}},
+    {{key:null,label:'',align:'center'}}
+  ];
+
   const batSlotOrder = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
-  html += '<table style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:12px;margin-bottom:6px;">';
-  html += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);"><th style="text-align:left;padding:4px 6px;">Slot</th><th style="text-align:left;padding:4px 6px;">Player</th><th style="padding:4px 6px;">Team</th><th style="padding:4px 6px;">Elig</th><th style="text-align:right;padding:4px 6px;">LCV</th><th style="text-align:right;padding:4px 6px;">PNAV</th><th style="text-align:right;padding:4px 6px;">Age</th><th style="width:30px;"></th></tr></thead>';
+  html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:6px;">';
+  html += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);">';
+  rosterCols.forEach(c => {{
+    const arrow = (rsc && rsc === c.key) ? (rsd === 1 ? ' ▲' : ' ▼') : '';
+    const cursor = c.key ? 'cursor:pointer;' : '';
+    const tipAttr = c.tip ? ` title="${{c.tip}}"` : '';
+    const w = c.label === '' ? 'width:30px;' : '';
+    html += `<th class="roster-sort-th" data-col="${{c.key||''}}"${{tipAttr}} style="text-align:${{c.align}};padding:4px 6px;${{cursor}}${{w}}user-select:none;">${{c.label}}${{arrow}}</th>`;
+  }});
+  html += '</tr></thead>';
   html += '<tbody>';
 
-  // Offense section
-  html += `<tr><td colspan="7" style="padding:6px 6px 2px;font-weight:700;font-size:11px;color:var(--accent);border-bottom:1px solid var(--border);">OFFENSE (9)</td></tr>`;
-  for (const slot of batSlotOrder) {{
-    const count = ROSTER_SLOTS[slot] || 1;
-    for (let i = 0; i < count; i++) {{
-      const p = bySlot[slot][i];
-      html += `<tr class="roster-section" data-slot="${{slot}}">${{pRow(p, slot, '').replace(/^<tr[^>]*>|<\\/tr>$/g, '')}}</tr>`;
+  if (rsc) {{
+    // Flat sorted view — all roster players sorted by chosen column
+    const allRosterPlayers = [];
+    for (const slot of [...batSlotOrder, 'SP', 'RP']) {{
+      (bySlot[slot]||[]).forEach(p => {{ if(p) allRosterPlayers.push({{p, slot}}); }});
+    }}
+    bench.forEach(p => {{ allRosterPlayers.push({{p, slot:'BN'}}); }});
+    ilPlayers.forEach(p => {{ allRosterPlayers.push({{p, slot:'IL'}}); }});
+
+    // Compute sort values
+    allRosterPlayers.forEach(r => {{
+      const ki = getKeeperInfo(r.p.name);
+      r._cost2027 = ki.keepable2027 ? ki.cost2027 : 99;
+      r._yrsCtrl = ki.yearsLeft || 0;
+      r._surplus = ki.surplusNow || 0;
+      r._mys = Math.max(0, ki.multiYearSurplus || 0);
+      const pr = findProspect(r.p.name);
+      const pv = pr ? Math.max(0, ((pr.fv||0) - 40) * 0.15) : 0;
+      r._tv = r._mys + pv;
+    }});
+
+    allRosterPlayers.sort((a, b) => {{
+      let av, bv;
+      if (rsc === 'name') return rsd * a.p.name.localeCompare(b.p.name);
+      if (rsc === 'team') return rsd * (a.p.team||'').localeCompare(b.p.team||'');
+      if (rsc === 'pos') return rsd * (a.p.pos||'').localeCompare(b.p.pos||'');
+      if (['lcv','pnav','age'].includes(rsc)) {{ av = a.p[rsc]||0; bv = b.p[rsc]||0; }}
+      else {{ av = a[rsc]||0; bv = b[rsc]||0; }}
+      return rsd * (av - bv);
+    }});
+
+    allRosterPlayers.forEach(r => {{
+      html += pRow(r.p, r.slot, r.slot === 'IL' ? '<span style="color:var(--red);">IL</span>' : '');
+    }});
+  }} else {{
+    // Normal slot-based view
+    html += `<tr><td colspan="13" style="padding:6px 6px 2px;font-weight:700;font-size:11px;color:var(--accent);border-bottom:1px solid var(--border);">OFFENSE (9)</td></tr>`;
+    for (const slot of batSlotOrder) {{
+      const count = ROSTER_SLOTS[slot] || 1;
+      for (let i = 0; i < count; i++) {{
+        const p = bySlot[slot][i];
+        html += `<tr class="roster-section" data-slot="${{slot}}">${{pRow(p, slot, '').replace(/^<tr[^>]*>|<\\/tr>$/g, '')}}</tr>`;
+      }}
+    }}
+
+    html += `<tr><td colspan="13" style="padding:8px 6px 2px;font-weight:700;font-size:11px;color:var(--green);border-bottom:1px solid var(--border);">PITCHING (${{(bySlot['SP']||[]).length + (bySlot['RP']||[]).length}})</td></tr>`;
+    for (const slot of ['SP','RP']) {{
+      const count = ROSTER_SLOTS[slot] || 5;
+      for (let i = 0; i < count; i++) {{
+        const p = bySlot[slot][i];
+        html += `<tr class="roster-section" data-slot="${{slot}}">${{pRow(p, slot, '').replace(/^<tr[^>]*>|<\\/tr>$/g, '')}}</tr>`;
+      }}
     }}
   }}
+  html += '</tbody></table>';
 
-  // Pitching section
-  html += `<tr><td colspan="7" style="padding:8px 6px 2px;font-weight:700;font-size:11px;color:var(--green);border-bottom:1px solid var(--border);">PITCHING (${{(bySlot['SP']||[]).length + (bySlot['RP']||[]).length}})</td></tr>`;
-  for (const slot of ['SP','RP']) {{
-    const count = ROSTER_SLOTS[slot] || 5;
-    for (let i = 0; i < count; i++) {{
-      const p = bySlot[slot][i];
-      html += `<tr class="roster-section" data-slot="${{slot}}">${{pRow(p, slot, '').replace(/^<tr[^>]*>|<\\/tr>$/g, '')}}</tr>`;
-    }}
+  if (!rsc) {{
+    // Bench (only in slot-based view)
+    html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">BENCH (${{bench.length}}/7)</span></div>`;
+    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;"><tbody>';
+    bench.forEach(p => {{ html += pRow(p, 'BN', ''); }});
+    if (bench.length === 0) html += '<tr><td colspan="13" style="padding:4px 6px;color:var(--text2);font-size:11px;">No bench players</td></tr>';
+    html += '</tbody></table>';
+
+    // IL
+    html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--red);">IL (${{ilPlayers.length}}/4)</span></div>`;
+    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;"><tbody>';
+    ilPlayers.forEach(p => {{ html += pRow(p, 'IL', '<span style="color:var(--red);">IL</span>'); }});
+    if (ilPlayers.length === 0) html += '<tr><td colspan="13" style="padding:4px 6px;color:var(--text2);font-size:11px;">No IL players</td></tr>';
+    html += '</tbody></table>';
   }}
-  html += '</tbody></table>';
 
-  // Bench
-  html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">BENCH (${{bench.length}}/7)</span></div>`;
-  html += '<table style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:12px;">';
-  html += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);"><th style="text-align:left;padding:4px 6px;">Slot</th><th style="text-align:left;padding:4px 6px;">Player</th><th style="padding:4px 6px;">Team</th><th style="padding:4px 6px;">Elig</th><th style="text-align:right;padding:4px 6px;">LCV</th><th style="text-align:right;padding:4px 6px;">PNAV</th><th style="text-align:right;padding:4px 6px;">Age</th><th style="width:30px;"></th></tr></thead>';
-  html += '<tbody>';
-  bench.forEach(p => {{ html += `<tr class="roster-section" data-slot="reserve">${{pRow(p, '', '').replace(/^<tr[^>]*>|<\\/tr>$/g, '')}}</tr>`; }});
-  if (bench.length === 0) html += '<tr><td colspan="7" style="padding:4px 6px;color:var(--text2);font-size:11px;">No bench players</td></tr>';
-  html += '</tbody></table>';
-
-  // IL
-  html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--red);">IL (${{ilPlayers.length}}/4)</span></div>`;
-  html += '<table style="width:100%;border-collapse:collapse;font-size:12px;"><tbody>';
-  ilPlayers.forEach(p => {{ html += `<tr class="roster-section" data-slot="il">${{pRow(p, 'IL', '<span style="color:var(--red);">IL</span>').replace(/^<tr[^>]*>|<\\/tr>$/g, '')}}</tr>`; }});
-  if (ilPlayers.length === 0) html += '<tr><td colspan="7" style="padding:4px 6px;color:var(--text2);font-size:11px;">No IL players</td></tr>';
-  html += '</tbody></table>';
-
-  // Minors
+  // Minors (always show)
   html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--accent);">MINORS (${{teamMilb.length}}/4)</span></div>`;
   html += '<table style="width:100%;border-collapse:collapse;font-size:12px;"><tbody>';
   teamMilb.forEach(name => {{
     const p = ALL.find(x => x.name === name);
     if (p) html += pRow(p, 'MiLB', '<span style="color:var(--accent);">MiLB</span>');
-    else html += `<tr><td style="padding:3px 6px;font-weight:600;width:30px;font-size:11px;">MiLB</td><td colspan="6" style="padding:3px 6px;font-size:12px;">${{name}} <span style="color:var(--accent);font-size:10px;">MiLB</span></td></tr>`;
+    else html += `<tr><td style="padding:3px 6px;font-weight:600;width:30px;font-size:11px;">MiLB</td><td colspan="12" style="padding:3px 6px;font-size:12px;">${{name}} <span style="color:var(--accent);font-size:10px;">MiLB</span></td></tr>`;
   }});
-  if (teamMilb.length === 0) html += '<tr><td colspan="7" style="padding:4px 6px;color:var(--text2);font-size:11px;">No minor leaguers</td></tr>';
+  if (teamMilb.length === 0) html += '<tr><td colspan="13" style="padding:4px 6px;color:var(--text2);font-size:11px;">No minor leaguers</td></tr>';
   html += '</tbody></table>';
 
   html += '</div>'; // end left column
@@ -3472,6 +3577,23 @@ function renderRoster() {{
   section.querySelectorAll('.roster-team-btn').forEach(btn => {{
     btn.addEventListener('click', () => {{
       state._rosterTeam = decodeURIComponent(btn.dataset.team);
+      renderRoster();
+    }});
+  }});
+
+  // ── Wire roster sort headers ──
+  section.querySelectorAll('.roster-sort-th').forEach(th => {{
+    const col = th.dataset.col;
+    if (!col) return;
+    th.style.cursor = 'pointer';
+    th.addEventListener('click', () => {{
+      if (state._rSortCol === col) {{
+        if (state._rSortDir === -1) state._rSortDir = 1;
+        else {{ state._rSortCol = null; state._rSortDir = -1; }} // third click resets
+      }} else {{
+        state._rSortCol = col;
+        state._rSortDir = -1;
+      }}
       renderRoster();
     }});
   }});

@@ -10,10 +10,14 @@
     "helium": 2,
     "bp_rank": 1,
     "avg_rank": 1.0,
-    "trend": 0.0
+    "trend": 0.0,
+    "g_hit": 60,
+    "g_power": 70,
+    "g_speed": 70,
+    "g_field": 65
   },
   {
-    "name": "Jes\u00fas Made",
+    "name": "Jesús Made",
     "team": "MIL",
     "pos": "SS",
     "age": 18.8,
@@ -23,7 +27,11 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 3.0,
-    "trend": -2.0
+    "trend": -2.0,
+    "g_hit": 60,
+    "g_power": 60,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Nolan McLean",
@@ -36,7 +44,10 @@
     "helium": 2,
     "bp_rank": 4,
     "avg_rank": 3.33,
-    "trend": -0.5
+    "trend": -0.5,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 50
   },
   {
     "name": "Samuel Basallo",
@@ -49,7 +60,11 @@
     "helium": 2,
     "bp_rank": 9,
     "avg_rank": 7.0,
-    "trend": -4.5
+    "trend": -4.5,
+    "g_hit": 45,
+    "g_power": 70,
+    "g_speed": 30,
+    "g_field": 45
   },
   {
     "name": "Kevin McGonigle",
@@ -62,7 +77,11 @@
     "helium": 2,
     "bp_rank": 2,
     "avg_rank": 3.0,
-    "trend": 3.0
+    "trend": 3.0,
+    "g_hit": 70,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Leo De Vries",
@@ -75,7 +94,11 @@
     "helium": 2,
     "bp_rank": 5,
     "avg_rank": 6.67,
-    "trend": -1.0
+    "trend": -1.0,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Max Clark",
@@ -88,7 +111,11 @@
     "helium": 2,
     "bp_rank": 6,
     "avg_rank": 7.67,
-    "trend": -1.0
+    "trend": -1.0,
+    "g_hit": 60,
+    "g_power": 50,
+    "g_speed": 70,
+    "g_field": 60
   },
   {
     "name": "Trey Yesavage",
@@ -101,7 +128,10 @@
     "helium": 2,
     "bp_rank": 7,
     "avg_rank": 9.67,
-    "trend": -2.5
+    "trend": -2.5,
+    "g_fb": 70,
+    "g_secondary": 55,
+    "g_command": 45
   },
   {
     "name": "Thomas White",
@@ -114,7 +144,10 @@
     "helium": 2,
     "bp_rank": 29,
     "avg_rank": 19.0,
-    "trend": -15.0
+    "trend": -15.0,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 50
   },
   {
     "name": "Bubba Chandler",
@@ -127,7 +160,10 @@
     "helium": 2,
     "bp_rank": 12,
     "avg_rank": 11.33,
-    "trend": -2.0
+    "trend": -2.0,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 50
   },
   {
     "name": "Colt Emerson",
@@ -140,7 +176,11 @@
     "helium": 2,
     "bp_rank": 15,
     "avg_rank": 10.33,
-    "trend": 1.0
+    "trend": 1.0,
+    "g_hit": 60,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 55
   },
   {
     "name": "JJ Wetherholt",
@@ -153,7 +193,11 @@
     "helium": 2,
     "bp_rank": 8,
     "avg_rank": 9.0,
-    "trend": 4.5
+    "trend": 4.5,
+    "g_hit": 60,
+    "g_power": 50,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Aidan Miller",
@@ -166,7 +210,11 @@
     "helium": 2,
     "bp_rank": 13,
     "avg_rank": 10.67,
-    "trend": 3.5
+    "trend": 3.5,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 60,
+    "g_field": 60
   },
   {
     "name": "Franklin Arias",
@@ -179,7 +227,11 @@
     "helium": 2,
     "bp_rank": 25,
     "avg_rank": 26.0,
-    "trend": -18.0
+    "trend": -18.0,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Eli Willits",
@@ -192,7 +244,11 @@
     "helium": 2,
     "bp_rank": 17,
     "avg_rank": 18.0,
-    "trend": -4.5
+    "trend": -4.5,
+    "g_hit": 60,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Bryce Eldridge",
@@ -205,7 +261,11 @@
     "helium": 2,
     "bp_rank": 33,
     "avg_rank": 22.0,
-    "trend": -9.0
+    "trend": -9.0,
+    "g_hit": 50,
+    "g_power": 70,
+    "g_speed": 30,
+    "g_field": 45
   },
   {
     "name": "Josue De Paula",
@@ -218,7 +278,11 @@
     "helium": 2,
     "bp_rank": 14,
     "avg_rank": 24.0,
-    "trend": -10.5
+    "trend": -10.5,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 60,
+    "g_field": 55
   },
   {
     "name": "Payton Tolle",
@@ -231,7 +295,10 @@
     "helium": 2,
     "bp_rank": 22,
     "avg_rank": 22.67,
-    "trend": -7.0
+    "trend": -7.0,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 50
   },
   {
     "name": "Liam Doyle",
@@ -244,7 +311,10 @@
     "helium": 2,
     "bp_rank": 31,
     "avg_rank": 40.0,
-    "trend": -31.5
+    "trend": -31.5,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 50
   },
   {
     "name": "Ryan Sloan",
@@ -257,7 +327,10 @@
     "helium": 2,
     "bp_rank": 32,
     "avg_rank": 27.0,
-    "trend": -10.5
+    "trend": -10.5,
+    "g_fb": 70,
+    "g_secondary": 55,
+    "g_command": 55
   },
   {
     "name": "Carson Benge",
@@ -270,7 +343,11 @@
     "helium": 2,
     "bp_rank": 10,
     "avg_rank": 14.0,
-    "trend": 10.5
+    "trend": 10.5,
+    "g_hit": 60,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 55
   },
   {
     "name": "Alfredo Duno",
@@ -283,7 +360,11 @@
     "helium": 2,
     "bp_rank": 63,
     "avg_rank": 42.33,
-    "trend": -30.5
+    "trend": -30.5,
+    "g_hit": 50,
+    "g_power": 65,
+    "g_speed": 40,
+    "g_field": 50
   },
   {
     "name": "Bryce Rainer",
@@ -296,10 +377,14 @@
     "helium": 2,
     "bp_rank": 36,
     "avg_rank": 31.33,
-    "trend": -12.5
+    "trend": -12.5,
+    "g_hit": 55,
+    "g_power": 50,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
-    "name": "Luis Pe\u00f1a",
+    "name": "Luis Peña",
     "team": "MIL",
     "pos": "SS",
     "age": 19.3,
@@ -309,7 +394,11 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 21.0,
-    "trend": 6.0
+    "trend": 6.0,
+    "g_hit": 60,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Rainiel Rodriguez",
@@ -322,7 +411,11 @@
     "helium": 2,
     "bp_rank": 16,
     "avg_rank": 21.67,
-    "trend": 5.0
+    "trend": 5.0,
+    "g_hit": 50,
+    "g_power": 60,
+    "g_speed": 40,
+    "g_field": 50
   },
   {
     "name": "Chase DeLauter",
@@ -335,7 +428,11 @@
     "helium": 2,
     "bp_rank": 94,
     "avg_rank": 46.67,
-    "trend": -31.0
+    "trend": -31.0,
+    "g_hit": 55,
+    "g_power": 65,
+    "g_speed": 55,
+    "g_field": 55
   },
   {
     "name": "Andrew Painter",
@@ -348,7 +445,10 @@
     "helium": 2,
     "bp_rank": 51,
     "avg_rank": 33.0,
-    "trend": -9.0
+    "trend": -9.0,
+    "g_fb": 70,
+    "g_secondary": 65,
+    "g_command": 55
   },
   {
     "name": "Carson Williams",
@@ -361,7 +461,11 @@
     "helium": 2,
     "bp_rank": 45,
     "avg_rank": 47.0,
-    "trend": -28.5
+    "trend": -28.5,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Jarlin Susana",
@@ -374,7 +478,10 @@
     "helium": 2,
     "bp_rank": 47,
     "avg_rank": 43.33,
-    "trend": -21.5
+    "trend": -21.5,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 45
   },
   {
     "name": "Sebastian Walcott",
@@ -387,7 +494,11 @@
     "helium": 2,
     "bp_rank": 11,
     "avg_rank": 24.33,
-    "trend": 8.5
+    "trend": 8.5,
+    "g_hit": 60,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Walker Jenkins",
@@ -400,7 +511,11 @@
     "helium": 2,
     "bp_rank": 19,
     "avg_rank": 22.0,
-    "trend": 13.5
+    "trend": 13.5,
+    "g_hit": 55,
+    "g_power": 60,
+    "g_speed": 60,
+    "g_field": 55
   },
   {
     "name": "Carter Jensen",
@@ -413,7 +528,11 @@
     "helium": 2,
     "bp_rank": 44,
     "avg_rank": 29.67,
-    "trend": 3.5
+    "trend": 3.5,
+    "g_hit": 45,
+    "g_power": 65,
+    "g_speed": 50,
+    "g_field": 50
   },
   {
     "name": "Caleb Bonemer",
@@ -426,7 +545,11 @@
     "helium": 2,
     "bp_rank": 26,
     "avg_rank": 35.33,
-    "trend": -3.5
+    "trend": -3.5,
+    "g_hit": 55,
+    "g_power": 50,
+    "g_speed": 60,
+    "g_field": 50
   },
   {
     "name": "Sal Stewart",
@@ -439,7 +562,11 @@
     "helium": 2,
     "bp_rank": 46,
     "avg_rank": 31.67,
-    "trend": 3.5
+    "trend": 3.5,
+    "g_hit": 55,
+    "g_power": 60,
+    "g_speed": 50,
+    "g_field": 50
   },
   {
     "name": "Ryan Waldschmidt",
@@ -452,7 +579,11 @@
     "helium": 2,
     "bp_rank": 39,
     "avg_rank": 39.33,
-    "trend": -6.5
+    "trend": -6.5,
+    "g_hit": 55,
+    "g_power": 60,
+    "g_speed": 50,
+    "g_field": 50
   },
   {
     "name": "Noah Schultz",
@@ -465,7 +596,10 @@
     "helium": 2,
     "bp_rank": 100,
     "avg_rank": 67.0,
-    "trend": -46.5
+    "trend": -46.5,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 50
   },
   {
     "name": "Brandon Sproat",
@@ -478,7 +612,10 @@
     "helium": 2,
     "bp_rank": 76,
     "avg_rank": 61.33,
-    "trend": -36.5
+    "trend": -36.5,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 45
   },
   {
     "name": "Connelly Early",
@@ -491,7 +628,10 @@
     "helium": 2,
     "bp_rank": 43,
     "avg_rank": 34.67,
-    "trend": 5.0
+    "trend": 5.0,
+    "g_fb": 70,
+    "g_secondary": 65,
+    "g_command": 55
   },
   {
     "name": "Dylan Beavers",
@@ -504,7 +644,11 @@
     "helium": 2,
     "bp_rank": 62,
     "avg_rank": 44.67,
-    "trend": -8.5
+    "trend": -8.5,
+    "g_hit": 55,
+    "g_power": 60,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Ralphy Velazquez",
@@ -517,7 +661,11 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 48.5,
-    "trend": -17.0
+    "trend": -17.0,
+    "g_hit": 55,
+    "g_power": 65,
+    "g_speed": 50,
+    "g_field": 40
   },
   {
     "name": "Zyhir Hope",
@@ -530,7 +678,11 @@
     "helium": 2,
     "bp_rank": 18,
     "avg_rank": 28.67,
-    "trend": 18.5
+    "trend": 18.5,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 55
   },
   {
     "name": "Angel Genao",
@@ -543,7 +695,11 @@
     "helium": 2,
     "bp_rank": 55,
     "avg_rank": 56.33,
-    "trend": -21.5
+    "trend": -21.5,
+    "g_hit": 55,
+    "g_power": 50,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Eduardo Quintero",
@@ -556,7 +712,11 @@
     "helium": 2,
     "bp_rank": 27,
     "avg_rank": 36.67,
-    "trend": 9.5
+    "trend": 9.5,
+    "g_hit": 55,
+    "g_power": 50,
+    "g_speed": 60,
+    "g_field": 55
   },
   {
     "name": "Josuar Gonzalez",
@@ -582,7 +742,10 @@
     "helium": 2,
     "bp_rank": 68,
     "avg_rank": 54.0,
-    "trend": -13.5
+    "trend": -13.5,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 45
   },
   {
     "name": "Eduardo Tait",
@@ -595,7 +758,11 @@
     "helium": 2,
     "bp_rank": 54,
     "avg_rank": 52.0,
-    "trend": -9.0
+    "trend": -9.0,
+    "g_hit": 50,
+    "g_power": 60,
+    "g_speed": 40,
+    "g_field": 50
   },
   {
     "name": "Ethan Holliday",
@@ -608,7 +775,11 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 53.5,
-    "trend": -13.0
+    "trend": -13.0,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Arjun Nimmala",
@@ -621,7 +792,11 @@
     "helium": 2,
     "bp_rank": 87,
     "avg_rank": 76.67,
-    "trend": -43.0
+    "trend": -43.0,
+    "g_hit": 55,
+    "g_power": 50,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "George Lombard Jr.",
@@ -634,7 +809,11 @@
     "helium": 2,
     "bp_rank": 42,
     "avg_rank": 48.0,
-    "trend": 1.5
+    "trend": 1.5,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Kade Anderson",
@@ -647,7 +826,10 @@
     "helium": 2,
     "bp_rank": 28,
     "avg_rank": 34.67,
-    "trend": 23.0
+    "trend": 23.0,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 50
   },
   {
     "name": "Jonny Farmelo",
@@ -660,7 +842,11 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 62.0,
-    "trend": -22.0
+    "trend": -22.0,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 60,
+    "g_field": 50
   },
   {
     "name": "Tyler Bremner",
@@ -676,7 +862,7 @@
     "trend": -27.0
   },
   {
-    "name": "Elmer Rodr\u00edguez",
+    "name": "Elmer Rodríguez",
     "team": "NYY",
     "pos": "SP",
     "age": 22.5,
@@ -699,7 +885,11 @@
     "helium": 2,
     "bp_rank": 24,
     "avg_rank": 41.33,
-    "trend": 19.0
+    "trend": 19.0,
+    "g_hit": 65,
+    "g_power": 50,
+    "g_speed": 55,
+    "g_field": 55
   },
   {
     "name": "Jefferson Rojas",
@@ -725,7 +915,11 @@
     "helium": 2,
     "bp_rank": 92,
     "avg_rank": 61.67,
-    "trend": -8.5
+    "trend": -8.5,
+    "g_hit": 45,
+    "g_power": 65,
+    "g_speed": 45,
+    "g_field": 50
   },
   {
     "name": "George Klassen",
@@ -738,7 +932,10 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 61.5,
-    "trend": -9.0
+    "trend": -9.0,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 45
   },
   {
     "name": "Jonah Tong",
@@ -751,7 +948,10 @@
     "helium": 2,
     "bp_rank": 23,
     "avg_rank": 37.0,
-    "trend": 31.5
+    "trend": 31.5,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 50
   },
   {
     "name": "Brody Hopkins",
@@ -764,10 +964,13 @@
     "helium": 2,
     "bp_rank": 72,
     "avg_rank": 56.33,
-    "trend": 4.0
+    "trend": 4.0,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 50
   },
   {
-    "name": "Kevin Alc\u00e1ntara",
+    "name": "Kevin Alcántara",
     "team": "CHC",
     "pos": "CF",
     "age": 23.6,
@@ -803,10 +1006,14 @@
     "helium": 2,
     "bp_rank": 91,
     "avg_rank": 67.0,
-    "trend": -7.5
+    "trend": -7.5,
+    "g_hit": 55,
+    "g_power": 60,
+    "g_speed": 50,
+    "g_field": 50
   },
   {
-    "name": "Josue Brice\u00f1o",
+    "name": "Josue Briceño",
     "team": "DET",
     "pos": "1B",
     "age": 21.4,
@@ -816,10 +1023,14 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 49.5,
-    "trend": 27.0
+    "trend": 27.0,
+    "g_hit": 50,
+    "g_power": 65,
+    "g_speed": 40,
+    "g_field": 50
   },
   {
-    "name": "Luis De Le\u00f3n",
+    "name": "Luis De León",
     "team": "BAL",
     "pos": "SP",
     "age": 22.8,
@@ -842,7 +1053,10 @@
     "helium": 1,
     "bp_rank": 101,
     "avg_rank": 83.0,
-    "trend": -36.0
+    "trend": -36.0,
+    "g_fb": 70,
+    "g_secondary": 65,
+    "g_command": 55
   },
   {
     "name": "Lazaro Montes",
@@ -855,7 +1069,11 @@
     "helium": 2,
     "bp_rank": 97,
     "avg_rank": 80.0,
-    "trend": -21.0
+    "trend": -21.0,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 60,
+    "g_field": 55
   },
   {
     "name": "Charlie Condon",
@@ -868,7 +1086,11 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 80.5,
-    "trend": -27.0
+    "trend": -27.0,
+    "g_hit": 55,
+    "g_power": 65,
+    "g_speed": 40,
+    "g_field": 40
   },
   {
     "name": "JR Ritchie",
@@ -881,7 +1103,10 @@
     "helium": 2,
     "bp_rank": 88,
     "avg_rank": 79.67,
-    "trend": -17.5
+    "trend": -17.5,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 45
   },
   {
     "name": "Dax Kilby",
@@ -894,7 +1119,11 @@
     "helium": 2,
     "bp_rank": 40,
     "avg_rank": 61.67,
-    "trend": 11.0
+    "trend": 11.0,
+    "g_hit": 55,
+    "g_power": 50,
+    "g_speed": 60,
+    "g_field": 50
   },
   {
     "name": "Yolfran Castillo",
@@ -920,7 +1149,10 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 74.5,
-    "trend": -7.0
+    "trend": -7.0,
+    "g_fb": 70,
+    "g_secondary": 55,
+    "g_command": 50
   },
   {
     "name": "Jaxon Wiggins",
@@ -933,7 +1165,10 @@
     "helium": 2,
     "bp_rank": 67,
     "avg_rank": 66.0,
-    "trend": 9.0
+    "trend": 9.0,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 45
   },
   {
     "name": "Carlos Lagrange",
@@ -946,7 +1181,10 @@
     "helium": 2,
     "bp_rank": 61,
     "avg_rank": 66.0,
-    "trend": 10.5
+    "trend": 10.5,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 45
   },
   {
     "name": "Harry Ford",
@@ -972,7 +1210,11 @@
     "helium": 2,
     "bp_rank": 41,
     "avg_rank": 53.67,
-    "trend": 32.0
+    "trend": 32.0,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Jeferson Quero",
@@ -985,7 +1227,11 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 80.5,
-    "trend": -9.0
+    "trend": -9.0,
+    "g_hit": 50,
+    "g_power": 65,
+    "g_speed": 40,
+    "g_field": 50
   },
   {
     "name": "Jhonny Level",
@@ -1024,7 +1270,10 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 83.0,
-    "trend": -8.0
+    "trend": -8.0,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 45
   },
   {
     "name": "Robby Snelling",
@@ -1037,7 +1286,10 @@
     "helium": 2,
     "bp_rank": 57,
     "avg_rank": 54.0,
-    "trend": 39.0
+    "trend": 39.0,
+    "g_fb": 70,
+    "g_secondary": 65,
+    "g_command": 55
   },
   {
     "name": "Gage Jump",
@@ -1050,7 +1302,10 @@
     "helium": 2,
     "bp_rank": 37,
     "avg_rank": 56.67,
-    "trend": 36.5
+    "trend": 36.5,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 55
   },
   {
     "name": "Parker Messick",
@@ -1076,10 +1331,13 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 82.5,
-    "trend": 1.0
+    "trend": 1.0,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 45
   },
   {
-    "name": "Mois\u00e9s Ballesteros",
+    "name": "Moisés Ballesteros",
     "team": "CHC",
     "pos": "C",
     "age": 22.3,
@@ -1089,7 +1347,11 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 69.5,
-    "trend": 29.0
+    "trend": 29.0,
+    "g_hit": 50,
+    "g_power": 65,
+    "g_speed": 40,
+    "g_field": 50
   },
   {
     "name": "Jacob Reimer",
@@ -1102,7 +1364,11 @@
     "helium": 2,
     "bp_rank": 70,
     "avg_rank": 82.67,
-    "trend": 3.5
+    "trend": 3.5,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 50,
+    "g_field": 50
   },
   {
     "name": "Felnin Celesten",
@@ -1128,7 +1394,11 @@
     "helium": 2,
     "bp_rank": 50,
     "avg_rank": 62.67,
-    "trend": 36.5
+    "trend": 36.5,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Logan Henderson",
@@ -1141,7 +1411,10 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 90.0,
-    "trend": -4.0
+    "trend": -4.0,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 45
   },
   {
     "name": "David Davalillo",
@@ -1206,7 +1479,11 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 96.0,
-    "trend": -6.0
+    "trend": -6.0,
+    "g_hit": 50,
+    "g_power": 60,
+    "g_speed": 45,
+    "g_field": 50
   },
   {
     "name": "Jurrangelo Cijntje",
@@ -1219,7 +1496,10 @@
     "helium": 2,
     "bp_rank": 52,
     "avg_rank": 81.0,
-    "trend": 19.5
+    "trend": 19.5,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 45
   },
   {
     "name": "Christian Oppor",
@@ -1258,7 +1538,11 @@
     "helium": 2,
     "bp_rank": 71,
     "avg_rank": 84.0,
-    "trend": 19.5
+    "trend": 19.5,
+    "g_hit": 55,
+    "g_power": 50,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Tommy Troy",
@@ -1271,7 +1555,11 @@
     "helium": 0,
     "bp_rank": null,
     "avg_rank": 98.0,
-    "trend": null
+    "trend": null,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Roldy Brito",
@@ -1297,7 +1585,11 @@
     "helium": 2,
     "bp_rank": 99,
     "avg_rank": 87.0,
-    "trend": 19.5
+    "trend": 19.5,
+    "g_hit": 55,
+    "g_power": 65,
+    "g_speed": 50,
+    "g_field": 50
   },
   {
     "name": "Edward Florentino",
@@ -1310,7 +1602,11 @@
     "helium": 2,
     "bp_rank": 21,
     "avg_rank": 51.0,
-    "trend": 75.0
+    "trend": 75.0,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 60,
+    "g_field": 50
   },
   {
     "name": "Rhett Lowder",
@@ -1323,7 +1619,10 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 95.5,
-    "trend": 13.0
+    "trend": 13.0,
+    "g_fb": 70,
+    "g_secondary": 65,
+    "g_command": 50
   },
   {
     "name": "Winston Santos",
@@ -1388,7 +1687,10 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 85.0,
-    "trend": 44.0
+    "trend": 44.0,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 45
   },
   {
     "name": "Jake Bloss",
@@ -1414,7 +1716,10 @@
     "helium": 2,
     "bp_rank": 90,
     "avg_rank": 88.67,
-    "trend": 30.5
+    "trend": 30.5,
+    "g_fb": 70,
+    "g_secondary": 55,
+    "g_command": 50
   },
   {
     "name": "Ethan Salas",
@@ -1427,7 +1732,11 @@
     "helium": 1,
     "bp_rank": null,
     "avg_rank": 105.0,
-    "trend": 10.0
+    "trend": 10.0,
+    "g_hit": 50,
+    "g_power": 65,
+    "g_speed": 40,
+    "g_field": 50
   },
   {
     "name": "Mike Sirota",
@@ -1440,7 +1749,11 @@
     "helium": 1,
     "bp_rank": 34,
     "avg_rank": 34.0,
-    "trend": null
+    "trend": null,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 60,
+    "g_field": 55
   },
   {
     "name": "AJ Ewing",
@@ -1453,7 +1766,11 @@
     "helium": 1,
     "bp_rank": 38,
     "avg_rank": 40.5,
-    "trend": null
+    "trend": null,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Emmanuel Rodriguez",
@@ -1466,7 +1783,11 @@
     "helium": 1,
     "bp_rank": 48,
     "avg_rank": 49.0,
-    "trend": null
+    "trend": null,
+    "g_hit": 55,
+    "g_power": 60,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Joseph Parker",
@@ -1479,7 +1800,11 @@
     "helium": 0,
     "bp_rank": null,
     "avg_rank": 61.0,
-    "trend": null
+    "trend": null,
+    "g_hit": 55,
+    "g_power": 50,
+    "g_speed": 60,
+    "g_field": 50
   },
   {
     "name": "Josuar De Jesus",
@@ -1505,7 +1830,11 @@
     "helium": 1,
     "bp_rank": 81,
     "avg_rank": 78.0,
-    "trend": null
+    "trend": null,
+    "g_hit": 55,
+    "g_power": 50,
+    "g_speed": 60,
+    "g_field": 50
   },
   {
     "name": "Justin Crawford",
@@ -1518,7 +1847,11 @@
     "helium": 1,
     "bp_rank": 98,
     "avg_rank": 88.5,
-    "trend": null
+    "trend": null,
+    "g_hit": 55,
+    "g_power": 60,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Jhostynxon Garcia",
@@ -1531,7 +1864,11 @@
     "helium": 0,
     "bp_rank": null,
     "avg_rank": 80.0,
-    "trend": null
+    "trend": null,
+    "g_hit": 55,
+    "g_power": 60,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Ryan Clifford",
@@ -1544,7 +1881,11 @@
     "helium": 1,
     "bp_rank": 86,
     "avg_rank": 83.5,
-    "trend": null
+    "trend": null,
+    "g_hit": 55,
+    "g_power": 60,
+    "g_speed": 50,
+    "g_field": 45
   },
   {
     "name": "Charlee Soto",
@@ -1557,7 +1898,10 @@
     "helium": 0,
     "bp_rank": null,
     "avg_rank": 88.0,
-    "trend": null
+    "trend": null,
+    "g_fb": 70,
+    "g_secondary": 55,
+    "g_command": 50
   },
   {
     "name": "Alex Freeland",
@@ -1583,7 +1927,11 @@
     "helium": 0,
     "bp_rank": null,
     "avg_rank": 91.0,
-    "trend": null
+    "trend": null,
+    "g_hit": 55,
+    "g_power": 60,
+    "g_speed": 55,
+    "g_field": 50
   },
   {
     "name": "Cam Caminiti",
@@ -1596,7 +1944,10 @@
     "helium": 0,
     "bp_rank": null,
     "avg_rank": 98.0,
-    "trend": null
+    "trend": null,
+    "g_fb": 70,
+    "g_secondary": 55,
+    "g_command": 50
   },
   {
     "name": "Kendry Chourio",
@@ -1609,7 +1960,10 @@
     "helium": 0,
     "bp_rank": null,
     "avg_rank": 96.0,
-    "trend": null
+    "trend": null,
+    "g_fb": 70,
+    "g_secondary": 55,
+    "g_command": 50
   },
   {
     "name": "Juneiker Caceres",
@@ -1622,7 +1976,11 @@
     "helium": 0,
     "bp_rank": null,
     "avg_rank": 86.0,
-    "trend": null
+    "trend": null,
+    "g_hit": 55,
+    "g_power": 55,
+    "g_speed": 60,
+    "g_field": 55
   },
   {
     "name": "Luis Perales",
@@ -1635,6 +1993,9 @@
     "helium": 0,
     "bp_rank": null,
     "avg_rank": 69.0,
-    "trend": null
+    "trend": null,
+    "g_fb": 70,
+    "g_secondary": 60,
+    "g_command": 45
   }
 ]
