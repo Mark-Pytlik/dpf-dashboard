@@ -175,7 +175,7 @@ a[title^="Sleeper"] { color:var(--green); } a[title^="Avoid"] { color:var(--red)
     <option value="drafted">Drafted</option>
   </select>
   <select id="teamFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;">
-    <option value="all">All Teams</option>
+    <option value="all">All Owners</option>
   </select>
   <div id="typeFilters" style="display:flex;gap:2px;"></div>
   <div style="width:1px;height:20px;background:var(--border);"></div>
@@ -1921,7 +1921,11 @@ function render() {
   let filtered = data.filter(p => {
     if (q && !p.name.toLowerCase().includes(q) && !(p.team||'').toLowerCase().includes(q)) return false;
     if (filterPos !== 'ALL' && p.primaryPos !== filterPos && !p.pos.includes(filterPos)) return false;
-    if (teamFilter !== 'all' && p.team !== teamFilter) return false;
+    if (teamFilter !== 'all') {
+      const tObj = LEAGUE_TEAMS.find(t => t.name === teamFilter);
+      const onTeam = tObj && tObj.mine ? (state.myTeam||[]).includes(p.name) : (state.leagueTeams[teamFilter]||[]).includes(p.name);
+      if (!onTeam) return false;
+    }
     if (draftFilter === 'available' && state.drafted[p.name]) return false;
     if (draftFilter === 'drafted' && !state.drafted[p.name]) return false;
     if (tagFilter === 'want' && state.tags[p.name] !== 'want') return false;
@@ -5033,11 +5037,16 @@ document.querySelectorAll('.view-btn').forEach(btn => {
 document.getElementById('searchBox').addEventListener('input', render);
 document.getElementById('draftFilter').addEventListener('change', render);
 document.getElementById('tagFilter').addEventListener('change', render);
-// Populate team filter dropdown with all MLB teams
+// Populate team filter dropdown with fantasy league teams
 (() => {
   const tf = document.getElementById('teamFilter');
-  const teams = [...new Set(ALL.map(p => p.team).filter(Boolean))].sort();
-  teams.forEach(t => { const o = document.createElement('option'); o.value = t; o.textContent = t; tf.appendChild(o); });
+  // Add my team first
+  const myT = LEAGUE_TEAMS.find(t => t.mine);
+  if (myT) { const o = document.createElement('option'); o.value = myT.name; o.textContent = myT.owner + ' (me)'; tf.appendChild(o); }
+  // Then other teams sorted by owner name
+  LEAGUE_TEAMS.filter(t => !t.mine).sort((a,b) => a.owner.localeCompare(b.owner)).forEach(t => {
+    const o = document.createElement('option'); o.value = t.name; o.textContent = t.owner; tf.appendChild(o);
+  });
   tf.addEventListener('change', render);
 })();
 document.addEventListener('click', e => {
