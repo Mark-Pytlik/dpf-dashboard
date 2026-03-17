@@ -5694,8 +5694,25 @@ document.addEventListener('click', e => {{
 }});
 
 // ── Init ──────────────────────────────────────────────────────────────────
-// Ensure keepers are on team
+// Ensure keepers are on team (but skip any that were traded away via CBS transactions)
+const _tradedAway = new Set();
+CBS_TRANSACTIONS.forEach(txn => {{
+  if (txn.teamId && CBS_TEAM_MAP[txn.teamId]) {{
+    const destTeam = CBS_TEAM_MAP[txn.teamId];
+    const isMine = LEAGUE_TEAMS.find(t => t.name === destTeam && t.mine);
+    if (!isMine) {{
+      // This transaction's destination is NOT my team
+      txn.players.forEach(p => {{
+        if (p.action && p.action.startsWith('Traded from')) {{
+          const found = ALL.find(x => x.name === p.name) || ALL.find(x => x.name.toLowerCase() === p.name.toLowerCase());
+          _tradedAway.add(found ? found.name : p.name);
+        }}
+      }});
+    }}
+  }}
+}});
 state.keepers.forEach(k => {{
+  if (_tradedAway.has(k)) return; // Don't re-add traded keepers
   if (!state.myTeam.includes(k)) state.myTeam.push(k);
   const kRd = state.keeperRounds[k] || null;
   if (!state.drafted[k]) state.drafted[k] = {{ time: Date.now(), mine: true, round: kRd }};
