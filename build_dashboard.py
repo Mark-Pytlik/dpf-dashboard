@@ -819,11 +819,14 @@ async function hashPassword(pwd) {{
 
 function checkAuth() {{
   const mc = document.getElementById('mainContent');
-  if (sessionStorage.getItem('dpf_auth') === 'ok') {{
+  const authTs = localStorage.getItem('dpf_auth_ts');
+  const thirtyDays = 30 * 24 * 60 * 60 * 1000;
+  if (authTs && (Date.now() - parseInt(authTs, 10)) < thirtyDays) {{
     document.getElementById('authGate').classList.add('hidden');
     if (mc) mc.style.display = '';
     return true;
   }}
+  localStorage.removeItem('dpf_auth_ts');
   document.getElementById('authGate').classList.remove('hidden');
   if (mc) mc.style.display = 'none';
   return false;
@@ -838,7 +841,7 @@ async function submitPassword() {{
   }}
   const hash = await hashPassword(pwd);
   if (hash === PASSWORD_HASH) {{
-    sessionStorage.setItem('dpf_auth', 'ok');
+    localStorage.setItem('dpf_auth_ts', Date.now().toString());
     document.getElementById('authError').textContent = '';
     input.value = '';
     checkAuth();
