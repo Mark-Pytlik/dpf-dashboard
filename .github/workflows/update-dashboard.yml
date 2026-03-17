@@ -82,7 +82,6 @@ jobs:
           exclude: |
             **/.git*
             **/.git*/**
-            **/data/**
             **/build_dashboard.py
             **/fetch_stats.py
             **/requirements.txt

@@ -2196,7 +2196,7 @@ function renderTransactions() {{
     checkBtn.disabled = true;
     checkBtn.textContent = '↻ Checking...';
     try {{
-      const resp = await fetch('https://raw.githubusercontent.com/Mark-Pytlik/dpf-dashboard/main/data/cbs_transactions.json?t=' + Date.now());
+      const resp = await fetch('./data/cbs_transactions.json?t=' + Date.now());
       if (!resp.ok) throw new Error('Fetch failed: ' + resp.status);
       const latest = await resp.json();
       // Find new transactions not in baked-in data
@@ -3595,7 +3595,11 @@ function renderRoster() {{
   ];
 
   const batSlotOrder = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
+  // Shared colgroup for all roster tables (main + bench + IL + MiLB)
+  const rosterColgroup = '<colgroup><col style="width:42px"><col><col style="width:52px"><col style="width:44px"><col style="width:60px"><col style="width:44px"><col style="width:48px"><col style="width:36px"><col style="width:32px"><col style="width:40px"><col style="width:40px"><col style="width:40px"></colgroup>';
+
   html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:6px;">';
+  html += rosterColgroup;
   html += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);">';
   rosterCols.forEach(c => {{
     const arrow = (rsc && rsc === c.key) ? (rsd === 1 ? ' ▲' : ' ▼') : '';
@@ -3666,14 +3670,18 @@ function renderRoster() {{
   if (!rsc) {{
     // Bench (only in slot-based view)
     html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">BENCH (${{bench.length}}/7)</span></div>`;
-    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;"><tbody>';
+    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
+    html += rosterColgroup;
+    html += '<tbody>';
     bench.forEach(p => {{ html += pRow(p, 'BN', ''); }});
     if (bench.length === 0) html += '<tr><td colspan="12" style="padding:4px 6px;color:var(--text2);font-size:11px;">No bench players</td></tr>';
     html += '</tbody></table>';
 
     // IL
     html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--red);">IL (${{ilPlayers.length}}/4)</span></div>`;
-    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;"><tbody>';
+    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
+    html += rosterColgroup;
+    html += '<tbody>';
     ilPlayers.forEach(p => {{ html += pRow(p, 'IL', '<span style="color:var(--red);">IL</span>'); }});
     if (ilPlayers.length === 0) html += '<tr><td colspan="12" style="padding:4px 6px;color:var(--text2);font-size:11px;">No IL players</td></tr>';
     html += '</tbody></table>';
@@ -3681,7 +3689,9 @@ function renderRoster() {{
 
   // Minors (always show)
   html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--accent);">MINORS (${{teamMilb.length}}/4)</span></div>`;
-  html += '<table style="width:100%;border-collapse:collapse;font-size:12px;"><tbody>';
+  html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
+  html += rosterColgroup;
+  html += '<tbody>';
   teamMilb.forEach(name => {{
     const p = ALL.find(x => x.name === name);
     if (p) html += pRow(p, 'MiLB', '<span style="color:var(--accent);">MiLB</span>');
@@ -4381,11 +4391,21 @@ function renderRoster() {{
   }}
 
   function generateTradeIdeas(panel) {{
+    // Untouchable players — never suggest trading these (franchise cornerstones)
+    const UNTOUCHABLE = new Set(['Shohei Ohtani','Juan Soto','Bobby Witt Jr.','Aaron Judge',
+      'Yoshinobu Yamamoto','Tarik Skubal','Paul Skenes','Gunnar Henderson','Elly De La Cruz',
+      'Mookie Betts','Trea Turner','Corey Seager','Ronald Acuna Jr.','Fernando Tatis Jr.',
+      'Corbin Carroll','Julio Rodriguez','Jackson Chourio','Marcell Ozuna']);
+
+    // LCV caps: only consider mid-tier players for fringey trades
+    const MAX_GIVE_LCV = 12.0;   // don't trade away your top guys
+    const MAX_GET_LCV = 12.0;    // don't target unrealistic elite gets
+    const MIN_LCV = 1.0;         // not worth trading scrubs
+
     // 1. Compute my positional gaps
     const myPl3 = (state.myTeam || []).map(n => ALL.find(x => x.name === n)).filter(Boolean);
     const myAssign3 = computeNeedsForTeam(myPl3);
     const myGaps3 = {{}};
-    const myStrengths3 = {{}};
     for (const [pos, slots] of Object.entries(ROSTER_SLOTS)) {{
       const top = myAssign3[pos] || [];
       const avgLcv = top.length > 0 ? top.reduce((s,p) => s + (p.lcv||0), 0) / top.length : 0;
@@ -4439,7 +4459,7 @@ function renderRoster() {{
       return positions;
     }}
 
-    // 5. Generate 1-for-1 and 2-for-2 trade ideas
+    // 5. Generate 1-for-1 and 2-for-2 trade ideas (fringey — mid-tier only)
     const trades = [];
     const myRoster = state.myTeam || [];
 
@@ -4449,10 +4469,13 @@ function renderRoster() {{
       const theirGaps = teamGaps(t.name);
       const ownerName = t.owner || t.name;
 
-      // My players that fill THEIR needs (sorted by how well they fill needs)
+      // My players that fill THEIR needs — exclude untouchables and elite/scrub LCV
       const iCanGive = myRoster.map(name => {{
+        if (UNTOUCHABLE.has(name)) return null;
         const p = ALL.find(x => x.name === name);
         if (!p) return null;
+        const lcv = p.lcv || 0;
+        if (lcv > MAX_GIVE_LCV || lcv < MIN_LCV) return null;
         const positions = playerPositions(name);
         let bestFill = 0;
         let fillPos = '';
@@ -4460,13 +4483,16 @@ function renderRoster() {{
           const gap = theirGaps[pos];
           if (gap !== undefined && -gap > bestFill) {{ bestFill = -gap; fillPos = pos; }}
         }});
-        return {{ name, lcv: p.lcv||0, tv: tradeVal(name), fillsTheirNeed: bestFill, fillPos }};
-      }}).filter(Boolean).filter(x => x.fillsTheirNeed > 0.3).sort((a,b) => b.fillsTheirNeed - a.fillsTheirNeed);
+        return {{ name, lcv, tv: tradeVal(name), fillsTheirNeed: bestFill, fillPos }};
+      }}).filter(Boolean).filter(x => x.fillsTheirNeed > 0.2).sort((a,b) => b.fillsTheirNeed - a.fillsTheirNeed);
 
-      // Their players that fill MY needs
+      // Their players that fill MY needs — exclude untouchables and elite/scrub LCV
       const theyCanGive = theirRoster.map(name => {{
+        if (UNTOUCHABLE.has(name)) return null;
         const p = ALL.find(x => x.name === name);
         if (!p) return null;
+        const lcv = p.lcv || 0;
+        if (lcv > MAX_GET_LCV || lcv < MIN_LCV) return null;
         const positions = playerPositions(name);
         let bestFill = 0;
         let fillPos = '';
@@ -4474,36 +4500,36 @@ function renderRoster() {{
           const gap = myGaps3[pos];
           if (gap !== undefined && -gap > bestFill) {{ bestFill = -gap; fillPos = pos; }}
         }});
-        return {{ name, lcv: p.lcv||0, tv: tradeVal(name), fillsMyNeed: bestFill, fillPos }};
-      }}).filter(Boolean).filter(x => x.fillsMyNeed > 0.3).sort((a,b) => b.fillsMyNeed - a.fillsMyNeed);
+        return {{ name, lcv, tv: tradeVal(name), fillsMyNeed: bestFill, fillPos }};
+      }}).filter(Boolean).filter(x => x.fillsMyNeed > 0.2).sort((a,b) => b.fillsMyNeed - a.fillsMyNeed);
 
-      // 1-for-1 trades
-      for (const give of iCanGive.slice(0, 8)) {{
-        for (const get of theyCanGive.slice(0, 8)) {{
+      // 1-for-1 trades — fringey: tighter value window, heavy need weighting
+      for (const give of iCanGive.slice(0, 10)) {{
+        for (const get of theyCanGive.slice(0, 10)) {{
           if (give.name === get.name) continue;
           const myGain = get.tv - give.tv;
           const myLcvGain = get.lcv - give.lcv;
-          // "Slightly favors me": I gain 0.5-4.0 in trade value, don't lose too much LCV
-          if (myGain >= -0.5 && myGain <= 5.0 && myLcvGain > -3 && (get.fillsMyNeed > 0.5 || give.fillsTheirNeed > 0.5)) {{
+          // Accept trades where value is close but positional fit is strong
+          if (myGain >= -1.0 && myGain <= 4.0 && myLcvGain > -4 && (get.fillsMyNeed > 0.2 && give.fillsTheirNeed > 0.2)) {{
             const mutualFit = get.fillsMyNeed + give.fillsTheirNeed;
-            const favorMe = myGain * 0.5 + myLcvGain * 0.2;
+            const favorMe = myGain * 0.3 + myLcvGain * 0.1;
             trades.push({{
               team: ownerName, teamName: t.name,
               give: [give], get: [get],
               mutualFit, favorMe,
-              score: mutualFit * 0.6 + Math.max(0, favorMe) * 0.4,
+              score: mutualFit * 0.75 + Math.max(0, favorMe) * 0.25,
               type: '1-for-1'
             }});
           }}
         }}
       }}
 
-      // 2-for-2 trades
-      for (let i = 0; i < Math.min(iCanGive.length, 5); i++) {{
-        for (let j = i+1; j < Math.min(iCanGive.length, 6); j++) {{
+      // 2-for-2 trades — fringey pairs
+      for (let i = 0; i < Math.min(iCanGive.length, 6); i++) {{
+        for (let j = i+1; j < Math.min(iCanGive.length, 7); j++) {{
           const g1 = iCanGive[i], g2 = iCanGive[j];
-          for (let k = 0; k < Math.min(theyCanGive.length, 5); k++) {{
-            for (let l = k+1; l < Math.min(theyCanGive.length, 6); l++) {{
+          for (let k = 0; k < Math.min(theyCanGive.length, 6); k++) {{
+            for (let l = k+1; l < Math.min(theyCanGive.length, 7); l++) {{
               const r1 = theyCanGive[k], r2 = theyCanGive[l];
               if ([g1.name,g2.name].includes(r1.name) || [g1.name,g2.name].includes(r2.name)) continue;
               const giveTv = g1.tv + g2.tv;
@@ -4512,14 +4538,14 @@ function renderRoster() {{
               const getLcv = r1.lcv + r2.lcv;
               const myGain = getTv - giveTv;
               const myLcvGain = getLcv - giveLcv;
-              if (myGain >= -0.5 && myGain <= 8.0 && myLcvGain > -5 && ((r1.fillsMyNeed + r2.fillsMyNeed) > 1.0 || (g1.fillsTheirNeed + g2.fillsTheirNeed) > 1.0)) {{
+              if (myGain >= -1.5 && myGain <= 6.0 && myLcvGain > -6 && ((r1.fillsMyNeed + r2.fillsMyNeed) > 0.5 && (g1.fillsTheirNeed + g2.fillsTheirNeed) > 0.5)) {{
                 const mutualFit = r1.fillsMyNeed + r2.fillsMyNeed + g1.fillsTheirNeed + g2.fillsTheirNeed;
-                const favorMe = myGain * 0.4 + myLcvGain * 0.15;
+                const favorMe = myGain * 0.3 + myLcvGain * 0.1;
                 trades.push({{
                   team: ownerName, teamName: t.name,
                   give: [g1, g2], get: [r1, r2],
                   mutualFit, favorMe,
-                  score: mutualFit * 0.5 + Math.max(0, favorMe) * 0.5,
+                  score: mutualFit * 0.7 + Math.max(0, favorMe) * 0.3,
                   type: '2-for-2'
                 }});
               }}
@@ -5503,9 +5529,9 @@ function renderLeague() {{
   let html = '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">';
   html += '<h2 style="margin:0;">League</h2>';
   html += '<div style="display:flex;gap:2px;background:var(--surface2);border-radius:6px;padding:2px;">';
-  ['comparison','rosters'].forEach(v => {{
+  ['comparison','rosters','positional'].forEach(v => {{
     const active = state._leagueView === v;
-    const label = v === 'rosters' ? 'Rosters' : 'Comparison';
+    const label = v === 'rosters' ? 'Rosters' : v === 'positional' ? 'Positional LCV' : 'Comparison';
     html += `<button class="league-view-btn" data-view="${{v}}" style="padding:4px 12px;font-size:11px;border:none;border-radius:4px;cursor:pointer;background:${{active?'var(--accent)':'transparent'}};color:${{active?'#fff':'var(--text2)'}};font-weight:${{active?'600':'400'}};">${{label}}</button>`;
   }});
   html += '</div></div>';
@@ -5565,6 +5591,100 @@ function renderLeague() {{
       }}
       html += '</div>';
     }});
+  }}
+
+  // ── POSITIONAL LCV VIEW ──
+  else if (state._leagueView === 'positional') {{
+    html += '<p style="font-size:12px;color:var(--text2);margin-bottom:12px;">Average LCV at each position for every team. Cells colored from red (weak) to green (strong). Click a column to sort.</p>';
+
+    const posOrder = ['C','1B','2B','3B','SS','LF','CF','RF','DH','SP','RP'];
+
+    // Compute positional LCV for every team
+    const posData = LEAGUE_TEAMS.map(t => {{
+      const players = t.mine ? (state.myTeam || []) : (state.leagueTeams[t.name] || []);
+      const plObj = players.map(n => ALL.find(x => x.name === n)).filter(Boolean);
+      const assign = computeNeedsForTeam(plObj);
+      const posLcvs = {{}};
+      let totalStart = 0;
+      posOrder.forEach(pos => {{
+        const top = assign[pos] || [];
+        const avg = top.length > 0 ? top.reduce((s,p) => s + (p.lcv||0), 0) / top.length : 0;
+        posLcvs[pos] = avg;
+        totalStart += top.reduce((s,p) => s + (p.lcv||0), 0);
+      }});
+      posLcvs._total = totalStart;
+      return {{ name: t.owner || t.name, mine: t.mine, posLcvs }};
+    }});
+
+    // Compute league averages and min/max per position for color scaling
+    const posStats = {{}};
+    posOrder.forEach(pos => {{
+      const vals = posData.map(d => d.posLcvs[pos]);
+      posStats[pos] = {{ min: Math.min(...vals), max: Math.max(...vals), avg: vals.reduce((s,v)=>s+v,0)/vals.length }};
+    }});
+
+    // Sort state for positional view
+    if (!state._posLcvSort) state._posLcvSort = '_total';
+    if (!state._posLcvDir) state._posLcvDir = -1;
+    const pSortKey = state._posLcvSort;
+    const pSortDir = state._posLcvDir;
+
+    const sortedPos = [...posData].sort((a,b) => {{
+      if (pSortKey === 'name') return pSortDir * a.name.localeCompare(b.name);
+      const av = pSortKey === '_total' ? a.posLcvs._total : (a.posLcvs[pSortKey]||0);
+      const bv = pSortKey === '_total' ? b.posLcvs._total : (b.posLcvs[pSortKey]||0);
+      return pSortDir * (av - bv);
+    }});
+
+    html += '<div style="overflow-x:auto;">';
+    html += '<table style="width:100%;border-collapse:collapse;font-size:11px;">';
+    html += '<thead><tr style="background:var(--surface2);">';
+    // Team header
+    const nameArrow = pSortKey === 'name' ? (pSortDir === 1 ? ' ▲' : ' ▼') : '';
+    html += `<th class="pos-lcv-sort" data-col="name" style="text-align:left;padding:6px 8px;cursor:pointer;user-select:none;white-space:nowrap;min-width:80px;">Team${{nameArrow}}</th>`;
+    posOrder.forEach(pos => {{
+      const arrow = pSortKey === pos ? (pSortDir === 1 ? ' ▲' : ' ▼') : '';
+      html += `<th class="pos-lcv-sort" data-col="${{pos}}" style="text-align:center;padding:6px 4px;cursor:pointer;user-select:none;min-width:42px;">${{pos}}${{arrow}}</th>`;
+    }});
+    const totArrow = pSortKey === '_total' ? (pSortDir === 1 ? ' ▲' : ' ▼') : '';
+    html += `<th class="pos-lcv-sort" data-col="_total" style="text-align:right;padding:6px 8px;cursor:pointer;user-select:none;font-weight:700;">Total${{totArrow}}</th>`;
+    html += '</tr></thead><tbody>';
+
+    sortedPos.forEach((row, idx) => {{
+      const rowBg = row.mine ? 'background:rgba(99,102,241,0.08);' : (idx % 2 === 0 ? '' : 'background:var(--surface2);opacity:0.7;');
+      const nameWt = row.mine ? 'font-weight:700;' : '';
+      html += `<tr style="${{rowBg}}">`;
+      html += `<td style="padding:4px 8px;${{nameWt}}white-space:nowrap;">${{row.name}}${{row.mine ? ' ★' : ''}}</td>`;
+      posOrder.forEach(pos => {{
+        const val = row.posLcvs[pos];
+        const st = posStats[pos];
+        const range = st.max - st.min || 1;
+        const pct = (val - st.min) / range;
+        // Color: red(0) -> yellow(0.5) -> green(1)
+        const r = pct < 0.5 ? 220 : Math.round(220 - (pct - 0.5) * 2 * 180);
+        const g = pct < 0.5 ? Math.round(60 + pct * 2 * 160) : 220;
+        const bg = `rgba(${{r}},${{g}},60,0.18)`;
+        const clr = pct > 0.7 ? 'var(--green)' : pct < 0.3 ? 'var(--red)' : 'var(--text)';
+        // Rank within this position (1 = best)
+        const rank = posData.filter(d => d.posLcvs[pos] > val).length + 1;
+        html += `<td style="text-align:center;padding:4px;background:${{bg}};color:${{clr}};font-weight:${{rank <= 3 ? '700' : '400'}};" title="${{pos}}: ${{val.toFixed(2)}} (rank #${{rank}})">${{val.toFixed(1)}}</td>`;
+      }});
+      const total = row.posLcvs._total;
+      html += `<td style="text-align:right;padding:4px 8px;font-weight:700;">${{total.toFixed(1)}}</td>`;
+      html += '</tr>';
+    }});
+
+    // League average row
+    html += '<tr style="border-top:2px solid var(--border);font-style:italic;color:var(--text2);">';
+    html += '<td style="padding:4px 8px;">League Avg</td>';
+    posOrder.forEach(pos => {{
+      html += `<td style="text-align:center;padding:4px;">${{posStats[pos].avg.toFixed(1)}}</td>`;
+    }});
+    const totalAvg = posData.reduce((s,d) => s + d.posLcvs._total, 0) / posData.length;
+    html += `<td style="text-align:right;padding:4px 8px;">${{totalAvg.toFixed(1)}}</td>`;
+    html += '</tr>';
+
+    html += '</tbody></table></div>';
   }}
 
   // ── COMPARISON VIEW (original league table) ──
@@ -5668,6 +5788,16 @@ function renderLeague() {{
     btn.addEventListener('click', () => {{
       state._leagueView = btn.dataset.view;
       save();
+      renderLeague();
+    }});
+  }});
+
+  // Sortable column headers for positional LCV view
+  section.querySelectorAll('.pos-lcv-sort').forEach(th => {{
+    th.addEventListener('click', () => {{
+      const col = th.dataset.col;
+      if (state._posLcvSort === col) {{ state._posLcvDir = (state._posLcvDir || -1) * -1; }}
+      else {{ state._posLcvSort = col; state._posLcvDir = -1; }}
       renderLeague();
     }});
   }});
