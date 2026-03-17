@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import json
 import re
+from datetime import datetime
 
 # ── Read data ──────────────────────────────────────────────────────────────
 bat = pd.read_csv('data/dc_bat_full.csv', sep='|')
@@ -524,6 +525,7 @@ else:
     cbs_txns = []
     print("No CBS transactions file found (data/cbs_transactions.json)")
 cbs_txns_json = json.dumps(cbs_txns)
+build_time = datetime.now().strftime('%b %d, %Y %I:%M %p')
 
 print(f"Batter records: {len(bat_records)}, Pitcher records: {len(pit_records)}")
 
@@ -861,6 +863,7 @@ ALL.forEach((p,i) => p._id = i);
 
 // ── CBS League Transactions (scraped daily) ─────────────────────────────
 const CBS_TRANSACTIONS = {cbs_txns_json};
+const TXN_BUILD_TIME = '{build_time}';
 
 // ── Prospects data ───────────────────────────────────────────────────────
 const PROSPECTS = {prospects_json};
@@ -2025,7 +2028,12 @@ function renderTransactions() {{
     }});
   }});
 
-  let html = '<h2 style="font-size:18px;font-weight:700;margin-bottom:16px;">League Transactions</h2>';
+  let html = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">';
+  html += '<h2 style="font-size:18px;font-weight:700;">League Transactions</h2>';
+  html += '<div style="display:flex;gap:8px;align-items:center;">';
+  html += `<span style="font-size:10px;color:var(--text2);">Updated: ${{TXN_BUILD_TIME}}</span>`;
+  html += '<a href="https://dpf.baseball.cbssports.com/transactions" target="_blank" class="btn btn-secondary" style="padding:4px 10px;font-size:11px;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">↻ Check CBS</a>';
+  html += '</div></div>';
 
   // Filter controls
   html += '<div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center;">';
