@@ -152,7 +152,7 @@ a[title^="Sleeper"] { color:var(--green); } a[title^="Avoid"] { color:var(--red)
 <div class="header">
   <div style="display:flex;flex-direction:column;">
     <h1><span>DPF</span> 2026 Dashboard</h1>
-    <div style="font-size:10px;color:var(--text2);margin-top:4px;letter-spacing:0.3px;">v2.7 · Last built: Mar 18, 2026 11:18 AM PST</div>
+    <div style="font-size:10px;color:var(--text2);margin-top:4px;letter-spacing:0.3px;">v3.0 · Last built: Mar 18, 2026 11:28 AM PST</div>
   </div>
   <div class="tabs">
     <div class="tab" data-tab="all">Players</div>
@@ -345,7 +345,7 @@ function _plyrI(name) {
 
 // ── CBS League Transactions (scraped daily) ─────────────────────────────
 const CBS_TRANSACTIONS = [{"date": "3/18/26 10:14 AM ET", "team": "Yesavage Garden", "teamId": 9, "players": [{"name": "Joe Boyle", "pos": "SP", "mlbTeam": "TB", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/17/26 1:54 PM ET", "team": "Father Jhon Kensy", "teamId": 4, "players": [{"name": "Graham Ashcraft", "pos": "SP,RP", "mlbTeam": "CIN", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/17/26 12:49 PM ET", "team": "choured in the usa.", "teamId": 3, "players": [{"name": "Chad Patrick", "pos": "SP", "mlbTeam": "MIL", "action": "Added"}], "effective": "3/25/26"}, {"date": "3/17/26 12:43 PM ET", "team": "choured in the usa.", "teamId": 3, "players": [{"name": "Nasim Nunez", "pos": "SS", "mlbTeam": "WAS", "action": "Added"}], "effective": "3/25/26"}, {"date": "3/17/26 12:38 PM ET", "team": "choured in the usa.", "teamId": 3, "players": [{"name": "Nick Kurtz", "pos": "1B", "mlbTeam": "ATH", "action": "Traded from Father Jhon Kensy"}, {"name": "Nick Lodolo", "pos": "SP", "mlbTeam": "CIN", "action": "Traded from Father Jhon Kensy"}], "effective": "3/25/26"}, {"date": "3/17/26 12:38 PM ET", "team": "Father Jhon Kensy", "teamId": 4, "players": [{"name": "Jac Caglianone", "pos": "RF", "mlbTeam": "KC", "action": "Traded from choured in the usa."}, {"name": "Vladimir Guerrero Jr.", "pos": "1B", "mlbTeam": "TOR", "action": "Traded from choured in the usa."}, {"name": "Kazuma Okamoto", "pos": "3B", "mlbTeam": "TOR", "action": "Traded from choured in the usa."}], "effective": "3/25/26"}, {"date": "3/16/26 1:42 PM ET", "team": "choured in the usa.", "teamId": 3, "players": [{"name": "Phil Maton", "pos": "RP", "mlbTeam": "CHC", "action": "Added"}], "effective": "3/25/26"}, {"date": "3/16/26 12:55 PM ET", "team": "choured in the usa.", "teamId": 3, "players": [{"name": "Ryan Sloan", "pos": "SP", "mlbTeam": "SEA", "action": "Added"}, {"name": "Hogan Harris", "pos": "RP", "mlbTeam": "ATH", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/16/26 12:10 PM ET", "team": "choured in the usa.", "teamId": 3, "players": [{"name": "Bryson Stott", "pos": "2B", "mlbTeam": "PHI", "action": "Added"}, {"name": "Owen Caissie", "pos": "RF", "mlbTeam": "MIA", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/15/26 7:26 PM ET", "team": "Dennis Santana - Smooth ft. Rob Thomas", "teamId": 1, "players": [{"name": "Lars Nootbaar", "pos": "LF,RF", "mlbTeam": "STL", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/15/26 5:18 PM ET", "team": "Yesavage Garden", "teamId": 9, "players": [{"name": "Joe Boyle", "pos": "SP", "mlbTeam": "TB", "action": "Added"}], "effective": "3/25/26"}, {"date": "3/15/26 5:15 PM ET", "team": "Yesavage Garden", "teamId": 9, "players": [{"name": "Dylan Lee", "pos": "RP", "mlbTeam": "ATL", "action": "Added"}], "effective": "3/25/26"}, {"date": "3/14/26 3:28 PM ET", "team": "Yesavage Garden", "teamId": 9, "players": [{"name": "C.J. Abrams", "pos": "SS", "mlbTeam": "WAS", "action": "Added"}, {"name": "David Bednar", "pos": "RP", "mlbTeam": "NYY", "action": "Dropped"}], "effective": "3/25/26"}];
-const TXN_BUILD_TIME = 'Mar 18, 2026 11:18 AM PST';
+const TXN_BUILD_TIME = 'Mar 18, 2026 11:28 AM PST';
 const PLAYER_NEWS = [{"name": "Drake Baldwin", "date": "03/17", "headline": "Baldwin went 2-for-4 with a walk, a triple, a home run and four RBI in Monday's Grapefruit League game against the Rays."}, {"name": "Vladimir Guerrero Jr.", "date": "10/29", "headline": "Guerrero went 2-for-4 with a two-run homer, a walk and an additional run scored during Tuesday's 6-2 win over the Dodgers in Game 4 of the World Series."}, {"name": "Gleyber Torres", "date": "12/12", "headline": "Torres (groin) has been cleared to participate in all baseball activities."}, {"name": "Austin Riley", "date": "03/14", "headline": "Riley could be surprisingly active as a base stealer this season under the tutelage of new Atlanta baserunning coach Antoan Richardson."}, {"name": "Zachary Neto", "date": "03/17", "headline": "Neto (wrist) will play in Tuesday's Cactus League game against the Cubs."}, {"name": "James Wood", "date": "03/14", "headline": "Wood went 0-for-2 with a walk and a run scored in Friday's Grapefruit League game against the Mets."}, {"name": "Jo Adell", "date": "03/12", "headline": "Adell went 2-for-3 with a solo home run, two total runs and two total RBI in Wednesday's Cactus League game."}, {"name": "George Springer", "date": "03/14", "headline": "Springer went 2-for-3 with a solo home run in Friday's Grapefruit League game against the Cardinals."}, {"name": "Kazuma Okamoto", "date": "02/24", "headline": "Okamoto went 1-for-2 with a two-run home run in the Blue Jays' Grapefruit League game against the Mets."}, {"name": "Gabriel Moreno", "date": "03/16", "headline": "Moreno (forearm) expected to be available for the Diamondbacks' March 26 season opener versus the Dodgers."}, {"name": "Luis Arraez", "date": "01/31", "headline": "Arraez signed a one-year contract with the Giants."}, {"name": "Ernie Clement", "date": "01/08", "headline": "Clement signed a one-year, $4M contract."}, {"name": "Jeff McNeil", "date": "02/23", "headline": "McNeil (shoulder) started at second base and went 1-for-1 with a walk in Sunday's Cactus League loss to the Guardians."}, {"name": "Royce Lewis", "date": "03/03", "headline": "Lewis (side) is starting at third base and batting leadoff in Tuesday's Grapefruit League game against the Rays."}, {"name": "Heliot Ramos", "date": "09/27", "headline": "Ramos went 1-for-5 with a three-run home run in Friday's 6-3 win over the Rockies."}, {"name": "Jac Caglianone", "date": "02/25", "headline": "Caglianone went 1-for-3 with a solo home run in Tuesday's Cactus League loss to the Padres."}, {"name": "Jakob Marsee", "date": "02/24", "headline": "Marsee went 1-for-2 with two walks, a solo home run and a second run scored in Monday's Grapefruit League game."}, {"name": "Ethan Holliday", "date": "08/12", "headline": "Holliday will make his Rockies organizational debut with Single-A Fresno on Tuesday."}, {"name": "Eli Willits", "date": "08/22", "headline": "Willits went 3-for-4 with a walk, a run scored, two RBI and a stolen base for Single-A Fredericksburg."}, {"name": "Charlie Condon", "date": "03/14", "headline": "Condon's MLB debut is not imminent, despite a strong spring training."}, {"name": "Max Clark", "date": "03/09", "headline": "Clark was reassigned to minor-league camp Monday."}, {"name": "Tanner Bibee", "date": "03/01", "headline": "Bibee allowed three runs on three hits over three innings in Saturday's Cactus League start against the White Sox."}, {"name": "Joey Cantillo", "date": "03/14", "headline": "Cantillo allowed three runs on three hits and one walk while striking out six over 4.2 innings Friday."}, {"name": "MacKenzie Gore", "date": "03/17", "headline": "Gore allowed two hits and three walks while striking out three over two scoreless innings in Monday's Grapefruit League start."}, {"name": "Shane McClanahan", "date": "03/16", "headline": "McClanahan struck out seven and walked two without allowing a hit or a run in 3.2 innings Sunday."}, {"name": "Yoshinobu Yamamoto", "date": "03/16", "headline": "Yamamoto will start the Dodgers' March 26 season opener versus the Diamondbacks in Los Angeles."}, {"name": "Jhoan Duran", "date": "03/13", "headline": "Duran threw a clean inning during Friday's Grapefruit League game against the Orioles."}, {"name": "Griffin Jax", "date": "03/14", "headline": "Jax has given up one run on four hits with seven strikeouts and one walk across 4.2 spring innings."}, {"name": "Mason Miller", "date": "02/11", "headline": "Miller will serve as the Padres' closer in 2026."}, {"name": "Tyler Rogers", "date": "12/12", "headline": "Rogers signed a three-year, $37 million contract with the Blue Jays."}, {"name": "JoJo Romero", "date": "03/10", "headline": "Romero is expected to be among the relievers in the mix to close games for the Cardinals this season."}, {"name": "Mick Abel", "date": "03/13", "headline": "Abel gave up two earned runs over 3.1 innings in Thursday's Cactus League start."}, {"name": "Yusei Kikuchi", "date": "02/11", "headline": "Kikuchi (forearm) faced live hitters Wednesday in his first throwing session of spring training."}, {"name": "Matthew Liberatore", "date": "03/09", "headline": "Liberatore permitted two runs while striking out seven across five frames in Sunday's Cactus League start."}, {"name": "Jose Soriano", "date": "03/17", "headline": "Soriano will start Los Angeles' March 26 season opener against the Cubs."}];
 const INJURIES = [{"name": "Tyler Freeman", "status": "Q", "injury": "Back"}, {"name": "Zach Dezenzo", "status": "Q", "injury": "Elbow"}, {"name": "Jose Ramirez", "status": "Q", "injury": "Shoulder"}, {"name": "J.P. Crawford", "status": "Q", "injury": "Shoulder"}, {"name": "Parks Harber", "status": "O", "injury": "Hamstring", "return": "Apr 27"}, {"name": "Pavin Smith", "status": "Q", "injury": "Forearm"}, {"name": "Isaac Collins", "status": "Q", "injury": "Side"}, {"name": "Hayden Birdsong", "status": "O", "injury": "Forearm", "return": "May 1"}, {"name": "Jose Berrios", "status": "O", "injury": "Elbow", "return": "Apr 14"}, {"name": "Miles Mastrobuoni", "status": "Q", "injury": "Calf"}, {"name": "Vaughn Grissom", "status": "Q", "injury": "Hand"}, {"name": "Brooks Baldwin", "status": "Q", "injury": "Elbow"}, {"name": "Max Lazar", "status": "Q", "injury": "Oblique"}, {"name": "Michael Massey", "status": "Q", "injury": "Calf"}, {"name": "Logan Henderson", "status": "Q", "injury": "Elbow"}, {"name": "Tanner Murray", "status": "Q", "injury": "Finger"}, {"name": "Wikelman Gonzalez", "status": "Q", "injury": "Back"}, {"name": "Bobby Miller", "status": "Q", "injury": "Shoulder"}, {"name": "Anthony Seigler", "status": "Q", "injury": "Knee"}, {"name": "McCade Brown", "status": "Q", "injury": "Shoulder"}, {"name": "Steward Berroa", "status": "Q", "injury": "Shoulder"}, {"name": "Caden Dana", "status": "Q", "injury": "Illness"}, {"name": "Emiliano Teodo", "status": "Q", "injury": "Back"}, {"name": "Enyel De Los Santos", "status": "Q", "injury": "Knee"}, {"name": "Matt Cronin", "status": "Q", "injury": "Undisclosed"}, {"name": "Jon Gray", "status": "Q", "injury": "Shoulder"}, {"name": "Michael Kopech", "status": "Q", "injury": "Knee"}, {"name": "Elvis Peguero", "status": "Q", "injury": "Elbow"}, {"name": "Tom Murphy", "status": "Q", "injury": "Back"}, {"name": "Ricardo Genoves", "status": "IL", "injury": "Undisclosed"}, {"name": "Alex Cobb", "status": "Q", "injury": "Hip"}, {"name": "Jason Adam", "status": "Q", "injury": "Quadriceps"}, {"name": "Dylan Rock", "status": "Q", "injury": "Knee"}, {"name": "Jose Cuas", "status": "Q", "injury": "Shoulder"}, {"name": "Seiya Suzuki", "status": "Q", "injury": "Knee"}, {"name": "Ivan Herrera", "status": "Q", "injury": "Knee"}, {"name": "Brock Selvidge", "status": "O", "injury": "Knee", "return": "Apr 3"}, {"name": "Hunter Gaddis", "status": "Q", "injury": "Forearm"}, {"name": "Teoscar Hernandez", "status": "Q", "injury": "Hand"}, {"name": "Colton Gordon", "status": "Q", "injury": "Shoulder"}, {"name": "Gabriel Moreno", "status": "Q", "injury": "Forearm"}, {"name": "Joe Musgrove", "status": "O", "injury": "Elbow", "return": "Apr 10"}, {"name": "Lawrence Butler", "status": "Q", "injury": "Knee"}, {"name": "Ha-seong Kim", "status": "O", "injury": "Finger", "return": "May 15"}, {"name": "Francisco Lindor", "status": "Q", "injury": "Hand"}, {"name": "Yusei Kikuchi", "status": "Q", "injury": "Forearm"}, {"name": "DL Hall", "status": "Q", "injury": "Knee"}, {"name": "Jonathan India", "status": "Q", "injury": "Elbow"}, {"name": "Nolan Arenado", "status": "Q", "injury": "Wrist"}, {"name": "Luke Raley", "status": "Q", "injury": "Calf"}, {"name": "Dominic Smith", "status": "Q", "injury": "Ankle"}, {"name": "Kevin Gausman", "status": "Q", "injury": "Elbow"}, {"name": "Michael Toglia", "status": "Q", "injury": "Finger"}, {"name": "Danny Jansen", "status": "Q", "injury": "Forearm"}, {"name": "Jurickson Profar", "status": "Q", "injury": "Knee"}, {"name": "Austin Hays", "status": "Q", "injury": "Knee"}, {"name": "Blake Treinen", "status": "Q", "injury": "Shoulder"}, {"name": "Josh Naylor", "status": "Q", "injury": "Ankle"}, {"name": "Joey Votto", "status": "Q", "injury": "Ankle"}, {"name": "Trent Grisham", "status": "Q", "injury": "Back"}, {"name": "Yainer Diaz", "status": "Q", "injury": "Shoulder"}, {"name": "Brent Suter", "status": "Q", "injury": "Elbow"}, {"name": "Kyle Hendricks", "status": "Q", "injury": "Back"}, {"name": "Colt Keith", "status": "Q", "injury": "Wrist"}, {"name": "Enmanuel Valdez", "status": "Q", "injury": "Neck"}, {"name": "Tyler Glasnow", "status": "Q", "injury": "Elbow"}, {"name": "Jackson Merrill", "status": "Q", "injury": "Shin"}, {"name": "Paul Skenes", "status": "Q", "injury": "Back"}, {"name": "Christian Encarnacion-Strand", "status": "Q", "injury": "Hand"}, {"name": "Jack Leiter", "status": "Q", "injury": "Shoulder"}, {"name": "Eddie Rosario", "status": "Q", "injury": "Oblique"}, {"name": "Eduardo Rodriguez", "status": "Q", "injury": "Back"}, {"name": "Raimon Gomez", "status": "Q", "injury": "Back"}, {"name": "Hunter Dobbins", "status": "O", "injury": "Knee", "return": "Apr 7"}, {"name": "Joseph Montalvo", "status": "Q", "injury": "Undisclosed"}, {"name": "Ty Floyd", "status": "Q", "injury": "Undisclosed"}, {"name": "Anthony Solometo", "status": "Q", "injury": "Shoulder"}, {"name": "Paul Wilson", "status": "Q", "injury": "Undisclosed"}, {"name": "Josh Staumont", "status": "Q", "injury": "Undisclosed"}, {"name": "Luke Holman", "status": "Q", "injury": "Undisclosed"}, {"name": "Justin Armbruester", "status": "Q", "injury": "Lat"}, {"name": "Jose Marte", "status": "Q", "injury": "Shoulder"}, {"name": "James McArthur", "status": "Q", "injury": "Elbow"}, {"name": "Brody McCullough", "status": "Q", "injury": "Forearm"}, {"name": "Reggie Crawford", "status": "Q", "injury": "Shoulder"}, {"name": "Justin Hagenman", "status": "IL", "injury": "Ribs", "return": "May 27"}, {"name": "Merrill Kelly", "status": "O", "injury": "Back", "return": "Apr 7"}, {"name": "Bailey Horn", "status": "Q", "injury": "Elbow"}, {"name": "Robert Stephenson", "status": "O", "injury": "Shoulder", "return": "May 1"}, {"name": "Justin Steele", "status": "O", "injury": "Elbow", "return": "May 15"}, {"name": "Brandon Woodruff", "status": "Q", "injury": "Lat"}, {"name": "Will Wagner", "status": "O", "injury": "Oblique", "return": "Apr 14"}, {"name": "Quinn Priester", "status": "O", "injury": "Wrist", "return": "Apr 28"}, {"name": "Jose Leclerc", "status": "O", "injury": "Lat", "return": "Jul 1"}, {"name": "Lourdes Gurriel", "status": "O", "injury": "Knee", "return": "Apr 17"}, {"name": "Zack Wheeler", "status": "O", "injury": "Shoulder", "return": "Apr 17"}, {"name": "Ben Joyce", "status": "O", "injury": "Shoulder", "return": "Apr 7"}, {"name": "Caleb Ferguson", "status": "O", "injury": "Oblique", "return": "Apr 3"}, {"name": "Akil Baddoo", "status": "O", "injury": "Quadriceps", "return": "Apr 3"}, {"name": "Bryan Hoeing", "status": "O", "injury": "Elbow", "return": "season"}, {"name": "Romy Gonzalez", "status": "IL", "injury": "Shoulder", "return": "May 26"}, {"name": "Gunnar Hoglund", "status": "O", "injury": "Back", "return": "Apr 10"}, {"name": "Jhony Brito", "status": "IL", "injury": "Forearm", "return": "Jul 1"}, {"name": "Gerrit Cole", "status": "O", "injury": "Elbow", "return": "May 25"}, {"name": "Kyle Teel", "status": "O", "injury": "Hamstring", "return": "Apr 14"}, {"name": "Adam Mazur", "status": "O", "injury": "Elbow", "return": "season"}, {"name": "Bryce Miller", "status": "Q", "injury": "Oblique"}, {"name": "Josh Hader", "status": "O", "injury": "Biceps", "return": "Apr 10"}, {"name": "David Festa", "status": "O", "injury": "Shoulder", "return": "May 1"}, {"name": "Charlee Soto", "status": "O", "injury": "Elbow", "return": "May 5"}, {"name": "Thayron Liranzo", "status": "O", "injury": "Oblique", "return": "Apr 14"}, {"name": "Hunter Greene", "status": "O", "injury": "Elbow", "return": "Jul 1"}, {"name": "Troy Melton", "status": "IL", "injury": "Elbow", "return": "May 26"}, {"name": "Blake Snell", "status": "O", "injury": "Shoulder", "return": "May 1"}, {"name": "RJ Petit", "status": "O", "injury": "Elbow", "return": "Jun 1"}, {"name": "Joey Wentz", "status": "O", "injury": "Knee", "return": "season"}, {"name": "Reiver Sanmartin", "status": "O", "injury": "Hip", "return": "Jun 9"}, {"name": "Stephen Kolek", "status": "Q", "injury": "Oblique"}, {"name": "Triston Casas", "status": "O", "injury": "Shoulder", "return": "Apr 3"}, {"name": "Isaiah Campbell", "status": "Q", "injury": "Shoulder"}, {"name": "Drew Rom", "status": "O", "injury": "Elbow", "return": "season"}, {"name": "Luis Robert", "status": "O", "injury": "Hip", "return": "Apr 28"}, {"name": "Heston Kjerstad", "status": "O", "injury": "Knee", "return": "Apr 17"}, {"name": "Forrest Wall", "status": "O", "injury": "Elbow", "return": "Apr 14"}, {"name": "Spencer Arrighetti", "status": "O", "injury": "Elbow", "return": "Apr 7"}, {"name": "Aroldis Chapman", "status": "O", "injury": "Ankle", "return": "Apr 3"}, {"name": "Evan Carter", "status": "Q", "injury": "Back"}, {"name": "Pete Alonso", "status": "Q", "injury": "Back"}, {"name": "Max Fried", "status": "Q", "injury": "Elbow"}, {"name": "Tanner Scott", "status": "Q", "injury": "Elbow"}, {"name": "Elly De La Cruz", "status": "Q", "injury": "Shoulder"}, {"name": "Gavin Stone", "status": "Q", "injury": "Elbow"}, {"name": "Ian Hamilton", "status": "O", "injury": "Elbow", "return": "season"}, {"name": "Chandler Simpson", "status": "O", "injury": "Quadriceps", "return": "Apr 14"}, {"name": "Spencer Schwellenbach", "status": "O", "injury": "Forearm", "return": "Apr 10"}, {"name": "Jimmy Herget", "status": "O", "injury": "Back", "return": "Apr 7"}, {"name": "Nolan Jones", "status": "O", "injury": "Calf", "return": "Apr 3"}, {"name": "Kenley Jansen", "status": "O", "injury": "Shoulder", "return": "Apr 10"}, {"name": "Yonathan Daza", "status": "O", "injury": "Knee", "return": "Apr 7"}, {"name": "Juan Hillman", "status": "O", "injury": "Elbow", "return": "May 15"}, {"name": "Victor Scott", "status": "O", "injury": "Shoulder", "return": "May 1"}, {"name": "Eury Perez", "status": "IL", "injury": "Elbow", "return": "Jun 1"}, {"name": "Mike Trout", "status": "O", "injury": "Knee", "return": "May 1"}, {"name": "Colby White", "status": "O", "injury": "Wrist", "return": "Apr 14"}, {"name": "Shane Baz", "status": "O", "injury": "Elbow", "return": "May 1"}, {"name": "Shota Imanaga", "status": "O", "injury": "Shoulder", "return": "May 1"}, {"name": "George Kirby", "status": "O", "injury": "Elbow", "return": "Apr 14"}, {"name": "Michael Busch", "status": "O", "injury": "Knee", "return": "Apr 7"}, {"name": "Matt Strahm", "status": "O", "injury": "Hip", "return": "Apr 10"}, {"name": "Jimmy Crooks", "status": "O", "injury": "Forearm", "return": "Apr 7"}, {"name": "Luis Rodriguez", "status": "Q", "injury": "Undisclosed"}, {"name": "Calvin Ziegler", "status": "Q", "injury": "Elbow"}, {"name": "Asa Lacy", "status": "Q", "injury": "Elbow"}, {"name": "Justin Campbell", "status": "Q", "injury": "Elbow"}, {"name": "Aiva Arquette", "status": "O", "injury": "Groin", "return": "Apr 4"}, {"name": "Austin Peterson", "status": "O", "injury": "Triceps", "return": "Apr 11"}, {"name": "Steven Wilson", "status": "O", "injury": "Back", "return": "Apr 10"}, {"name": "Brock Stewart", "status": "O", "injury": "Shoulder", "return": "Apr 10"}, {"name": "Brusdar Graterol", "status": "O", "injury": "Shoulder", "return": "May 1"}, {"name": "Yuki Matsui", "status": "Q", "injury": "Groin"}, {"name": "Pablo Lopez", "status": "IL", "injury": "Elbow", "return": "season"}, {"name": "Cristian Mena", "status": "Q", "injury": "Shoulder"}, {"name": "Tyler Austin", "status": "O", "injury": "Knee", "return": "Jun 2"}, {"name": "Cooper Hjerpe", "status": "O", "injury": "Elbow", "return": "Jul 17"}, {"name": "Ricky Tiedemann", "status": "Q", "injury": "Elbow"}, {"name": "Pierson Ohl", "status": "O", "injury": "Elbow", "return": "season"}, {"name": "Ryan Harbin", "status": "O", "injury": "Lat", "return": "Apr 15"}, {"name": "Nate Pearson", "status": "O", "injury": "Elbow", "return": "Apr 10"}, {"name": "Joe Elbis", "status": "Q", "injury": "Personal"}, {"name": "Brian Holiday", "status": "O", "injury": "Elbow", "return": "Jun 1"}, {"name": "Cody Freeman", "status": "O", "injury": "Back", "return": "Apr 5"}, {"name": "Jordan Westburg", "status": "O", "injury": "Elbow", "return": "May 1"}, {"name": "Felix Bautista", "status": "IL", "injury": "Shoulder", "return": "season"}, {"name": "Yimi Garcia", "status": "O", "injury": "Elbow", "return": "Apr 10"}, {"name": "Kutter Crawford", "status": "Q", "injury": "Wrist"}, {"name": "Hurston Waldrep", "status": "O", "injury": "Elbow", "return": "Jun 2"}, {"name": "Jake Miller", "status": "O", "injury": "Hip", "return": "May 1"}, {"name": "Adrian Del Castillo", "status": "Q", "injury": "Calf"}, {"name": "Ian Anderson", "status": "O", "injury": "Shoulder", "return": "season"}, {"name": "Luke Maile", "status": "O", "injury": "Knee", "return": "Apr 11"}, {"name": "Hogan Harris", "status": "O", "injury": "Knee", "return": "Apr 7"}, {"name": "Owen White", "status": "O", "injury": "Elbow", "return": "season"}, {"name": "Brady Singer", "status": "O", "injury": "Shoulder", "return": "season"}, {"name": "Austin Voth", "status": "Q", "injury": "Shoulder"}, {"name": "Clay Holmes", "status": "O", "injury": "Shoulder", "return": "Apr 14"}, {"name": "Alec Burleson", "status": "O", "injury": "Knee", "return": "Apr 14"}, {"name": "David Robertson", "status": "Q", "injury": "Elbow"}, {"name": "Roansy Contreras", "status": "Q", "injury": "Elbow"}, {"name": "Tylor Megill", "status": "IL", "injury": "Elbow", "return": "season"}, {"name": "Bowden Francis", "status": "IL", "injury": "Elbow", "return": "season"}, {"name": "Manuel Rodriguez", "status": "IL", "injury": "Elbow", "return": "Jun 1"}, {"name": "Justin Martinez", "status": "IL", "injury": "Elbow", "return": "Aug 21"}, {"name": "Corbin Burnes", "status": "IL", "injury": "Elbow", "return": "Jul 17"}, {"name": "Jackson Jobe", "status": "IL", "injury": "Elbow", "return": "Sep 1"}, {"name": "A.J. Smith-Shawver", "status": "O", "injury": "Elbow", "return": "Aug 1"}, {"name": "Ronel Blanco", "status": "O", "injury": "Elbow", "return": "Aug 1"}, {"name": "Moises Chace", "status": "O", "injury": "Elbow", "return": "Jul 1"}, {"name": "Tanner Houck", "status": "IL", "injury": "Elbow", "return": "season"}, {"name": "Hayden Wesneski", "status": "O", "injury": "Elbow", "return": "Aug 1"}, {"name": "Patrick Reilly", "status": "O", "injury": "Elbow", "return": "Jul 1"}, {"name": "Jake Bloss", "status": "O", "injury": "Elbow", "return": "Jul 1"}, {"name": "A.J. Minter", "status": "O", "injury": "Lat", "return": "May 1"}, {"name": "Juan Carela", "status": "O", "injury": "Elbow", "return": "Jul 1"}, {"name": "A.J. Puk", "status": "IL", "injury": "Elbow", "return": "Jun 29"}, {"name": "Kris Bryant", "status": "IL", "injury": "Back", "return": "Jun 1"}, {"name": "Alejandro Rosario", "status": "O", "injury": "Elbow", "return": "season"}, {"name": "Zach Swanson", "status": "O", "injury": "Elbow", "return": "Jun 1"}, {"name": "Christian McGowan", "status": "O", "injury": "Elbow", "return": "Jul 1"}, {"name": "Wen-Hui Pan", "status": "Q", "injury": "Elbow"}, {"name": "Chase Hampton", "status": "O", "injury": "Elbow", "return": "May 1"}, {"name": "Davidjohn Herz", "status": "IL", "injury": "Elbow", "return": "Jul 1"}, {"name": "Jared Jones", "status": "IL", "injury": "Elbow", "return": "May 25"}, {"name": "Blake Walston", "status": "O", "injury": "Elbow", "return": "Jul 1"}, {"name": "Blake Larson", "status": "Q", "injury": "Elbow"}, {"name": "Cody Bradford", "status": "O", "injury": "Elbow", "return": "May 1"}, {"name": "Jeff Criswell", "status": "IL", "injury": "Elbow", "return": "Jun 1"}, {"name": "Prelander Berroa", "status": "O", "injury": "Elbow", "return": "May 1"}, {"name": "Thatcher Hurd", "status": "Q", "injury": "Elbow"}, {"name": "Sean Manaea", "status": "O", "injury": "Shoulder", "return": "May 1"}, {"name": "Enrique Bradfield", "status": "O", "injury": "Shoulder", "return": "season"}, {"name": "Reid Detmers", "status": "O", "injury": "Elbow", "return": "Jul 1"}, {"name": "DaRon Holmes", "status": "O", "injury": "Knee", "return": "Jun 1"}];
 // Build injury lookup: name -> { status, injury, return }
@@ -3104,9 +3104,45 @@ function renderRoster() {
       `</tr>`;
   }
 
+  // ── Player View row builder ──
+  function pRowStats(p, slot, tag, isPitcher) {
+    const cols = isPitcher ? playerPitStatCols : playerBatStatCols;
+    const numCols = cols.length;
+    if (!p) return `<tr style="opacity:0.3;"><td style="padding:3px 6px;font-weight:600;font-size:11px;">${slot}</td><td colspan="${numCols-1}" style="padding:3px 6px;color:var(--text2);">—</td></tr>`;
+    const slotLabel = tag ? `${slot||''} ${tag}` : (slot||'');
+    let tr = `<tr class="roster-row" draggable="true" data-player="${encodeURIComponent(p.name)}" style="cursor:grab;">`;
+    cols.forEach(c => {
+      if (c.key === null) { tr += `<td style="padding:3px 4px;font-weight:600;font-size:11px;white-space:nowrap;">${slotLabel}</td>`; return; }
+      if (c.key === 'name') { tr += `<td style="padding:3px 4px;font-weight:600;font-size:12px;white-space:nowrap;">${p.name}${_injBadge(p.name)}</td>`; return; }
+      if (c.key === 'pos') { tr += `<td style="padding:3px 4px;text-align:center;font-size:11px;">${p.primaryPos||''}</td>`; return; }
+      let val = p[c.key];
+      if (val === undefined || val === null || val === '') { tr += `<td style="padding:3px 4px;text-align:right;font-size:10px;color:var(--text2);">—</td>`; return; }
+      // Format stat values
+      let display;
+      if (typeof val === 'number') {
+        if (['avg','obp','slg','era','whip','s25_avg','s25_obp','s25_slg','s25_era','s25_whip','s26_avg','s26_obp','s26_slg','s26_era','s26_whip'].some(k => c.key === k)) {
+          display = val.toFixed(3).replace(/^0\./, '.');
+          if (c.key.includes('era') || c.key.includes('ERA')) display = val.toFixed(2);
+          if (c.key.includes('whip') || c.key.includes('WHIP')) display = val.toFixed(2);
+        } else {
+          display = Math.round(val);
+        }
+      } else { display = val; }
+      // Color: group-based subtle background
+      const gClr = c.group === '25' ? '' : c.group === '26p' ? 'color:var(--accent);' : c.group === '26a' ? 'color:var(--green);' : '';
+      tr += `<td style="padding:3px 4px;text-align:right;font-size:10px;${gClr}">${display}</td>`;
+    });
+    tr += '</tr>';
+    return tr;
+  }
+
   // ── HTML ──
   let html = '';
   const isMyRosterTab = (currentTab === 'myRoster');
+
+  // View mode for My Roster: 'player' or 'gm'
+  if (!state._rosterView) state._rosterView = 'player';
+  const rosterView = isMyRosterTab ? state._rosterView : 'gm';
 
   // Team selector (hidden on My Roster tab)
   if (!isMyRosterTab) {
@@ -3126,6 +3162,14 @@ function renderRoster() {
 
   // Action bar
   html += '<div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;">';
+  if (isMyRosterTab) {
+    // Player / GM view toggle
+    html += '<div class="view-toggle">';
+    html += `<button class="view-btn roster-view-btn ${rosterView==='player'?'active':''}" data-view="player">Player</button>`;
+    html += `<button class="view-btn roster-view-btn ${rosterView==='gm'?'active':''}" data-view="gm">GM</button>`;
+    html += '</div>';
+    html += '<span style="width:8px;"></span>';
+  }
   html += `<span style="font-size:13px;font-weight:600;">Starting LCV: ${teamLCV.startingLCV.toFixed(1)}</span>`;
   html += `<span style="font-size:11px;color:var(--text2);margin-left:8px;">Total: ${teamLCV.totalLCV.toFixed(1)} | Players: ${teamPlayers.length}</span>`;
   html += '<span style="flex:1;"></span>';
@@ -3137,13 +3181,68 @@ function renderRoster() {
   html += '<div style="display:flex;gap:16px;align-items:flex-start;">';
 
   // ── LEFT: Roster table ──
-  html += '<div style="flex:1;min-width:0;">';
+  html += '<div style="flex:1;min-width:0;overflow-x:auto;">';
 
   // Roster sort state
   if (!state._rSortCol) state._rSortCol = null;
   const rsc = state._rSortCol;
   const rsd = state._rSortDir || -1;
 
+  // Player view stat columns (compact: 2025 actual, 2026 projected, 2026 actual side-by-side)
+  const playerBatStatCols = [
+    {key:null,label:'Slot',align:'left'},
+    {key:'name',label:'Player',align:'left'},
+    {key:'pos',label:'Pos',align:'center'},
+    // 2025 Actual
+    {key:'s25_avg',label:'AVG',align:'right',group:'25',tip:'2025 Actual AVG'},
+    {key:'s25_hr',label:'HR',align:'right',group:'25',tip:'2025 Actual HR'},
+    {key:'s25_r',label:'R',align:'right',group:'25',tip:'2025 Actual Runs'},
+    {key:'s25_rbi',label:'RBI',align:'right',group:'25',tip:'2025 Actual RBI'},
+    {key:'s25_sb',label:'SB',align:'right',group:'25',tip:'2025 Actual SB'},
+    {key:'s25_obp',label:'OBP',align:'right',group:'25',tip:'2025 Actual OBP'},
+    // 2026 Projected
+    {key:'avg',label:'AVG',align:'right',group:'26p',tip:'2026 Projected AVG'},
+    {key:'hr',label:'HR',align:'right',group:'26p',tip:'2026 Projected HR'},
+    {key:'r',label:'R',align:'right',group:'26p',tip:'2026 Projected Runs'},
+    {key:'rbi',label:'RBI',align:'right',group:'26p',tip:'2026 Projected RBI'},
+    {key:'sb',label:'SB',align:'right',group:'26p',tip:'2026 Projected SB'},
+    {key:'obp',label:'OBP',align:'right',group:'26p',tip:'2026 Projected OBP'},
+    // 2026 Actual
+    {key:'s26_avg',label:'AVG',align:'right',group:'26a',tip:'2026 Actual AVG'},
+    {key:'s26_hr',label:'HR',align:'right',group:'26a',tip:'2026 Actual HR'},
+    {key:'s26_r',label:'R',align:'right',group:'26a',tip:'2026 Actual Runs'},
+    {key:'s26_rbi',label:'RBI',align:'right',group:'26a',tip:'2026 Actual RBI'},
+    {key:'s26_sb',label:'SB',align:'right',group:'26a',tip:'2026 Actual SB'},
+    {key:'s26_obp',label:'OBP',align:'right',group:'26a',tip:'2026 Actual OBP'}
+  ];
+  const playerPitStatCols = [
+    {key:null,label:'Slot',align:'left'},
+    {key:'name',label:'Player',align:'left'},
+    {key:'pos',label:'Pos',align:'center'},
+    // 2025 Actual
+    {key:'s25_era',label:'ERA',align:'right',group:'25',tip:'2025 Actual ERA'},
+    {key:'s25_whip',label:'WHIP',align:'right',group:'25',tip:'2025 Actual WHIP'},
+    {key:'s25_so',label:'K',align:'right',group:'25',tip:'2025 Actual K'},
+    {key:'s25_w',label:'W',align:'right',group:'25',tip:'2025 Actual Wins'},
+    {key:'s25_sv',label:'SV',align:'right',group:'25',tip:'2025 Actual Saves'},
+    {key:'s25_qs',label:'QS',align:'right',group:'25',tip:'2025 Actual QS'},
+    // 2026 Projected
+    {key:'era',label:'ERA',align:'right',group:'26p',tip:'2026 Projected ERA'},
+    {key:'whip',label:'WHIP',align:'right',group:'26p',tip:'2026 Projected WHIP'},
+    {key:'so',label:'K',align:'right',group:'26p',tip:'2026 Projected K'},
+    {key:'w',label:'W',align:'right',group:'26p',tip:'2026 Projected Wins'},
+    {key:'sv',label:'SV',align:'right',group:'26p',tip:'2026 Projected Saves'},
+    {key:'qs',label:'QS',align:'right',group:'26p',tip:'2026 Projected QS'},
+    // 2026 Actual
+    {key:'s26_era',label:'ERA',align:'right',group:'26a',tip:'2026 Actual ERA'},
+    {key:'s26_whip',label:'WHIP',align:'right',group:'26a',tip:'2026 Actual WHIP'},
+    {key:'s26_so',label:'K',align:'right',group:'26a',tip:'2026 Actual K'},
+    {key:'s26_w',label:'W',align:'right',group:'26a',tip:'2026 Actual Wins'},
+    {key:'s26_sv',label:'SV',align:'right',group:'26a',tip:'2026 Actual Saves'},
+    {key:'s26_qs',label:'QS',align:'right',group:'26a',tip:'2026 Actual QS'}
+  ];
+
+  // GM view columns (original)
   const rosterCols = [
     {key:null,label:'Slot',align:'left'},
     {key:'name',label:'Player',align:'left'},
@@ -3160,24 +3259,71 @@ function renderRoster() {
   ];
 
   const batSlotOrder = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
-  // Shared colgroup for all roster tables (main + bench + IL + MiLB)
+  // Shared colgroup for all roster tables (main + bench + IL + MiLB) — GM view
   const rosterColgroup = '<colgroup><col style="width:38px"><col style="width:150px"><col style="width:56px"><col style="width:48px"><col style="width:64px"><col style="width:48px"><col style="width:48px"><col style="width:36px"><col style="width:34px"><col style="width:42px"><col style="width:42px"><col style="width:42px"></colgroup>';
 
-  html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:6px;">';
-  html += rosterColgroup;
-  html += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);">';
-  rosterCols.forEach(c => {
-    const arrow = (rsc && rsc === c.key) ? (rsd === 1 ? ' ▲' : ' ▼') : '';
-    const cursor = c.key ? 'cursor:pointer;' : '';
-    const tipAttr = c.tip ? ` title="${c.tip}"` : '';
-    const w = c.label === '' ? 'width:30px;' : '';
-    html += `<th class="roster-sort-th" data-col="${c.key||''}"${tipAttr} style="text-align:${c.align};padding:4px 6px;${cursor}${w}user-select:none;">${c.label}${arrow}</th>`;
-  });
-  html += '</tr></thead>';
-  html += '<tbody>';
+  // Choose columns based on view
+  const activeCols = rosterView === 'player' ? playerBatStatCols : rosterCols;
+  const activeColsPit = rosterView === 'player' ? playerPitStatCols : rosterCols;
+  const numBatCols = activeCols.length;
+  const numPitCols = activeColsPit.length;
 
-  if (rsc) {
-    // Flat sorted view — all roster players sorted by chosen column
+  // Player view header builder with group headers
+  function buildPlayerStatHeader(cols, isPit) {
+    let hdr = '';
+    // Group header row (2025 / 2026 Proj / 2026 Actual)
+    const statCols = cols.filter(c => c.group);
+    const g25 = statCols.filter(c => c.group === '25').length;
+    const g26p = statCols.filter(c => c.group === '26p').length;
+    const g26a = statCols.filter(c => c.group === '26a').length;
+    const fixedCols = cols.length - statCols.length; // slot + name + pos
+    hdr += '<tr style="background:var(--surface2);font-size:9px;text-transform:uppercase;color:var(--text2);">';
+    hdr += `<th colspan="${fixedCols}" style="padding:2px 4px;"></th>`;
+    hdr += `<th colspan="${g25}" style="padding:2px 6px;text-align:center;border-left:2px solid var(--border);color:var(--text2);">2025 Actual</th>`;
+    hdr += `<th colspan="${g26p}" style="padding:2px 6px;text-align:center;border-left:2px solid var(--border);color:var(--accent);">2026 Projected</th>`;
+    hdr += `<th colspan="${g26a}" style="padding:2px 6px;text-align:center;border-left:2px solid var(--border);color:var(--green);">2026 Actual</th>`;
+    hdr += '</tr>';
+    // Stat name header row
+    hdr += '<tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);">';
+    let prevGroup = null;
+    cols.forEach(c => {
+      const tipAttr = c.tip ? ` title="${c.tip}"` : '';
+      const borderLeft = (c.group && c.group !== prevGroup) ? 'border-left:2px solid var(--border);' : '';
+      prevGroup = c.group || prevGroup;
+      hdr += `<th${tipAttr} style="text-align:${c.align};padding:3px 4px;${borderLeft}user-select:none;white-space:nowrap;">${c.label}</th>`;
+    });
+    hdr += '</tr>';
+    return hdr;
+  }
+
+  // Build table header
+  if (rosterView === 'player') {
+    // Offense table
+    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:6px;">';
+    html += '<thead>' + buildPlayerStatHeader(playerBatStatCols, false) + '</thead>';
+    html += '<tbody>';
+  } else {
+    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:6px;">';
+    html += rosterColgroup;
+    html += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);">';
+    rosterCols.forEach(c => {
+      const arrow = (rsc && rsc === c.key) ? (rsd === 1 ? ' ▲' : ' ▼') : '';
+      const cursor = c.key ? 'cursor:pointer;' : '';
+      const tipAttr = c.tip ? ` title="${c.tip}"` : '';
+      const w = c.label === '' ? 'width:30px;' : '';
+      html += `<th class="roster-sort-th" data-col="${c.key||''}"${tipAttr} style="text-align:${c.align};padding:4px 6px;${cursor}${w}user-select:none;">${c.label}${arrow}</th>`;
+    });
+    html += '</tr></thead>';
+    html += '<tbody>';
+  }
+
+  // Row builder helper: picks GM pRow or Player pRowStats based on view
+  const rowFn = (p, slot, tag, isPit) => rosterView === 'player' ? pRowStats(p, slot, tag, isPit) : pRow(p, slot, tag);
+  const colSpan = rosterView === 'player' ? numBatCols : 12;
+  const colSpanPit = rosterView === 'player' ? numPitCols : 12;
+
+  if (rsc && rosterView !== 'player') {
+    // Flat sorted view (GM only) — all roster players sorted by chosen column
     const allRosterPlayers = [];
     for (const slot of [...batSlotOrder, 'SP', 'RP']) {
       (bySlot[slot]||[]).forEach(p => { if(p) allRosterPlayers.push({p, slot}); });
@@ -3211,58 +3357,77 @@ function renderRoster() {
       html += pRow(r.p, r.slot, r.slot === 'IL' ? '<span style="color:var(--red);">IL</span>' : '');
     });
   } else {
-    // Normal slot-based view
-    html += `<tr><td colspan="12" style="padding:6px 6px 2px;font-weight:700;font-size:11px;color:var(--accent);border-bottom:1px solid var(--border);">OFFENSE (9)</td></tr>`;
+    // Normal slot-based view (both Player and GM)
+    html += `<tr><td colspan="${colSpan}" style="padding:6px 6px 2px;font-weight:700;font-size:11px;color:var(--accent);border-bottom:1px solid var(--border);">OFFENSE (9)</td></tr>`;
     for (const slot of batSlotOrder) {
       const count = ROSTER_SLOTS[slot] || 1;
       for (let i = 0; i < count; i++) {
         const p = bySlot[slot][i];
-        html += `<tr class="roster-section" data-slot="${slot}">${pRow(p, slot, '').replace(/^<tr[^>]*>|<\/tr>$/g, '')}</tr>`;
+        const inner = rowFn(p, slot, '', false);
+        html += `<tr class="roster-section" data-slot="${slot}">${inner.replace(/^<tr[^>]*>|<\/tr>$/g, '')}</tr>`;
       }
     }
 
-    html += `<tr><td colspan="12" style="padding:8px 6px 2px;font-weight:700;font-size:11px;color:var(--green);border-bottom:1px solid var(--border);">PITCHING (${(bySlot['SP']||[]).length + (bySlot['RP']||[]).length})</td></tr>`;
+    // Close offense table in Player view, open pitching table with pit-specific headers
+    if (rosterView === 'player') {
+      html += '</tbody></table>';
+      html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:8px;margin-bottom:6px;">';
+      html += '<thead>' + buildPlayerStatHeader(playerPitStatCols, true) + '</thead>';
+      html += '<tbody>';
+      html += `<tr><td colspan="${colSpanPit}" style="padding:6px 6px 2px;font-weight:700;font-size:11px;color:var(--green);border-bottom:1px solid var(--border);">PITCHING (${(bySlot['SP']||[]).length + (bySlot['RP']||[]).length})</td></tr>`;
+    } else {
+      html += `<tr><td colspan="${colSpan}" style="padding:8px 6px 2px;font-weight:700;font-size:11px;color:var(--green);border-bottom:1px solid var(--border);">PITCHING (${(bySlot['SP']||[]).length + (bySlot['RP']||[]).length})</td></tr>`;
+    }
+
     for (const slot of ['SP','RP']) {
       const count = ROSTER_SLOTS[slot] || 5;
       for (let i = 0; i < count; i++) {
         const p = bySlot[slot][i];
-        html += `<tr class="roster-section" data-slot="${slot}">${pRow(p, slot, '').replace(/^<tr[^>]*>|<\/tr>$/g, '')}</tr>`;
+        const inner = rowFn(p, slot, '', true);
+        html += `<tr class="roster-section" data-slot="${slot}">${inner.replace(/^<tr[^>]*>|<\/tr>$/g, '')}</tr>`;
       }
     }
   }
   html += '</tbody></table>';
 
-  if (!rsc) {
-    // Bench (only in slot-based view)
+  if (!rsc || rosterView === 'player') {
+    // Bench
     html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">BENCH (${bench.length}/7)</span></div>`;
     html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
-    html += rosterColgroup;
+    if (rosterView !== 'player') html += rosterColgroup;
     html += '<tbody>';
-    bench.forEach(p => { html += pRow(p, 'BN', ''); });
-    if (bench.length === 0) html += '<tr><td colspan="12" style="padding:4px 6px;color:var(--text2);font-size:11px;">No bench players</td></tr>';
+    bench.forEach(p => {
+      const isPit = p && ['SP','RP'].includes(p.primaryPos);
+      html += rowFn(p, 'BN', '', isPit);
+    });
+    if (bench.length === 0) html += `<tr><td colspan="${colSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No bench players</td></tr>`;
     html += '</tbody></table>';
 
     // IL
     html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--red);">IL (${ilPlayers.length}/4)</span></div>`;
     html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
-    html += rosterColgroup;
+    if (rosterView !== 'player') html += rosterColgroup;
     html += '<tbody>';
-    ilPlayers.forEach(p => { html += pRow(p, 'IL', '<span style="color:var(--red);">IL</span>'); });
-    if (ilPlayers.length === 0) html += '<tr><td colspan="12" style="padding:4px 6px;color:var(--text2);font-size:11px;">No IL players</td></tr>';
+    ilPlayers.forEach(p => {
+      const isPit = p && ['SP','RP'].includes(p.primaryPos);
+      html += rowFn(p, 'IL', '<span style="color:var(--red);">IL</span>', isPit);
+    });
+    if (ilPlayers.length === 0) html += `<tr><td colspan="${colSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No IL players</td></tr>`;
     html += '</tbody></table>';
   }
 
   // Minors (always show)
   html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--accent);">MINORS (${teamMilb.length}/4)</span></div>`;
   html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
-  html += rosterColgroup;
+  if (rosterView !== 'player') html += rosterColgroup;
   html += '<tbody>';
   teamMilb.forEach(name => {
     const p = _plyrI(name);
-    if (p) html += pRow(p, 'MiLB', '<span style="color:var(--accent);">MiLB</span>');
-    else html += `<tr><td style="padding:3px 6px;font-weight:600;width:30px;font-size:11px;">MiLB</td><td colspan="11" style="padding:3px 6px;font-size:12px;">${name} <span style="color:var(--accent);font-size:10px;">MiLB</span></td></tr>`;
+    const isPit = p && ['SP','RP'].includes(p.primaryPos);
+    if (p) html += rowFn(p, 'MiLB', '<span style="color:var(--accent);">MiLB</span>', isPit);
+    else html += `<tr><td style="padding:3px 6px;font-weight:600;width:30px;font-size:11px;">MiLB</td><td colspan="${colSpan-1}" style="padding:3px 6px;font-size:12px;">${name} <span style="color:var(--accent);font-size:10px;">MiLB</span></td></tr>`;
   });
-  if (teamMilb.length === 0) html += '<tr><td colspan="12" style="padding:4px 6px;color:var(--text2);font-size:11px;">No minor leaguers</td></tr>';
+  if (teamMilb.length === 0) html += `<tr><td colspan="${colSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No minor leaguers</td></tr>`;
   html += '</tbody></table>';
 
   html += '</div>'; // end left column
@@ -3270,85 +3435,10 @@ function renderRoster() {
   // ── RIGHT: Sidebar ──
   html += '<div style="flex:0 0 300px;">';
 
-  // League LCV standings
-  html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
-  html += '<h3 style="font-size:13px;margin-bottom:6px;">League LCV Standings</h3>';
-  html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-  html += '<tr style="color:var(--text2);"><th style="text-align:left;padding:2px 4px;">#</th><th style="text-align:left;padding:2px 4px;">Team</th><th style="text-align:right;padding:2px 4px;">Start</th><th style="text-align:right;padding:2px 4px;">Total</th></tr>';
-  const lcvStats = LEAGUE_TEAMS.map(t => {
-    const pl = t.mine ? (state.myTeam || []) : (state.leagueTeams[t.name] || []);
-    const ov = t.mine ? (state.rosterOverrides || {}) : (state.leagueRosterOverrides && state.leagueRosterOverrides[t.name] || {});
-    const stats = calcRosterLCV(pl, ov);
-    return { name: t.owner || t.name, mine: t.mine, ...stats };
-  }).sort((a, b) => b.startingLCV - a.startingLCV);
-  lcvStats.forEach((t, rank) => {
-    const sty = t.mine ? 'background:rgba(99,102,241,0.1);font-weight:600;' : '';
-    html += `<tr style="${sty}"><td style="padding:2px 4px;">${rank+1}</td><td style="padding:2px 4px;">${t.name}${t.mine?' ★':''}</td><td style="text-align:right;padding:2px 4px;">${t.startingLCV.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;">${t.totalLCV.toFixed(1)}</td></tr>`;
-  });
-  html += '</table></div>';
-
-  // ── Trade Evaluator (My Roster tab only) ──
-  if (isMyRosterTab) {
-  html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
-  html += '<h3 style="font-size:13px;margin-bottom:4px;">Trade Evaluator</h3>';
-  html += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Includes keeper round cost, surplus value, and years of control. R1-4 players cannot be kept.</div>';
-  html += '<div style="display:flex;gap:8px;">';
-  // I Give column
-  html += '<div style="flex:1;">';
-  html += '<div style="font-weight:600;font-size:11px;color:var(--red);margin-bottom:4px;">I Give</div>';
-  html += '<input id="tradeGiveInput" type="text" placeholder="Search player..." style="width:100%;padding:4px 6px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);box-sizing:border-box;" autocomplete="off">';
-  html += '<div id="tradeGiveAC" style="position:relative;"></div>';
-  html += '<div id="tradeGiveList" style="margin-top:4px;"></div>';
-  html += '<div style="margin-top:6px;display:flex;gap:4px;align-items:center;">';
-  html += '<select id="tradeGivePickRound" style="padding:3px 4px;font-size:10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);"><option value="">+ 2027 Pick...</option>';
-  for (let rd = 1; rd <= 31; rd++) { html += `<option value="${rd}">Round ${rd}</option>`; }
-  html += '</select>';
-  html += '<button id="tradeGivePickBtn" class="btn btn-secondary" style="padding:2px 8px;font-size:10px;">Add Pick</button>';
-  html += '</div>';
-  html += '<div id="tradeGivePickList" style="margin-top:4px;"></div>';
-  html += '</div>';
-  // I Get column
-  html += '<div style="flex:1;">';
-  html += '<div style="font-weight:600;font-size:11px;color:var(--green);margin-bottom:4px;">I Get</div>';
-  html += '<input id="tradeGetInput" type="text" placeholder="Search player..." style="width:100%;padding:4px 6px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);box-sizing:border-box;" autocomplete="off">';
-  html += '<div id="tradeGetAC" style="position:relative;"></div>';
-  html += '<div id="tradeGetList" style="margin-top:4px;"></div>';
-  html += '<div style="margin-top:6px;display:flex;gap:4px;align-items:center;">';
-  html += '<select id="tradeGetPickRound" style="padding:3px 4px;font-size:10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);"><option value="">+ 2027 Pick...</option>';
-  for (let rd = 1; rd <= 31; rd++) { html += `<option value="${rd}">Round ${rd}</option>`; }
-  html += '</select>';
-  html += '<button id="tradeGetPickBtn" class="btn btn-secondary" style="padding:2px 8px;font-size:10px;">Add Pick</button>';
-  html += '</div>';
-  html += '<div id="tradeGetPickList" style="margin-top:4px;"></div>';
-  html += '</div>';
-  html += '</div>';
-  // Suggested targets section
-  html += '<div style="margin-top:8px;">';
-  html += '<div id="tradeSuggestToggle" style="cursor:pointer;font-size:11px;color:var(--accent);font-weight:600;user-select:none;">▶ Suggested targets based on your needs</div>';
-  html += '<div id="tradeSuggestPanel" style="display:none;margin-top:6px;padding:6px;background:var(--bg);border-radius:4px;max-height:220px;overflow-y:auto;"></div>';
-  html += '</div>';
-  // Trade summary
-  html += '<div id="tradeSummary" style="margin-top:8px;padding:6px;background:var(--bg);border-radius:4px;font-size:11px;display:none;"></div>';
-  html += '</div>';
-
-  // ── Mock Trade Generator ──
-  html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
-  html += '<div id="tradeGenToggle" style="cursor:pointer;display:flex;align-items:center;gap:6px;">';
-  html += '<h3 style="font-size:13px;margin:0;">Trade Ideas</h3>';
-  html += '<span style="font-size:10px;color:var(--accent);font-weight:600;">▶</span>';
-  html += '</div>';
-  html += '<div style="font-size:10px;color:var(--text2);margin-top:2px;">Auto-generated 1-for-1 and 2-for-2 trades that fill your needs and theirs, slightly favoring you.</div>';
-  html += '<div id="tradeGenPanel" style="display:none;margin-top:8px;"></div>';
-  html += '</div>';
-  }
-
-  // Position needs analysis (for currently selected team)
-  html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;">';
+  // Compute needs data (used by both views and other-team view)
   const _myTeamObj = LEAGUE_TEAMS.find(t => t.mine);
   const needsTeamLabel = isMine ? (_myTeamObj ? _myTeamObj.owner : 'My') : (LEAGUE_TEAMS.find(t => t.name === selTeamName)?.owner || selTeamName);
-  html += `<h3 style="font-size:13px;margin-bottom:6px;">${needsTeamLabel} Roster Needs</h3>`;
   const myPl = teamPlayers.map(n => _plyrI(n)).filter(Boolean);
-
   const myAssigned = computeNeedsForTeam(myPl);
   const needs = [];
   for (const [pos, slots] of Object.entries(ROSTER_SLOTS)) {
@@ -3366,138 +3456,253 @@ function renderRoster() {
     needs.push({ pos, avgLcv, leagueAvg, diff, count: top.length });
   }
   needs.sort((a,b) => a.diff - b.diff);
-  html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-  html += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">My Avg</th><th style="text-align:right;padding:2px 4px;">Lg Avg</th><th style="text-align:right;padding:2px 4px;">Gap</th></tr>';
-  needs.forEach(n => {
-    const clr = n.diff >= 1 ? 'var(--green)' : n.diff >= -1 ? 'var(--text)' : 'var(--red)';
-    const indicator = n.diff < -1 ? ' ⚠' : n.diff >= 2 ? ' ✓' : '';
-    html += `<tr><td style="padding:2px 4px;font-weight:600;">${n.pos}</td><td style="text-align:right;padding:2px 4px;">${n.avgLcv.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;">${n.leagueAvg.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;color:${clr};font-weight:600;">${n.diff > 0 ? '+' : ''}${n.diff.toFixed(1)}${indicator}</td></tr>`;
-  });
-  html += '</table></div>';
+  const _wwNeeds = {};
+  needs.forEach(n => { _wwNeeds[n.pos] = n.diff; });
 
-  // ── Waiver Wire Targets & Most Droppable (My Roster tab only) ──
-  if (isMyRosterTab) {
-    // Build set of all rostered + drafted names
-    const _allOwned = new Set(state.myTeam || []);
-    Object.values(state.leagueTeams || {}).forEach(arr => (arr||[]).forEach(n => _allOwned.add(n)));
-    Object.keys(state.drafted || {}).forEach(n => _allOwned.add(n));
-    // Also add MiLB keepers
-    Object.values(LEAGUE_ROOKIES || {}).forEach(arr => (arr||[]).forEach(n => _allOwned.add(n)));
-
-    // ── Waiver Wire Targets ──
-    // Find unowned players that fill my positional needs, sorted by positional need fit + LCV
-    const _wwNeeds = {};
-    needs.forEach(n => { _wwNeeds[n.pos] = n.diff; });
-
-    const wwTargets = ALL.filter(p => !_allOwned.has(p.name) && (p.lcv||0) >= 1.5).map(p => {
-      const positions = (p.pos || p.primaryPos || '').split('/').filter(x => x);
-      let bestNeed = 0;
-      let bestPos = '';
-      positions.forEach(pos => {
-        const gap = _wwNeeds[pos];
-        if (gap !== undefined && gap < 0 && -gap > bestNeed) {
-          bestNeed = -gap; bestPos = pos;
-        }
-      });
-      const ki = getKeeperInfo(p.name);
-      const keepBonus = ki.keepable2027 ? ki.yearsLeft * 0.3 : 0;
-      const score = bestNeed * 2.5 + (p.lcv||0) * 0.4 + keepBonus;
-      return { p, score, bestPos, bestNeed, ki };
-    }).filter(x => x.score > 1.0).sort((a,b) => b.score - a.score).slice(0, 8);
-
-    html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-top:12px;">';
-    html += '<h3 style="font-size:13px;margin-bottom:6px;">Waiver Wire Targets</h3>';
-    if (wwTargets.length > 0) {
-      html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-      html += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
-      wwTargets.forEach(t => {
-        const keepTag = t.ki.keepable2027
-          ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>`
-          : '<span style="color:var(--text2);">—</span>';
-        const why = t.bestNeed > 0.5 ? `fills ${t.bestPos}` : (t.p.lcv||0) >= 4 ? 'high LCV' : t.ki.keepable2027 ? 'keeper value' : 'depth';
-        html += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.p.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;">${(t.p.lcv||0).toFixed(1)}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--accent);">${why}</td></tr>`;
-      });
-      html += '</table>';
-    } else {
-      html += '<div style="font-size:11px;color:var(--text2);">No strong waiver targets found.</div>';
-    }
-    html += '</div>';
-
-    // ── Most Droppable ──
-    const myPlayers = (state.myTeam || []).map(n => {
-      const p = _plyrI(n);
-      if (!p) return null;
-      const ki = getKeeperInfo(n);
-      const lcv = p.lcv || 0;
-      const posGap = _wwNeeds[p.primaryPos] || 0;
-      let dropScore = 0;
-      // LCV is the primary signal: lower LCV = more droppable, high LCV strongly protects
-      dropScore += (5 - lcv) * 1.5; // goes negative for good players, protecting them
-      // Keeper value matters but shouldn't override elite production
-      if (!ki.keepable2027) dropScore += 1.5;
-      else dropScore -= ki.yearsLeft * 0.5;
-      // Position surplus = more droppable
-      if (posGap > 0.5) dropScore += posGap * 0.8;
-      // Position weakness = less droppable
-      if (posGap < -0.5) dropScore -= (-posGap) * 1.2;
-      // High multi-year surplus = less droppable
-      dropScore -= Math.max(0, ki.multiYearSurplus || 0) * 0.8;
-      return { name: n, p, ki, lcv, dropScore };
-    }).filter(Boolean).sort((a,b) => b.dropScore - a.dropScore).slice(0, 5);
-
-    html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-top:12px;">';
-    html += '<h3 style="font-size:13px;margin-bottom:6px;">Most Droppable</h3>';
-    html += '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Players on your roster with the lowest combined production + keeper value.</div>';
-    if (myPlayers.length > 0) {
-      html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-      html += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
-      myPlayers.forEach(t => {
-        const keepTag = t.ki.keepable2027
-          ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>`
-          : '<span style="color:var(--red);">NK</span>';
-        const reasons = [];
-        if (t.lcv < 2) reasons.push('low production');
-        else if (t.lcv < 4) reasons.push('below avg production');
-        if (!t.ki.keepable2027) reasons.push('not keepable');
-        const posGap = _wwNeeds[t.p.primaryPos] || 0;
-        if (posGap > 0.5) reasons.push(`${t.p.primaryPos} surplus`);
-        const why = reasons.length > 0 ? reasons.slice(0,2).join(', ') : 'marginal value';
-        html += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;">${t.lcv.toFixed(1)}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--red);">${why}</td></tr>`;
-      });
-      html += '</table>';
-    }
-    html += '</div>';
-
-    // ── Player News (from CBS) ──
-    const myTeamNames = new Set((state.myTeam || []).map(n => n.toLowerCase()));
-    const relevantNews = (PLAYER_NEWS || []).filter(n => myTeamNames.has(n.name.toLowerCase()));
+  // ── Player News helper (used in both Player View sidebar and GM View) ──
+  const myTeamNames = new Set((state.myTeam || []).map(n => n.toLowerCase()));
+  const relevantNews = (PLAYER_NEWS || []).filter(n => myTeamNames.has(n.name.toLowerCase()));
+  if (relevantNews.length > 0) {
+    relevantNews.sort((a, b) => {
+      const [am, ad] = (a.date || '01/01').split('/').map(Number);
+      const [bm, bd] = (b.date || '01/01').split('/').map(Number);
+      const ay = am >= 8 ? 2025 : 2026;
+      const by = bm >= 8 ? 2025 : 2026;
+      return (by * 10000 + bm * 100 + bd) - (ay * 10000 + am * 100 + ad);
+    });
+  }
+  function renderPlayerNewsPanel() {
+    let h = '';
     if (relevantNews.length > 0) {
-      // Sort by date descending (MM/DD format, assume 2026 for spring, 2025 for fall)
-      relevantNews.sort((a, b) => {
-        const [am, ad] = (a.date || '01/01').split('/').map(Number);
-        const [bm, bd] = (b.date || '01/01').split('/').map(Number);
-        const ay = am >= 8 ? 2025 : 2026;
-        const by = bm >= 8 ? 2025 : 2026;
-        return (by * 10000 + bm * 100 + bd) - (ay * 10000 + am * 100 + ad);
-      });
-      html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-top:12px;">';
-      html += '<h3 style="font-size:13px;margin-bottom:6px;">Player News</h3>';
-      html += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Latest news for your rostered players from CBS.</div>';
+      h += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
+      h += '<h3 style="font-size:13px;margin-bottom:6px;">Player News</h3>';
+      h += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Latest news for your rostered players from CBS.</div>';
       relevantNews.forEach(n => {
         const p = _plyrI(n.name);
         const pos = p ? p.primaryPos : '';
         const isRecent = (() => { const [m,d] = (n.date||'').split('/').map(Number); return m === 3 && d >= 10; })();
         const dateClr = isRecent ? 'color:var(--green);' : 'color:var(--text2);';
-        html += `<div style="padding:4px 0;border-bottom:1px solid var(--border);font-size:11px;">`;
-        html += `<div><span style="font-weight:600;">${n.name}</span> <span style="color:var(--text2);font-size:10px;">${pos}</span> <span style="font-size:9px;${dateClr}">${n.date}</span></div>`;
-        html += `<div style="color:var(--text2);font-size:10px;margin-top:1px;">${n.headline}</div>`;
-        html += `</div>`;
+        h += `<div style="padding:4px 0;border-bottom:1px solid var(--border);font-size:11px;">`;
+        h += `<div><span style="font-weight:600;">${n.name}</span> <span style="color:var(--text2);font-size:10px;">${pos}</span> <span style="font-size:9px;${dateClr}">${n.date}</span></div>`;
+        h += `<div style="color:var(--text2);font-size:10px;margin-top:1px;">${n.headline}</div>`;
+        h += `</div>`;
       });
-      html += '</div>';
+      h += '</div>';
+    } else {
+      h += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
+      h += '<h3 style="font-size:13px;margin-bottom:6px;">Player News</h3>';
+      h += '<div style="font-size:11px;color:var(--text2);">No recent news for your players.</div>';
+      h += '</div>';
     }
+    return h;
   }
 
-  // ── Transaction Log ──
+  // ── Collapsible panel helper for GM sidebar ──
+  // Reads/writes collapse state to localStorage
+  function gmPanel(id, title, contentFn) {
+    let collapsed = false;
+    try { const s = localStorage.getItem('dpf_gm_' + id); if (s === '1') collapsed = true; } catch(e) {}
+    let h = `<div class="gm-panel" data-panel-id="${id}" draggable="true" style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;cursor:grab;">`;
+    const arrow = collapsed ? '▶' : '▼';
+    h += `<div class="gm-panel-hdr" data-panel="${id}" style="cursor:pointer;display:flex;align-items:center;gap:6px;user-select:none;">`;
+    h += `<span class="gm-arrow" style="font-size:10px;color:var(--accent);font-weight:600;width:12px;">${arrow}</span>`;
+    h += `<h3 style="font-size:13px;margin:0;flex:1;">${title}</h3>`;
+    h += '<span style="font-size:10px;color:var(--text2);cursor:grab;" title="Drag to reorder">☰</span>';
+    h += '</div>';
+    h += `<div class="gm-panel-body" data-panel="${id}" style="${collapsed ? 'display:none;' : ''}margin-top:8px;">`;
+    h += contentFn();
+    h += '</div></div>';
+    return h;
+  }
+
+  if (isMyRosterTab && rosterView === 'player') {
+    // ── PLAYER VIEW Sidebar: Only Player News + Transaction Log ──
+    html += renderPlayerNewsPanel();
+
+  } else if (isMyRosterTab && rosterView === 'gm') {
+    // ── GM VIEW Sidebar: Collapsible, draggable panels ──
+    // Get panel order from localStorage
+    const defaultOrder = ['roster-needs','trade-evaluator','trade-ideas','waiver-wire','most-droppable','player-news'];
+    let panelOrder;
+    try { const saved = localStorage.getItem('dpf_gm_order'); panelOrder = saved ? JSON.parse(saved) : defaultOrder; } catch(e) { panelOrder = defaultOrder; }
+    // Ensure all panels exist in order
+    defaultOrder.forEach(id => { if (!panelOrder.includes(id)) panelOrder.push(id); });
+    panelOrder = panelOrder.filter(id => defaultOrder.includes(id));
+
+    // Build panel content functions
+    const panelRenderers = {
+      'roster-needs': () => gmPanel('roster-needs', `${needsTeamLabel} Roster Needs`, () => {
+        let h = '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
+        h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">My Avg</th><th style="text-align:right;padding:2px 4px;">Lg Avg</th><th style="text-align:right;padding:2px 4px;">Gap</th></tr>';
+        needs.forEach(n => {
+          const clr = n.diff >= 1 ? 'var(--green)' : n.diff >= -1 ? 'var(--text)' : 'var(--red)';
+          const indicator = n.diff < -1 ? ' ⚠' : n.diff >= 2 ? ' ✓' : '';
+          h += `<tr><td style="padding:2px 4px;font-weight:600;">${n.pos}</td><td style="text-align:right;padding:2px 4px;">${n.avgLcv.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;">${n.leagueAvg.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;color:${clr};font-weight:600;">${n.diff > 0 ? '+' : ''}${n.diff.toFixed(1)}${indicator}</td></tr>`;
+        });
+        h += '</table>';
+        return h;
+      }),
+
+      'trade-evaluator': () => gmPanel('trade-evaluator', 'Trade Evaluator', () => {
+        let h = '';
+        h += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Includes keeper round cost, surplus value, and years of control. R1-4 players cannot be kept.</div>';
+        h += '<div style="display:flex;gap:8px;">';
+        h += '<div style="flex:1;">';
+        h += '<div style="font-weight:600;font-size:11px;color:var(--red);margin-bottom:4px;">I Give</div>';
+        h += '<input id="tradeGiveInput" type="text" placeholder="Search player..." style="width:100%;padding:4px 6px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);box-sizing:border-box;" autocomplete="off">';
+        h += '<div id="tradeGiveAC" style="position:relative;"></div>';
+        h += '<div id="tradeGiveList" style="margin-top:4px;"></div>';
+        h += '<div style="margin-top:6px;display:flex;gap:4px;align-items:center;">';
+        h += '<select id="tradeGivePickRound" style="padding:3px 4px;font-size:10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);"><option value="">+ 2027 Pick...</option>';
+        for (let rd = 1; rd <= 31; rd++) { h += `<option value="${rd}">Round ${rd}</option>`; }
+        h += '</select>';
+        h += '<button id="tradeGivePickBtn" class="btn btn-secondary" style="padding:2px 8px;font-size:10px;">Add Pick</button>';
+        h += '</div>';
+        h += '<div id="tradeGivePickList" style="margin-top:4px;"></div>';
+        h += '</div>';
+        h += '<div style="flex:1;">';
+        h += '<div style="font-weight:600;font-size:11px;color:var(--green);margin-bottom:4px;">I Get</div>';
+        h += '<input id="tradeGetInput" type="text" placeholder="Search player..." style="width:100%;padding:4px 6px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);box-sizing:border-box;" autocomplete="off">';
+        h += '<div id="tradeGetAC" style="position:relative;"></div>';
+        h += '<div id="tradeGetList" style="margin-top:4px;"></div>';
+        h += '<div style="margin-top:6px;display:flex;gap:4px;align-items:center;">';
+        h += '<select id="tradeGetPickRound" style="padding:3px 4px;font-size:10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);"><option value="">+ 2027 Pick...</option>';
+        for (let rd = 1; rd <= 31; rd++) { h += `<option value="${rd}">Round ${rd}</option>`; }
+        h += '</select>';
+        h += '<button id="tradeGetPickBtn" class="btn btn-secondary" style="padding:2px 8px;font-size:10px;">Add Pick</button>';
+        h += '</div>';
+        h += '<div id="tradeGetPickList" style="margin-top:4px;"></div>';
+        h += '</div>';
+        h += '</div>';
+        h += '<div style="margin-top:8px;">';
+        h += '<div id="tradeSuggestToggle" style="cursor:pointer;font-size:11px;color:var(--accent);font-weight:600;user-select:none;">▶ Suggested targets based on your needs</div>';
+        h += '<div id="tradeSuggestPanel" style="display:none;margin-top:6px;padding:6px;background:var(--bg);border-radius:4px;max-height:220px;overflow-y:auto;"></div>';
+        h += '</div>';
+        h += '<div id="tradeSummary" style="margin-top:8px;padding:6px;background:var(--bg);border-radius:4px;font-size:11px;display:none;"></div>';
+        return h;
+      }),
+
+      'trade-ideas': () => gmPanel('trade-ideas', 'Trade Ideas', () => {
+        let h = '';
+        h += '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Auto-generated 1-for-1 and 2-for-2 trades that fill your needs and theirs, slightly favoring you.</div>';
+        h += '<div id="tradeGenPanel" style="margin-top:4px;"></div>';
+        return h;
+      }),
+
+      'waiver-wire': () => {
+        const _allOwned = new Set(state.myTeam || []);
+        Object.values(state.leagueTeams || {}).forEach(arr => (arr||[]).forEach(n => _allOwned.add(n)));
+        Object.keys(state.drafted || {}).forEach(n => _allOwned.add(n));
+        Object.values(LEAGUE_ROOKIES || {}).forEach(arr => (arr||[]).forEach(n => _allOwned.add(n)));
+        const wwTargets = ALL.filter(p => !_allOwned.has(p.name) && (p.lcv||0) >= 1.5).map(p => {
+          const positions = (p.pos || p.primaryPos || '').split('/').filter(x => x);
+          let bestNeed = 0, bestPos = '';
+          positions.forEach(pos => { const gap = _wwNeeds[pos]; if (gap !== undefined && gap < 0 && -gap > bestNeed) { bestNeed = -gap; bestPos = pos; } });
+          const ki = getKeeperInfo(p.name);
+          const keepBonus = ki.keepable2027 ? ki.yearsLeft * 0.3 : 0;
+          return { p, score: bestNeed * 2.5 + (p.lcv||0) * 0.4 + keepBonus, bestPos, bestNeed, ki };
+        }).filter(x => x.score > 1.0).sort((a,b) => b.score - a.score).slice(0, 8);
+        return gmPanel('waiver-wire', 'Waiver Wire Targets', () => {
+          let h = '';
+          if (wwTargets.length > 0) {
+            h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
+            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
+            wwTargets.forEach(t => {
+              const keepTag = t.ki.keepable2027 ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>` : '<span style="color:var(--text2);">—</span>';
+              const why = t.bestNeed > 0.5 ? `fills ${t.bestPos}` : (t.p.lcv||0) >= 4 ? 'high LCV' : t.ki.keepable2027 ? 'keeper value' : 'depth';
+              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.p.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;">${(t.p.lcv||0).toFixed(1)}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--accent);">${why}</td></tr>`;
+            });
+            h += '</table>';
+          } else { h += '<div style="font-size:11px;color:var(--text2);">No strong waiver targets found.</div>'; }
+          return h;
+        });
+      },
+
+      'most-droppable': () => {
+        const _dropPlayers = (state.myTeam || []).map(n => {
+          const p = _plyrI(n); if (!p) return null;
+          const ki = getKeeperInfo(n); const lcv = p.lcv || 0; const posGap = _wwNeeds[p.primaryPos] || 0;
+          let dropScore = (5 - lcv) * 1.5;
+          if (!ki.keepable2027) dropScore += 1.5; else dropScore -= ki.yearsLeft * 0.5;
+          if (posGap > 0.5) dropScore += posGap * 0.8;
+          if (posGap < -0.5) dropScore -= (-posGap) * 1.2;
+          dropScore -= Math.max(0, ki.multiYearSurplus || 0) * 0.8;
+          return { name: n, p, ki, lcv, dropScore };
+        }).filter(Boolean).sort((a,b) => b.dropScore - a.dropScore).slice(0, 5);
+        return gmPanel('most-droppable', 'Most Droppable', () => {
+          let h = '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Players with the lowest combined production + keeper value.</div>';
+          if (_dropPlayers.length > 0) {
+            h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
+            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
+            _dropPlayers.forEach(t => {
+              const keepTag = t.ki.keepable2027 ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>` : '<span style="color:var(--red);">NK</span>';
+              const reasons = [];
+              if (t.lcv < 2) reasons.push('low production'); else if (t.lcv < 4) reasons.push('below avg production');
+              if (!t.ki.keepable2027) reasons.push('not keepable');
+              const posGap = _wwNeeds[t.p.primaryPos] || 0;
+              if (posGap > 0.5) reasons.push(`${t.p.primaryPos} surplus`);
+              const why = reasons.length > 0 ? reasons.slice(0,2).join(', ') : 'marginal value';
+              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;">${t.lcv.toFixed(1)}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--red);">${why}</td></tr>`;
+            });
+            h += '</table>';
+          }
+          return h;
+        });
+      },
+
+      'player-news': () => gmPanel('player-news', 'Player News', () => {
+        let h = '';
+        if (relevantNews.length > 0) {
+          h += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Latest news for your rostered players from CBS.</div>';
+          relevantNews.forEach(n => {
+            const p = _plyrI(n.name); const pos = p ? p.primaryPos : '';
+            const isRecent = (() => { const [m,d] = (n.date||'').split('/').map(Number); return m === 3 && d >= 10; })();
+            const dateClr = isRecent ? 'color:var(--green);' : 'color:var(--text2);';
+            h += `<div style="padding:4px 0;border-bottom:1px solid var(--border);font-size:11px;">`;
+            h += `<div><span style="font-weight:600;">${n.name}</span> <span style="color:var(--text2);font-size:10px;">${pos}</span> <span style="font-size:9px;${dateClr}">${n.date}</span></div>`;
+            h += `<div style="color:var(--text2);font-size:10px;margin-top:1px;">${n.headline}</div></div>`;
+          });
+        } else { h += '<div style="font-size:11px;color:var(--text2);">No recent news for your players.</div>'; }
+        return h;
+      })
+    };
+
+    // Render panels in saved order
+    panelOrder.forEach(id => { if (panelRenderers[id]) html += panelRenderers[id](); });
+
+  } else {
+    // ── Other Team View Sidebar: LCV standings + Roster Needs + Transaction Log ──
+    // League LCV standings (only on other team views, removed from My Roster)
+    html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
+    html += '<h3 style="font-size:13px;margin-bottom:6px;">League LCV Standings</h3>';
+    html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
+    html += '<tr style="color:var(--text2);"><th style="text-align:left;padding:2px 4px;">#</th><th style="text-align:left;padding:2px 4px;">Team</th><th style="text-align:right;padding:2px 4px;">Start</th><th style="text-align:right;padding:2px 4px;">Total</th></tr>';
+    const lcvStats = LEAGUE_TEAMS.map(t => {
+      const pl = t.mine ? (state.myTeam || []) : (state.leagueTeams[t.name] || []);
+      const ov = t.mine ? (state.rosterOverrides || {}) : (state.leagueRosterOverrides && state.leagueRosterOverrides[t.name] || {});
+      const stats = calcRosterLCV(pl, ov);
+      return { name: t.owner || t.name, mine: t.mine, ...stats };
+    }).sort((a, b) => b.startingLCV - a.startingLCV);
+    lcvStats.forEach((t, rank) => {
+      const sty = t.mine ? 'background:rgba(99,102,241,0.1);font-weight:600;' : '';
+      html += `<tr style="${sty}"><td style="padding:2px 4px;">${rank+1}</td><td style="padding:2px 4px;">${t.name}${t.mine?' ★':''}</td><td style="text-align:right;padding:2px 4px;">${t.startingLCV.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;">${t.totalLCV.toFixed(1)}</td></tr>`;
+    });
+    html += '</table></div>';
+
+    // Roster Needs
+    html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;">';
+    html += `<h3 style="font-size:13px;margin-bottom:6px;">${needsTeamLabel} Roster Needs</h3>`;
+    html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
+    html += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">My Avg</th><th style="text-align:right;padding:2px 4px;">Lg Avg</th><th style="text-align:right;padding:2px 4px;">Gap</th></tr>';
+    needs.forEach(n => {
+      const clr = n.diff >= 1 ? 'var(--green)' : n.diff >= -1 ? 'var(--text)' : 'var(--red)';
+      const indicator = n.diff < -1 ? ' ⚠' : n.diff >= 2 ? ' ✓' : '';
+      html += `<tr><td style="padding:2px 4px;font-weight:600;">${n.pos}</td><td style="text-align:right;padding:2px 4px;">${n.avgLcv.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;">${n.leagueAvg.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;color:${clr};font-weight:600;">${n.diff > 0 ? '+' : ''}${n.diff.toFixed(1)}${indicator}</td></tr>`;
+    });
+    html += '</table></div>';
+  }
+
+  // ── Transaction Log (always visible) ──
   html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-top:12px;">';
   html += '<h3 style="font-size:13px;margin-bottom:6px;">Transaction Log</h3>';
   const txnsRaw = (state.transactions || []).map((tx, i) => ({...tx, _idx: i}));
@@ -3529,6 +3734,65 @@ function renderRoster() {
   section.innerHTML = html;
   section.style.display = '';
   document.getElementById('tableWrap').style.display = 'none';
+
+  // ── Wire Player/GM view toggle ──
+  section.querySelectorAll('.roster-view-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state._rosterView = btn.dataset.view;
+      renderRoster();
+    });
+  });
+
+  // ── Wire GM panel collapse/expand ──
+  section.querySelectorAll('.gm-panel-hdr').forEach(hdr => {
+    hdr.addEventListener('click', (e) => {
+      if (e.target.closest('.gm-panel[draggable]') && e.target.style.cursor === 'grab') return;
+      const id = hdr.dataset.panel;
+      const body = section.querySelector(`.gm-panel-body[data-panel="${id}"]`);
+      const arrow = hdr.querySelector('.gm-arrow');
+      if (!body) return;
+      const isHidden = body.style.display === 'none';
+      body.style.display = isHidden ? '' : 'none';
+      if (arrow) arrow.textContent = isHidden ? '▼' : '▶';
+      try { localStorage.setItem('dpf_gm_' + id, isHidden ? '0' : '1'); } catch(e) {}
+    });
+  });
+
+  // ── Wire GM panel drag-to-reorder ──
+  {
+    let dragPanel = null;
+    section.querySelectorAll('.gm-panel[draggable]').forEach(panel => {
+      panel.addEventListener('dragstart', e => {
+        dragPanel = panel;
+        panel.style.opacity = '0.4';
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/plain', panel.dataset.panelId);
+      });
+      panel.addEventListener('dragend', () => {
+        if (dragPanel) dragPanel.style.opacity = '1';
+        dragPanel = null;
+        section.querySelectorAll('.gm-panel').forEach(p => p.style.borderTop = '');
+      });
+      panel.addEventListener('dragover', e => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        panel.style.borderTop = '2px solid var(--accent)';
+      });
+      panel.addEventListener('dragleave', e => {
+        if (!panel.contains(e.relatedTarget)) panel.style.borderTop = '';
+      });
+      panel.addEventListener('drop', e => {
+        e.preventDefault();
+        panel.style.borderTop = '';
+        if (!dragPanel || dragPanel === panel) return;
+        const container = panel.parentElement;
+        container.insertBefore(dragPanel, panel);
+        // Save new order to localStorage
+        const newOrder = [...container.querySelectorAll('.gm-panel')].map(p => p.dataset.panelId).filter(Boolean);
+        try { localStorage.setItem('dpf_gm_order', JSON.stringify(newOrder)); } catch(e) {}
+      });
+    });
+  }
 
   // ── Wire team selector ──
   section.querySelectorAll('.roster-team-btn').forEach(btn => {
@@ -4026,15 +4290,21 @@ function renderRoster() {
   updateTradeSummary();
 
   // ── Trade Generator wiring ──
-  const tgToggle = document.getElementById('tradeGenToggle');
+  // Trade Ideas: auto-generate when visible in GM view
   const tgPanel = document.getElementById('tradeGenPanel');
-  if (tgToggle && tgPanel) {
-    tgToggle.addEventListener('click', () => {
-      const open = tgPanel.style.display !== 'none';
-      tgPanel.style.display = open ? 'none' : 'block';
-      tgToggle.querySelector('span').textContent = open ? '▶' : '▼';
-      if (!open) generateTradeIdeas(tgPanel);
-    });
+  if (tgPanel) {
+    // Check if the panel body is visible (not collapsed)
+    const tgBody = tgPanel.closest('.gm-panel-body');
+    if (tgBody && tgBody.style.display !== 'none') {
+      generateTradeIdeas(tgPanel);
+    }
+    // Also generate on panel expand
+    const tgHdr = tgPanel.closest('.gm-panel')?.querySelector('.gm-panel-hdr');
+    if (tgHdr) {
+      tgHdr.addEventListener('click', () => {
+        setTimeout(() => { if (tgBody && tgBody.style.display !== 'none') generateTradeIdeas(tgPanel); }, 50);
+      });
+    }
   }
 
   function generateTradeIdeas(panel) {

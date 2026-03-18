@@ -3104,9 +3104,45 @@ function renderRoster() {
       `</tr>`;
   }
 
+  // ── Player View row builder ──
+  function pRowStats(p, slot, tag, isPitcher) {
+    const cols = isPitcher ? playerPitStatCols : playerBatStatCols;
+    const numCols = cols.length;
+    if (!p) return `<tr style="opacity:0.3;"><td style="padding:3px 6px;font-weight:600;font-size:11px;">${slot}</td><td colspan="${numCols-1}" style="padding:3px 6px;color:var(--text2);">—</td></tr>`;
+    const slotLabel = tag ? `${slot||''} ${tag}` : (slot||'');
+    let tr = `<tr class="roster-row" draggable="true" data-player="${encodeURIComponent(p.name)}" style="cursor:grab;">`;
+    cols.forEach(c => {
+      if (c.key === null) { tr += `<td style="padding:3px 4px;font-weight:600;font-size:11px;white-space:nowrap;">${slotLabel}</td>`; return; }
+      if (c.key === 'name') { tr += `<td style="padding:3px 4px;font-weight:600;font-size:12px;white-space:nowrap;">${p.name}${_injBadge(p.name)}</td>`; return; }
+      if (c.key === 'pos') { tr += `<td style="padding:3px 4px;text-align:center;font-size:11px;">${p.primaryPos||''}</td>`; return; }
+      let val = p[c.key];
+      if (val === undefined || val === null || val === '') { tr += `<td style="padding:3px 4px;text-align:right;font-size:10px;color:var(--text2);">—</td>`; return; }
+      // Format stat values
+      let display;
+      if (typeof val === 'number') {
+        if (['avg','obp','slg','era','whip','s25_avg','s25_obp','s25_slg','s25_era','s25_whip','s26_avg','s26_obp','s26_slg','s26_era','s26_whip'].some(k => c.key === k)) {
+          display = val.toFixed(3).replace(/^0\./, '.');
+          if (c.key.includes('era') || c.key.includes('ERA')) display = val.toFixed(2);
+          if (c.key.includes('whip') || c.key.includes('WHIP')) display = val.toFixed(2);
+        } else {
+          display = Math.round(val);
+        }
+      } else { display = val; }
+      // Color: group-based subtle background
+      const gClr = c.group === '25' ? '' : c.group === '26p' ? 'color:var(--accent);' : c.group === '26a' ? 'color:var(--green);' : '';
+      tr += `<td style="padding:3px 4px;text-align:right;font-size:10px;${gClr}">${display}</td>`;
+    });
+    tr += '</tr>';
+    return tr;
+  }
+
   // ── HTML ──
   let html = '';
   const isMyRosterTab = (currentTab === 'myRoster');
+
+  // View mode for My Roster: 'player' or 'gm'
+  if (!state._rosterView) state._rosterView = 'player';
+  const rosterView = isMyRosterTab ? state._rosterView : 'gm';
 
   // Team selector (hidden on My Roster tab)
   if (!isMyRosterTab) {
@@ -3126,6 +3162,14 @@ function renderRoster() {
 
   // Action bar
   html += '<div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;">';
+  if (isMyRosterTab) {
+    // Player / GM view toggle
+    html += '<div class="view-toggle">';
+    html += `<button class="view-btn roster-view-btn ${rosterView==='player'?'active':''}" data-view="player">Player</button>`;
+    html += `<button class="view-btn roster-view-btn ${rosterView==='gm'?'active':''}" data-view="gm">GM</button>`;
+    html += '</div>';
+    html += '<span style="width:8px;"></span>';
+  }
   html += `<span style="font-size:13px;font-weight:600;">Starting LCV: ${teamLCV.startingLCV.toFixed(1)}</span>`;
   html += `<span style="font-size:11px;color:var(--text2);margin-left:8px;">Total: ${teamLCV.totalLCV.toFixed(1)} | Players: ${teamPlayers.length}</span>`;
   html += '<span style="flex:1;"></span>';
@@ -3137,13 +3181,68 @@ function renderRoster() {
   html += '<div style="display:flex;gap:16px;align-items:flex-start;">';
 
   // ── LEFT: Roster table ──
-  html += '<div style="flex:1;min-width:0;">';
+  html += '<div style="flex:1;min-width:0;overflow-x:auto;">';
 
   // Roster sort state
   if (!state._rSortCol) state._rSortCol = null;
   const rsc = state._rSortCol;
   const rsd = state._rSortDir || -1;
 
+  // Player view stat columns (compact: 2025 actual, 2026 projected, 2026 actual side-by-side)
+  const playerBatStatCols = [
+    {key:null,label:'Slot',align:'left'},
+    {key:'name',label:'Player',align:'left'},
+    {key:'pos',label:'Pos',align:'center'},
+    // 2025 Actual
+    {key:'s25_avg',label:'AVG',align:'right',group:'25',tip:'2025 Actual AVG'},
+    {key:'s25_hr',label:'HR',align:'right',group:'25',tip:'2025 Actual HR'},
+    {key:'s25_r',label:'R',align:'right',group:'25',tip:'2025 Actual Runs'},
+    {key:'s25_rbi',label:'RBI',align:'right',group:'25',tip:'2025 Actual RBI'},
+    {key:'s25_sb',label:'SB',align:'right',group:'25',tip:'2025 Actual SB'},
+    {key:'s25_obp',label:'OBP',align:'right',group:'25',tip:'2025 Actual OBP'},
+    // 2026 Projected
+    {key:'avg',label:'AVG',align:'right',group:'26p',tip:'2026 Projected AVG'},
+    {key:'hr',label:'HR',align:'right',group:'26p',tip:'2026 Projected HR'},
+    {key:'r',label:'R',align:'right',group:'26p',tip:'2026 Projected Runs'},
+    {key:'rbi',label:'RBI',align:'right',group:'26p',tip:'2026 Projected RBI'},
+    {key:'sb',label:'SB',align:'right',group:'26p',tip:'2026 Projected SB'},
+    {key:'obp',label:'OBP',align:'right',group:'26p',tip:'2026 Projected OBP'},
+    // 2026 Actual
+    {key:'s26_avg',label:'AVG',align:'right',group:'26a',tip:'2026 Actual AVG'},
+    {key:'s26_hr',label:'HR',align:'right',group:'26a',tip:'2026 Actual HR'},
+    {key:'s26_r',label:'R',align:'right',group:'26a',tip:'2026 Actual Runs'},
+    {key:'s26_rbi',label:'RBI',align:'right',group:'26a',tip:'2026 Actual RBI'},
+    {key:'s26_sb',label:'SB',align:'right',group:'26a',tip:'2026 Actual SB'},
+    {key:'s26_obp',label:'OBP',align:'right',group:'26a',tip:'2026 Actual OBP'}
+  ];
+  const playerPitStatCols = [
+    {key:null,label:'Slot',align:'left'},
+    {key:'name',label:'Player',align:'left'},
+    {key:'pos',label:'Pos',align:'center'},
+    // 2025 Actual
+    {key:'s25_era',label:'ERA',align:'right',group:'25',tip:'2025 Actual ERA'},
+    {key:'s25_whip',label:'WHIP',align:'right',group:'25',tip:'2025 Actual WHIP'},
+    {key:'s25_so',label:'K',align:'right',group:'25',tip:'2025 Actual K'},
+    {key:'s25_w',label:'W',align:'right',group:'25',tip:'2025 Actual Wins'},
+    {key:'s25_sv',label:'SV',align:'right',group:'25',tip:'2025 Actual Saves'},
+    {key:'s25_qs',label:'QS',align:'right',group:'25',tip:'2025 Actual QS'},
+    // 2026 Projected
+    {key:'era',label:'ERA',align:'right',group:'26p',tip:'2026 Projected ERA'},
+    {key:'whip',label:'WHIP',align:'right',group:'26p',tip:'2026 Projected WHIP'},
+    {key:'so',label:'K',align:'right',group:'26p',tip:'2026 Projected K'},
+    {key:'w',label:'W',align:'right',group:'26p',tip:'2026 Projected Wins'},
+    {key:'sv',label:'SV',align:'right',group:'26p',tip:'2026 Projected Saves'},
+    {key:'qs',label:'QS',align:'right',group:'26p',tip:'2026 Projected QS'},
+    // 2026 Actual
+    {key:'s26_era',label:'ERA',align:'right',group:'26a',tip:'2026 Actual ERA'},
+    {key:'s26_whip',label:'WHIP',align:'right',group:'26a',tip:'2026 Actual WHIP'},
+    {key:'s26_so',label:'K',align:'right',group:'26a',tip:'2026 Actual K'},
+    {key:'s26_w',label:'W',align:'right',group:'26a',tip:'2026 Actual Wins'},
+    {key:'s26_sv',label:'SV',align:'right',group:'26a',tip:'2026 Actual Saves'},
+    {key:'s26_qs',label:'QS',align:'right',group:'26a',tip:'2026 Actual QS'}
+  ];
+
+  // GM view columns (original)
   const rosterCols = [
     {key:null,label:'Slot',align:'left'},
     {key:'name',label:'Player',align:'left'},
@@ -3160,24 +3259,71 @@ function renderRoster() {
   ];
 
   const batSlotOrder = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
-  // Shared colgroup for all roster tables (main + bench + IL + MiLB)
+  // Shared colgroup for all roster tables (main + bench + IL + MiLB) — GM view
   const rosterColgroup = '<colgroup><col style="width:38px"><col style="width:150px"><col style="width:56px"><col style="width:48px"><col style="width:64px"><col style="width:48px"><col style="width:48px"><col style="width:36px"><col style="width:34px"><col style="width:42px"><col style="width:42px"><col style="width:42px"></colgroup>';
 
-  html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:6px;">';
-  html += rosterColgroup;
-  html += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);">';
-  rosterCols.forEach(c => {
-    const arrow = (rsc && rsc === c.key) ? (rsd === 1 ? ' ▲' : ' ▼') : '';
-    const cursor = c.key ? 'cursor:pointer;' : '';
-    const tipAttr = c.tip ? ` title="${c.tip}"` : '';
-    const w = c.label === '' ? 'width:30px;' : '';
-    html += `<th class="roster-sort-th" data-col="${c.key||''}"${tipAttr} style="text-align:${c.align};padding:4px 6px;${cursor}${w}user-select:none;">${c.label}${arrow}</th>`;
-  });
-  html += '</tr></thead>';
-  html += '<tbody>';
+  // Choose columns based on view
+  const activeCols = rosterView === 'player' ? playerBatStatCols : rosterCols;
+  const activeColsPit = rosterView === 'player' ? playerPitStatCols : rosterCols;
+  const numBatCols = activeCols.length;
+  const numPitCols = activeColsPit.length;
 
-  if (rsc) {
-    // Flat sorted view — all roster players sorted by chosen column
+  // Player view header builder with group headers
+  function buildPlayerStatHeader(cols, isPit) {
+    let hdr = '';
+    // Group header row (2025 / 2026 Proj / 2026 Actual)
+    const statCols = cols.filter(c => c.group);
+    const g25 = statCols.filter(c => c.group === '25').length;
+    const g26p = statCols.filter(c => c.group === '26p').length;
+    const g26a = statCols.filter(c => c.group === '26a').length;
+    const fixedCols = cols.length - statCols.length; // slot + name + pos
+    hdr += '<tr style="background:var(--surface2);font-size:9px;text-transform:uppercase;color:var(--text2);">';
+    hdr += `<th colspan="${fixedCols}" style="padding:2px 4px;"></th>`;
+    hdr += `<th colspan="${g25}" style="padding:2px 6px;text-align:center;border-left:2px solid var(--border);color:var(--text2);">2025 Actual</th>`;
+    hdr += `<th colspan="${g26p}" style="padding:2px 6px;text-align:center;border-left:2px solid var(--border);color:var(--accent);">2026 Projected</th>`;
+    hdr += `<th colspan="${g26a}" style="padding:2px 6px;text-align:center;border-left:2px solid var(--border);color:var(--green);">2026 Actual</th>`;
+    hdr += '</tr>';
+    // Stat name header row
+    hdr += '<tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);">';
+    let prevGroup = null;
+    cols.forEach(c => {
+      const tipAttr = c.tip ? ` title="${c.tip}"` : '';
+      const borderLeft = (c.group && c.group !== prevGroup) ? 'border-left:2px solid var(--border);' : '';
+      prevGroup = c.group || prevGroup;
+      hdr += `<th${tipAttr} style="text-align:${c.align};padding:3px 4px;${borderLeft}user-select:none;white-space:nowrap;">${c.label}</th>`;
+    });
+    hdr += '</tr>';
+    return hdr;
+  }
+
+  // Build table header
+  if (rosterView === 'player') {
+    // Offense table
+    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:6px;">';
+    html += '<thead>' + buildPlayerStatHeader(playerBatStatCols, false) + '</thead>';
+    html += '<tbody>';
+  } else {
+    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:6px;">';
+    html += rosterColgroup;
+    html += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);">';
+    rosterCols.forEach(c => {
+      const arrow = (rsc && rsc === c.key) ? (rsd === 1 ? ' ▲' : ' ▼') : '';
+      const cursor = c.key ? 'cursor:pointer;' : '';
+      const tipAttr = c.tip ? ` title="${c.tip}"` : '';
+      const w = c.label === '' ? 'width:30px;' : '';
+      html += `<th class="roster-sort-th" data-col="${c.key||''}"${tipAttr} style="text-align:${c.align};padding:4px 6px;${cursor}${w}user-select:none;">${c.label}${arrow}</th>`;
+    });
+    html += '</tr></thead>';
+    html += '<tbody>';
+  }
+
+  // Row builder helper: picks GM pRow or Player pRowStats based on view
+  const rowFn = (p, slot, tag, isPit) => rosterView === 'player' ? pRowStats(p, slot, tag, isPit) : pRow(p, slot, tag);
+  const colSpan = rosterView === 'player' ? numBatCols : 12;
+  const colSpanPit = rosterView === 'player' ? numPitCols : 12;
+
+  if (rsc && rosterView !== 'player') {
+    // Flat sorted view (GM only) — all roster players sorted by chosen column
     const allRosterPlayers = [];
     for (const slot of [...batSlotOrder, 'SP', 'RP']) {
       (bySlot[slot]||[]).forEach(p => { if(p) allRosterPlayers.push({p, slot}); });
@@ -3211,58 +3357,77 @@ function renderRoster() {
       html += pRow(r.p, r.slot, r.slot === 'IL' ? '<span style="color:var(--red);">IL</span>' : '');
     });
   } else {
-    // Normal slot-based view
-    html += `<tr><td colspan="12" style="padding:6px 6px 2px;font-weight:700;font-size:11px;color:var(--accent);border-bottom:1px solid var(--border);">OFFENSE (9)</td></tr>`;
+    // Normal slot-based view (both Player and GM)
+    html += `<tr><td colspan="${colSpan}" style="padding:6px 6px 2px;font-weight:700;font-size:11px;color:var(--accent);border-bottom:1px solid var(--border);">OFFENSE (9)</td></tr>`;
     for (const slot of batSlotOrder) {
       const count = ROSTER_SLOTS[slot] || 1;
       for (let i = 0; i < count; i++) {
         const p = bySlot[slot][i];
-        html += `<tr class="roster-section" data-slot="${slot}">${pRow(p, slot, '').replace(/^<tr[^>]*>|<\/tr>$/g, '')}</tr>`;
+        const inner = rowFn(p, slot, '', false);
+        html += `<tr class="roster-section" data-slot="${slot}">${inner.replace(/^<tr[^>]*>|<\/tr>$/g, '')}</tr>`;
       }
     }
 
-    html += `<tr><td colspan="12" style="padding:8px 6px 2px;font-weight:700;font-size:11px;color:var(--green);border-bottom:1px solid var(--border);">PITCHING (${(bySlot['SP']||[]).length + (bySlot['RP']||[]).length})</td></tr>`;
+    // Close offense table in Player view, open pitching table with pit-specific headers
+    if (rosterView === 'player') {
+      html += '</tbody></table>';
+      html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:8px;margin-bottom:6px;">';
+      html += '<thead>' + buildPlayerStatHeader(playerPitStatCols, true) + '</thead>';
+      html += '<tbody>';
+      html += `<tr><td colspan="${colSpanPit}" style="padding:6px 6px 2px;font-weight:700;font-size:11px;color:var(--green);border-bottom:1px solid var(--border);">PITCHING (${(bySlot['SP']||[]).length + (bySlot['RP']||[]).length})</td></tr>`;
+    } else {
+      html += `<tr><td colspan="${colSpan}" style="padding:8px 6px 2px;font-weight:700;font-size:11px;color:var(--green);border-bottom:1px solid var(--border);">PITCHING (${(bySlot['SP']||[]).length + (bySlot['RP']||[]).length})</td></tr>`;
+    }
+
     for (const slot of ['SP','RP']) {
       const count = ROSTER_SLOTS[slot] || 5;
       for (let i = 0; i < count; i++) {
         const p = bySlot[slot][i];
-        html += `<tr class="roster-section" data-slot="${slot}">${pRow(p, slot, '').replace(/^<tr[^>]*>|<\/tr>$/g, '')}</tr>`;
+        const inner = rowFn(p, slot, '', true);
+        html += `<tr class="roster-section" data-slot="${slot}">${inner.replace(/^<tr[^>]*>|<\/tr>$/g, '')}</tr>`;
       }
     }
   }
   html += '</tbody></table>';
 
-  if (!rsc) {
-    // Bench (only in slot-based view)
+  if (!rsc || rosterView === 'player') {
+    // Bench
     html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">BENCH (${bench.length}/7)</span></div>`;
     html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
-    html += rosterColgroup;
+    if (rosterView !== 'player') html += rosterColgroup;
     html += '<tbody>';
-    bench.forEach(p => { html += pRow(p, 'BN', ''); });
-    if (bench.length === 0) html += '<tr><td colspan="12" style="padding:4px 6px;color:var(--text2);font-size:11px;">No bench players</td></tr>';
+    bench.forEach(p => {
+      const isPit = p && ['SP','RP'].includes(p.primaryPos);
+      html += rowFn(p, 'BN', '', isPit);
+    });
+    if (bench.length === 0) html += `<tr><td colspan="${colSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No bench players</td></tr>`;
     html += '</tbody></table>';
 
     // IL
     html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--red);">IL (${ilPlayers.length}/4)</span></div>`;
     html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
-    html += rosterColgroup;
+    if (rosterView !== 'player') html += rosterColgroup;
     html += '<tbody>';
-    ilPlayers.forEach(p => { html += pRow(p, 'IL', '<span style="color:var(--red);">IL</span>'); });
-    if (ilPlayers.length === 0) html += '<tr><td colspan="12" style="padding:4px 6px;color:var(--text2);font-size:11px;">No IL players</td></tr>';
+    ilPlayers.forEach(p => {
+      const isPit = p && ['SP','RP'].includes(p.primaryPos);
+      html += rowFn(p, 'IL', '<span style="color:var(--red);">IL</span>', isPit);
+    });
+    if (ilPlayers.length === 0) html += `<tr><td colspan="${colSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No IL players</td></tr>`;
     html += '</tbody></table>';
   }
 
   // Minors (always show)
   html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--accent);">MINORS (${teamMilb.length}/4)</span></div>`;
   html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
-  html += rosterColgroup;
+  if (rosterView !== 'player') html += rosterColgroup;
   html += '<tbody>';
   teamMilb.forEach(name => {
     const p = _plyrI(name);
-    if (p) html += pRow(p, 'MiLB', '<span style="color:var(--accent);">MiLB</span>');
-    else html += `<tr><td style="padding:3px 6px;font-weight:600;width:30px;font-size:11px;">MiLB</td><td colspan="11" style="padding:3px 6px;font-size:12px;">${name} <span style="color:var(--accent);font-size:10px;">MiLB</span></td></tr>`;
+    const isPit = p && ['SP','RP'].includes(p.primaryPos);
+    if (p) html += rowFn(p, 'MiLB', '<span style="color:var(--accent);">MiLB</span>', isPit);
+    else html += `<tr><td style="padding:3px 6px;font-weight:600;width:30px;font-size:11px;">MiLB</td><td colspan="${colSpan-1}" style="padding:3px 6px;font-size:12px;">${name} <span style="color:var(--accent);font-size:10px;">MiLB</span></td></tr>`;
   });
-  if (teamMilb.length === 0) html += '<tr><td colspan="12" style="padding:4px 6px;color:var(--text2);font-size:11px;">No minor leaguers</td></tr>';
+  if (teamMilb.length === 0) html += `<tr><td colspan="${colSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No minor leaguers</td></tr>`;
   html += '</tbody></table>';
 
   html += '</div>'; // end left column
@@ -3270,85 +3435,10 @@ function renderRoster() {
   // ── RIGHT: Sidebar ──
   html += '<div style="flex:0 0 300px;">';
 
-  // League LCV standings
-  html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
-  html += '<h3 style="font-size:13px;margin-bottom:6px;">League LCV Standings</h3>';
-  html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-  html += '<tr style="color:var(--text2);"><th style="text-align:left;padding:2px 4px;">#</th><th style="text-align:left;padding:2px 4px;">Team</th><th style="text-align:right;padding:2px 4px;">Start</th><th style="text-align:right;padding:2px 4px;">Total</th></tr>';
-  const lcvStats = LEAGUE_TEAMS.map(t => {
-    const pl = t.mine ? (state.myTeam || []) : (state.leagueTeams[t.name] || []);
-    const ov = t.mine ? (state.rosterOverrides || {}) : (state.leagueRosterOverrides && state.leagueRosterOverrides[t.name] || {});
-    const stats = calcRosterLCV(pl, ov);
-    return { name: t.owner || t.name, mine: t.mine, ...stats };
-  }).sort((a, b) => b.startingLCV - a.startingLCV);
-  lcvStats.forEach((t, rank) => {
-    const sty = t.mine ? 'background:rgba(99,102,241,0.1);font-weight:600;' : '';
-    html += `<tr style="${sty}"><td style="padding:2px 4px;">${rank+1}</td><td style="padding:2px 4px;">${t.name}${t.mine?' ★':''}</td><td style="text-align:right;padding:2px 4px;">${t.startingLCV.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;">${t.totalLCV.toFixed(1)}</td></tr>`;
-  });
-  html += '</table></div>';
-
-  // ── Trade Evaluator (My Roster tab only) ──
-  if (isMyRosterTab) {
-  html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
-  html += '<h3 style="font-size:13px;margin-bottom:4px;">Trade Evaluator</h3>';
-  html += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Includes keeper round cost, surplus value, and years of control. R1-4 players cannot be kept.</div>';
-  html += '<div style="display:flex;gap:8px;">';
-  // I Give column
-  html += '<div style="flex:1;">';
-  html += '<div style="font-weight:600;font-size:11px;color:var(--red);margin-bottom:4px;">I Give</div>';
-  html += '<input id="tradeGiveInput" type="text" placeholder="Search player..." style="width:100%;padding:4px 6px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);box-sizing:border-box;" autocomplete="off">';
-  html += '<div id="tradeGiveAC" style="position:relative;"></div>';
-  html += '<div id="tradeGiveList" style="margin-top:4px;"></div>';
-  html += '<div style="margin-top:6px;display:flex;gap:4px;align-items:center;">';
-  html += '<select id="tradeGivePickRound" style="padding:3px 4px;font-size:10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);"><option value="">+ 2027 Pick...</option>';
-  for (let rd = 1; rd <= 31; rd++) { html += `<option value="${rd}">Round ${rd}</option>`; }
-  html += '</select>';
-  html += '<button id="tradeGivePickBtn" class="btn btn-secondary" style="padding:2px 8px;font-size:10px;">Add Pick</button>';
-  html += '</div>';
-  html += '<div id="tradeGivePickList" style="margin-top:4px;"></div>';
-  html += '</div>';
-  // I Get column
-  html += '<div style="flex:1;">';
-  html += '<div style="font-weight:600;font-size:11px;color:var(--green);margin-bottom:4px;">I Get</div>';
-  html += '<input id="tradeGetInput" type="text" placeholder="Search player..." style="width:100%;padding:4px 6px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);box-sizing:border-box;" autocomplete="off">';
-  html += '<div id="tradeGetAC" style="position:relative;"></div>';
-  html += '<div id="tradeGetList" style="margin-top:4px;"></div>';
-  html += '<div style="margin-top:6px;display:flex;gap:4px;align-items:center;">';
-  html += '<select id="tradeGetPickRound" style="padding:3px 4px;font-size:10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);"><option value="">+ 2027 Pick...</option>';
-  for (let rd = 1; rd <= 31; rd++) { html += `<option value="${rd}">Round ${rd}</option>`; }
-  html += '</select>';
-  html += '<button id="tradeGetPickBtn" class="btn btn-secondary" style="padding:2px 8px;font-size:10px;">Add Pick</button>';
-  html += '</div>';
-  html += '<div id="tradeGetPickList" style="margin-top:4px;"></div>';
-  html += '</div>';
-  html += '</div>';
-  // Suggested targets section
-  html += '<div style="margin-top:8px;">';
-  html += '<div id="tradeSuggestToggle" style="cursor:pointer;font-size:11px;color:var(--accent);font-weight:600;user-select:none;">▶ Suggested targets based on your needs</div>';
-  html += '<div id="tradeSuggestPanel" style="display:none;margin-top:6px;padding:6px;background:var(--bg);border-radius:4px;max-height:220px;overflow-y:auto;"></div>';
-  html += '</div>';
-  // Trade summary
-  html += '<div id="tradeSummary" style="margin-top:8px;padding:6px;background:var(--bg);border-radius:4px;font-size:11px;display:none;"></div>';
-  html += '</div>';
-
-  // ── Mock Trade Generator ──
-  html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
-  html += '<div id="tradeGenToggle" style="cursor:pointer;display:flex;align-items:center;gap:6px;">';
-  html += '<h3 style="font-size:13px;margin:0;">Trade Ideas</h3>';
-  html += '<span style="font-size:10px;color:var(--accent);font-weight:600;">▶</span>';
-  html += '</div>';
-  html += '<div style="font-size:10px;color:var(--text2);margin-top:2px;">Auto-generated 1-for-1 and 2-for-2 trades that fill your needs and theirs, slightly favoring you.</div>';
-  html += '<div id="tradeGenPanel" style="display:none;margin-top:8px;"></div>';
-  html += '</div>';
-  }
-
-  // Position needs analysis (for currently selected team)
-  html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;">';
+  // Compute needs data (used by both views and other-team view)
   const _myTeamObj = LEAGUE_TEAMS.find(t => t.mine);
   const needsTeamLabel = isMine ? (_myTeamObj ? _myTeamObj.owner : 'My') : (LEAGUE_TEAMS.find(t => t.name === selTeamName)?.owner || selTeamName);
-  html += `<h3 style="font-size:13px;margin-bottom:6px;">${needsTeamLabel} Roster Needs</h3>`;
   const myPl = teamPlayers.map(n => _plyrI(n)).filter(Boolean);
-
   const myAssigned = computeNeedsForTeam(myPl);
   const needs = [];
   for (const [pos, slots] of Object.entries(ROSTER_SLOTS)) {
@@ -3366,138 +3456,253 @@ function renderRoster() {
     needs.push({ pos, avgLcv, leagueAvg, diff, count: top.length });
   }
   needs.sort((a,b) => a.diff - b.diff);
-  html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-  html += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">My Avg</th><th style="text-align:right;padding:2px 4px;">Lg Avg</th><th style="text-align:right;padding:2px 4px;">Gap</th></tr>';
-  needs.forEach(n => {
-    const clr = n.diff >= 1 ? 'var(--green)' : n.diff >= -1 ? 'var(--text)' : 'var(--red)';
-    const indicator = n.diff < -1 ? ' ⚠' : n.diff >= 2 ? ' ✓' : '';
-    html += `<tr><td style="padding:2px 4px;font-weight:600;">${n.pos}</td><td style="text-align:right;padding:2px 4px;">${n.avgLcv.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;">${n.leagueAvg.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;color:${clr};font-weight:600;">${n.diff > 0 ? '+' : ''}${n.diff.toFixed(1)}${indicator}</td></tr>`;
-  });
-  html += '</table></div>';
+  const _wwNeeds = {};
+  needs.forEach(n => { _wwNeeds[n.pos] = n.diff; });
 
-  // ── Waiver Wire Targets & Most Droppable (My Roster tab only) ──
-  if (isMyRosterTab) {
-    // Build set of all rostered + drafted names
-    const _allOwned = new Set(state.myTeam || []);
-    Object.values(state.leagueTeams || {}).forEach(arr => (arr||[]).forEach(n => _allOwned.add(n)));
-    Object.keys(state.drafted || {}).forEach(n => _allOwned.add(n));
-    // Also add MiLB keepers
-    Object.values(LEAGUE_ROOKIES || {}).forEach(arr => (arr||[]).forEach(n => _allOwned.add(n)));
-
-    // ── Waiver Wire Targets ──
-    // Find unowned players that fill my positional needs, sorted by positional need fit + LCV
-    const _wwNeeds = {};
-    needs.forEach(n => { _wwNeeds[n.pos] = n.diff; });
-
-    const wwTargets = ALL.filter(p => !_allOwned.has(p.name) && (p.lcv||0) >= 1.5).map(p => {
-      const positions = (p.pos || p.primaryPos || '').split('/').filter(x => x);
-      let bestNeed = 0;
-      let bestPos = '';
-      positions.forEach(pos => {
-        const gap = _wwNeeds[pos];
-        if (gap !== undefined && gap < 0 && -gap > bestNeed) {
-          bestNeed = -gap; bestPos = pos;
-        }
-      });
-      const ki = getKeeperInfo(p.name);
-      const keepBonus = ki.keepable2027 ? ki.yearsLeft * 0.3 : 0;
-      const score = bestNeed * 2.5 + (p.lcv||0) * 0.4 + keepBonus;
-      return { p, score, bestPos, bestNeed, ki };
-    }).filter(x => x.score > 1.0).sort((a,b) => b.score - a.score).slice(0, 8);
-
-    html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-top:12px;">';
-    html += '<h3 style="font-size:13px;margin-bottom:6px;">Waiver Wire Targets</h3>';
-    if (wwTargets.length > 0) {
-      html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-      html += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
-      wwTargets.forEach(t => {
-        const keepTag = t.ki.keepable2027
-          ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>`
-          : '<span style="color:var(--text2);">—</span>';
-        const why = t.bestNeed > 0.5 ? `fills ${t.bestPos}` : (t.p.lcv||0) >= 4 ? 'high LCV' : t.ki.keepable2027 ? 'keeper value' : 'depth';
-        html += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.p.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;">${(t.p.lcv||0).toFixed(1)}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--accent);">${why}</td></tr>`;
-      });
-      html += '</table>';
-    } else {
-      html += '<div style="font-size:11px;color:var(--text2);">No strong waiver targets found.</div>';
-    }
-    html += '</div>';
-
-    // ── Most Droppable ──
-    const myPlayers = (state.myTeam || []).map(n => {
-      const p = _plyrI(n);
-      if (!p) return null;
-      const ki = getKeeperInfo(n);
-      const lcv = p.lcv || 0;
-      const posGap = _wwNeeds[p.primaryPos] || 0;
-      let dropScore = 0;
-      // LCV is the primary signal: lower LCV = more droppable, high LCV strongly protects
-      dropScore += (5 - lcv) * 1.5; // goes negative for good players, protecting them
-      // Keeper value matters but shouldn't override elite production
-      if (!ki.keepable2027) dropScore += 1.5;
-      else dropScore -= ki.yearsLeft * 0.5;
-      // Position surplus = more droppable
-      if (posGap > 0.5) dropScore += posGap * 0.8;
-      // Position weakness = less droppable
-      if (posGap < -0.5) dropScore -= (-posGap) * 1.2;
-      // High multi-year surplus = less droppable
-      dropScore -= Math.max(0, ki.multiYearSurplus || 0) * 0.8;
-      return { name: n, p, ki, lcv, dropScore };
-    }).filter(Boolean).sort((a,b) => b.dropScore - a.dropScore).slice(0, 5);
-
-    html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-top:12px;">';
-    html += '<h3 style="font-size:13px;margin-bottom:6px;">Most Droppable</h3>';
-    html += '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Players on your roster with the lowest combined production + keeper value.</div>';
-    if (myPlayers.length > 0) {
-      html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-      html += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
-      myPlayers.forEach(t => {
-        const keepTag = t.ki.keepable2027
-          ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>`
-          : '<span style="color:var(--red);">NK</span>';
-        const reasons = [];
-        if (t.lcv < 2) reasons.push('low production');
-        else if (t.lcv < 4) reasons.push('below avg production');
-        if (!t.ki.keepable2027) reasons.push('not keepable');
-        const posGap = _wwNeeds[t.p.primaryPos] || 0;
-        if (posGap > 0.5) reasons.push(`${t.p.primaryPos} surplus`);
-        const why = reasons.length > 0 ? reasons.slice(0,2).join(', ') : 'marginal value';
-        html += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;">${t.lcv.toFixed(1)}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--red);">${why}</td></tr>`;
-      });
-      html += '</table>';
-    }
-    html += '</div>';
-
-    // ── Player News (from CBS) ──
-    const myTeamNames = new Set((state.myTeam || []).map(n => n.toLowerCase()));
-    const relevantNews = (PLAYER_NEWS || []).filter(n => myTeamNames.has(n.name.toLowerCase()));
+  // ── Player News helper (used in both Player View sidebar and GM View) ──
+  const myTeamNames = new Set((state.myTeam || []).map(n => n.toLowerCase()));
+  const relevantNews = (PLAYER_NEWS || []).filter(n => myTeamNames.has(n.name.toLowerCase()));
+  if (relevantNews.length > 0) {
+    relevantNews.sort((a, b) => {
+      const [am, ad] = (a.date || '01/01').split('/').map(Number);
+      const [bm, bd] = (b.date || '01/01').split('/').map(Number);
+      const ay = am >= 8 ? 2025 : 2026;
+      const by = bm >= 8 ? 2025 : 2026;
+      return (by * 10000 + bm * 100 + bd) - (ay * 10000 + am * 100 + ad);
+    });
+  }
+  function renderPlayerNewsPanel() {
+    let h = '';
     if (relevantNews.length > 0) {
-      // Sort by date descending (MM/DD format, assume 2026 for spring, 2025 for fall)
-      relevantNews.sort((a, b) => {
-        const [am, ad] = (a.date || '01/01').split('/').map(Number);
-        const [bm, bd] = (b.date || '01/01').split('/').map(Number);
-        const ay = am >= 8 ? 2025 : 2026;
-        const by = bm >= 8 ? 2025 : 2026;
-        return (by * 10000 + bm * 100 + bd) - (ay * 10000 + am * 100 + ad);
-      });
-      html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-top:12px;">';
-      html += '<h3 style="font-size:13px;margin-bottom:6px;">Player News</h3>';
-      html += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Latest news for your rostered players from CBS.</div>';
+      h += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
+      h += '<h3 style="font-size:13px;margin-bottom:6px;">Player News</h3>';
+      h += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Latest news for your rostered players from CBS.</div>';
       relevantNews.forEach(n => {
         const p = _plyrI(n.name);
         const pos = p ? p.primaryPos : '';
         const isRecent = (() => { const [m,d] = (n.date||'').split('/').map(Number); return m === 3 && d >= 10; })();
         const dateClr = isRecent ? 'color:var(--green);' : 'color:var(--text2);';
-        html += `<div style="padding:4px 0;border-bottom:1px solid var(--border);font-size:11px;">`;
-        html += `<div><span style="font-weight:600;">${n.name}</span> <span style="color:var(--text2);font-size:10px;">${pos}</span> <span style="font-size:9px;${dateClr}">${n.date}</span></div>`;
-        html += `<div style="color:var(--text2);font-size:10px;margin-top:1px;">${n.headline}</div>`;
-        html += `</div>`;
+        h += `<div style="padding:4px 0;border-bottom:1px solid var(--border);font-size:11px;">`;
+        h += `<div><span style="font-weight:600;">${n.name}</span> <span style="color:var(--text2);font-size:10px;">${pos}</span> <span style="font-size:9px;${dateClr}">${n.date}</span></div>`;
+        h += `<div style="color:var(--text2);font-size:10px;margin-top:1px;">${n.headline}</div>`;
+        h += `</div>`;
       });
-      html += '</div>';
+      h += '</div>';
+    } else {
+      h += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
+      h += '<h3 style="font-size:13px;margin-bottom:6px;">Player News</h3>';
+      h += '<div style="font-size:11px;color:var(--text2);">No recent news for your players.</div>';
+      h += '</div>';
     }
+    return h;
   }
 
-  // ── Transaction Log ──
+  // ── Collapsible panel helper for GM sidebar ──
+  // Reads/writes collapse state to localStorage
+  function gmPanel(id, title, contentFn) {
+    let collapsed = false;
+    try { const s = localStorage.getItem('dpf_gm_' + id); if (s === '1') collapsed = true; } catch(e) {}
+    let h = `<div class="gm-panel" data-panel-id="${id}" draggable="true" style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;cursor:grab;">`;
+    const arrow = collapsed ? '▶' : '▼';
+    h += `<div class="gm-panel-hdr" data-panel="${id}" style="cursor:pointer;display:flex;align-items:center;gap:6px;user-select:none;">`;
+    h += `<span class="gm-arrow" style="font-size:10px;color:var(--accent);font-weight:600;width:12px;">${arrow}</span>`;
+    h += `<h3 style="font-size:13px;margin:0;flex:1;">${title}</h3>`;
+    h += '<span style="font-size:10px;color:var(--text2);cursor:grab;" title="Drag to reorder">☰</span>';
+    h += '</div>';
+    h += `<div class="gm-panel-body" data-panel="${id}" style="${collapsed ? 'display:none;' : ''}margin-top:8px;">`;
+    h += contentFn();
+    h += '</div></div>';
+    return h;
+  }
+
+  if (isMyRosterTab && rosterView === 'player') {
+    // ── PLAYER VIEW Sidebar: Only Player News + Transaction Log ──
+    html += renderPlayerNewsPanel();
+
+  } else if (isMyRosterTab && rosterView === 'gm') {
+    // ── GM VIEW Sidebar: Collapsible, draggable panels ──
+    // Get panel order from localStorage
+    const defaultOrder = ['roster-needs','trade-evaluator','trade-ideas','waiver-wire','most-droppable','player-news'];
+    let panelOrder;
+    try { const saved = localStorage.getItem('dpf_gm_order'); panelOrder = saved ? JSON.parse(saved) : defaultOrder; } catch(e) { panelOrder = defaultOrder; }
+    // Ensure all panels exist in order
+    defaultOrder.forEach(id => { if (!panelOrder.includes(id)) panelOrder.push(id); });
+    panelOrder = panelOrder.filter(id => defaultOrder.includes(id));
+
+    // Build panel content functions
+    const panelRenderers = {
+      'roster-needs': () => gmPanel('roster-needs', `${needsTeamLabel} Roster Needs`, () => {
+        let h = '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
+        h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">My Avg</th><th style="text-align:right;padding:2px 4px;">Lg Avg</th><th style="text-align:right;padding:2px 4px;">Gap</th></tr>';
+        needs.forEach(n => {
+          const clr = n.diff >= 1 ? 'var(--green)' : n.diff >= -1 ? 'var(--text)' : 'var(--red)';
+          const indicator = n.diff < -1 ? ' ⚠' : n.diff >= 2 ? ' ✓' : '';
+          h += `<tr><td style="padding:2px 4px;font-weight:600;">${n.pos}</td><td style="text-align:right;padding:2px 4px;">${n.avgLcv.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;">${n.leagueAvg.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;color:${clr};font-weight:600;">${n.diff > 0 ? '+' : ''}${n.diff.toFixed(1)}${indicator}</td></tr>`;
+        });
+        h += '</table>';
+        return h;
+      }),
+
+      'trade-evaluator': () => gmPanel('trade-evaluator', 'Trade Evaluator', () => {
+        let h = '';
+        h += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Includes keeper round cost, surplus value, and years of control. R1-4 players cannot be kept.</div>';
+        h += '<div style="display:flex;gap:8px;">';
+        h += '<div style="flex:1;">';
+        h += '<div style="font-weight:600;font-size:11px;color:var(--red);margin-bottom:4px;">I Give</div>';
+        h += '<input id="tradeGiveInput" type="text" placeholder="Search player..." style="width:100%;padding:4px 6px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);box-sizing:border-box;" autocomplete="off">';
+        h += '<div id="tradeGiveAC" style="position:relative;"></div>';
+        h += '<div id="tradeGiveList" style="margin-top:4px;"></div>';
+        h += '<div style="margin-top:6px;display:flex;gap:4px;align-items:center;">';
+        h += '<select id="tradeGivePickRound" style="padding:3px 4px;font-size:10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);"><option value="">+ 2027 Pick...</option>';
+        for (let rd = 1; rd <= 31; rd++) { h += `<option value="${rd}">Round ${rd}</option>`; }
+        h += '</select>';
+        h += '<button id="tradeGivePickBtn" class="btn btn-secondary" style="padding:2px 8px;font-size:10px;">Add Pick</button>';
+        h += '</div>';
+        h += '<div id="tradeGivePickList" style="margin-top:4px;"></div>';
+        h += '</div>';
+        h += '<div style="flex:1;">';
+        h += '<div style="font-weight:600;font-size:11px;color:var(--green);margin-bottom:4px;">I Get</div>';
+        h += '<input id="tradeGetInput" type="text" placeholder="Search player..." style="width:100%;padding:4px 6px;font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);box-sizing:border-box;" autocomplete="off">';
+        h += '<div id="tradeGetAC" style="position:relative;"></div>';
+        h += '<div id="tradeGetList" style="margin-top:4px;"></div>';
+        h += '<div style="margin-top:6px;display:flex;gap:4px;align-items:center;">';
+        h += '<select id="tradeGetPickRound" style="padding:3px 4px;font-size:10px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);"><option value="">+ 2027 Pick...</option>';
+        for (let rd = 1; rd <= 31; rd++) { h += `<option value="${rd}">Round ${rd}</option>`; }
+        h += '</select>';
+        h += '<button id="tradeGetPickBtn" class="btn btn-secondary" style="padding:2px 8px;font-size:10px;">Add Pick</button>';
+        h += '</div>';
+        h += '<div id="tradeGetPickList" style="margin-top:4px;"></div>';
+        h += '</div>';
+        h += '</div>';
+        h += '<div style="margin-top:8px;">';
+        h += '<div id="tradeSuggestToggle" style="cursor:pointer;font-size:11px;color:var(--accent);font-weight:600;user-select:none;">▶ Suggested targets based on your needs</div>';
+        h += '<div id="tradeSuggestPanel" style="display:none;margin-top:6px;padding:6px;background:var(--bg);border-radius:4px;max-height:220px;overflow-y:auto;"></div>';
+        h += '</div>';
+        h += '<div id="tradeSummary" style="margin-top:8px;padding:6px;background:var(--bg);border-radius:4px;font-size:11px;display:none;"></div>';
+        return h;
+      }),
+
+      'trade-ideas': () => gmPanel('trade-ideas', 'Trade Ideas', () => {
+        let h = '';
+        h += '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Auto-generated 1-for-1 and 2-for-2 trades that fill your needs and theirs, slightly favoring you.</div>';
+        h += '<div id="tradeGenPanel" style="margin-top:4px;"></div>';
+        return h;
+      }),
+
+      'waiver-wire': () => {
+        const _allOwned = new Set(state.myTeam || []);
+        Object.values(state.leagueTeams || {}).forEach(arr => (arr||[]).forEach(n => _allOwned.add(n)));
+        Object.keys(state.drafted || {}).forEach(n => _allOwned.add(n));
+        Object.values(LEAGUE_ROOKIES || {}).forEach(arr => (arr||[]).forEach(n => _allOwned.add(n)));
+        const wwTargets = ALL.filter(p => !_allOwned.has(p.name) && (p.lcv||0) >= 1.5).map(p => {
+          const positions = (p.pos || p.primaryPos || '').split('/').filter(x => x);
+          let bestNeed = 0, bestPos = '';
+          positions.forEach(pos => { const gap = _wwNeeds[pos]; if (gap !== undefined && gap < 0 && -gap > bestNeed) { bestNeed = -gap; bestPos = pos; } });
+          const ki = getKeeperInfo(p.name);
+          const keepBonus = ki.keepable2027 ? ki.yearsLeft * 0.3 : 0;
+          return { p, score: bestNeed * 2.5 + (p.lcv||0) * 0.4 + keepBonus, bestPos, bestNeed, ki };
+        }).filter(x => x.score > 1.0).sort((a,b) => b.score - a.score).slice(0, 8);
+        return gmPanel('waiver-wire', 'Waiver Wire Targets', () => {
+          let h = '';
+          if (wwTargets.length > 0) {
+            h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
+            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
+            wwTargets.forEach(t => {
+              const keepTag = t.ki.keepable2027 ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>` : '<span style="color:var(--text2);">—</span>';
+              const why = t.bestNeed > 0.5 ? `fills ${t.bestPos}` : (t.p.lcv||0) >= 4 ? 'high LCV' : t.ki.keepable2027 ? 'keeper value' : 'depth';
+              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.p.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;">${(t.p.lcv||0).toFixed(1)}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--accent);">${why}</td></tr>`;
+            });
+            h += '</table>';
+          } else { h += '<div style="font-size:11px;color:var(--text2);">No strong waiver targets found.</div>'; }
+          return h;
+        });
+      },
+
+      'most-droppable': () => {
+        const _dropPlayers = (state.myTeam || []).map(n => {
+          const p = _plyrI(n); if (!p) return null;
+          const ki = getKeeperInfo(n); const lcv = p.lcv || 0; const posGap = _wwNeeds[p.primaryPos] || 0;
+          let dropScore = (5 - lcv) * 1.5;
+          if (!ki.keepable2027) dropScore += 1.5; else dropScore -= ki.yearsLeft * 0.5;
+          if (posGap > 0.5) dropScore += posGap * 0.8;
+          if (posGap < -0.5) dropScore -= (-posGap) * 1.2;
+          dropScore -= Math.max(0, ki.multiYearSurplus || 0) * 0.8;
+          return { name: n, p, ki, lcv, dropScore };
+        }).filter(Boolean).sort((a,b) => b.dropScore - a.dropScore).slice(0, 5);
+        return gmPanel('most-droppable', 'Most Droppable', () => {
+          let h = '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Players with the lowest combined production + keeper value.</div>';
+          if (_dropPlayers.length > 0) {
+            h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
+            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
+            _dropPlayers.forEach(t => {
+              const keepTag = t.ki.keepable2027 ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>` : '<span style="color:var(--red);">NK</span>';
+              const reasons = [];
+              if (t.lcv < 2) reasons.push('low production'); else if (t.lcv < 4) reasons.push('below avg production');
+              if (!t.ki.keepable2027) reasons.push('not keepable');
+              const posGap = _wwNeeds[t.p.primaryPos] || 0;
+              if (posGap > 0.5) reasons.push(`${t.p.primaryPos} surplus`);
+              const why = reasons.length > 0 ? reasons.slice(0,2).join(', ') : 'marginal value';
+              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;">${t.lcv.toFixed(1)}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--red);">${why}</td></tr>`;
+            });
+            h += '</table>';
+          }
+          return h;
+        });
+      },
+
+      'player-news': () => gmPanel('player-news', 'Player News', () => {
+        let h = '';
+        if (relevantNews.length > 0) {
+          h += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Latest news for your rostered players from CBS.</div>';
+          relevantNews.forEach(n => {
+            const p = _plyrI(n.name); const pos = p ? p.primaryPos : '';
+            const isRecent = (() => { const [m,d] = (n.date||'').split('/').map(Number); return m === 3 && d >= 10; })();
+            const dateClr = isRecent ? 'color:var(--green);' : 'color:var(--text2);';
+            h += `<div style="padding:4px 0;border-bottom:1px solid var(--border);font-size:11px;">`;
+            h += `<div><span style="font-weight:600;">${n.name}</span> <span style="color:var(--text2);font-size:10px;">${pos}</span> <span style="font-size:9px;${dateClr}">${n.date}</span></div>`;
+            h += `<div style="color:var(--text2);font-size:10px;margin-top:1px;">${n.headline}</div></div>`;
+          });
+        } else { h += '<div style="font-size:11px;color:var(--text2);">No recent news for your players.</div>'; }
+        return h;
+      })
+    };
+
+    // Render panels in saved order
+    panelOrder.forEach(id => { if (panelRenderers[id]) html += panelRenderers[id](); });
+
+  } else {
+    // ── Other Team View Sidebar: LCV standings + Roster Needs + Transaction Log ──
+    // League LCV standings (only on other team views, removed from My Roster)
+    html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
+    html += '<h3 style="font-size:13px;margin-bottom:6px;">League LCV Standings</h3>';
+    html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
+    html += '<tr style="color:var(--text2);"><th style="text-align:left;padding:2px 4px;">#</th><th style="text-align:left;padding:2px 4px;">Team</th><th style="text-align:right;padding:2px 4px;">Start</th><th style="text-align:right;padding:2px 4px;">Total</th></tr>';
+    const lcvStats = LEAGUE_TEAMS.map(t => {
+      const pl = t.mine ? (state.myTeam || []) : (state.leagueTeams[t.name] || []);
+      const ov = t.mine ? (state.rosterOverrides || {}) : (state.leagueRosterOverrides && state.leagueRosterOverrides[t.name] || {});
+      const stats = calcRosterLCV(pl, ov);
+      return { name: t.owner || t.name, mine: t.mine, ...stats };
+    }).sort((a, b) => b.startingLCV - a.startingLCV);
+    lcvStats.forEach((t, rank) => {
+      const sty = t.mine ? 'background:rgba(99,102,241,0.1);font-weight:600;' : '';
+      html += `<tr style="${sty}"><td style="padding:2px 4px;">${rank+1}</td><td style="padding:2px 4px;">${t.name}${t.mine?' ★':''}</td><td style="text-align:right;padding:2px 4px;">${t.startingLCV.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;">${t.totalLCV.toFixed(1)}</td></tr>`;
+    });
+    html += '</table></div>';
+
+    // Roster Needs
+    html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;">';
+    html += `<h3 style="font-size:13px;margin-bottom:6px;">${needsTeamLabel} Roster Needs</h3>`;
+    html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
+    html += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">My Avg</th><th style="text-align:right;padding:2px 4px;">Lg Avg</th><th style="text-align:right;padding:2px 4px;">Gap</th></tr>';
+    needs.forEach(n => {
+      const clr = n.diff >= 1 ? 'var(--green)' : n.diff >= -1 ? 'var(--text)' : 'var(--red)';
+      const indicator = n.diff < -1 ? ' ⚠' : n.diff >= 2 ? ' ✓' : '';
+      html += `<tr><td style="padding:2px 4px;font-weight:600;">${n.pos}</td><td style="text-align:right;padding:2px 4px;">${n.avgLcv.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;">${n.leagueAvg.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;color:${clr};font-weight:600;">${n.diff > 0 ? '+' : ''}${n.diff.toFixed(1)}${indicator}</td></tr>`;
+    });
+    html += '</table></div>';
+  }
+
+  // ── Transaction Log (always visible) ──
   html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-top:12px;">';
   html += '<h3 style="font-size:13px;margin-bottom:6px;">Transaction Log</h3>';
   const txnsRaw = (state.transactions || []).map((tx, i) => ({...tx, _idx: i}));
@@ -3529,6 +3734,65 @@ function renderRoster() {
   section.innerHTML = html;
   section.style.display = '';
   document.getElementById('tableWrap').style.display = 'none';
+
+  // ── Wire Player/GM view toggle ──
+  section.querySelectorAll('.roster-view-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state._rosterView = btn.dataset.view;
+      renderRoster();
+    });
+  });
+
+  // ── Wire GM panel collapse/expand ──
+  section.querySelectorAll('.gm-panel-hdr').forEach(hdr => {
+    hdr.addEventListener('click', (e) => {
+      if (e.target.closest('.gm-panel[draggable]') && e.target.style.cursor === 'grab') return;
+      const id = hdr.dataset.panel;
+      const body = section.querySelector(`.gm-panel-body[data-panel="${id}"]`);
+      const arrow = hdr.querySelector('.gm-arrow');
+      if (!body) return;
+      const isHidden = body.style.display === 'none';
+      body.style.display = isHidden ? '' : 'none';
+      if (arrow) arrow.textContent = isHidden ? '▼' : '▶';
+      try { localStorage.setItem('dpf_gm_' + id, isHidden ? '0' : '1'); } catch(e) {}
+    });
+  });
+
+  // ── Wire GM panel drag-to-reorder ──
+  {
+    let dragPanel = null;
+    section.querySelectorAll('.gm-panel[draggable]').forEach(panel => {
+      panel.addEventListener('dragstart', e => {
+        dragPanel = panel;
+        panel.style.opacity = '0.4';
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/plain', panel.dataset.panelId);
+      });
+      panel.addEventListener('dragend', () => {
+        if (dragPanel) dragPanel.style.opacity = '1';
+        dragPanel = null;
+        section.querySelectorAll('.gm-panel').forEach(p => p.style.borderTop = '');
+      });
+      panel.addEventListener('dragover', e => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        panel.style.borderTop = '2px solid var(--accent)';
+      });
+      panel.addEventListener('dragleave', e => {
+        if (!panel.contains(e.relatedTarget)) panel.style.borderTop = '';
+      });
+      panel.addEventListener('drop', e => {
+        e.preventDefault();
+        panel.style.borderTop = '';
+        if (!dragPanel || dragPanel === panel) return;
+        const container = panel.parentElement;
+        container.insertBefore(dragPanel, panel);
+        // Save new order to localStorage
+        const newOrder = [...container.querySelectorAll('.gm-panel')].map(p => p.dataset.panelId).filter(Boolean);
+        try { localStorage.setItem('dpf_gm_order', JSON.stringify(newOrder)); } catch(e) {}
+      });
+    });
+  }
 
   // ── Wire team selector ──
   section.querySelectorAll('.roster-team-btn').forEach(btn => {
@@ -4026,15 +4290,21 @@ function renderRoster() {
   updateTradeSummary();
 
   // ── Trade Generator wiring ──
-  const tgToggle = document.getElementById('tradeGenToggle');
+  // Trade Ideas: auto-generate when visible in GM view
   const tgPanel = document.getElementById('tradeGenPanel');
-  if (tgToggle && tgPanel) {
-    tgToggle.addEventListener('click', () => {
-      const open = tgPanel.style.display !== 'none';
-      tgPanel.style.display = open ? 'none' : 'block';
-      tgToggle.querySelector('span').textContent = open ? '▶' : '▼';
-      if (!open) generateTradeIdeas(tgPanel);
-    });
+  if (tgPanel) {
+    // Check if the panel body is visible (not collapsed)
+    const tgBody = tgPanel.closest('.gm-panel-body');
+    if (tgBody && tgBody.style.display !== 'none') {
+      generateTradeIdeas(tgPanel);
+    }
+    // Also generate on panel expand
+    const tgHdr = tgPanel.closest('.gm-panel')?.querySelector('.gm-panel-hdr');
+    if (tgHdr) {
+      tgHdr.addEventListener('click', () => {
+        setTimeout(() => { if (tgBody && tgBody.style.display !== 'none') generateTradeIdeas(tgPanel); }, 50);
+      });
+    }
   }
 
   function generateTradeIdeas(panel) {
