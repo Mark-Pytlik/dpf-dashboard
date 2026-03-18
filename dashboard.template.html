@@ -5381,7 +5381,8 @@ function renderLeague() {
 
   // ── ROSTERS VIEW (all players with keeper status) ──
   if (state._leagueView === 'rosters') {
-    html += '<p style="font-size:12px;color:var(--text2);margin-bottom:12px;">Full rosters for all 12 teams. Keepers shown with keeper round and cost.</p>';
+    html += '<p style="font-size:12px;color:var(--text2);margin-bottom:12px;">Full rosters for all 12 teams. Keepers shown with keeper round and cost. Click column headers to sort.</p>';
+    if (!state._rosterSorts) state._rosterSorts = {};
 
     LEAGUE_TEAMS.forEach(t => {
       const isMine = t.mine;
@@ -5392,7 +5393,6 @@ function renderLeague() {
       keepers.forEach(k => { keeperRdMap[k.name] = k.rd; });
       const milb = DEFAULT_LEAGUE_MILB_KEEPERS[t.name] || (t.mine ? (DEFAULT_MILB_KEEPERS || []) : []);
       const milbNames = new Set(milb);
-      // All rostered players (keepers + non-keepers, excluding MiLB)
       const allRostered = teamPlayers.filter(n => !milbNames.has(n));
       if (allRostered.length === 0 && milb.length === 0) return;
 
@@ -5406,29 +5406,76 @@ function renderLeague() {
       html += `<div style="font-size:11px;color:var(--text2);">${ownerName}</div>`;
       html += `</div>`;
 
-      html += '<table style="width:100%;border-collapse:collapse;font-size:11px;">';
-      html += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">Keeper</th><th style="text-align:right;padding:2px 4px;">2027 Cost</th><th style="text-align:right;padding:2px 4px;">Yrs</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">PNAV</th></tr>';
-      allRostered.map(n => ({ name: n, p: _plyrI(n), ki: getKeeperInfo(n), isKeeper: keeperNames.has(n) }))
-        .sort((a,b) => {
-          // Keepers first, then by LCV
-          if (a.isKeeper !== b.isKeeper) return a.isKeeper ? -1 : 1;
-          return ((b.p?b.p.lcv:0)||0) - ((a.p?a.p.lcv:0)||0);
-        })
-        .forEach(row => {
-          const p = row.p;
-          const ki = row.ki;
-          const lcv = p ? (p.lcv||0).toFixed(1) : '?';
-          const pnav = p ? (p.pnav||0).toFixed(1) : '?';
-          const pos = p ? p.primaryPos : '?';
-          const keeperRd = keeperRdMap[row.name];
-          const keeperStr = keeperRd ? `<span style="color:var(--accent);font-weight:600;">R${keeperRd}</span>` : '<span style="color:var(--text2);">—</span>';
-          const costStr = ki.keepable2027 ? `R${ki.cost2027}` : '✕';
-          const costClr = ki.keepable2027 ? '' : 'color:var(--red);';
-          const rowBg = row.isKeeper ? 'background:rgba(74,107,255,0.04);' : '';
-          html += `<tr style="${rowBg}"><td style="padding:2px 4px;font-weight:600;">${row.name}</td><td style="padding:2px 4px;text-align:center;">${pos}</td><td style="text-align:right;padding:2px 4px;">${keeperStr}</td><td style="text-align:right;padding:2px 4px;${costClr}">${costStr}</td><td style="text-align:right;padding:2px 4px;">${ki.yearsLeft}</td><td style="text-align:right;padding:2px 4px;font-weight:600;">${lcv}</td><td style="text-align:right;padding:2px 4px;">${pnav}</td></tr>`;
-        });
+      // Per-team sort state
+      const tSort = state._rosterSorts[t.name] || { col: 'lcv', dir: -1 };
+      const sortCols = [
+        { key: 'name', label: 'Player', align: 'left', w: '36%' },
+        { key: 'pos', label: 'Pos', align: 'center', w: '8%' },
+        { key: 'keeper', label: 'Keeper', align: 'right', w: '11%' },
+        { key: 'cost', label: '2027 Cost', align: 'right', w: '13%' },
+        { key: 'yrs', label: 'Yrs', align: 'right', w: '8%' },
+        { key: 'lcv', label: 'LCV', align: 'right', w: '12%' },
+        { key: 'pnav', label: 'PNAV', align: 'right', w: '12%' }
+      ];
+
+      html += `<table style="width:100%;border-collapse:collapse;font-size:11px;table-layout:fixed;">`;
+      html += `<colgroup>${sortCols.map(c => `<col style="width:${c.w}">`).join('')}</colgroup>`;
+      html += `<tr style="color:var(--text2);font-size:10px;">`;
+      sortCols.forEach(c => {
+        const arrow = tSort.col === c.key ? (tSort.dir === 1 ? ' ▲' : ' ▼') : '';
+        const activeClr = tSort.col === c.key ? 'color:var(--accent);' : '';
+        html += `<th class="roster-sort-hdr" data-team="${t.name}" data-col="${c.key}" style="text-align:${c.align};padding:3px 4px;cursor:pointer;user-select:none;white-space:nowrap;${activeClr}">${c.label}${arrow}</th>`;
+      });
+      html += `</tr>`;
+
+      // Build row data
+      const rows = allRostered.map(n => {
+        const p = _plyrI(n);
+        const ki = getKeeperInfo(n);
+        const keeperRd = keeperRdMap[n];
+        return {
+          name: n, p, ki, isKeeper: keeperNames.has(n),
+          lcvVal: p ? (p.lcv||0) : -99,
+          pnavVal: p ? (p.pnav||0) : -99,
+          pos: p ? p.primaryPos : '?',
+          keeperRd: keeperRd || 0,
+          costVal: ki.keepable2027 ? ki.cost2027 : 99,
+          yrsVal: ki.yearsLeft || 0
+        };
+      });
+
+      // Sort rows
+      rows.sort((a,b) => {
+        const col = tSort.col, dir = tSort.dir;
+        if (col === 'name') return dir * a.name.localeCompare(b.name);
+        if (col === 'pos') return dir * a.pos.localeCompare(b.pos);
+        if (col === 'keeper') return dir * (a.keeperRd - b.keeperRd);
+        if (col === 'cost') return dir * (a.costVal - b.costVal);
+        if (col === 'yrs') return dir * (a.yrsVal - b.yrsVal);
+        if (col === 'pnav') return dir * (a.pnavVal - b.pnavVal);
+        return dir * (a.lcvVal - b.lcvVal); // default: lcv
+      });
+
+      rows.forEach(row => {
+        const p = row.p;
+        const ki = row.ki;
+        const lcv = p ? (p.lcv||0).toFixed(1) : '?';
+        const pnav = p ? (p.pnav||0).toFixed(1) : '?';
+        const keeperStr = row.keeperRd ? `<span style="color:var(--accent);font-weight:600;">R${row.keeperRd}</span>` : '<span style="color:var(--text2);">—</span>';
+        const costStr = ki.keepable2027 ? `R${ki.cost2027}` : '✕';
+        const costClr = ki.keepable2027 ? '' : 'color:var(--red);';
+        const rowBg = row.isKeeper ? 'background:rgba(74,107,255,0.04);' : '';
+        html += `<tr style="${rowBg}">`;
+        html += `<td style="padding:3px 4px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${row.name}</td>`;
+        html += `<td style="padding:3px 4px;text-align:center;">${row.pos}</td>`;
+        html += `<td style="text-align:right;padding:3px 4px;">${keeperStr}</td>`;
+        html += `<td style="text-align:right;padding:3px 4px;${costClr}">${costStr}</td>`;
+        html += `<td style="text-align:right;padding:3px 4px;">${ki.yearsLeft}</td>`;
+        html += `<td style="text-align:right;padding:3px 4px;font-weight:600;">${lcv}</td>`;
+        html += `<td style="text-align:right;padding:3px 4px;">${pnav}</td>`;
+        html += `</tr>`;
+      });
       html += '</table>';
-      // MiLB keepers
       if (milb.length > 0) {
         html += '<div style="font-size:10px;color:var(--text2);margin-top:4px;">MiLB: ' + milb.join(', ') + '</div>';
       }
@@ -5641,6 +5688,20 @@ function renderLeague() {
       const col = th.dataset.col;
       if (state._posLcvSort === col) { state._posLcvDir = (state._posLcvDir || -1) * -1; }
       else { state._posLcvSort = col; state._posLcvDir = -1; }
+      renderLeague();
+    });
+  });
+
+  // Sortable column headers for roster view (per-team)
+  section.querySelectorAll('.roster-sort-hdr').forEach(th => {
+    th.addEventListener('click', () => {
+      const team = th.dataset.team;
+      const col = th.dataset.col;
+      if (!state._rosterSorts) state._rosterSorts = {};
+      const cur = state._rosterSorts[team] || { col: 'lcv', dir: -1 };
+      if (cur.col === col) { cur.dir *= -1; }
+      else { cur.col = col; cur.dir = col === 'name' || col === 'pos' ? 1 : -1; }
+      state._rosterSorts[team] = cur;
       renderLeague();
     });
   });
