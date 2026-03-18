@@ -34,8 +34,8 @@ table { width:100%; border-collapse:collapse; }
 thead { position:sticky; top:0; z-index:10; }
 th { background:var(--surface2); padding:8px 10px; text-align:left; font-weight:600; font-size:11px; text-transform:uppercase; color:var(--text2); cursor:pointer; white-space:nowrap; border-bottom:2px solid var(--border); user-select:none; }
 th:hover { color:var(--accent); }
-th.sorted-asc::after { content:" \\25B2"; color:var(--accent); }
-th.sorted-desc::after { content:" \\25BC"; color:var(--accent); }
+th.sorted-asc::after { content:" \25B2"; color:var(--accent); }
+th.sorted-desc::after { content:" \25BC"; color:var(--accent); }
 td { padding:6px 10px; border-bottom:1px solid var(--border); white-space:nowrap; font-variant-numeric:tabular-nums; }
 tr:hover { background:var(--surface2); }
 tr.drafted { opacity:1; background:rgba(0,0,0,0.03); }
@@ -627,14 +627,14 @@ function removeFromAllRosters(playerName) {
 // Parse CBS date strings reliably for comparison
 function parseCbsDate(s) {
   if (!s) return 0;
-  let d = s.replace(/\\s*ET\\s*$/, '').trim();
-  d = d.replace(/^(\\d{1,2})\/(\\d{1,2})\/(\\d{2})\\b/, (m,mo,dy,yr) => `${mo}/${dy}/20${yr}`);
+  let d = s.replace(/\s*ET\s*$/, '').trim();
+  d = d.replace(/^(\d{1,2})\/(\d{1,2})\/(\d{2})\b/, (m,mo,dy,yr) => `${mo}/${dy}/20${yr}`);
   return new Date(d).getTime() || 0;
 }
 
 // ── LIVE DRAFT PICKS (injected from CBS draft room) ─────────────────────
 // t: team pick position: 1=choured, 2=FJK(mine), 3=Turang, 4=Whoop, 5=LilT, 6=PCA, 7=Houcks, 8=Nolan, 9=Misi, 10=Crash, 11=Eno, 12=Psycho
-const _TEAM_MAP = {1:'choured in the usa.',2:'Father Jhon Kensy',3:'Turangerine Dream',4:"Whoop Whoop that\\'s the sound of Dylan Cease",5:'Lil Thumpers',6:'A Pete Crow-Armstrong Looked at Me',7:'Dinosaur Jr Caminero',8:"No men in Nolan\\'s land",9:'Misiorowski Business',10:'Buddy Buddy Buddy All On Base',11:'Are we not men? We are Devers!',12:"Psycho Keller, Qu\\'est-ce que Cey"};
+const _TEAM_MAP = {1:'choured in the usa.',2:'Father Jhon Kensy',3:'Turangerine Dream',4:"Whoop Whoop that\'s the sound of Dylan Cease",5:'Lil Thumpers',6:'A Pete Crow-Armstrong Looked at Me',7:'Dinosaur Jr Caminero',8:"No men in Nolan\'s land",9:'Misiorowski Business',10:'Buddy Buddy Buddy All On Base',11:'Are we not men? We are Devers!',12:"Psycho Keller, Qu\'est-ce que Cey"};
 const LIVE_PICKS = [
   // Rd1: picks 1-12
   {n:'Vladimir Guerrero Jr.',t:1},{n:'Yoshinobu Yamamoto',t:2},{n:'Jose Ramirez',t:3},{n:'Jazz Chisholm Jr.',t:4},
@@ -699,7 +699,7 @@ const LIVE_PICKS = [
   // Rd16: picks 181-192 (snake)
   {n:'Carter Jensen',t:12},{n:'Adrian Morejon',t:11},{n:'Robert Garcia',t:10},{n:'Seranthony Dominguez',t:9},
   {n:'Shea Langeliers',t:8},{n:'Jackson Holliday',t:7},{n:'Blake Snell',t:6},{n:'Trent Grisham',t:5},
-  {n:'Ryan Weathers',t:4},{n:'Francisco Alvarez',t:3},{n:'Tyler Rogers',t:2},{n:'Riley O\\'Brien',t:1},
+  {n:'Ryan Weathers',t:4},{n:'Francisco Alvarez',t:3},{n:'Tyler Rogers',t:2},{n:'Riley O\'Brien',t:1},
   // Rd17: picks 193-204
   {n:'Robbie Ray',t:1},{n:'JoJo Romero',t:2},{n:'Sal Frelick',t:3},{n:'Justin Sterner',t:4},
   {n:'Chandler Simpson',t:5},{n:'Andrew Abbott',t:6},{n:'Kyle Teel',t:7},{n:'Carlos Correa',t:8},
@@ -738,7 +738,7 @@ const LIVE_PICKS = [
   {n:'Reid Detmers',t:9},{n:'Willi Castro',t:10},{n:'Josh H. Smith',t:11},{n:'Moises Ballesteros',t:12},
   // Rd26: picks 301-312 (snake)
   {n:'Ryne Nelson',t:12},{n:'Gregory Soto',t:11},{n:'Braxton Garrett',t:10},{n:'Jack Leiter',t:9},
-  {n:'Brad Keller',t:8},{n:'Kyle Harrison',t:7},{n:'Corbin Burnes',t:6},{n:'Ryan O\\'Hearn',t:5},
+  {n:'Brad Keller',t:8},{n:'Kyle Harrison',t:7},{n:'Corbin Burnes',t:6},{n:'Ryan O\'Hearn',t:5},
   {n:'Gerrit Cole',t:4},{n:'Jorge Polanco',t:3},{n:'Royce Lewis',t:2},{n:'Logan Henderson',t:1},
   // Rd27: picks 313-324
   {n:'Shawn Armstrong',t:1},{n:'Luis Arraez',t:2},{n:'Cristian Javier',t:3},{n:'Spencer Torkelson',t:4},
@@ -1577,9 +1577,9 @@ function renderTransactions() {
   // Dates are like "3/16/26 12:55 PM ET" — fix 2-digit year and strip timezone for reliable parsing
   function parseTxDate(s) {
     if (!s) return new Date(0);
-    let d = s.replace(/\\s*ET\\s*$/, '').trim();
+    let d = s.replace(/\s*ET\s*$/, '').trim();
     // Fix 2-digit year: "3/16/26" → "3/16/2026"
-    d = d.replace(/^(\\d{1,2})\/(\\d{1,2})\/(\\d{2})\\b/, (m,mo,dy,yr) => `${mo}/${dy}/20${yr}`);
+    d = d.replace(/^(\d{1,2})\/(\d{1,2})\/(\d{2})\b/, (m,mo,dy,yr) => `${mo}/${dy}/20${yr}`);
     return new Date(d);
   }
   allTxns.sort((a, b) => parseTxDate(b.date) - parseTxDate(a.date));
@@ -2494,11 +2494,11 @@ function parseNameAndRound(line) {
   // Try formats: "Name, 1" or "Name Rd1" or "Name Rd 1" or "Name, Rd 1"
   let rd = null, name = line;
   // "Name, 1" or "Name, Rd 1" or "Name, Rd1"
-  const commaMatch = name.match(/^(.+?),\\s*(?:Rd\\.?\\s*)?(\d+)\\s*$/i);
+  const commaMatch = name.match(/^(.+?),\s*(?:Rd\.?\s*)?(\d+)\s*$/i);
   if (commaMatch) { name = commaMatch[1].trim(); rd = parseInt(commaMatch[2]); }
   else {
     // "Name Rd1" or "Name Rd 1"
-    const rdMatch = name.match(/^(.+?)\\s+Rd\\.?\\s*(\d+)\\s*$/i);
+    const rdMatch = name.match(/^(.+?)\s+Rd\.?\s*(\d+)\s*$/i);
     if (rdMatch) { name = rdMatch[1].trim(); rd = parseInt(rdMatch[2]); }
   }
   return { name, rd };
@@ -2508,7 +2508,7 @@ function fuzzyFind(name) {
   let match = _plyrI(name);
   if (match) return match;
   // Try last name
-  const parts = name.split(/\\s+/);
+  const parts = name.split(/\s+/);
   const last = parts[parts.length - 1].toLowerCase();
   const candidates = ALL.filter(p => p.name.toLowerCase().includes(last));
   if (candidates.length === 1) return candidates[0];
@@ -2520,7 +2520,7 @@ function fuzzyFind(name) {
 }
 
 function processBulk() {
-  const lines = document.getElementById('bulkArea').value.split('\\n').map(l => l.trim()).filter(Boolean);
+  const lines = document.getElementById('bulkArea').value.split('\n').map(l => l.trim()).filter(Boolean);
   let matched = 0, unmatched = [];
   if (!state.keeperRounds) state.keeperRounds = {};
   lines.forEach(line => {
@@ -2538,7 +2538,7 @@ function processBulk() {
   closeBulkModal();
   render();
   let msg = `Imported ${matched} of ${lines.length} players.`;
-  if (unmatched.length) msg += `\\nUnmatched: ${unmatched.join(', ')}`;
+  if (unmatched.length) msg += `\nUnmatched: ${unmatched.join(', ')}`;
   alert(msg);
 }
 
@@ -2611,10 +2611,10 @@ function saveCbsMap() {
 
 function autoDetectCbsTeams() {
   const text = document.getElementById('livePasteBox').value;
-  const lines = text.split('\\n').map(l => l.trim()).filter(Boolean);
+  const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
   const cbsNames = new Set();
   lines.forEach(line => {
-    const m = line.match(/^\\*?\\s*Pick:\\s*\\d+\\s*-\\s*Team\\s+(.+?)\\s+selects\\s+/i);
+    const m = line.match(/^\*?\s*Pick:\s*\d+\s*-\s*Team\s+(.+?)\s+selects\s+/i);
     if (m) cbsNames.add(m[1].trim());
   });
   if (cbsNames.size === 0) {
@@ -2651,7 +2651,7 @@ function togglePastePanel() {
 
 function processLivePaste() {
   const text = document.getElementById('livePasteBox').value;
-  const lines = text.split('\\n').map(l => l.trim()).filter(Boolean);
+  const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
   let matched = 0, unmatched = [];
   if (!state.keeperRounds) state.keeperRounds = {};
 
@@ -2703,7 +2703,7 @@ function processLivePaste() {
 
   lines.forEach(line => {
     // CBS draft room format: "Pick: X - Team [TeamName] selects [Last], [First]"
-    const cbsMatch = line.match(/^\\*?\\s*Pick:\\s*(\\d+)\\s*-\\s*Team\\s+(.+?)\\s+selects\\s+(.+?)\\s*\\*?$/i);
+    const cbsMatch = line.match(/^\*?\s*Pick:\s*(\d+)\s*-\s*Team\s+(.+?)\s+selects\s+(.+?)\s*\*?$/i);
     if (cbsMatch) {
       const pickNum = parseInt(cbsMatch[1]);
       const cbsTeam = cbsMatch[2].trim();
@@ -2731,24 +2731,24 @@ function processLivePaste() {
     }
 
     // Skip "joined" lines
-    if (/joined$/i.test(line.replace(/\\*/g, '').trim())) return;
+    if (/joined$/i.test(line.replace(/\*/g, '').trim())) return;
 
     // Generic format parsing (existing logic)
     let cleaned = line;
     // Extract round from "Round X Pick Y:" format
     let extractedRd = null;
-    const rdPick = cleaned.match(/^Round\\s*(\\d+)\\s*Pick\\s*\\d+\\s*[:.]?\\s*/i);
+    const rdPick = cleaned.match(/^Round\s*(\d+)\s*Pick\s*\d+\s*[:.]?\s*/i);
     if (rdPick) { extractedRd = parseInt(rdPick[1]); cleaned = cleaned.replace(rdPick[0], ''); }
     // "X.YY Name" format (round.pick)
-    const dotFmt = cleaned.match(/^(\\d+)\\.\\d+\\s+/);
+    const dotFmt = cleaned.match(/^(\d+)\.\d+\s+/);
     if (dotFmt) { extractedRd = parseInt(dotFmt[1]); cleaned = cleaned.replace(dotFmt[0], ''); }
     // Remove team in parens or after dash
-    cleaned = cleaned.replace(/\\s*\\(.*?\\)\\s*$/, '');
-    cleaned = cleaned.replace(/\\s*-\\s*[A-Z]{2,3}\\s*$/, '');
+    cleaned = cleaned.replace(/\s*\(.*?\)\s*$/, '');
+    cleaned = cleaned.replace(/\s*-\s*[A-Z]{2,3}\s*$/, '');
     // Remove position tags
-    cleaned = cleaned.replace(/\\s+(SP|RP|C|1B|2B|3B|SS|LF|CF|RF|DH|OF)\\s*$/i, '');
+    cleaned = cleaned.replace(/\s+(SP|RP|C|1B|2B|3B|SS|LF|CF|RF|DH|OF)\s*$/i, '');
     // Remove dollar amounts
-    cleaned = cleaned.replace(/\\s*\\$\\d+\\s*$/, '');
+    cleaned = cleaned.replace(/\s*\$\d+\s*$/, '');
 
     // Now try parseNameAndRound for "Name, Rd X" or "Name Rd X" formats
     const { name, rd } = parseNameAndRound(cleaned.trim());
@@ -3028,7 +3028,7 @@ function renderRoster() {
       `<td style="padding:3px 6px;font-weight:600;font-size:12px;white-space:nowrap;">${p.name}${natPos}${ttBadge}</td>` +
       `<td style="padding:3px 4px;text-align:center;white-space:nowrap;">${keepHtml}</td>` +
       `<td style="padding:3px 4px;font-size:11px;color:var(--text2);white-space:nowrap;">${p.team||''}</td>` +
-      `<td style="padding:3px 4px;font-size:11px;white-space:nowrap;">${(p.pos||p.primaryPos||'').replace(/\\//g,', ')}</td>` +
+      `<td style="padding:3px 4px;font-size:11px;white-space:nowrap;">${(p.pos||p.primaryPos||'').replace(/\//g,', ')}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;color:${c};font-weight:600;">${(p.lcv||0).toFixed(1)}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;">${(p.pnav||0).toFixed(1)}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;color:var(--text2);">${p.age||'?'}</td>` +
@@ -3152,7 +3152,7 @@ function renderRoster() {
       const count = ROSTER_SLOTS[slot] || 1;
       for (let i = 0; i < count; i++) {
         const p = bySlot[slot][i];
-        html += `<tr class="roster-section" data-slot="${slot}">${pRow(p, slot, '').replace(/^<tr[^>]*>|<\\/tr>$/g, '')}</tr>`;
+        html += `<tr class="roster-section" data-slot="${slot}">${pRow(p, slot, '').replace(/^<tr[^>]*>|<\/tr>$/g, '')}</tr>`;
       }
     }
 
@@ -3161,7 +3161,7 @@ function renderRoster() {
       const count = ROSTER_SLOTS[slot] || 5;
       for (let i = 0; i < count; i++) {
         const p = bySlot[slot][i];
-        html += `<tr class="roster-section" data-slot="${slot}">${pRow(p, slot, '').replace(/^<tr[^>]*>|<\\/tr>$/g, '')}</tr>`;
+        html += `<tr class="roster-section" data-slot="${slot}">${pRow(p, slot, '').replace(/^<tr[^>]*>|<\/tr>$/g, '')}</tr>`;
       }
     }
   }
@@ -3314,8 +3314,8 @@ function renderRoster() {
   html += '<h3 style="font-size:13px;margin-bottom:6px;">Transaction Log</h3>';
   const txnsRaw = (state.transactions || []).map((tx, i) => ({...tx, _idx: i}));
   const txns = txnsRaw.slice().sort((a,b) => {
-    const pa = a.date ? a.date.replace(/(\\d{1,2})\/(\\d{1,2})\/(\\d{2})/, (m,mo,dy,yr) => `20${yr}-${mo.padStart(2,'0')}-${dy.padStart(2,'0')}`) : '';
-    const pb = b.date ? b.date.replace(/(\\d{1,2})\/(\\d{1,2})\/(\\d{2})/, (m,mo,dy,yr) => `20${yr}-${mo.padStart(2,'0')}-${dy.padStart(2,'0')}`) : '';
+    const pa = a.date ? a.date.replace(/(\d{1,2})\/(\d{1,2})\/(\d{2})/, (m,mo,dy,yr) => `20${yr}-${mo.padStart(2,'0')}-${dy.padStart(2,'0')}`) : '';
+    const pb = b.date ? b.date.replace(/(\d{1,2})\/(\d{1,2})\/(\d{2})/, (m,mo,dy,yr) => `20${yr}-${mo.padStart(2,'0')}-${dy.padStart(2,'0')}`) : '';
     const dc = pb.localeCompare(pa);
     return dc !== 0 ? dc : b._idx - a._idx;
   }).slice(0, 20);
@@ -5397,7 +5397,7 @@ function renderLeague() {
     if (!sel) return;
     sel.value = encodeURIComponent(teamName);
     const players = state.leagueTeams[teamName] || [];
-    document.getElementById('leagueTeamPlayers').value = players.join('\\n');
+    document.getElementById('leagueTeamPlayers').value = players.join('\n');
   }
 
   // Click row to select team (draft mode only — editor present)
@@ -5417,7 +5417,7 @@ function renderLeague() {
     const text = document.getElementById('leagueTeamPlayers').value.trim();
     const resultEl = document.getElementById('leagueTeamResult');
 
-    const lines = text ? text.split(/[\\n,]+/).map(s => s.trim()).filter(Boolean) : [];
+    const lines = text ? text.split(/[\n,]+/).map(s => s.trim()).filter(Boolean) : [];
     let matched = 0, unmatched = [];
     const players = [];
     lines.forEach(line => {
