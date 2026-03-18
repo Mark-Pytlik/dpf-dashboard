@@ -1568,8 +1568,8 @@ function renderTransactions() {
     });
   });
 
-  // Local user transactions
-  (state.transactions || []).forEach(tx => {
+  // Local user transactions (exclude CBS-sourced to avoid duplicates with CBS_TRANSACTIONS above)
+  (state.transactions || []).filter(tx => tx.source !== 'CBS').forEach(tx => {
     allTxns.push({
       date: tx.date || '',
       team: tx.from || 'You',
