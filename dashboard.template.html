@@ -2813,6 +2813,48 @@ function removeFromTeam(name) {
 // Ohtani dual-eligibility: counts as both a position player (DH) and pitcher (SP)
 const DUAL_ELIGIBLE = { 'Shohei Ohtani': 'SP' };
 
+// ── Shared helper: compute optimal position assignments for a team ────────
+const _needsCache = new Map();
+function computeNeedsForTeam(players) {
+  const _cacheKey = players.map(p => p.name).sort().join('|');
+  if (_needsCache.has(_cacheKey)) return _needsCache.get(_cacheKey);
+  const hitters = players.filter(p => !['SP','RP'].includes(p.primaryPos)).sort((a,b) => (b.lcv||0) - (a.lcv||0));
+  const assigned = {};
+  const used = new Set();
+  const batSlots = ['C','1B','2B','3B','SS','LF','CF','RF'];
+  for (const pos of batSlots) {
+    assigned[pos] = [];
+    const slots = ROSTER_SLOTS[pos] || 1;
+    for (const p of hitters) {
+      if (used.has(p.name)) continue;
+      if (p.primaryPos === pos && assigned[pos].length < slots) {
+        assigned[pos].push(p); used.add(p.name);
+      }
+    }
+  }
+  for (const pos of batSlots) {
+    const slots = ROSTER_SLOTS[pos] || 1;
+    for (const p of hitters) {
+      if (used.has(p.name) || assigned[pos].length >= slots) continue;
+      if ((p.pos||p.primaryPos||'').split('/').includes(pos)) {
+        assigned[pos].push(p); used.add(p.name);
+      }
+    }
+  }
+  assigned['DH'] = [];
+  const dhSlots = ROSTER_SLOTS['DH'] || 1;
+  for (const p of hitters) {
+    if (used.has(p.name) || assigned['DH'].length >= dhSlots) continue;
+    assigned['DH'].push(p); used.add(p.name);
+  }
+  const spPool = players.filter(p => p.primaryPos === 'SP' || DUAL_ELIGIBLE[p.name] === 'SP');
+  const rpPool = players.filter(p => p.primaryPos === 'RP' || DUAL_ELIGIBLE[p.name] === 'RP');
+  assigned['SP'] = spPool.sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, ROSTER_SLOTS['SP'] || 5);
+  assigned['RP'] = rpPool.sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, ROSTER_SLOTS['RP'] || 5);
+  _needsCache.set(_cacheKey, assigned);
+  return assigned;
+}
+
 // ── Combined Roster view (My Team + all league teams) ─────────────────────
 function renderRoster() {
   const section = document.getElementById('rosterSection');
@@ -2898,7 +2940,7 @@ function renderRoster() {
   if (!isMine) {
     // Compute my positional gaps using the same optimal assignment
     const myPlayers = (state.myTeam || []).map(n => _plyr(n)).filter(Boolean);
-    const myAssign = computeNeedsForTeam ? computeNeedsForTeam(myPlayers) : {};
+    const myAssign = computeNeedsForTeam(myPlayers);
     const myGaps = {};
     for (const [pos, slots] of Object.entries(ROSTER_SLOTS)) {
       const myTop = (myAssign[pos] || []);
@@ -2907,7 +2949,7 @@ function renderRoster() {
       const lAvgs = [];
       LEAGUE_TEAMS.filter(t => !t.mine).forEach(t => {
         const tPl = (state.leagueTeams[t.name]||[]).map(n => _plyr(n)).filter(Boolean);
-        const tAs = computeNeedsForTeam ? computeNeedsForTeam(tPl) : {};
+        const tAs = computeNeedsForTeam(tPl);
         const tTop = tAs[pos] || [];
         if (tTop.length > 0) lAvgs.push(tTop.reduce((s,p)=>s+(p.lcv||0),0)/tTop.length);
       });
@@ -3241,53 +3283,6 @@ function renderRoster() {
   html += `<h3 style="font-size:13px;margin-bottom:6px;">${needsTeamLabel} Roster Needs</h3>`;
   const myPl = teamPlayers.map(n => _plyr(n)).filter(Boolean);
 
-  // Helper: compute optimal position assignments then return avg LCV per slot
-  const _needsCache = new Map();
-  function computeNeedsForTeam(players) {
-    const _cacheKey = players.map(p => p.name).sort().join('|');
-    if (_needsCache.has(_cacheKey)) return _needsCache.get(_cacheKey);
-    const hitters = players.filter(p => !['SP','RP'].includes(p.primaryPos)).sort((a,b) => (b.lcv||0) - (a.lcv||0));
-    const assigned = {};
-    const used = new Set();
-    const batSlots = ['C','1B','2B','3B','SS','LF','CF','RF'];
-
-    // Pass 1: assign best player at their primary position
-    for (const pos of batSlots) {
-      assigned[pos] = [];
-      const slots = ROSTER_SLOTS[pos] || 1;
-      for (const p of hitters) {
-        if (used.has(p.name)) continue;
-        if (p.primaryPos === pos && assigned[pos].length < slots) {
-          assigned[pos].push(p); used.add(p.name);
-        }
-      }
-    }
-    // Pass 2: fill remaining slots with multi-eligible players
-    for (const pos of batSlots) {
-      const slots = ROSTER_SLOTS[pos] || 1;
-      for (const p of hitters) {
-        if (used.has(p.name) || assigned[pos].length >= slots) continue;
-        if ((p.pos||p.primaryPos||'').split('/').includes(pos)) {
-          assigned[pos].push(p); used.add(p.name);
-        }
-      }
-    }
-    // DH: best remaining hitter not in a starting spot
-    assigned['DH'] = [];
-    const dhSlots = ROSTER_SLOTS['DH'] || 1;
-    for (const p of hitters) {
-      if (used.has(p.name) || assigned['DH'].length >= dhSlots) continue;
-      assigned['DH'].push(p); used.add(p.name);
-    }
-    // Pitchers (include dual-eligible players like Ohtani)
-    const spPool = players.filter(p => p.primaryPos === 'SP' || DUAL_ELIGIBLE[p.name] === 'SP');
-    const rpPool = players.filter(p => p.primaryPos === 'RP' || DUAL_ELIGIBLE[p.name] === 'RP');
-    assigned['SP'] = spPool.sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, ROSTER_SLOTS['SP'] || 5);
-    assigned['RP'] = rpPool.sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, ROSTER_SLOTS['RP'] || 5);
-    _needsCache.set(_cacheKey, assigned);
-    return assigned;
-  }
-
   const myAssigned = computeNeedsForTeam(myPl);
   const needs = [];
   for (const [pos, slots] of Object.entries(ROSTER_SLOTS)) {
@@ -3331,7 +3326,7 @@ function renderRoster() {
     txns.forEach(tx => {
       const icon = tx.type === 'add' ? '<span style="color:var(--green);font-weight:700;">+</span>' : tx.type === 'drop' ? '<span style="color:var(--red);font-weight:700;">−</span>' : '<span style="color:var(--accent);font-weight:700;">↔</span>';
       const cbsBadge = tx.source === 'CBS' ? ' <span style="font-size:8px;background:var(--accent);color:#fff;padding:1px 3px;border-radius:2px;">CBS</span>' : '';
-      const desc = tx.type === 'add' ? `Added ${tx.player} from ${tx.from||'FA'}${cbsBadge}` : tx.type === 'drop' ? `Dropped ${tx.player}${cbsBadge}` : `Trade: ${tx.desc||''}`;
+      const desc = tx.type === 'add' ? `Added ${tx.player} from ${tx.from||'FA'}${cbsBadge}` : tx.type === 'drop' ? `Dropped ${tx.player}${cbsBadge}` : `Traded ${tx.player} → ${tx.from||'?'}${cbsBadge}`;
       html += `<div style="font-size:10px;padding:2px 0;border-bottom:1px solid var(--border);">${icon} <span style="color:var(--text2);">${tx.date||''}</span> ${desc}</div>`;
     });
     html += '</div>';
