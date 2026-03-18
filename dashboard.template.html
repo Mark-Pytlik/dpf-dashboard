@@ -465,7 +465,7 @@ const DEFAULT_MILB_KEEPERS = ['Charlie Condon', 'Max Clark', 'Ethan Holliday', '
 
 // All league rookie/MiLB keepers from 2026 keeper sheet
 const DEFAULT_LEAGUE_MILB_KEEPERS = {
-  'choured in the usa.': ['JJ Wetherholt', 'Carson Williams', 'Owen Caissie', 'George Lombard'],
+  'choured in the usa.': ['JJ Wetherholt', 'Carson Williams', 'George Lombard'],
   'Turangerine Dream': ['Nolan McLean', 'Carson Benge', 'Bryce Eldridge', 'Jonah Tong'],
   "Whoop Whoop that's the sound of Dylan Cease": ['Konnor Griffin', 'Kevin McGonigle', 'Walker Jenkins', 'Luis Pena'],
   'Lil Thumpers': ['Travis Bazzana', 'Justin Crawford', 'Josue De Paula', 'Andrew Painter'],
@@ -587,8 +587,28 @@ const CBS_TEAM_MAP = {
 const CBS_NAME_TO_LEAGUE = {};
 for (const [id, name] of Object.entries(CBS_TEAM_MAP)) CBS_NAME_TO_LEAGUE[name] = name;
 // Map known CBS display names that differ from LEAGUE_TEAMS names
+// Also infer team name changes: if CBS shows a different name for a known teamId,
+// update LEAGUE_TEAMS to use the new name so the UI stays current
 CBS_TRANSACTIONS.forEach(txn => {
-  if (txn.teamId && CBS_TEAM_MAP[txn.teamId]) CBS_NAME_TO_LEAGUE[txn.team] = CBS_TEAM_MAP[txn.teamId];
+  if (txn.teamId && CBS_TEAM_MAP[txn.teamId]) {
+    const leagueName = CBS_TEAM_MAP[txn.teamId];
+    CBS_NAME_TO_LEAGUE[txn.team] = leagueName;
+    // If the CBS name differs, update the team's display name
+    if (txn.team !== leagueName) {
+      const team = LEAGUE_TEAMS.find(t => t.name === leagueName);
+      if (team) {
+        const oldName = team.name;
+        team.name = txn.team;
+        CBS_TEAM_MAP[txn.teamId] = txn.team;
+        CBS_NAME_TO_LEAGUE[txn.team] = txn.team;
+        // Migrate roster data to new name
+        if (state.leagueTeams[oldName]) {
+          state.leagueTeams[txn.team] = state.leagueTeams[oldName];
+          delete state.leagueTeams[oldName];
+        }
+      }
+    }
+  }
 });
 
 function resolveCbsTeam(txn) {
@@ -1058,6 +1078,13 @@ tabs.forEach(t => t.addEventListener('click', () => {
   if (currentTab === 'all') { filterType = 'all'; }
   render();
 }));
+
+// Rename "My Roster" tab to owner name
+const _myTeam = LEAGUE_TEAMS.find(t => t.mine);
+if (_myTeam) {
+  const myTab = document.querySelector('.tab[data-tab="myRoster"]');
+  if (myTab) myTab.textContent = _myTeam.owner.split(' ').pop();  // last name
+}
 
 // ── Mode toggle (Draft vs Season) ─────────────────────────────────────────
 if (!state._mode) state._mode = 'draft';
@@ -2245,7 +2272,8 @@ function render() {
           const dInfo = state.drafted[p.name] || {};
           let ownerLabel = '';
           if (dInfo.mine) {
-            ownerLabel = 'My Team';
+            const myT = LEAGUE_TEAMS.find(t => t.mine);
+            ownerLabel = myT ? myT.owner : 'My Team';
           } else {
             // Find which team owns this player
             const ownerTeam = LEAGUE_TEAMS.find(t => {
@@ -2998,7 +3026,7 @@ function renderRoster() {
     const dn = encodeURIComponent(p.name);
     const c = tClr(p.pnav, slot||p.primaryPos);
     const ki = getKeeperInfo(p.name);
-    const natPos = (slot && p.primaryPos !== slot) ? `<span style="color:var(--text2);font-size:10px;margin-left:3px;">(nat ${p.primaryPos})</span>` : '';
+    const natPos = ''; // position already shown in Pos column
     // Keeper column: show round→cost if keepable, round only if not, — if undrafted
     let keepHtml = '<span style="color:var(--text2);font-size:10px;">—</span>';
     if (ki.draftRound) {
@@ -3096,7 +3124,7 @@ function renderRoster() {
 
   const batSlotOrder = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
   // Shared colgroup for all roster tables (main + bench + IL + MiLB)
-  const rosterColgroup = '<colgroup><col style="width:42px"><col><col style="width:52px"><col style="width:44px"><col style="width:60px"><col style="width:44px"><col style="width:48px"><col style="width:36px"><col style="width:32px"><col style="width:40px"><col style="width:40px"><col style="width:40px"></colgroup>';
+  const rosterColgroup = '<colgroup><col style="width:38px"><col style="width:150px"><col style="width:56px"><col style="width:48px"><col style="width:64px"><col style="width:48px"><col style="width:48px"><col style="width:36px"><col style="width:34px"><col style="width:42px"><col style="width:42px"><col style="width:42px"></colgroup>';
 
   html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:6px;">';
   html += rosterColgroup;
@@ -3279,7 +3307,8 @@ function renderRoster() {
 
   // Position needs analysis (for currently selected team)
   html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;">';
-  const needsTeamLabel = isMine ? 'My' : (LEAGUE_TEAMS.find(t => t.name === selTeamName)?.owner || selTeamName);
+  const _myTeamObj = LEAGUE_TEAMS.find(t => t.mine);
+  const needsTeamLabel = isMine ? (_myTeamObj ? _myTeamObj.owner : 'My') : (LEAGUE_TEAMS.find(t => t.name === selTeamName)?.owner || selTeamName);
   html += `<h3 style="font-size:13px;margin-bottom:6px;">${needsTeamLabel} Roster Needs</h3>`;
   const myPl = teamPlayers.map(n => _plyr(n)).filter(Boolean);
 
@@ -3921,6 +3950,18 @@ function renderRoster() {
     const myStrengthPositions = Object.entries(myGaps3).filter(([pos,gap]) => gap > 0.3 && pos !== 'DH').map(([pos]) => pos);
     const myWeakPositions = Object.entries(myGaps3).filter(([pos,gap]) => gap < -0.2 && pos !== 'DH').map(([pos]) => pos);
 
+    // 5b. Compute position depth — how many of my players are assigned at each position
+    // CRITICAL: never trade away a player if it leaves a starting position empty
+    const myPosDepth = {};
+    for (const [pos, players] of Object.entries(myAssign3)) {
+      myPosDepth[pos] = (players || []).length;
+    }
+    // Map each player to their assigned position for depth checking
+    const myPlayerAssignedPos = {};
+    for (const [pos, players] of Object.entries(myAssign3)) {
+      (players || []).forEach(p => { myPlayerAssignedPos[p.name] = pos; });
+    }
+
     // 6. Generate trade ideas — trade from MY surplus to fill MY needs
     const trades = [];
     const myRoster = state.myTeam || [];
@@ -3945,6 +3986,12 @@ function renderRoster() {
         // Only offer players at positions where I have surplus
         const atMyStrength = positions.some(pos => myStrengthPositions.includes(pos));
         if (!atMyStrength) return null;
+        // NEVER trade away a player if it leaves their assigned position with < required starters
+        const assignedPos = myPlayerAssignedPos[name];
+        if (assignedPos) {
+          const required = ROSTER_SLOTS[assignedPos] || 1;
+          if (myPosDepth[assignedPos] <= required) return null; // can't spare anyone here
+        }
         // How well does this player fill THEIR weak spots?
         let bestFill = 0;
         let fillPos = '';
@@ -4011,6 +4058,12 @@ function renderRoster() {
       for (let i = 0; i < Math.min(iCanGive.length, 5); i++) {
         for (let j = i+1; j < Math.min(iCanGive.length, 6); j++) {
           const g1 = iCanGive[i], g2 = iCanGive[j];
+          // NEVER give 2 players from the same assigned position
+          const g1Pos = myPlayerAssignedPos[g1.name];
+          const g2Pos = myPlayerAssignedPos[g2.name];
+          if (g1Pos && g1Pos === g2Pos) continue;
+          // Also don't give 2 players from the same primary position
+          if (g1.primaryPos === g2.primaryPos) continue;
           for (let k = 0; k < Math.min(theyCanGive.length, 5); k++) {
             for (let l = k+1; l < Math.min(theyCanGive.length, 6); l++) {
               const r1 = theyCanGive[k], r2 = theyCanGive[l];
@@ -4020,6 +4073,11 @@ function renderRoster() {
               const getFills = new Set([r1.fillPos, r2.fillPos]);
               const overlap = [...giveFills].filter(p => getFills.has(p)).length;
               if (overlap >= 2) continue; // both sides filling same positions = bad trade
+              // The players we GET should actually fill different positions than what we're giving up
+              // (i.e., the trade should improve position diversity, not just swap same-for-same)
+              const getPositions = new Set([r1.primaryPos, r2.primaryPos]);
+              const givePositions = new Set([g1.primaryPos, g2.primaryPos]);
+              if (getPositions.size === 1 && givePositions.size === 1 && [...getPositions][0] === [...givePositions][0]) continue;
               const giveTv = g1.tv + g2.tv;
               const getTv = r1.tv + r2.tv;
               const giveLcv = g1.lcv + g2.lcv;
