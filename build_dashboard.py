@@ -6203,3 +6203,4 @@ with open('index.html', 'w') as f:
 
 print("Dashboard written successfully!")
 print(f"File size: {len(html):,} bytes")
+# rebuild trigger
