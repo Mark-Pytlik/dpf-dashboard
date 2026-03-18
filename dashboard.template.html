@@ -3121,33 +3121,52 @@ function renderRoster() {
   }
 
   // ── Player View row builder ──
-  function pRowStats(p, slot, tag, isPitcher) {
+  // padToCols: if set, pad with empty tds to reach this total (for mixed bat/pit tables)
+  function pRowStats(p, slot, tag, isPitcher, padToCols) {
     const cols = isPitcher ? playerPitStatCols : playerBatStatCols;
     const numCols = cols.length;
-    if (!p) return `<tr style="opacity:0.3;"><td style="padding:3px 6px;font-weight:600;font-size:11px;">${slot}</td><td colspan="${numCols-1}" style="padding:3px 6px;color:var(--text2);">—</td></tr>`;
+    const targetCols = padToCols || numCols;
+    if (!p) return `<tr style="opacity:0.3;"><td style="padding:3px 6px;font-weight:600;font-size:11px;">${slot}</td><td colspan="${targetCols-1}" style="padding:3px 6px;color:var(--text2);">—</td></tr>`;
     const slotLabel = tag ? `${slot||''} ${tag}` : (slot||'');
     let tr = `<tr class="roster-row" draggable="true" data-player="${encodeURIComponent(p.name)}" style="cursor:grab;">`;
     cols.forEach(c => {
       if (c.key === null) { tr += `<td style="padding:3px 4px;font-weight:600;font-size:11px;white-space:nowrap;">${slotLabel}</td>`; return; }
       if (c.key === 'name') { tr += `<td style="padding:3px 4px;font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:130px;">${p.name}${_injBadge(p.name)}</td>`; return; }
       if (c.key === 'pos') { tr += `<td style="padding:3px 4px;text-align:center;font-size:10px;">${p.primaryPos ? '<span class="pos-badge pos-'+p.primaryPos+'" style="padding:1px 4px;font-size:9px;">'+p.primaryPos+'</span>' : ''}</td>`; return; }
-      let val = p[c.key];
+      // OPS computation: obp + slg from appropriate prefix
+      let val;
+      if (c.computed === 'ops') {
+        const prefix = c.key.startsWith('s25_') ? 's25_' : c.key.startsWith('s26_') ? 's26_' : '';
+        const obpVal = p[prefix + 'obp'];
+        const slgVal = p[prefix + 'slg'];
+        val = (typeof obpVal === 'number' && typeof slgVal === 'number') ? obpVal + slgVal : null;
+      } else {
+        val = p[c.key];
+      }
       if (val === undefined || val === null || val === '') { tr += `<td style="padding:3px 4px;text-align:right;font-size:10px;color:var(--text2);">—</td>`; return; }
       // Format stat values
       let display;
       if (typeof val === 'number') {
-        if (['avg','obp','slg','era','whip','s25_avg','s25_obp','s25_slg','s25_era','s25_whip','s26_avg','s26_obp','s26_slg','s26_era','s26_whip'].some(k => c.key === k)) {
+        const k = c.key;
+        if (k.includes('avg') || k.includes('obp') || k.includes('slg') || k.includes('ops')) {
           display = val.toFixed(3).replace(/^0\./, '.');
-          if (c.key.includes('era') || c.key.includes('ERA')) display = val.toFixed(2);
-          if (c.key.includes('whip') || c.key.includes('WHIP')) display = val.toFixed(2);
+        } else if (k.includes('era')) {
+          display = val.toFixed(2);
+        } else if (k.includes('whip')) {
+          display = val.toFixed(2);
+        } else if (k === 'ip' || k === 's25_ip' || k === 's26_ip') {
+          display = val % 1 === 0 ? val.toFixed(0) : val.toFixed(1);
         } else {
           display = Math.round(val);
         }
       } else { display = val; }
-      // Color: group-based subtle background
+      // Color: group-based
       const gClr = c.group === '25' ? '' : c.group === '26p' ? 'color:var(--accent);' : c.group === '26a' ? 'color:var(--green);' : '';
       tr += `<td style="padding:3px 4px;text-align:right;font-size:10px;${gClr}">${display}</td>`;
     });
+    // Pad extra cols for mixed tables (pitcher rows in bat-width table)
+    const padCount = targetCols - numCols;
+    for (let i = 0; i < padCount; i++) tr += '<td></td>';
     tr += '</tr>';
     return tr;
   }
@@ -3209,53 +3228,71 @@ function renderRoster() {
     {key:null,label:'Slot',align:'left'},
     {key:'name',label:'Player',align:'left'},
     {key:'pos',label:'Pos',align:'center'},
-    // 2025 Actual
-    {key:'s25_avg',label:'AVG',align:'right',group:'25',tip:'2025 Actual AVG'},
+    // 2025 Actual — PA HR RBI R SB K AVG OBP SLG OPS
+    {key:'s25_pa',label:'PA',align:'right',group:'25',tip:'2025 Actual PA'},
     {key:'s25_hr',label:'HR',align:'right',group:'25',tip:'2025 Actual HR'},
-    {key:'s25_r',label:'R',align:'right',group:'25',tip:'2025 Actual Runs'},
     {key:'s25_rbi',label:'RBI',align:'right',group:'25',tip:'2025 Actual RBI'},
+    {key:'s25_r',label:'R',align:'right',group:'25',tip:'2025 Actual Runs'},
     {key:'s25_sb',label:'SB',align:'right',group:'25',tip:'2025 Actual SB'},
+    {key:'s25_so',label:'K',align:'right',group:'25',tip:'2025 Actual K'},
+    {key:'s25_avg',label:'AVG',align:'right',group:'25',tip:'2025 Actual AVG'},
     {key:'s25_obp',label:'OBP',align:'right',group:'25',tip:'2025 Actual OBP'},
+    {key:'s25_slg',label:'SLG',align:'right',group:'25',tip:'2025 Actual SLG'},
+    {key:'s25_ops',label:'OPS',align:'right',group:'25',tip:'2025 Actual OPS',computed:'ops'},
     // 2026 Projected
-    {key:'avg',label:'AVG',align:'right',group:'26p',tip:'2026 Projected AVG'},
+    {key:'pa',label:'PA',align:'right',group:'26p',tip:'2026 Projected PA'},
     {key:'hr',label:'HR',align:'right',group:'26p',tip:'2026 Projected HR'},
-    {key:'r',label:'R',align:'right',group:'26p',tip:'2026 Projected Runs'},
     {key:'rbi',label:'RBI',align:'right',group:'26p',tip:'2026 Projected RBI'},
+    {key:'r',label:'R',align:'right',group:'26p',tip:'2026 Projected Runs'},
     {key:'sb',label:'SB',align:'right',group:'26p',tip:'2026 Projected SB'},
+    {key:'so',label:'K',align:'right',group:'26p',tip:'2026 Projected K'},
+    {key:'avg',label:'AVG',align:'right',group:'26p',tip:'2026 Projected AVG'},
     {key:'obp',label:'OBP',align:'right',group:'26p',tip:'2026 Projected OBP'},
+    {key:'slg',label:'SLG',align:'right',group:'26p',tip:'2026 Projected SLG'},
+    {key:'ops',label:'OPS',align:'right',group:'26p',tip:'2026 Projected OPS',computed:'ops'},
     // 2026 Actual
-    {key:'s26_avg',label:'AVG',align:'right',group:'26a',tip:'2026 Actual AVG'},
+    {key:'s26_pa',label:'PA',align:'right',group:'26a',tip:'2026 Actual PA'},
     {key:'s26_hr',label:'HR',align:'right',group:'26a',tip:'2026 Actual HR'},
-    {key:'s26_r',label:'R',align:'right',group:'26a',tip:'2026 Actual Runs'},
     {key:'s26_rbi',label:'RBI',align:'right',group:'26a',tip:'2026 Actual RBI'},
+    {key:'s26_r',label:'R',align:'right',group:'26a',tip:'2026 Actual Runs'},
     {key:'s26_sb',label:'SB',align:'right',group:'26a',tip:'2026 Actual SB'},
-    {key:'s26_obp',label:'OBP',align:'right',group:'26a',tip:'2026 Actual OBP'}
+    {key:'s26_so',label:'K',align:'right',group:'26a',tip:'2026 Actual K'},
+    {key:'s26_avg',label:'AVG',align:'right',group:'26a',tip:'2026 Actual AVG'},
+    {key:'s26_obp',label:'OBP',align:'right',group:'26a',tip:'2026 Actual OBP'},
+    {key:'s26_slg',label:'SLG',align:'right',group:'26a',tip:'2026 Actual SLG'},
+    {key:'s26_ops',label:'OPS',align:'right',group:'26a',tip:'2026 Actual OPS',computed:'ops'}
   ];
   const playerPitStatCols = [
     {key:null,label:'Slot',align:'left'},
     {key:'name',label:'Player',align:'left'},
     {key:'pos',label:'Pos',align:'center'},
-    // 2025 Actual
-    {key:'s25_era',label:'ERA',align:'right',group:'25',tip:'2025 Actual ERA'},
-    {key:'s25_whip',label:'WHIP',align:'right',group:'25',tip:'2025 Actual WHIP'},
-    {key:'s25_so',label:'K',align:'right',group:'25',tip:'2025 Actual K'},
+    // 2025 Actual — IP W K QS WHIP ERA HD SV
+    {key:'s25_ip',label:'IP',align:'right',group:'25',tip:'2025 Actual IP'},
     {key:'s25_w',label:'W',align:'right',group:'25',tip:'2025 Actual Wins'},
-    {key:'s25_sv',label:'SV',align:'right',group:'25',tip:'2025 Actual Saves'},
+    {key:'s25_so',label:'K',align:'right',group:'25',tip:'2025 Actual K'},
     {key:'s25_qs',label:'QS',align:'right',group:'25',tip:'2025 Actual QS'},
+    {key:'s25_whip',label:'WHIP',align:'right',group:'25',tip:'2025 Actual WHIP'},
+    {key:'s25_era',label:'ERA',align:'right',group:'25',tip:'2025 Actual ERA'},
+    {key:'s25_hld',label:'HD',align:'right',group:'25',tip:'2025 Actual Holds'},
+    {key:'s25_sv',label:'SV',align:'right',group:'25',tip:'2025 Actual Saves'},
     // 2026 Projected
-    {key:'era',label:'ERA',align:'right',group:'26p',tip:'2026 Projected ERA'},
-    {key:'whip',label:'WHIP',align:'right',group:'26p',tip:'2026 Projected WHIP'},
-    {key:'so',label:'K',align:'right',group:'26p',tip:'2026 Projected K'},
+    {key:'ip',label:'IP',align:'right',group:'26p',tip:'2026 Projected IP'},
     {key:'w',label:'W',align:'right',group:'26p',tip:'2026 Projected Wins'},
-    {key:'sv',label:'SV',align:'right',group:'26p',tip:'2026 Projected Saves'},
+    {key:'so',label:'K',align:'right',group:'26p',tip:'2026 Projected K'},
     {key:'qs',label:'QS',align:'right',group:'26p',tip:'2026 Projected QS'},
+    {key:'whip',label:'WHIP',align:'right',group:'26p',tip:'2026 Projected WHIP'},
+    {key:'era',label:'ERA',align:'right',group:'26p',tip:'2026 Projected ERA'},
+    {key:'hld',label:'HD',align:'right',group:'26p',tip:'2026 Projected Holds'},
+    {key:'sv',label:'SV',align:'right',group:'26p',tip:'2026 Projected Saves'},
     // 2026 Actual
-    {key:'s26_era',label:'ERA',align:'right',group:'26a',tip:'2026 Actual ERA'},
-    {key:'s26_whip',label:'WHIP',align:'right',group:'26a',tip:'2026 Actual WHIP'},
-    {key:'s26_so',label:'K',align:'right',group:'26a',tip:'2026 Actual K'},
+    {key:'s26_ip',label:'IP',align:'right',group:'26a',tip:'2026 Actual IP'},
     {key:'s26_w',label:'W',align:'right',group:'26a',tip:'2026 Actual Wins'},
-    {key:'s26_sv',label:'SV',align:'right',group:'26a',tip:'2026 Actual Saves'},
-    {key:'s26_qs',label:'QS',align:'right',group:'26a',tip:'2026 Actual QS'}
+    {key:'s26_so',label:'K',align:'right',group:'26a',tip:'2026 Actual K'},
+    {key:'s26_qs',label:'QS',align:'right',group:'26a',tip:'2026 Actual QS'},
+    {key:'s26_whip',label:'WHIP',align:'right',group:'26a',tip:'2026 Actual WHIP'},
+    {key:'s26_era',label:'ERA',align:'right',group:'26a',tip:'2026 Actual ERA'},
+    {key:'s26_hld',label:'HD',align:'right',group:'26a',tip:'2026 Actual Holds'},
+    {key:'s26_sv',label:'SV',align:'right',group:'26a',tip:'2026 Actual Saves'}
   ];
 
   // GM view columns (original)
@@ -3277,8 +3314,11 @@ function renderRoster() {
   const batSlotOrder = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
   // Shared colgroup for all roster tables (main + bench + IL + MiLB) — GM view
   const rosterColgroup = '<colgroup><col style="width:38px"><col style="width:150px"><col style="width:56px"><col style="width:48px"><col style="width:64px"><col style="width:48px"><col style="width:48px"><col style="width:36px"><col style="width:34px"><col style="width:42px"><col style="width:42px"><col style="width:42px"></colgroup>';
-  // Player view colgroup: Slot(38) + Player(130) + Pos(36) + 18 stat cols(44 each)
-  const playerColgroup = '<colgroup><col style="width:38px"><col style="width:130px"><col style="width:36px">' + '<col style="width:44px">'.repeat(18) + '</colgroup>';
+  // Player view colgroups: Slot(38) + Player(130) + Pos(36) + stat cols(36px each)
+  // Batting: 3 fixed + 30 stat cols (10 per group × 3 groups)
+  const playerBatColgroup = '<colgroup><col style="width:38px"><col style="width:130px"><col style="width:36px">' + '<col style="width:36px">'.repeat(30) + '</colgroup>';
+  // Pitching: 3 fixed + 24 stat cols (8 per group × 3 groups)
+  const playerPitColgroup = '<colgroup><col style="width:38px"><col style="width:130px"><col style="width:36px">' + '<col style="width:36px">'.repeat(24) + '</colgroup>';
 
   // Choose columns based on view
   const activeCols = rosterView === 'player' ? playerBatStatCols : rosterCols;
@@ -3318,7 +3358,7 @@ function renderRoster() {
   if (rosterView === 'player') {
     // Offense table
     html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:6px;table-layout:fixed;">';
-    html += playerColgroup;
+    html += playerBatColgroup;
     html += '<thead>' + buildPlayerStatHeader(playerBatStatCols, false) + '</thead>';
     html += '<tbody>';
   } else {
@@ -3337,7 +3377,7 @@ function renderRoster() {
   }
 
   // Row builder helper: picks GM pRow or Player pRowStats based on view
-  const rowFn = (p, slot, tag, isPit) => rosterView === 'player' ? pRowStats(p, slot, tag, isPit) : pRow(p, slot, tag);
+  const rowFn = (p, slot, tag, isPit, padToCols) => rosterView === 'player' ? pRowStats(p, slot, tag, isPit, padToCols) : pRow(p, slot, tag);
   const colSpan = rosterView === 'player' ? numBatCols : 12;
   const colSpanPit = rosterView === 'player' ? numPitCols : 12;
 
@@ -3398,7 +3438,7 @@ function renderRoster() {
     if (rosterView === 'player') {
       html += '</tbody></table>';
       html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:8px;margin-bottom:6px;table-layout:fixed;">';
-      html += playerColgroup;
+      html += playerPitColgroup;
       html += '<thead>' + buildPlayerStatHeader(playerPitStatCols, true) + '</thead>';
       html += '<tbody>';
       html += `<tr><td colspan="${colSpanPit}" style="padding:6px 6px 2px;font-weight:700;font-size:11px;color:var(--green);border-bottom:1px solid var(--border);">PITCHING (${(bySlot['SP']||[]).length + (bySlot['RP']||[]).length})</td></tr>`;
@@ -3421,11 +3461,11 @@ function renderRoster() {
     // Bench
     html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">BENCH (${bench.length}/7)</span></div>`;
     html += `<table style="width:100%;border-collapse:collapse;font-size:12px;${rosterView==='player'?'table-layout:fixed;':''}">`;
-    html += rosterView === 'player' ? playerColgroup : rosterColgroup;
+    html += rosterView === 'player' ? playerBatColgroup : rosterColgroup;
     html += '<tbody>';
     bench.forEach(p => {
       const isPit = p && ['SP','RP'].includes(p.primaryPos);
-      html += rowFn(p, 'BN', '', isPit);
+      html += rowFn(p, 'BN', '', isPit, playerBatStatCols.length);
     });
     if (bench.length === 0) html += `<tr><td colspan="${colSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No bench players</td></tr>`;
     html += '</tbody></table>';
@@ -3433,11 +3473,11 @@ function renderRoster() {
     // IL
     html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--red);">IL (${ilPlayers.length}/4)</span></div>`;
     html += `<table style="width:100%;border-collapse:collapse;font-size:12px;${rosterView==='player'?'table-layout:fixed;':''}">`;
-    html += rosterView === 'player' ? playerColgroup : rosterColgroup;
+    html += rosterView === 'player' ? playerBatColgroup : rosterColgroup;
     html += '<tbody>';
     ilPlayers.forEach(p => {
       const isPit = p && ['SP','RP'].includes(p.primaryPos);
-      html += rowFn(p, 'IL', '<span style="color:var(--red);">IL</span>', isPit);
+      html += rowFn(p, 'IL', '<span style="color:var(--red);">IL</span>', isPit, playerBatStatCols.length);
     });
     if (ilPlayers.length === 0) html += `<tr><td colspan="${colSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No IL players</td></tr>`;
     html += '</tbody></table>';
@@ -3446,13 +3486,13 @@ function renderRoster() {
   // Minors (always show)
   html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--accent);">MINORS (${teamMilb.length}/4)</span></div>`;
   html += `<table style="width:100%;border-collapse:collapse;font-size:12px;${rosterView==='player'?'table-layout:fixed;':''}">`;
-  html += rosterView === 'player' ? playerColgroup : rosterColgroup;
+  html += rosterView === 'player' ? playerBatColgroup : rosterColgroup;
   html += '<tbody>';
   teamMilb.forEach(name => {
     const p = _plyrI(name);
     const isPit = p && ['SP','RP'].includes(p.primaryPos);
     if (p) {
-      html += rowFn(p, 'MiLB', '<span style="color:var(--accent);">MiLB</span>', isPit);
+      html += rowFn(p, 'MiLB', '<span style="color:var(--accent);">MiLB</span>', isPit, playerBatStatCols.length);
     } else {
       // Show prospect info for MiLB keepers not in main player pool
       const pr = findProspect(name);
