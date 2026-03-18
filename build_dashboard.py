@@ -3367,6 +3367,9 @@ function removeFromTeam(name) {{
   render();
 }}
 
+// Ohtani dual-eligibility: counts as both a position player (DH) and pitcher (SP)
+const DUAL_ELIGIBLE = {{ 'Shohei Ohtani': 'SP' }};
+
 // ── Combined Roster view (My Team + all league teams) ─────────────────────
 function renderRoster() {{
   const section = document.getElementById('rosterSection');
@@ -3398,16 +3401,28 @@ function renderRoster() {{
     autoPool.push(p);
   }});
 
+  // Pass 0: Dual-eligible players (e.g., Ohtani) — try their dual position FIRST
+  const normalPool = [];
+  autoPool.forEach(p => {{
+    const dualPos = DUAL_ELIGIBLE[p.name];
+    if (dualPos && ROSTER_SLOTS[dualPos] !== undefined && bySlot[dualPos].length < ROSTER_SLOTS[dualPos]) {{
+      bySlot[dualPos].push(p);
+    }} else {{
+      normalPool.push(p);
+    }}
+  }});
   // Pass 1: primary pos
   const pending = [];
-  autoPool.forEach(p => {{
+  normalPool.forEach(p => {{
     if (ROSTER_SLOTS[p.primaryPos] !== undefined && bySlot[p.primaryPos].length < ROSTER_SLOTS[p.primaryPos]) bySlot[p.primaryPos].push(p);
     else pending.push(p);
   }});
-  // Pass 2: multi-elig
+  // Pass 2: multi-elig (includes DUAL_ELIGIBLE like Ohtani → SP)
   const stillPending = [];
   pending.forEach(p => {{
     const positions = (p.pos || p.primaryPos || '').split('/');
+    const dualPos = DUAL_ELIGIBLE[p.name];
+    if (dualPos && !positions.includes(dualPos)) positions.push(dualPos);
     let placed = false;
     for (const pos of positions) {{
       if (pos !== p.primaryPos && ROSTER_SLOTS[pos] !== undefined && bySlot[pos].length < ROSTER_SLOTS[pos]) {{ bySlot[pos].push(p); placed = true; break; }}
@@ -4450,16 +4465,24 @@ function renderRoster() {{
       return mys + pv + (ki.surplusNow || 0) * 0.3;
     }}
 
-    // 4. Helper: which positions does this player help?
+    // 4. Helper: which specific positions does this player help? (exclude DH — too generic)
     function playerPositions(name) {{
       const p = ALL.find(x => x.name === name);
       if (!p) return [];
-      const positions = (p.pos || p.primaryPos || '').split('/');
-      if (!['SP','RP'].includes(p.primaryPos)) positions.push('DH');
-      return positions;
+      return (p.pos || p.primaryPos || '').split('/').filter(pos => pos !== 'DH');
+    }}
+    // Position group: batters vs pitchers
+    function posGroup(name) {{
+      const p = ALL.find(x => x.name === name);
+      if (!p) return 'bat';
+      return ['SP','RP'].includes(p.primaryPos) ? 'pit' : 'bat';
     }}
 
-    // 5. Generate 1-for-1 and 2-for-2 trade ideas (fringey — mid-tier only)
+    // 5. Identify MY strengths (positive gap) and weaknesses (negative gap)
+    const myStrengthPositions = Object.entries(myGaps3).filter(([pos,gap]) => gap > 0.3 && pos !== 'DH').map(([pos]) => pos);
+    const myWeakPositions = Object.entries(myGaps3).filter(([pos,gap]) => gap < -0.2 && pos !== 'DH').map(([pos]) => pos);
+
+    // 6. Generate trade ideas — trade from MY surplus to fill MY needs
     const trades = [];
     const myRoster = state.myTeam || [];
 
@@ -4469,7 +4492,10 @@ function renderRoster() {{
       const theirGaps = teamGaps(t.name);
       const ownerName = t.owner || t.name;
 
-      // My players that fill THEIR needs — exclude untouchables and elite/scrub LCV
+      // Their weakness positions (where they need help)
+      const theirWeakPositions = Object.entries(theirGaps).filter(([pos,gap]) => gap < -0.2 && pos !== 'DH').map(([pos]) => pos);
+
+      // My players that fill THEIR weaknesses — from MY positions of strength
       const iCanGive = myRoster.map(name => {{
         if (UNTOUCHABLE.has(name)) return null;
         const p = ALL.find(x => x.name === name);
@@ -4477,16 +4503,23 @@ function renderRoster() {{
         const lcv = p.lcv || 0;
         if (lcv > MAX_GIVE_LCV || lcv < MIN_LCV) return null;
         const positions = playerPositions(name);
+        // Only offer players at positions where I have surplus
+        const atMyStrength = positions.some(pos => myStrengthPositions.includes(pos));
+        if (!atMyStrength) return null;
+        // How well does this player fill THEIR weak spots?
         let bestFill = 0;
         let fillPos = '';
         positions.forEach(pos => {{
+          if (!theirWeakPositions.includes(pos)) return;
           const gap = theirGaps[pos];
           if (gap !== undefined && -gap > bestFill) {{ bestFill = -gap; fillPos = pos; }}
         }});
-        return {{ name, lcv, tv: tradeVal(name), fillsTheirNeed: bestFill, fillPos }};
-      }}).filter(Boolean).filter(x => x.fillsTheirNeed > 0.2).sort((a,b) => b.fillsTheirNeed - a.fillsTheirNeed);
+        if (bestFill <= 0) return null;
+        return {{ name, lcv, tv: tradeVal(name), fillsTheirNeed: bestFill, fillPos, primaryPos: p.primaryPos }};
+      }}).filter(Boolean).sort((a,b) => b.fillsTheirNeed - a.fillsTheirNeed);
 
-      // Their players that fill MY needs — exclude untouchables and elite/scrub LCV
+      // Their players that fill MY weaknesses — from THEIR positions of strength
+      const theirStrengthPositions = Object.entries(theirGaps).filter(([pos,gap]) => gap > 0.3 && pos !== 'DH').map(([pos]) => pos);
       const theyCanGive = theirRoster.map(name => {{
         if (UNTOUCHABLE.has(name)) return null;
         const p = ALL.find(x => x.name === name);
@@ -4494,80 +4527,75 @@ function renderRoster() {{
         const lcv = p.lcv || 0;
         if (lcv > MAX_GET_LCV || lcv < MIN_LCV) return null;
         const positions = playerPositions(name);
+        // Only target players at positions where THEY have surplus
+        const atTheirStrength = positions.some(pos => theirStrengthPositions.includes(pos));
+        if (!atTheirStrength) return null;
+        // How well does this player fill MY weak spots?
         let bestFill = 0;
         let fillPos = '';
         positions.forEach(pos => {{
+          if (!myWeakPositions.includes(pos)) return;
           const gap = myGaps3[pos];
           if (gap !== undefined && -gap > bestFill) {{ bestFill = -gap; fillPos = pos; }}
         }});
-        return {{ name, lcv, tv: tradeVal(name), fillsMyNeed: bestFill, fillPos }};
-      }}).filter(Boolean).filter(x => x.fillsMyNeed > 0.2).sort((a,b) => b.fillsMyNeed - a.fillsMyNeed);
+        if (bestFill <= 0) return null;
+        return {{ name, lcv, tv: tradeVal(name), fillsMyNeed: bestFill, fillPos, primaryPos: p.primaryPos }};
+      }}).filter(Boolean).sort((a,b) => b.fillsMyNeed - a.fillsMyNeed);
 
-      // Helper: primary position of a player (for cross-position detection)
-      function primaryPos(name) {{
-        const p = ALL.find(x => x.name === name);
-        return p ? (p.primaryPos || p.pos || '').split('/')[0] : '';
-      }}
+      if (iCanGive.length === 0 || theyCanGive.length === 0) return;
 
-      // 1-for-1 trades — prioritize cross-position swaps (strength for need)
-      for (const give of iCanGive.slice(0, 10)) {{
-        for (const get of theyCanGive.slice(0, 10)) {{
+      // 1-for-1 trades: give from my surplus, get at my weakness
+      for (const give of iCanGive.slice(0, 8)) {{
+        for (const get of theyCanGive.slice(0, 8)) {{
           if (give.name === get.name) continue;
+          // MUST be different position groups or at least different positions
+          if (give.fillPos === get.fillPos) continue;
           const myGain = get.tv - give.tv;
           const myLcvGain = get.lcv - give.lcv;
-          // Detect same-position swap — heavily penalize
-          const givePos = primaryPos(give.name);
-          const getPos = primaryPos(get.name);
-          const samePos = givePos === getPos;
-          // Skip pure same-position swaps unless the need gap is huge
-          if (samePos && (give.fillsTheirNeed < 0.8 || get.fillsMyNeed < 0.8)) continue;
-          // Accept trades where value is close but positional fit is strong
-          if (myGain >= -1.0 && myGain <= 4.0 && myLcvGain > -4 && (get.fillsMyNeed > 0.2 && give.fillsTheirNeed > 0.2)) {{
+          if (myGain >= -1.5 && myGain <= 5.0 && myLcvGain > -4) {{
             const mutualFit = get.fillsMyNeed + give.fillsTheirNeed;
             const favorMe = myGain * 0.3 + myLcvGain * 0.1;
-            // Cross-position bonus: reward trading from surplus to fill a different need
-            const crossBonus = samePos ? 0 : 0.5;
+            // Bonus for cross-group trades (bat for pit or vice versa)
+            const crossGroup = posGroup(give.name) !== posGroup(get.name) ? 0.6 : 0.3;
             trades.push({{
               team: ownerName, teamName: t.name,
               give: [give], get: [get],
               mutualFit, favorMe,
-              score: (mutualFit + crossBonus) * 0.75 + Math.max(0, favorMe) * 0.25,
+              score: (mutualFit + crossGroup) * 0.7 + Math.max(0, favorMe) * 0.3,
               type: '1-for-1'
             }});
           }}
         }}
       }}
 
-      // 2-for-2 trades — prioritize cross-position swaps
-      for (let i = 0; i < Math.min(iCanGive.length, 6); i++) {{
-        for (let j = i+1; j < Math.min(iCanGive.length, 7); j++) {{
+      // 2-for-2 trades
+      for (let i = 0; i < Math.min(iCanGive.length, 5); i++) {{
+        for (let j = i+1; j < Math.min(iCanGive.length, 6); j++) {{
           const g1 = iCanGive[i], g2 = iCanGive[j];
-          for (let k = 0; k < Math.min(theyCanGive.length, 6); k++) {{
-            for (let l = k+1; l < Math.min(theyCanGive.length, 7); l++) {{
+          for (let k = 0; k < Math.min(theyCanGive.length, 5); k++) {{
+            for (let l = k+1; l < Math.min(theyCanGive.length, 6); l++) {{
               const r1 = theyCanGive[k], r2 = theyCanGive[l];
               if ([g1.name,g2.name].includes(r1.name) || [g1.name,g2.name].includes(r2.name)) continue;
-              // Skip if all 4 players share same primary position
-              const givePositions = new Set([primaryPos(g1.name), primaryPos(g2.name)]);
-              const getPositions = new Set([primaryPos(r1.name), primaryPos(r2.name)]);
-              const allSame = givePositions.size === 1 && getPositions.size === 1 && [...givePositions][0] === [...getPositions][0];
-              if (allSame) continue;
+              // Require at least one cross-position pair
+              const giveFills = new Set([g1.fillPos, g2.fillPos]);
+              const getFills = new Set([r1.fillPos, r2.fillPos]);
+              const overlap = [...giveFills].filter(p => getFills.has(p)).length;
+              if (overlap >= 2) continue; // both sides filling same positions = bad trade
               const giveTv = g1.tv + g2.tv;
               const getTv = r1.tv + r2.tv;
               const giveLcv = g1.lcv + g2.lcv;
               const getLcv = r1.lcv + r2.lcv;
               const myGain = getTv - giveTv;
               const myLcvGain = getLcv - giveLcv;
-              // Count how many cross-position swaps
-              const crossCount = [...givePositions].filter(p => !getPositions.has(p)).length + [...getPositions].filter(p => !givePositions.has(p)).length;
-              const crossBonus = crossCount * 0.3;
-              if (myGain >= -1.5 && myGain <= 6.0 && myLcvGain > -6 && ((r1.fillsMyNeed + r2.fillsMyNeed) > 0.5 && (g1.fillsTheirNeed + g2.fillsTheirNeed) > 0.5)) {{
+              if (myGain >= -2.0 && myGain <= 7.0 && myLcvGain > -6) {{
                 const mutualFit = r1.fillsMyNeed + r2.fillsMyNeed + g1.fillsTheirNeed + g2.fillsTheirNeed;
                 const favorMe = myGain * 0.3 + myLcvGain * 0.1;
+                const crossGroup = (new Set([posGroup(g1.name),posGroup(g2.name),posGroup(r1.name),posGroup(r2.name)])).size > 1 ? 0.5 : 0;
                 trades.push({{
                   team: ownerName, teamName: t.name,
                   give: [g1, g2], get: [r1, r2],
                   mutualFit, favorMe,
-                  score: (mutualFit + crossBonus) * 0.7 + Math.max(0, favorMe) * 0.3,
+                  score: (mutualFit + crossGroup) * 0.65 + Math.max(0, favorMe) * 0.35,
                   type: '2-for-2'
                 }});
               }}
@@ -4577,7 +4605,13 @@ function renderRoster() {{
       }}
     }});
 
-    // 6. Rank and display top trade ideas
+    // 7. Compute draft pick info for each team (for pick sweetener suggestions)
+    const sim = simulateDraft();
+    const myTeamObj = LEAGUE_TEAMS.find(t => t.mine);
+    const myOpenRds = sim.teamOpenRds[myTeamObj.name] || 0;
+    const myPickRds = (sim.teamResults[myTeamObj.name] || []).map(p => p.round).sort((a,b) => a - b);
+
+    // 8. Rank and display top trade ideas
     trades.sort((a,b) => b.score - a.score);
     // Deduplicate: keep best trade per unique player combination
     const seen = new Set();
@@ -4593,7 +4627,13 @@ function renderRoster() {{
       return;
     }}
 
-    let th = '<div style="max-height:400px;overflow-y:auto;">';
+    let th = '<div style="max-height:500px;overflow-y:auto;">';
+    // Header with draft pick context
+    th += '<div style="padding:6px 8px;background:var(--surface2);border-radius:4px;margin-bottom:8px;font-size:10px;color:var(--text2);">';
+    th += `<b>Your open picks:</b> ${{myPickRds.length > 0 ? myPickRds.map(r => 'Rd ' + r).join(', ') : 'None'}}`;
+    th += ' — consider including a pick as a sweetener if the value gap is close.';
+    th += '</div>';
+
     unique.forEach((tr, idx) => {{
       const giveStr = tr.give.map(g => `<span style="color:var(--red);font-weight:600;">${{g.name}}</span> <span style="color:var(--text2);font-size:9px;">(${{g.fillPos}})</span>`).join(' + ');
       const getStr = tr.get.map(g => `<span style="color:var(--green);font-weight:600;">${{g.name}}</span> <span style="color:var(--text2);font-size:9px;">(${{g.fillPos}})</span>`).join(' + ');
@@ -4602,10 +4642,24 @@ function renderRoster() {{
       const diff = getTv - giveTv;
       const diffClr = diff > 0 ? 'var(--green)' : diff < -0.5 ? 'var(--red)' : 'var(--text2)';
       const badge = tr.type === '2-for-2' ? '<span style="background:var(--accent2);color:#fff;padding:0 4px;border-radius:3px;font-size:9px;margin-left:4px;">2×2</span>' : '';
+      // Draft pick sweetener suggestion if value gap exists
+      const theirOpenRds = sim.teamOpenRds[tr.teamName] || 0;
+      const theirPickRds = (sim.teamResults[tr.teamName] || []).map(p => p.round).sort((a,b) => a - b);
+      let pickNote = '';
+      if (diff < -0.3 && myPickRds.length > 0) {{
+        // I'm losing value — offer one of my picks to sweeten
+        const sweetener = myPickRds.find(r => r >= 10) || myPickRds[myPickRds.length - 1];
+        pickNote = `<span style="font-size:9px;color:var(--accent);"> + offer your Rd ${{sweetener}} pick to close the gap</span>`;
+      }} else if (diff > 1.5 && theirPickRds.length > 0) {{
+        // I'm gaining value — ask for one of their picks
+        const askPick = theirPickRds.find(r => r >= 10) || theirPickRds[theirPickRds.length - 1];
+        pickNote = `<span style="font-size:9px;color:var(--accent);"> + ask for their Rd ${{askPick}} pick</span>`;
+      }}
+
       th += `<div style="padding:8px;border-bottom:1px solid var(--border);${{idx === 0 ? 'background:rgba(74,107,255,0.04);' : ''}}">`;
-      th += `<div style="font-size:10px;color:var(--text2);margin-bottom:3px;">Trade with <b>${{tr.team}}</b>${{badge}}</div>`;
+      th += `<div style="font-size:10px;color:var(--text2);margin-bottom:3px;">Trade with <b>${{tr.team}}</b> <span style="font-size:9px;">(${{theirOpenRds}} open picks)</span>${{badge}}</div>`;
       th += `<div style="font-size:11px;margin-bottom:2px;">Give: ${{giveStr}}</div>`;
-      th += `<div style="font-size:11px;margin-bottom:2px;">Get: ${{getStr}}</div>`;
+      th += `<div style="font-size:11px;margin-bottom:2px;">Get: ${{getStr}}${{pickNote}}</div>`;
       th += `<div style="font-size:10px;color:var(--text2);">TV: ${{giveTv.toFixed(1)}} → ${{getTv.toFixed(1)}} <span style="color:${{diffClr}};font-weight:600;">(${{diff > 0 ? '+' : ''}}${{diff.toFixed(1)}})</span> | Fit: ${{tr.mutualFit.toFixed(1)}}</div>`;
       th += '</div>';
     }});
@@ -4911,10 +4965,7 @@ function renderDraftBoard() {{
 }}
 
 // ── League comparison view ────────────────────────────────────────────────
-// Ohtani dual-eligibility: counts as both a position player (DH) and pitcher (SP)
-const DUAL_ELIGIBLE = {{ 'Shohei Ohtani': 'SP' }};
-
-function calcOptimalLCV(playerNames) {{
+/function calcOptimalLCV(playerNames) {{
   // Given a list of player names, compute the best possible starting lineup LCV
   // by assigning players to roster slots optimally
   const players = playerNames.map(n => ALL.find(x => x.name === n)).filter(Boolean);
