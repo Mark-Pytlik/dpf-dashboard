@@ -486,14 +486,8 @@ print(f"League config loaded: {len(league_config['teams'])} teams, {len(league_c
 from zoneinfo import ZoneInfo
 build_time = datetime.now(ZoneInfo('America/Los_Angeles')).strftime('%b %d, %Y %I:%M %p PST')
 
-# ── Version: base version from VERSION file + git commit count ────────────
-import subprocess
-_base_ver = open('VERSION').read().strip() if os.path.exists('VERSION') else '2.4'
-try:
-    _commit_count = subprocess.check_output(['git', 'rev-list', '--count', 'HEAD'], stderr=subprocess.DEVNULL).decode().strip()
-    version = f"{_base_ver}.{_commit_count}"
-except Exception:
-    version = _base_ver
+# ── Version: read from VERSION file ───────────────────────────────────────
+version = open('VERSION').read().strip() if os.path.exists('VERSION') else '0.0'
 print(f"Version: {version}")
 
 print(f"Batter records: {len(bat_records)}, Pitcher records: {len(pit_records)}")
