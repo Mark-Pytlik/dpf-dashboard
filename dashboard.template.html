@@ -3113,7 +3113,7 @@ function renderRoster() {
     let tr = `<tr class="roster-row" draggable="true" data-player="${encodeURIComponent(p.name)}" style="cursor:grab;">`;
     cols.forEach(c => {
       if (c.key === null) { tr += `<td style="padding:3px 4px;font-weight:600;font-size:11px;white-space:nowrap;">${slotLabel}</td>`; return; }
-      if (c.key === 'name') { tr += `<td style="padding:3px 4px;font-weight:600;font-size:12px;white-space:nowrap;">${p.name}${_injBadge(p.name)}</td>`; return; }
+      if (c.key === 'name') { tr += `<td style="padding:3px 4px;font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:130px;">${p.name}${_injBadge(p.name)}</td>`; return; }
       if (c.key === 'pos') { tr += `<td style="padding:3px 4px;text-align:center;font-size:11px;">${p.primaryPos||''}</td>`; return; }
       let val = p[c.key];
       if (val === undefined || val === null || val === '') { tr += `<td style="padding:3px 4px;text-align:right;font-size:10px;color:var(--text2);">—</td>`; return; }
@@ -3261,6 +3261,8 @@ function renderRoster() {
   const batSlotOrder = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
   // Shared colgroup for all roster tables (main + bench + IL + MiLB) — GM view
   const rosterColgroup = '<colgroup><col style="width:38px"><col style="width:150px"><col style="width:56px"><col style="width:48px"><col style="width:64px"><col style="width:48px"><col style="width:48px"><col style="width:36px"><col style="width:34px"><col style="width:42px"><col style="width:42px"><col style="width:42px"></colgroup>';
+  // Player view colgroup: Slot(38) + Player(130) + Pos(36) + 18 stat cols(44 each)
+  const playerColgroup = '<colgroup><col style="width:38px"><col style="width:130px"><col style="width:36px">' + '<col style="width:44px">'.repeat(18) + '</colgroup>';
 
   // Choose columns based on view
   const activeCols = rosterView === 'player' ? playerBatStatCols : rosterCols;
@@ -3299,7 +3301,8 @@ function renderRoster() {
   // Build table header
   if (rosterView === 'player') {
     // Offense table
-    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:6px;">';
+    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:6px;table-layout:fixed;">';
+    html += playerColgroup;
     html += '<thead>' + buildPlayerStatHeader(playerBatStatCols, false) + '</thead>';
     html += '<tbody>';
   } else {
@@ -3371,7 +3374,8 @@ function renderRoster() {
     // Close offense table in Player view, open pitching table with pit-specific headers
     if (rosterView === 'player') {
       html += '</tbody></table>';
-      html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:8px;margin-bottom:6px;">';
+      html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:8px;margin-bottom:6px;table-layout:fixed;">';
+      html += playerColgroup;
       html += '<thead>' + buildPlayerStatHeader(playerPitStatCols, true) + '</thead>';
       html += '<tbody>';
       html += `<tr><td colspan="${colSpanPit}" style="padding:6px 6px 2px;font-weight:700;font-size:11px;color:var(--green);border-bottom:1px solid var(--border);">PITCHING (${(bySlot['SP']||[]).length + (bySlot['RP']||[]).length})</td></tr>`;
@@ -3393,8 +3397,8 @@ function renderRoster() {
   if (!rsc || rosterView === 'player') {
     // Bench
     html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">BENCH (${bench.length}/7)</span></div>`;
-    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
-    if (rosterView !== 'player') html += rosterColgroup;
+    html += `<table style="width:100%;border-collapse:collapse;font-size:12px;${rosterView==='player'?'table-layout:fixed;':''}">`;
+    html += rosterView === 'player' ? playerColgroup : rosterColgroup;
     html += '<tbody>';
     bench.forEach(p => {
       const isPit = p && ['SP','RP'].includes(p.primaryPos);
@@ -3405,8 +3409,8 @@ function renderRoster() {
 
     // IL
     html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--red);">IL (${ilPlayers.length}/4)</span></div>`;
-    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
-    if (rosterView !== 'player') html += rosterColgroup;
+    html += `<table style="width:100%;border-collapse:collapse;font-size:12px;${rosterView==='player'?'table-layout:fixed;':''}">`;
+    html += rosterView === 'player' ? playerColgroup : rosterColgroup;
     html += '<tbody>';
     ilPlayers.forEach(p => {
       const isPit = p && ['SP','RP'].includes(p.primaryPos);
@@ -3418,8 +3422,8 @@ function renderRoster() {
 
   // Minors (always show)
   html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--accent);">MINORS (${teamMilb.length}/4)</span></div>`;
-  html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
-  if (rosterView !== 'player') html += rosterColgroup;
+  html += `<table style="width:100%;border-collapse:collapse;font-size:12px;${rosterView==='player'?'table-layout:fixed;':''}">`;
+  html += rosterView === 'player' ? playerColgroup : rosterColgroup;
   html += '<tbody>';
   teamMilb.forEach(name => {
     const p = _plyrI(name);
@@ -3522,7 +3526,7 @@ function renderRoster() {
   } else if (isMyRosterTab && rosterView === 'gm') {
     // ── GM VIEW Sidebar: Collapsible, draggable panels ──
     // Get panel order from localStorage
-    const defaultOrder = ['roster-needs','trade-evaluator','trade-ideas','waiver-wire','most-droppable','player-news'];
+    const defaultOrder = ['roster-needs','trade-evaluator','trade-ideas','waiver-wire','most-droppable'];
     let panelOrder;
     try { const saved = localStorage.getItem('dpf_gm_order'); panelOrder = saved ? JSON.parse(saved) : defaultOrder; } catch(e) { panelOrder = defaultOrder; }
     // Ensure all panels exist in order
@@ -3584,7 +3588,33 @@ function renderRoster() {
 
       'trade-ideas': () => gmPanel('trade-ideas', 'Trade Ideas', () => {
         let h = '';
-        h += '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Auto-generated 1-for-1 and 2-for-2 trades that fill your needs and theirs, slightly favoring you.</div>';
+        h += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Tell me what you want to improve and I\'ll find trades to make it happen.</div>';
+        // Upgrade goal selector: positions + stat categories
+        const posGoals = ['SS','C','1B','2B','3B','LF','CF','RF','DH','SP','RP'];
+        const statGoals = [
+          {key:'hr',label:'HRs'},{key:'sb',label:'SBs'},{key:'avg',label:'AVG/OBP'},
+          {key:'rbi',label:'RBI/Runs'},{key:'so',label:'Ks (pitching)'},{key:'sv',label:'Saves/Holds'},
+          {key:'era',label:'ERA/WHIP'},{key:'qs',label:'QS/Wins'}
+        ];
+        h += '<div style="margin-bottom:6px;">';
+        h += '<div style="font-weight:600;font-size:11px;margin-bottom:4px;">Position upgrades:</div>';
+        h += '<div style="display:flex;flex-wrap:wrap;gap:3px;">';
+        posGoals.forEach(pos => {
+          const active = (state._tradeGoals || []).includes('pos:' + pos);
+          const bg = active ? 'background:var(--accent2);color:#fff;border-color:var(--accent2);' : '';
+          h += `<button class="trade-goal-btn btn btn-secondary" data-goal="pos:${pos}" style="padding:2px 6px;font-size:10px;${bg}">${pos}</button>`;
+        });
+        h += '</div></div>';
+        h += '<div style="margin-bottom:6px;">';
+        h += '<div style="font-weight:600;font-size:11px;margin-bottom:4px;">Stat categories:</div>';
+        h += '<div style="display:flex;flex-wrap:wrap;gap:3px;">';
+        statGoals.forEach(sg => {
+          const active = (state._tradeGoals || []).includes('stat:' + sg.key);
+          const bg = active ? 'background:var(--accent2);color:#fff;border-color:var(--accent2);' : '';
+          h += `<button class="trade-goal-btn btn btn-secondary" data-goal="stat:${sg.key}" style="padding:2px 6px;font-size:10px;${bg}">${sg.label}</button>`;
+        });
+        h += '</div></div>';
+        h += '<button id="tradeGenBtn" class="btn btn-primary" style="padding:4px 12px;font-size:11px;margin-bottom:6px;">Find Trades</button>';
         h += '<div id="tradeGenPanel" style="margin-top:4px;"></div>';
         return h;
       }),
@@ -3650,21 +3680,6 @@ function renderRoster() {
         });
       },
 
-      'player-news': () => gmPanel('player-news', 'Player News', () => {
-        let h = '';
-        if (relevantNews.length > 0) {
-          h += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Latest news for your rostered players from CBS.</div>';
-          relevantNews.forEach(n => {
-            const p = _plyrI(n.name); const pos = p ? p.primaryPos : '';
-            const isRecent = (() => { const [m,d] = (n.date||'').split('/').map(Number); return m === 3 && d >= 10; })();
-            const dateClr = isRecent ? 'color:var(--green);' : 'color:var(--text2);';
-            h += `<div style="padding:4px 0;border-bottom:1px solid var(--border);font-size:11px;">`;
-            h += `<div><span style="font-weight:600;">${n.name}</span> <span style="color:var(--text2);font-size:10px;">${pos}</span> <span style="font-size:9px;${dateClr}">${n.date}</span></div>`;
-            h += `<div style="color:var(--text2);font-size:10px;margin-top:1px;">${n.headline}</div></div>`;
-          });
-        } else { h += '<div style="font-size:11px;color:var(--text2);">No recent news for your players.</div>'; }
-        return h;
-      })
     };
 
     // Render panels in saved order
@@ -3703,17 +3718,33 @@ function renderRoster() {
   }
 
   // ── Transaction Log (always visible) ──
+  if (!state._txFilterMine) state._txFilterMine = false;
+  const txFilterMine = isMyRosterTab ? state._txFilterMine : false;
   html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-top:12px;">';
-  html += '<h3 style="font-size:13px;margin-bottom:6px;">Transaction Log</h3>';
+  html += '<div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">';
+  html += '<h3 style="font-size:13px;margin:0;">Transaction Log</h3>';
+  if (isMyRosterTab) {
+    const myTeamName = MY_TEAM ? MY_TEAM.name : '';
+    const myNames = new Set(state.myTeam || []);
+    html += '<span style="flex:1;"></span>';
+    html += `<button class="txn-filter-btn btn btn-secondary" style="padding:2px 8px;font-size:10px;${txFilterMine ? 'background:var(--accent2);color:#fff;border-color:var(--accent2);' : ''}">My Team</button>`;
+  }
+  html += '</div>';
   const txnsRaw = (state.transactions || []).map((tx, i) => ({...tx, _idx: i}));
-  const txns = txnsRaw.slice().sort((a,b) => {
+  let txnsSorted = txnsRaw.slice().sort((a,b) => {
     const pa = a.date ? a.date.replace(/(\d{1,2})\/(\d{1,2})\/(\d{2})/, (m,mo,dy,yr) => `20${yr}-${mo.padStart(2,'0')}-${dy.padStart(2,'0')}`) : '';
     const pb = b.date ? b.date.replace(/(\d{1,2})\/(\d{1,2})\/(\d{2})/, (m,mo,dy,yr) => `20${yr}-${mo.padStart(2,'0')}-${dy.padStart(2,'0')}`) : '';
     const dc = pb.localeCompare(pa);
     return dc !== 0 ? dc : b._idx - a._idx;
-  }).slice(0, 20);
+  });
+  if (txFilterMine) {
+    const myNames = new Set(state.myTeam || []);
+    const myTeamName = MY_TEAM ? MY_TEAM.name : '';
+    txnsSorted = txnsSorted.filter(tx => myNames.has(tx.player) || (tx.team && tx.team === myTeamName));
+  }
+  const txns = txnsSorted.slice(0, 25);
   if (txns.length === 0) {
-    html += '<div style="font-size:11px;color:var(--text2);">No transactions yet. Use Free Agents tab to add players, or drop players from roster below.</div>';
+    html += `<div style="font-size:11px;color:var(--text2);">${txFilterMine ? 'No transactions for your team.' : 'No transactions yet.'}</div>`;
   } else {
     html += '<div style="max-height:180px;overflow-y:auto;">';
     txns.forEach(tx => {
@@ -3739,6 +3770,14 @@ function renderRoster() {
   section.querySelectorAll('.roster-view-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       state._rosterView = btn.dataset.view;
+      renderRoster();
+    });
+  });
+
+  // ── Wire Transaction Log filter ──
+  section.querySelectorAll('.txn-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state._txFilterMine = !state._txFilterMine;
       renderRoster();
     });
   });
@@ -4289,25 +4328,64 @@ function renderRoster() {
 
   updateTradeSummary();
 
+  // ── Trade Goals wiring ──
+  if (!state._tradeGoals) state._tradeGoals = [];
+  section.querySelectorAll('.trade-goal-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const goal = btn.dataset.goal;
+      const idx = state._tradeGoals.indexOf(goal);
+      if (idx >= 0) { state._tradeGoals.splice(idx, 1); btn.style.background = ''; btn.style.color = ''; btn.style.borderColor = ''; }
+      else { state._tradeGoals.push(goal); btn.style.background = 'var(--accent2)'; btn.style.color = '#fff'; btn.style.borderColor = 'var(--accent2)'; }
+    });
+  });
+
   // ── Trade Generator wiring ──
-  // Trade Ideas: auto-generate when visible in GM view
   const tgPanel = document.getElementById('tradeGenPanel');
-  if (tgPanel) {
-    // Check if the panel body is visible (not collapsed)
-    const tgBody = tgPanel.closest('.gm-panel-body');
-    if (tgBody && tgBody.style.display !== 'none') {
-      generateTradeIdeas(tgPanel);
-    }
-    // Also generate on panel expand
-    const tgHdr = tgPanel.closest('.gm-panel')?.querySelector('.gm-panel-hdr');
-    if (tgHdr) {
-      tgHdr.addEventListener('click', () => {
-        setTimeout(() => { if (tgBody && tgBody.style.display !== 'none') generateTradeIdeas(tgPanel); }, 50);
-      });
-    }
+  const tgBtn = document.getElementById('tradeGenBtn');
+  if (tgBtn && tgPanel) {
+    tgBtn.addEventListener('click', () => {
+      if ((state._tradeGoals || []).length === 0) {
+        tgPanel.innerHTML = '<div style="font-size:11px;color:var(--red);padding:4px;">Select at least one position or stat category to find relevant trades.</div>';
+        return;
+      }
+      tgPanel.innerHTML = '<div style="font-size:11px;color:var(--text2);padding:4px;">Generating trade ideas...</div>';
+      setTimeout(() => generateTradeIdeas(tgPanel, state._tradeGoals), 50);
+    });
   }
 
-  function generateTradeIdeas(panel) {
+  function generateTradeIdeas(panel, goals) {
+    // Parse goals into position targets and stat targets
+    const goalPositions = new Set((goals || []).filter(g => g.startsWith('pos:')).map(g => g.slice(4)));
+    const goalStats = new Set((goals || []).filter(g => g.startsWith('stat:')).map(g => g.slice(5)));
+    // Map stat goals to relevant player positions/attributes
+    const statPosMap = {
+      'hr': ['1B','3B','RF','LF','DH','CF'], 'sb': ['SS','2B','CF','LF','RF'],
+      'avg': ['SS','2B','CF','RF','1B','LF','3B'], 'rbi': ['1B','3B','RF','DH','LF'],
+      'so': ['SP','RP'], 'sv': ['RP'], 'era': ['SP','RP'], 'qs': ['SP']
+    };
+    // Expand stat goals to relevant positions for scoring
+    const expandedGoalPositions = new Set(goalPositions);
+    goalStats.forEach(stat => { (statPosMap[stat] || []).forEach(p => expandedGoalPositions.add(p)); });
+
+    // Scoring helper: how well does a player match goals?
+    function goalFit(prof) {
+      let fit = 0;
+      // Position match
+      if (goalPositions.has(prof.primaryPos)) fit += 3.0;
+      prof.positions.forEach(pos => { if (goalPositions.has(pos)) fit += 1.5; });
+      // Stat match
+      goalStats.forEach(stat => {
+        if (stat === 'hr' && !prof.isPit && (prof.p.hr || prof.p.s25_hr || 0) >= 15) fit += 2.0;
+        if (stat === 'sb' && !prof.isPit && (prof.p.sb || prof.p.s25_sb || 0) >= 10) fit += 2.0;
+        if (stat === 'avg' && !prof.isPit && (prof.p.avg || prof.p.s25_avg || 0) >= 0.275) fit += 1.5;
+        if (stat === 'rbi' && !prof.isPit && (prof.p.rbi || prof.p.s25_rbi || 0) >= 60) fit += 1.5;
+        if (stat === 'so' && prof.isPit && (prof.p.so || prof.p.s25_so || 0) >= 100) fit += 2.0;
+        if (stat === 'sv' && prof.isPit && (prof.p.sv || prof.p.s25_sv || 0) >= 5) fit += 3.0;
+        if (stat === 'era' && prof.isPit && (prof.p.era || prof.p.s25_era || 9) <= 3.80) fit += 1.5;
+        if (stat === 'qs' && prof.primaryPos === 'SP' && (prof.p.qs || prof.p.s25_qs || 0) >= 10) fit += 2.0;
+      });
+      return fit;
+    }
     // ── Untouchable players — franchise cornerstones, never trade ──
     const UNTOUCHABLE = new Set(__UNTOUCHABLE_JSON__);
 
@@ -4440,8 +4518,13 @@ function renderRoster() {
         });
         // Keeper upside bonus: if they're very keepable and I can benefit
         const keeperBonus = prof.keepable ? prof.yearsLeft * 0.4 + Math.max(0, prof.multiYearSurplus) * 0.3 : 0;
-        return { ...prof, wantScore: bestNeedHelp * 2.0 + keeperBonus + prof.lcv * 0.15, helpPos: bestNeedPos, needHelp: bestNeedHelp, tv: tradeVal(prof) };
-      }).filter(x => x.wantScore > 0.1).sort((a,b) => b.wantScore - a.wantScore);
+        const gf = goalFit(prof);
+        return { ...prof, wantScore: bestNeedHelp * 2.0 + keeperBonus + prof.lcv * 0.15 + gf * 1.5, goalFit: gf, helpPos: bestNeedPos, needHelp: bestNeedHelp, tv: tradeVal(prof) };
+      }).filter(x => {
+        // When goals are specified, strongly prefer players that match at least one goal
+        if (goalPositions.size > 0 || goalStats.size > 0) return x.goalFit > 0 || x.wantScore > 2.0;
+        return x.wantScore > 0.1;
+      }).sort((a,b) => b.wantScore - a.wantScore);
 
       // Score how much THEY want each of my players
       const myAvailable = myRoster.filter(canTrade).map(prof => {
@@ -4492,7 +4575,11 @@ function renderRoster() {
           // Cross-group bonus (bat↔pit trades are more impactful)
           const crossGroup = give.isPit !== get.isPit ? 0.8 : 0;
 
-          const score = needFit * 1.5 + Math.max(0, valueFavor) + keeperArb + crossGroup;
+          const getGoalBonus = (get.goalFit || 0) * 2.0;
+          const score = needFit * 1.5 + Math.max(0, valueFavor) + keeperArb + crossGroup + getGoalBonus;
+
+          // Skip trades that don't match goals when goals are specified
+          if ((goalPositions.size > 0 || goalStats.size > 0) && (get.goalFit || 0) < 0.5) continue;
 
           // Build rationale context
           const giveNeedHelp = give.theirNeedHelp || 0;
@@ -4502,7 +4589,7 @@ function renderRoster() {
             give: [{ name: give.name, lcv: give.lcv, tv: give.tv, primaryPos: give.primaryPos, keepable: give.keepable, yearsLeft: give.yearsLeft, helpPos: give.helpsThemPos || give.primaryPos, theirNeedHelp: giveNeedHelp }],
             get: [{ name: get.name, lcv: get.lcv, tv: get.tv, primaryPos: get.primaryPos, keepable: get.keepable, yearsLeft: get.yearsLeft, helpPos: get.helpPos || get.primaryPos, myNeedHelp: getNeedHelp }],
             score, type: '1-for-1',
-            reason: getNeedHelp > 0.3 ? 'fills need' : keeperArb > 0 ? 'keeper arb' : 'value',
+            reason: (get.goalFit || 0) > 0.5 ? 'matches goal' : getNeedHelp > 0.3 ? 'fills need' : keeperArb > 0 ? 'keeper arb' : 'value',
             _myNeeds: { ...myNeeds }, _theirNeeds: { ...theirNeeds },
           });
         }
@@ -4606,10 +4693,15 @@ function renderRoster() {
           // Slight penalty for larger trades (harder to pull off in practice)
           const sizePenalty = total > 3 ? (total - 3) * 0.3 : 0;
 
-          const score = needFit * 1.3 + Math.max(0, valueFavor) + keeperArb + crossGroup - sizePenalty;
+          // Goal-based scoring for multi-player trades
+          const multiGoalBonus = rCombo.reduce((s,r) => s + (r.goalFit || 0), 0) * 1.5;
+          // Skip multi-player trades that don't match goals when goals specified
+          if ((goalPositions.size > 0 || goalStats.size > 0) && multiGoalBonus < 0.5) continue;
+
+          const score = needFit * 1.3 + Math.max(0, valueFavor) + keeperArb + crossGroup - sizePenalty + multiGoalBonus;
 
           const label = `${gCombo.length}-for-${rCombo.length}`;
-          const reason = rCombo.some(r => r.needHelp > 0.3) ? 'fills need' : keeperArb > 0.5 ? 'keeper arb' : gCombo.length !== rCombo.length ? 'consolidate' : 'value';
+          const reason = multiGoalBonus > 1.0 ? 'matches goal' : rCombo.some(r => r.needHelp > 0.3) ? 'fills need' : keeperArb > 0.5 ? 'keeper arb' : gCombo.length !== rCombo.length ? 'consolidate' : 'value';
 
           trades.push({
             team: ownerName, teamName: t.name,
@@ -4687,7 +4779,8 @@ function renderRoster() {
       // Reason tag
       const reasonTag = tr.reason === 'keeper arb' ? '<span style="font-size:8px;background:var(--green);color:#fff;padding:0 3px;border-radius:2px;margin-left:4px;">KEEPER ARB</span>'
         : tr.reason === 'fills need' ? '<span style="font-size:8px;background:var(--accent);color:#fff;padding:0 3px;border-radius:2px;margin-left:4px;">FILLS NEED</span>'
-        : tr.reason === 'consolidate' ? '<span style="font-size:8px;background:var(--accent2);color:#fff;padding:0 3px;border-radius:2px;margin-left:4px;">CONSOLIDATE</span>' : '';
+        : tr.reason === 'consolidate' ? '<span style="font-size:8px;background:var(--accent2);color:#fff;padding:0 3px;border-radius:2px;margin-left:4px;">CONSOLIDATE</span>'
+        : tr.reason === 'matches goal' ? '<span style="font-size:8px;background:#e67e22;color:#fff;padding:0 3px;border-radius:2px;margin-left:4px;">MATCHES GOAL</span>' : '';
 
       // ── Generate rationale sentences ──
       // Why YOU should make this trade
