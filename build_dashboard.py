@@ -486,6 +486,16 @@ print(f"League config loaded: {len(league_config['teams'])} teams, {len(league_c
 from zoneinfo import ZoneInfo
 build_time = datetime.now(ZoneInfo('America/Los_Angeles')).strftime('%b %d, %Y %I:%M %p PST')
 
+# ── Version: base version from VERSION file + git commit count ────────────
+import subprocess
+_base_ver = open('VERSION').read().strip() if os.path.exists('VERSION') else '2.4'
+try:
+    _commit_count = subprocess.check_output(['git', 'rev-list', '--count', 'HEAD'], stderr=subprocess.DEVNULL).decode().strip()
+    version = f"{_base_ver}.{_commit_count}"
+except Exception:
+    version = _base_ver
+print(f"Version: {version}")
+
 print(f"Batter records: {len(bat_records)}, Pitcher records: {len(pit_records)}")
 
 # Spot check
@@ -504,6 +514,7 @@ _replacements = {
     '__CBS_TXNS_JSON__': cbs_txns_json,
     '__PROSPECTS_JSON__': prospects_json,
     '__BUILD_TIME__': build_time,
+    '__VERSION__': version,
     '__LEAGUE_TEAMS_JSON__': league_teams_json,
     '__LEAGUE_ROOKIES_JSON__': league_rookies_json,
     '__UNTOUCHABLE_JSON__': untouchable_json,
