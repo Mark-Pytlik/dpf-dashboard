@@ -3083,7 +3083,19 @@ function renderRoster() {
     const mys = Math.max(0, ki.multiYearSurplus || 0);
     const pr = findProspect(p.name);
     const pv = pr ? Math.max(0, ((pr.fv||0) - 40) * 0.15) : 0;
-    const tv = mys + pv;
+    // Trade Value: production-first, keeper premium only when surplus justifies the slot
+    const lcv = p.lcv || 0;
+    let tv;
+    if (!ki.keepable2027) {
+      // Non-keepable: pure rental value = current production (elite players still command big returns)
+      tv = lcv * 0.8 + pv;
+    } else {
+      // Keepable: blend of current production + keeper premium
+      // Only count keeper surplus if it's meaningfully positive (> 1.0)
+      // This prevents mediocre keepers from inflating TV just because they have years of control
+      const effectiveMYS = ki.multiYearSurplus > 1.0 ? ki.multiYearSurplus : ki.multiYearSurplus * 0.3;
+      tv = lcv * 0.5 + Math.max(0, effectiveMYS) * 1.0 + pv + (ki.yearsLeft >= 2 && ki.multiYearSurplus > 1.0 ? ki.yearsLeft * 0.3 : 0);
+    }
     const tvClr = tv > 3 ? 'var(--green)' : tv > 0 ? 'var(--text)' : 'var(--text2)';
     // Trade target highlight
     const tt = tradeTargets[p.name];
@@ -3097,7 +3109,7 @@ function renderRoster() {
       `<td style="padding:3px 6px;font-weight:600;font-size:12px;white-space:nowrap;">${p.name}${natPos}${ttBadge}</td>` +
       `<td style="padding:3px 4px;text-align:center;white-space:nowrap;">${keepHtml}</td>` +
       `<td style="padding:3px 4px;font-size:11px;color:var(--text2);white-space:nowrap;">${p.team||''}</td>` +
-      `<td style="padding:3px 4px;font-size:11px;white-space:nowrap;">${(p.pos||p.primaryPos||'').replace(/\//g,', ')}</td>` +
+      `<td style="padding:3px 4px;font-size:10px;white-space:nowrap;">${(p.pos||p.primaryPos||'').split('/').map(pos => '<span class="pos-badge pos-'+pos+'" style="padding:1px 4px;font-size:9px;margin-right:1px;">'+pos+'</span>').join('')}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;color:${c};font-weight:600;">${(p.lcv||0).toFixed(1)}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;">${(p.pnav||0).toFixed(1)}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;color:var(--text2);">${p.age||'?'}</td>` +
@@ -3118,7 +3130,7 @@ function renderRoster() {
     cols.forEach(c => {
       if (c.key === null) { tr += `<td style="padding:3px 4px;font-weight:600;font-size:11px;white-space:nowrap;">${slotLabel}</td>`; return; }
       if (c.key === 'name') { tr += `<td style="padding:3px 4px;font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:130px;">${p.name}${_injBadge(p.name)}</td>`; return; }
-      if (c.key === 'pos') { tr += `<td style="padding:3px 4px;text-align:center;font-size:11px;">${p.primaryPos||''}</td>`; return; }
+      if (c.key === 'pos') { tr += `<td style="padding:3px 4px;text-align:center;font-size:10px;">${p.primaryPos ? '<span class="pos-badge pos-'+p.primaryPos+'" style="padding:1px 4px;font-size:9px;">'+p.primaryPos+'</span>' : ''}</td>`; return; }
       let val = p[c.key];
       if (val === undefined || val === null || val === '') { tr += `<td style="padding:3px 4px;text-align:right;font-size:10px;color:var(--text2);">—</td>`; return; }
       // Format stat values
@@ -3259,7 +3271,7 @@ function renderRoster() {
     {key:'_yrsCtrl',label:'Yrs',align:'center',tip:'Years of control remaining'},
     {key:'_surplus',label:'Surp',align:'right',tip:'Current surplus value'},
     {key:'_mys',label:'MYS',align:'right',tip:'Multi-year surplus'},
-    {key:'_tv',label:'TV',align:'right',tip:'Trade value (MYS + prospect value)'}
+    {key:'_tv',label:'TV',align:'right',tip:'Trade value: production + keeper premium (if surplus justifies slot) + prospect value'}
   ];
 
   const batSlotOrder = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
@@ -3347,7 +3359,14 @@ function renderRoster() {
       r._mys = Math.max(0, ki.multiYearSurplus || 0);
       const pr = findProspect(r.p.name);
       const pv = pr ? Math.max(0, ((pr.fv||0) - 40) * 0.15) : 0;
-      r._tv = r._mys + pv;
+      // Trade Value: same formula as pRow display
+      const plLcv = r.p.lcv || 0;
+      if (!ki.keepable2027) {
+        r._tv = plLcv * 0.8 + pv;
+      } else {
+        const effMYS = ki.multiYearSurplus > 1.0 ? ki.multiYearSurplus : (ki.multiYearSurplus || 0) * 0.3;
+        r._tv = plLcv * 0.5 + Math.max(0, effMYS) * 1.0 + pv + (ki.yearsLeft >= 2 && ki.multiYearSurplus > 1.0 ? ki.yearsLeft * 0.3 : 0);
+      }
     });
 
     allRosterPlayers.sort((a, b) => {
@@ -4436,19 +4455,17 @@ function renderRoster() {
       };
     }
 
-    // Composite trade value: weights current production, keeper surplus, and prospect upside
+    // Composite trade value: production-first, keeper premium only when surplus justifies the slot
     function tradeVal(prof) {
-      // Current-year production is always the foundation of trade value
       const thisYear = prof.lcv;
-      // Multi-year keeper surplus (big driver in keeper leagues)
-      const keeperVal = Math.max(0, prof.multiYearSurplus);
-      // Prospect kicker
       const prospVal = prof.prospectVal;
-      // Non-keepable players: full current-year value (elite bats/arms still command big returns)
-      // but no keeper premium — they're rentals
-      if (!prof.keepable) return thisYear * 1.0 + prospVal;
-      // Keepable players: current value + keeper premium
-      return thisYear * 0.7 + keeperVal * 1.2 + prospVal + prof.yearsLeft * 0.3;
+      // Non-keepable: rental value = current production (elite players still command big returns)
+      if (!prof.keepable) return thisYear * 0.8 + prospVal;
+      // Keepable: blend production + keeper premium
+      // Only count MYS premium if surplus is meaningfully positive (prevents marginal keepers from inflating)
+      const mys = prof.multiYearSurplus || 0;
+      const effectiveMYS = mys > 1.0 ? mys : mys * 0.3;
+      return thisYear * 0.5 + Math.max(0, effectiveMYS) * 1.0 + prospVal + (prof.yearsLeft >= 2 && mys > 1.0 ? prof.yearsLeft * 0.3 : 0);
     }
 
     // ── 2. Build roster profiles ──
@@ -5927,7 +5944,7 @@ function renderLeague() {
         const rowBg = row.isKeeper ? 'background:rgba(74,107,255,0.04);' : '';
         html += `<tr style="${rowBg}">`;
         html += `<td style="padding:3px 4px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${row.name}${_injBadge(row.name)}</td>`;
-        html += `<td style="padding:3px 4px;text-align:center;">${row.pos}</td>`;
+        html += `<td style="padding:3px 4px;text-align:center;"><span class="pos-badge pos-${row.pos}" style="padding:1px 4px;font-size:9px;">${row.pos}</span></td>`;
         html += `<td style="text-align:right;padding:3px 4px;">${keeperStr}</td>`;
         html += `<td style="text-align:right;padding:3px 4px;${costClr}">${costStr}</td>`;
         html += `<td style="text-align:right;padding:3px 4px;">${ki.yearsLeft}</td>`;
