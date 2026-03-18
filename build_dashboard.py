@@ -483,7 +483,8 @@ league_rookies_json = json.dumps(league_config['rookies'])
 untouchable_json = json.dumps(league_config['untouchable'])
 print(f"League config loaded: {len(league_config['teams'])} teams, {len(league_config['untouchable'])} untouchables")
 
-build_time = datetime.now().strftime('%b %d, %Y %I:%M %p')
+from zoneinfo import ZoneInfo
+build_time = datetime.now(ZoneInfo('America/Los_Angeles')).strftime('%b %d, %Y %I:%M %p PST')
 
 print(f"Batter records: {len(bat_records)}, Pitcher records: {len(pit_records)}")
 
