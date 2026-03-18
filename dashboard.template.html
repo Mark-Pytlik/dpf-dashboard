@@ -1090,7 +1090,7 @@ tabs.forEach(t => t.addEventListener('click', () => {
 const _myTeam = LEAGUE_TEAMS.find(t => t.mine);
 if (_myTeam) {
   const myTab = document.querySelector('.tab[data-tab="myRoster"]');
-  if (myTab) myTab.textContent = _myTeam.owner.split(' ').pop();  // last name
+  if (myTab) myTab.textContent = 'My Roster';
 }
 
 // ── Mode toggle (Draft vs Season) ─────────────────────────────────────────
@@ -1995,7 +1995,8 @@ function renderFutures() {
       html += `<span style="font-size:11px;color:var(--text2);">Prospect Value: <b style="color:var(--text);">${teamProspectVal.toFixed(1)}</b></span>`;
       html += `</div>`;
 
-      html += `<table style="width:100%;border-collapse:collapse;font-size:12px;">`;
+      html += `<table style="width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed;">`;
+      html += `<colgroup><col style="width:44%"><col style="width:8%"><col style="width:8%"><col style="width:14%"><col style="width:12%"><col style="width:14%"></colgroup>`;
       html += `<thead><tr style="font-size:10px;text-transform:uppercase;color:var(--text2);border-bottom:1px solid var(--border);">`;
       html += `<th style="text-align:left;padding:4px 6px;">Rookie</th>`;
       html += `<th style="text-align:center;padding:4px 6px;">Pos</th>`;
@@ -2022,9 +2023,12 @@ function renderFutures() {
 
         const notRanked = !pr;
         const rowStyle = notRanked ? 'opacity:0.5;' : '';
+        // Roster eligible = has MLB stats in FanGraphs data
+        const rosterElig = r.player && r.player.lcv > 0;
+        const eligBadge = rosterElig ? ' <span style="font-size:8px;background:var(--green);color:#fff;padding:1px 3px;border-radius:2px;font-weight:400;">MLB</span>' : '';
 
         html += `<tr style="border-bottom:1px solid var(--border);${rowStyle}">`;
-        html += `<td style="padding:5px 6px;font-weight:600;">${r.name}${notRanked ? ' <span style="font-size:10px;color:var(--text2);font-weight:400;">(unranked)</span>' : ''}</td>`;
+        html += `<td style="padding:5px 6px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${r.name}${eligBadge}${notRanked ? ' <span style="font-size:10px;color:var(--text2);font-weight:400;">(unranked)</span>' : ''}</td>`;
         html += `<td style="text-align:center;padding:5px 6px;">${pos}</td>`;
         html += `<td style="text-align:center;padding:5px 6px;color:${fvColor};font-weight:600;">${fv || '—'}</td>`;
         html += `<td style="text-align:center;padding:5px 6px;">${avgRank}</td>`;
