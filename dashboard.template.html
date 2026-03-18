@@ -347,6 +347,19 @@ function _plyrI(name) {
 const CBS_TRANSACTIONS = __CBS_TXNS_JSON__;
 const TXN_BUILD_TIME = '__BUILD_TIME__';
 const PLAYER_NEWS = __PLAYER_NEWS_JSON__;
+const INJURIES = __INJURIES_JSON__;
+// Build injury lookup: name -> { status, injury, return }
+const INJURY_MAP = new Map();
+(INJURIES || []).forEach(inj => INJURY_MAP.set(inj.name, inj));
+function _injBadge(name) {
+  const inj = INJURY_MAP.get(name);
+  if (!inj) return '';
+  const s = inj.status;
+  const clr = s === 'O' || s === 'IL' ? 'var(--red)' : s === 'DTD' ? '#e88a0a' : '#c49000';
+  const label = s === 'IL' ? 'IL' : s === 'O' ? 'OUT' : s === 'DTD' ? 'DTD' : 'Q';
+  const tip = `${inj.injury}${inj.return ? ' · ETA ' + inj.return : ''}`;
+  return ` <span title="${tip}" style="font-size:8px;background:${clr};color:#fff;padding:1px 3px;border-radius:2px;font-weight:600;cursor:help;">${label}</span>`;
+}
 
 // ── Prospects data ───────────────────────────────────────────────────────
 const PROSPECTS = __PROSPECTS_JSON__;
@@ -1513,7 +1526,7 @@ function renderLiveSidebar() {
         const border = isKeeper ? 'var(--accent)' : 'var(--green)';
         const enoTag = p.eno_rank ? ` <span class="eno-rank" style="font-size:8px;" title="Eno 150 Best Pitchers #${p.eno_rank}">P${p.eno_rank}</span>` : '';
         html += `<div style="background:${bg};border:1px solid ${border};border-radius:4px;padding:2px 6px;font-size:10px;white-space:nowrap;">`;
-        html += `<span style="color:var(--text2);font-weight:600;">${pos}</span> ${p.name}${enoTag} <small style="opacity:0.6">${(p.lcv||0).toFixed(1)}</small>`;
+        html += `<span style="color:var(--text2);font-weight:600;">${pos}</span> ${p.name}${_injBadge(p.name)}${enoTag} <small style="opacity:0.6">${(p.lcv||0).toFixed(1)}</small>`;
         if (isKeeper) html += ' <small style="color:var(--accent);">K</small>';
         html += '</div>';
       } else {
@@ -2340,7 +2353,7 @@ function render() {
           buzz = buzzHtml ? ` ${buzzHtml}` : '';
         }
         const enoR = p.eno_rank ? ` <span class="eno-rank" title="Eno 150 Best Pitchers #${p.eno_rank}">P${p.eno_rank}</span>` : '';
-        return `<td style="font-weight:600">${val}${enoR}${tagHtml}${kp}${ownerBadge}${buzz}${tagBtns}</td>`;
+        return `<td style="font-weight:600">${val}${_injBadge(p.name)}${enoR}${tagHtml}${kp}${ownerBadge}${buzz}${tagBtns}</td>`;
       }
       return `<td class="${cls}">${val}</td>`;
     }).join('')}</tr>`;
@@ -4715,7 +4728,7 @@ function renderDraftBoard() {
         const brd = isK ? 'var(--accent)' : 'var(--green)';
         const eTag = p.eno_rank ? ` <span class="eno-rank" style="font-size:8px;">P${p.eno_rank}</span>` : '';
         html += `<div style="background:${bg};border:1px solid ${brd};border-radius:4px;padding:3px 8px;font-size:11px;white-space:nowrap;">`;
-        html += `<b style="color:var(--text2);">${pos}</b> ${p.name}${eTag} <small style="opacity:0.6">${(p.lcv||0).toFixed(1)}</small>`;
+        html += `<b style="color:var(--text2);">${pos}</b> ${p.name}${_injBadge(p.name)}${eTag} <small style="opacity:0.6">${(p.lcv||0).toFixed(1)}</small>`;
         if (isK) html += ' <small style="color:var(--accent);">K</small>';
         html += '</div>';
       } else {
@@ -5139,7 +5152,7 @@ function renderMockDraftUI() {
         const border = isKeeper ? 'var(--accent)' : 'var(--green)';
         html += `<div style="background:${bg};border:1px solid ${border};border-radius:4px;padding:2px 6px;font-size:10px;white-space:nowrap;">`;
         const enoTag = p.eno_rank ? ` <span class="eno-rank" style="font-size:8px;" title="Eno 150 Best Pitchers #${p.eno_rank}">P${p.eno_rank}</span>` : '';
-        html += `<span style="color:var(--text2);font-weight:600;">${pos}</span> ${p.name}${enoTag} <small style="opacity:0.6">${(p.lcv||0).toFixed(1)}</small>`;
+        html += `<span style="color:var(--text2);font-weight:600;">${pos}</span> ${p.name}${_injBadge(p.name)}${enoTag} <small style="opacity:0.6">${(p.lcv||0).toFixed(1)}</small>`;
         if (isKeeper) html += ' <small style="color:var(--accent);">K</small>';
         html += '</div>';
       } else {
@@ -5496,7 +5509,7 @@ function renderLeague() {
         const costClr = ki.keepable2027 ? '' : 'color:var(--red);';
         const rowBg = row.isKeeper ? 'background:rgba(74,107,255,0.04);' : '';
         html += `<tr style="${rowBg}">`;
-        html += `<td style="padding:3px 4px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${row.name}</td>`;
+        html += `<td style="padding:3px 4px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${row.name}${_injBadge(row.name)}</td>`;
         html += `<td style="padding:3px 4px;text-align:center;">${row.pos}</td>`;
         html += `<td style="text-align:right;padding:3px 4px;">${keeperStr}</td>`;
         html += `<td style="text-align:right;padding:3px 4px;${costClr}">${costStr}</td>`;
@@ -5508,6 +5521,17 @@ function renderLeague() {
       html += '</table>';
       if (milb.length > 0) {
         html += '<div style="font-size:10px;color:var(--text2);margin-top:4px;">MiLB: ' + milb.join(', ') + '</div>';
+      }
+      // IL list: rostered players with Out/IL status
+      const ilPlayers = allRostered.filter(n => {
+        const inj = INJURY_MAP.get(n);
+        return inj && (inj.status === 'O' || inj.status === 'IL');
+      }).map(n => {
+        const inj = INJURY_MAP.get(n);
+        return `${n} <span style="color:var(--red);font-size:9px;">(${inj.injury}${inj.return ? ' · ' + inj.return : ''})</span>`;
+      });
+      if (ilPlayers.length > 0) {
+        html += `<div style="font-size:10px;color:var(--text2);margin-top:4px;"><span style="color:var(--red);font-weight:600;">IL:</span> ${ilPlayers.join(', ')}</div>`;
       }
       html += '</div>';
     });

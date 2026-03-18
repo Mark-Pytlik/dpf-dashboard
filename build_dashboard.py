@@ -493,6 +493,16 @@ else:
     print("No player news file found")
 player_news_json = json.dumps(player_news)
 
+# ── Injuries (scraped from CBS injuries page) ────────────────────────────
+_injuries_path = 'data/injuries.json'
+if os.path.exists(_injuries_path):
+    injuries = json.load(open(_injuries_path))
+    print(f"Injuries loaded: {len(injuries)} players")
+else:
+    injuries = []
+    print("No injuries file found")
+injuries_json = json.dumps(injuries)
+
 from zoneinfo import ZoneInfo
 build_time = datetime.now(ZoneInfo('America/Los_Angeles')).strftime('%b %d, %Y %I:%M %p PST')
 
@@ -523,6 +533,7 @@ _replacements = {
     '__LEAGUE_ROOKIES_JSON__': league_rookies_json,
     '__UNTOUCHABLE_JSON__': untouchable_json,
     '__PLAYER_NEWS_JSON__': player_news_json,
+    '__INJURIES_JSON__': injuries_json,
 }
 for _token, _value in _replacements.items():
     html = html.replace(_token, _value)
