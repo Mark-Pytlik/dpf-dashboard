@@ -1742,7 +1742,10 @@ function _renderTransactionsInner(section) {
     checkBtn.disabled = true;
     checkBtn.textContent = '↻ Checking...';
     try {
-      const resp = await fetch('https://raw.githubusercontent.com/Mark-Pytlik/dpf-dashboard/main/data/cbs_transactions.json?t=' + Date.now());
+      // Fetch from same Pages deployment with cache-bust — works because the scheduled
+      // task pushes updated JSON alongside index.html, and CDN cache may serve newer JSON
+      // than the baked-in page data if the user hasn't reloaded since the last push.
+      const resp = await fetch('./data/cbs_transactions.json?v=' + Date.now(), {cache: 'no-store'});
       if (!resp.ok) throw new Error('Fetch failed: ' + resp.status);
       const latest = await resp.json();
       const existingKeys = new Set(CBS_TRANSACTIONS.map(t => t.date + '|' + t.teamId + '|' + t.players.map(p => p.name).sort().join(',')));
