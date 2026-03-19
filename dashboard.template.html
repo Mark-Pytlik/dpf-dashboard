@@ -3180,9 +3180,9 @@ function renderRoster() {
   let html = '';
   const isMyRosterTab = (currentTab === 'myRoster');
 
-  // View mode for My Roster: 'player' or 'gm'
+  // View mode: 'player' or 'gm' — applies to all roster tabs
   if (!state._rosterView) state._rosterView = 'player';
-  const rosterView = isMyRosterTab ? state._rosterView : 'gm';
+  const rosterView = state._rosterView;
 
   // Team selector (hidden on My Roster tab)
   if (!isMyRosterTab) {
@@ -3202,14 +3202,12 @@ function renderRoster() {
 
   // Action bar
   html += '<div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;">';
-  if (isMyRosterTab) {
-    // Player / GM view toggle
-    html += '<div class="view-toggle">';
-    html += `<button class="view-btn roster-view-btn ${rosterView==='player'?'active':''}" data-view="player">Player</button>`;
-    html += `<button class="view-btn roster-view-btn ${rosterView==='gm'?'active':''}" data-view="gm">GM</button>`;
-    html += '</div>';
-    html += '<span style="width:8px;"></span>';
-  }
+  // Player / GM view toggle — available on all roster tabs
+  html += '<div class="view-toggle">';
+  html += `<button class="view-btn roster-view-btn ${rosterView==='player'?'active':''}" data-view="player">Player</button>`;
+  html += `<button class="view-btn roster-view-btn ${rosterView==='gm'?'active':''}" data-view="gm">GM</button>`;
+  html += '</div>';
+  html += '<span style="width:8px;"></span>';
   html += `<span style="font-size:13px;font-weight:600;">Starting LCV: ${teamLCV.startingLCV.toFixed(1)}</span>`;
   html += `<span style="font-size:11px;color:var(--text2);margin-left:8px;">Total: ${teamLCV.totalLCV.toFixed(1)} | Players: ${teamPlayers.length}</span>`;
   html += '<span style="flex:1;"></span>';
@@ -3602,9 +3600,27 @@ function renderRoster() {
     return h;
   }
 
-  if (isMyRosterTab && rosterView === 'player') {
-    // ── PLAYER VIEW Sidebar: Only Player News + Transaction Log ──
+  if (rosterView === 'player') {
+    // ── PLAYER VIEW Sidebar: Player News + (league standings for other teams) + Transaction Log ──
     html += renderPlayerNewsPanel();
+    if (!isMyRosterTab) {
+      // League LCV standings for other team views
+      html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-top:12px;">';
+      html += '<h3 style="font-size:13px;margin-bottom:6px;">League LCV Standings</h3>';
+      html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
+      html += '<tr style="color:var(--text2);"><th style="text-align:left;padding:2px 4px;">#</th><th style="text-align:left;padding:2px 4px;">Team</th><th style="text-align:right;padding:2px 4px;">Start</th><th style="text-align:right;padding:2px 4px;">Total</th></tr>';
+      const lcvStats2 = LEAGUE_TEAMS.map(t => {
+        const pl = t.mine ? (state.myTeam || []) : (state.leagueTeams[t.name] || []);
+        const ov = t.mine ? (state.rosterOverrides || {}) : (state.leagueRosterOverrides && state.leagueRosterOverrides[t.name] || {});
+        const stats = calcRosterLCV(pl, ov);
+        return { name: t.owner || t.name, mine: t.mine, ...stats };
+      }).sort((a, b) => b.startingLCV - a.startingLCV);
+      lcvStats2.forEach((t, rank) => {
+        const sty = t.mine ? 'background:rgba(99,102,241,0.1);font-weight:600;' : '';
+        html += `<tr style="${sty}"><td style="padding:2px 4px;">${rank+1}</td><td style="padding:2px 4px;">${t.name}${t.mine?' ★':''}</td><td style="text-align:right;padding:2px 4px;">${t.startingLCV.toFixed(1)}</td><td style="text-align:right;padding:2px 4px;">${t.totalLCV.toFixed(1)}</td></tr>`;
+      });
+      html += '</table></div>';
+    }
 
   } else if (isMyRosterTab && rosterView === 'gm') {
     // ── GM VIEW Sidebar: Collapsible, draggable panels ──
@@ -3778,8 +3794,8 @@ function renderRoster() {
     panelOrder.forEach(id => { if (panelRenderers[id]) html += panelRenderers[id](); });
 
   } else {
-    // ── Other Team View Sidebar: LCV standings + Roster Needs + Transaction Log ──
-    // League LCV standings (only on other team views, removed from My Roster)
+    // ── GM View Sidebar for other teams: LCV standings + Roster Needs + Transaction Log ──
+    // (My Roster GM view hits the branch above; this is for league team GM views)
     html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;margin-bottom:12px;">';
     html += '<h3 style="font-size:13px;margin-bottom:6px;">League LCV Standings</h3>';
     html += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
