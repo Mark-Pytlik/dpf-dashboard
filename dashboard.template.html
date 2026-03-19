@@ -1587,6 +1587,12 @@ function renderTransactions() {
   const section = document.getElementById('txnsSection');
   document.getElementById('tableWrap').style.display = 'none';
   document.getElementById('rosterSection').style.display = 'none';
+  try { _renderTransactionsInner(section); } catch(e) {
+    section.innerHTML = '<div style="padding:20px;color:var(--red);"><b>Transactions Error:</b> ' + e.message + '<br><pre style="font-size:10px;margin-top:8px;">' + (e.stack||'').replace(/</g,'&lt;') + '</pre></div>';
+    console.error('Transactions render error:', e);
+  }
+}
+function _renderTransactionsInner(section) {
 
   // Combine CBS transactions + local user transactions
   const allTxns = [];
@@ -1625,7 +1631,7 @@ function renderTransactions() {
 
   let html = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">';
   html += '<h2 style="font-size:18px;font-weight:700;">League Transactions</h2>';
-  html += `<span style="font-size:10px;color:var(--text2);">Scraped: ${TXN_BUILD_TIME}</span>`;
+  html += `<span style="font-size:10px;color:var(--text2);">Scraped: ${TXN_BUILD_TIME} · v__VERSION__</span>`;
   html += '</div>';
 
   // Filter controls
@@ -1644,8 +1650,9 @@ function renderTransactions() {
   html += '</div>';
 
   // Transaction table
-  html += '<div style="background:var(--surface);border-radius:10px;border:1px solid var(--border);overflow:hidden;">';
-  html += '<table style="width:100%;border-collapse:collapse;" id="txnTable">';
+  html += '<div style="background:var(--surface);border-radius:10px;border:1px solid var(--border);overflow-x:auto;">';
+  html += '<table style="width:100%;border-collapse:collapse;table-layout:fixed;" id="txnTable">';
+  html += '<colgroup><col style="width:140px"><col style="width:160px"><col style="width:100px"><col style="width:140px"><col style="width:50px"><col style="width:50px"><col style="width:55px"><col style="width:55px"><col style="width:80px"></colgroup>';
   html += '<thead><tr>';
   html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Date</th>';
   html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Team</th>';
@@ -7226,6 +7233,9 @@ function initColumnResize(container) {
     const ths = tbl.querySelectorAll('thead tr:last-child th');
     if (ths.length < 2) return;
     if (tbl.dataset.colResize) return;
+    // Skip Player View roster tables — they use a shared colgroup for alignment
+    // and resizing individual tables would break cross-table column alignment
+    if (tbl.closest('#rosterSection') && tbl.querySelector('colgroup') && ths.length > 20) return;
     tbl.dataset.colResize = '1';
     // Snapshot computed widths so drag has a baseline
     ths.forEach(th => {
