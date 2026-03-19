@@ -337,6 +337,19 @@ const PLAYER_MAP = new Map(ALL.map(p => [p.name, p]));
 const PLAYER_MAP_LC = new Map(ALL.map(p => [p.name.toLowerCase(), p]));
 const _stripAccents = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 const PLAYER_MAP_NORM = new Map(ALL.map(p => [_stripAccents(p.name).toLowerCase(), p]));
+// Name aliases: alternative names → canonical name in player pool
+const NAME_ALIASES = {
+  'Cameron Schlittler': 'Cam Schlittler',
+};
+// Register aliases in all maps
+Object.entries(NAME_ALIASES).forEach(([alias, canonical]) => {
+  const p = PLAYER_MAP.get(canonical) || PLAYER_MAP_LC.get(canonical.toLowerCase());
+  if (p) {
+    PLAYER_MAP.set(alias, p);
+    PLAYER_MAP_LC.set(alias.toLowerCase(), p);
+    PLAYER_MAP_NORM.set(_stripAccents(alias).toLowerCase(), p);
+  }
+});
 function _plyr(name) { return PLAYER_MAP.get(name); }
 function _plyrI(name) {
   if (!name) return undefined;
@@ -1422,7 +1435,7 @@ const batColsGM = [
   {key:'surplusNow',label:'Surplus',w:65,tip:'Current surplus: LCV minus round value of keeper cost'},
   {key:'multiYearSurplus',label:'MYS',w:60,tip:'Multi-Year Surplus: discounted sum of future keeper surplus values'},
   {key:'prospectValue',label:'Prospect',w:65,tip:'Prospect value based on FV grade from scouting reports'},
-  {key:'tradeValue',label:'Trade Val',w:70,tip:'Total trade value = Multi-Year Surplus + Prospect Value'}
+  {key:'tradeValue',label:'Trade Val',w:70,tip:'Trade value: production + keeper premium (if surplus justifies slot) + prospect value'}
 ];
 
 const pitColsGM = [
@@ -1436,7 +1449,7 @@ const pitColsGM = [
   {key:'surplusNow',label:'Surplus',w:65,tip:'Current surplus: LCV minus round value of keeper cost'},
   {key:'multiYearSurplus',label:'MYS',w:60,tip:'Multi-Year Surplus: discounted sum of future keeper surplus values'},
   {key:'prospectValue',label:'Prospect',w:65,tip:'Prospect value based on FV grade from scouting reports'},
-  {key:'tradeValue',label:'Trade Val',w:70,tip:'Total trade value = Multi-Year Surplus + Prospect Value'}
+  {key:'tradeValue',label:'Trade Val',w:70,tip:'Trade value: production + keeper premium (if surplus justifies slot) + prospect value'}
 ];
 
 const allColsGM = [
@@ -1451,7 +1464,7 @@ const allColsGM = [
   {key:'surplusNow',label:'Surplus',w:65,tip:'Current surplus: LCV minus round value of keeper cost'},
   {key:'multiYearSurplus',label:'MYS',w:60,tip:'Multi-Year Surplus: discounted sum of future keeper surplus values'},
   {key:'prospectValue',label:'Prospect',w:65,tip:'Prospect value based on FV grade from scouting reports'},
-  {key:'tradeValue',label:'Trade Val',w:70,tip:'Total trade value = Multi-Year Surplus + Prospect Value'}
+  {key:'tradeValue',label:'Trade Val',w:70,tip:'Trade value: production + keeper premium (if surplus justifies slot) + prospect value'}
 ];
 
 function getCols() {
@@ -2148,7 +2161,14 @@ function render() {
       p._multiYearSurplus = Math.max(0, ki.multiYearSurplus || 0);
       const pr = findProspect(p.name);
       p._prospectValue = pr ? Math.max(0, ((pr.fv||0) - 40) * 0.15) : 0;
-      p._tradeValue = p._multiYearSurplus + p._prospectValue;
+      // Trade value: production-first, keeper premium only when surplus justifies the slot
+      const pLcv = p.lcv || 0;
+      if (!ki.keepable2027) {
+        p._tradeValue = pLcv * 0.8 + p._prospectValue;
+      } else {
+        const effMYS = (ki.multiYearSurplus || 0) > 1.0 ? (ki.multiYearSurplus || 0) : (ki.multiYearSurplus || 0) * 0.3;
+        p._tradeValue = pLcv * 0.5 + Math.max(0, effMYS) * 1.0 + p._prospectValue + (ki.yearsLeft >= 2 && (ki.multiYearSurplus || 0) > 1.0 ? ki.yearsLeft * 0.3 : 0);
+      }
     });
   }
 
@@ -3100,7 +3120,7 @@ function renderRoster() {
     // Trade target highlight
     const tt = tradeTargets[p.name];
     const ttBg = tt ? 'background:rgba(234,179,8,0.08);' : '';
-    const ttBadge = tt ? `<span style="font-size:8px;background:rgba(234,179,8,0.8);color:#000;padding:1px 4px;border-radius:2px;margin-left:4px;font-weight:600;" title="Trade target: fills your ${tt.needPos} gap (fit score ${tt.score.toFixed(1)})">TARGET</span>` : '';
+    const ttBadge = '';
     // Slot label (include IL/MiLB tag inline)
     const slotLabel = tag ? `${slot||''} ${tag}` : (slot||'');
 
@@ -4828,7 +4848,13 @@ function renderRoster() {
     const myPickRds = (sim.teamResults[myTeamObj.name] || []).map(p => p.round).sort((a,b) => a - b);
 
     // ── 7. Rank, deduplicate, and display ──
-    trades.sort((a,b) => b.score - a.score);
+    // Sort by complexity first (fewer total players = simpler), then by score within each tier
+    trades.sort((a,b) => {
+      const aSize = a.give.length + a.get.length;
+      const bSize = b.give.length + b.get.length;
+      if (aSize !== bSize) return aSize - bSize; // simpler first
+      return b.score - a.score; // then best score
+    });
     const seen = new Set();
     const unique = [];
     // Also limit to max 3 trades per partner to get variety
@@ -4840,7 +4866,7 @@ function renderRoster() {
       perTeam[tr.teamName] = (perTeam[tr.teamName]||0) + 1;
       if (perTeam[tr.teamName] > 3) continue;
       unique.push(tr);
-      if (unique.length >= 15) break;
+      if (unique.length >= 20) break;
     }
 
     if (unique.length === 0) {
