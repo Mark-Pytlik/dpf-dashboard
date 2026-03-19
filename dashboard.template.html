@@ -6857,7 +6857,7 @@ function _renderAnalyticsInner(section) {
         const pr = findProspect(name);
         const p = _plyrI(name);
         const inj = INJURY_MAP.get(name);
-        allMilb.push({ name, owner, mine: t.mine, pr, p, inj, fv: pr ? pr.fv : 0, rank: pr ? pr.avg_rank : 999, age: pr ? pr.age : 99, pos: pr ? pr.pos : (p ? p.primaryPos : '?'), team: pr ? pr.team : '' });
+        allMilb.push({ name, owner, mine: t.mine, pr, p, inj, fv: pr ? (pr.fv||0) : 0, rank: pr ? (pr.avg_rank||999) : 999, age: pr && pr.age != null ? pr.age : 99, pos: pr ? (pr.pos||'?') : (p ? p.primaryPos : '?'), team: pr ? (pr.team||'') : '' });
       });
     });
 
@@ -6879,7 +6879,7 @@ function _renderAnalyticsInner(section) {
         : '<span style="font-size:8px;background:var(--surface2);color:var(--text2);padding:1px 4px;border-radius:2px;">DEV</span>';
       const injBadge = m.inj ? ` <span style="color:var(--red);font-size:9px;">⚠</span>` : '';
       const fvClr = m.fv >= 65 ? 'var(--green)' : m.fv >= 55 ? 'var(--accent)' : 'var(--text)';
-      h += `<tr style="border-bottom:1px solid var(--border);${bg}"><td style="padding:3px 6px;font-weight:${isMine?'700':'500'};">${m.name}${injBadge}${isMine?' ★':''}</td><td style="padding:3px 6px;text-align:center;"><span class="pos-badge pos-${m.pos}">${m.pos}</span></td><td style="padding:3px 6px;text-align:center;font-size:10px;">${m.team}</td><td style="padding:3px 6px;text-align:center;font-weight:700;color:${fvClr};">${m.fv || '—'}</td><td style="padding:3px 6px;text-align:center;">${m.rank < 900 ? '#'+Math.round(m.rank) : '—'}</td><td style="padding:3px 6px;text-align:center;">${m.age < 90 ? m.age.toFixed(0) : '—'}</td><td style="padding:3px 6px;font-size:10px;">${m.owner}</td><td style="padding:3px 6px;text-align:center;">${statusBadge}</td></tr>`;
+      h += `<tr style="border-bottom:1px solid var(--border);${bg}"><td style="padding:3px 6px;font-weight:${isMine?'700':'500'};">${m.name}${injBadge}${isMine?' ★':''}</td><td style="padding:3px 6px;text-align:center;"><span class="pos-badge pos-${m.pos}">${m.pos}</span></td><td style="padding:3px 6px;text-align:center;font-size:10px;">${m.team}</td><td style="padding:3px 6px;text-align:center;font-weight:700;color:${fvClr};">${m.fv || '—'}</td><td style="padding:3px 6px;text-align:center;">${m.rank < 900 ? '#'+Math.round(m.rank) : '—'}</td><td style="padding:3px 6px;text-align:center;">${m.age != null && m.age < 90 ? Number(m.age).toFixed(0) : '—'}</td><td style="padding:3px 6px;font-size:10px;">${m.owner}</td><td style="padding:3px 6px;text-align:center;">${statusBadge}</td></tr>`;
     });
     h += '</tbody></table>';
 
