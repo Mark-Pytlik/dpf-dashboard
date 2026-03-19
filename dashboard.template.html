@@ -32,8 +32,13 @@ body { background:var(--bg); color:var(--text); font-family:'Inter',-apple-syste
 .table-wrap { overflow:auto; height:calc(100vh - 160px); }
 table { width:100%; border-collapse:collapse; }
 thead { position:sticky; top:0; z-index:10; }
-th { background:var(--surface2); padding:8px 10px; text-align:left; font-weight:600; font-size:11px; text-transform:uppercase; color:var(--text2); cursor:pointer; white-space:nowrap; border-bottom:2px solid var(--border); user-select:none; }
+th { background:var(--surface2); padding:8px 10px; text-align:left; font-weight:600; font-size:11px; text-transform:uppercase; color:var(--text2); cursor:pointer; white-space:nowrap; border-bottom:2px solid var(--border); user-select:none; position:relative; }
 th:hover { color:var(--accent); }
+th .col-resize { position:absolute; right:-2px; top:0; bottom:0; width:6px; cursor:col-resize; z-index:5; }
+th .col-resize:hover, th .col-resize.active { background:var(--accent); opacity:0.4; }
+th[draggable="true"] { cursor:grab; }
+th[draggable="true"]:active { cursor:grabbing; }
+th.col-drag-over { border-left:2px solid var(--accent); }
 th.sorted-asc::after { content:" \25B2"; color:var(--accent); }
 th.sorted-desc::after { content:" \25BC"; color:var(--accent); }
 td { padding:6px 10px; border-bottom:1px solid var(--border); white-space:nowrap; font-variant-numeric:tabular-nums; }
@@ -3117,9 +3122,7 @@ function renderRoster() {
       tv = lcv * 0.5 + Math.max(0, effectiveMYS) * 1.0 + pv + (ki.yearsLeft >= 2 && ki.multiYearSurplus > 1.0 ? ki.yearsLeft * 0.3 : 0);
     }
     const tvClr = tv > 3 ? 'var(--green)' : tv > 0 ? 'var(--text)' : 'var(--text2)';
-    // Trade target highlight
-    const tt = tradeTargets[p.name];
-    const ttBg = tt ? 'background:rgba(234,179,8,0.08);' : '';
+    const ttBg = '';
     const ttBadge = '';
     // Slot label (include IL/MiLB tag inline)
     const slotLabel = tag ? `${slot||''} ${tag}` : (slot||'');
@@ -4880,7 +4883,15 @@ function renderRoster() {
     th += ' — consider including a pick as a sweetener if the value gap is close.';
     th += '</div>';
 
+    let lastTier = 0;
     unique.forEach((tr, idx) => {
+      // Tier header when complexity changes
+      const tier = tr.give.length + tr.get.length;
+      if (tier !== lastTier) {
+        const tierLabel = tier === 2 ? 'Straight-Up Swaps (1-for-1)' : tier === 3 ? '2-for-1 Trades' : `Multi-Player Trades (${tier} players)`;
+        th += `<div style="padding:6px 8px 3px;font-weight:700;font-size:11px;color:var(--text2);border-bottom:2px solid var(--border);margin-top:${lastTier ? '8px' : '0'};">${tierLabel}</div>`;
+        lastTier = tier;
+      }
       // Rich display with keeper info
       function playerTag(g, color) {
         const keepTag = g.keepable
@@ -7226,6 +7237,88 @@ document.getElementById('tagFilter').addEventListener('change', render);
 document.addEventListener('click', e => {
   if (!e.target.closest('.autocomplete') && !e.target.closest('.draft-input')) draftAC.style.display = 'none';
 });
+
+// ── Column Resize + Reorder ──────────────────────────────────────────────
+function initColumnResize(container) {
+  const tables = (container || document).querySelectorAll('table');
+  tables.forEach(tbl => {
+    const ths = tbl.querySelectorAll('thead tr:last-child th');
+    if (ths.length < 2) return;
+    if (tbl.dataset.colResize) return;
+    tbl.dataset.colResize = '1';
+    // Snapshot computed widths so drag has a baseline
+    ths.forEach(th => {
+      th.style.width = th.offsetWidth + 'px';
+      th.style.minWidth = '20px';
+      // Resize handle (right edge)
+      const handle = document.createElement('div');
+      handle.className = 'col-resize';
+      th.appendChild(handle);
+    });
+    // Enable column reorder via drag on the header text (not the resize handle)
+    ths.forEach(th => {
+      th.setAttribute('draggable', 'true');
+      th.addEventListener('dragstart', e => {
+        if (e.target.classList.contains('col-resize')) { e.preventDefault(); return; }
+        const idx = [...th.parentElement.children].indexOf(th);
+        e.dataTransfer.setData('text/plain', idx);
+        e.dataTransfer.effectAllowed = 'move';
+        th.style.opacity = '0.4';
+        tbl._dragColIdx = idx;
+      });
+      th.addEventListener('dragend', () => { th.style.opacity = ''; });
+      th.addEventListener('dragover', e => { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; th.classList.add('col-drag-over'); });
+      th.addEventListener('dragleave', () => { th.classList.remove('col-drag-over'); });
+      th.addEventListener('drop', e => {
+        th.classList.remove('col-drag-over');
+        e.preventDefault();
+        const fromIdx = parseInt(e.dataTransfer.getData('text/plain'));
+        const toIdx = [...th.parentElement.children].indexOf(th);
+        if (isNaN(fromIdx) || fromIdx === toIdx) return;
+        // Reorder all rows (thead + tbody)
+        tbl.querySelectorAll('tr').forEach(row => {
+          const cells = [...row.children];
+          if (fromIdx >= cells.length || toIdx >= cells.length) return;
+          const moving = cells[fromIdx];
+          if (fromIdx < toIdx) row.insertBefore(moving, cells[toIdx].nextSibling);
+          else row.insertBefore(moving, cells[toIdx]);
+        });
+      });
+    });
+  });
+}
+// Global resize drag state
+let _resizeCol = null, _resizeStartX = 0, _resizeStartW = 0;
+document.addEventListener('mousedown', e => {
+  if (!e.target.classList.contains('col-resize')) return;
+  e.preventDefault();
+  e.stopPropagation();
+  const th = e.target.parentElement;
+  _resizeCol = th;
+  _resizeStartX = e.pageX;
+  _resizeStartW = th.offsetWidth;
+  e.target.classList.add('active');
+  document.body.style.cursor = 'col-resize';
+  document.body.style.userSelect = 'none';
+});
+document.addEventListener('mousemove', e => {
+  if (!_resizeCol) return;
+  const diff = e.pageX - _resizeStartX;
+  const newW = Math.max(24, _resizeStartW + diff);
+  _resizeCol.style.width = newW + 'px';
+  _resizeCol.style.minWidth = newW + 'px';
+});
+document.addEventListener('mouseup', () => {
+  if (!_resizeCol) return;
+  const handle = _resizeCol.querySelector('.col-resize');
+  if (handle) handle.classList.remove('active');
+  _resizeCol = null;
+  document.body.style.cursor = '';
+  document.body.style.userSelect = '';
+});
+// Re-init after each render
+const _origRender = render;
+render = function() { _origRender.apply(this, arguments); requestAnimationFrame(() => initColumnResize()); };
 
 // ── Init ──────────────────────────────────────────────────────────────────
 // Ensure keepers are on team (but skip any that were traded away via CBS transactions)
