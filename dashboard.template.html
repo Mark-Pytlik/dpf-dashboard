@@ -1631,8 +1631,10 @@ function _renderTransactionsInner(section) {
 
   let html = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">';
   html += '<h2 style="font-size:18px;font-weight:700;">League Transactions</h2>';
+  html += '<div style="display:flex;gap:8px;align-items:center;">';
   html += `<span style="font-size:10px;color:var(--text2);">Scraped: ${TXN_BUILD_TIME} · v__VERSION__</span>`;
-  html += '</div>';
+  html += '<button id="checkCbsBtn" class="btn btn-secondary" style="padding:4px 10px;font-size:11px;display:inline-flex;align-items:center;gap:4px;cursor:pointer;">↻ Check for updates</button>';
+  html += '</div></div>';
 
   // Filter controls
   html += '<div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center;">';
@@ -1733,6 +1735,54 @@ function _renderTransactionsInner(section) {
   };
   if (teamFilter) teamFilter.addEventListener('change', applyFilters);
   if (typeFilter) typeFilter.addEventListener('change', applyFilters);
+
+  // Wire Check CBS button — fetch latest transactions JSON from GitHub
+  const checkBtn = document.getElementById('checkCbsBtn');
+  if (checkBtn) checkBtn.addEventListener('click', async () => {
+    checkBtn.disabled = true;
+    checkBtn.textContent = '↻ Checking...';
+    try {
+      const resp = await fetch('https://raw.githubusercontent.com/Mark-Pytlik/dpf-dashboard/main/data/cbs_transactions.json?t=' + Date.now());
+      if (!resp.ok) throw new Error('Fetch failed: ' + resp.status);
+      const latest = await resp.json();
+      const existingKeys = new Set(CBS_TRANSACTIONS.map(t => t.date + '|' + t.teamId + '|' + t.players.map(p => p.name).sort().join(',')));
+      const newTxns = latest.filter(t => !existingKeys.has(t.date + '|' + t.teamId + '|' + t.players.map(p => p.name).sort().join(',')));
+      if (newTxns.length === 0) {
+        checkBtn.textContent = '✓ Up to date';
+        setTimeout(() => { checkBtn.textContent = '↻ Check for updates'; checkBtn.disabled = false; }, 2000);
+        return;
+      }
+      // Merge new transactions and apply to rosters
+      CBS_TRANSACTIONS.unshift(...newTxns);
+      const sorted = [...newTxns].sort((a,b) => parseCbsDate(a.date) - parseCbsDate(b.date));
+      sorted.forEach(txn => {
+        const teamName = resolveCbsTeam(txn);
+        txn.players.forEach(p => {
+          const found = _plyrI(p.name);
+          const playerName = found ? found.name : p.name;
+          const action = p.action || '';
+          if (action === 'Added') {
+            addToRoster(playerName, teamName);
+          } else if (action === 'Dropped') {
+            removeFromRoster(playerName, teamName);
+            delete state.drafted[playerName];
+          } else if (action.startsWith('Traded from')) {
+            const srcDisplayName = action.replace('Traded from ', '');
+            const srcTeam = CBS_NAME_TO_LEAGUE[srcDisplayName] || srcDisplayName;
+            removeFromRoster(playerName, srcTeam);
+            addToRoster(playerName, teamName);
+          }
+        });
+      });
+      save();
+      checkBtn.textContent = `✓ ${newTxns.length} new`;
+      setTimeout(() => { renderTransactions(); }, 1500);
+    } catch (err) {
+      console.error('Check CBS error:', err);
+      checkBtn.textContent = '✗ Error';
+      setTimeout(() => { checkBtn.textContent = '↻ Check for updates'; checkBtn.disabled = false; }, 2000);
+    }
+  });
 
 }
 
