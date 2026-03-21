@@ -219,7 +219,12 @@ def resolve_pos(pos_str, name):
     return None
 
 def get_all_positions(name, fg_pos):
-    """Build list of all eligible positions from FG slash string + CBS data."""
+    """Get all eligible positions. CBS is authoritative — if CBS has data for a player,
+    use CBS positions exclusively. Only fall back to FG positions if CBS has no entry."""
+    cbs_positions = get_cbs_all_positions(name)
+    if cbs_positions:
+        return cbs_positions
+    # No CBS data — fall back to FG positions
     if pd.isna(fg_pos):
         return ['DH']
     parts = str(fg_pos).split('/')
@@ -228,10 +233,6 @@ def get_all_positions(name, fg_pos):
         resolved = resolve_pos(part, name)
         if resolved and resolved not in positions:
             positions.append(resolved)
-    # Merge any additional CBS positions (e.g. "RF/CF" adds both)
-    for cbs_pos in get_cbs_all_positions(name):
-        if cbs_pos not in positions:
-            positions.append(cbs_pos)
     return positions if positions else ['DH']
 
 def get_primary_pos(name, fg_pos):
