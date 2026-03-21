@@ -4653,37 +4653,30 @@ function renderRoster() {
       }
 
       // Score how much I WANT each of their players
-      // Compute the max TV I can realistically offer (best single piece + best 2-piece combo)
+      // Rank their entire roster by LCV — a team's top players are never realistically available.
+      // In a 12-team keeper league, nobody trades their top ~5 guys. Target the mid-tier instead.
+      const theirByLcv = [...theirRoster].sort((a,b) => (b.lcv||0) - (a.lcv||0));
+      const theirTopNames = new Set(theirByLcv.slice(0, 5).map(p => p.name));
+
+      // Max TV I can offer
       const myTradeableTV = myRoster.filter(canTrade).map(p => tradeVal(p)).sort((a,b) => b - a);
       const myBest1TV = myTradeableTV[0] || 0;
-      const myBest2TV = (myTradeableTV[0] || 0) + (myTradeableTV[1] || 0);
-
-      // For each position on the other team, find their best player's LCV
-      // Their best at each position is realistically untouchable
-      const theirBestAtPos = {};
-      for (const [pos, players] of Object.entries(theirAssign)) {
-        if ((players || []).length > 0) {
-          theirBestAtPos[pos] = Math.max(...(players || []).map(p => p.lcv || 0));
-        }
-      }
 
       const theirAvailable = theirRoster.filter(prof => {
         if (UNTOUCHABLE.has(prof.name)) return false;
         if (prof.lcv < 0.5) return false;
+        // Their top 5 players by LCV are realistically untradeable
+        if (theirTopNames.has(prof.name)) return false;
         // They can't trade if it empties a starting slot
         const ap = theirPlayerPos[prof.name];
         if (ap) {
           const required = ROSTER_SLOTS[ap] || 1;
           if (theirPosDepth[ap] <= required) return false;
-          // Their BEST player at a position is realistically untouchable
-          // (unless they have surplus depth — 2+ starters above them)
-          const bestLcv = theirBestAtPos[ap] || 0;
-          if (prof.lcv >= bestLcv * 0.95 && theirPosDepth[ap] <= required + 1) return false;
         }
-        // TV ceiling: don't target players way beyond what I can offer
-        // even in a multi-player deal (best 2-piece combo + small buffer)
+        // TV ceiling: target's TV shouldn't exceed my best single piece by too much
+        // (realistic 1-for-1 or slight overpay territory only)
         const targetTV = tradeVal(prof);
-        if (targetTV > myBest2TV + 2.0) return false;
+        if (targetTV > myBest1TV + 2.5) return false;
         return true;
       }).map(prof => {
         // How much does this player help ME?
