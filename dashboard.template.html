@@ -3741,7 +3741,7 @@ function renderRoster() {
         let h = '';
         h += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Tell me what you want to improve and I\'ll find trades to make it happen.</div>';
         // Upgrade goal selector: positions + stat categories
-        const posGoals = ['SS','C','1B','2B','3B','LF','CF','RF','DH','SP','RP'];
+        const posGoals = ['C','1B','2B','3B','SS','LF','CF','RF','SP','RP'];
         const statGoals = [
           {key:'hr',label:'HRs'},{key:'sb',label:'SBs'},{key:'avg',label:'AVG/OBP'},
           {key:'rbi',label:'RBI/Runs'},{key:'so',label:'Ks (pitching)'},{key:'sv',label:'Saves/Holds'},
@@ -4519,8 +4519,8 @@ function renderRoster() {
     const goalStats = new Set((goals || []).filter(g => g.startsWith('stat:')).map(g => g.slice(5)));
     // Map stat goals to relevant player positions/attributes
     const statPosMap = {
-      'hr': ['1B','3B','RF','LF','DH','CF'], 'sb': ['SS','2B','CF','LF','RF'],
-      'avg': ['SS','2B','CF','RF','1B','LF','3B'], 'rbi': ['1B','3B','RF','DH','LF'],
+      'hr': ['1B','3B','RF','LF','CF'], 'sb': ['SS','2B','CF','LF','RF'],
+      'avg': ['SS','2B','CF','RF','1B','LF','3B'], 'rbi': ['1B','3B','RF','LF'],
       'so': ['SP','RP'], 'sv': ['RP'], 'era': ['SP','RP'], 'qs': ['SP']
     };
     // Expand stat goals to relevant positions for scoring
@@ -4656,6 +4656,10 @@ function renderRoster() {
       const theirAvailable = theirRoster.filter(prof => {
         if (UNTOUCHABLE.has(prof.name)) return false;
         if (prof.lcv < 0.5) return false;
+        // Skip DH-only players — trading for someone's DH is almost never realistic
+        // because they're usually the team's best hitter parked at a low-value slot
+        const nonDHPositions = prof.positions.filter(p => p !== 'DH' && p !== 'U');
+        if (nonDHPositions.length === 0) return false;
         // They can't trade if it empties a starting slot
         const ap = theirPlayerPos[prof.name];
         if (ap) {
@@ -4740,8 +4744,8 @@ function renderRoster() {
           const lcvDiff = get.lcv - give.lcv;
 
           // Fairness gate: trade value should be roughly balanced (allow slight overpay to fill needs)
-          if (tvDiff < -3.0 || tvDiff > 6.0) continue;
-          if (lcvDiff < -5.0) continue; // don't take a massive current-year hit
+          if (tvDiff < -3.0 || tvDiff > 3.5) continue;
+          if (lcvDiff < -4.0) continue; // don't take a massive current-year hit
 
           // Quality gate: at least one side should meaningfully help a need
           if (get.needHelp < 0.05 && give.theirNeedHelp < 0.05) continue;
