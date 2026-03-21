@@ -4653,19 +4653,37 @@ function renderRoster() {
       }
 
       // Score how much I WANT each of their players
+      // Compute the max TV I can realistically offer (best single piece + best 2-piece combo)
+      const myTradeableTV = myRoster.filter(canTrade).map(p => tradeVal(p)).sort((a,b) => b - a);
+      const myBest1TV = myTradeableTV[0] || 0;
+      const myBest2TV = (myTradeableTV[0] || 0) + (myTradeableTV[1] || 0);
+
+      // For each position on the other team, find their best player's LCV
+      // Their best at each position is realistically untouchable
+      const theirBestAtPos = {};
+      for (const [pos, players] of Object.entries(theirAssign)) {
+        if ((players || []).length > 0) {
+          theirBestAtPos[pos] = Math.max(...(players || []).map(p => p.lcv || 0));
+        }
+      }
+
       const theirAvailable = theirRoster.filter(prof => {
         if (UNTOUCHABLE.has(prof.name)) return false;
         if (prof.lcv < 0.5) return false;
-        // Skip DH-only players — trading for someone's DH is almost never realistic
-        // because they're usually the team's best hitter parked at a low-value slot
-        const nonDHPositions = prof.positions.filter(p => p !== 'DH' && p !== 'U');
-        if (nonDHPositions.length === 0) return false;
         // They can't trade if it empties a starting slot
         const ap = theirPlayerPos[prof.name];
         if (ap) {
           const required = ROSTER_SLOTS[ap] || 1;
           if (theirPosDepth[ap] <= required) return false;
+          // Their BEST player at a position is realistically untouchable
+          // (unless they have surplus depth — 2+ starters above them)
+          const bestLcv = theirBestAtPos[ap] || 0;
+          if (prof.lcv >= bestLcv * 0.95 && theirPosDepth[ap] <= required + 1) return false;
         }
+        // TV ceiling: don't target players way beyond what I can offer
+        // even in a multi-player deal (best 2-piece combo + small buffer)
+        const targetTV = tradeVal(prof);
+        if (targetTV > myBest2TV + 2.0) return false;
         return true;
       }).map(prof => {
         // How much does this player help ME?
@@ -4701,7 +4719,9 @@ function renderRoster() {
         // Keeper upside bonus: if they're very keepable and I can benefit
         const keeperBonus = prof.keepable ? prof.yearsLeft * 0.4 + Math.max(0, prof.multiYearSurplus) * 0.3 : 0;
         const gf = goalFit(prof);
-        const wantScore = bestNeedHelp * 2.0 + upgradeBonus * 0.8 + keeperBonus + prof.lcv * 0.15 + gf * 1.5;
+        // wantScore driven by need fit and goals, NOT raw talent
+        // (we want obtainable players who fill gaps, not the league's best hitters)
+        const wantScore = bestNeedHelp * 2.0 + upgradeBonus * 0.8 + keeperBonus + gf * 1.5;
         return { ...prof, wantScore, goalFit: gf, helpPos: bestNeedPos || upgradePos, needHelp: Math.max(bestNeedHelp, upgradeBonus * 0.5), tv: tradeVal(prof) };
       }).filter(x => {
         // When goals are specified, strongly prefer players that match at least one goal
