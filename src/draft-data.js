@@ -198,7 +198,7 @@ if (CBS_TRANSACTIONS.length > 0) {
       const playerName = found ? found.name : p.name;
       const action = p.action || '';
 
-      if (action === 'Added') {
+      if (action === 'Added' || action === 'Added off Waivers') {
         addToRoster(playerName, teamName);
       } else if (action === 'Dropped') {
         removeFromRoster(playerName, teamName);

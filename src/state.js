@@ -1,5 +1,5 @@
 // ── State ─────────────────────────────────────────────────────────────────
-const STATE_VERSION = 16;
+const STATE_VERSION = 17;
 const DEFAULT_KEEPERS = ['James Wood', 'MacKenzie Gore', 'Zach Neto', 'Nick Kurtz', 'Jo Adell'];
 const DEFAULT_KEEPER_ROUNDS = {'James Wood':12, 'MacKenzie Gore':13, 'Jo Adell':10, 'Zach Neto':14, 'Nick Kurtz':11};
 
@@ -94,6 +94,18 @@ let state;
 if (_saved) {
   // Merge defaults for any missing keys, but preserve all existing data
   state = Object.assign({}, _defaults, _saved);
+  // v17 migration: CBS_TEAM_MAP was wrong in v16, corrupting leagueTeams rosters.
+  // Reset leagueTeams so they rebuild cleanly from keepers + CBS transactions.
+  if (!_saved._v || _saved._v < 17) {
+    console.log('v17 migration: resetting leagueTeams due to CBS_TEAM_MAP fix');
+    state.leagueTeams = {};
+    state.leagueMilbKeepers = {};
+    // Also clean stale team names from teamOwners
+    const validNames = new Set(LEAGUE_TEAMS.map(t => t.name));
+    for (const k of Object.keys(state.teamOwners)) {
+      if (!validNames.has(k)) delete state.teamOwners[k];
+    }
+  }
   state._v = STATE_VERSION;
 } else {
   state = _defaults;
