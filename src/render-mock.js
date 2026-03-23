@@ -558,18 +558,20 @@ function _renderAnalyticsInner(section) {
 
     // Find all trade transactions involving my team
     const myTrades = [];
-    const processed = new Set();
+    const myTeamName = LEAGUE_TEAMS.find(t => t.mine)?.name || '';
     (state.transactions || []).filter(tx => tx.type === 'trade').forEach(tx => {
-      const myTeamName = LEAGUE_TEAMS.find(t => t.mine)?.name || '';
-      const isMyTrade = (tx.from === myTeamName) || (tx.cbsAction && tx.cbsAction.includes(myTeamName));
-      if (!isMyTrade) return;
+      // Resolve old team name in "Traded from X" to current league name
+      const srcRaw = tx.cbsAction ? tx.cbsAction.replace('Traded from ', '') : '';
+      const srcResolved = CBS_NAME_TO_LEAGUE[srcRaw] || srcRaw;
 
-      // Group by date + other team to consolidate trade sides
-      const otherTeam = tx.from === myTeamName ? (tx.cbsAction ? tx.cbsAction.replace('Traded from ', '') : '?') : tx.from;
-      const key = tx.date + '|' + (tx.from === myTeamName ? 'sent' : 'received');
-      const dir = tx.from === myTeamName ? 'received' : 'sent'; // if from = myTeam, I received this player (team column = receiving team)
+      // tx.from = the RECEIVING team. srcResolved = the SOURCE team.
+      const iReceived = (tx.from === myTeamName);           // I'm the receiving team
+      const iSent = (srcResolved === myTeamName);            // I'm the source team
+      if (!iReceived && !iSent) return;
 
-      myTrades.push({ ...tx, direction: tx.from === myTeamName ? 'received' : 'sent', otherTeam });
+      const direction = iReceived ? 'received' : 'sent';
+      const otherTeam = iReceived ? srcResolved : tx.from;
+      myTrades.push({ ...tx, direction, otherTeam });
     });
 
     // Group trades by date

@@ -49,6 +49,17 @@ function render() {
     if (tagFilter === 'injured' && state.tags[p.name] !== 'injured') return false;
     if (tagFilter === 'any-tag' && !state.tags[p.name]) return false;
     if (tagFilter === 'untagged' && state.tags[p.name]) return false;
+    // Analysis badge filters
+    if (tagFilter === 'buy' && p._buySell !== 'buy') return false;
+    if (tagFilter === 'sell' && p._buySell !== 'sell') return false;
+    if (tagFilter === 'sb-breakout' && !p._sbBreakout) return false;
+    if (tagFilter === 'low-k' && !(p.type === 'BAT' && p.zSo !== undefined && p.zSo <= -1.0)) return false;
+    if (tagFilter === 'high-k' && !(p.type === 'BAT' && p.zSo !== undefined && p.zSo >= 1.5)) return false;
+    if (tagFilter === 'park-plus' && !(p.parkHR && p.parkHR >= 1.10)) return false;
+    if (tagFilter === 'park-minus' && !(p.parkHR && p.parkHR <= 0.90)) return false;
+    if (tagFilter === 'closer' && p.bpRole !== 'CL') return false;
+    if (tagFilter === 'setup' && p.bpRole !== 'SU') return false;
+    if (tagFilter === 'handcuff' && p.bpRole !== 'HC') return false;
     // For s26/avp views, only show players with actual 2026 data
     if ((currentView === 's26' || currentView === 'avp') && !p.s26_pa && !p.s26_ip) return false;
     return true;
