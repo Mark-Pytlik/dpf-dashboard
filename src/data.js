@@ -166,8 +166,8 @@ function parkBadge(player) {
   if (!player) return '';
   const hr = player.parkHR;
   if (!hr || hr === 1.0) return '';
-  if (hr >= 1.10) return '<span title="Hitter-friendly park (HR×' + hr.toFixed(2) + ')" style="font-size:8px;background:#16a34a;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">PF+</span>';
-  if (hr <= 0.90) return '<span title="Pitcher-friendly park (HR×' + hr.toFixed(2) + ')" style="font-size:8px;background:#dc2626;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">PF-</span>';
+  if (hr >= 1.10) return '<span class="pbadge" title="Hitter-friendly park (HR×' + hr.toFixed(2) + ')" style="background:#16a34a;color:#fff;">PF+</span>';
+  if (hr <= 0.90) return '<span class="pbadge" title="Pitcher-friendly park (HR×' + hr.toFixed(2) + ')" style="background:#dc2626;color:#fff;">PF-</span>';
   return '';
 }
 
@@ -180,7 +180,7 @@ function closerBadge(player) {
   const labels = {CL: 'CL', SU: 'SU', HC: 'HC'};
   const tips = {CL: 'Primary closer', SU: 'Setup man', HC: 'Closer handcuff — next in line'};
   const note = BP_ROLE_NOTES.get(player.team) || '';
-  return ` <span title="${tips[role]}${note ? ' · ' + note : ''}" style="font-size:8px;background:${colors[role]};color:#fff;padding:1px 3px;border-radius:2px;font-weight:600;cursor:help;">${labels[role]}</span>`;
+  return ` <span class="pbadge" title="${tips[role]}${note ? ' · ' + note : ''}" style="background:${colors[role]};color:#fff;">${labels[role]}</span>`;
 }
 
 // ── K-adjusted value (this league penalizes Ks) ────────────────────────
@@ -195,8 +195,8 @@ function getKadjBadge(player) {
   // In our league, -K means this player loses value vs standard leagues
   // Positive zSo = high K player = LOSES value in our league (standard rankings overvalue them)
   // Negative zSo = low K player = GAINS value in our league (standard rankings undervalue them)
-  if (zSo <= -1.0) return '<span title="Low-K hitter: gains value in -K league (zK=' + zSo.toFixed(1) + ')" style="font-size:8px;background:#16a34a;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">LK</span>';
-  if (zSo >= 1.5) return '<span title="High-K hitter: loses value in -K league (zK=' + zSo.toFixed(1) + ')" style="font-size:8px;background:#dc2626;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">HK</span>';
+  if (zSo <= -1.0) return '<span class="pbadge" title="Low-K hitter: gains value in -K league (zK=' + zSo.toFixed(1) + ')" style="background:#16a34a;color:#fff;">LK</span>';
+  if (zSo >= 1.5) return '<span class="pbadge" title="High-K hitter: loses value in -K league (zK=' + zSo.toFixed(1) + ')" style="background:#dc2626;color:#fff;">HK</span>';
   return '';
 }
 

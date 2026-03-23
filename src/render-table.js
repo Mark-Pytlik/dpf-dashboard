@@ -301,9 +301,9 @@ function render() {
         const enoR = p.eno_rank ? ` <span class="eno-rank" title="Eno 150 Best Pitchers #${p.eno_rank}">P${p.eno_rank}</span>` : '';
         // Analytics badges (v5.0) — inline after name, never wrap
         let aBadges = '';
-        if (p._buySell === 'buy') aBadges += ' <span title="Buy-low: xwOBA ' + ((p.s25_delta||0)*1000).toFixed(0) + ' pts above wOBA" style="font-size:8px;background:#16a34a;color:#fff;padding:1px 3px;border-radius:2px;font-weight:600;cursor:help;">BUY</span>';
-        if (p._buySell === 'sell') aBadges += ' <span title="Sell-high: xwOBA ' + (Math.abs(p.s25_delta||0)*1000).toFixed(0) + ' pts below wOBA" style="font-size:8px;background:#dc2626;color:#fff;padding:1px 3px;border-radius:2px;font-weight:600;cursor:help;">SELL</span>';
-        if (p._sbBreakout) aBadges += ' <span title="SB breakout: ' + (p.sprintSpeed||'?') + ' ft/s speed, only ' + (p.sb||0) + ' proj SB" style="font-size:8px;background:#7c3aed;color:#fff;padding:1px 3px;border-radius:2px;font-weight:600;cursor:help;">SB</span>';
+        if (p._buySell === 'buy') aBadges += ' <span class="pbadge" title="Buy-low: xwOBA ' + ((p.s25_delta||0)*1000).toFixed(0) + ' pts above wOBA" style="background:#16a34a;color:#fff;">BUY</span>';
+        if (p._buySell === 'sell') aBadges += ' <span class="pbadge" title="Sell-high: xwOBA ' + (Math.abs(p.s25_delta||0)*1000).toFixed(0) + ' pts below wOBA" style="background:#dc2626;color:#fff;">SELL</span>';
+        if (p._sbBreakout) aBadges += ' <span class="pbadge" title="SB breakout: ' + (p.sprintSpeed||'?') + ' ft/s speed, only ' + (p.sb||0) + ' proj SB" style="background:#7c3aed;color:#fff;">SB</span>';
         aBadges += (p._kAdj || '') + (p._parkBadge || '') + (p._closerBadge || '');
         return `<td style="font-weight:600;white-space:nowrap;">${val}${_injBadge(p.name)}${enoR}${aBadges}${tagHtml}${kp}${ownerBadge}${tagBtns}</td>`;
       }

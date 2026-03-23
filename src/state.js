@@ -1,5 +1,5 @@
 // ── State ─────────────────────────────────────────────────────────────────
-const STATE_VERSION = 17;
+const STATE_VERSION = 18;
 const DEFAULT_KEEPERS = ['James Wood', 'MacKenzie Gore', 'Zach Neto', 'Nick Kurtz', 'Jo Adell'];
 const DEFAULT_KEEPER_ROUNDS = {'James Wood':12, 'MacKenzie Gore':13, 'Jo Adell':10, 'Zach Neto':14, 'Nick Kurtz':11};
 
@@ -96,8 +96,8 @@ if (_saved) {
   state = Object.assign({}, _defaults, _saved);
   // v17 migration: CBS_TEAM_MAP was wrong in v16, corrupting leagueTeams rosters.
   // Reset leagueTeams so they rebuild cleanly from keepers + CBS transactions.
-  if (!_saved._v || _saved._v < 17) {
-    console.log('v17 migration: resetting leagueTeams due to CBS_TEAM_MAP fix');
+  if (!_saved._v || _saved._v < 18) {
+    console.log('v18 migration: resetting leagueTeams (trade alias fix)');
     state.leagueTeams = {};
     state.leagueMilbKeepers = {};
     // Also clean stale team names from teamOwners
@@ -206,6 +206,54 @@ CBS_TRANSACTIONS.forEach(txn => {
     }
   }
 });
+
+// Resolve old team names found in "Traded from X" trade actions.
+// CBS records trades using the team name at the time of the trade, but teams rename.
+// For 2-team trades (same timestamp), we can infer: the "Traded from X" source is
+// the OTHER team in the trade pair.
+(function resolveTradeAliases() {
+  const byTime = {};
+  CBS_TRANSACTIONS.forEach(txn => {
+    txn.players.forEach(p => {
+      if ((p.action || '').startsWith('Traded from ')) {
+        const src = p.action.replace('Traded from ', '');
+        if (!byTime[txn.date]) byTime[txn.date] = [];
+        byTime[txn.date].push({ txn, src });
+      }
+    });
+  });
+  for (const entries of Object.values(byTime)) {
+    // Unique teams involved in this trade timestamp
+    const teams = [...new Map(entries.map(e => [e.txn.teamId, e.txn])).values()];
+    // Unique unresolved source names
+    const srcNames = [...new Set(entries.map(e => e.src))].filter(s => !CBS_NAME_TO_LEAGUE[s]);
+    if (srcNames.length === 0) return;
+    if (teams.length === 2) {
+      // 2-team trade: each source name is the other team's old name
+      srcNames.forEach(sn => {
+        // Find which team RECEIVED from this source
+        const receiver = entries.find(e => e.src === sn);
+        if (!receiver) return;
+        const other = teams.find(t => t.teamId !== receiver.txn.teamId);
+        if (other) {
+          const resolved = (other.teamId && CBS_TEAM_MAP[other.teamId]) ? CBS_TEAM_MAP[other.teamId] : other.team;
+          CBS_NAME_TO_LEAGUE[sn] = resolved;
+          console.log('Trade alias: "' + sn + '" → "' + resolved + '"');
+        }
+      });
+    } else {
+      // Multi-team trade: try matching source names to teams by teamId from other entries
+      srcNames.forEach(sn => {
+        // See if any team in this trade group has this as a known old name
+        teams.forEach(t => {
+          if (t.team === sn || (t.teamId && CBS_TEAM_MAP[t.teamId] === sn)) {
+            CBS_NAME_TO_LEAGUE[sn] = CBS_TEAM_MAP[t.teamId] || t.team;
+          }
+        });
+      });
+    }
+  }
+})();
 
 function resolveCbsTeam(txn) {
   if (txn.teamId && CBS_TEAM_MAP[txn.teamId]) return CBS_TEAM_MAP[txn.teamId];
