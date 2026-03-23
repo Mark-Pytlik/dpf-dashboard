@@ -551,6 +551,16 @@ function renderRoster() {
       }
     }
 
+    // Offensive Bench — right under offense starters
+    if (!rsc || rosterView === 'player') {
+      html += `<tr><td colspan="${colSpan}" style="padding:6px 6px 2px;font-weight:700;font-size:10px;color:var(--text2);border-bottom:1px solid var(--border);">OFFENSIVE BENCH (${offBench.length})</td></tr>`;
+      offBench.forEach(p => {
+        const inner = rowFn(p, 'BN', '', false);
+        html += `<tr class="roster-section" data-slot="BN">${inner.replace(/^<tr[^>]*>|<\/tr>$/g, '')}</tr>`;
+      });
+      if (offBench.length === 0) html += `<tr><td colspan="${colSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No offensive bench players</td></tr>`;
+    }
+
     // Close offense table in Player view, open pitching table with pit-specific headers
     if (rosterView === 'player') {
       html += '</tbody></table>';
@@ -571,32 +581,20 @@ function renderRoster() {
         html += `<tr class="roster-section" data-slot="${slot}">${inner.replace(/^<tr[^>]*>|<\/tr>$/g, '')}</tr>`;
       }
     }
+
+    // Pitcher's Bench — right under pitching starters
+    if (!rsc || rosterView === 'player') {
+      const pitBenchColSpan = rosterView === 'player' ? colSpanPit : colSpan;
+      html += `<tr><td colspan="${pitBenchColSpan}" style="padding:6px 6px 2px;font-weight:700;font-size:10px;color:var(--text2);border-bottom:1px solid var(--border);">PITCHER'S BENCH (${pitBench.length})</td></tr>`;
+      pitBench.forEach(p => {
+        html += rowFn(p, 'BN', '', true, playerBatStatCols.length);
+      });
+      if (pitBench.length === 0) html += `<tr><td colspan="${pitBenchColSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No pitcher bench players</td></tr>`;
+    }
   }
   html += '</tbody></table>';
 
   if (!rsc || rosterView === 'player') {
-    // Offensive Bench
-    html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">OFFENSIVE BENCH (${offBench.length})</span></div>`;
-    html += `<table style="width:100%;border-collapse:collapse;font-size:12px;${rosterView==='player'?'table-layout:fixed;':''}">`;
-    html += rosterView === 'player' ? playerBatColgroup : rosterColgroup;
-    html += '<tbody>';
-    offBench.forEach(p => {
-      html += rowFn(p, 'BN', '', false, playerBatStatCols.length);
-    });
-    if (offBench.length === 0) html += `<tr><td colspan="${colSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No offensive bench players</td></tr>`;
-    html += '</tbody></table>';
-
-    // Pitcher's Bench
-    html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">PITCHER'S BENCH (${pitBench.length})</span></div>`;
-    html += `<table style="width:100%;border-collapse:collapse;font-size:12px;${rosterView==='player'?'table-layout:fixed;':''}">`;
-    html += rosterView === 'player' ? playerBatColgroup : rosterColgroup;
-    html += '<tbody>';
-    pitBench.forEach(p => {
-      html += rowFn(p, 'BN', '', true, playerBatStatCols.length);
-    });
-    if (pitBench.length === 0) html += `<tr><td colspan="${colSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No pitcher bench players</td></tr>`;
-    html += '</tbody></table>';
-
     // IL
     html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--red);">IL (${ilPlayers.length}/4)</span></div>`;
     html += `<table style="width:100%;border-collapse:collapse;font-size:12px;${rosterView==='player'?'table-layout:fixed;':''}">`;

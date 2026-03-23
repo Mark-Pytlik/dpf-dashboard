@@ -57,8 +57,8 @@ tr.keeper { background:rgba(108,140,255,0.08); }
 .tag-sleeper { background:rgba(234,179,8,0.15); color:var(--yellow); }
 .tag-bust { background:rgba(249,115,22,0.15); color:var(--orange); }
 .tag-injured { background:rgba(168,85,247,0.15); color:#a855f7; }
-.tag-btns { display:none; gap:1px; vertical-align:middle; }
-tr:hover .tag-btns { display:inline-flex; }
+.tag-btns { display:inline-flex; gap:1px; vertical-align:middle; visibility:hidden; }
+tr:hover .tag-btns { visibility:visible; }
 .tag-btn { border:none; cursor:pointer; font-size:9px; font-weight:900; line-height:1; padding:1px 2px; border-radius:2px; opacity:0.25; background:transparent; }
 .tag-btn:hover { opacity:1; }
 .tag-w { color:var(--green); } .tag-w:hover { background:rgba(34,197,94,0.15); }
