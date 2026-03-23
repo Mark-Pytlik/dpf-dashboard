@@ -45,9 +45,9 @@ function updateModeUI() {
   // Hide draft panel in season mode
   const dp = document.getElementById('draftPanel');
   if (dp && !isDraft) dp.classList.remove('show');
-  // Show tag filter only in draft mode
+  // Show tag filter in both modes (badges are useful in season too)
   const tagFilt = document.getElementById('tagFilter');
-  if (tagFilt) tagFilt.style.display = isDraft ? '' : 'none';
+  if (tagFilt) tagFilt.style.display = '';
   // Show/hide tabs based on mode
   document.querySelectorAll('.tab').forEach(t => {
     const tab = t.dataset.tab;

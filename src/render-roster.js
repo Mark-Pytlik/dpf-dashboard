@@ -56,7 +56,8 @@ function renderRoster() {
 
   // ── Auto-assign logic ──
   const bySlot = {};
-  const bench = [];
+  const offBench = [];  // offensive bench
+  const pitBench = [];  // pitcher's bench
   for (const pos of Object.keys(ROSTER_SLOTS)) bySlot[pos] = [];
   const ilPlayers = [];
   const autoPool = [];
@@ -65,9 +66,9 @@ function renderRoster() {
     const p = _plyrI(name) || { name, primaryPos: '?', elig: '?', lcv:0, pnav:0 };
     const ov = overrides[name];
     if (ov === 'il') { ilPlayers.push(p); return; }
-    if (ov === 'reserve') { bench.push(p); return; }
+    if (ov === 'reserve') { (['SP','RP'].includes(p.primaryPos) ? pitBench : offBench).push(p); return; }
     if (ov && ROSTER_SLOTS[ov] !== undefined) { bySlot[ov].push(p); return; }
-    if (ov) { bench.push(p); return; }
+    if (ov) { (['SP','RP'].includes(p.primaryPos) ? pitBench : offBench).push(p); return; }
     autoPool.push(p);
   });
 
@@ -102,7 +103,7 @@ function renderRoster() {
   // Pass 3: DH overflow
   stillPending.forEach(p => {
     if (!['SP','RP'].includes(p.primaryPos) && bySlot['DH'].length < ROSTER_SLOTS['DH']) bySlot['DH'].push(p);
-    else bench.push(p);
+    else (['SP','RP'].includes(p.primaryPos) ? pitBench : offBench).push(p);
   });
 
   // ── PNAV color helpers ──
@@ -502,7 +503,8 @@ function renderRoster() {
     for (const slot of [...batSlotOrder, 'SP', 'RP']) {
       (bySlot[slot]||[]).forEach(p => { if(p) allRosterPlayers.push({p, slot}); });
     }
-    bench.forEach(p => { allRosterPlayers.push({p, slot:'BN'}); });
+    offBench.forEach(p => { allRosterPlayers.push({p, slot:'BN'}); });
+    pitBench.forEach(p => { allRosterPlayers.push({p, slot:'BN'}); });
     ilPlayers.forEach(p => { allRosterPlayers.push({p, slot:'IL'}); });
 
     // Compute sort values
@@ -573,16 +575,26 @@ function renderRoster() {
   html += '</tbody></table>';
 
   if (!rsc || rosterView === 'player') {
-    // Bench
-    html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">BENCH (${bench.length}/7)</span></div>`;
+    // Offensive Bench
+    html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">OFFENSIVE BENCH (${offBench.length})</span></div>`;
     html += `<table style="width:100%;border-collapse:collapse;font-size:12px;${rosterView==='player'?'table-layout:fixed;':''}">`;
     html += rosterView === 'player' ? playerBatColgroup : rosterColgroup;
     html += '<tbody>';
-    bench.forEach(p => {
-      const isPit = p && ['SP','RP'].includes(p.primaryPos);
-      html += rowFn(p, 'BN', '', isPit, playerBatStatCols.length);
+    offBench.forEach(p => {
+      html += rowFn(p, 'BN', '', false, playerBatStatCols.length);
     });
-    if (bench.length === 0) html += `<tr><td colspan="${colSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No bench players</td></tr>`;
+    if (offBench.length === 0) html += `<tr><td colspan="${colSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No offensive bench players</td></tr>`;
+    html += '</tbody></table>';
+
+    // Pitcher's Bench
+    html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--text2);">PITCHER'S BENCH (${pitBench.length})</span></div>`;
+    html += `<table style="width:100%;border-collapse:collapse;font-size:12px;${rosterView==='player'?'table-layout:fixed;':''}">`;
+    html += rosterView === 'player' ? playerBatColgroup : rosterColgroup;
+    html += '<tbody>';
+    pitBench.forEach(p => {
+      html += rowFn(p, 'BN', '', true, playerBatStatCols.length);
+    });
+    if (pitBench.length === 0) html += `<tr><td colspan="${colSpan}" style="padding:4px 6px;color:var(--text2);font-size:11px;">No pitcher bench players</td></tr>`;
     html += '</tbody></table>';
 
     // IL
