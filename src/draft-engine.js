@@ -13,6 +13,8 @@ function overallPick(rd) {
 const BASE_MULT = {C:1.0,'1B':0.4,'2B':1.2,'3B':1.2,SS:0.7,LF:1.0,CF:1.0,RF:1.0,DH:0.4,SP:1.0,RP:1.0};
 const SCARCITY = {C:1.25,'1B':0.85,'2B':1.0,'3B':1.0,SS:1.0,LF:0.9,CF:0.95,RF:0.85,DH:0.75,SP:1.0,RP:1.15};
 const ROSTER_SLOTS = {C:1,'1B':1,'2B':1,'3B':1,SS:1,LF:1,CF:1,RF:1,DH:1,SP:5,RP:5};
+// Ohtani dual-eligibility: counts as both a position player (DH) and pitcher (SP)
+const DUAL_ELIGIBLE = { 'Shohei Ohtani': 'SP' };
 
 function getPosMult() {
   const counts = {};

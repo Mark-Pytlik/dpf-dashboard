@@ -62,6 +62,8 @@ function calcOptimalLCV(playerNames) {
   return { startingLCV, totalLCV, count: players.length };
 }
 
+let leagueSortCol = 'startingLCV', leagueSortDir = -1; // default: Start LCV desc
+
 function renderLeague() {
   const section = document.getElementById('rosterSection');
 

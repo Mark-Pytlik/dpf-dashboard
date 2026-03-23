@@ -1,3 +1,45 @@
+// ── Roster assignment helper ──────────────────────────────────────────────
+const _needsCache = new Map();
+function computeNeedsForTeam(players) {
+  const _cacheKey = players.map(p => p.name).sort().join('|');
+  if (_needsCache.has(_cacheKey)) return _needsCache.get(_cacheKey);
+  const hitters = players.filter(p => !['SP','RP'].includes(p.primaryPos)).sort((a,b) => (b.lcv||0) - (a.lcv||0));
+  const assigned = {};
+  const used = new Set();
+  const batSlots = ['C','1B','2B','3B','SS','LF','CF','RF'];
+  for (const pos of batSlots) {
+    assigned[pos] = [];
+    const slots = ROSTER_SLOTS[pos] || 1;
+    for (const p of hitters) {
+      if (used.has(p.name)) continue;
+      if (p.primaryPos === pos && assigned[pos].length < slots) {
+        assigned[pos].push(p); used.add(p.name);
+      }
+    }
+  }
+  for (const pos of batSlots) {
+    const slots = ROSTER_SLOTS[pos] || 1;
+    for (const p of hitters) {
+      if (used.has(p.name) || assigned[pos].length >= slots) continue;
+      if ((p.pos||p.primaryPos||'').split('/').includes(pos)) {
+        assigned[pos].push(p); used.add(p.name);
+      }
+    }
+  }
+  assigned['DH'] = [];
+  const dhSlots = ROSTER_SLOTS['DH'] || 1;
+  for (const p of hitters) {
+    if (used.has(p.name) || assigned['DH'].length >= dhSlots) continue;
+    assigned['DH'].push(p); used.add(p.name);
+  }
+  const spPool = players.filter(p => p.primaryPos === 'SP' || DUAL_ELIGIBLE[p.name] === 'SP');
+  const rpPool = players.filter(p => p.primaryPos === 'RP' || DUAL_ELIGIBLE[p.name] === 'RP');
+  assigned['SP'] = spPool.sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, ROSTER_SLOTS['SP'] || 5);
+  assigned['RP'] = rpPool.sort((a,b) => (b.lcv||0) - (a.lcv||0)).slice(0, ROSTER_SLOTS['RP'] || 5);
+  _needsCache.set(_cacheKey, assigned);
+  return assigned;
+}
+
 // ── Combined Roster view (My Team + all league teams) ─────────────────────
 function renderRoster() {
   const section = document.getElementById('rosterSection');

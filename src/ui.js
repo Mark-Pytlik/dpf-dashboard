@@ -373,6 +373,5 @@ function removeFromTeam(name) {
   render();
 }
 
-// Ohtani dual-eligibility: counts as both a position player (DH) and pitcher (SP)
-const DUAL_ELIGIBLE = { 'Shohei Ohtani': 'SP' };
+// DUAL_ELIGIBLE moved to draft-engine.js (loaded earlier for render-roster dependency)
 
