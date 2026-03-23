@@ -207,53 +207,19 @@ CBS_TRANSACTIONS.forEach(txn => {
   }
 });
 
-// Resolve old team names found in "Traded from X" trade actions.
-// CBS records trades using the team name at the time of the trade, but teams rename.
-// For 2-team trades (same timestamp), we can infer: the "Traded from X" source is
-// the OTHER team in the trade pair.
-(function resolveTradeAliases() {
-  const byTime = {};
-  CBS_TRANSACTIONS.forEach(txn => {
-    txn.players.forEach(p => {
-      if ((p.action || '').startsWith('Traded from ')) {
-        const src = p.action.replace('Traded from ', '');
-        if (!byTime[txn.date]) byTime[txn.date] = [];
-        byTime[txn.date].push({ txn, src });
-      }
-    });
-  });
-  for (const entries of Object.values(byTime)) {
-    // Unique teams involved in this trade timestamp
-    const teams = [...new Map(entries.map(e => [e.txn.teamId, e.txn])).values()];
-    // Unique unresolved source names
-    const srcNames = [...new Set(entries.map(e => e.src))].filter(s => !CBS_NAME_TO_LEAGUE[s]);
-    if (srcNames.length === 0) return;
-    if (teams.length === 2) {
-      // 2-team trade: each source name is the other team's old name
-      srcNames.forEach(sn => {
-        // Find which team RECEIVED from this source
-        const receiver = entries.find(e => e.src === sn);
-        if (!receiver) return;
-        const other = teams.find(t => t.teamId !== receiver.txn.teamId);
-        if (other) {
-          const resolved = (other.teamId && CBS_TEAM_MAP[other.teamId]) ? CBS_TEAM_MAP[other.teamId] : other.team;
-          CBS_NAME_TO_LEAGUE[sn] = resolved;
-          console.log('Trade alias: "' + sn + '" → "' + resolved + '"');
-        }
-      });
-    } else {
-      // Multi-team trade: try matching source names to teams by teamId from other entries
-      srcNames.forEach(sn => {
-        // See if any team in this trade group has this as a known old name
-        teams.forEach(t => {
-          if (t.team === sn || (t.teamId && CBS_TEAM_MAP[t.teamId] === sn)) {
-            CBS_NAME_TO_LEAGUE[sn] = CBS_TEAM_MAP[t.teamId] || t.team;
-          }
-        });
-      });
-    }
+// Known old CBS team names → CBS team ID. CBS records trades using the team name
+// at the time of the trade, but teams rename frequently. This table lets us resolve
+// "Traded from <old name>" actions correctly, even in multi-team trades.
+const CBS_OLD_NAMES = {
+  'choured in the usa.': 1,   // Kaskie (now Dennis Santana - Smooth ft. Rob Thomas)
+  'Father Jhon Kensy': 4,     // Pytlik (now Okamotomami)
+};
+for (const [oldName, cbsId] of Object.entries(CBS_OLD_NAMES)) {
+  if (CBS_TEAM_MAP[cbsId] && !CBS_NAME_TO_LEAGUE[oldName]) {
+    CBS_NAME_TO_LEAGUE[oldName] = CBS_TEAM_MAP[cbsId];
+    console.log('Old name alias: "' + oldName + '" → "' + CBS_NAME_TO_LEAGUE[oldName] + '"');
   }
-})();
+}
 
 function resolveCbsTeam(txn) {
   if (txn.teamId && CBS_TEAM_MAP[txn.teamId]) return CBS_TEAM_MAP[txn.teamId];
