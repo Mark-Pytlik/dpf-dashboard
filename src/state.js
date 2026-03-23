@@ -17,7 +17,7 @@ const DEFAULT_LEAGUE_KEEPERS = {
   "Whoop Whoop that\'s the sound of Dylan Cease": [
     {name:'Juan Soto',rd:4}, {name:'Bo Bichette',rd:5}, {name:'Geraldo Perdomo',rd:15}, {name:'Gerrit Cole',rd:26}, {name:'Spencer Torkelson',rd:27}
   ],
-  'Lil Thumpers': [
+  'Blame it on the Rainiel': [
     {name:'Manny Machado',rd:1}, {name:'Spencer Strider',rd:6}, {name:'Colson Montgomery',rd:14}, {name:'Cameron Schlittler',rd:15}, {name:'Ceddanne Rafaela',rd:22}
   ],
   'A Pete Crow-Armstrong Looked at Me': [
@@ -49,7 +49,7 @@ const DEFAULT_LEAGUE_MILB_KEEPERS = {
   'Dennis Santana - Smooth ft. Rob Thomas': ['JJ Wetherholt', 'Carson Williams', 'George Lombard'],
   "Colonel Corbin's Ascent": ['Nolan McLean', 'Carson Benge', 'Bryce Eldridge', 'Jonah Tong'],
   "Whoop Whoop that's the sound of Dylan Cease": ['Konnor Griffin', 'Kevin McGonigle', 'Walker Jenkins', 'Luis Pena'],
-  'Lil Thumpers': ['Travis Bazzana', 'Justin Crawford', 'Josue De Paula', 'Andrew Painter'],
+  'Blame it on the Rainiel': ['Travis Bazzana', 'Justin Crawford', 'Josue De Paula', 'Andrew Painter'],
   'A Pete Crow-Armstrong Looked at Me': ['Sal Stewart', 'Jesus Made', 'Colt Emerson', 'Sebastian Wolcott'],
   'Dinosaur Jr Caminero': ['Leo De Vries', 'Aidan Miller', 'Samuel Basallo', 'Bubba Chandler'],
   "Ballesteros, Let the Rhythm Take You Over": ['Liam Doyle', 'Chase Burns', 'Hagen Smith', 'Jordan Lawlar'],
@@ -148,21 +148,24 @@ const MY_TEAM = LEAGUE_TEAMS.find(t => t.mine);
 // CBS teamId is stable; CBS team display names may differ from LEAGUE_TEAMS names
 const CBS_ID_TO_LEAGUE = {};
 // Map CBS team names to league team names by matching known CBS team IDs to LEAGUE_TEAMS
-// CBS IDs: 1=Kaskie's renamed team, 2=Rescan, 3=Kaskie, 4=Pytlik, 5=Brundrett, 6=Wolfe,
-//          7=Gaerig, 8=Dennewitz, 9=Murphy's renamed team, 10=Azar, 11=Sarris, 12=Dennewitz's renamed team
+// CBS IDs verified from CBS transaction data:
+// 1=Kaskie (pick 1), 2=Rescan (pick 7, no txns), 3=Roth (pick 3), 4=Pytlik (pick 2),
+// 5=Devinney (pick 5), 6=Wolfe (pick 6), 7=Gaerig (pick 4, no txns),
+// 8=Azar (pick 8, no txns), 9=Murphy (pick 9), 10=Brundrett (pick 10),
+// 11=Sarris (pick 11, no txns), 12=Dennewitz (pick 12)
 const CBS_TEAM_MAP = {
-  1: LEAGUE_TEAMS.find(t => t.owner === 'David Roth')?.name || "Colonel Corbin's Ascent",
+  1: LEAGUE_TEAMS.find(t => t.owner === 'Chris Kaskie')?.name || 'Dennis Santana - Smooth ft. Rob Thomas',
   2: LEAGUE_TEAMS.find(t => t.owner === 'Anthony Rescan')?.name || 'Dinosaur Jr Caminero',
-  3: LEAGUE_TEAMS.find(t => t.owner === 'Chris Kaskie')?.name || 'Dennis Santana - Smooth ft. Rob Thomas',
+  3: LEAGUE_TEAMS.find(t => t.owner === 'David Roth')?.name || "Colonel Corbin's Ascent",
   4: LEAGUE_TEAMS.find(t => t.mine)?.name || 'Okamotomami',
-  5: LEAGUE_TEAMS.find(t => t.owner === 'Trei Brundrett')?.name || 'Buddy Buddy Buddy All On Base',
+  5: LEAGUE_TEAMS.find(t => t.owner === 'Fran Devinney')?.name || 'Buddy Buddy Buddy All On Base',
   6: LEAGUE_TEAMS.find(t => t.owner === 'Ian Wolfe')?.name || 'A Pete Crow-Armstrong Looked at Me',
   7: LEAGUE_TEAMS.find(t => t.owner === 'Andrew Gaerig')?.name || "Whoop Whoop that's the sound of Dylan Cease",
-  8: LEAGUE_TEAMS.find(t => t.owner === 'Matt Dennewitz')?.name || "Popped A Mahle I'm Sweating",
+  8: LEAGUE_TEAMS.find(t => t.owner === 'Mark Azar')?.name || "Ballesteros, Let the Rhythm Take You Over",
   9: LEAGUE_TEAMS.find(t => t.owner === 'Blake Murphy')?.name || 'Yesavage Garden',
-  10: LEAGUE_TEAMS.find(t => t.owner === 'Mark Azar')?.name || "Ballesteros, Let the Rhythm Take You Over",
+  10: LEAGUE_TEAMS.find(t => t.owner === 'Trei Brundrett')?.name || 'Blame it on the Rainiel',
   11: LEAGUE_TEAMS.find(t => t.owner === 'Eno Sarris')?.name || 'Are we not men? We are Devers!',
-  12: LEAGUE_TEAMS.find(t => t.owner === 'Fran Devinney')?.name || 'Buddy Buddy Buddy All On Base'
+  12: LEAGUE_TEAMS.find(t => t.owner === 'Matt Dennewitz')?.name || "Popped A Mahle I'm Sweating"
 };
 // Also build reverse lookup: CBS display team name → league team name
 const CBS_NAME_TO_LEAGUE = {};

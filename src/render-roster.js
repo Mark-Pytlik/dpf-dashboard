@@ -290,7 +290,7 @@ function renderRoster() {
   const isMyRosterTab = (currentTab === 'myRoster');
 
   // View mode: 'player' or 'gm' — applies to all roster tabs
-  if (!state._rosterView) state._rosterView = 'player';
+  if (!state._rosterView) state._rosterView = isMyRosterTab ? 'gm' : 'player';
   const rosterView = state._rosterView;
 
   // Team selector (hidden on My Roster tab)

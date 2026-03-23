@@ -23,7 +23,7 @@ function _renderTransactionsInner(section) {
         player: p.name,
         pos: p.pos,
         mlbTeam: p.mlbTeam,
-        action: p.action,
+        action: (p.action || '').replace(/^Added off Waivers$/i, 'Added'),
         effective: txn.effective,
         source: 'CBS'
       });
