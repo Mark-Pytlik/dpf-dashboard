@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23fff' stroke='%23dc2626' stroke-width='3'/><path d='M30 20 Q50 50 30 80' fill='none' stroke='%23dc2626' stroke-width='2'/><path d='M70 20 Q50 50 70 80' fill='none' stroke='%23dc2626' stroke-width='2'/></svg>">
+<title>DPF 2026 Draft Dashboard</title>
+<style>
+__STYLES__
+</style>
+</head>
+<body>
+<div id="authGate">
+  <div class="auth-box">
+    <h2>DPF Dashboard</h2>
+    <p>This dashboard is password protected</p>
+    <input type="password" id="authInput" class="auth-input" placeholder="Enter password..." autocomplete="off">
+    <button id="authBtn" class="auth-btn">Unlock</button>
+    <div id="authError" class="auth-error"></div>
+  </div>
+</div>
+
+<div id="mainContent" style="display:none;">
+<div class="header">
+  <div style="display:flex;flex-direction:column;">
+    <h1><span>DPF</span> 2026 Dashboard</h1>
+    <div style="font-size:10px;color:var(--text2);margin-top:4px;letter-spacing:0.3px;">v__VERSION__ · Last built: __BUILD_TIME__</div>
+  </div>
+  <div class="tabs">
+    <div class="tab" data-tab="all">Players</div>
+    <div class="tab" data-tab="myRoster">My Roster</div>
+    <div class="tab" data-tab="roster">Teams</div>
+    <div class="tab" data-tab="board">Draft Board</div>
+    <div class="tab" data-tab="mock">Mock Draft</div>
+    <div class="tab active" data-tab="league">League</div>
+    <div class="tab" data-tab="futures">Futures</div>
+    <div class="tab" data-tab="txns">Transactions</div>
+    <div class="tab" data-tab="analytics">Analytics</div>
+  </div>
+  <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+    <button id="modeDraft" class="mode-btn" style="padding:4px 12px;font-size:11px;font-weight:600;border-radius:4px;cursor:pointer;border:1px solid var(--border);background:var(--surface2);color:var(--text);">Draft</button>
+    <button id="modeSeason" class="mode-btn" style="padding:4px 12px;font-size:11px;font-weight:600;border-radius:4px;cursor:pointer;border:1px solid var(--border);background:var(--surface2);color:var(--text);">Season</button>
+  </div>
+</div>
+
+<div class="controls" id="playerControls">
+  <input type="text" class="search-box" id="searchBox" placeholder="Search players...">
+  <select id="draftFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;">
+    <option value="all">All Players</option>
+    <option value="available">Available</option>
+    <option value="drafted">Drafted</option>
+  </select>
+  <select id="teamFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;"></select>
+  <button class="filter-btn" id="posFilter" style="margin-right:8px;">Pos: All</button>
+  <div id="posButtons" style="display:flex;gap:6px;"></div>
+  <div class="stats-bar">
+    <div>Total: <b id="statTotal">0</b></div>
+    <div>Available: <b id="statAvail">0</b></div>
+    <div>Drafted: <b id="statDraft">0</b></div>
+  </div>
+</div>
+
+<div class="my-team-panel" id="myTeamPanel">
+  <div class="my-team-row" id="myTeamChips"></div>
+</div>
+
+<div class="draft-panel" id="draftPanel">
+  <input type="text" class="draft-input" id="draftInput" placeholder="Player name...">
+  <input type="number" class="draft-input" id="draftRound" placeholder="Round (optional)" style="width:100px;">
+  <button class="btn btn-primary" onclick="draftFromInput()">Draft</button>
+  <button class="btn btn-secondary" onclick="undoLastDraft()">Undo Last</button>
+  <button class="btn btn-danger" onclick="clearAllDrafted()">Clear All</button>
+  <button class="btn btn-secondary" onclick="openBulkModal()">Bulk Import</button>
+  <div id="draftStatus" style="font-size:12px;color:var(--text2);">Starting Round 1</div>
+</div>
+
+<div class="paste-panel" id="pastePanel">
+  <textarea class="paste-box" id="pasteBox" placeholder="Paste draft picks here (any format)..."></textarea>
+  <div class="paste-status" id="pasteStatus"></div>
+</div>
+
+<div class="table-wrap">
+  <table id="mainTable">
+    <thead id="tableHead"></thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+</div><!-- /mainContent -->
+
+<div id="bulkModal">
+  <div class="modal-content">
+    <h3>Bulk Import Players</h3>
+    <p style="font-size:12px;color:var(--text2);margin-bottom:10px;">Paste player names with optional round, one per line. Formats:<br>
+    <code>Aaron Judge, 1</code> &nbsp; <code>Aaron Judge Rd1</code> &nbsp; <code>Aaron Judge Rd 1</code> &nbsp; <code>Aaron Judge</code> (no round)</p>
+    <textarea class="bulk-area" id="bulkArea" rows="8" placeholder="Aaron Judge, 1&#10;Bobby Witt Jr. Rd3&#10;Tarik Skubal, 2&#10;Shohei Ohtani"></textarea>
+    <div style="display:flex;gap:8px;margin-top:12px;justify-content:flex-end;">
+      <button class="btn btn-secondary" onclick="closeBulkModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="processBulk()">Import</button>
+    </div>
+  </div>
+</div>
+
+<script>
+__SCRIPTS__
+</script>
+</div><!-- /mainContent -->
+</body>
+</html>

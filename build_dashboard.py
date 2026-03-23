@@ -575,9 +575,52 @@ print(f"Batter records: {len(bat_records)}, Pitcher records: {len(pit_records)}"
 for r in bat_records[:5]:
     print(f"  {r['name']:25s} pos={r['primaryPos']:3s} LCV={r['lcv']:6.2f} PNAV={r['pnav']:6.2f} age={r['age']} upside={r['upside']:6.2f} DP={r['dp']:6.2f}")
 
-# ── Generate HTML from template ──────────────────────────────────────────
-with open('dashboard.template.html') as _tf:
-    html = _tf.read()
+# ── Generate HTML from modular sources ────────────────────────────────────
+# The dashboard is built from:
+#   dashboard.shell.html  — HTML wrapper with __STYLES__ and __SCRIPTS__ placeholders
+#   src/styles.css        — All CSS
+#   src/*.js              — JavaScript modules concatenated in dependency order
+#
+# Fallback: if dashboard.shell.html doesn't exist, use the monolithic template
+
+_JS_MODULES = [
+    'src/data.js',
+    'src/keepers.js',
+    'src/state.js',
+    'src/draft-data.js',
+    'src/draft-engine.js',
+    'src/columns.js',
+    'src/tabs.js',
+    'src/render-table.js',
+    'src/render-sidebar.js',
+    'src/render-transactions.js',
+    'src/render-prospects.js',
+    'src/render-roster.js',
+    'src/render-board.js',
+    'src/render-league.js',
+    'src/render-mock.js',
+    'src/ui.js',
+    'src/init.js',
+]
+
+if os.path.exists('dashboard.shell.html') and os.path.exists('src/data.js'):
+    print("Building from modular sources (shell + src/*.js)...")
+    with open('dashboard.shell.html') as f:
+        html = f.read()
+    with open('src/styles.css') as f:
+        css = f.read()
+    js_parts = []
+    for mod in _JS_MODULES:
+        with open(mod) as f:
+            js_parts.append(f'// ── {mod} {"─" * (60 - len(mod))}\n{f.read()}')
+    scripts = '\n'.join(js_parts)
+    html = html.replace('__STYLES__', css)
+    html = html.replace('__SCRIPTS__', scripts)
+    print(f"  Assembled {len(_JS_MODULES)} JS modules + CSS + shell")
+else:
+    print("Building from monolithic template (dashboard.template.html)...")
+    with open('dashboard.template.html') as _tf:
+        html = _tf.read()
 
 # Inject data into template placeholders
 _replacements = {
@@ -599,9 +642,6 @@ _replacements = {
 }
 for _token, _value in _replacements.items():
     html = html.replace(_token, _value)
-
-# OLD F-STRING REMOVED — template is now in dashboard.template.html
-# To edit the dashboard JS/HTML, edit the template file directly (no more double-brace escaping!)
 
 with open('index.html', 'w') as f:
     f.write(html)
