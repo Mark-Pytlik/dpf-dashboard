@@ -1,0 +1,212 @@
+[
+  {
+    "team": "ARI",
+    "closer": "Kevin Ginkel",
+    "setup": ["Paul Sewald", "A.J. Puk"],
+    "handcuff": "Michael Soroka",
+    "notes": "Ginkel elite K rate, stable role. Sewald has limited upside. Injury history concern."
+  },
+  {
+    "team": "ATL",
+    "closer": "Raisel Iglesias",
+    "setup": ["Robert Suarez", "Dylan Lee"],
+    "handcuff": "A.J. Minter",
+    "notes": "Iglesias 26 saves, reliable. Suarez emerging as strong setup man. Potential deadline interest."
+  },
+  {
+    "team": "ATH",
+    "closer": "Justin Sterner",
+    "setup": ["Hogan Harris", "Mark Leiter Jr."],
+    "handcuff": "Scott Barlow",
+    "notes": "Oakland volatile situation. Multiple closer candidates. High trade potential at deadline."
+  },
+  {
+    "team": "BAL",
+    "closer": "Ryan Helsley",
+    "setup": ["Yennier Cano", "Keegan Akin"],
+    "handcuff": "Andrew Kittredge",
+    "notes": "Helsley 26 saves, elite stuff. Cano impressive young setup man. Strong bullpen depth."
+  },
+  {
+    "team": "BOS",
+    "closer": "Aroldis Chapman",
+    "setup": ["Garrett Whitlock", "Greg Weissert"],
+    "handcuff": "Connor Brogdon",
+    "notes": "Chapman aging (31 saves), still reliable. Whitlock versatile. Age risk on closer."
+  },
+  {
+    "team": "CHC",
+    "closer": "Daniel Palencia",
+    "setup": ["Hunter Harvey", "Phil Maton"],
+    "handcuff": "Caleb Thielbar",
+    "notes": "Palencia 30 saves, solid. Harvey highly effective. Potential closer competition if Palencia falters."
+  },
+  {
+    "team": "CHW",
+    "closer": "Seranthony Domínguez",
+    "setup": ["Jordan Leasure", "Grant Taylor"],
+    "handcuff": "Sean Newcomb",
+    "notes": "Domínguez 20 saves coming from CWS. Setup depth questionable. Watch for stability."
+  },
+  {
+    "team": "CIN",
+    "closer": "Emilio Pagán",
+    "setup": ["Graham Ashcraft", "Pierce Johnson"],
+    "handcuff": "Tony Santillan",
+    "notes": "Pagán 27 saves, reliable. Ashcraft improving. Solid depth in bullpen."
+  },
+  {
+    "team": "CLE",
+    "closer": "Cade Smith",
+    "setup": ["Shawn Armstrong", "Hunter Gaddis"],
+    "handcuff": "Mike Clevinger",
+    "notes": "Smith 30 saves elite K rate 91/700 IP. Armstrong steady. Strong role security."
+  },
+  {
+    "team": "COL",
+    "closer": "Victor Vodnik",
+    "setup": ["Juan Mejia", "Zach Agnos"],
+    "handcuff": "Jimmy Herget",
+    "notes": "Vodnik 23 saves, solid. Coors effect inflates ERA. Volatile Mile High situation."
+  },
+  {
+    "team": "DET",
+    "closer": "Kenley Jansen",
+    "setup": ["Will Vest", "Kyle Finnegan"],
+    "handcuff": "Tyler Holton",
+    "notes": "Jansen veteran (23 saves), reliable but aging. Vest emerging. Setup capable of closing."
+  },
+  {
+    "team": "HOU",
+    "closer": "Josh Hader",
+    "setup": ["Bryan Abreu", "Bryan King"],
+    "handcuff": "Spencer Arrighetti",
+    "notes": "Hader 29 saves, elite. Abreu strong setup, could close. Top-tier bullpen depth."
+  },
+  {
+    "team": "KCR",
+    "closer": "Carlos Estévez",
+    "setup": ["Lucas Erceg", "John Schreiber"],
+    "handcuff": "Matt Strahm",
+    "notes": "Estévez 31 saves, consistent performer. Erceg improving setup man. Stable situation."
+  },
+  {
+    "team": "LAA",
+    "closer": "Ben Joyce",
+    "setup": ["Robert Stephenson", "Kirby Yates"],
+    "handcuff": "Jordan Romano",
+    "notes": "Joyce 10 holds, recent acquisition. Stephenson 13 holds solid. Watch role clarification."
+  },
+  {
+    "team": "LAD",
+    "closer": "Edwin Díaz",
+    "setup": ["Tanner Scott", "Blake Treinen"],
+    "handcuff": "Alex Vesia",
+    "notes": "Díaz elite 36 saves, dominant strikeout rate. Scott emerging setup. Top bullpen."
+  },
+  {
+    "team": "MIA",
+    "closer": "Pete Fairbanks",
+    "setup": ["Calvin Faucher", "Anthony Bender"],
+    "handcuff": "Tyler Phillips",
+    "notes": "Fairbanks 27 saves, excellent. Injury history warrants monitor. Faucher solid depth."
+  },
+  {
+    "team": "MIL",
+    "closer": "Abner Uribe",
+    "setup": ["Trevor Megill", "Jared Koenig"],
+    "handcuff": "Aaron Ashby",
+    "notes": "Uribe 19 saves, steady role. Megill 11 holds setup. Solid midwest bullpen."
+  },
+  {
+    "team": "MIN",
+    "closer": "Taylor Rogers",
+    "setup": ["Liam Hendriks", "Cole Sands"],
+    "handcuff": "Kody Funderburk",
+    "notes": "Rogers 19 saves, veteran. Hendriks acquiring legend. Sands emerging. Deep bullpen."
+  },
+  {
+    "team": "NYM",
+    "closer": "Devin Williams",
+    "setup": ["A.J. Minter", "Brooks Raley"],
+    "handcuff": "Luke Weaver",
+    "notes": "Williams 32 saves, elite. Recently acquired from Milwaukee. Minter capable. Strong crew."
+  },
+  {
+    "team": "NYY",
+    "closer": "David Bednar",
+    "setup": ["Camilo Doval", "Fernando Cruz"],
+    "handcuff": "Will Warren",
+    "notes": "Bednar 33 saves, dominant. Recently acquired from Pittsburgh. Doval multi-tool. Top tier."
+  },
+  {
+    "team": "PHI",
+    "closer": "Jhoan Duran",
+    "setup": ["José Alvarado", "Brad Keller"],
+    "handcuff": "Orion Kerkering",
+    "notes": "Duran 29 saves, elite elite K rate 84/700 IP. Alvarado efficient setup. Acquired depth."
+  },
+  {
+    "team": "PIT",
+    "closer": "Dennis Santana",
+    "setup": ["Gregory Soto", "Isaac Mattson"],
+    "handcuff": "Justin Lawrence",
+    "notes": "Santana 26 saves, emerging star. Soto capable multi-tool. Young elite arms developing."
+  },
+  {
+    "team": "SDP",
+    "closer": "Mason Miller",
+    "setup": ["Adrian Morejon", "Jason Adam"],
+    "handcuff": "Jeremiah Estrada",
+    "notes": "Miller 32 saves, phenomenal K rate 106/660 IP. Morejon efficient. Star prospect emerging."
+  },
+  {
+    "team": "SEA",
+    "closer": "Andrés Muñoz",
+    "setup": ["Matt Brash", "Jose A. Ferrer"],
+    "handcuff": "Eduard Bazardo",
+    "notes": "Muñoz 28 saves, solid. Brash 3 holds improving. Ferrer multi-role. Potential deadline trade."
+  },
+  {
+    "team": "SFG",
+    "closer": "Ryan Walker",
+    "setup": ["Gregory Santos", "Joel Peguero"],
+    "handcuff": "José Buttó",
+    "notes": "Walker 24 saves, steady. Santos emerging upside. San Francisco competitive situation."
+  },
+  {
+    "team": "STL",
+    "closer": "JoJo Romero",
+    "setup": ["Riley O'Brien", "Matt Svanson"],
+    "handcuff": "Ryne Stanek",
+    "notes": "Romero 12 holds, sharing role. O'Brien 13 holds competitive. Volatile St. Louis bullpen."
+  },
+  {
+    "team": "TBR",
+    "closer": "Griffin Jax",
+    "setup": ["Edwin Uceta", "Garrett Cleavinger"],
+    "handcuff": "Bryan Baker",
+    "notes": "Jax 12 saves, capable. Uceta 12 holds solid setup. Baker veteran depth. Stable group."
+  },
+  {
+    "team": "TEX",
+    "closer": "Robert Garcia",
+    "setup": ["Cole Winn", "Chris Martin"],
+    "handcuff": "Kumar Rocker",
+    "notes": "Garcia 20 saves, steady. Winn 6 saves emerging. Rocker young prospect depth."
+  },
+  {
+    "team": "TOR",
+    "closer": "Jeff Hoffman",
+    "setup": ["Yimi García", "Louis Varland"],
+    "handcuff": "Tyler Rogers",
+    "notes": "Hoffman 26 saves, dominant. García 4 holds setup. Rogers aging veteran depth."
+  },
+  {
+    "team": "WSN",
+    "closer": "Clayton Beeter",
+    "setup": ["Cole Henry", "Jackson Rutledge"],
+    "handcuff": "PJ Poulin",
+    "notes": "Beeter 17 holds, young prospect. Henry 16 holds young arm. Washington developing bullpen."
+  }
+]

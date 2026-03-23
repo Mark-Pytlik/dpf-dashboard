@@ -69,12 +69,63 @@ def fetch_pitching():
         print(f"  Error fetching pitching stats: {e}")
         return False
 
+def fetch_statcast_sprint():
+    """Fetch sprint speed data from Baseball Savant via pybaseball."""
+    print("Fetching sprint speed data...")
+    try:
+        from pybaseball import statcast_sprint_speed
+        df = statcast_sprint_speed(2026)
+        if df is None or len(df) == 0:
+            print("  No 2026 sprint speed data (trying 2025)...")
+            df = statcast_sprint_speed(2025)
+        if df is None or len(df) == 0:
+            print("  No sprint speed data available")
+            return False
+
+        # Keep relevant columns and rename
+        out = df.rename(columns={
+            'last_name, first_name': 'name_raw',
+            'hp_to_1b': 'hp_to_1b',
+            'sprint_speed': 'speed'
+        })
+        # Convert "Last, First" to "First Last"
+        if 'name_raw' in out.columns:
+            out['name'] = out['name_raw'].apply(lambda x: ' '.join(reversed(x.split(', '))) if ', ' in str(x) else x)
+        elif 'Name' in df.columns:
+            out['name'] = df['Name']
+
+        # Assign tiers
+        def tier(spd):
+            if spd >= 29: return 'elite'
+            if spd >= 27: return 'above_avg'
+            if spd >= 25: return 'avg'
+            return 'below_avg'
+
+        out['tier'] = out['speed'].apply(tier)
+        # Only keep players with above-avg or elite speed for breakout detection
+        out = out[out['speed'] >= 27][['name', 'speed', 'tier']].sort_values('speed', ascending=False)
+
+        import json
+        path = os.path.join(OUTDIR, 'sprint_speed_2025.json')
+        records = out.to_dict('records')
+        for r in records:
+            r['speed'] = round(float(r['speed']), 1)
+        json.dump(records, open(path, 'w'), indent=2)
+        print(f"  Saved {len(records)} sprint speed records to {path}")
+        return True
+    except Exception as e:
+        print(f"  Sprint speed fetch skipped: {e}")
+        return False
+
 if __name__ == '__main__':
     print("=== Fetching 2026 MLB Stats ===")
     bat_ok = fetch_batting()
     pit_ok = fetch_pitching()
+    sprint_ok = fetch_statcast_sprint()
 
     if bat_ok or pit_ok:
         print("\nStats updated! Now run: python3 build_dashboard.py")
+    elif sprint_ok:
+        print("\nSprint speed updated. Run: python3 build_dashboard.py")
     else:
         print("\nNo stats available yet. The 2026 season starts March 25, 2026.")

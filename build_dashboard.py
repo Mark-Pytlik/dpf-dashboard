@@ -98,6 +98,38 @@ for _, r in statcast_df.iterrows():
     }
 print(f"Statcast loaded: {len(statcast_lookup)} batters")
 
+# ── Park factors ──────────────────────────────────────────────────────────
+_pf_path = 'data/park_factors_2025.json'
+if os.path.exists(_pf_path):
+    park_factors = json.load(open(_pf_path))
+    print(f"Park factors loaded: {len(park_factors)} teams")
+else:
+    park_factors = {}
+    print("No park factors file found")
+park_factors_json = json.dumps(park_factors)
+
+# ── Sprint speed ──────────────────────────────────────────────────────────
+_ss_path = 'data/sprint_speed_2025.json'
+if os.path.exists(_ss_path):
+    sprint_speeds = json.load(open(_ss_path))
+    sprint_lookup = {s['name']: s for s in sprint_speeds}
+    print(f"Sprint speed loaded: {len(sprint_speeds)} players")
+else:
+    sprint_speeds = []
+    sprint_lookup = {}
+    print("No sprint speed file found")
+sprint_speed_json = json.dumps(sprint_speeds)
+
+# ── Bullpen roles ─────────────────────────────────────────────────────────
+_bp_path = 'data/bullpen_roles_2026.json'
+if os.path.exists(_bp_path):
+    bullpen_roles = json.load(open(_bp_path))
+    print(f"Bullpen roles loaded: {len(bullpen_roles)} teams")
+else:
+    bullpen_roles = []
+    print("No bullpen roles file found")
+bullpen_roles_json = json.dumps(bullpen_roles)
+
 # Decode batter values
 bat['avg'] = bat['avg'] / 1000
 bat['obp'] = bat['obp'] / 1000
@@ -391,6 +423,17 @@ for _, r in bat_pool.iterrows():
             's25_barrel': sc['barrel'], 's25_hardhit': sc['hardhit'],
             's25_woba': sc['woba'], 's25_xwoba': sc['xwoba'], 's25_delta': sc['delta']
         })
+    # Add sprint speed
+    ss = sprint_lookup.get(r['name'], {})
+    if ss:
+        bat_records[-1]['sprintSpeed'] = ss['speed']
+        bat_records[-1]['speedTier'] = ss['tier']
+    # Add park factors for this player's team
+    pf = park_factors.get(r['team'], {})
+    if pf:
+        bat_records[-1]['parkHR'] = pf.get('hr', 1.0)
+        bat_records[-1]['parkR'] = pf.get('r', 1.0)
+        bat_records[-1]['parkH'] = pf.get('h', 1.0)
     # Add 2026 in-season stats if available
     s26 = bat26_lookup.get(r['name'], {})
     if s26:
@@ -442,6 +485,21 @@ for _, r in pit_pool.iterrows():
     er = eno_rank.get(r['name'], '')
     if er:
         pit_records[-1]['eno_rank'] = er
+    # Add bullpen role info
+    for bp in bullpen_roles:
+        if bp.get('team') == r['team']:
+            if r['name'] == bp.get('closer'):
+                pit_records[-1]['bpRole'] = 'CL'
+            elif r['name'] in bp.get('setup', []):
+                pit_records[-1]['bpRole'] = 'SU'
+            elif r['name'] == bp.get('handcuff'):
+                pit_records[-1]['bpRole'] = 'HC'
+            break
+    # Add park factors for pitcher's team (inverse — pitcher-friendly parks help)
+    pf = park_factors.get(r['team'], {})
+    if pf:
+        pit_records[-1]['parkHR'] = pf.get('hr', 1.0)
+        pit_records[-1]['parkR'] = pf.get('r', 1.0)
     # Add 2026 in-season stats if available
     s26 = pit26_lookup.get(r['name'], {})
     if s26:
@@ -535,6 +593,9 @@ _replacements = {
     '__UNTOUCHABLE_JSON__': untouchable_json,
     '__PLAYER_NEWS_JSON__': player_news_json,
     '__INJURIES_JSON__': injuries_json,
+    '__PARK_FACTORS_JSON__': park_factors_json,
+    '__SPRINT_SPEED_JSON__': sprint_speed_json,
+    '__BULLPEN_ROLES_JSON__': bullpen_roles_json,
 }
 for _token, _value in _replacements.items():
     html = html.replace(_token, _value)

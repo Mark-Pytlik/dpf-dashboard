@@ -366,6 +366,24 @@ function _plyrI(name) {
     || PLAYER_MAP_NORM.get(_stripAccents(name).toLowerCase());
 }
 
+// ── Performance cache for hot-path lookups ────────────────────────────────
+const _keeperCache = new Map();
+const _plyrICache = new Map();
+function _plyrICached(name) {
+  if (!name) return undefined;
+  if (_plyrICache.has(name)) return _plyrICache.get(name);
+  const r = _plyrI(name);
+  _plyrICache.set(name, r);
+  return r;
+}
+function getKeeperInfoCached(name) {
+  if (_keeperCache.has(name)) return _keeperCache.get(name);
+  const r = getKeeperInfo(name);
+  _keeperCache.set(name, r);
+  return r;
+}
+function invalidateCaches() { _keeperCache.clear(); _plyrICache.clear(); }
+
 // ── CBS League Transactions (scraped daily) ─────────────────────────────
 const CBS_TRANSACTIONS = __CBS_TXNS_JSON__;
 const TXN_BUILD_TIME = '__BUILD_TIME__';
@@ -382,6 +400,98 @@ function _injBadge(name) {
   const label = s === 'IL' ? 'IL' : s === 'O' ? 'OUT' : s === 'DTD' ? 'DTD' : 'Q';
   const tip = `${inj.injury}${inj.return ? ' · ETA ' + inj.return : ''}`;
   return ` <span title="${tip}" style="font-size:8px;background:${clr};color:#fff;padding:1px 3px;border-radius:2px;font-weight:600;cursor:help;">${label}</span>`;
+}
+
+// ── New analytics data (v5.0) ────────────────────────────────────────────
+const PARK_FACTORS = __PARK_FACTORS_JSON__;
+const SPRINT_SPEEDS = __SPRINT_SPEED_JSON__;
+const BULLPEN_ROLES = __BULLPEN_ROLES_JSON__;
+
+// Sprint speed lookup by name
+const SPEED_MAP = new Map();
+(SPRINT_SPEEDS || []).forEach(s => SPEED_MAP.set(s.name, s));
+
+// Bullpen role lookups: closer → team, handcuff → team
+const BP_CLOSER_MAP = new Map();   // team abbr → closer name
+const BP_HANDCUFF_MAP = new Map(); // team abbr → handcuff name
+const BP_ROLE_NOTES = new Map();   // team abbr → notes
+(BULLPEN_ROLES || []).forEach(bp => {
+  BP_CLOSER_MAP.set(bp.team, bp.closer);
+  BP_HANDCUFF_MAP.set(bp.team, bp.handcuff);
+  BP_ROLE_NOTES.set(bp.team, bp.notes);
+});
+
+// ── Buy-low / sell-high detection (xwOBA - wOBA gap) ─────────────────────
+// Batter: positive delta (xwOBA > wOBA) = buy-low candidate (unlucky)
+//         negative delta (xwOBA < wOBA) = sell-high candidate (lucky)
+function getBuySellTag(player) {
+  if (!player || player.type !== 'BAT') return '';
+  const delta = player.s25_delta;
+  if (delta === '' || delta === undefined || delta === null) return '';
+  if (delta >= 0.020) return 'buy';   // xwOBA 20+ pts above wOBA = significantly unlucky
+  if (delta <= -0.020) return 'sell';  // xwOBA 20+ pts below wOBA = significantly lucky
+  return '';
+}
+
+// ── SB breakout detection (high speed + low SB projection) ──────────────
+function getSbBreakoutTag(player) {
+  if (!player || player.type !== 'BAT') return '';
+  const speed = player.sprintSpeed;
+  if (!speed || speed < 27) return '';
+  const projSB = player.sb || 0;
+  // Elite speed (29+) with < 15 projected SB = strong breakout signal
+  if (speed >= 29 && projSB < 15) return 'sb-breakout';
+  // Above-avg speed (27-29) with < 8 projected SB = moderate signal
+  if (speed >= 27 && projSB < 8) return 'sb-breakout';
+  return '';
+}
+
+// ── Park factor adjustment badge ────────────────────────────────────────
+function parkBadge(player) {
+  if (!player) return '';
+  const hr = player.parkHR;
+  if (!hr || hr === 1.0) return '';
+  if (hr >= 1.10) return '<span title="Hitter-friendly park (HR×' + hr.toFixed(2) + ')" style="font-size:8px;background:#16a34a;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">🏟+</span>';
+  if (hr <= 0.90) return '<span title="Pitcher-friendly park (HR×' + hr.toFixed(2) + ')" style="font-size:8px;background:#dc2626;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">🏟−</span>';
+  return '';
+}
+
+// ── Closer handcuff badge ───────────────────────────────────────────────
+function closerBadge(player) {
+  if (!player || player.type !== 'PIT') return '';
+  const role = player.bpRole;
+  if (!role) return '';
+  const colors = {CL: '#16a34a', SU: '#2563eb', HC: '#ca8a04'};
+  const labels = {CL: 'CL', SU: 'SU', HC: 'HC'};
+  const tips = {CL: 'Primary closer', SU: 'Setup man', HC: 'Closer handcuff — next in line'};
+  const note = BP_ROLE_NOTES.get(player.team) || '';
+  return ` <span title="${tips[role]}${note ? ' · ' + note : ''}" style="font-size:8px;background:${colors[role]};color:#fff;padding:1px 3px;border-radius:2px;font-weight:600;cursor:help;">${labels[role]}</span>`;
+}
+
+// ── K-adjusted value (this league penalizes Ks) ────────────────────────
+// Standard leagues don't have -K. The gap between standard value and our LCV
+// shows which players are over/undervalued by standard rankings.
+// K-adj = how much the -K category changes this player's value vs standard
+function getKadjBadge(player) {
+  if (!player || player.type !== 'BAT') return '';
+  const zSo = player.zSo;
+  if (zSo === '' || zSo === undefined) return '';
+  // zSo is the z-score of strikeouts — high zSo means lots of Ks
+  // In our league, -K means this player loses value vs standard leagues
+  // Positive zSo = high K player = LOSES value in our league (standard rankings overvalue them)
+  // Negative zSo = low K player = GAINS value in our league (standard rankings undervalue them)
+  if (zSo <= -1.0) return '<span title="Low-K hitter: gains value in -K league (zK=' + zSo.toFixed(1) + ')" style="font-size:8px;background:#16a34a;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">-K✓</span>';
+  if (zSo >= 1.5) return '<span title="High-K hitter: loses value in -K league (zK=' + zSo.toFixed(1) + ')" style="font-size:8px;background:#dc2626;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">-K✗</span>';
+  return '';
+}
+
+// ── Age-curve keeper decay ──────────────────────────────────────────────
+// Adjusts keeper surplus for age-related decline
+function ageDecayFactor(age, yearsOut) {
+  // Players 30+ decline ~5% per year; younger players hold value
+  if (age + yearsOut < 30) return 1.0;
+  const declineYears = (age + yearsOut) - 29;
+  return Math.max(0.5, Math.pow(0.95, declineYears));
 }
 
 // ── Prospects data ───────────────────────────────────────────────────────
@@ -440,6 +550,8 @@ function getKeeperInfo(playerName) {
   const surplus2027 = keepable2027 ? (playerLCV - costValue2027) : 0;
 
   // Multi-year surplus (discounted): sum of future surplus values
+  // Now includes age-curve decay: older players' LCV projected to decline
+  const playerAge = p ? (p.age || 28) : 28;
   let multiYearSurplus = 0;
   r = effectiveRound;
   let yr = 0;
@@ -447,7 +559,8 @@ function getKeeperInfo(playerName) {
     r -= KEEPER_ADVANCE;
     yr++;
     const futureSlotVal = Math.max(0, (32 - r) * 0.20);
-    multiYearSurplus += (playerLCV - futureSlotVal) * Math.pow(0.85, yr); // 15% annual discount
+    const ageDec = ageDecayFactor(playerAge, yr);
+    multiYearSurplus += (playerLCV * ageDec - futureSlotVal) * Math.pow(0.85, yr); // 15% annual discount + age decay
   }
 
   return {
@@ -471,13 +584,13 @@ const DEFAULT_KEEPER_ROUNDS = {'James Wood':12, 'MacKenzie Gore':13, 'Jo Adell':
 
 // All league keepers from 2026 keeper sheet (clamped rounds)
 const DEFAULT_LEAGUE_KEEPERS = {
-  'choured in the usa.': [
+  'Dennis Santana - Smooth ft. Rob Thomas': [
     {name:'Corbin Carroll',rd:6}, {name:'Jackson Chourio',rd:10}, {name:'Wyatt Langford',rd:12}, {name:'Ben Rice',rd:15}, {name:'Tyler Soderstrom',rd:25}
   ],
-  'Father Jhon Kensy': [
+  'Okamotomami': [
     {name:'Jo Adell',rd:10}, {name:'Nick Kurtz',rd:11}, {name:'James Wood',rd:12}, {name:'MacKenzie Gore',rd:13}, {name:'Zach Neto',rd:14}
   ],
-  'Turangerine Dream': [
+  "Colonel Corbin's Ascent": [
     {name:'Jose Ramirez',rd:1}, {name:'Trea Turner',rd:4}, {name:'Devin Williams',rd:7}, {name:'Brandon Woodruff',rd:10}, {name:'Dylan Crews',rd:15}
   ],
   "Whoop Whoop that\'s the sound of Dylan Cease": [
@@ -492,10 +605,10 @@ const DEFAULT_LEAGUE_KEEPERS = {
   'Dinosaur Jr Caminero': [
     {name:'Fernando Tatis Jr.',rd:4}, {name:'Julio Rodriguez',rd:5}, {name:'Gunnar Henderson',rd:6}, {name:'Junior Caminero',rd:12}, {name:'Jackson Holliday',rd:16}
   ],
-  "No men in Nolan\'s land": [
+  "Ballesteros, Let the Rhythm Take You Over": [
     {name:'Ketel Marte',rd:1}, {name:'Oneil Cruz',rd:8}, {name:'Aroldis Chapman',rd:11}, {name:'Roman Anthony',rd:15}, {name:'Shea Langeliers',rd:16}
   ],
-  'Misiorowski Business': [
+  'Yesavage Garden': [
     {name:'CJ Abrams',rd:8}, {name:'Jeremy Pena',rd:15}, {name:'Brent Rooker',rd:17}, {name:'Max Muncy',rd:21}, {name:'Eury Perez',rd:24}
   ],
   'Buddy Buddy Buddy All On Base': [
@@ -504,7 +617,7 @@ const DEFAULT_LEAGUE_KEEPERS = {
   'Are we not men? We are Devers!': [
     {name:'Shohei Ohtani',rd:1}, {name:'Francisco Lindor',rd:3}, {name:'Jackson Merrill',rd:10}, {name:'Tarik Skubal',rd:11}, {name:'Maikel Garcia',rd:15}
   ],
-  "Psycho Keller, Qu\'est-ce que Cey": [
+  "Popped A Mahle I'm Sweating": [
     {name:'Kyle Tucker',rd:2}, {name:'Aaron Judge',rd:3}, {name:'Bobby Witt Jr.',rd:4}, {name:'Paul Skenes',rd:10}, {name:'Garrett Crochet',rd:11}
   ],
 };
@@ -512,17 +625,17 @@ const DEFAULT_MILB_KEEPERS = ['Charlie Condon', 'Max Clark', 'Ethan Holliday', '
 
 // All league rookie/MiLB keepers from 2026 keeper sheet
 const DEFAULT_LEAGUE_MILB_KEEPERS = {
-  'choured in the usa.': ['JJ Wetherholt', 'Carson Williams', 'George Lombard'],
-  'Turangerine Dream': ['Nolan McLean', 'Carson Benge', 'Bryce Eldridge', 'Jonah Tong'],
+  'Dennis Santana - Smooth ft. Rob Thomas': ['JJ Wetherholt', 'Carson Williams', 'George Lombard'],
+  "Colonel Corbin's Ascent": ['Nolan McLean', 'Carson Benge', 'Bryce Eldridge', 'Jonah Tong'],
   "Whoop Whoop that's the sound of Dylan Cease": ['Konnor Griffin', 'Kevin McGonigle', 'Walker Jenkins', 'Luis Pena'],
   'Lil Thumpers': ['Travis Bazzana', 'Justin Crawford', 'Josue De Paula', 'Andrew Painter'],
   'A Pete Crow-Armstrong Looked at Me': ['Sal Stewart', 'Jesus Made', 'Colt Emerson', 'Sebastian Wolcott'],
   'Dinosaur Jr Caminero': ['Leo De Vries', 'Aidan Miller', 'Samuel Basallo', 'Bubba Chandler'],
-  "No men in Nolan's land": ['Bryce Doyle', 'Chase Burns', 'Cole Smith', 'Jordan Lawlar'],
-  'Misiorowski Business': ['Trey Yesavage', 'Jett Williams', 'Kade Anderson', 'Edward Florentino'],
+  "Ballesteros, Let the Rhythm Take You Over": ['Liam Doyle', 'Chase Burns', 'Hagen Smith', 'Jordan Lawlar'],
+  'Yesavage Garden': ['Trey Yesavage', 'Jett Williams', 'Kade Anderson', 'Edward Florentino'],
   'Buddy Buddy Buddy All On Base': ['Jacob Reimer', 'Caleb Bonemer', 'Quinn Mathews', 'Robby Snelling'],
   'Are we not men? We are Devers!': ['Connolly Early', 'Tommy Troy', 'Chase deLauter', 'Spencer Jones'],
-  "Psycho Keller, Qu'est-ce que Cey": ['Ralphy Velazquez', 'Zyhir Hope', 'Emmanuel Rodriguez']
+  "Popped A Mahle I'm Sweating": ['Ralphy Velazquez', 'Zyhir Hope', 'Emmanuel Rodriguez']
 };
 
 // Draft order (pick 1 → pick 12) = reverse of last year's standings
@@ -617,18 +730,18 @@ const CBS_ID_TO_LEAGUE = {};
 // CBS IDs: 1=Kaskie's renamed team, 2=Rescan, 3=Kaskie, 4=Pytlik, 5=Brundrett, 6=Wolfe,
 //          7=Gaerig, 8=Dennewitz, 9=Murphy's renamed team, 10=Azar, 11=Sarris, 12=Dennewitz's renamed team
 const CBS_TEAM_MAP = {
-  1: LEAGUE_TEAMS.find(t => t.owner === 'David Roth')?.name || 'Turangerine Dream',
+  1: LEAGUE_TEAMS.find(t => t.owner === 'David Roth')?.name || "Colonel Corbin's Ascent",
   2: LEAGUE_TEAMS.find(t => t.owner === 'Anthony Rescan')?.name || 'Dinosaur Jr Caminero',
-  3: LEAGUE_TEAMS.find(t => t.owner === 'Chris Kaskie')?.name || 'choured in the usa.',
-  4: LEAGUE_TEAMS.find(t => t.mine)?.name || 'Father Jhon Kensy',
+  3: LEAGUE_TEAMS.find(t => t.owner === 'Chris Kaskie')?.name || 'Dennis Santana - Smooth ft. Rob Thomas',
+  4: LEAGUE_TEAMS.find(t => t.mine)?.name || 'Okamotomami',
   5: LEAGUE_TEAMS.find(t => t.owner === 'Trei Brundrett')?.name || 'Buddy Buddy Buddy All On Base',
   6: LEAGUE_TEAMS.find(t => t.owner === 'Ian Wolfe')?.name || 'A Pete Crow-Armstrong Looked at Me',
   7: LEAGUE_TEAMS.find(t => t.owner === 'Andrew Gaerig')?.name || "Whoop Whoop that's the sound of Dylan Cease",
-  8: LEAGUE_TEAMS.find(t => t.owner === 'Matt Dennewitz')?.name || "Psycho Keller, Qu'est-ce que Cey",
-  9: LEAGUE_TEAMS.find(t => t.owner === 'Blake Murphy')?.name || 'Misiorowski Business',
-  10: LEAGUE_TEAMS.find(t => t.owner === 'Mark Azar')?.name || "No men in Nolan's land",
+  8: LEAGUE_TEAMS.find(t => t.owner === 'Matt Dennewitz')?.name || "Popped A Mahle I'm Sweating",
+  9: LEAGUE_TEAMS.find(t => t.owner === 'Blake Murphy')?.name || 'Yesavage Garden',
+  10: LEAGUE_TEAMS.find(t => t.owner === 'Mark Azar')?.name || "Ballesteros, Let the Rhythm Take You Over",
   11: LEAGUE_TEAMS.find(t => t.owner === 'Eno Sarris')?.name || 'Are we not men? We are Devers!',
-  12: LEAGUE_TEAMS.find(t => t.owner === 'Fran Devinney')?.name || 'Lil Thumpers'
+  12: LEAGUE_TEAMS.find(t => t.owner === 'Fran Devinney')?.name || 'Buddy Buddy Buddy All On Base'
 };
 // Also build reverse lookup: CBS display team name → league team name
 const CBS_NAME_TO_LEAGUE = {};
@@ -700,8 +813,8 @@ function parseCbsDate(s) {
 }
 
 // ── LIVE DRAFT PICKS (injected from CBS draft room) ─────────────────────
-// t: team pick position: 1=choured, 2=FJK(mine), 3=Turang, 4=Whoop, 5=LilT, 6=PCA, 7=Houcks, 8=Nolan, 9=Misi, 10=Crash, 11=Eno, 12=Psycho
-const _TEAM_MAP = {1:'choured in the usa.',2:'Father Jhon Kensy',3:'Turangerine Dream',4:"Whoop Whoop that\'s the sound of Dylan Cease",5:'Lil Thumpers',6:'A Pete Crow-Armstrong Looked at Me',7:'Dinosaur Jr Caminero',8:"No men in Nolan\'s land",9:'Misiorowski Business',10:'Buddy Buddy Buddy All On Base',11:'Are we not men? We are Devers!',12:"Psycho Keller, Qu\'est-ce que Cey"};
+// t: team pick position: 1=Kaskie, 2=Pytlik(mine), 3=Roth, 4=Gaerig, 5=Devinney, 6=Wolfe, 7=Rescan, 8=Azar, 9=Murphy, 10=Brundrett, 11=Sarris, 12=Dennewitz
+const _TEAM_MAP = Object.fromEntries(LEAGUE_TEAMS.map(t => [t.pick, t.name]));
 const LIVE_PICKS = [
   // Rd1: picks 1-12
   {n:'Vladimir Guerrero Jr.',t:1},{n:'Yoshinobu Yamamoto',t:2},{n:'Jose Ramirez',t:3},{n:'Jazz Chisholm Jr.',t:4},
@@ -1685,14 +1798,15 @@ function _renderTransactionsInner(section) {
     const lcv = player ? (player.lcv||0).toFixed(1) : '—';
     let tvVal = '—';
     if (player) {
-      const ki = getKeeperInfo(tx.player);
+      const ki = getKeeperInfoCached(tx.player);
       const pr = findProspect(tx.player);
       const pv = pr ? Math.max(0, ((pr.fv||0) - 40) * 0.15) : 0;
       const plLcv = player.lcv || 0;
       if (!ki.keepable2027) { tvVal = (plLcv * 0.8 + pv).toFixed(1); }
       else { const eMYS = ki.multiYearSurplus > 1.0 ? ki.multiYearSurplus : (ki.multiYearSurplus||0) * 0.3; tvVal = (plLcv * 0.5 + Math.max(0, eMYS) * 1.0 + pv + (ki.yearsLeft >= 2 && ki.multiYearSurplus > 1.0 ? ki.yearsLeft * 0.3 : 0)).toFixed(1); }
     }
-    const isMine = (tx.teamId === 4) || tx.team === 'Father Jhon Kensy' || (tx.action && tx.action.includes('Father Jhon Kensy'));
+    const _myName = LEAGUE_TEAMS.find(t => t.mine)?.name || 'Okamotomami';
+    const isMine = (tx.teamId === 4) || tx.team === _myName || tx.team === 'Father Jhon Kensy' || tx.team === 'Okamotomami' || (tx.action && (tx.action.includes(_myName) || tx.action.includes('Father Jhon Kensy') || tx.action.includes('Okamotomami')));
     const rowBg = isMine ? 'rgba(74,107,255,0.06)' : (idx % 2 === 0 ? 'transparent' : 'var(--surface)');
     const filterAction = isTrade ? 'Traded' : tx.action;
     html += `<tr class="txn-row" data-team="${tx.team}" data-action="${filterAction}" style="background:${rowBg};">`;
@@ -1736,54 +1850,28 @@ function _renderTransactionsInner(section) {
   if (teamFilter) teamFilter.addEventListener('change', applyFilters);
   if (typeFilter) typeFilter.addEventListener('change', applyFilters);
 
-  // Wire Check CBS button — fetch latest transactions JSON from GitHub
+  // Wire Check CBS button — compare VERSION file on server vs baked-in version
+  // If server has a newer build, hard-reload to get the latest dashboard
   const checkBtn = document.getElementById('checkCbsBtn');
   if (checkBtn) checkBtn.addEventListener('click', async () => {
     checkBtn.disabled = true;
     checkBtn.textContent = '↻ Checking...';
     try {
-      // Fetch from same Pages deployment with cache-bust — works because the scheduled
-      // task pushes updated JSON alongside index.html, and CDN cache may serve newer JSON
-      // than the baked-in page data if the user hasn't reloaded since the last push.
-      const resp = await fetch('./data/cbs_transactions.json?v=' + Date.now(), {cache: 'no-store'});
+      const resp = await fetch('./VERSION?v=' + Date.now(), {cache: 'no-store'});
       if (!resp.ok) throw new Error('Fetch failed: ' + resp.status);
-      const latest = await resp.json();
-      const existingKeys = new Set(CBS_TRANSACTIONS.map(t => t.date + '|' + t.teamId + '|' + t.players.map(p => p.name).sort().join(',')));
-      const newTxns = latest.filter(t => !existingKeys.has(t.date + '|' + t.teamId + '|' + t.players.map(p => p.name).sort().join(',')));
-      if (newTxns.length === 0) {
-        checkBtn.textContent = '✓ Up to date';
-        setTimeout(() => { checkBtn.textContent = '↻ Check for updates'; checkBtn.disabled = false; }, 2000);
-        return;
+      const serverVersion = (await resp.text()).trim();
+      const currentVersion = '__VERSION__';
+      if (serverVersion !== currentVersion) {
+        checkBtn.textContent = '↻ Updating to v' + serverVersion + '...';
+        setTimeout(() => location.reload(true), 500);
+      } else {
+        checkBtn.textContent = '✓ Up to date (v' + currentVersion + ')';
+        setTimeout(() => { checkBtn.textContent = '↻ Check for updates'; checkBtn.disabled = false; }, 3000);
       }
-      // Merge new transactions and apply to rosters
-      CBS_TRANSACTIONS.unshift(...newTxns);
-      const sorted = [...newTxns].sort((a,b) => parseCbsDate(a.date) - parseCbsDate(b.date));
-      sorted.forEach(txn => {
-        const teamName = resolveCbsTeam(txn);
-        txn.players.forEach(p => {
-          const found = _plyrI(p.name);
-          const playerName = found ? found.name : p.name;
-          const action = p.action || '';
-          if (action === 'Added') {
-            addToRoster(playerName, teamName);
-          } else if (action === 'Dropped') {
-            removeFromRoster(playerName, teamName);
-            delete state.drafted[playerName];
-          } else if (action.startsWith('Traded from')) {
-            const srcDisplayName = action.replace('Traded from ', '');
-            const srcTeam = CBS_NAME_TO_LEAGUE[srcDisplayName] || srcDisplayName;
-            removeFromRoster(playerName, srcTeam);
-            addToRoster(playerName, teamName);
-          }
-        });
-      });
-      save();
-      checkBtn.textContent = `✓ ${newTxns.length} new`;
-      setTimeout(() => { renderTransactions(); }, 1500);
     } catch (err) {
-      console.error('Check CBS error:', err);
-      checkBtn.textContent = '✗ Error';
-      setTimeout(() => { checkBtn.textContent = '↻ Check for updates'; checkBtn.disabled = false; }, 2000);
+      console.error('Check update error:', err);
+      checkBtn.textContent = '✗ Error — try refreshing';
+      setTimeout(() => { checkBtn.textContent = '↻ Check for updates'; checkBtn.disabled = false; }, 3000);
     }
   });
 
@@ -1817,6 +1905,45 @@ function findProspect(name) {
     if (key.toLowerCase() === lower) return PROSPECT_BY_NAME[key];
   }
   return null;
+}
+
+// ── Prospect call-up alert system ─────────────────────────────────────────
+// Flag high-FV prospects who might be called up soon based on:
+// 1. High FV grade (55+)
+// 2. Injury to a starter at the same position on their MLB team
+// 3. Not already in the player pool (i.e., not yet called up)
+function getProspectAlerts() {
+  const alerts = [];
+  (PROSPECTS || []).forEach(pr => {
+    if (!pr || !pr.name || (pr.fv || 0) < 50) return;
+    // Skip if already in player pool
+    if (_plyrICached(pr.name)) return;
+    // Check for injured starters at same position on same team
+    let injuredStarter = null;
+    const prTeam = pr.team || '';
+    const prPos = (pr.pos || '').split(',')[0];
+    INJURY_MAP.forEach((inj, injName) => {
+      if (inj.status === 'IL' || inj.status === 'O') {
+        const injPlayer = _plyrICached(injName);
+        if (injPlayer && injPlayer.team === prTeam) {
+          const injPositions = (injPlayer.pos || '').split('/');
+          if (injPositions.some(p => p === prPos || (prPos === 'OF' && ['LF','CF','RF'].includes(p)))) {
+            injuredStarter = injName;
+          }
+        }
+      }
+    });
+    const alert = {
+      name: pr.name,
+      fv: pr.fv || 0,
+      team: prTeam,
+      pos: pr.pos || '',
+      reason: injuredStarter ? `${injuredStarter} on IL` : (pr.fv >= 60 ? 'Elite prospect' : 'Top prospect'),
+      priority: (pr.fv || 0) + (injuredStarter ? 20 : 0)
+    };
+    if (injuredStarter || (pr.fv || 0) >= 55) alerts.push(alert);
+  });
+  return alerts.sort((a, b) => b.priority - a.priority);
 }
 
 // ── Futures tab rendering ──────────────────────────────────────────────────
@@ -2181,11 +2308,13 @@ function render() {
     return true;
   });
 
-  // Compute trade value and prospect value for ALL views (needed for TV column)
+  // Compute trade value, prospect value, and analytics badges for ALL views
   filtered.forEach(p => {
-    const ki = getKeeperInfo(p.name);
+    const ki = getKeeperInfoCached(p.name);
     const pr = findProspect(p.name);
-    p._prospectValue = pr ? Math.max(0, ((pr.fv||0) - 40) * 0.15) : 0;
+    // Prospect value: quadratic FV scaling (70 FV worth much more than 50 FV)
+    // Old: linear (fv-40)*0.15. New: (fv-40)^2 * 0.01 for better separation of elite prospects
+    p._prospectValue = pr ? Math.max(0, Math.pow((pr.fv||0) - 40, 2) * 0.01) : 0;
     // Trade value: production-first, keeper premium only when surplus justifies the slot
     const pLcv = p.lcv || 0;
     if (!ki.keepable2027) {
@@ -2194,6 +2323,12 @@ function render() {
       const effMYS = (ki.multiYearSurplus || 0) > 1.0 ? (ki.multiYearSurplus || 0) : (ki.multiYearSurplus || 0) * 0.3;
       p._tradeValue = pLcv * 0.5 + Math.max(0, effMYS) * 1.0 + p._prospectValue + (ki.yearsLeft >= 2 && (ki.multiYearSurplus || 0) > 1.0 ? ki.yearsLeft * 0.3 : 0);
     }
+    // Analytics badges (computed once, cached on the record for this render pass)
+    p._buySell = getBuySellTag(p);
+    p._sbBreakout = getSbBreakoutTag(p);
+    p._kAdj = getKadjBadge(p);
+    p._parkBadge = parkBadge(p);
+    p._closerBadge = closerBadge(p);
     // Compute additional GM values only when in GM view
     if (currentView === 'gm') {
       p._keeperRound = ki.draftRound || 99;
@@ -2247,29 +2382,29 @@ function render() {
       let val = p[c.key];
       let cls = c.cls || '';
       if (c.key === 'keeperRound') {
-        const ki = getKeeperInfo(p.name);
+        const ki = getKeeperInfoCached(p.name);
         const rd = ki.draftRound;
         return `<td style="text-align:center">${rd ? 'R' + rd : 'FA'}</td>`;
       }
       if (c.key === 'keeperCost2027') {
-        const ki = getKeeperInfo(p.name);
+        const ki = getKeeperInfoCached(p.name);
         if (!ki.keepable2027) return `<td style="text-align:center;color:var(--red);font-size:10px;">Not keepable</td>`;
         return `<td style="text-align:center;color:var(--green);">R${ki.cost2027}</td>`;
       }
       if (c.key === 'yearsControl') {
-        const ki = getKeeperInfo(p.name);
+        const ki = getKeeperInfoCached(p.name);
         const yrs = ki.yearsLeft;
         const clr = yrs >= 3 ? 'var(--green)' : yrs >= 1 ? 'var(--yellow)' : 'var(--red)';
         return `<td style="text-align:center;color:${clr};font-weight:600;">${yrs}</td>`;
       }
       if (c.key === 'surplusNow') {
-        const ki = getKeeperInfo(p.name);
+        const ki = getKeeperInfoCached(p.name);
         const v = ki.surplusNow;
         const clr = v >= 0 ? 'var(--green)' : 'var(--red)';
         return `<td style="text-align:right;color:${clr};">${v.toFixed(1)}</td>`;
       }
       if (c.key === 'multiYearSurplus') {
-        const ki = getKeeperInfo(p.name);
+        const ki = getKeeperInfoCached(p.name);
         const v = Math.max(0, ki.multiYearSurplus);
         return `<td style="text-align:right;color:${v > 0 ? 'var(--green)' : 'var(--text2)'};">${v.toFixed(1)}</td>`;
       }
@@ -2416,7 +2551,13 @@ function render() {
           buzz = buzzHtml ? ` ${buzzHtml}` : '';
         }
         const enoR = p.eno_rank ? ` <span class="eno-rank" title="Eno 150 Best Pitchers #${p.eno_rank}">P${p.eno_rank}</span>` : '';
-        return `<td style="font-weight:600">${val}${_injBadge(p.name)}${enoR}${tagHtml}${kp}${ownerBadge}${buzz}${tagBtns}</td>`;
+        // Analytics badges (v5.0)
+        let aBadges = '';
+        if (p._buySell === 'buy') aBadges += ' <span title="Buy-low: xwOBA ' + ((p.s25_delta||0)*1000).toFixed(0) + ' pts above wOBA" style="font-size:8px;background:#16a34a;color:#fff;padding:1px 3px;border-radius:2px;font-weight:600;cursor:help;">BUY</span>';
+        if (p._buySell === 'sell') aBadges += ' <span title="Sell-high: xwOBA ' + (Math.abs(p.s25_delta||0)*1000).toFixed(0) + ' pts below wOBA" style="font-size:8px;background:#dc2626;color:#fff;padding:1px 3px;border-radius:2px;font-weight:600;cursor:help;">SELL</span>';
+        if (p._sbBreakout) aBadges += ' <span title="SB breakout: ' + (p.sprintSpeed||'?') + ' ft/s speed, only ' + (p.sb||0) + ' proj SB" style="font-size:8px;background:#7c3aed;color:#fff;padding:1px 3px;border-radius:2px;font-weight:600;cursor:help;">SB↑</span>';
+        aBadges += (p._kAdj || '') + (p._parkBadge || '') + (p._closerBadge || '');
+        return `<td style="font-weight:600">${val}${_injBadge(p.name)}${enoR}${aBadges}${tagHtml}${kp}${ownerBadge}${buzz}${tagBtns}</td>`;
       }
       return `<td class="${cls}">${val}</td>`;
     }).join('')}</tr>`;
@@ -3089,7 +3230,7 @@ function renderRoster() {
     teamPlayers.forEach(name => {
       const p = _plyrI(name);
       if (!p) return;
-      const ki = getKeeperInfo(name);
+      const ki = getKeeperInfoCached(name);
       const positions = (p.pos || p.primaryPos || '').split('/');
 
       // Position need score: how badly I need this player's position(s)
@@ -3125,7 +3266,7 @@ function renderRoster() {
     if (!p) return `<tr class="roster-section" data-slot="${slot}" style="opacity:0.3;"><td style="padding:3px 6px;font-weight:600;width:32px;font-size:11px;">${slot}</td><td colspan="11" style="padding:3px 6px;color:var(--text2);">—</td></tr>`;
     const dn = encodeURIComponent(p.name);
     const c = tClr(p.pnav, slot||p.primaryPos);
-    const ki = getKeeperInfo(p.name);
+    const ki = getKeeperInfoCached(p.name);
     const natPos = ''; // position already shown in Pos column
     // Keeper column: show round→cost if keepable, round only if not, — if undrafted
     let keepHtml = '<span style="color:var(--text2);font-size:10px;">—</span>';
@@ -3450,7 +3591,7 @@ function renderRoster() {
 
     // Compute sort values
     allRosterPlayers.forEach(r => {
-      const ki = getKeeperInfo(r.p.name);
+      const ki = getKeeperInfoCached(r.p.name);
       r._cost2027 = ki.keepable2027 ? ki.cost2027 : 99;
       r._yrsCtrl = ki.yearsLeft || 0;
       r._surplus = ki.surplusNow || 0;
@@ -3779,7 +3920,7 @@ function renderRoster() {
           const positions = (p.pos || p.primaryPos || '').split('/').filter(x => x);
           let bestNeed = 0, bestPos = '';
           positions.forEach(pos => { const gap = _wwNeeds[pos]; if (gap !== undefined && gap < 0 && -gap > bestNeed) { bestNeed = -gap; bestPos = pos; } });
-          const ki = getKeeperInfo(p.name);
+          const ki = getKeeperInfoCached(p.name);
           const keepBonus = ki.keepable2027 ? ki.yearsLeft * 0.3 : 0;
           return { p, score: bestNeed * 2.5 + (p.lcv||0) * 0.4 + keepBonus, bestPos, bestNeed, ki };
         }).filter(x => x.score > 1.0).sort((a,b) => b.score - a.score).slice(0, 8);
@@ -3809,7 +3950,7 @@ function renderRoster() {
         });
         const _dropPlayers = (state.myTeam || []).map(n => {
           const p = _plyrI(n); if (!p) return null;
-          const ki = getKeeperInfo(n); const lcv = p.lcv || 0;
+          const ki = getKeeperInfoCached(n); const lcv = p.lcv || 0;
           const posCount = _posCounts[p.primaryPos] || 0;
           const hasSurplus = posCount >= 3; // 3+ means real surplus
           const isScarcity = posCount <= 1; // only 1 at position
@@ -4129,7 +4270,7 @@ function renderRoster() {
 
   function tradePlayerTag(n) {
     const p = _plyrI(n);
-    const ki = getKeeperInfo(n);
+    const ki = getKeeperInfoCached(n);
     const lcvStr = p ? (p.lcv||0).toFixed(1) : '?';
     const rdStr = ki.draftRound ? `R${ki.draftRound}` : 'FA';
     const keeperBadge = ki.keepable2027
@@ -4180,7 +4321,7 @@ function renderRoster() {
       const matches = ALL.filter(p => p.name.toLowerCase().includes(q)).slice(0, 8);
       acDiv.innerHTML = '<div style="position:absolute;z-index:100;background:var(--surface);border:1px solid var(--border);border-radius:4px;max-height:160px;overflow-y:auto;width:100%;">' +
         matches.map(p => {
-          const ki = getKeeperInfo(p.name);
+          const ki = getKeeperInfoCached(p.name);
           const rdTag = ki.draftRound ? `R${ki.draftRound}` : 'FA';
           const costTag = ki.keepable2027 ? `→R${ki.cost2027}` : '';
           return `<div class="trade-ac-item" data-name="${encodeURIComponent(p.name)}" style="padding:4px 6px;font-size:11px;cursor:pointer;border-bottom:1px solid var(--border);">${p.name} <small style="color:var(--text2)">${p.primaryPos} LCV:${(p.lcv||0).toFixed(1)} ${rdTag}${costTag}</small></div>`;
@@ -4236,8 +4377,8 @@ function renderRoster() {
     const pickClr = pickDiff >= 0 ? 'var(--green)' : 'var(--red)';
 
     // Years of control
-    const giveYrs = g.reduce((s,n) => s + getKeeperInfo(n).yearsLeft, 0);
-    const getYrs = r.reduce((s,n) => s + getKeeperInfo(n).yearsLeft, 0);
+    const giveYrs = g.reduce((s,n) => s + getKeeperInfoCached(n).yearsLeft, 0);
+    const getYrs = r.reduce((s,n) => s + getKeeperInfoCached(n).yearsLeft, 0);
     const yrsDiff = getYrs - giveYrs;
 
     // Prospect value for rookies/MiLB players
@@ -4252,14 +4393,14 @@ function renderRoster() {
 
     // Keeper surplus totals (multi-year) + pick values + prospect values as future assets
     // Clamp surplus to 0 minimum: negative surplus means bad keeper deal, not negative trade value
-    const giveSurplus = g.reduce((s,n) => s + Math.max(0, getKeeperInfo(n).multiYearSurplus), 0) + givePickVal + giveProspectVal;
-    const getSurplus = r.reduce((s,n) => s + Math.max(0, getKeeperInfo(n).multiYearSurplus), 0) + getPickVal + getProspectVal;
+    const giveSurplus = g.reduce((s,n) => s + Math.max(0, getKeeperInfoCached(n).multiYearSurplus), 0) + givePickVal + giveProspectVal;
+    const getSurplus = r.reduce((s,n) => s + Math.max(0, getKeeperInfoCached(n).multiYearSurplus), 0) + getPickVal + getProspectVal;
     const surplusDiff = getSurplus - giveSurplus;
     const surpClr = surplusDiff >= 0 ? 'var(--green)' : 'var(--red)';
 
     // Unkepable player warnings
-    const unkepableGive = g.filter(n => { const ki = getKeeperInfo(n); return ki.draftRound && ki.draftRound <= 4 && !ki.keepable2027; });
-    const unkepableGet = r.filter(n => { const ki = getKeeperInfo(n); return ki.draftRound && ki.draftRound <= 4 && !ki.keepable2027; });
+    const unkepableGive = g.filter(n => { const ki = getKeeperInfoCached(n); return ki.draftRound && ki.draftRound <= 4 && !ki.keepable2027; });
+    const unkepableGet = r.filter(n => { const ki = getKeeperInfoCached(n); return ki.draftRound && ki.draftRound <= 4 && !ki.keepable2027; });
 
     // Simulate post-trade roster LCV
     const myNames = [...(state.myTeam || [])];
@@ -4278,7 +4419,7 @@ function renderRoster() {
       sh += '<div style="margin-bottom:6px;padding:4px 6px;background:rgba(234,179,8,0.15);border-radius:4px;font-size:10px;">';
       sh += '<b style="color:var(--text);">Keeper Warning:</b> ';
       const all = [...unkepableGive, ...unkepableGet];
-      sh += all.map(n => { const ki = getKeeperInfo(n); return `${n} (R${ki.draftRound}) cannot be kept`; }).join(', ');
+      sh += all.map(n => { const ki = getKeeperInfoCached(n); return `${n} (R${ki.draftRound}) cannot be kept`; }).join(', ');
       sh += ' — R1-4 players are permanently ineligible.';
       sh += '</div>';
     }
@@ -4421,7 +4562,7 @@ function renderRoster() {
           bestNeed = myNeeds2['DH']; needPos = 'DH';
         }
 
-        const ki = getKeeperInfo(name);
+        const ki = getKeeperInfoCached(name);
         const keeperScore = ki.keepable2027 ? Math.min(Math.max(0, ki.multiYearSurplus) * 0.3, 2.0) : 0;
         const needScore = Math.max(0, -bestNeed) * 1.2;
         const lcvScore = Math.min((p.lcv || 0) * 0.12, 1.5);
@@ -4553,7 +4694,7 @@ function renderRoster() {
     function profile(name) {
       const p = _plyrI(name);
       if (!p) return null;
-      const ki = getKeeperInfo(name);
+      const ki = getKeeperInfoCached(name);
       const pr = findProspect(name);
       const positions = (p.pos || p.primaryPos || '').split('/').filter(x => x);
       const isPit = ['SP','RP'].includes(p.primaryPos);
@@ -6055,7 +6196,7 @@ function renderLeague() {
       // Build row data
       const rows = allRostered.map(n => {
         const p = _plyrI(n);
-        const ki = getKeeperInfo(n);
+        const ki = getKeeperInfoCached(n);
         const keeperRd = keeperRdMap[n];
         return {
           name: n, p, ki, isKeeper: keeperNames.has(n),
@@ -6515,7 +6656,7 @@ function _renderAnalyticsInner(section) {
   const myTeam = state.myTeam || [];
   const myProfiles = myTeam.map(n => {
     const p = _plyrI(n); if (!p) return null;
-    const ki = getKeeperInfo(n);
+    const ki = getKeeperInfoCached(n);
     const pr = findProspect(n);
     return { name: n, p, ki, pr, lcv: p.lcv||0, primaryPos: p.primaryPos, isPit: ['SP','RP'].includes(p.primaryPos) };
   }).filter(Boolean);
