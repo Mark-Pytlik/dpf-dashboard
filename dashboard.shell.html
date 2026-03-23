@@ -54,46 +54,92 @@ __STYLES__
     <option value="available">Available</option>
     <option value="drafted">Drafted</option>
   </select>
-  <select id="teamFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;"></select>
-  <button class="filter-btn" id="posFilter" style="margin-right:8px;">Pos: All</button>
-  <div id="posButtons" style="display:flex;gap:6px;"></div>
+  <select id="teamFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;">
+    <option value="all">All Owners</option>
+  </select>
+  <div id="typeFilters" style="display:flex;gap:2px;"></div>
+  <div style="width:1px;height:20px;background:var(--border);"></div>
+  <div id="posFilters"></div>
+  <select id="tagFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;">
+    <option value="all">All tags</option>
+    <option value="want">Want only</option>
+    <option value="avoid">Avoid only</option>
+    <option value="sleeper">Sleepers only</option>
+    <option value="bust">Busts only</option>
+    <option value="injured">Injured only</option>
+    <option value="any-tag">Any tagged</option>
+    <option value="untagged">Untagged only</option>
+  </select>
+  <div class="view-toggle" id="viewToggle">
+    <button class="view-btn" data-view="gm">GM View</button>
+    <button class="view-btn active" data-view="main">Analytics</button>
+    <button class="view-btn" data-view="s25">2025 Stats</button>
+    <button class="view-btn" data-view="p26">2026 Projected</button>
+    <button class="view-btn" data-view="s26">2026 Actual</button>
+    <button class="view-btn" data-view="avp">Actual vs Proj</button>
+  </div>
   <div class="stats-bar">
-    <div>Total: <b id="statTotal">0</b></div>
-    <div>Available: <b id="statAvail">0</b></div>
-    <div>Drafted: <b id="statDraft">0</b></div>
+    <span>Showing <b id="showCount">0</b> players</span>
+    <span>Drafted <b id="draftedCount">0</b></span>
+    <span style="color:var(--green)">Want <b id="wantCount">0</b></span>
+    <span style="color:var(--red)">Avoid <b id="avoidCount">0</b></span>
+    <span style="color:var(--yellow)">Sleeper <b id="sleeperCount">0</b></span>
+    <span style="color:var(--orange)">Bust <b id="bustCount">0</b></span>
+    <span style="color:#a855f7">Injured <b id="injuredCount">0</b></span>
   </div>
 </div>
 
-<div class="my-team-panel" id="myTeamPanel">
-  <div class="my-team-row" id="myTeamChips"></div>
-</div>
-
 <div class="draft-panel" id="draftPanel">
-  <input type="text" class="draft-input" id="draftInput" placeholder="Player name...">
-  <input type="number" class="draft-input" id="draftRound" placeholder="Round (optional)" style="width:100px;">
-  <button class="btn btn-primary" onclick="draftFromInput()">Draft</button>
-  <button class="btn btn-secondary" onclick="undoLastDraft()">Undo Last</button>
-  <button class="btn btn-danger" onclick="clearAllDrafted()">Clear All</button>
+  <div style="position:relative;">
+    <input type="text" class="draft-input" id="draftInput" placeholder="Type player name to draft...">
+    <div class="autocomplete" id="draftAC"></div>
+  </div>
+  <label style="display:flex;align-items:center;gap:4px;font-size:12px;color:var(--text2);">
+    <input type="checkbox" id="draftToMyTeam"> Add to my team
+  </label>
+  <button class="btn btn-primary" id="draftBtn">Draft</button>
   <button class="btn btn-secondary" onclick="openBulkModal()">Bulk Import</button>
-  <div id="draftStatus" style="font-size:12px;color:var(--text2);">Starting Round 1</div>
+  <button class="btn btn-secondary" id="togglePasteBtn" onclick="togglePastePanel()">Live Paste</button>
+  <button class="btn btn-danger" onclick="clearAllDrafted()">Reset Draft</button>
 </div>
 
 <div class="paste-panel" id="pastePanel">
-  <textarea class="paste-box" id="pasteBox" placeholder="Paste draft picks here (any format)..."></textarea>
-  <div class="paste-status" id="pasteStatus"></div>
+  <div style="display:flex;gap:12px;align-items:flex-start;">
+    <div style="flex:1;">
+      <textarea class="paste-box" id="livePasteBox" placeholder="Paste CBS draft log or other draft text here...&#10;CBS format: Pick: 1 - Team Name selects Judge, Aaron&#10;Also supports: Round 1 Pick 1: Aaron Judge&#10;1.01 Aaron Judge&#10;Or just player names, one per line"></textarea>
+      <div class="paste-status" id="pasteStatus"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;">
+      <button class="btn btn-primary" onclick="processLivePaste()">Process</button>
+      <button class="btn btn-secondary" style="font-size:10px;padding:3px 8px;" onclick="toggleCbsMap()">Team Map</button>
+    </div>
+  </div>
+  <div id="cbsMapPanel" style="display:none;margin-top:8px;background:var(--surface2);border-radius:6px;padding:10px;">
+    <div style="font-size:12px;font-weight:600;margin-bottom:6px;">CBS Team Name Mapping</div>
+    <p style="font-size:11px;color:var(--text2);margin-bottom:8px;">Map CBS draft room team names to your league teams. The parser auto-detects names from the paste — or type them manually.</p>
+    <div id="cbsMapRows"></div>
+    <button class="btn btn-secondary" style="font-size:10px;padding:3px 10px;margin-top:6px;" onclick="addCbsMapRow()">+ Add mapping</button>
+    <button class="btn btn-primary" style="font-size:10px;padding:3px 10px;margin-top:6px;margin-left:4px;" onclick="saveCbsMap()">Save</button>
+    <button class="btn btn-secondary" style="font-size:10px;padding:3px 10px;margin-top:6px;margin-left:4px;" onclick="autoDetectCbsTeams()">Auto-detect from paste</button>
+  </div>
 </div>
 
-<div class="table-wrap">
-  <table id="mainTable">
-    <thead id="tableHead"></thead>
-    <tbody id="tableBody"></tbody>
-  </table>
+<!-- team chips removed -->
+
+<div style="display:flex;gap:12px;" id="mainLayout">
+<div class="table-wrap" id="tableWrap" style="flex:1;min-width:0;">
+  <table><thead id="thead"></thead><tbody id="tbody"></tbody></table>
 </div>
-</div><!-- /mainContent -->
+<div id="liveSidebar" style="flex:0 0 280px;max-height:calc(100vh - 160px);overflow-y:auto;display:none;"></div>
+</div>
+
+<div class="roster-section" id="rosterSection" style="display:none;"></div>
+<div id="txnsSection" style="display:none;padding:20px;max-width:100%;margin:0 auto;"></div>
+<div id="analyticsSection" style="display:none;padding:20px;max-width:1100px;margin:0 auto;"></div>
 
 <div id="bulkModal">
   <div class="modal-content">
-    <h3>Bulk Import Players</h3>
+    <h3>Bulk Import Keepers / Drafted Players</h3>
     <p style="font-size:12px;color:var(--text2);margin-bottom:10px;">Paste player names with optional round, one per line. Formats:<br>
     <code>Aaron Judge, 1</code> &nbsp; <code>Aaron Judge Rd1</code> &nbsp; <code>Aaron Judge Rd 1</code> &nbsp; <code>Aaron Judge</code> (no round)</p>
     <textarea class="bulk-area" id="bulkArea" rows="8" placeholder="Aaron Judge, 1&#10;Bobby Witt Jr. Rd3&#10;Tarik Skubal, 2&#10;Shohei Ohtani"></textarea>
