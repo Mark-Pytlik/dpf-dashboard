@@ -1,18 +1,18 @@
 // ── State ─────────────────────────────────────────────────────────────────
-const STATE_VERSION = 19;
+const STATE_VERSION = 20;
 const DEFAULT_KEEPERS = ['James Wood', 'MacKenzie Gore', 'Zach Neto', 'Nick Kurtz', 'Jo Adell'];
 const DEFAULT_KEEPER_ROUNDS = {'James Wood':12, 'MacKenzie Gore':13, 'Jo Adell':10, 'Zach Neto':14, 'Nick Kurtz':11};
 
 // All league keepers from 2026 keeper sheet (clamped rounds)
 const DEFAULT_LEAGUE_KEEPERS = {
   'Dennis Santana - Smooth ft. Rob Thomas': [
-    {name:'Corbin Carroll',rd:6}, {name:'Jackson Chourio',rd:10}, {name:'Wyatt Langford',rd:12}, {name:'Ben Rice',rd:15}, {name:'Tyler Soderstrom',rd:25}
+    {name:'Jose Ramirez',rd:1}, {name:'Trea Turner',rd:4}, {name:'Devin Williams',rd:7}, {name:'Brandon Woodruff',rd:10}, {name:'Dylan Crews',rd:15}
   ],
   'Okamotomami': [
     {name:'Jo Adell',rd:10}, {name:'Nick Kurtz',rd:11}, {name:'James Wood',rd:12}, {name:'MacKenzie Gore',rd:13}, {name:'Zach Neto',rd:14}
   ],
   "Colonel Corbin's Ascent": [
-    {name:'Jose Ramirez',rd:1}, {name:'Trea Turner',rd:4}, {name:'Devin Williams',rd:7}, {name:'Brandon Woodruff',rd:10}, {name:'Dylan Crews',rd:15}
+    {name:'Corbin Carroll',rd:6}, {name:'Jackson Chourio',rd:10}, {name:'Wyatt Langford',rd:12}, {name:'Ben Rice',rd:15}, {name:'Tyler Soderstrom',rd:25}
   ],
   "Whoop Whoop that\'s the sound of Dylan Cease": [
     {name:'Juan Soto',rd:4}, {name:'Bo Bichette',rd:5}, {name:'Geraldo Perdomo',rd:15}, {name:'Gerrit Cole',rd:26}, {name:'Spencer Torkelson',rd:27}
@@ -46,8 +46,8 @@ const DEFAULT_MILB_KEEPERS = ['Charlie Condon', 'Max Clark', 'Ethan Holliday', '
 
 // All league rookie/MiLB keepers from 2026 keeper sheet
 const DEFAULT_LEAGUE_MILB_KEEPERS = {
-  'Dennis Santana - Smooth ft. Rob Thomas': ['JJ Wetherholt', 'Carson Williams', 'George Lombard'],
-  "Colonel Corbin's Ascent": ['Nolan McLean', 'Carson Benge', 'Bryce Eldridge', 'Jonah Tong'],
+  'Dennis Santana - Smooth ft. Rob Thomas': ['Nolan McLean', 'Carson Benge', 'Bryce Eldridge', 'Jonah Tong'],
+  "Colonel Corbin's Ascent": ['JJ Wetherholt', 'Carson Williams', 'George Lombard'],
   "Whoop Whoop that's the sound of Dylan Cease": ['Konnor Griffin', 'Kevin McGonigle', 'Walker Jenkins', 'Luis Pena'],
   'Blame it on the Rainiel': ['Travis Bazzana', 'Justin Crawford', 'Josue De Paula', 'Andrew Painter'],
   'A Pete Crow-Armstrong Looked at Me': ['Sal Stewart', 'Jesus Made', 'Colt Emerson', 'Sebastian Wolcott'],
@@ -96,8 +96,8 @@ if (_saved) {
   state = Object.assign({}, _defaults, _saved);
   // v17 migration: CBS_TEAM_MAP was wrong in v16, corrupting leagueTeams rosters.
   // Reset leagueTeams so they rebuild cleanly from keepers + CBS transactions.
-  if (!_saved._v || _saved._v < 19) {
-    console.log('v19 migration: resetting rosters (CBS ID 1/3 swap + trade aliases)');
+  if (!_saved._v || _saved._v < 20) {
+    console.log('v20 migration: resetting rosters (keepers swapped for Roth/Kaskie)');
     state.leagueTeams = {};
     state.leagueMilbKeepers = {};
     // Also clean stale team names from teamOwners
