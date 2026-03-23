@@ -166,8 +166,8 @@ function parkBadge(player) {
   if (!player) return '';
   const hr = player.parkHR;
   if (!hr || hr === 1.0) return '';
-  if (hr >= 1.10) return '<span title="Hitter-friendly park (HR×' + hr.toFixed(2) + ')" style="font-size:8px;background:#16a34a;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">🏟+</span>';
-  if (hr <= 0.90) return '<span title="Pitcher-friendly park (HR×' + hr.toFixed(2) + ')" style="font-size:8px;background:#dc2626;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">🏟−</span>';
+  if (hr >= 1.10) return '<span title="Hitter-friendly park (HR×' + hr.toFixed(2) + ')" style="font-size:8px;background:#16a34a;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">PF+</span>';
+  if (hr <= 0.90) return '<span title="Pitcher-friendly park (HR×' + hr.toFixed(2) + ')" style="font-size:8px;background:#dc2626;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">PF-</span>';
   return '';
 }
 
@@ -195,8 +195,8 @@ function getKadjBadge(player) {
   // In our league, -K means this player loses value vs standard leagues
   // Positive zSo = high K player = LOSES value in our league (standard rankings overvalue them)
   // Negative zSo = low K player = GAINS value in our league (standard rankings undervalue them)
-  if (zSo <= -1.0) return '<span title="Low-K hitter: gains value in -K league (zK=' + zSo.toFixed(1) + ')" style="font-size:8px;background:#16a34a;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">-K✓</span>';
-  if (zSo >= 1.5) return '<span title="High-K hitter: loses value in -K league (zK=' + zSo.toFixed(1) + ')" style="font-size:8px;background:#dc2626;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">-K✗</span>';
+  if (zSo <= -1.0) return '<span title="Low-K hitter: gains value in -K league (zK=' + zSo.toFixed(1) + ')" style="font-size:8px;background:#16a34a;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">LK</span>';
+  if (zSo >= 1.5) return '<span title="High-K hitter: loses value in -K league (zK=' + zSo.toFixed(1) + ')" style="font-size:8px;background:#dc2626;color:#fff;padding:1px 3px;border-radius:2px;cursor:help;">HK</span>';
   return '';
 }
 

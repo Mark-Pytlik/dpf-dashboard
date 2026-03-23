@@ -60,8 +60,6 @@ tr.keeper { background:rgba(108,140,255,0.08); }
 tr:hover .tag-btns { display:inline-flex; }
 .tag-btn { border:none; cursor:pointer; font-size:9px; font-weight:900; line-height:1; padding:1px 2px; border-radius:2px; opacity:0.25; background:transparent; }
 .tag-btn:hover { opacity:1; }
-.a-badges { display:block; font-size:0; line-height:1; margin-top:1px; }
-.a-badges > span { font-size:7px !important; padding:0px 2px !important; margin-right:1px; }
 .tag-w { color:var(--green); } .tag-w:hover { background:rgba(34,197,94,0.15); }
 .tag-a { color:var(--red); } .tag-a:hover { background:rgba(239,68,68,0.15); }
 .tag-s { color:var(--yellow); } .tag-s:hover { background:rgba(234,179,8,0.15); }
