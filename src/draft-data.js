@@ -194,9 +194,15 @@ if (CBS_TRANSACTIONS.length > 0) {
   postDraft.forEach(txn => {
     const teamName = resolveCbsTeam(txn);
     txn.players.forEach(p => {
-      let found = _plyrI(p.name);
+      const found = _plyrI(p.name);
       // Cross-check MLB team to avoid name collisions (e.g. Cade Smith NYY vs CLE)
-      if (found && p.mlbTeam && found.team && found.team !== p.mlbTeam) found = null;
+      // If the transaction's MLB team doesn't match the player record's team,
+      // this is a DIFFERENT player with the same name — skip entirely so we don't
+      // corrupt the real player's drafted status or roster assignment.
+      if (found && p.mlbTeam && found.team && found.team !== p.mlbTeam) {
+        console.log(`Skipping transaction for ${p.name} (${p.mlbTeam}) — name collision with ${found.team} player`);
+        return;
+      }
       const playerName = found ? found.name : p.name;
       const action = p.action || '';
 
@@ -219,11 +225,14 @@ if (CBS_TRANSACTIONS.length > 0) {
   postDraft.forEach(txn => {
     const teamName = resolveCbsTeam(txn);
     txn.players.forEach(p => {
+      // Skip name-collision transactions (same skip as roster processing above)
+      const _txFound = _plyrI(p.name);
+      if (_txFound && p.mlbTeam && _txFound.team && _txFound.team !== p.mlbTeam) return;
       const action = p.action || '';
       let txType = 'add';
       if (action === 'Dropped') txType = 'drop';
       else if (action.startsWith('Traded from')) txType = 'trade';
-      state.transactions.push({ type: txType, player: p.name, date: txn.date.split(' ')[0], from: teamName, cbsAction: action, source: 'CBS' });
+      state.transactions.push({ type: txType, player: p.name, date: txn.date.split(' ')[0], from: teamName, cbsAction: action, source: 'CBS', mlbTeam: p.mlbTeam || '' });
     });
   });
 
