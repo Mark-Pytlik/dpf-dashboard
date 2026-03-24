@@ -717,11 +717,29 @@ function _renderAnalyticsInner(section) {
     const pitCats = ['era','whip','so','w','sv','qs'];
     const pitLabels = {era:'ERA',whip:'WHIP',so:'K',w:'W',sv:'SV',qs:'QS'};
 
-    // Compute projected season totals for each team
+    // Compute projected season totals for ROSTERED (starting lineup) players only.
+    // Bench/IL players don't contribute to category totals.
+    // Active lineup: C,1B,2B,3B,SS,LF,CF,RF,DH (9 batters) + 5 SP + 5 RP
     function teamCatTotals(teamPlayers) {
-      const players = teamPlayers.map(n => _plyrI(n)).filter(Boolean);
-      const bats = players.filter(p => !['SP','RP'].includes(p.primaryPos));
-      const pits = players.filter(p => ['SP','RP'].includes(p.primaryPos));
+      const allPlayers = teamPlayers.map(n => _plyrI(n)).filter(Boolean);
+      const allBats = allPlayers.filter(p => !['SP','RP'].includes(p.primaryPos)).sort((a,b) => (b.lcv||0) - (a.lcv||0));
+      const allSP = allPlayers.filter(p => p.primaryPos === 'SP').sort((a,b) => (b.lcv||0) - (a.lcv||0));
+      const allRP = allPlayers.filter(p => p.primaryPos === 'RP').sort((a,b) => (b.lcv||0) - (a.lcv||0));
+      // Fill batting slots: best player at each position, then DH for remainder
+      const batSlots = {C:1,'1B':1,'2B':1,'3B':1,SS:1,LF:1,CF:1,RF:1,DH:1};
+      const used = new Set();
+      const bats = [];
+      // First pass: fill each position with best available
+      for (const pos of Object.keys(batSlots)) {
+        if (pos === 'DH') continue;
+        const candidate = allBats.find(p => !used.has(p.name) && (p.primaryPos === pos || (p.pos||'').split('/').includes(pos)));
+        if (candidate) { bats.push(candidate); used.add(candidate.name); }
+      }
+      // DH: best remaining batter
+      const dh = allBats.find(p => !used.has(p.name));
+      if (dh) { bats.push(dh); used.add(dh.name); }
+      // Pitchers: top 5 SP + top 5 RP
+      const pits = [...allSP.slice(0, 5), ...allRP.slice(0, 5)];
       const bt = {};
       batCats.forEach(cat => {
         if (cat === 'avg' || cat === 'obp') {
