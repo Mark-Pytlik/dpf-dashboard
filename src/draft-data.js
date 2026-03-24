@@ -194,7 +194,9 @@ if (CBS_TRANSACTIONS.length > 0) {
   postDraft.forEach(txn => {
     const teamName = resolveCbsTeam(txn);
     txn.players.forEach(p => {
-      const found = _plyrI(p.name);
+      let found = _plyrI(p.name);
+      // Cross-check MLB team to avoid name collisions (e.g. Cade Smith NYY vs CLE)
+      if (found && p.mlbTeam && found.team && found.team !== p.mlbTeam) found = null;
       const playerName = found ? found.name : p.name;
       const action = p.action || '';
 

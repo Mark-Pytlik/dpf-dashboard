@@ -97,7 +97,9 @@ function _renderTransactionsInner(section) {
     const isTrade = (tx.action || '').startsWith('Traded');
     const actionColor = tx.action === 'Added' ? 'var(--green)' : tx.action === 'Dropped' ? 'var(--red)' : 'var(--accent)';
     const actionIcon = tx.action === 'Added' ? '+' : tx.action === 'Dropped' ? '−' : '↔';
-    const player = _plyrI(tx.player);
+    let player = _plyrI(tx.player);
+    // Cross-check MLB team to avoid name collisions (e.g. Cade Smith NYY vs CLE)
+    if (player && tx.mlbTeam && player.team && player.team !== tx.mlbTeam) player = null;
     const lcv = player ? (player.lcv||0).toFixed(1) : '—';
     let tvVal = '—';
     if (player) {
