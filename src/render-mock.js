@@ -448,6 +448,41 @@ function _renderAnalyticsInner(section) {
   const myBat = myProfiles.filter(x => !x.isPit);
   const myPit = myProfiles.filter(x => x.isPit);
 
+  // ── Shared category helpers ──
+  const _batCats = ['avg','hr','r','rbi','sb','obp'];
+  const _pitCats = ['era','whip','so','w','sv','qs'];
+  // Compute projected season totals for ROSTERED (starting lineup) players only.
+  function teamCatTotals(teamPlayers) {
+    const allPlayers = teamPlayers.map(n => _plyrI(n)).filter(Boolean);
+    const allBats = allPlayers.filter(p => !['SP','RP'].includes(p.primaryPos)).sort((a,b) => (b.lcv||0) - (a.lcv||0));
+    const allSP = allPlayers.filter(p => p.primaryPos === 'SP').sort((a,b) => (b.lcv||0) - (a.lcv||0));
+    const allRP = allPlayers.filter(p => p.primaryPos === 'RP').sort((a,b) => (b.lcv||0) - (a.lcv||0));
+    const used = new Set();
+    const bats = [];
+    for (const pos of ['C','1B','2B','3B','SS','LF','CF','RF']) {
+      const c = allBats.find(p => !used.has(p.name) && (p.primaryPos === pos || (p.pos||'').split('/').includes(pos)));
+      if (c) { bats.push(c); used.add(c.name); }
+    }
+    const dh = allBats.find(p => !used.has(p.name));
+    if (dh) { bats.push(dh); used.add(dh.name); }
+    const pits = [...allSP.slice(0, 5), ...allRP.slice(0, 5)];
+    const startNames = new Set([...bats.map(p=>p.name), ...pits.map(p=>p.name)]);
+    const benchBats = allBats.filter(p => !startNames.has(p.name));
+    const benchPits = [...allSP.slice(5), ...allRP.slice(5)];
+    const benchLcv = [...benchBats, ...benchPits].reduce((s,p) => s + (p.lcv||0), 0);
+    const bt = {};
+    _batCats.forEach(cat => {
+      if (cat === 'avg' || cat === 'obp') { let tp=0,w=0; bats.forEach(p=>{const pa=p.pa||500;w+=(p[cat]||0)*pa;tp+=pa;}); bt[cat]=tp>0?w/tp:0; }
+      else bt[cat] = bats.reduce((s,p)=>s+(p[cat]||0),0);
+    });
+    const pt = {};
+    _pitCats.forEach(cat => {
+      if (cat === 'era' || cat === 'whip') { let ti=0,w=0; pits.forEach(p=>{const ip=p.ip||100;w+=(p[cat]||0)*ip;ti+=ip;}); pt[cat]=ti>0?w/ti:0; }
+      else pt[cat] = pits.reduce((s,p)=>s+(p[cat]||0),0);
+    });
+    return { bat: bt, pit: pt, benchBats: benchBats.length, benchPits: benchPits.length, benchLcv: Math.round(benchLcv * 10) / 10 };
+  }
+
   // Collapsible analytics panel helper (with localStorage persistence)
   function aPanel(id, title, icon, contentFn) {
     let collapsed = false;
@@ -711,63 +746,10 @@ function _renderAnalyticsInner(section) {
   html += aPanel('category-pace', 'Category Pace Tracker', '📈', () => {
     let h = '<div style="font-size:11px;color:var(--text2);margin-bottom:10px;">Project your end-of-season category totals and see where you rank. Identifies which categories have the best improvement ROI.</div>';
 
-    // Batting categories: AVG, HR, R, RBI, SB, OBP
-    const batCats = ['avg','hr','r','rbi','sb','obp'];
+    const batCats = _batCats;
     const batLabels = {avg:'AVG',hr:'HR',r:'R',rbi:'RBI',sb:'SB',obp:'OBP'};
-    const pitCats = ['era','whip','so','w','sv','qs'];
+    const pitCats = _pitCats;
     const pitLabels = {era:'ERA',whip:'WHIP',so:'K',w:'W',sv:'SV',qs:'QS'};
-
-    // Compute projected season totals for ROSTERED (starting lineup) players only.
-    // Bench/IL players don't contribute to category totals.
-    // Active lineup: C,1B,2B,3B,SS,LF,CF,RF,DH (9 batters) + 5 SP + 5 RP
-    function teamCatTotals(teamPlayers) {
-      const allPlayers = teamPlayers.map(n => _plyrI(n)).filter(Boolean);
-      const allBats = allPlayers.filter(p => !['SP','RP'].includes(p.primaryPos)).sort((a,b) => (b.lcv||0) - (a.lcv||0));
-      const allSP = allPlayers.filter(p => p.primaryPos === 'SP').sort((a,b) => (b.lcv||0) - (a.lcv||0));
-      const allRP = allPlayers.filter(p => p.primaryPos === 'RP').sort((a,b) => (b.lcv||0) - (a.lcv||0));
-      // Fill batting slots: best player at each position, then DH for remainder
-      const batSlots = {C:1,'1B':1,'2B':1,'3B':1,SS:1,LF:1,CF:1,RF:1,DH:1};
-      const used = new Set();
-      const bats = [];
-      // First pass: fill each position with best available
-      for (const pos of Object.keys(batSlots)) {
-        if (pos === 'DH') continue;
-        const candidate = allBats.find(p => !used.has(p.name) && (p.primaryPos === pos || (p.pos||'').split('/').includes(pos)));
-        if (candidate) { bats.push(candidate); used.add(candidate.name); }
-      }
-      // DH: best remaining batter
-      const dh = allBats.find(p => !used.has(p.name));
-      if (dh) { bats.push(dh); used.add(dh.name); }
-      // Pitchers: top 5 SP + top 5 RP
-      const pits = [...allSP.slice(0, 5), ...allRP.slice(0, 5)];
-      const bt = {};
-      batCats.forEach(cat => {
-        if (cat === 'avg' || cat === 'obp') {
-          // Weighted average by PA
-          let totalPA = 0, weighted = 0;
-          bats.forEach(p => { const pa = p.pa || p.ab || 500; const v = p[cat] || 0; weighted += v * pa; totalPA += pa; });
-          bt[cat] = totalPA > 0 ? weighted / totalPA : 0;
-        } else {
-          bt[cat] = bats.reduce((s,p) => s + (p[cat]||0), 0);
-        }
-      });
-      const pt = {};
-      pitCats.forEach(cat => {
-        if (cat === 'era' || cat === 'whip') {
-          let totalIP = 0, weighted = 0;
-          pits.forEach(p => { const ip = p.ip || 100; const v = p[cat] || 0; weighted += v * ip; totalIP += ip; });
-          pt[cat] = totalIP > 0 ? weighted / totalIP : 0;
-        } else {
-          pt[cat] = pits.reduce((s,p) => s + (p[cat]||0), 0);
-        }
-      });
-      // Bench = everyone NOT in the starting lineup
-      const startNames = new Set([...bats.map(p=>p.name), ...pits.map(p=>p.name)]);
-      const benchBats = allBats.filter(p => !startNames.has(p.name));
-      const benchPits = [...allSP.slice(5), ...allRP.slice(5)];
-      const benchLcv = [...benchBats, ...benchPits].reduce((s,p) => s + (p.lcv||0), 0);
-      return { bat: bt, pit: pt, benchBats: benchBats.length, benchPits: benchPits.length, benchLcv: Math.round(benchLcv * 10) / 10 };
-    }
 
     // Build data for all teams
     const teamCats = LEAGUE_TEAMS.map(t => {
@@ -1018,41 +1000,11 @@ function _renderAnalyticsInner(section) {
     });
     h += '</select></div>';
 
-    // Get opponent data
+    // Get opponent data — reuse teamCatTotals (starters only) from pace tracker
     const oppTeam = LEAGUE_TEAMS.find(t => t.name === selOpp);
     const oppPlayers = state.leagueTeams[selOpp] || [];
-    const myTotals = (() => {
-      const players = myTeam.map(n => _plyrI(n)).filter(Boolean);
-      const bats = players.filter(p => !['SP','RP'].includes(p.primaryPos));
-      const pits = players.filter(p => ['SP','RP'].includes(p.primaryPos));
-      const bt = {}, pt = {};
-      const batCats2 = ['avg','hr','r','rbi','sb','obp'];
-      const pitCats2 = ['era','whip','so','w','sv','qs'];
-      batCats2.forEach(cat => {
-        if (cat === 'avg' || cat === 'obp') { let tp=0,w2=0; bats.forEach(p=>{const pa=p.pa||500;w2+=((p[cat]||0)*pa);tp+=pa;}); bt[cat]=tp>0?w2/tp:0; }
-        else bt[cat] = bats.reduce((s,p)=>s+(p[cat]||0),0);
-      });
-      pitCats2.forEach(cat => {
-        if (cat === 'era' || cat === 'whip') { let ti=0,w2=0; pits.forEach(p=>{const ip=p.ip||100;w2+=((p[cat]||0)*ip);ti+=ip;}); pt[cat]=ti>0?w2/ti:0; }
-        else pt[cat] = pits.reduce((s,p)=>s+(p[cat]||0),0);
-      });
-      return { bat: bt, pit: pt };
-    })();
-    const oppTotals = (() => {
-      const players = oppPlayers.map(n => _plyrI(n)).filter(Boolean);
-      const bats = players.filter(p => !['SP','RP'].includes(p.primaryPos));
-      const pits = players.filter(p => ['SP','RP'].includes(p.primaryPos));
-      const bt = {}, pt = {};
-      ['avg','hr','r','rbi','sb','obp'].forEach(cat => {
-        if (cat === 'avg' || cat === 'obp') { let tp=0,w2=0; bats.forEach(p=>{const pa=p.pa||500;w2+=((p[cat]||0)*pa);tp+=pa;}); bt[cat]=tp>0?w2/tp:0; }
-        else bt[cat] = bats.reduce((s,p)=>s+(p[cat]||0),0);
-      });
-      ['era','whip','so','w','sv','qs'].forEach(cat => {
-        if (cat === 'era' || cat === 'whip') { let ti=0,w2=0; pits.forEach(p=>{const ip=p.ip||100;w2+=((p[cat]||0)*ip);ti+=ip;}); pt[cat]=ti>0?w2/ti:0; }
-        else pt[cat] = pits.reduce((s,p)=>s+(p[cat]||0),0);
-      });
-      return { bat: bt, pit: pt };
-    })();
+    const myTotals = teamCatTotals(myTeam);
+    const oppTotals = teamCatTotals(oppPlayers);
 
     const oppName = oppTeam ? (oppTeam.owner || oppTeam.name) : selOpp;
 
@@ -1071,13 +1023,17 @@ function _renderAnalyticsInner(section) {
       const opp = oppTotals.bat[cat] || 0;
       const isRate = (cat === 'avg' || cat === 'obp');
       const fmt = v => isRate ? v.toFixed(3).replace(/^0\./,'.') : Math.round(v);
-      const iWin = my > opp;
-      if (iWin) myBatWins++; else if (opp > my) oppBatWins++;
-      const edgeIcon = my > opp ? '<span style="color:var(--green);font-weight:700;">✓ You</span>' : opp > my ? `<span style="color:var(--red);">✗ ${oppName.slice(0,8)}</span>` : '<span style="color:var(--text2);">—</span>';
-      h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 6px;font-weight:700;">${cat.toUpperCase()}</td><td style="padding:3px 6px;text-align:right;${iWin?'color:var(--green);font-weight:700;':''}">${fmt(my)}</td><td style="padding:3px 6px;text-align:right;${!iWin&&opp>my?'color:var(--green);font-weight:700;':''}">${fmt(opp)}</td><td style="padding:3px 6px;text-align:center;">${edgeIcon}</td></tr>`;
+      const tied = isRate ? Math.abs(my - opp) < 0.0005 : Math.round(my) === Math.round(opp);
+      const iWin = !tied && my > opp;
+      const oppWin = !tied && opp > my;
+      if (tied) { myBatWins += 0.5; oppBatWins += 0.5; }
+      else if (iWin) myBatWins++; else oppBatWins++;
+      const edgeIcon = tied ? '<span style="color:var(--text2);">½-½</span>' : iWin ? '<span style="color:var(--green);font-weight:700;">✓ You</span>' : `<span style="color:var(--red);">✗ ${oppName.slice(0,8)}</span>`;
+      h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 6px;font-weight:700;">${cat.toUpperCase()}</td><td style="padding:3px 6px;text-align:right;${iWin?'color:var(--green);font-weight:700;':''}">${fmt(my)}</td><td style="padding:3px 6px;text-align:right;${oppWin?'color:var(--green);font-weight:700;':''}">${fmt(opp)}</td><td style="padding:3px 6px;text-align:center;">${edgeIcon}</td></tr>`;
     });
     h += '</tbody></table>';
-    h += `<div style="margin-top:4px;font-size:11px;font-weight:700;text-align:center;">Batting: <span style="color:var(--green);">${myBatWins}</span> - <span style="color:var(--red);">${oppBatWins}</span></div>`;
+    const batFmt = v => v % 1 === 0 ? v : v.toFixed(1);
+    h += `<div style="margin-top:4px;font-size:11px;font-weight:700;text-align:center;">Batting: <span style="color:var(--green);">${batFmt(myBatWins)}</span> - <span style="color:var(--red);">${batFmt(oppBatWins)}</span></div>`;
     h += '</div>';
 
     // Pitching
@@ -1093,21 +1049,25 @@ function _renderAnalyticsInner(section) {
       const isRate = (cat === 'era' || cat === 'whip');
       const fmt = v => isRate ? v.toFixed(2) : Math.round(v);
       const lowerBetter = (cat === 'era' || cat === 'whip');
-      const iWin = lowerBetter ? (my < opp) : (my > opp);
-      if (iWin) myPitWins++; else if (lowerBetter ? opp < my : opp > my) oppPitWins++;
-      const edgeIcon = iWin ? '<span style="color:var(--green);font-weight:700;">✓ You</span>' : (!iWin && ((lowerBetter ? opp < my : opp > my))) ? `<span style="color:var(--red);">✗ ${oppName.slice(0,8)}</span>` : '<span style="color:var(--text2);">—</span>';
-      h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 6px;font-weight:700;">${cat === 'so' ? 'K' : cat.toUpperCase()}</td><td style="padding:3px 6px;text-align:right;${iWin?'color:var(--green);font-weight:700;':''}">${fmt(my)}</td><td style="padding:3px 6px;text-align:right;${!iWin&&((lowerBetter?opp<my:opp>my))?'color:var(--green);font-weight:700;':''}">${fmt(opp)}</td><td style="padding:3px 6px;text-align:center;">${edgeIcon}</td></tr>`;
+      const tied = isRate ? Math.abs(my - opp) < 0.005 : Math.round(my) === Math.round(opp);
+      const iWin = !tied && (lowerBetter ? (my < opp) : (my > opp));
+      const oppWin = !tied && (lowerBetter ? (opp < my) : (opp > my));
+      if (tied) { myPitWins += 0.5; oppPitWins += 0.5; }
+      else if (iWin) myPitWins++; else oppPitWins++;
+      const edgeIcon = tied ? '<span style="color:var(--text2);">½-½</span>' : iWin ? '<span style="color:var(--green);font-weight:700;">✓ You</span>' : `<span style="color:var(--red);">✗ ${oppName.slice(0,8)}</span>`;
+      h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 6px;font-weight:700;">${cat === 'so' ? 'K' : cat.toUpperCase()}</td><td style="padding:3px 6px;text-align:right;${iWin?'color:var(--green);font-weight:700;':''}">${fmt(my)}</td><td style="padding:3px 6px;text-align:right;${oppWin?'color:var(--green);font-weight:700;':''}">${fmt(opp)}</td><td style="padding:3px 6px;text-align:center;">${edgeIcon}</td></tr>`;
     });
     h += '</tbody></table>';
-    h += `<div style="margin-top:4px;font-size:11px;font-weight:700;text-align:center;">Pitching: <span style="color:var(--green);">${myPitWins}</span> - <span style="color:var(--red);">${oppPitWins}</span></div>`;
+    const pitFmt = v => v % 1 === 0 ? v : v.toFixed(1);
+    h += `<div style="margin-top:4px;font-size:11px;font-weight:700;text-align:center;">Pitching: <span style="color:var(--green);">${pitFmt(myPitWins)}</span> - <span style="color:var(--red);">${pitFmt(oppPitWins)}</span></div>`;
     h += '</div>';
     h += '</div>';
 
     // Overall
     const totalWins = myBatWins + myPitWins;
     const totalLosses = oppBatWins + oppPitWins;
-    const totalTies = 12 - totalWins - totalLosses;
-    h += `<div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;text-align:center;"><span style="font-size:16px;font-weight:800;">Overall: <span style="color:var(--green);">${totalWins}</span> - <span style="color:var(--red);">${totalLosses}</span>${totalTies > 0 ? ` - <span style="color:var(--text2);">${totalTies}</span>` : ''}</span></div>`;
+    const fmtH = v => v % 1 === 0 ? v : v.toFixed(1);
+    h += `<div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;text-align:center;"><span style="font-size:16px;font-weight:800;">Overall: <span style="color:var(--green);">${fmtH(totalWins)}</span> - <span style="color:var(--red);">${fmtH(totalLosses)}</span></span></div>`;
 
     h += '<div style="margin-top:8px;font-size:10px;color:var(--text2);">Based on projected 2026 season totals. During the season, this will show weekly matchup-specific data.</div>';
     return h;
