@@ -121,7 +121,7 @@ const LIVE_PICKS = [
   // Rd30: picks 349-360 (snake)
   {n:'Coby Mayo',t:12},{n:'Landen Roupp',t:11},{n:'Brady Singer',t:10},{n:'Jackson Jobe',t:9},
   {n:'Adolis Garcia',t:8},{n:'Brayan Bello',t:7},{n:'Giancarlo Stanton',t:6},{n:'Nolan Schanuel',t:5},
-  {n:'Cade Smith',t:4},{n:'TJ Rumfield',t:3},{n:'Graham Ashcraft',t:2},{n:'Hogan Harris',t:1},
+  {n:'Cade Smith (NYY)',t:4},{n:'TJ Rumfield',t:3},{n:'Graham Ashcraft',t:2},{n:'Hogan Harris',t:1},
   // Rd31: picks 361-372
   {n:'Jasson Dominguez',t:1},{n:'Yusei Kikuchi',t:2},{n:'Alfredo Duno',t:3},{n:'Josue Briceno',t:4},
   {n:'Lars Nootbaar',t:5},{n:'Tyler Stephenson',t:6},{n:'Shane Drohan',t:7},{n:'Dansby Swanson',t:8},
