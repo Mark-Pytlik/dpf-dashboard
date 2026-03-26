@@ -1,0 +1,176 @@
+{
+  "currentPeriod": 1,
+  "periodStart": "2026-03-25",
+  "periodEnd": "2026-04-12",
+  "opponent": "Blake Murphy",
+  "opponentTeam": "Yesavage Garden",
+  "currentScore": {
+    "me": 7.5,
+    "opp": 8.5,
+    "tied": 0
+  },
+  "categoryScores": {
+    "BA": {
+      "me": 0.25,
+      "opp": 0.143,
+      "winner": "me"
+    },
+    "HR": {
+      "me": 0,
+      "opp": 0,
+      "winner": "tie"
+    },
+    "RBI": {
+      "me": 0,
+      "opp": 1,
+      "winner": "opp"
+    },
+    "R": {
+      "me": 0,
+      "opp": 1,
+      "winner": "opp"
+    },
+    "SB": {
+      "me": 0,
+      "opp": 0,
+      "winner": "tie"
+    },
+    "K": {
+      "me": 0,
+      "opp": 0,
+      "winner": "tie"
+    },
+    "ERA": {
+      "me": 0.0,
+      "opp": 0.0,
+      "winner": "tie"
+    },
+    "WHIP": {
+      "me": 0.0,
+      "opp": 0.0,
+      "winner": "tie"
+    },
+    "W": {
+      "me": 0,
+      "opp": 0,
+      "winner": "tie"
+    },
+    "S": {
+      "me": 0,
+      "opp": 0,
+      "winner": "tie"
+    }
+  },
+  "myRecord": "0-0-0",
+  "standings": [
+    {
+      "team": "Eno Sarris",
+      "teamName": "Weird Fishes / Arrighetti",
+      "mine": false,
+      "w": 0,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Anthony Rescan",
+      "teamName": "Dinosaur Jr Caminero",
+      "mine": false,
+      "w": 0,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Chris Kaskie",
+      "teamName": "Colonel Corbin's Ascent",
+      "mine": false,
+      "w": 0,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Mark Pytlik",
+      "teamName": "Okamotomami",
+      "mine": true,
+      "w": 0,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Fran Devinney",
+      "teamName": "Buddy Buddy Buddy All On Base",
+      "mine": false,
+      "w": 0,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Ian Wolfe",
+      "teamName": "A Pete Crow-Armstrong Looked at Me",
+      "mine": false,
+      "w": 0,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Andrew Gaerig",
+      "teamName": "Whoop Whoop that's the sound of Dylan Cease",
+      "mine": false,
+      "w": 0,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Mark Azar",
+      "teamName": "Ballesteros, Let the Rhythm Take You Over",
+      "mine": false,
+      "w": 0,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Blake Murphy",
+      "teamName": "Yesavage Garden",
+      "mine": false,
+      "w": 0,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Trei Brundrett",
+      "teamName": "Blame it on the Rainiel",
+      "mine": false,
+      "w": 0,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Andrew Gaerig",
+      "teamName": "Before and After Shohei",
+      "mine": false,
+      "w": 0,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Matt Dennewitz",
+      "teamName": "Popped A Mahle I'm Sweating",
+      "mine": false,
+      "w": 0,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    }
+  ],
+  "updated": "2026-03-26T16:09:23Z"
+}
