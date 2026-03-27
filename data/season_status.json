@@ -7,96 +7,58 @@
   "currentScore": {
     "me": 5,
     "opp": 11,
-    "tied": 4
-  },
-  "currentScoreDisplay": {
-    "me": 5,
-    "opp": 11
+    "tied": 0
   },
   "categoryBreakdown": {
-    "batting": {
-      "BA": {
-        "me": 0.191,
-        "opp": 0.194,
-        "winner": "opp"
-      },
-      "HR": {
-        "me": 0,
-        "opp": 0,
-        "winner": "tie"
-      },
-      "RBI": {
-        "me": 0,
-        "opp": 7,
-        "winner": "opp"
-      },
-      "R": {
-        "me": 2,
-        "opp": 4,
-        "winner": "opp"
-      },
-      "SB": {
-        "me": 0,
-        "opp": 0,
-        "winner": "tie"
-      },
-      "KO": {
-        "me": 7,
-        "opp": 7,
-        "winner": "tie"
-      },
-      "OBP": {
-        "me": 0.292,
-        "opp": 0.359,
-        "winner": "opp"
-      },
-      "SLG": {
-        "me": 0.191,
-        "opp": 0.258,
-        "winner": "opp"
-      }
+    "BA": {
+      "me": 0.191,
+      "opp": 0.194,
+      "winner": "opp"
     },
-    "pitching": {
-      "K": {
-        "me": 16,
-        "opp": 18,
-        "winner": "opp"
-      },
-      "ERA": {
-        "me": 3.5,
-        "opp": 0.6,
-        "winner": "opp"
-      },
-      "WHIP": {
-        "me": 1.3333,
-        "opp": 1.0,
-        "winner": "opp"
-      },
-      "W": {
-        "me": 1,
-        "opp": 0,
-        "winner": "me"
-      },
-      "S": {
-        "me": 1,
-        "opp": 0,
-        "winner": "me"
-      },
-      "HD": {
-        "me": 0,
-        "opp": 0,
-        "winner": "tie"
-      },
-      "HRA": {
-        "me": 6,
-        "opp": 1,
-        "winner": "opp"
-      },
-      "QS": {
-        "me": 1,
-        "opp": 0,
-        "winner": "me"
-      }
+    "HR": {
+      "me": 0,
+      "opp": 0,
+      "winner": "tied"
+    },
+    "RBI": {
+      "me": 0,
+      "opp": 7,
+      "winner": "opp"
+    },
+    "R": {
+      "me": 2,
+      "opp": 4,
+      "winner": "opp"
+    },
+    "SB": {
+      "me": 0,
+      "opp": 0,
+      "winner": "tied"
+    },
+    "K": {
+      "me": 16,
+      "opp": 18,
+      "winner": "opp"
+    },
+    "ERA": {
+      "me": 3.5,
+      "opp": 0.6,
+      "winner": "opp"
+    },
+    "WHIP": {
+      "me": 1.3333,
+      "opp": 1.0,
+      "winner": "opp"
+    },
+    "W": {
+      "me": 1,
+      "opp": 0,
+      "winner": "me"
+    },
+    "S": {
+      "me": 1,
+      "opp": 0,
+      "winner": "me"
     }
   },
   "myRecord": "0-0-0",
@@ -198,5 +160,5 @@
       "pts": 0
     }
   ],
-  "updated": "2026-03-27T13:07:20Z"
+  "updated": "2026-03-27T16:10:58Z"
 }
