@@ -1,11 +1,11 @@
 // ── State ─────────────────────────────────────────────────────────────────
-const STATE_VERSION = 22;
+const STATE_VERSION = 23;
 const DEFAULT_KEEPERS = ['James Wood', 'MacKenzie Gore', 'Zach Neto', 'Nick Kurtz', 'Jo Adell'];
 const DEFAULT_KEEPER_ROUNDS = {'James Wood':12, 'MacKenzie Gore':13, 'Jo Adell':10, 'Zach Neto':14, 'Nick Kurtz':11};
 
 // All league keepers from 2026 keeper sheet (clamped rounds)
 const DEFAULT_LEAGUE_KEEPERS = {
-  'Dennis Santana - Smooth ft. Rob Thomas': [
+  'Weird Fishes / Arrighetti': [
     {name:'Jose Ramirez',rd:1}, {name:'Trea Turner',rd:4}, {name:'Devin Williams',rd:7}, {name:'Brandon Woodruff',rd:10}, {name:'Dylan Crews',rd:15}
   ],
   'Okamotomami': [
@@ -35,7 +35,7 @@ const DEFAULT_LEAGUE_KEEPERS = {
   'Buddy Buddy Buddy All On Base': [
     {name:'Ronald Acuna Jr.',rd:4}, {name:'Cal Raleigh',rd:7}, {name:'Kyle Bradish',rd:11}, {name:'Nico Hoerner',rd:12}, {name:'Jesus Luzardo',rd:14}
   ],
-  'Are we not men? We are Devers!': [
+  'Before and After Shohei': [
     {name:'Shohei Ohtani',rd:1}, {name:'Francisco Lindor',rd:3}, {name:'Jackson Merrill',rd:10}, {name:'Tarik Skubal',rd:11}, {name:'Maikel Garcia',rd:15}
   ],
   "Popped A Mahle I'm Sweating": [
@@ -46,7 +46,7 @@ const DEFAULT_MILB_KEEPERS = ['Charlie Condon', 'Max Clark', 'Ethan Holliday', '
 
 // All league rookie/MiLB keepers from 2026 keeper sheet
 const DEFAULT_LEAGUE_MILB_KEEPERS = {
-  'Dennis Santana - Smooth ft. Rob Thomas': ['Nolan McLean', 'Carson Benge', 'Bryce Eldridge', 'Jonah Tong'],
+  'Weird Fishes / Arrighetti': ['Nolan McLean', 'Carson Benge', 'Bryce Eldridge', 'Jonah Tong'],
   "Colonel Corbin's Ascent": ['JJ Wetherholt', 'Carson Williams', 'George Lombard'],
   "Whoop Whoop that's the sound of Dylan Cease": ['Konnor Griffin', 'Kevin McGonigle', 'Walker Jenkins', 'Luis Pena'],
   'Blame it on the Rainiel': ['Travis Bazzana', 'Justin Crawford', 'Josue De Paula', 'Andrew Painter'],
@@ -55,7 +55,7 @@ const DEFAULT_LEAGUE_MILB_KEEPERS = {
   "Ballesteros, Let the Rhythm Take You Over": ['Liam Doyle', 'Chase Burns', 'Hagen Smith', 'Jordan Lawlar'],
   'Yesavage Garden': ['Trey Yesavage', 'Jett Williams', 'Kade Anderson', 'Edward Florentino'],
   'Buddy Buddy Buddy All On Base': ['Jacob Reimer', 'Caleb Bonemer', 'Quinn Mathews', 'Robby Snelling'],
-  'Are we not men? We are Devers!': ['Connolly Early', 'Tommy Troy', 'Chase deLauter', 'Spencer Jones'],
+  'Before and After Shohei': ['Connolly Early', 'Tommy Troy', 'Chase deLauter', 'Spencer Jones'],
   "Popped A Mahle I'm Sweating": ['Ralphy Velazquez', 'Zyhir Hope', 'Emmanuel Rodriguez']
 };
 
@@ -96,8 +96,8 @@ if (_saved) {
   state = Object.assign({}, _defaults, _saved);
   // v17 migration: CBS_TEAM_MAP was wrong in v16, corrupting leagueTeams rosters.
   // Reset leagueTeams so they rebuild cleanly from keepers + CBS transactions.
-  if (!_saved._v || _saved._v < 22) {
-    console.log('v22 migration: resetting rosters+drafted (re-scraped CBS transactions — fixed bogus PCA drop)');
+  if (!_saved._v || _saved._v < 23) {
+    console.log('v23 migration: full roster reset — keeper team names synced with renamed CBS teams');
     state.leagueTeams = {};
     state.leagueMilbKeepers = {};
     state.drafted = {};

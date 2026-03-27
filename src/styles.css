@@ -133,3 +133,50 @@ a[title^="Sleeper"] { color:var(--green); } a[title^="Avoid"] { color:var(--red)
 .auth-btn { width:100%; padding:10px 12px; font-size:13px; font-weight:600; border:none; border-radius:6px; background:var(--accent2); color:#fff; cursor:pointer; }
 .auth-btn:hover { background:var(--accent); }
 .auth-error { font-size:12px; color:var(--red); margin-top:8px; }
+
+/* ── Mobile responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  body { font-size: 14px; -webkit-text-size-adjust: 100%; }
+  .header { flex-direction: column; align-items: flex-start; gap: 10px; padding: 10px 12px; }
+  .header h1 { font-size: 16px; }
+  .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 2px; width: 100%; flex-wrap: nowrap; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { padding: 8px 12px; font-size: 12px; flex-shrink: 0; }
+  .header > div[style*="margin-left:auto"] { margin-left: 0 !important; }
+  .controls { padding: 8px 12px; gap: 6px; }
+  .search-box { width: 100%; min-width: 0; }
+  .stats-bar { margin-left: 0; flex-wrap: wrap; gap: 8px; width: 100%; }
+  .table-wrap { height: calc(100vh - 200px); -webkit-overflow-scrolling: touch; }
+  th { padding: 6px 8px; font-size: 10px; }
+  td { padding: 5px 8px; font-size: 12px; }
+  .roster-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
+  .roster-card { padding: 8px; }
+  .roster-card h4 { font-size: 12px; }
+  .modal-content { width: 95vw; padding: 16px; }
+  .draft-panel { padding: 8px 12px; }
+  .draft-input { width: 100%; }
+  .autocomplete { width: calc(100vw - 24px); }
+  .my-team-panel { padding: 6px 12px; }
+  .auth-box { width: 90vw; padding: 24px 16px; }
+  .tooltip .tt-text { width: 260px; }
+  #posFilters { display: flex; flex-wrap: wrap; gap: 2px; }
+  .filter-btn { padding: 4px 8px; font-size: 11px; }
+  .owner-badge { font-size: 7px; max-width: 60px; }
+  .view-toggle { margin-left: 0; }
+  /* Make the mode buttons wrap nicely */
+  .header > div:last-child { width: 100%; justify-content: flex-end; }
+  /* Touch-friendly tap targets */
+  .tab, .filter-btn, .btn, .view-btn, .tag-btn { min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+  .tag-btns { visibility: visible; } /* Always show tag buttons on touch */
+  /* Pace tracker / matchup panels */
+  .mock-player-row { font-size: 12px; }
+}
+
+@media (max-width: 480px) {
+  .header h1 { font-size: 14px; }
+  .tab { padding: 6px 10px; font-size: 11px; }
+  td { font-size: 11px; padding: 4px 6px; }
+  th { font-size: 9px; padding: 4px 6px; }
+  .roster-grid { grid-template-columns: 1fr 1fr; }
+  .pos-badge { font-size: 10px; padding: 1px 4px; }
+}
