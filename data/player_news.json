@@ -1,182 +1,52 @@
 [
   {
-    "name": "Drake Baldwin",
-    "pos": "C",
-    "date": "03/17",
-    "headline": "Baldwin went 2-for-4 with a walk, a triple, a home run and four RBI in Monday's Grapefruit League game against the Rays."
+    "player": "Alek Thomas",
+    "headline": "Diamondbacks' Alek Thomas: Drives in three in loss",
+    "date": "2026-03-28"
   },
   {
-    "name": "Vladimir Guerrero Jr.",
-    "pos": "1B",
-    "date": "03/23",
-    "headline": "Guerrero went 2-for-2 with a walk, a two-run home run and a second run scored in Sunday's Grapefruit League game against the Rays."
+    "player": "Ketel Marte",
+    "headline": "Diamondbacks' Ketel Marte: Lifts solo shot",
+    "date": "2026-03-28"
   },
   {
-    "name": "Gleyber Torres",
-    "pos": "2B",
-    "date": "03/21",
-    "headline": "Torres was scratched from the lineup for Saturday's Grapefruit League game against the Yankees due to lower-back tightness."
+    "player": "Ryne Nelson",
+    "headline": "Diamondbacks' Ryne Nelson: Struggles in third inning",
+    "date": "2026-03-28"
   },
   {
-    "name": "Austin Riley",
-    "pos": "3B",
-    "date": "03/22",
-    "headline": "Riley went 3-for-4 with two doubles, a home run and four RBI in Saturday's Grapefruit League game against the Red Sox."
+    "player": "Kyle Tucker",
+    "headline": "Dodgers' Kyle Tucker: Logs first steal",
+    "date": "2026-03-28"
   },
   {
-    "name": "Zachary Neto",
-    "pos": "SS",
-    "date": "03/20",
-    "headline": "Neto was removed from Friday's Cactus League game against the White Sox after being hit by a pitch, but he is OK, Rhett Bollinger of MLB."
+    "player": "Alex Freeland",
+    "headline": "Dodgers' Alex Freeland: Homer, double in win",
+    "date": "2026-03-28"
   },
   {
-    "name": "James Wood",
-    "pos": "LF",
-    "date": "03/14",
-    "headline": "Wood went 0-for-2 with a walk and a run scored in Friday's Grapefruit League game against the Blue Jays."
+    "player": "Mookie Betts",
+    "headline": "Dodgers' Mookie Betts: Lifts three-run homer",
+    "date": "2026-03-28"
   },
   {
-    "name": "Kyle Tucker",
-    "pos": "RF",
-    "date": "03/22",
-    "headline": "Tucker went 2-for-4 with a double and an RBI in Saturday's Grapefruit League game against the Braves."
+    "player": "Edwin Diaz",
+    "headline": "Dodgers' Edwin Diaz: Converts first save",
+    "date": "2026-03-28"
   },
   {
-    "name": "Jac Caglianone",
-    "pos": "DH",
-    "date": "03/17",
-    "headline": "Caglianone went 2-for-3 with a home run and four RBI in Monday's Grapefruit League game against the Rays."
+    "player": "Emmet Sheehan",
+    "headline": "Dodgers' Emmet Sheehan: Chased in fourth inning",
+    "date": "2026-03-28"
   },
   {
-    "name": "Kazuma Okamoto",
-    "pos": "UTIL",
-    "date": "03/21",
-    "headline": "Okamoto went 1-for-3 with a triple, two RBI and a walk in Friday's World Baseball Classic game against Australia."
+    "player": "Kenley Jansen",
+    "headline": "Tigers' Kenley Jansen: Strikes out side for save",
+    "date": "2026-03-28"
   },
   {
-    "name": "Pete Crow-Armstrong",
-    "pos": "BN",
-    "date": "03/20",
-    "headline": "Crow-Armstrong went 2-for-3 with a walk and a stolen base in Thursday's Cactus League game against the Angels."
-  },
-  {
-    "name": "Wyatt Langford",
-    "pos": "BN",
-    "date": "03/19",
-    "headline": "Langford went 1-for-3 with a two-run home run and a walk in Wednesday's Cactus League game against the Athletics."
-  },
-  {
-    "name": "Colton Cowser",
-    "pos": "BN",
-    "date": "03/20",
-    "headline": "Cowser went 2-for-3 with a solo home run and a walk in Thursday's Grapefruit League game against the Twins."
-  },
-  {
-    "name": "Jasson Dominguez",
-    "pos": "BN",
-    "date": "03/22",
-    "headline": "Dominguez went 2-for-4 with a solo home run in Saturday's Grapefruit League game against the Mets."
-  },
-  {
-    "name": "Evan Carter",
-    "pos": "BN",
-    "date": "03/19",
-    "headline": "Carter went 2-for-3 with a two-run home run, a walk and three RBI in Wednesday's Cactus League game against the Athletics."
-  },
-  {
-    "name": "Coby Mayo",
-    "pos": "BN",
-    "date": "03/18",
-    "headline": "Mayo went 1-for-4 with a solo home run and two runs scored in Tuesday's Grapefruit League game against the Nationals."
-  },
-  {
-    "name": "Eli Willits",
-    "pos": "BN",
-    "date": "08/22",
-    "headline": "Willits went 3-for-4 with a walk, a run scored, two RBI and a stolen base for Single-A Fredericksburg on Thursday."
-  },
-  {
-    "name": "Charlie Condon",
-    "pos": "BN",
-    "date": "03/19",
-    "headline": "The Rockies reassigned Condon to minor-league camp Thursday."
-  },
-  {
-    "name": "Max Clark",
-    "pos": "BN",
-    "date": "03/09",
-    "headline": "Clark was reassigned to minor-league camp Monday."
-  },
-  {
-    "name": "Tanner Bibee",
-    "pos": "SP",
-    "date": "03/22",
-    "headline": "Bibee allowed eight runs on 10 hits while striking out three over 4.2 innings in Saturday's spring start against San Francisco."
-  },
-  {
-    "name": "MacKenzie Gore",
-    "pos": "SP",
-    "date": "03/17",
-    "headline": "Gore allowed two hits and three walks while striking out three over 4.1 scoreless innings Monday in a 3-2 win over the White Sox."
-  },
-  {
-    "name": "Matthew Liberatore",
-    "pos": "SP",
-    "date": "03/18",
-    "headline": "The Cardinals announced Wednesday that Liberatore will start the team's March 26 season opener against the Rays in St. Louis."
-  },
-  {
-    "name": "Shane McClanahan",
-    "pos": "SP",
-    "date": "03/16",
-    "headline": "McClanahan struck out seven and walked two without allowing a hit or a run in 3.2 innings Sunday against the Pirates."
-  },
-  {
-    "name": "Yoshinobu Yamamoto",
-    "pos": "SP",
-    "date": "03/21",
-    "headline": "Yamamoto tossed five scoreless innings against the Padres in a Cactus League start Friday, allowing three hits and issuing one walk while striking out."
-  },
-  {
-    "name": "Jhoan Duran",
-    "pos": "RP",
-    "date": "03/13",
-    "headline": "Duran threw a clean inning during Friday's Grapefruit League game against the Orioles."
-  },
-  {
-    "name": "Griffin Jax",
-    "pos": "RP",
-    "date": "03/14",
-    "headline": "Jax has given up one run on four hits with seven strikeouts and one walk across 4.2 combined innings between the Grapefruit League and WBC."
-  },
-  {
-    "name": "Mason Miller",
-    "pos": "RP",
-    "date": "02/11",
-    "headline": "Padres manager Craig Stammen confirmed Wednesday that Miller will serve as the team's closer in 2026."
-  },
-  {
-    "name": "Tyler Rogers",
-    "pos": "RP",
-    "date": "12/12",
-    "headline": "Rogers signed a three-year, $37 million contract with the Twins."
-  },
-  {
-    "name": "JoJo Romero",
-    "pos": "RP",
-    "date": "03/10",
-    "headline": "Romero is expected to be among the relievers in the mix to close games for the Cardinals this season."
-  },
-  {
-    "name": "Mick Abel",
-    "pos": "RP",
-    "date": "03/20",
-    "headline": "Abel is poised to begin the season in Minnesota's starting rotation after Zebby Matthews was optioned to Triple-A St. Paul."
-  },
-  {
-    "name": "Jose Soriano",
-    "pos": "RP",
-    "date": "03/17",
-    "headline": "The Angels announced Tuesday that Soriano will start Los Angeles' March 26 season opener against the Astros in Houston."
+    "player": "Framber Valdez",
+    "headline": "Tigers' Framber Valdez: Quality start in team debut",
+    "date": "2026-03-28"
   }
 ]

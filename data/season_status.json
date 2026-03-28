@@ -5,60 +5,75 @@
   "opponent": "Yesavage Garden",
   "opponentTeam": "Yesavage Garden",
   "currentScore": {
-    "me": 5,
-    "opp": 11,
-    "tied": 0
+    "me": 8.5,
+    "opp": 7.5,
+    "tied": 3
   },
   "categoryBreakdown": {
     "BA": {
-      "me": 0.191,
-      "opp": 0.194,
-      "winner": "opp"
+      "me": 0.302,
+      "opp": 0.179,
+      "winner": "me"
     },
     "HR": {
-      "me": 0,
+      "me": 2,
       "opp": 0,
-      "winner": "tied"
+      "winner": "me"
     },
     "RBI": {
-      "me": 0,
-      "opp": 7,
+      "me": 2,
+      "opp": 8,
       "winner": "opp"
     },
     "R": {
-      "me": 2,
-      "opp": 4,
-      "winner": "opp"
+      "me": 11,
+      "opp": 5,
+      "winner": "me"
     },
     "SB": {
       "me": 0,
-      "opp": 0,
+      "opp": 2,
+      "winner": "opp"
+    },
+    "KO": {
+      "me": 14,
+      "opp": 14,
       "winner": "tied"
+    },
+    "OBP": {
+      "me": 0.413,
+      "opp": 0.303,
+      "winner": "me"
+    },
+    "SLG": {
+      "me": 0.453,
+      "opp": 0.214,
+      "winner": "me"
     },
     "K": {
       "me": 16,
-      "opp": 18,
+      "opp": 26,
       "winner": "opp"
     },
     "ERA": {
-      "me": 3.5,
-      "opp": 0.6,
+      "me": 3.3158,
+      "opp": 2.8929,
       "winner": "opp"
     },
     "WHIP": {
-      "me": 1.3333,
-      "opp": 1.0,
+      "me": 1.3158,
+      "opp": 1.2321,
       "winner": "opp"
     },
     "W": {
       "me": 1,
-      "opp": 0,
-      "winner": "me"
+      "opp": 1,
+      "winner": "tied"
     },
     "S": {
       "me": 1,
-      "opp": 0,
-      "winner": "me"
+      "opp": 1,
+      "winner": "tied"
     }
   },
   "myRecord": "0-0-0",
@@ -160,5 +175,5 @@
       "pts": 0
     }
   ],
-  "updated": "2026-03-27T16:10:58Z"
+  "updated": "2026-03-28T13:13:33Z"
 }

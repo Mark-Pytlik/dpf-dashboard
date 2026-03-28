@@ -195,12 +195,17 @@
     "tier": "elite"
   },
   {
+    "name": "Oswald Peraza",
+    "speed": 29.2,
+    "tier": "elite"
+  },
+  {
     "name": "Matt McLain",
     "speed": 29.2,
     "tier": "elite"
   },
   {
-    "name": "Oswald Peraza",
+    "name": "Jackson Chourio",
     "speed": 29.2,
     "tier": "elite"
   },
@@ -215,11 +220,6 @@
     "tier": "elite"
   },
   {
-    "name": "Jackson Chourio",
-    "speed": 29.2,
-    "tier": "elite"
-  },
-  {
     "name": "Liover Peguero",
     "speed": 29.2,
     "tier": "elite"
@@ -230,7 +230,7 @@
     "tier": "elite"
   },
   {
-    "name": "Jarren Duran",
+    "name": "Blake Perkins",
     "speed": 29.1,
     "tier": "elite"
   },
@@ -240,12 +240,12 @@
     "tier": "elite"
   },
   {
-    "name": "Braxton Fulford",
+    "name": "Jake Mangum",
     "speed": 29.1,
     "tier": "elite"
   },
   {
-    "name": "Jake Mangum",
+    "name": "Braxton Fulford",
     "speed": 29.1,
     "tier": "elite"
   },
@@ -255,12 +255,12 @@
     "tier": "elite"
   },
   {
-    "name": "Blake Perkins",
+    "name": "Jarren Duran",
     "speed": 29.1,
     "tier": "elite"
   },
   {
-    "name": "Christian Koss",
+    "name": "Ceddanne Rafaela",
     "speed": 29.1,
     "tier": "elite"
   },
@@ -270,7 +270,7 @@
     "tier": "elite"
   },
   {
-    "name": "Ceddanne Rafaela",
+    "name": "Christian Koss",
     "speed": 29.1,
     "tier": "elite"
   },
@@ -290,12 +290,12 @@
     "tier": "elite"
   },
   {
-    "name": "Jacob Melton",
+    "name": "Luis Robert Jr.",
     "speed": 29.0,
     "tier": "elite"
   },
   {
-    "name": "Luis Robert Jr.",
+    "name": "Jacob Melton",
     "speed": 29.0,
     "tier": "elite"
   },
@@ -370,7 +370,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Dylan Beavers",
+    "name": "Sam Hilliard",
     "speed": 28.9,
     "tier": "above_avg"
   },
@@ -380,7 +380,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Sam Hilliard",
+    "name": "Dylan Beavers",
     "speed": 28.9,
     "tier": "above_avg"
   },
@@ -395,12 +395,12 @@
     "tier": "above_avg"
   },
   {
-    "name": "Harrison Bader",
+    "name": "Jared Triolo",
     "speed": 28.8,
     "tier": "above_avg"
   },
   {
-    "name": "Ronny Simon",
+    "name": "Harrison Bader",
     "speed": 28.8,
     "tier": "above_avg"
   },
@@ -410,7 +410,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Jared Triolo",
+    "name": "Ronny Simon",
     "speed": 28.8,
     "tier": "above_avg"
   },
@@ -450,11 +450,6 @@
     "tier": "above_avg"
   },
   {
-    "name": "Zach Cole",
-    "speed": 28.7,
-    "tier": "above_avg"
-  },
-  {
     "name": "Jordan Walker",
     "speed": 28.7,
     "tier": "above_avg"
@@ -465,12 +460,12 @@
     "tier": "above_avg"
   },
   {
-    "name": "Nathan Church",
+    "name": "Zach Cole",
     "speed": 28.7,
     "tier": "above_avg"
   },
   {
-    "name": "Buddy Kennedy",
+    "name": "Nathan Church",
     "speed": 28.7,
     "tier": "above_avg"
   },
@@ -480,12 +475,12 @@
     "tier": "above_avg"
   },
   {
-    "name": "Hyeseong Kim",
+    "name": "Buddy Kennedy",
     "speed": 28.7,
     "tier": "above_avg"
   },
   {
-    "name": "Joey Ortiz",
+    "name": "Hyeseong Kim",
     "speed": 28.7,
     "tier": "above_avg"
   },
@@ -495,12 +490,17 @@
     "tier": "above_avg"
   },
   {
+    "name": "Joey Ortiz",
+    "speed": 28.7,
+    "tier": "above_avg"
+  },
+  {
     "name": "Heriberto Hern\u00e1ndez",
     "speed": 28.7,
     "tier": "above_avg"
   },
   {
-    "name": "Colby Thomas",
+    "name": "Trevor Story",
     "speed": 28.6,
     "tier": "above_avg"
   },
@@ -525,7 +525,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Trevor Story",
+    "name": "Colby Thomas",
     "speed": 28.6,
     "tier": "above_avg"
   },
@@ -540,7 +540,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Bryce Johnson",
+    "name": "Alejandro Osuna",
     "speed": 28.5,
     "tier": "above_avg"
   },
@@ -555,6 +555,11 @@
     "tier": "above_avg"
   },
   {
+    "name": "Miles Mastrobuoni",
+    "speed": 28.5,
+    "tier": "above_avg"
+  },
+  {
     "name": "Jackson Merrill",
     "speed": 28.5,
     "tier": "above_avg"
@@ -565,27 +570,22 @@
     "tier": "above_avg"
   },
   {
-    "name": "Miles Mastrobuoni",
-    "speed": 28.5,
-    "tier": "above_avg"
-  },
-  {
     "name": "Tyler Freeman",
     "speed": 28.5,
     "tier": "above_avg"
   },
   {
-    "name": "Marcus Semien",
-    "speed": 28.5,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Alejandro Osuna",
-    "speed": 28.5,
-    "tier": "above_avg"
-  },
-  {
     "name": "Mickey Moniak",
+    "speed": 28.5,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Bryce Johnson",
+    "speed": 28.5,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Marcus Semien",
     "speed": 28.5,
     "tier": "above_avg"
   },
@@ -610,7 +610,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Jake Fraley",
+    "name": "Masyn Winn",
     "speed": 28.4,
     "tier": "above_avg"
   },
@@ -620,17 +620,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Dane Myers",
-    "speed": 28.4,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Kevin Pillar",
-    "speed": 28.4,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Nick Loftin",
+    "name": "J.T. Realmuto",
     "speed": 28.4,
     "tier": "above_avg"
   },
@@ -640,7 +630,17 @@
     "tier": "above_avg"
   },
   {
-    "name": "Masyn Winn",
+    "name": "Nick Loftin",
+    "speed": 28.4,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Kevin Pillar",
+    "speed": 28.4,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Dane Myers",
     "speed": 28.4,
     "tier": "above_avg"
   },
@@ -655,7 +655,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "J.T. Realmuto",
+    "name": "Ryan Fitzgerald",
     "speed": 28.4,
     "tier": "above_avg"
   },
@@ -665,37 +665,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Ryan Bliss",
-    "speed": 28.4,
-    "tier": "above_avg"
-  },
-  {
     "name": "Thomas Saggese",
-    "speed": 28.4,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Warming Bernabel",
-    "speed": 28.4,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Trey Sweeney",
-    "speed": 28.4,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Luke Williams",
-    "speed": 28.4,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Christian Moore",
-    "speed": 28.4,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Ryan Fitzgerald",
     "speed": 28.4,
     "tier": "above_avg"
   },
@@ -705,12 +675,37 @@
     "tier": "above_avg"
   },
   {
-    "name": "Brandon Marsh",
-    "speed": 28.3,
+    "name": "Ryan Bliss",
+    "speed": 28.4,
     "tier": "above_avg"
   },
   {
-    "name": "Cooper Hummel",
+    "name": "Trey Sweeney",
+    "speed": 28.4,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Christian Moore",
+    "speed": 28.4,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Luke Williams",
+    "speed": 28.4,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Warming Bernabel",
+    "speed": 28.4,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Jake Fraley",
+    "speed": 28.4,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Brandon Marsh",
     "speed": 28.3,
     "tier": "above_avg"
   },
@@ -725,7 +720,12 @@
     "tier": "above_avg"
   },
   {
-    "name": "Scott Kingery",
+    "name": "Cooper Hummel",
+    "speed": 28.3,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Austin Martin",
     "speed": 28.3,
     "tier": "above_avg"
   },
@@ -740,7 +740,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Austin Martin",
+    "name": "Scott Kingery",
     "speed": 28.3,
     "tier": "above_avg"
   },
@@ -750,17 +750,22 @@
     "tier": "above_avg"
   },
   {
+    "name": "Kameron Misner",
+    "speed": 28.3,
+    "tier": "above_avg"
+  },
+  {
     "name": "Henry Davis",
     "speed": 28.3,
     "tier": "above_avg"
   },
   {
-    "name": "Zach McKinstry",
+    "name": "Eric Haase",
     "speed": 28.3,
     "tier": "above_avg"
   },
   {
-    "name": "Eric Haase",
+    "name": "Zach McKinstry",
     "speed": 28.3,
     "tier": "above_avg"
   },
@@ -785,17 +790,12 @@
     "tier": "above_avg"
   },
   {
-    "name": "Kameron Misner",
-    "speed": 28.3,
-    "tier": "above_avg"
-  },
-  {
     "name": "Anthony Volpe",
     "speed": 28.3,
     "tier": "above_avg"
   },
   {
-    "name": "Taylor Trammell",
+    "name": "Jung Hoo Lee",
     "speed": 28.2,
     "tier": "above_avg"
   },
@@ -805,12 +805,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Jung Hoo Lee",
-    "speed": 28.2,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Christian Yelich",
+    "name": "Jonathan India",
     "speed": 28.2,
     "tier": "above_avg"
   },
@@ -820,7 +815,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Jonathan India",
+    "name": "Christian Yelich",
     "speed": 28.2,
     "tier": "above_avg"
   },
@@ -835,17 +830,12 @@
     "tier": "above_avg"
   },
   {
-    "name": "Austin Riley",
+    "name": "Taylor Trammell",
     "speed": 28.2,
     "tier": "above_avg"
   },
   {
     "name": "Taylor Walls",
-    "speed": 28.2,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Cody Bellinger",
     "speed": 28.2,
     "tier": "above_avg"
   },
@@ -870,28 +860,18 @@
     "tier": "above_avg"
   },
   {
+    "name": "Austin Riley",
+    "speed": 28.2,
+    "tier": "above_avg"
+  },
+  {
     "name": "Jorge Alfaro",
     "speed": 28.2,
     "tier": "above_avg"
   },
   {
-    "name": "Josh Lowe",
-    "speed": 28.1,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Oscar Gonzalez",
-    "speed": 28.1,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Jahmai Jones",
-    "speed": 28.1,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Bryan Reynolds",
-    "speed": 28.1,
+    "name": "Cody Bellinger",
+    "speed": 28.2,
     "tier": "above_avg"
   },
   {
@@ -905,22 +885,32 @@
     "tier": "above_avg"
   },
   {
-    "name": "Victor Robles",
-    "speed": 28.1,
-    "tier": "above_avg"
-  },
-  {
     "name": "Andy Pages",
     "speed": 28.1,
     "tier": "above_avg"
   },
   {
-    "name": "Cavan Biggio",
+    "name": "Victor Robles",
     "speed": 28.1,
     "tier": "above_avg"
   },
   {
-    "name": "Zach Neto",
+    "name": "Josh Lowe",
+    "speed": 28.1,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Bryan Reynolds",
+    "speed": 28.1,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Jahmai Jones",
+    "speed": 28.1,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Oscar Gonzalez",
     "speed": 28.1,
     "tier": "above_avg"
   },
@@ -930,12 +920,22 @@
     "tier": "above_avg"
   },
   {
+    "name": "Zach Neto",
+    "speed": 28.1,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Cavan Biggio",
+    "speed": 28.1,
+    "tier": "above_avg"
+  },
+  {
     "name": "Nick Yorke",
     "speed": 28.1,
     "tier": "above_avg"
   },
   {
-    "name": "Jake Cronenworth",
+    "name": "Matt Chapman",
     "speed": 28.1,
     "tier": "above_avg"
   },
@@ -955,17 +955,17 @@
     "tier": "above_avg"
   },
   {
-    "name": "Weston Wilson",
-    "speed": 28.1,
-    "tier": "above_avg"
-  },
-  {
     "name": "Caleb Durbin",
     "speed": 28.1,
     "tier": "above_avg"
   },
   {
-    "name": "Matt Chapman",
+    "name": "Weston Wilson",
+    "speed": 28.1,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Jake Cronenworth",
     "speed": 28.1,
     "tier": "above_avg"
   },
@@ -985,17 +985,17 @@
     "tier": "above_avg"
   },
   {
+    "name": "Willy Adames",
+    "speed": 28.0,
+    "tier": "above_avg"
+  },
+  {
     "name": "Nick Sogard",
     "speed": 28.0,
     "tier": "above_avg"
   },
   {
     "name": "Mauricio Dub\u00f3n",
-    "speed": 28.0,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Willy Adames",
     "speed": 28.0,
     "tier": "above_avg"
   },
@@ -1045,12 +1045,12 @@
     "tier": "above_avg"
   },
   {
-    "name": "Tim Anderson",
+    "name": "Mike Trout",
     "speed": 27.9,
     "tier": "above_avg"
   },
   {
-    "name": "Mike Trout",
+    "name": "Tim Anderson",
     "speed": 27.9,
     "tier": "above_avg"
   },
@@ -1065,12 +1065,12 @@
     "tier": "above_avg"
   },
   {
-    "name": "Will Robertson",
+    "name": "Jo Adell",
     "speed": 27.9,
     "tier": "above_avg"
   },
   {
-    "name": "Jo Adell",
+    "name": "Will Robertson",
     "speed": 27.9,
     "tier": "above_avg"
   },
@@ -1080,12 +1080,12 @@
     "tier": "above_avg"
   },
   {
-    "name": "Luis V\u00e1zquez",
+    "name": "Carson Williams",
     "speed": 27.9,
     "tier": "above_avg"
   },
   {
-    "name": "Carson Williams",
+    "name": "Luis V\u00e1zquez",
     "speed": 27.9,
     "tier": "above_avg"
   },
@@ -1100,6 +1100,11 @@
     "tier": "above_avg"
   },
   {
+    "name": "Ronald Acu\u00f1a Jr.",
+    "speed": 27.9,
+    "tier": "above_avg"
+  },
+  {
     "name": "Jack Suwinski",
     "speed": 27.9,
     "tier": "above_avg"
@@ -1110,12 +1115,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Ronald Acu\u00f1a Jr.",
-    "speed": 27.9,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Oliver Dunn",
+    "name": "Bryan De La Cruz",
     "speed": 27.8,
     "tier": "above_avg"
   },
@@ -1145,7 +1145,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Michael A. Taylor",
+    "name": "Ram\u00f3n Laureano",
     "speed": 27.8,
     "tier": "above_avg"
   },
@@ -1155,7 +1155,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Ram\u00f3n Laureano",
+    "name": "Michael A. Taylor",
     "speed": 27.8,
     "tier": "above_avg"
   },
@@ -1165,12 +1165,12 @@
     "tier": "above_avg"
   },
   {
-    "name": "Mark Canha",
+    "name": "Tim Elko",
     "speed": 27.8,
     "tier": "above_avg"
   },
   {
-    "name": "Tim Elko",
+    "name": "Oliver Dunn",
     "speed": 27.8,
     "tier": "above_avg"
   },
@@ -1205,7 +1205,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Bryan De La Cruz",
+    "name": "Mark Canha",
     "speed": 27.8,
     "tier": "above_avg"
   },
@@ -1235,7 +1235,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Andruw Monasterio",
+    "name": "Angel Mart\u00ednez",
     "speed": 27.7,
     "tier": "above_avg"
   },
@@ -1245,12 +1245,17 @@
     "tier": "above_avg"
   },
   {
-    "name": "Angel Mart\u00ednez",
+    "name": "Andruw Monasterio",
     "speed": 27.7,
     "tier": "above_avg"
   },
   {
     "name": "Seth Brown",
+    "speed": 27.7,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Randy Arozarena",
     "speed": 27.7,
     "tier": "above_avg"
   },
@@ -1261,11 +1266,6 @@
   },
   {
     "name": "Jos\u00e9 Tena",
-    "speed": 27.7,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Randy Arozarena",
     "speed": 27.7,
     "tier": "above_avg"
   },
@@ -1285,47 +1285,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Wilyer Abreu",
-    "speed": 27.6,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Austin Hays",
-    "speed": 27.6,
-    "tier": "above_avg"
-  },
-  {
     "name": "Drew Waters",
-    "speed": 27.6,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Nolan Jones",
-    "speed": 27.6,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Dillon Dingler",
-    "speed": 27.6,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Ryan O'Hearn",
-    "speed": 27.6,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Ha-Seong Kim",
-    "speed": 27.6,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Korey Lee",
-    "speed": 27.6,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Jeremiah Jackson",
     "speed": 27.6,
     "tier": "above_avg"
   },
@@ -1335,7 +1295,47 @@
     "tier": "above_avg"
   },
   {
+    "name": "Nolan Jones",
+    "speed": 27.6,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Wilyer Abreu",
+    "speed": 27.6,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Dillon Dingler",
+    "speed": 27.6,
+    "tier": "above_avg"
+  },
+  {
     "name": "Bo Naylor",
+    "speed": 27.6,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Ryan O'Hearn",
+    "speed": 27.6,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Austin Hays",
+    "speed": 27.6,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Jeremiah Jackson",
+    "speed": 27.6,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Korey Lee",
+    "speed": 27.6,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Ha-Seong Kim",
     "speed": 27.6,
     "tier": "above_avg"
   },
@@ -1345,7 +1345,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Ryan Mountcastle",
+    "name": "CJ Kayfus",
     "speed": 27.6,
     "tier": "above_avg"
   },
@@ -1370,7 +1370,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "CJ Kayfus",
+    "name": "Ryan Mountcastle",
     "speed": 27.6,
     "tier": "above_avg"
   },
@@ -1410,7 +1410,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Josh Smith",
+    "name": "Marcelo Mayer",
     "speed": 27.5,
     "tier": "above_avg"
   },
@@ -1425,17 +1425,17 @@
     "tier": "above_avg"
   },
   {
-    "name": "Miguel Vargas",
-    "speed": 27.5,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Marcelo Mayer",
-    "speed": 27.5,
-    "tier": "above_avg"
-  },
-  {
     "name": "Brent Rooker",
+    "speed": 27.5,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Josh Smith",
+    "speed": 27.5,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Miguel Vargas",
     "speed": 27.5,
     "tier": "above_avg"
   },
@@ -1450,17 +1450,17 @@
     "tier": "above_avg"
   },
   {
-    "name": "Kyle Karros",
-    "speed": 27.5,
-    "tier": "above_avg"
-  },
-  {
     "name": "Cody Freeman",
     "speed": 27.5,
     "tier": "above_avg"
   },
   {
     "name": "Christian Encarnacion-Strand",
+    "speed": 27.5,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Kyle Karros",
     "speed": 27.5,
     "tier": "above_avg"
   },
@@ -1480,7 +1480,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Nick Martini",
+    "name": "Ian Happ",
     "speed": 27.4,
     "tier": "above_avg"
   },
@@ -1510,17 +1510,17 @@
     "tier": "above_avg"
   },
   {
-    "name": "Francisco Lindor",
-    "speed": 27.4,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Ian Happ",
-    "speed": 27.4,
-    "tier": "above_avg"
-  },
-  {
     "name": "Zack Short",
+    "speed": 27.4,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Nick Martini",
+    "speed": 27.4,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Francisco Lindor",
     "speed": 27.4,
     "tier": "above_avg"
   },
@@ -1545,7 +1545,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Nathan Lukes",
+    "name": "Colson Montgomery",
     "speed": 27.3,
     "tier": "above_avg"
   },
@@ -1555,12 +1555,12 @@
     "tier": "above_avg"
   },
   {
-    "name": "Yainer Diaz",
+    "name": "Nicky Lopez",
     "speed": 27.3,
     "tier": "above_avg"
   },
   {
-    "name": "Nicky Lopez",
+    "name": "Yainer Diaz",
     "speed": 27.3,
     "tier": "above_avg"
   },
@@ -1570,7 +1570,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Brandon Nimmo",
+    "name": "Nathan Lukes",
     "speed": 27.3,
     "tier": "above_avg"
   },
@@ -1585,7 +1585,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Colson Montgomery",
+    "name": "Brandon Nimmo",
     "speed": 27.3,
     "tier": "above_avg"
   },
@@ -1605,12 +1605,12 @@
     "tier": "above_avg"
   },
   {
-    "name": "MJ Melendez",
+    "name": "Ozzie Albies",
     "speed": 27.2,
     "tier": "above_avg"
   },
   {
-    "name": "Ozzie Albies",
+    "name": "MJ Melendez",
     "speed": 27.2,
     "tier": "above_avg"
   },
@@ -1620,12 +1620,12 @@
     "tier": "above_avg"
   },
   {
-    "name": "Tommy Pham",
+    "name": "Hunter Goodman",
     "speed": 27.2,
     "tier": "above_avg"
   },
   {
-    "name": "Hunter Goodman",
+    "name": "Tommy Pham",
     "speed": 27.2,
     "tier": "above_avg"
   },
@@ -1645,7 +1645,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Kerry Carpenter",
+    "name": "Andrew McCutchen",
     "speed": 27.1,
     "tier": "above_avg"
   },
@@ -1665,22 +1665,17 @@
     "tier": "above_avg"
   },
   {
-    "name": "Jos\u00e9 Ferm\u00edn",
-    "speed": 27.1,
-    "tier": "above_avg"
-  },
-  {
-    "name": "Andrew McCutchen",
-    "speed": 27.1,
-    "tier": "above_avg"
-  },
-  {
     "name": "Jorge Polanco",
     "speed": 27.1,
     "tier": "above_avg"
   },
   {
-    "name": "JJ Bleday",
+    "name": "Kerry Carpenter",
+    "speed": 27.1,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Jos\u00e9 Ferm\u00edn",
     "speed": 27.1,
     "tier": "above_avg"
   },
@@ -1695,12 +1690,17 @@
     "tier": "above_avg"
   },
   {
-    "name": "Tristan Gray",
+    "name": "JJ Bleday",
     "speed": 27.1,
     "tier": "above_avg"
   },
   {
     "name": "Kyle Stowers",
+    "speed": 27.1,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Tristan Gray",
     "speed": 27.1,
     "tier": "above_avg"
   },
@@ -1725,17 +1725,17 @@
     "tier": "above_avg"
   },
   {
-    "name": "Brett Baty",
-    "speed": 27.0,
-    "tier": "above_avg"
-  },
-  {
     "name": "Luis Rengifo",
     "speed": 27.0,
     "tier": "above_avg"
   },
   {
-    "name": "Michael Toglia",
+    "name": "Brett Baty",
+    "speed": 27.0,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Hunter Renfroe",
     "speed": 27.0,
     "tier": "above_avg"
   },
@@ -1750,7 +1750,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Hunter Renfroe",
+    "name": "Vidal Bruj\u00e1n",
     "speed": 27.0,
     "tier": "above_avg"
   },
@@ -1770,7 +1770,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Jes\u00fas S\u00e1nchez",
+    "name": "Johnathan Rodr\u00edguez",
     "speed": 27.0,
     "tier": "above_avg"
   },
@@ -1780,7 +1780,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Gabriel Moreno",
+    "name": "Jes\u00fas S\u00e1nchez",
     "speed": 27.0,
     "tier": "above_avg"
   },
@@ -1790,7 +1790,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Johnathan Rodr\u00edguez",
+    "name": "Gabriel Moreno",
     "speed": 27.0,
     "tier": "above_avg"
   },
@@ -1825,7 +1825,7 @@
     "tier": "above_avg"
   },
   {
-    "name": "Vidal Bruj\u00e1n",
+    "name": "Michael Toglia",
     "speed": 27.0,
     "tier": "above_avg"
   }
