@@ -2,259 +2,31 @@
   "currentPeriod": 1,
   "periodStart": "2026-03-25",
   "periodEnd": "2026-04-12",
-  "opponent": "Yesavage Garden",
-  "opponentTeamId": 9,
-  "currentScore": {
-    "me": 8.5,
-    "opp": 7.5,
-    "tied": 3
-  },
+  "opponent": "Drew Murphy",
+  "opponentTeam": "Yesavage Garden",
+  "currentScore": {"me": 8, "opp": 8, "tied": 0},
   "myRecord": "0-0-0",
-  "categories": [
-    {
-      "cat": "BA",
-      "me": 0.302,
-      "opp": 0.179,
-      "winner": "me"
-    },
-    {
-      "cat": "HR",
-      "me": 2,
-      "opp": 0,
-      "winner": "me"
-    },
-    {
-      "cat": "RBI",
-      "me": 2,
-      "opp": 8,
-      "winner": "opp"
-    },
-    {
-      "cat": "R",
-      "me": 11,
-      "opp": 5,
-      "winner": "me"
-    },
-    {
-      "cat": "SB",
-      "me": 0,
-      "opp": 2,
-      "winner": "opp"
-    },
-    {
-      "cat": "KO",
-      "me": 14,
-      "opp": 14,
-      "winner": "tie"
-    },
-    {
-      "cat": "OBP",
-      "me": 0.413,
-      "opp": 0.303,
-      "winner": "me"
-    },
-    {
-      "cat": "SLG",
-      "me": 0.453,
-      "opp": 0.214,
-      "winner": "me"
-    },
-    {
-      "cat": "K",
-      "me": 16,
-      "opp": 26,
-      "winner": "opp"
-    },
-    {
-      "cat": "ERA",
-      "me": 3.3158,
-      "opp": 2.8929,
-      "winner": "opp"
-    },
-    {
-      "cat": "WHIP",
-      "me": 1.3158,
-      "opp": 1.2321,
-      "winner": "opp"
-    },
-    {
-      "cat": "W",
-      "me": 1,
-      "opp": 1,
-      "winner": "tie"
-    },
-    {
-      "cat": "S",
-      "me": 1,
-      "opp": 1,
-      "winner": "tie"
-    },
-    {
-      "cat": "HD",
-      "me": 1,
-      "opp": 0,
-      "winner": "me"
-    },
-    {
-      "cat": "HRA",
-      "me": 6,
-      "opp": 2,
-      "winner": "opp"
-    },
-    {
-      "cat": "QS",
-      "me": 1,
-      "opp": 0,
-      "winner": "me"
-    }
-  ],
-  "allMatchups": [
-    {
-      "away": "Yesavage Garden",
-      "awayScore": 7.5,
-      "home": "Okamotomami",
-      "homeScore": 8.5
-    },
-    {
-      "away": "Blame it on the Rainiel",
-      "awayScore": 6.5,
-      "home": "Before and After Shohei",
-      "homeScore": 9.5
-    },
-    {
-      "away": "Dinosaur Jr Caminero",
-      "awayScore": 6,
-      "home": "A Pete Crow-Armstrong Looked at Me",
-      "homeScore": 10
-    },
-    {
-      "away": "Whoop Whoop that's the sound of Dylan Cease",
-      "awayScore": 8.5,
-      "home": "Buddy Buddy Buddy All On Base",
-      "homeScore": 7.5
-    },
-    {
-      "away": "Ballesteros, Let the Rhythm Take You Over",
-      "awayScore": 8,
-      "home": "Colonel Corbin's Ascent",
-      "homeScore": 8
-    },
-    {
-      "away": "Popped A Mahle I'm Sweating",
-      "awayScore": 13,
-      "home": "Weird Fishes / Arrighetti",
-      "homeScore": 3
-    }
-  ],
   "standings": [
-    {
-      "team": "Before and After Shohei",
-      "teamId": 11,
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Whoop Whoop that's the sound of Dylan Cease",
-      "teamId": 7,
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Colonel Corbin's Ascent",
-      "teamId": 3,
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "A Pete Crow-Armstrong Looked at Me",
-      "teamId": 6,
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Popped A Mahle I'm Sweating",
-      "teamId": 12,
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Weird Fishes / Arrighetti",
-      "teamId": 1,
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Dinosaur Jr Caminero",
-      "teamId": 2,
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Yesavage Garden",
-      "teamId": 9,
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Ballesteros, Let the Rhythm Take You Over",
-      "teamId": 8,
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Buddy Buddy Buddy All On Base",
-      "teamId": 5,
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Blame it on the Rainiel",
-      "teamId": 10,
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Okamotomami",
-      "teamId": 4,
-      "mine": true,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    }
+    {"team": "Weird Fishes / Arrighetti", "owner": "Chris Kaskie", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Dinosaur Jr Caminero", "owner": "Anthony Rescan", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Colonel Corbin's Ascent", "owner": "David Roth", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Okamotomami", "owner": "Mark Pytlik", "mine": true, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Buddy Buddy Buddy All On Base", "owner": "Fran Devinney", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "A Pete Crow-Armstrong Looked at Me", "owner": "Ian Wolfe", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Whoop Whoop that's the sound of Dylan Cease", "owner": "Andrew Gaerig", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Ballesteros, Let the Rhythm Take You Over", "owner": "Drew Dennewitz", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Yesavage Garden", "owner": "Drew Murphy", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Blame it on the Rainiel", "owner": "Eno Sarris", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Before and After Shohei", "owner": "Pete Brundrett", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Popped A Mahle I'm Sweating", "owner": "Nick Azar", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}
   ],
-  "updated": "2026-03-28T09:19:26.717166"
+  "matchups": [
+    {"away": "Yesavage Garden", "home": "Okamotomami", "awayScore": 8, "homeScore": 8},
+    {"away": "RESCAN", "home": "Before and After Shohei", "awayScore": 8, "homeScore": 8},
+    {"away": "Icarus", "home": "A Pete Crow-Armstrong Looked at Me", "awayScore": 10.5, "homeScore": 5.5},
+    {"away": "Drew", "home": "Buddy Buddy Buddy All On Base", "awayScore": 8.5, "homeScore": 7.5},
+    {"away": "ROTH", "home": "Fran", "awayScore": 8.5, "homeScore": 7.5},
+    {"away": "Milli", "home": "woba", "awayScore": 11.5, "homeScore": 4.5}
+  ],
+  "updated": "2026-03-29T06:00:00Z"
 }

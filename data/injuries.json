@@ -1,1814 +1,860 @@
 [
   {
-    "name": "C.J. Abrams",
-    "status": "Questionable",
-    "injury": "Personal",
-    "returnDate": "Expected to be out until at least Mar 29"
-  },
-  {
-    "name": "Brennan Malone",
-    "status": "Out",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Austin Hedges",
-    "status": "Probable",
-    "injury": "Hand",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Payton Eeles",
-    "status": "Probable",
-    "injury": "Shoulder",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Hao Yu Lee",
-    "status": "Probable",
-    "injury": "Oblique",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Wikelman Gonzalez",
-    "status": "Probable",
-    "injury": "Back",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Ricky Tiedemann",
-    "status": "Probable",
-    "injury": "Elbow",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Jadher Areinamo",
-    "status": "Probable",
-    "injury": "Hamstring",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Winston Santos",
-    "status": "Probable",
-    "injury": "Hand",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Caden Dana",
-    "status": "Probable",
-    "injury": "Illness",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Gabriel Rincones",
-    "status": "Probable",
-    "injury": "Knee",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Emiliano Teodo",
-    "status": "Probable",
-    "injury": "Back",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Luke Maile",
-    "status": "Probable",
-    "injury": "Personal",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Paul Bonzagni",
-    "status": "Probable",
-    "injury": "Elbow",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Devin Fitz-Gerald",
-    "status": "Probable",
-    "injury": "Shoulder",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Matt Cronin",
-    "status": "Out",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Jon Gray",
-    "status": "Out",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Michael Kopech",
-    "status": "Out",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Elvis Peguero",
-    "status": "Probable",
-    "injury": "Elbow",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Tom Murphy",
-    "status": "Out",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Ricardo Genoves",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Alex Cobb",
-    "status": "Out",
-    "injury": "Hip",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Wade Miley",
-    "status": "Out",
-    "injury": "Forearm",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Jose Iglesias",
-    "status": "Suspended",
-    "injury": "",
-    "returnDate": "Suspended until Mar 28"
-  },
-  {
-    "name": "Parker Dunshee",
-    "status": "Out",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Joan Adon",
-    "status": "Out",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Ryan Burr",
-    "status": "Out",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Robinson Pina",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Tyler Matzek",
-    "status": "Out",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Alex Faedo",
-    "status": "Out",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Evan White",
-    "status": "Out",
-    "injury": "Hip",
-    "returnDate": "Expected to be out until at least Mar 28"
-  },
-  {
-    "name": "Tommy Hawke",
-    "status": "Probable",
-    "injury": "Shoulder",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Braylon Doughty",
-    "status": "Probable",
-    "injury": "Shoulder",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Raimon Gomez",
-    "status": "Probable",
-    "injury": "Back",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Adrian Pinto",
-    "status": "Probable",
-    "injury": "Undisclosed",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Jack Brannigan",
-    "status": "Probable",
-    "injury": "Nose",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Joseph Montalvo",
-    "status": "Probable",
-    "injury": "Undisclosed",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Ty Floyd",
-    "status": "Probable",
-    "injury": "Undisclosed",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Anthony Solometo",
-    "status": "Probable",
-    "injury": "Shoulder",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Paul Wilson",
-    "status": "Probable",
-    "injury": "Undisclosed",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Josh Staumont",
-    "status": "Probable",
-    "injury": "Undisclosed",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Justin Armbruester",
-    "status": "Probable",
-    "injury": "Lat",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Tyler Gough",
-    "status": "Probable",
-    "injury": "Elbow",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Jose Marte",
-    "status": "Probable",
-    "injury": "Shoulder",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Glenn Otto",
-    "status": "Probable",
-    "injury": "Shoulder",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "J.B. Bukauskas",
-    "status": "Probable",
-    "injury": "Lat",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Thomas Pannone",
-    "status": "Probable",
-    "injury": "Forearm",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Connor Cooke",
-    "status": "Probable",
-    "injury": "Undisclosed",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Wen-Hui Pan",
-    "status": "Probable",
-    "injury": "Elbow",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Reggie Crawford",
-    "status": "Probable",
-    "injury": "Shoulder",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Calvin Ziegler",
-    "status": "Probable",
-    "injury": "Elbow",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Case Williams",
-    "status": "Probable",
-    "injury": "Triceps",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Justin Campbell",
-    "status": "Probable",
-    "injury": "Elbow",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Christopher Morel",
-    "status": "Probable",
-    "injury": "Oblique",
-    "returnDate": "Probable for Mar 28"
-  },
-  {
-    "name": "Carlos Vargas",
-    "status": "IL",
-    "injury": "Lat",
-    "returnDate": "Expected to be out until at least Apr 3"
-  },
-  {
-    "name": "Tanner Bibee",
-    "status": "Questionable",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Mickey Moniak",
-    "status": "IL",
-    "injury": "Finger",
-    "returnDate": "Expected to be out until at least Apr 3"
-  },
-  {
-    "name": "Bennett Sousa",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Jackson Chourio",
-    "status": "IL",
-    "injury": "Hand",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Sung-Mun Song",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 12"
-  },
-  {
-    "name": "Landon Knack",
-    "status": "IL",
-    "injury": "Chest",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Beau Brieske",
-    "status": "IL",
-    "injury": "Thigh",
-    "returnDate": "Expected to be out until at least May 26"
-  },
-  {
-    "name": "Will Wagner",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Hayden Birdsong",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1, 2027"
-  },
-  {
-    "name": "Joe Musgrove",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "RJ Petit",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1, 2027"
-  },
-  {
-    "name": "Caden Scarborough",
-    "status": "Out",
-    "injury": "Illness",
-    "returnDate": "Expected to be out until at least Apr 5"
-  },
-  {
-    "name": "Matt Waldron",
-    "status": "IL",
-    "injury": "Lower Body",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Josh Hader",
-    "status": "IL",
-    "injury": "Biceps",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Jake Cousins",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
     "name": "Gunnar Hoglund",
     "status": "IL",
     "injury": "Back",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Jason Adam",
-    "status": "IL",
-    "injury": "Quadriceps",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Felix Bautista",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Sep 10, 2027"
-  },
-  {
-    "name": "Gerrit Cole",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 15"
-  },
-  {
-    "name": "Ky Bush",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Blaine Crim",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Enyel De Los Santos",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Zac Veen",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Ryan Pepiot",
-    "status": "IL",
-    "injury": "Hip",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Gavin Lux",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Spencer Strider",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Nick Lodolo",
-    "status": "IL",
-    "injury": "Finger",
-    "returnDate": "Expected to be out until at least Apr 7"
-  },
-  {
-    "name": "Orion Kerkering",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 7"
-  },
-  {
-    "name": "Keegan Akin",
-    "status": "IL",
-    "injury": "Groin",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Patrick Sandoval",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 20"
-  },
-  {
-    "name": "Heston Kjerstad",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 3"
-  },
-  {
-    "name": "Esteury Ruiz",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least May 15"
-  },
-  {
-    "name": "Kyle Stowers",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 20"
-  },
-  {
-    "name": "Grayson Rodriguez",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Taylor Walls",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Trey Yesavage",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Rob Zastryzny",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Craig Yoho",
-    "status": "IL",
-    "injury": "Calf",
-    "returnDate": "Expected to be out until at least Apr 12"
-  },
-  {
-    "name": "Tyler Freeman",
-    "status": "IL",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Zach Dezenzo",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "J.P. Crawford",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Seiya Suzuki",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Mike Vasil",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1, 2027"
-  },
-  {
-    "name": "George Valera",
-    "status": "IL",
-    "injury": "Calf",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Caleb Ferguson",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Jose Berrios",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Miles Mastrobuoni",
-    "status": "IL",
-    "injury": "Calf",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Vaughn Grissom",
-    "status": "IL",
-    "injury": "Wrist",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Brooks Baldwin",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Maximo Acosta",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Kyle Teel",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Max Lazar",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Michael Massey",
-    "status": "IL",
-    "injury": "Calf",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Travis Adams",
-    "status": "IL",
-    "injury": "Triceps",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Porter Hodge",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Adam Mazur",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1, 2027"
-  },
-  {
-    "name": "Reiver Sanmartin",
-    "status": "IL",
-    "injury": "Hip",
-    "returnDate": "Expected to be out until at least Jun 9"
-  },
-  {
-    "name": "Andrew Kittredge",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Hunter Gaddis",
-    "status": "IL",
-    "injury": "Forearm",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Quinn Priester",
-    "status": "IL",
-    "injury": "Wrist",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Gavin Stone",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 8"
-  },
-  {
-    "name": "Bryan Hoeing",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Bryce Miller",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Bobby Miller",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 29"
-  },
-  {
-    "name": "Steven Wilson",
-    "status": "IL",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least May 29"
-  },
-  {
-    "name": "Stephen Kolek",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Jordan Wicks",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Anthony Seigler",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 8"
-  },
-  {
-    "name": "McCade Brown",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Pierson Ohl",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1, 2027"
-  },
-  {
-    "name": "Nate Pearson",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Merrill Kelly",
-    "status": "IL",
-    "injury": "Ribs",
-    "returnDate": "Expected to be out until at least Apr 13"
-  },
-  {
-    "name": "Steward Berroa",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Cody Freeman",
-    "status": "IL",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Yuki Matsui",
-    "status": "IL",
-    "injury": "Groin",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Trey Sweeney",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Kutter Crawford",
-    "status": "IL",
-    "injury": "Wrist",
-    "returnDate": "Expected to be out until at least Apr 20"
-  },
-  {
-    "name": "Joel Peguero",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Hurston Waldrep",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 2"
-  },
-  {
-    "name": "Edwin Uceta",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 20"
+    "returnDate": "Apr 10"
   },
   {
     "name": "Adrian Del Castillo",
     "status": "IL",
     "injury": "Calf",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Jackson Holliday",
-    "status": "IL",
-    "injury": "Hand",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Jordan Westburg",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Sawyer Gipson-Long",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Bailey Horn",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Anthony Santander",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Blake Snell",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 29"
-  },
-  {
-    "name": "Ha-seong Kim",
-    "status": "IL",
-    "injury": "Finger",
-    "returnDate": "Expected to be out until at least May 12"
-  },
-  {
-    "name": "Griffin Canning",
-    "status": "IL",
-    "injury": "Achilles",
-    "returnDate": "Expected to be out until at least Apr 27"
-  },
-  {
-    "name": "Shane Bieber",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Danny Young",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Sam Hentges",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 17"
-  },
-  {
-    "name": "Tommy Edman",
-    "status": "IL",
-    "injury": "Ankle",
-    "returnDate": "Expected to be out until at least May 29"
-  },
-  {
-    "name": "Lars Nootbaar",
-    "status": "IL",
-    "injury": "Heel",
-    "returnDate": "Expected to be out until at least May 26"
-  },
-  {
-    "name": "Carlos Rodon",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 25"
-  },
-  {
-    "name": "Anthony Volpe",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Tyler Locklear",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 18"
-  },
-  {
-    "name": "Robert Stephenson",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 23"
-  },
-  {
-    "name": "Daysbel Hernandez",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Sean Murphy",
-    "status": "IL",
-    "injury": "Hip",
-    "returnDate": "Expected to be out until at least May 12"
-  },
-  {
-    "name": "Lourdes Gurriel",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Zack Wheeler",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 12"
-  },
-  {
-    "name": "Brock Stewart",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Brandon Walter",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "David Festa",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Hunter Dobbins",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 7"
-  },
-  {
-    "name": "Yimi Garcia",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Cristian Mena",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Andrew Walters",
-    "status": "IL",
-    "injury": "Lat",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "A.J. Smith-Shawver",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Ronel Blanco",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Hayden Wesneski",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Triston Casas",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "A.J. Minter",
-    "status": "IL",
-    "injury": "Lat",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "A.J. Puk",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 17"
-  },
-  {
-    "name": "Justin Steele",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 25"
+    "returnDate": "Apr 10"
   },
   {
     "name": "Blake Walston",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
+    "returnDate": "Jul 1"
   },
   {
-    "name": "Cody Bradford",
+    "name": "Tyler Locklear",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
+    "returnDate": "May 18"
   },
   {
-    "name": "Prelander Berroa",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "James McArthur",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Drew Thorpe",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Brusdar Graterol",
+    "name": "Cristian Mena",
     "status": "IL",
     "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 1"
+    "returnDate": "Jun 1"
   },
   {
-    "name": "Kirby Yates",
+    "name": "Lourdes Gurriel",
     "status": "IL",
     "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 6"
+    "returnDate": "May 1"
   },
   {
-    "name": "Nick Martinez",
-    "status": "Questionable",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Mar 30"
-  },
-  {
-    "name": "Alek Manoah",
-    "status": "IL",
-    "injury": "Finger",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Akil Baddoo",
-    "status": "IL",
-    "injury": "Quadriceps",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Joey Wentz",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Tyler Austin",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least May 23"
-  },
-  {
-    "name": "Ben Joyce",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Anthony Rendon",
-    "status": "IL",
-    "injury": "Hip",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Ethan Conrad",
-    "status": "Out",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Josiah Gray",
+    "name": "A.J. Puk",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 29"
+    "returnDate": "Jul 17"
   },
   {
-    "name": "Paxton Schultz",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 6"
-  },
-  {
-    "name": "Hunter Greene",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Jose Leclerc",
-    "status": "Out",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Tekoah Roby",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Zack Qin",
-    "status": "Questionable",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Mar 30"
-  },
-  {
-    "name": "Ryan Forcucci",
-    "status": "Questionable",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Asa Lacy",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Davis Sharpe",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Brandon Clarke",
-    "status": "IL",
-    "injury": "Arm",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Nic Enright",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Jake Bloss",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Luke Holman",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Victor Santos",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Brody McCullough",
-    "status": "IL",
-    "injury": "Forearm",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Peter Kussow",
-    "status": "Out",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "David Sandlin",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Josuar De Jesus Gonzalez",
-    "status": "Out",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 17"
-  },
-  {
-    "name": "Parks Harber",
-    "status": "Out",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 27"
-  },
-  {
-    "name": "Chih-Jung Liu",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Jun 2"
-  },
-  {
-    "name": "Zach Fogell",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Oct 1"
-  },
-  {
-    "name": "Yordanny Monegro",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Johan Rojas",
-    "status": "Suspended",
-    "injury": "",
-    "returnDate": "Suspended until Jun 24"
-  },
-  {
-    "name": "Jose Olivares",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Justin Hagenman",
+    "name": "Merrill Kelly",
     "status": "IL",
     "injury": "Ribs",
-    "returnDate": "Expected to be out until at least May 27"
-  },
-  {
-    "name": "Romy Gonzalez",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 26"
-  },
-  {
-    "name": "Jhony Brito",
-    "status": "IL",
-    "injury": "Forearm",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Charlee Soto",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 5"
-  },
-  {
-    "name": "Thayron Liranzo",
-    "status": "Out",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Troy Melton",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 26"
-  },
-  {
-    "name": "Jordan Montgomery",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Josue Briceno",
-    "status": "Out",
-    "injury": "Wrist",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Matt Barr",
-    "status": "Out",
-    "injury": "Arm",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Enrique Jimenez",
-    "status": "Out",
-    "injury": "Finger",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Enrique Hernandez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 24"
-  },
-  {
-    "name": "Jurickson Profar",
-    "status": "Suspended",
-    "injury": "",
-    "returnDate": "Suspended until Feb 1"
-  },
-  {
-    "name": "Evan Phillips",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 17"
-  },
-  {
-    "name": "Shelby Miller",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Owen Hall",
-    "status": "Questionable",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Michael Massey",
-    "status": "Questionable",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Carter Holton",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Mar 30"
-  },
-  {
-    "name": "T.J. Brock",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Cade Kuehler",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Mar 30"
-  },
-  {
-    "name": "Luis Rodriguez",
-    "status": "Out",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Aiva Arquette",
-    "status": "Out",
-    "injury": "Groin",
-    "returnDate": "Expected to be out until at least Apr 4"
-  },
-  {
-    "name": "Austin Peterson",
-    "status": "Out",
-    "injury": "Triceps",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Pablo Lopez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1, 2027"
-  },
-  {
-    "name": "Cooper Hjerpe",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 17"
-  },
-  {
-    "name": "Ryan Harbin",
-    "status": "Out",
-    "injury": "Lat",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Brian Holiday",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Jake Miller",
-    "status": "Out",
-    "injury": "Hip",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Rowan Wick",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Ian Anderson",
-    "status": "Out",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Colin Selby",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 25"
+    "returnDate": "Apr 13"
   },
   {
     "name": "Andrew Saalfrank",
     "status": "IL",
     "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Logan Evans",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1, 2027"
-  },
-  {
-    "name": "Michael Salina",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 30"
-  },
-  {
-    "name": "Grant Knipp",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Frank Cairone",
-    "status": "Out",
-    "injury": "Head",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Braxton Bragg",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "John Means",
-    "status": "Out",
-    "injury": "Achilles",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Max Kranick",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Sep 1"
-  },
-  {
-    "name": "Frankie Montas",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Nestor Cortes",
-    "status": "Out",
-    "injury": "Biceps",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Tony Gonsolin",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Thyago Vieira",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Alex Young",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Luis Garcia",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Josh Winder",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Ronny Henriquez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Kyle Amendt",
-    "status": "Out",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Jason Foley",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Connor Thomas",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Yu Darvish",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Reed Garrett",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Humberto Cruz",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Brandon Birdsell",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Randy Rodriguez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Franyerber Montilla",
-    "status": "Out",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Reese Olson",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Feb 21"
-  },
-  {
-    "name": "Emmanuel Clase",
-    "status": "Out",
-    "injury": "Personal",
-    "returnDate": "Expected to be out until at least May 4"
-  },
-  {
-    "name": "Conrad Cason",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Trevor Williams",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Tyler Stuart",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Sep 1"
-  },
-  {
-    "name": "Clarke Schmidt",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Dedniel Nunez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Sep 1"
-  },
-  {
-    "name": "Luis Ortiz",
-    "status": "Out",
-    "injury": "Personal",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Spencer Schwellenbach",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 2"
-  },
-  {
-    "name": "Juan Pinto",
-    "status": "Out",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Tylor Megill",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Bowden Francis",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1, 2027"
-  },
-  {
-    "name": "Manuel Rodriguez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Justin Martinez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 21"
+    "returnDate": "Feb 1"
   },
   {
     "name": "Corbin Burnes",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 17"
+    "returnDate": "Jul 17"
   },
   {
-    "name": "Jackson Jobe",
+    "name": "Daysbel Hernandez",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Apr 6"
+  },
+  {
+    "name": "Ha-seong Kim",
+    "status": "IL",
+    "injury": "Finger",
+    "returnDate": "May 12"
+  },
+  {
+    "name": "Danny Young",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Sep 1"
+    "returnDate": "Jul 1"
   },
   {
-    "name": "Moises Chace",
-    "status": "Out",
+    "name": "Hurston Waldrep",
+    "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
+    "returnDate": "Jun 2"
+  },
+  {
+    "name": "A.J. Smith-Shawver",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Aug 1"
+  },
+  {
+    "name": "Sean Murphy",
+    "status": "IL",
+    "injury": "Hip",
+    "returnDate": "May 12"
+  },
+  {
+    "name": "Spencer Strider",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "Apr 6"
+  },
+  {
+    "name": "Joey Wentz",
+    "status": "IL",
+    "injury": "Knee",
+    "returnDate": "Feb 1"
+  },
+  {
+    "name": "Spencer Schwellenbach",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Jun 2"
+  },
+  {
+    "name": "Felix Bautista",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Sep 10"
+  },
+  {
+    "name": "Jordan Westburg",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "May 1"
+  },
+  {
+    "name": "Jackson Holliday",
+    "status": "IL",
+    "injury": "Hand",
+    "returnDate": "Apr 10"
+  },
+  {
+    "name": "Keegan Akin",
+    "status": "IL",
+    "injury": "Groin",
+    "returnDate": "Apr 6"
+  },
+  {
+    "name": "Andrew Kittredge",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Apr 6"
+  },
+  {
+    "name": "Heston Kjerstad",
+    "status": "IL",
+    "injury": "Hamstring",
+    "returnDate": "Apr 3"
+  },
+  {
+    "name": "Colin Selby",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "May 25"
+  },
+  {
+    "name": "Triston Casas",
+    "status": "IL",
+    "injury": "Knee",
+    "returnDate": "May 1"
+  },
+  {
+    "name": "Patrick Sandoval",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Apr 20"
+  },
+  {
+    "name": "Anthony Seigler",
+    "status": "IL",
+    "injury": "Knee",
+    "returnDate": "Apr 8"
+  },
+  {
+    "name": "Kutter Crawford",
+    "status": "IL",
+    "injury": "Wrist",
+    "returnDate": "Apr 20"
+  },
+  {
+    "name": "Romy Gonzalez",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "May 26"
   },
   {
     "name": "Tanner Houck",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
+    "returnDate": "Feb 1"
   },
   {
-    "name": "Patrick Reilly",
-    "status": "Out",
+    "name": "Jordan Romano",
+    "status": "IL",
+    "injury": "Lat",
+    "returnDate": "Apr 6"
+  },
+  {
+    "name": "Justin Wilson",
+    "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
+    "returnDate": "Feb 1"
   },
   {
-    "name": "Juan Carela",
-    "status": "Out",
+    "name": "Julian Merryweather",
+    "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
+    "returnDate": "Feb 1"
   },
   {
-    "name": "Kris Bryant",
+    "name": "Yoan Moncada",
     "status": "IL",
     "injury": "Back",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Alejandro Rosario",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Mar 1"
-  },
-  {
-    "name": "Zach Swanson",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Christian McGowan",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Chase Hampton",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Davidjohn Herz",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Jared Jones",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 25"
-  },
-  {
-    "name": "Blake Larson",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1"
+    "returnDate": "Apr 6"
   },
   {
     "name": "Jeff Criswell",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
+    "returnDate": "Jun 1"
   },
   {
-    "name": "Thatcher Hurd",
-    "status": "Out",
+    "name": "Beau Brieske",
+    "status": "IL",
+    "injury": "Thigh",
+    "returnDate": "May 26"
+  },
+  {
+    "name": "Trey Sweeney",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Apr 24"
+  },
+  {
+    "name": "Bailey Horn",
+    "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1"
+    "returnDate": "Apr 24"
+  },
+  {
+    "name": "Sawyer Gipson-Long",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "Apr 6"
+  },
+  {
+    "name": "Troy Melton",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "May 26"
+  },
+  {
+    "name": "Reese Olson",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Feb 21"
+  },
+  {
+    "name": "Jackson Jobe",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Sep 1"
+  },
+  {
+    "name": "Bennett Sousa",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "Apr 14"
+  },
+  {
+    "name": "Josh Hader",
+    "status": "IL",
+    "injury": "Biceps",
+    "returnDate": "Apr 24"
+  },
+  {
+    "name": "Zach Dezenzo",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Apr 24"
+  },
+  {
+    "name": "Brandon Walter",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Feb 1"
+  },
+  {
+    "name": "Hayden Wesneski",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Aug 1"
+  },
+  {
+    "name": "Ronel Blanco",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Aug 1"
+  },
+  {
+    "name": "Enyel De Los Santos",
+    "status": "IL",
+    "injury": "Knee",
+    "returnDate": "Apr 10"
+  },
+  {
+    "name": "Nate Pearson",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "May 1"
+  },
+  {
+    "name": "Michael Massey",
+    "status": "IL",
+    "injury": "Calf",
+    "returnDate": "Apr 1"
+  },
+  {
+    "name": "Stephen Kolek",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "Apr 6"
+  },
+  {
+    "name": "James McArthur",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "May 1"
   },
   {
     "name": "Alec Marsh",
     "status": "IL",
     "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Feb 1"
+    "returnDate": "Feb 1"
   },
   {
-    "name": "Izack Tiger",
-    "status": "Out",
+    "name": "Vaughn Grissom",
+    "status": "IL",
+    "injury": "Wrist",
+    "returnDate": "Apr 1"
+  },
+  {
+    "name": "Grayson Rodriguez",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Apr 6"
+  },
+  {
+    "name": "Robert Stephenson",
+    "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "returnDate": "May 23"
   },
   {
-    "name": "Joe Jimenez",
+    "name": "Kirby Yates",
     "status": "IL",
     "injury": "Knee",
-    "returnDate": "Expected to be out until at least Jul 17"
+    "returnDate": "Apr 6"
   },
   {
-    "name": "Josh Knoth",
-    "status": "Out",
+    "name": "Alek Manoah",
+    "status": "IL",
+    "injury": "Finger",
+    "returnDate": "Apr 6"
+  },
+  {
+    "name": "Ben Joyce",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Apr 6"
+  },
+  {
+    "name": "Anthony Rendon",
+    "status": "IL",
+    "injury": "Hip",
+    "returnDate": "Feb 1"
+  },
+  {
+    "name": "Jake Cousins",
+    "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1"
+    "returnDate": "Aug 1"
   },
   {
-    "name": "Luis Ramirez",
-    "status": "Out",
+    "name": "Landon Knack",
+    "status": "IL",
+    "injury": "Chest",
+    "returnDate": "Apr 10"
+  },
+  {
+    "name": "Gavin Stone",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "May 8"
+  },
+  {
+    "name": "Brock Stewart",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Apr 10"
+  },
+  {
+    "name": "Blake Snell",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "May 29"
+  },
+  {
+    "name": "Brusdar Graterol",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "May 1"
+  },
+  {
+    "name": "Bobby Miller",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "May 29"
+  },
+  {
+    "name": "Tommy Edman",
+    "status": "IL",
+    "injury": "Ankle",
+    "returnDate": "May 29"
+  },
+  {
+    "name": "Enrique Hernandez",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "May 24"
+  },
+  {
+    "name": "Christopher Morel",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "Apr 4"
+  },
+  {
+    "name": "Maximo Acosta",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "Apr 10"
+  },
+  {
+    "name": "Kyle Stowers",
+    "status": "IL",
+    "injury": "Hamstring",
+    "returnDate": "Apr 20"
+  },
+  {
+    "name": "Adam Mazur",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Apr 1"
+  },
+  {
+    "name": "Esteury Ruiz",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "May 15"
+  },
+  {
+    "name": "Ronny Henriquez",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Feb 1"
+  },
+  {
+    "name": "Andrew Vaughn",
+    "status": "IL",
+    "injury": "Hand",
+    "returnDate": "May 8"
+  },
+  {
+    "name": "Jackson Chourio",
+    "status": "IL",
+    "injury": "Hand",
+    "returnDate": "Apr 10"
+  },
+  {
+    "name": "Quinn Priester",
+    "status": "IL",
+    "injury": "Wrist",
+    "returnDate": "May 1"
+  },
+  {
+    "name": "Craig Yoho",
+    "status": "IL",
+    "injury": "Calf",
+    "returnDate": "Apr 12"
+  },
+  {
+    "name": "Steward Berroa",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Apr 24"
+  },
+  {
+    "name": "Rob Zastryzny",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Apr 10"
+  },
+  {
+    "name": "Akil Baddoo",
+    "status": "IL",
+    "injury": "Quadriceps",
+    "returnDate": "Jun 1"
+  },
+  {
+    "name": "Travis Adams",
+    "status": "IL",
+    "injury": "Triceps",
+    "returnDate": "Apr 10"
+  },
+  {
+    "name": "David Festa",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "May 1"
+  },
+  {
+    "name": "Pablo Lopez",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Apr 1"
+  },
+  {
+    "name": "A.J. Minter",
+    "status": "IL",
+    "injury": "Lat",
+    "returnDate": "May 1"
+  },
+  {
+    "name": "Justin Hagenman",
+    "status": "IL",
+    "injury": "Ribs",
+    "returnDate": "May 27"
+  },
+  {
+    "name": "Tylor Megill",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Feb 1"
+  },
+  {
+    "name": "Dedniel Nunez",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Sep 1"
+  },
+  {
+    "name": "Reed Garrett",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Feb 1"
+  },
+  {
+    "name": "Gerrit Cole",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "May 15"
+  },
+  {
+    "name": "Anthony Volpe",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "May 1"
+  },
+  {
+    "name": "Carlos Rodon",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Apr 25"
+  },
+  {
+    "name": "Clarke Schmidt",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Aug 1"
+  },
+  {
+    "name": "Zack Wheeler",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Apr 12"
+  },
+  {
+    "name": "Orion Kerkering",
+    "status": "IL",
+    "injury": "Hamstring",
+    "returnDate": "Apr 7"
+  },
+  {
+    "name": "Max Lazar",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "Apr 6"
+  },
+  {
+    "name": "Jared Jones",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "May 25"
+  },
+  {
+    "name": "Will Wagner",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "Apr 24"
+  },
+  {
+    "name": "Matt Waldron",
+    "status": "IL",
+    "injury": "Lower Body",
+    "returnDate": "Apr 15"
+  },
+  {
+    "name": "Sung-Mun Song",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "Apr 12"
+  },
+  {
+    "name": "Jason Adam",
+    "status": "IL",
+    "injury": "Quadriceps",
+    "returnDate": "Apr 6"
+  },
+  {
+    "name": "Joe Musgrove",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Apr 15"
+  },
+  {
+    "name": "Yuki Matsui",
+    "status": "IL",
+    "injury": "Groin",
+    "returnDate": "Apr 10"
+  },
+  {
+    "name": "Bryan Hoeing",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Feb 1"
+  },
+  {
+    "name": "Griffin Canning",
+    "status": "IL",
+    "injury": "Achilles",
+    "returnDate": "Apr 27"
+  },
+  {
+    "name": "Hayden Birdsong",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Jun 1"
+  },
+  {
+    "name": "Sam Hentges",
+    "status": "IL",
+    "injury": "Knee",
+    "returnDate": "Apr 17"
+  },
+  {
+    "name": "Reiver Sanmartin",
+    "status": "IL",
+    "injury": "Hip",
+    "returnDate": "Jun 9"
+  },
+  {
+    "name": "Joel Peguero",
+    "status": "IL",
+    "injury": "Hamstring",
+    "returnDate": "Apr 10"
+  },
+  {
+    "name": "Rowan Wick",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Feb 1"
+  },
+  {
+    "name": "Randy Rodriguez",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Feb 1"
+  },
+  {
+    "name": "Jason Foley",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Jul 1"
+  },
+  {
+    "name": "Carlos Vargas",
+    "status": "IL",
+    "injury": "Lat",
+    "returnDate": "Apr 3"
+  },
+  {
+    "name": "Bryce Miller",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "Apr 24"
+  },
+  {
+    "name": "Miles Mastrobuoni",
+    "status": "IL",
+    "injury": "Calf",
+    "returnDate": "Apr 10"
+  },
+  {
+    "name": "J.P. Crawford",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Apr 1"
+  },
+  {
+    "name": "Logan Evans",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Apr 1"
+  },
+  {
+    "name": "Hunter Dobbins",
+    "status": "IL",
+    "injury": "Knee",
+    "returnDate": "Apr 7"
+  },
+  {
+    "name": "Lars Nootbaar",
+    "status": "IL",
+    "injury": "Heel",
+    "returnDate": "May 26"
+  },
+  {
+    "name": "Ricardo Genoves",
+    "status": "IL",
     "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 1"
+    "returnDate": "Mar 29"
   },
   {
-    "name": "Wander Franco",
-    "status": "Out",
+    "name": "Ryan Pepiot",
+    "status": "IL",
+    "injury": "Hip",
+    "returnDate": "Apr 6"
+  },
+  {
+    "name": "Edwin Uceta",
+    "status": "IL",
+    "injury": "Back",
+    "returnDate": "May 29"
+  },
+  {
+    "name": "Manuel Rodriguez",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Jun 1"
+  },
+  {
+    "name": "Jacob deGrom",
+    "status": "IL",
+    "injury": "Neck",
+    "returnDate": "Mar 31"
+  },
+  {
+    "name": "Cody Freeman",
+    "status": "IL",
+    "injury": "Back",
+    "returnDate": "May 1"
+  },
+  {
+    "name": "Cody Bradford",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "May 1"
+  },
+  {
+    "name": "Jordan Montgomery",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Jul 1"
+  },
+  {
+    "name": "Mason Fluharty",
+    "status": "IL",
+    "injury": "Knee",
+    "returnDate": null
+  },
+  {
+    "name": "Trey Yesavage",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Apr 14"
+  },
+  {
+    "name": "Shane Bieber",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "May 1"
+  },
+  {
+    "name": "Anthony Santander",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Aug 1"
+  },
+  {
+    "name": "Yimi Garcia",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Apr 15"
+  },
+  {
+    "name": "Jose Berrios",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Apr 24"
+  },
+  {
+    "name": "Bowden Francis",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Apr 1"
+  },
+  {
+    "name": "C.J. Abrams",
+    "status": "IL",
     "injury": "Personal",
-    "returnDate": "Expected to be out until at least Feb 1, 2028"
+    "returnDate": null
   },
   {
-    "name": "Max Kepler",
-    "status": "Suspended",
-    "injury": "",
-    "returnDate": "Suspended until Jun 15"
+    "name": "Josiah Gray",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "May 29"
+  },
+  {
+    "name": "Paxton Schultz",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Apr 6"
+  },
+  {
+    "name": "Trevor Williams",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Jun 1"
+  },
+  {
+    "name": "Davidjohn Herz",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Jul 1"
   }
 ]
