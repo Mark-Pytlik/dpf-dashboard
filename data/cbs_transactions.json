@@ -97,7 +97,7 @@
   },
   {
     "date": "3/26/26 11:24 AM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -159,7 +159,7 @@
   },
   {
     "date": "3/25/26 2:55 PM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -167,15 +167,7 @@
         "pos": "RP",
         "mlbTeam": "NYM",
         "action": "Added"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/25/26 2:55 PM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
-    "teamId": 3,
-    "players": [
+      },
       {
         "name": "Andrew Kittredge",
         "pos": "RP",
@@ -505,15 +497,7 @@
         "pos": "SP",
         "mlbTeam": "NYY",
         "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/24/26 10:04 AM ET",
-    "team": "Whoop Whoop that's the sound of Dylan Cease",
-    "teamId": 7,
-    "players": [
+      },
       {
         "name": "Josue Briceno",
         "pos": "C",
@@ -539,7 +523,7 @@
   },
   {
     "date": "3/24/26 1:22 AM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -601,7 +585,7 @@
   },
   {
     "date": "3/23/26 9:22 AM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -615,7 +599,7 @@
   },
   {
     "date": "3/23/26 1:09 AM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -629,15 +613,7 @@
         "pos": "SP",
         "mlbTeam": "NYY",
         "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/23/26 1:09 AM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
-    "teamId": 3,
-    "players": [
+      },
       {
         "name": "Royce Lewis",
         "pos": "3B",
@@ -711,7 +687,7 @@
   },
   {
     "date": "3/21/26 12:45 AM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -823,15 +799,7 @@
         "pos": "3B",
         "mlbTeam": "MIN",
         "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/20/26 7:06 PM ET",
-    "team": "Okamotomami",
-    "teamId": 4,
-    "players": [
+      },
       {
         "name": "Jeff McNeil",
         "pos": "2B,CF",
@@ -851,15 +819,7 @@
         "pos": "SP",
         "mlbTeam": "LAA",
         "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/20/26 7:04 PM ET",
-    "team": "Okamotomami",
-    "teamId": 4,
-    "players": [
+      },
       {
         "name": "Joey Cantillo",
         "pos": "SP,RP",
@@ -871,7 +831,7 @@
   },
   {
     "date": "3/20/26 1:11 AM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -885,7 +845,7 @@
   },
   {
     "date": "3/19/26 11:27 PM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -991,15 +951,7 @@
         "pos": "DH",
         "mlbTeam": "NYY",
         "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/19/26 7:24 AM ET",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
-    "players": [
+      },
       {
         "name": "Tyler Stephenson",
         "pos": "C",
@@ -1025,7 +977,7 @@
   },
   {
     "date": "3/19/26 3:16 AM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -1033,15 +985,7 @@
         "pos": "RP",
         "mlbTeam": "NYY",
         "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/19/26 3:16 AM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
-    "teamId": 3,
-    "players": [
+      },
       {
         "name": "Colt Keith",
         "pos": "2B,3B",
@@ -1053,7 +997,7 @@
   },
   {
     "date": "3/19/26 3:14 AM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -1067,7 +1011,7 @@
   },
   {
     "date": "3/19/26 3:06 AM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -1081,7 +1025,7 @@
   },
   {
     "date": "3/19/26 3:05 AM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -1165,7 +1109,7 @@
   },
   {
     "date": "3/17/26 12:49 PM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -1179,7 +1123,7 @@
   },
   {
     "date": "3/17/26 12:43 PM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -1193,7 +1137,7 @@
   },
   {
     "date": "3/17/26 12:38 PM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -1220,26 +1164,26 @@
         "name": "Jac Caglianone",
         "pos": "RF",
         "mlbTeam": "KC",
-        "action": "Traded from Colonel Corbin\u2019s Ascent"
+        "action": "Traded from Colonel Corbin's Ascent"
       },
       {
         "name": "Vladimir Guerrero Jr.",
         "pos": "1B",
         "mlbTeam": "TOR",
-        "action": "Traded from Colonel Corbin\u2019s Ascent"
+        "action": "Traded from Colonel Corbin's Ascent"
       },
       {
         "name": "Kazuma Okamoto",
         "pos": "3B",
         "mlbTeam": "TOR",
-        "action": "Traded from Colone..."
+        "action": "Traded from Colonel Corbin's Ascent"
       }
     ],
     "effective": "3/25/26"
   },
   {
     "date": "3/16/26 1:42 PM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -1253,7 +1197,7 @@
   },
   {
     "date": "3/16/26 12:55 PM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -1273,7 +1217,7 @@
   },
   {
     "date": "3/16/26 12:10 PM ET",
-    "team": "Colonel Corbin\u2019s Ascent",
+    "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -1342,13 +1286,13 @@
         "name": "C.J. Abrams",
         "pos": "SS",
         "mlbTeam": "WAS",
-        "action": "Unknown"
+        "action": "Added"
       },
       {
         "name": "David Bednar",
         "pos": "RP",
         "mlbTeam": "NYY",
-        "action": "Unknown"
+        "action": "Dropped"
       }
     ],
     "effective": "3/25/26"
