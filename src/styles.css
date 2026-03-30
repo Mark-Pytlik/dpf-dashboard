@@ -137,18 +137,24 @@ a[title^="Sleeper"] { color:var(--green); } a[title^="Avoid"] { color:var(--red)
 /* ── Mobile responsive ──────────────────────────────────────────────── */
 @media (max-width: 768px) {
   body { font-size: 14px; -webkit-text-size-adjust: 100%; }
-  .header { flex-direction: column; align-items: flex-start; gap: 10px; padding: 10px 12px; }
+  .header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 10px 12px; }
   .header h1 { font-size: 16px; }
-  .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 2px; width: 100%; flex-wrap: nowrap; scrollbar-width: none; }
+  .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 2px; width: 100%; flex-wrap: nowrap; scrollbar-width: none; padding-bottom: 4px; }
   .tabs::-webkit-scrollbar { display: none; }
   .tab { padding: 8px 12px; font-size: 12px; flex-shrink: 0; }
   .header > div[style*="margin-left:auto"] { margin-left: 0 !important; }
-  .controls { padding: 8px 12px; gap: 6px; }
+  .controls { padding: 8px 12px; gap: 6px; flex-direction: column; }
   .search-box { width: 100%; min-width: 0; }
-  .stats-bar { margin-left: 0; flex-wrap: wrap; gap: 8px; width: 100%; }
-  .table-wrap { height: calc(100vh - 200px); -webkit-overflow-scrolling: touch; }
-  th { padding: 6px 8px; font-size: 10px; }
-  td { padding: 5px 8px; font-size: 12px; }
+  .stats-bar { margin-left: 0; flex-wrap: wrap; gap: 8px; width: 100%; font-size: 11px; }
+  .table-wrap { height: calc(100vh - 220px); -webkit-overflow-scrolling: touch; }
+  /* Sticky first column (player name) on mobile */
+  table { table-layout: auto; }
+  td:first-child, th:first-child { position: sticky; left: 0; z-index: 5; background: var(--bg); }
+  th:first-child { background: var(--surface2); z-index: 11; }
+  tr:hover td:first-child { background: var(--surface2); }
+  th { padding: 6px 6px; font-size: 10px; }
+  td { padding: 5px 6px; font-size: 12px; }
+  .roster-section { padding: 12px; }
   .roster-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
   .roster-card { padding: 8px; }
   .roster-card h4 { font-size: 12px; }
@@ -158,11 +164,12 @@ a[title^="Sleeper"] { color:var(--green); } a[title^="Avoid"] { color:var(--red)
   .autocomplete { width: calc(100vw - 24px); }
   .my-team-panel { padding: 6px 12px; }
   .auth-box { width: 90vw; padding: 24px 16px; }
-  .tooltip .tt-text { width: 260px; }
+  .tooltip .tt-text { width: 260px; left: 0; transform: none; }
   #posFilters { display: flex; flex-wrap: wrap; gap: 2px; }
+  #typeFilters { flex-wrap: wrap; }
   .filter-btn { padding: 4px 8px; font-size: 11px; }
   .owner-badge { font-size: 7px; max-width: 60px; }
-  .view-toggle { margin-left: 0; }
+  .view-toggle { margin-left: 0; flex-wrap: wrap; }
   /* Make the mode buttons wrap nicely */
   .header > div:last-child { width: 100%; justify-content: flex-end; }
   /* Touch-friendly tap targets */
@@ -170,13 +177,29 @@ a[title^="Sleeper"] { color:var(--green); } a[title^="Avoid"] { color:var(--red)
   .tag-btns { visibility: visible; } /* Always show tag buttons on touch */
   /* Pace tracker / matchup panels */
   .mock-player-row { font-size: 12px; }
+  /* League comparison table */
+  .roster-section table { font-size: 11px; }
+  .roster-section table td, .roster-section table th { padding: 4px 6px; }
+  /* Roster view team buttons */
+  .roster-section button { font-size: 11px !important; }
+  /* Inline roster tables */
+  .roster-section table { width: 100%; }
 }
 
 @media (max-width: 480px) {
   .header h1 { font-size: 14px; }
-  .tab { padding: 6px 10px; font-size: 11px; }
-  td { font-size: 11px; padding: 4px 6px; }
-  th { font-size: 9px; padding: 4px 6px; }
+  .header > div[style*="font-size:10px"] { font-size: 9px !important; }
+  .tab { padding: 6px 10px; font-size: 11px; min-height: 32px; }
+  td { font-size: 11px; padding: 4px 5px; }
+  th { font-size: 9px; padding: 4px 5px; }
   .roster-grid { grid-template-columns: 1fr 1fr; }
   .pos-badge { font-size: 10px; padding: 1px 4px; }
+  .roster-section { padding: 8px; }
+  .view-toggle { gap: 1px; }
+  .view-btn { padding: 3px 6px; font-size: 10px; }
+  .pbadge { font-size: 7px; padding: 0px 2px; }
+  /* Stack controls vertically */
+  .controls select { width: 100%; }
+  #posFilters { gap: 1px; }
+  .filter-btn { padding: 3px 6px; font-size: 10px; min-height: 28px; }
 }
