@@ -665,7 +665,7 @@ function renderRoster() {
 
   // ── Player News helper (used in both Player View sidebar and GM View) ──
   const myTeamNames = new Set((state.myTeam || []).map(n => n.toLowerCase()));
-  const relevantNews = (PLAYER_NEWS || []).filter(n => myTeamNames.has(n.name.toLowerCase()));
+  const relevantNews = (PLAYER_NEWS || []).filter(n => (n.name || n.player) && myTeamNames.has((n.name || n.player).toLowerCase()));
   if (relevantNews.length > 0) {
     relevantNews.sort((a, b) => {
       const [am, ad] = (a.date || '01/01').split('/').map(Number);
@@ -682,12 +682,13 @@ function renderRoster() {
       h += '<h3 style="font-size:13px;margin-bottom:6px;">Player News</h3>';
       h += '<div style="font-size:10px;color:var(--text2);margin-bottom:6px;">Latest news for your rostered players from CBS.</div>';
       relevantNews.forEach(n => {
-        const p = _plyrI(n.name);
+        const _nn = n.name || n.player || '?';
+        const p = _plyrI(_nn);
         const pos = p ? p.primaryPos : '';
         const isRecent = (() => { const [m,d] = (n.date||'').split('/').map(Number); return m === 3 && d >= 10; })();
         const dateClr = isRecent ? 'color:var(--green);' : 'color:var(--text2);';
         h += `<div style="padding:4px 0;border-bottom:1px solid var(--border);font-size:11px;">`;
-        h += `<div><span style="font-weight:600;">${n.name}</span> <span style="color:var(--text2);font-size:10px;">${pos}</span> <span style="font-size:9px;${dateClr}">${n.date}</span></div>`;
+        h += `<div><span style="font-weight:600;">${_nn}</span> <span style="color:var(--text2);font-size:10px;">${pos}</span> <span style="font-size:9px;${dateClr}">${n.date}</span></div>`;
         h += `<div style="color:var(--text2);font-size:10px;margin-top:1px;">${n.headline}</div>`;
         h += `</div>`;
       });
