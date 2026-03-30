@@ -548,12 +548,14 @@ function _renderAnalyticsInner(section) {
         h += '<div style="background:var(--surface2);border-radius:8px;padding:12px 16px;margin-bottom:12px;">';
         h += `<div style="font-weight:700;font-size:13px;margin-bottom:6px;">Current Matchup: Period ${currentPeriod}</div>`;
         h += '<div style="display:flex;align-items:center;justify-content:center;gap:16px;padding:8px 0;">';
-        const myName = LEAGUE_TEAMS.find(t => t.mine)?.owner || 'You';
-        h += `<div style="text-align:center;"><div style="font-weight:700;font-size:14px;">${myName}</div>`;
+        const myTeamObj = LEAGUE_TEAMS.find(t => t.mine);
+        const myTeamName = myTeamObj?.name || 'My Team';
+        const myOwnerName = myTeamObj?.owner || 'You';
+        h += `<div style="text-align:center;"><div style="font-weight:700;font-size:14px;">${myTeamName}</div><div style="font-size:10px;color:var(--text2);">${myOwnerName}</div>`;
         if (ss.currentScore) h += `<div style="font-size:28px;font-weight:800;color:var(--green);">${ss.currentScore.me}</div>`;
         h += '</div>';
         h += '<div style="font-size:11px;color:var(--text2);">vs</div>';
-        h += `<div style="text-align:center;"><div style="font-weight:700;font-size:14px;">${ss.opponent}</div>`;
+        h += `<div style="text-align:center;"><div style="font-weight:700;font-size:14px;">${ss.opponentTeam || ss.opponent}</div>${ss.opponentTeam && ss.opponent ? `<div style="font-size:10px;color:var(--text2);">${ss.opponent}</div>` : ''}`;
         if (ss.currentScore) h += `<div style="font-size:28px;font-weight:800;color:var(--red);">${ss.currentScore.opp}</div>`;
         h += '</div>';
         h += '</div>';
