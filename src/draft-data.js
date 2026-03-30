@@ -129,11 +129,22 @@ const LIVE_PICKS = [
 ];
 if (!state.drafted) state.drafted = {};
 const _norm = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+// Build keeper→team lookup so LIVE_PICKS doesn't double-roster keepers
+const _keeperTeamMap = new Map(); // playerName → teamName they were kept on
+for (const [teamName, keepers] of Object.entries(DEFAULT_LEAGUE_KEEPERS)) {
+  keepers.forEach(k => {
+    const f = _plyrI(k.name);
+    if (f) _keeperTeamMap.set(f.name, teamName);
+  });
+}
 LIVE_PICKS.forEach(p => {
   const found = _plyrI(p.n);
   const nm = found ? found.name : p.n;
   const isMine = p.t === 2;
   state.drafted[nm] = { time: Date.now(), mine: isMine };
+  // If this player is a keeper, they're already on the correct team from state.js
+  // initialization. Skip adding them again to avoid double-rostering.
+  if (_keeperTeamMap.has(nm)) return;
   if (isMine && !state.myTeam.includes(nm)) state.myTeam.push(nm);
   // Assign to team roster for LCV calculations
   const teamName = _TEAM_MAP[p.t];
@@ -212,9 +223,9 @@ if (CBS_TRANSACTIONS.length > 0) {
         removeFromRoster(playerName, teamName);
         delete state.drafted[playerName];
       } else if (action.startsWith('Traded from')) {
-        const srcDisplayName = action.replace('Traded from ', '');
-        const srcTeam = CBS_NAME_TO_LEAGUE[srcDisplayName] || srcDisplayName;
-        removeFromRoster(playerName, srcTeam);
+        // Use removeFromAllRosters to ensure player is fully removed from
+        // all teams (handles edge cases with renamed teams, mine vs leagueTeams, etc.)
+        removeFromAllRosters(playerName);
         addToRoster(playerName, teamName);
       }
     });

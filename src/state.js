@@ -1,5 +1,5 @@
 // ── State ─────────────────────────────────────────────────────────────────
-const STATE_VERSION = 23;
+const STATE_VERSION = 24;
 const DEFAULT_KEEPERS = ['James Wood', 'MacKenzie Gore', 'Zach Neto', 'Nick Kurtz', 'Jo Adell'];
 const DEFAULT_KEEPER_ROUNDS = {'James Wood':12, 'MacKenzie Gore':13, 'Jo Adell':10, 'Zach Neto':14, 'Nick Kurtz':11};
 
@@ -96,8 +96,8 @@ if (_saved) {
   state = Object.assign({}, _defaults, _saved);
   // v17 migration: CBS_TEAM_MAP was wrong in v16, corrupting leagueTeams rosters.
   // Reset leagueTeams so they rebuild cleanly from keepers + CBS transactions.
-  if (!_saved._v || _saved._v < 23) {
-    console.log('v23 migration: full roster reset — keeper team names synced with renamed CBS teams');
+  if (!_saved._v || _saved._v < 24) {
+    console.log('v24 migration: full roster reset — fixed keeper double-rostering and trade cleanup');
     state.leagueTeams = {};
     state.leagueMilbKeepers = {};
     state.drafted = {};
@@ -138,7 +138,10 @@ LEAGUE_TEAMS.forEach(t => {
   if (t.owner && !state.teamOwners[t.name]) state.teamOwners[t.name] = t.owner;
 });
 // Pre-populate league keepers (fuzzy-match names to player pool)
+// Skip the "mine" team — its keepers are handled via state.keepers / state.myTeam
+const _myTeamName = LEAGUE_TEAMS.find(t => t.mine)?.name;
 for (const [teamName, keepers] of Object.entries(DEFAULT_LEAGUE_KEEPERS)) {
+  if (teamName === _myTeamName) continue; // mine team keepers handled separately
   if (!state.leagueTeams[teamName] || state.leagueTeams[teamName].length === 0) {
     const matched = [];
     keepers.forEach(k => {
