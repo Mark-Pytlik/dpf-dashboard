@@ -210,7 +210,10 @@ if (CBS_TRANSACTIONS.length > 0) {
       // If the transaction's MLB team doesn't match the player record's team,
       // this is a DIFFERENT player with the same name — skip entirely so we don't
       // corrupt the real player's drafted status or roster assignment.
-      if (found && p.mlbTeam && found.team && found.team !== p.mlbTeam) {
+      // Normalize CBS abbreviations → FanGraphs abbreviations before comparing
+      const _cbsToFg = {KC:'KCR',SF:'SFG',TB:'TBR',WAS:'WSN',AZ:'ARI',CWS:'CHW',SD:'SDP'};
+      const _normTeam = t => _cbsToFg[t] || t;
+      if (found && p.mlbTeam && found.team && _normTeam(found.team) !== _normTeam(p.mlbTeam)) {
         console.log(`Skipping transaction for ${p.name} (${p.mlbTeam}) — name collision with ${found.team} player`);
         return;
       }
@@ -240,7 +243,9 @@ if (CBS_TRANSACTIONS.length > 0) {
     txn.players.forEach(p => {
       // Skip name-collision transactions (same skip as roster processing above)
       const _txFound = _plyrI(p.name);
-      if (_txFound && p.mlbTeam && _txFound.team && _txFound.team !== p.mlbTeam) return;
+      const _cbsToFg2 = {KC:'KCR',SF:'SFG',TB:'TBR',WAS:'WSN',AZ:'ARI',CWS:'CHW',SD:'SDP'};
+      const _normTeam2 = t => _cbsToFg2[t] || t;
+      if (_txFound && p.mlbTeam && _txFound.team && _normTeam2(_txFound.team) !== _normTeam2(p.mlbTeam)) return;
       const action = p.action || '';
       let txType = 'add';
       if (action === 'Dropped') txType = 'drop';

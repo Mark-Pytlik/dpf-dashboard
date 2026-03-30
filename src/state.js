@@ -1,5 +1,5 @@
 // ── State ─────────────────────────────────────────────────────────────────
-const STATE_VERSION = 25;
+const STATE_VERSION = 26;
 const DEFAULT_KEEPERS = ['James Wood', 'MacKenzie Gore', 'Zach Neto', 'Nick Kurtz', 'Jo Adell'];
 const DEFAULT_KEEPER_ROUNDS = {'James Wood':12, 'MacKenzie Gore':13, 'Jo Adell':10, 'Zach Neto':14, 'Nick Kurtz':11};
 
@@ -96,8 +96,8 @@ if (_saved) {
   state = Object.assign({}, _defaults, _saved);
   // v17 migration: CBS_TEAM_MAP was wrong in v16, corrupting leagueTeams rosters.
   // Reset leagueTeams so they rebuild cleanly from keepers + CBS transactions.
-  if (!_saved._v || _saved._v < 25) {
-    console.log('v25 migration: full roster reset — fixed pick order (Roth=1, Kaskie=3) and keeper handling');
+  if (!_saved._v || _saved._v < 26) {
+    console.log('v26 migration: full roster reset — fixed CBS↔FanGraphs MLB team abbreviation mismatch');
     state.leagueTeams = {};
     state.leagueMilbKeepers = {};
     state.drafted = {};
