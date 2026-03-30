@@ -1,7 +1,7 @@
 {
   "teams": [
     {
-      "pick": 1,
+      "pick": 3,
       "name": "Weird Fishes / Arrighetti",
       "owner": "Chris Kaskie"
     },
@@ -12,7 +12,7 @@
       "mine": true
     },
     {
-      "pick": 3,
+      "pick": 1,
       "name": "Colonel Corbin's Ascent",
       "owner": "David Roth"
     },
