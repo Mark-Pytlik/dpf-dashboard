@@ -254,6 +254,32 @@ function render() {
         cls += v >= 0 ? ' val-pos' : ' val-neg';
         val = (v > 0 ? '+' : '') + v.toFixed(2);
       }
+      else if (c.key === 'dBarrel' || c.key === 'dHardhit') {
+        const v = parseFloat(val);
+        cls += v > 0 ? ' val-pos' : v < 0 ? ' val-neg' : '';
+        val = (v > 0 ? '+' : '') + v.toFixed(1);
+      }
+      else if (c.key === 'dWoba' || c.key === 'dXwoba') {
+        const v = parseFloat(val);
+        cls += v > 0 ? ' val-pos' : v < 0 ? ' val-neg' : '';
+        val = (v > 0 ? '+' : '') + v.toFixed(3);
+      }
+      else if (c.key === 'dStuff' || c.key === 'dLoc' || c.key === 'dPitching') {
+        const v = parseInt(val);
+        cls += v > 0 ? ' val-pos' : v < 0 ? ' val-neg' : '';
+        val = (v > 0 ? '+' : '') + v;
+      }
+      else if (c.key === 's26_stuff' || c.key === 's26_loc' || c.key === 's26_pitching') {
+        const v = parseInt(val);
+        cls += v >= 110 ? ' val-pos' : v <= 90 ? ' val-neg' : '';
+      }
+      else if (c.key === 's26_woba' || c.key === 's26_xwoba') val = parseFloat(val).toFixed(3);
+      else if (c.key === 's26_barrel' || c.key === 's26_hardhit') val = parseFloat(val).toFixed(1) + '%';
+      else if (c.key === 's26_xwDelta') {
+        const v = parseFloat(val);
+        cls += v > 0 ? ' val-pos' : v < 0 ? ' val-neg' : '';
+        val = (v > 0 ? '+' : '') + v.toFixed(3);
+      }
       if (c.key === 'name') {
         // Owner badge for drafted players
         let ownerBadge = '';

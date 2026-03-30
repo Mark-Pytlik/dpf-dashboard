@@ -113,6 +113,42 @@ for _, r in statcast_df.iterrows():
     }
 print(f"Statcast loaded: {len(statcast_lookup)} batters")
 
+# ── 2026 Statcast (in-season advanced metrics) ───────────────────────────
+statcast26_lookup = {}
+_sc26_path = 'data/bat_statcast_2026.csv'
+if os.path.exists(_sc26_path):
+    sc26_df = pd.read_csv(_sc26_path, sep='|')
+    for _, r in sc26_df.iterrows():
+        woba = float(r['woba']) if 'woba' in r and r['woba'] not in ('', None) else 0
+        xwoba = float(r['xwoba']) if 'xwoba' in r and r['xwoba'] not in ('', None) else 0
+        entry = {'woba': round(woba, 3), 'xwoba': round(xwoba, 3), 'delta': round(xwoba - woba, 3)}
+        if 'barrel_pct' in r and pd.notna(r.get('barrel_pct')):
+            entry['barrel'] = round(float(r['barrel_pct']), 1)
+        if 'hard_hit_pct' in r and pd.notna(r.get('hard_hit_pct')):
+            entry['hardhit'] = round(float(r['hard_hit_pct']), 1)
+        statcast26_lookup[r['name']] = entry
+    print(f"Statcast 2026 loaded: {len(statcast26_lookup)} batters")
+else:
+    print("No 2026 Statcast file found (data/bat_statcast_2026.csv)")
+
+stuff26_lookup = {}
+_stf26_path = 'data/stuff_plus_2026.csv'
+if os.path.exists(_stf26_path):
+    stf26_df = pd.read_csv(_stf26_path, sep='|')
+    for _, r in stf26_df.iterrows():
+        entry = {}
+        if 'stuff_plus' in r and pd.notna(r.get('stuff_plus')):
+            entry['stuff'] = int(r['stuff_plus'])
+        if 'location_plus' in r and pd.notna(r.get('location_plus')):
+            entry['loc'] = int(r['location_plus'])
+        if 'pitching_plus' in r and pd.notna(r.get('pitching_plus')):
+            entry['pitching'] = int(r['pitching_plus'])
+        if entry:
+            stuff26_lookup[r['name']] = entry
+    print(f"Stuff+ 2026 loaded: {len(stuff26_lookup)} pitchers")
+else:
+    print("No 2026 Stuff+ file found (data/stuff_plus_2026.csv)")
+
 # ── Park factors ──────────────────────────────────────────────────────────
 _pf_path = 'data/park_factors_2025.json'
 if os.path.exists(_pf_path):
@@ -443,13 +479,31 @@ for _, r in bat_pool.iterrows():
         's25_slg': s25.get('slg', ''),
         'trend': round(r['trend'], 2) if not pd.isna(r['trend']) else '',
     })
-    # Add Statcast data
+    # Add Statcast data (2025 baseline)
     sc = statcast_lookup.get(r['name'], {})
     if sc:
         bat_records[-1].update({
             's25_barrel': sc['barrel'], 's25_hardhit': sc['hardhit'],
             's25_woba': sc['woba'], 's25_xwoba': sc['xwoba'], 's25_delta': sc['delta']
         })
+    # Add 2026 Statcast data + divergence from 2025
+    sc26 = statcast26_lookup.get(r['name'], {})
+    if sc26:
+        bat_records[-1].update({
+            's26_barrel': sc26.get('barrel', ''), 's26_hardhit': sc26.get('hardhit', ''),
+            's26_woba': sc26.get('woba', ''), 's26_xwoba': sc26.get('xwoba', ''),
+            's26_xwDelta': sc26.get('delta', '')
+        })
+        # Divergence: 2026 metric minus 2025 metric (positive = improvement)
+        if sc:
+            if sc26.get('barrel') and sc.get('barrel'):
+                bat_records[-1]['dBarrel'] = round(sc26['barrel'] - sc['barrel'], 1)
+            if sc26.get('hardhit') and sc.get('hardhit'):
+                bat_records[-1]['dHardhit'] = round(sc26['hardhit'] - sc['hardhit'], 1)
+            if sc26.get('woba') and sc.get('woba'):
+                bat_records[-1]['dWoba'] = round(sc26['woba'] - sc['woba'], 3)
+            if sc26.get('xwoba') and sc.get('xwoba'):
+                bat_records[-1]['dXwoba'] = round(sc26['xwoba'] - sc['xwoba'], 3)
     # Add sprint speed
     ss = sprint_lookup.get(r['name'], {})
     if ss:
@@ -531,6 +585,20 @@ for _, r in pit_pool.iterrows():
     # Stuff+ trend: delta between 2025 and 2024
     if st and st24:
         pit_records[-1]['stuffTrend'] = st['stuff'] - st24['stuff']
+    # Add 2026 Stuff+ data + divergence from 2025
+    st26 = stuff26_lookup.get(r['name'], {})
+    if st26:
+        if 'stuff' in st26: pit_records[-1]['s26_stuff'] = st26['stuff']
+        if 'loc' in st26: pit_records[-1]['s26_loc'] = st26['loc']
+        if 'pitching' in st26: pit_records[-1]['s26_pitching'] = st26['pitching']
+        # Divergence: 2026 minus 2025 (positive = improvement)
+        if st:
+            if 'stuff' in st26 and 'stuff' in st:
+                pit_records[-1]['dStuff'] = st26['stuff'] - st['stuff']
+            if 'loc' in st26 and 'loc' in st:
+                pit_records[-1]['dLoc'] = st26['loc'] - st['loc']
+            if 'pitching' in st26 and 'pitching' in st:
+                pit_records[-1]['dPitching'] = st26['pitching'] - st['pitching']
     # Add Eno Sarris rank
     er = eno_rank.get(r['name'], '')
     if er:

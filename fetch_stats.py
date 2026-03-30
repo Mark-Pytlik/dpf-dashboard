@@ -117,15 +117,101 @@ def fetch_statcast_sprint():
         print(f"  Sprint speed fetch skipped: {e}")
         return False
 
+def fetch_statcast_batting():
+    """Fetch 2026 Statcast advanced batting metrics from FanGraphs."""
+    print("Fetching 2026 Statcast batting metrics from FanGraphs...")
+    try:
+        df = batting_stats(2026, qual=0)
+        if df is None or len(df) == 0:
+            print("  No 2026 batting data for Statcast metrics")
+            return False
+
+        # FanGraphs batting_stats includes Statcast columns when available
+        col_map = {}
+        # Try common FanGraphs column names for Statcast data
+        for src, dst in [('Barrel%', 'barrel_pct'), ('HardHit%', 'hard_hit_pct'),
+                         ('wOBA', 'woba'), ('xwOBA', 'xwoba'),
+                         ('Barrels', 'barrels'), ('Events', 'events')]:
+            if src in df.columns:
+                col_map[src] = dst
+
+        if 'wOBA' not in df.columns:
+            print("  Statcast columns not available in FanGraphs data")
+            return False
+
+        out = df.rename(columns={'Name': 'name', **col_map})
+        # Compute barrel% from Barrels/Events if Barrel% not directly available
+        if 'barrel_pct' not in out.columns and 'barrels' in out.columns and 'events' in out.columns:
+            out['barrel_pct'] = (out['barrels'] / out['events'] * 100).round(1)
+        # Compute hard hit% if available
+        if 'hard_hit_pct' not in out.columns:
+            for alt in ['HardHit%', 'Hard%']:
+                if alt in df.columns:
+                    out['hard_hit_pct'] = df[alt]
+                    break
+
+        keep = ['name']
+        for c in ['barrel_pct', 'hard_hit_pct', 'woba', 'xwoba']:
+            if c in out.columns:
+                keep.append(c)
+
+        out = out[keep].dropna(subset=['woba'])
+        out = out[out['woba'] > 0]
+
+        path = os.path.join(OUTDIR, 'bat_statcast_2026.csv')
+        out.to_csv(path, sep='|', index=False)
+        print(f"  Saved {len(out)} batter Statcast records to {path}")
+        return True
+    except Exception as e:
+        print(f"  Error fetching Statcast batting: {e}")
+        return False
+
+def fetch_statcast_pitching():
+    """Fetch 2026 Stuff+ / pitching metrics from FanGraphs."""
+    print("Fetching 2026 pitching advanced metrics from FanGraphs...")
+    try:
+        df = pitching_stats(2026, qual=0)
+        if df is None or len(df) == 0:
+            print("  No 2026 pitching data for Stuff+ metrics")
+            return False
+
+        col_map = {}
+        for src, dst in [('Stf+', 'stuff_plus'), ('Loc+', 'location_plus'),
+                         ('Pit+', 'pitching_plus'), ('Stuff+', 'stuff_plus'),
+                         ('Location+', 'location_plus'), ('Pitching+', 'pitching_plus')]:
+            if src in df.columns and dst not in col_map.values():
+                col_map[src] = dst
+
+        out = df.rename(columns={'Name': 'name', **col_map})
+        keep = ['name']
+        for c in ['stuff_plus', 'location_plus', 'pitching_plus']:
+            if c in out.columns:
+                keep.append(c)
+
+        if len(keep) <= 1:
+            print("  Stuff+/Location+/Pitching+ columns not available yet")
+            return False
+
+        out = out[keep].dropna(subset=[k for k in keep if k != 'name'])
+        path = os.path.join(OUTDIR, 'stuff_plus_2026.csv')
+        out.to_csv(path, sep='|', index=False)
+        print(f"  Saved {len(out)} pitcher Stuff+ records to {path}")
+        return True
+    except Exception as e:
+        print(f"  Error fetching Stuff+ data: {e}")
+        return False
+
 if __name__ == '__main__':
     print("=== Fetching 2026 MLB Stats ===")
     bat_ok = fetch_batting()
     pit_ok = fetch_pitching()
     sprint_ok = fetch_statcast_sprint()
+    sc_bat_ok = fetch_statcast_batting()
+    sc_pit_ok = fetch_statcast_pitching()
 
     if bat_ok or pit_ok:
         print("\nStats updated! Now run: python3 build_dashboard.py")
-    elif sprint_ok:
-        print("\nSprint speed updated. Run: python3 build_dashboard.py")
+    elif sprint_ok or sc_bat_ok or sc_pit_ok:
+        print("\nAdvanced metrics updated. Run: python3 build_dashboard.py")
     else:
         print("\nNo stats available yet. The 2026 season starts March 25, 2026.")
