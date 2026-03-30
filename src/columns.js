@@ -77,21 +77,28 @@ const allCols26 = [
 // 2026 Actual stats columns (s26_ prefixed data)
 const batCols26A = [
   {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:60},
-  {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55},
+  {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55,tip:'Projected LCV from pre-season projections'},
+  {key:'actualLcv',label:'aLCV',w:60,cls:'lcv-col',tip:'Actual LCV: z-score sum from 2026 in-season stats (same scale as projected LCV)'},
+  {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual LCV minus Projected LCV. Positive = outperforming projections, negative = underperforming'},
   {key:'s26_pa',label:'PA',w:50}, {key:'s26_avg',label:'AVG',w:55}, {key:'s26_obp',label:'OBP',w:55},
   {key:'s26_slg',label:'SLG',w:55}, {key:'s26_hr',label:'HR',w:45}, {key:'s26_r',label:'R',w:45},
   {key:'s26_rbi',label:'RBI',w:45}, {key:'s26_sb',label:'SB',w:45}, {key:'s26_so',label:'K',w:45}
 ];
 const pitCols26A = [
   {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:50},
-  {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55},
+  {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55,tip:'Projected LCV from pre-season projections'},
+  {key:'actualLcv',label:'aLCV',w:60,cls:'lcv-col',tip:'Actual LCV: z-score sum from 2026 in-season stats (same scale as projected LCV)'},
+  {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual LCV minus Projected LCV. Positive = outperforming projections, negative = underperforming'},
   {key:'s26_ip',label:'IP',w:50}, {key:'s26_era',label:'ERA',w:55}, {key:'s26_whip',label:'WHIP',w:60},
   {key:'s26_so',label:'K',w:50}, {key:'s26_w',label:'W',w:40}, {key:'s26_sv',label:'SV',w:40},
   {key:'s26_hld',label:'HD',w:40}, {key:'s26_qs',label:'QS',w:40}, {key:'s26_hr',label:'HRA',w:45}
 ];
 const allCols26A = [
   {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:60},
-  {key:'type',label:'Type',w:50}, {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55,cls:'lcv-col'}, {key:'tradeValue',label:'TV',w:55,tip:'Trade value: production + keeper premium + prospect value'},
+  {key:'type',label:'Type',w:50}, {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55,cls:'lcv-col',tip:'Projected LCV'},
+  {key:'actualLcv',label:'aLCV',w:60,cls:'lcv-col',tip:'Actual LCV from 2026 in-season stats'},
+  {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual minus Projected LCV. Positive = outperforming'},
+  {key:'tradeValue',label:'TV',w:55,tip:'Trade value: production + keeper premium + prospect value'},
   {key:'s26_pa',label:'PA',w:45}, {key:'s26_avg',label:'AVG',w:50}, {key:'s26_obp',label:'OBP',w:50},
   {key:'s26_slg',label:'SLG',w:50}, {key:'s26_r',label:'R',w:38}, {key:'s26_rbi',label:'RBI',w:38},
   {key:'s26_sb',label:'SB',w:38}, {key:'s26_hr',label:'HR',w:38}, {key:'s26_so',label:'K',w:38},

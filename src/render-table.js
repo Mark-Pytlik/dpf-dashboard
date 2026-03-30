@@ -244,10 +244,15 @@ function render() {
         cls += v >= 110 ? ' val-pos' : v <= 90 ? ' val-neg' : '';
       }
       else if (c.key === 'war') val = val.toFixed(1);
-      else if (c.key === 'lcv' || c.key === 'pnav' || c.key === 'dp' || c.key === 'upside' || c.key === 'trend') {
+      else if (c.key === 'lcv' || c.key === 'pnav' || c.key === 'dp' || c.key === 'upside' || c.key === 'trend' || c.key === 'actualLcv') {
         const v = parseFloat(val);
         cls += v >= 0 ? ' val-pos' : ' val-neg';
         val = v.toFixed(2);
+      }
+      else if (c.key === 'lcvDelta') {
+        const v = parseFloat(val);
+        cls += v >= 0 ? ' val-pos' : ' val-neg';
+        val = (v > 0 ? '+' : '') + v.toFixed(2);
       }
       if (c.key === 'name') {
         // Owner badge for drafted players

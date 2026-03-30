@@ -236,6 +236,14 @@ bat_pool['lcv'] = (bat_pool['z_avg'] + bat_pool['z_hr'] + bat_pool['z_obp'] +
                    bat_pool['z_slg'] + bat_pool['z_r'] + bat_pool['z_rbi'] +
                    bat_pool['z_sb'] - bat_pool['z_so'])
 
+# Save projected pool means/stds for actual LCV computation (same scale)
+bat_proj_stats = {}
+for col in ['avg','hr','obp','slg','r','rbi','sb','so']:
+    bat_proj_stats[col] = {'mean': bat_pool[col].mean(), 'std': bat_pool[col].std()}
+def zscore_with(val, mean, std):
+    if std == 0: return 0.0
+    return (val - mean) / std
+
 # ── Pitcher LCV ───────────────────────────────────────────────────────────
 pit_pool['z_era']  = zscore(pit_pool['era'])
 pit_pool['z_hld']  = zscore(pit_pool['hld'])
@@ -249,6 +257,10 @@ pit_pool['z_qs']   = zscore(pit_pool['qs'])
 pit_pool['lcv'] = (-pit_pool['z_era'] + pit_pool['z_hld'] - pit_pool['z_hr'] +
                    pit_pool['z_so'] + pit_pool['z_sv'] + pit_pool['z_w'] -
                    pit_pool['z_whip'] + pit_pool['z_qs'])
+
+pit_proj_stats = {}
+for col in ['era','hld','hr','so','sv','w','whip','qs']:
+    pit_proj_stats[col] = {'mean': pit_pool[col].mean(), 'std': pit_pool[col].std()}
 
 # ── Position multipliers & scarcity (updated for LF/CF/RF) ──────────────
 POS_MULT = {'C': 1.0, '1B': 0.4, '2B': 1.2, '3B': 1.2, 'SS': 0.7,
@@ -459,6 +471,23 @@ for _, r in bat_pool.iterrows():
             's26_avg': s26.get('avg', ''), 's26_obp': s26.get('obp', ''),
             's26_slg': s26.get('slg', ''),
         })
+        # Compute actual LCV from 2026 stats, pace-adjusted to full season
+        # Rate stats (AVG/OBP/SLG) are already on the right scale.
+        # Counting stats (HR/R/RBI/SB/SO) are annualized: actual * (projectedPA / actualPA)
+        # Minimum 10 PA to avoid extreme noise from tiny samples
+        a_pa  = s26.get('pa', 0)
+        if a_pa and a_pa >= 10:
+            pace = int(r['pa']) / a_pa  # scale factor to full season
+            a_lcv = (zscore_with(s26.get('avg',0), bat_proj_stats['avg']['mean'], bat_proj_stats['avg']['std'])
+                   + zscore_with(s26.get('hr',0)*pace, bat_proj_stats['hr']['mean'], bat_proj_stats['hr']['std'])
+                   + zscore_with(s26.get('obp',0), bat_proj_stats['obp']['mean'], bat_proj_stats['obp']['std'])
+                   + zscore_with(s26.get('slg',0), bat_proj_stats['slg']['mean'], bat_proj_stats['slg']['std'])
+                   + zscore_with(s26.get('r',0)*pace, bat_proj_stats['r']['mean'], bat_proj_stats['r']['std'])
+                   + zscore_with(s26.get('rbi',0)*pace, bat_proj_stats['rbi']['mean'], bat_proj_stats['rbi']['std'])
+                   + zscore_with(s26.get('sb',0)*pace, bat_proj_stats['sb']['mean'], bat_proj_stats['sb']['std'])
+                   - zscore_with(s26.get('so',0)*pace, bat_proj_stats['so']['mean'], bat_proj_stats['so']['std']))
+            bat_records[-1]['actualLcv'] = round(a_lcv, 2)
+            bat_records[-1]['lcvDelta'] = round(a_lcv - r['lcv'], 2)
 
 pit_records = []
 for _, r in pit_pool.iterrows():
@@ -531,6 +560,23 @@ for _, r in pit_pool.iterrows():
             's26_so': s26.get('so', ''), 's26_hr': s26.get('hr', ''),
             's26_qs': s26.get('qs', ''),
         })
+        # Compute actual LCV from 2026 stats, pace-adjusted to full season
+        # Rate stats (ERA/WHIP) are already on the right scale.
+        # Counting stats (W/SV/HD/SO/HR/QS) are annualized: actual * (projectedIP / actualIP)
+        # Minimum 3 IP to avoid extreme noise from tiny samples
+        a_ip = s26.get('ip', 0)
+        if a_ip and a_ip >= 3:
+            pace = float(r['ip']) / a_ip  # scale factor to full season
+            a_lcv = (-zscore_with(s26.get('era',0), pit_proj_stats['era']['mean'], pit_proj_stats['era']['std'])
+                   + zscore_with(s26.get('hld',0)*pace, pit_proj_stats['hld']['mean'], pit_proj_stats['hld']['std'])
+                   - zscore_with(s26.get('hr',0)*pace, pit_proj_stats['hr']['mean'], pit_proj_stats['hr']['std'])
+                   + zscore_with(s26.get('so',0)*pace, pit_proj_stats['so']['mean'], pit_proj_stats['so']['std'])
+                   + zscore_with(s26.get('sv',0)*pace, pit_proj_stats['sv']['mean'], pit_proj_stats['sv']['std'])
+                   + zscore_with(s26.get('w',0)*pace, pit_proj_stats['w']['mean'], pit_proj_stats['w']['std'])
+                   - zscore_with(s26.get('whip',0), pit_proj_stats['whip']['mean'], pit_proj_stats['whip']['std'])
+                   + zscore_with(s26.get('qs',0)*pace, pit_proj_stats['qs']['mean'], pit_proj_stats['qs']['std']))
+            pit_records[-1]['actualLcv'] = round(a_lcv, 2)
+            pit_records[-1]['lcvDelta'] = round(a_lcv - r['lcv'], 2)
 
 # Sanitize NaN/None values before JSON serialization
 import math as _math
