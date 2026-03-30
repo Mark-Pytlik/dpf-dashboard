@@ -2,209 +2,41 @@
   "currentPeriod": 1,
   "periodStart": "2026-03-25",
   "periodEnd": "2026-04-12",
-  "opponent": "Milli Sarris",
+  "opponent": "Yesavage Garden",
   "opponentTeam": "Yesavage Garden",
-  "currentScore": {
-    "me": 8,
-    "opp": 8,
-    "tied": 4
-  },
-  "categoryBreakdown": {
-    "batting": {
-      "BA": {
-        "me": 0.253,
-        "opp": 0.182,
-        "winner": "me"
-      },
-      "HR": {
-        "me": 3,
-        "opp": 0,
-        "winner": "me"
-      },
-      "RBI": {
-        "me": 6,
-        "opp": 11,
-        "winner": "opp"
-      },
-      "R": {
-        "me": 16,
-        "opp": 7,
-        "winner": "me"
-      },
-      "SB": {
-        "me": 1,
-        "opp": 2,
-        "winner": "opp"
-      },
-      "KO": {
-        "me": 24,
-        "opp": 24,
-        "winner": "tied"
-      },
-      "OBP": {
-        "me": 0.37,
-        "opp": 0.308,
-        "winner": "me"
-      },
-      "SLG": {
-        "me": 0.385,
-        "opp": 0.205,
-        "winner": "me"
-      }
-    },
-    "pitching": {
-      "K": {
-        "me": 23,
-        "opp": 44,
-        "winner": "opp"
-      },
-      "ERA": {
-        "me": 3.4714,
-        "opp": 3.3402,
-        "winner": "opp"
-      },
-      "WHIP": {
-        "me": 1.2857,
-        "opp": 1.1134,
-        "winner": "opp"
-      },
-      "W": {
-        "me": 1,
-        "opp": 1,
-        "winner": "tied"
-      },
-      "S": {
-        "me": 2,
-        "opp": 2,
-        "winner": "tied"
-      },
-      "HD": {
-        "me": 2,
-        "opp": 0,
-        "winner": "me"
-      },
-      "HRA": {
-        "me": 6,
-        "opp": 4,
-        "winner": "opp"
-      },
-      "QS": {
-        "me": 1,
-        "opp": 1,
-        "winner": "tied"
-      }
-    }
-  },
+  "currentScore": {"me": 9.5, "opp": 6.5, "tied": 1},
   "myRecord": "0-0-0",
   "standings": [
-    {
-      "team": "Weird Fishes / Arrighetti",
-      "owner": "Chris Kaskie",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Dinosaur Jr Caminero",
-      "owner": "Anthony Rescan",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Colonel Corbin's Ascent",
-      "owner": "David Roth",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Okamotomami",
-      "owner": "Mark Pytlik",
-      "mine": true,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Buddy Buddy Buddy All On Base",
-      "owner": "Fran Devinney",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "A Pete Crow-Armstrong Looked at Me",
-      "owner": "Ian Wolfe",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Whoop Whoop that's the sound of Dylan Cease",
-      "owner": "Andrew Gaerig",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Ballesteros, Let the Rhythm Take You Over",
-      "owner": "Drew Litowitz",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Yesavage Garden",
-      "owner": "Milli Sarris",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Blame it on the Rainiel",
-      "owner": "David Roth",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Before and After Shohei",
-      "owner": "Matt Dennewitz",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Popped A Mahle I'm Sweating",
-      "owner": "Francisco Lindor",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    }
+    {"team": "Weird Fishes / Arrighetti", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Dinosaur Jr Caminero", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Colonel Corbin's Ascent", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Okamotomami", "mine": true, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Buddy Buddy Buddy All On Base", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "A Pete Crow-Armstrong Looked at Me", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Whoop Whoop that's the sound of Dylan Cease", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Ballesteros, Let the Rhythm Take You Over", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Yesavage Garden", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Blame it on the Rainiel", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Before and After Shohei", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Popped A Mahle I'm Sweating", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}
   ],
-  "updated": "2026-03-29T16:15:35Z"
+  "categoryBreakdown": {
+    "BA": {"me": 0.252, "opp": 0.172, "meWin": true},
+    "HR": {"me": 6, "opp": 0, "meWin": true},
+    "RBI": {"me": 11, "opp": 14, "meWin": false},
+    "R": {"me": 20, "opp": 10, "meWin": true},
+    "SB": {"me": 1, "opp": 2, "meWin": false},
+    "KO": {"me": 31, "opp": 35, "meWin": true},
+    "OBP": {"me": 0.366, "opp": 0.297, "meWin": true},
+    "SLG": {"me": 0.423, "opp": 0.207, "meWin": true},
+    "K": {"me": 30, "opp": 46, "meWin": false},
+    "ERA": {"me": 3.4535, "opp": 3.7426, "meWin": true},
+    "WHIP": {"me": 1.2209, "opp": 1.1881, "meWin": false},
+    "W": {"me": 2, "opp": 1, "meWin": true},
+    "S": {"me": 2, "opp": 3, "meWin": false},
+    "HD": {"me": 2, "opp": 0, "meWin": true},
+    "HRA": {"me": 6, "opp": 5, "meWin": false},
+    "QS": {"me": 1, "opp": 1, "meWin": null}
+  },
+  "updated": "2026-03-30T12:00:00Z"
 }

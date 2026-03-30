@@ -1,5 +1,39 @@
 [
   {
+    "date": "3/29/26 11:29 PM ET",
+    "team": "Buddy Buddy Buddy All On Base",
+    "effective": "3/30/26",
+    "players": [
+      {
+        "name": "Royce Lewis",
+        "pos": "3B",
+        "action": "Added",
+        "mlbTeam": "MIN"
+      }
+    ],
+    "teamId": 5
+  },
+  {
+    "date": "3/29/26 10:21 PM ET",
+    "team": "Before and After Shohei",
+    "effective": "3/30/26",
+    "players": [
+      {
+        "name": "Emerson Hancock",
+        "pos": "SP",
+        "action": "Added",
+        "mlbTeam": "SEA"
+      },
+      {
+        "name": "Jacob Latz",
+        "pos": "SP,RP",
+        "action": "Dropped",
+        "mlbTeam": "TEX"
+      }
+    ],
+    "teamId": 11
+  },
+  {
     "date": "3/28/26 10:59 PM ET",
     "team": "Colonel Corbin's Ascent",
     "teamId": 3,
@@ -156,6 +190,34 @@
       }
     ],
     "effective": "3/25/26"
+  },
+  {
+    "date": "3/25/26 2:55 PM ET",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Andrew Kittredge",
+        "pos": "RP",
+        "action": "Added",
+        "mlbTeam": "BAL"
+      }
+    ],
+    "teamId": 3
+  },
+  {
+    "date": "3/25/26 2:55 PM ET",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "A.J. Minter",
+        "pos": "RP",
+        "action": "Added",
+        "mlbTeam": "NYM"
+      }
+    ],
+    "teamId": 3
   },
   {
     "date": "3/25/26 2:55 PM ET",

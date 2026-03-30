@@ -1,0 +1,322 @@
+import json
+
+RAW = """Brennan Malone~Out~Undisclosed~EO:Mar 30
+Hao Yu Lee~Probable~Oblique~P:Mar 30
+Wikelman Gonzalez~Probable~Back~P:Mar 30
+Matt Cronin~Out~Undisclosed~EO:Mar 30
+Jon Gray~Out~Shoulder~EO:Mar 30
+Michael Kopech~Out~Knee~EO:Mar 30
+Tom Murphy~Out~Back~EO:Mar 30
+Ricardo Genoves~IL~Undisclosed~EO:Mar 30
+Alex Cobb~Out~Hip~EO:Mar 30
+Wade Miley~Out~Forearm~EO:Mar 30
+Jose Iglesias~Suspended~~S:Mar 30
+Parker Dunshee~Out~Undisclosed~EO:Mar 30
+Joan Adon~Out~Undisclosed~EO:Mar 30
+Ryan Burr~Out~Shoulder~EO:Mar 30
+Robinson Pina~Out~Elbow~EO:Mar 30
+Tyler Matzek~Out~Undisclosed~EO:Mar 30
+Alex Faedo~Out~Shoulder~EO:Mar 30
+Evan White~Out~Hip~EO:Mar 30
+Joseph Montalvo~Probable~Undisclosed~P:Mar 30
+Paul Wilson~Probable~Undisclosed~P:Mar 30
+Tyler Gough~Probable~Elbow~P:Mar 30
+Reggie Crawford~Probable~Shoulder~P:Mar 30
+Cameron Sullivan~IL~Undisclosed~EO:Jun 1
+Kendry Rojas~IL~Hamstring~EO:Apr 6
+Jake Fraley~Probable~Shoulder~P:Mar 30
+Reed Trimble~IL~Hamstring~EO:Apr 6
+Carlos Estevez~Probable~Ankle~P:Mar 30
+Mason Fluharty~Probable~Knee~P:Mar 30
+Austin Hedges~Probable~Hand~P:Mar 30
+Payton Eeles~Probable~Shoulder~P:Mar 30
+Joe Musgrove~IL~Elbow~EO:Apr 25
+Vaughn Grissom~IL~Wrist~EO:Apr 3
+Ricky Tiedemann~IL~Elbow~EO:Apr 5
+Jadher Areinamo~Questionable~Hamstring~EO:Mar 31
+Winston Santos~Questionable~Hand~EO:Mar 31
+Caden Dana~Questionable~Illness~EO:Mar 31
+Gabriel Rincones~IL~Knee~EO:Apr 5
+Emiliano Teodo~Questionable~Back~EO:Mar 31
+Paul Bonzagni~IL~Elbow~EO:Jun 1
+Devin Fitz-Gerald~Questionable~Shoulder~EO:Mar 31
+Elvis Peguero~IL~Elbow~EO:Mar 1
+Tommy Hawke~Questionable~Shoulder~EO:Mar 31
+Braylon Doughty~Questionable~Shoulder~EO:Mar 31
+Raimon Gomez~Questionable~Back~EO:Mar 31
+David Festa~IL~Shoulder~EO:May 15
+Adrian Pinto~Questionable~Undisclosed~EO:Mar 31
+Jack Brannigan~Questionable~Nose~EO:Mar 31
+Ty Floyd~Questionable~Undisclosed~EO:Mar 31
+Jackson Jobe~IL~Elbow~EO:Aug 15
+Moises Chace~IL~Elbow~EO:Jul 1
+Anthony Solometo~Questionable~Shoulder~EO:Mar 31
+Josh Staumont~IL~Undisclosed~EO:Apr 8
+Justin Armbruester~IL~Lat~EO:Apr 9
+Jose Marte~Questionable~Shoulder~EO:Mar 31
+Glenn Otto~Questionable~Shoulder~EO:Mar 31
+J.B. Bukauskas~IL~Lat~EO:Apr 10
+Thomas Pannone~IL~Forearm~EO:Apr 9
+Wen-Hui Pan~Questionable~Elbow~EO:Mar 31
+Luis Rodriguez~Questionable~Undisclosed~EO:Apr 1
+Calvin Ziegler~Questionable~Elbow~EO:Mar 31
+Case Williams~IL~Triceps~EO:Jun 1
+Justin Campbell~Questionable~Elbow~EO:Mar 31
+Andrew Vaughn~IL~Hand~EO:May 8
+Jacob deGrom~Questionable~Neck~EO:Mar 31
+Christopher Morel~IL~Oblique~EO:Apr 4
+Tanner Bibee~Questionable~Shoulder~EO:Mar 31
+Carlos Vargas~IL~Lat~EO:Apr 3
+Mickey Moniak~IL~Finger~EO:Apr 3
+Bennett Sousa~IL~Oblique~EO:Apr 14
+Jackson Chourio~IL~Hand~EO:Apr 10
+Sung-Mun Song~IL~Oblique~EO:Apr 12
+Landon Knack~IL~Chest~EO:Apr 10
+Beau Brieske~IL~Thigh~EO:May 26
+Will Wagner~IL~Oblique~EO:Apr 24
+Hayden Birdsong~IL~Elbow~EO:Jun 1, 2027
+RJ Petit~IL~Elbow~EO:Jun 1, 2027
+Caden Scarborough~Out~Illness~EO:Apr 5
+Matt Waldron~IL~Lower Body~EO:Apr 15
+Josh Hader~IL~Biceps~EO:Apr 24
+Jake Cousins~IL~Elbow~EO:Aug 1
+Gunnar Hoglund~IL~Back~EO:Apr 10
+Jason Adam~IL~Quadriceps~EO:Apr 6
+Felix Bautista~IL~Shoulder~EO:Sep 10, 2027
+Gerrit Cole~IL~Elbow~EO:May 15
+Ky Bush~IL~Elbow~EO:Jun 1
+Blaine Crim~IL~Oblique~EO:Apr 24
+Enyel De Los Santos~IL~Knee~EO:Apr 10
+Zac Veen~IL~Knee~EO:Apr 10
+Ryan Pepiot~IL~Hip~EO:Apr 6
+Gavin Lux~IL~Shoulder~EO:Apr 10
+Spencer Strider~IL~Oblique~EO:Apr 6
+Nick Lodolo~IL~Finger~EO:Apr 7
+Orion Kerkering~IL~Hamstring~EO:Apr 7
+Keegan Akin~IL~Groin~EO:Apr 6
+Patrick Sandoval~IL~Elbow~EO:Apr 20
+Heston Kjerstad~IL~Hamstring~EO:Apr 3
+Esteury Ruiz~IL~Oblique~EO:May 15
+Kyle Stowers~IL~Hamstring~EO:Apr 20
+Grayson Rodriguez~IL~Shoulder~EO:Apr 6
+Taylor Walls~IL~Oblique~EO:Apr 14
+Trey Yesavage~IL~Shoulder~EO:Apr 14
+Rob Zastryzny~IL~Shoulder~EO:Apr 10
+Craig Yoho~IL~Calf~EO:Apr 12
+Tyler Freeman~IL~Back~EO:Apr 6
+Zach Dezenzo~IL~Elbow~EO:Apr 24
+J.P. Crawford~IL~Shoulder~EO:Apr 1
+Seiya Suzuki~IL~Knee~EO:Apr 10
+Mike Vasil~IL~Elbow~EO:Jul 1, 2027
+George Valera~IL~Calf~EO:Apr 6
+Caleb Ferguson~IL~Oblique~EO:Apr 10
+Jose Berrios~IL~Elbow~EO:Apr 24
+Miles Mastrobuoni~IL~Calf~EO:Apr 10
+Brooks Baldwin~IL~Elbow~EO:May 1
+Maximo Acosta~IL~Oblique~EO:Apr 10
+Kyle Teel~IL~Hamstring~EO:Apr 14
+Max Lazar~IL~Oblique~EO:Apr 6
+Michael Massey~IL~Calf~EO:Apr 1
+Travis Adams~IL~Triceps~EO:Apr 10
+Porter Hodge~IL~Elbow~EO:May 1
+Adam Mazur~IL~Elbow~EO:Apr 1, 2027
+Reiver Sanmartin~IL~Hip~EO:Jun 9
+Andrew Kittredge~IL~Shoulder~EO:Apr 6
+Hunter Gaddis~IL~Forearm~EO:Apr 10
+Quinn Priester~IL~Wrist~EO:May 1
+Gavin Stone~IL~Shoulder~EO:May 8
+Bryan Hoeing~IL~Elbow~EO:Feb 1
+Bryce Miller~IL~Oblique~EO:Apr 24
+Bobby Miller~IL~Shoulder~EO:May 29
+Steven Wilson~IL~Back~EO:May 29
+Stephen Kolek~IL~Oblique~EO:Apr 6
+Jordan Wicks~IL~Elbow~EO:Apr 15
+Anthony Seigler~IL~Knee~EO:Apr 8
+McCade Brown~IL~Shoulder~EO:Apr 24
+Pierson Ohl~IL~Elbow~EO:Apr 1, 2027
+Nate Pearson~IL~Elbow~EO:May 1
+Merrill Kelly~IL~Ribs~EO:Apr 13
+Steward Berroa~IL~Shoulder~EO:Apr 24
+Cody Freeman~IL~Back~EO:May 1
+Yuki Matsui~IL~Groin~EO:Apr 10
+Trey Sweeney~IL~Shoulder~EO:Apr 24
+Kutter Crawford~IL~Wrist~EO:Apr 20
+Joel Peguero~IL~Hamstring~EO:Apr 10
+Hurston Waldrep~IL~Elbow~EO:Jun 2
+Edwin Uceta~IL~Shoulder~EO:Apr 20
+Adrian Del Castillo~IL~Calf~EO:Apr 10
+Jackson Holliday~IL~Hand~EO:Apr 10
+Jordan Westburg~IL~Elbow~EO:May 1
+Sawyer Gipson-Long~IL~Oblique~EO:Apr 6
+Bailey Horn~IL~Elbow~EO:Apr 24
+Anthony Santander~IL~Shoulder~EO:Aug 1
+Blake Snell~IL~Shoulder~EO:May 29
+Ha-seong Kim~IL~Finger~EO:May 12
+Griffin Canning~IL~Achilles~EO:Apr 27
+Shane Bieber~IL~Elbow~EO:May 1
+Danny Young~IL~Elbow~EO:Jul 1
+Sam Hentges~IL~Knee~EO:Apr 17
+Tommy Edman~IL~Ankle~EO:May 29
+Lars Nootbaar~IL~Heel~EO:May 26
+Carlos Rodon~IL~Elbow~EO:Apr 25
+Anthony Volpe~IL~Shoulder~EO:May 1
+Tyler Locklear~IL~Elbow~EO:May 18
+Robert Stephenson~IL~Elbow~EO:May 23
+Daysbel Hernandez~IL~Shoulder~EO:Apr 6
+Sean Murphy~IL~Hip~EO:May 12
+Lourdes Gurriel~IL~Knee~EO:May 1
+Zack Wheeler~IL~Shoulder~EO:Apr 12
+Brock Stewart~IL~Shoulder~EO:Apr 10
+Brandon Walter~IL~Elbow~EO:Feb 1
+Hunter Dobbins~IL~Knee~EO:Apr 7
+Yimi Garcia~IL~Elbow~EO:Apr 15
+Cristian Mena~IL~Shoulder~EO:Jun 1
+Andrew Walters~IL~Lat~EO:May 1
+A.J. Smith-Shawver~IL~Elbow~EO:Aug 1
+Ronel Blanco~IL~Elbow~EO:Aug 1
+Hayden Wesneski~IL~Elbow~EO:Aug 1
+Triston Casas~IL~Knee~EO:May 1
+A.J. Minter~IL~Lat~EO:May 1
+A.J. Puk~IL~Elbow~EO:Jul 17
+Justin Steele~IL~Elbow~EO:May 25
+Blake Walston~IL~Elbow~EO:Jul 1
+Cody Bradford~IL~Elbow~EO:May 1
+Prelander Berroa~IL~Elbow~EO:May 1
+James McArthur~IL~Elbow~EO:May 1
+Drew Thorpe~IL~Elbow~EO:Jun 1
+Brusdar Graterol~IL~Shoulder~EO:May 1
+Kirby Yates~IL~Knee~EO:Apr 6
+Alek Manoah~IL~Finger~EO:Apr 6
+Akil Baddoo~IL~Quadriceps~EO:Jun 1
+Joey Wentz~IL~Knee~EO:Feb 1
+Tyler Austin~IL~Knee~EO:May 23
+Ben Joyce~IL~Shoulder~EO:Apr 6
+Anthony Rendon~IL~Hip~EO:Feb 1
+Ethan Conrad~Out~Back~EO:May 1
+Josiah Gray~IL~Elbow~EO:May 29
+Paxton Schultz~IL~Elbow~EO:Apr 6
+Hunter Greene~IL~Elbow~EO:Jul 1
+Jose Leclerc~Out~Shoulder~EO:Jul 1
+Tekoah Roby~IL~Elbow~EO:Feb 1
+Zack Qin~Probable~Undisclosed~P:Mar 30
+Ryan Forcucci~Questionable~Elbow~EO:Apr 1
+Asa Lacy~IL~Elbow~EO:Jun 1
+Davis Sharpe~IL~Undisclosed~EO:Jun 1
+Brandon Clarke~IL~Arm~EO:Jun 1
+Nic Enright~IL~Elbow~EO:Feb 1
+Jake Bloss~IL~Elbow~EO:Jul 1
+Luke Holman~IL~Undisclosed~EO:Jun 1
+Victor Santos~IL~Undisclosed~EO:Jun 1
+Brody McCullough~IL~Forearm~EO:Jun 1
+Peter Kussow~Out~Shoulder~EO:Feb 1
+David Sandlin~Out~Elbow~EO:Apr 14
+Josuar De Jesus Gonzalez~Out~Hamstring~EO:Apr 17
+Parks Harber~Out~Hamstring~EO:Apr 27
+Chih-Jung Liu~IL~Undisclosed~EO:Jun 2
+Zach Fogell~IL~Elbow~EO:Oct 1
+Yordanny Monegro~IL~Elbow~EO:Aug 1
+Johan Rojas~Suspended~~S:Jun 24
+Jose Olivares~Out~Elbow~EO:May 1
+Justin Hagenman~IL~Ribs~EO:May 27
+Romy Gonzalez~IL~Shoulder~EO:May 26
+Jhony Brito~IL~Forearm~EO:Jul 1
+Charlee Soto~Out~Elbow~EO:May 5
+Thayron Liranzo~Out~Oblique~EO:Apr 14
+Troy Melton~IL~Elbow~EO:May 26
+Jordan Montgomery~IL~Elbow~EO:Jul 1
+Josue Briceno~Out~Wrist~EO:Jun 1
+Matt Barr~Out~Arm~EO:May 1
+Enrique Jimenez~Out~Finger~EO:Apr 1
+Enrique Hernandez~IL~Elbow~EO:May 24
+Jurickson Profar~Suspended~~S:Feb 1
+Evan Phillips~IL~Elbow~EO:Jul 17
+Shelby Miller~IL~Elbow~EO:Feb 1
+Owen Hall~Questionable~Shoulder~EO:Apr 1
+Michael Massey~Questionable~Undisclosed~EO:Apr 1
+Carter Holton~Out~Elbow~EO:Mar 30
+T.J. Brock~Out~Elbow~EO:Apr 1
+Cade Kuehler~Out~Elbow~EO:Mar 30
+Aiva Arquette~Out~Groin~EO:Apr 4
+Austin Peterson~Out~Triceps~EO:Apr 11
+Pablo Lopez~IL~Elbow~EO:Apr 1, 2027
+Cooper Hjerpe~Out~Elbow~EO:Jul 17
+Ryan Harbin~Out~Lat~EO:Apr 15
+Brian Holiday~Out~Elbow~EO:Jun 1
+Jake Miller~Out~Hip~EO:May 1
+Rowan Wick~IL~Elbow~EO:Feb 1
+Ian Anderson~Out~Shoulder~EO:Feb 1
+Colin Selby~IL~Shoulder~EO:May 25
+Andrew Saalfrank~IL~Shoulder~EO:Feb 1
+Logan Evans~IL~Elbow~EO:Apr 1, 2027
+Michael Salina~Out~Elbow~EO:Jun 30
+Grant Knipp~Out~Elbow~EO:May 1
+Frank Cairone~Out~Head~EO:Jun 1
+Braxton Bragg~Out~Elbow~EO:Feb 1
+John Means~Out~Achilles~EO:Feb 1
+Max Kranick~Out~Elbow~EO:Sep 1
+Frankie Montas~Out~Elbow~EO:Feb 1
+Nestor Cortes~Out~Biceps~EO:Aug 1
+Tony Gonsolin~Out~Elbow~EO:Aug 1
+Thyago Vieira~Out~Elbow~EO:Jul 1
+Alex Young~Out~Elbow~EO:Apr 1
+Luis Garcia~Out~Elbow~EO:Feb 1
+Josh Winder~Out~Elbow~EO:Jun 1
+Ronny Henriquez~IL~Elbow~EO:Feb 1
+Kyle Amendt~Out~Shoulder~EO:Feb 1
+Jason Foley~IL~Shoulder~EO:Jul 1
+Connor Thomas~Out~Elbow~EO:Jul 1
+Yu Darvish~Out~Elbow~EO:Feb 1
+Reed Garrett~IL~Elbow~EO:Feb 1
+Humberto Cruz~Out~Elbow~EO:Feb 1
+Brandon Birdsell~Out~Elbow~EO:May 1
+Randy Rodriguez~IL~Elbow~EO:Feb 1
+Franyerber Montilla~Out~Knee~EO:Jun 1
+Reese Olson~IL~Shoulder~EO:Feb 21
+Emmanuel Clase~Out~Personal~EO:May 4
+Conrad Cason~Out~Elbow~EO:Jun 1
+Trevor Williams~IL~Elbow~EO:Jun 1
+Tyler Stuart~Out~Elbow~EO:Sep 1
+Clarke Schmidt~IL~Elbow~EO:Aug 1
+Dedniel Nunez~IL~Elbow~EO:Sep 1
+Luis Ortiz~Out~Personal~EO:May 1
+Spencer Schwellenbach~IL~Elbow~EO:Jun 2
+Juan Pinto~Out~Undisclosed~EO:Apr 1
+Tylor Megill~IL~Elbow~EO:Feb 1
+Bowden Francis~IL~Elbow~EO:Apr 1, 2027
+Manuel Rodriguez~IL~Elbow~EO:Jun 1
+Justin Martinez~IL~Elbow~EO:Aug 21
+Corbin Burnes~IL~Elbow~EO:Jul 17
+Tanner Houck~IL~Elbow~EO:Feb 1
+Patrick Reilly~Out~Elbow~EO:Jul 1
+Juan Carela~Out~Elbow~EO:Jul 1
+Kris Bryant~IL~Back~EO:Jun 1
+Alejandro Rosario~Out~Elbow~EO:Mar 1
+Zach Swanson~Out~Elbow~EO:Jun 1
+Christian McGowan~Out~Elbow~EO:Jul 1
+Chase Hampton~Out~Elbow~EO:May 1
+Davidjohn Herz~IL~Elbow~EO:Jul 1
+Jared Jones~IL~Elbow~EO:May 25
+Blake Larson~Out~Elbow~EO:Apr 1
+Jeff Criswell~IL~Elbow~EO:Jun 1
+Thatcher Hurd~Out~Elbow~EO:Apr 1
+Alec Marsh~IL~Shoulder~EO:Feb 1
+Izack Tiger~Out~Elbow~EO:Apr 10
+Joe Jimenez~IL~Knee~EO:Jul 17
+Josh Knoth~Out~Elbow~EO:Apr 1
+Luis Ramirez~Out~Undisclosed~EO:Apr 1
+Wander Franco~Out~Personal~EO:Feb 1, 2028
+Max Kepler~Suspended~~S:Jun 15"""
+
+injuries = []
+for line in RAW.strip().split('\n'):
+    parts = line.split('~')
+    if len(parts) >= 4:
+        name, status, injury, rd = parts[0], parts[1], parts[2], parts[3]
+        # Expand return date
+        returnDate = rd.replace('EO:', 'Expected to be out until at least ').replace('P:', 'Probable for ').replace('Q:', 'Questionable for ').replace('S:', 'Suspended until ')
+        injuries.append({"name": name, "status": status, "injury": injury, "returnDate": returnDate})
+
+with open("data/injuries.json", "w") as f:
+    json.dump(injuries, f, indent=2)
+
+print(f"Wrote {len(injuries)} injuries to data/injuries.json")
