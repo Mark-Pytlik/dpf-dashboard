@@ -218,6 +218,8 @@ if (CBS_TRANSACTIONS.length > 0) {
       const action = p.action || '';
 
       if (action === 'Added' || action === 'Added off Waivers') {
+        // Remove from any existing team first (waiver claims move a player)
+        removeFromAllRosters(playerName);
         addToRoster(playerName, teamName);
       } else if (action === 'Dropped') {
         removeFromRoster(playerName, teamName);
