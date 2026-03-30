@@ -82,20 +82,6 @@
     "effective": "3/29/26"
   },
   {
-    "date": "3/27/26 9:34 AM ET",
-    "team": "Whoop Whoop that's the sound of Dylan Cease",
-    "teamId": 7,
-    "players": [
-      {
-        "name": "Javier Assad",
-        "pos": "SP",
-        "mlbTeam": "CHC",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/27/26"
-  },
-  {
     "date": "3/27/26 3:15 PM ET",
     "team": "Before and After Shohei",
     "teamId": 11,
@@ -144,6 +130,20 @@
     "effective": "3/27/26"
   },
   {
+    "date": "3/27/26 9:34 AM ET",
+    "team": "Whoop Whoop that's the sound of Dylan Cease",
+    "teamId": 7,
+    "players": [
+      {
+        "name": "Javier Assad",
+        "pos": "SP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "3/27/26"
+  },
+  {
     "date": "3/27/26 2:43 AM ET",
     "team": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
@@ -156,20 +156,6 @@
       }
     ],
     "effective": "3/27/26"
-  },
-  {
-    "date": "3/26/26 7:32 AM ET",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
-    "players": [
-      {
-        "name": "Tyler Mahle",
-        "pos": "SP",
-        "mlbTeam": "SF",
-        "action": "Added"
-      }
-    ],
-    "effective": "3/26/26"
   },
   {
     "date": "3/26/26 11:24 AM ET",
@@ -248,58 +234,46 @@
     "teamId": 5
   },
   {
-    "date": "3/25/26 9:20 AM ET",
-    "team": "Whoop Whoop that's the sound of Dylan Cease",
-    "teamId": 7,
+    "date": "3/26/26 7:32 AM ET",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "players": [
       {
-        "name": "Trent Grisham",
-        "pos": "CF",
-        "mlbTeam": "NYY",
+        "name": "Tyler Mahle",
+        "pos": "SP",
+        "mlbTeam": "SF",
         "action": "Added"
-      },
-      {
-        "name": "Andrew Benintendi",
-        "pos": "LF",
-        "mlbTeam": "CHW",
-        "action": "Dropped"
       }
     ],
-    "effective": "3/25/26"
+    "effective": "3/26/26"
   },
   {
-    "date": "3/25/26 9:18 AM ET",
-    "team": "Whoop Whoop that's the sound of Dylan Cease",
-    "teamId": 7,
+    "date": "3/25/26 10:46 PM ET",
+    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "players": [
       {
-        "name": "Andrew Benintendi",
-        "pos": "LF",
-        "mlbTeam": "CHW",
-        "action": "Added"
-      },
-      {
-        "name": "Andrew Vaughn",
-        "pos": "1B",
-        "mlbTeam": "MIL",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/25/26 9:04 AM ET",
-    "team": "Yesavage Garden",
-    "teamId": 9,
-    "players": [
-      {
-        "name": "Ha-seong Kim",
+        "name": "Carson Williams",
         "pos": "SS",
-        "mlbTeam": "ATL",
-        "action": "Dropped"
+        "mlbTeam": "TB",
+        "action": "Added"
       }
     ],
-    "effective": "3/25/26"
+    "effective": "3/26/26"
+  },
+  {
+    "date": "3/25/26 10:15 PM ET",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "3/26/26",
+    "players": [
+      {
+        "name": "Will Warren",
+        "pos": "SP",
+        "mlbTeam": "NYY",
+        "action": "Added off Waivers"
+      }
+    ],
+    "teamId": 6
   },
   {
     "date": "3/25/26 2:58 PM ET",
@@ -488,43 +462,55 @@
     "effective": "3/25/26"
   },
   {
-    "date": "3/25/26 10:46 PM ET",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "date": "3/25/26 9:20 AM ET",
+    "team": "Whoop Whoop that's the sound of Dylan Cease",
+    "teamId": 7,
     "players": [
       {
-        "name": "Carson Williams",
-        "pos": "SS",
-        "mlbTeam": "TB",
-        "action": "Added"
-      }
-    ],
-    "effective": "3/26/26"
-  },
-  {
-    "date": "3/25/26 10:15 PM ET",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "effective": "3/26/26",
-    "players": [
-      {
-        "name": "Will Warren",
-        "pos": "SP",
+        "name": "Trent Grisham",
+        "pos": "CF",
         "mlbTeam": "NYY",
-        "action": "Added off Waivers"
+        "action": "Added"
+      },
+      {
+        "name": "Andrew Benintendi",
+        "pos": "LF",
+        "mlbTeam": "CHW",
+        "action": "Dropped"
       }
     ],
-    "teamId": 6
+    "effective": "3/25/26"
   },
   {
-    "date": "3/24/26 1:22 AM ET",
-    "team": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "date": "3/25/26 9:18 AM ET",
+    "team": "Whoop Whoop that's the sound of Dylan Cease",
+    "teamId": 7,
     "players": [
       {
-        "name": "Nasim Nunez",
-        "pos": "SS",
-        "mlbTeam": "WAS",
+        "name": "Andrew Benintendi",
+        "pos": "LF",
+        "mlbTeam": "CHW",
         "action": "Added"
+      },
+      {
+        "name": "Andrew Vaughn",
+        "pos": "1B",
+        "mlbTeam": "MIL",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "3/25/26"
+  },
+  {
+    "date": "3/25/26 9:04 AM ET",
+    "team": "Yesavage Garden",
+    "teamId": 9,
+    "players": [
+      {
+        "name": "Ha-seong Kim",
+        "pos": "SS",
+        "mlbTeam": "ATL",
+        "action": "Dropped"
       }
     ],
     "effective": "3/25/26"
@@ -702,14 +688,34 @@
     "effective": "3/25/26"
   },
   {
-    "date": "3/23/26 9:22 AM ET",
+    "date": "3/24/26 1:22 AM ET",
     "team": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
-        "name": "Royce Lewis",
-        "pos": "3B",
-        "mlbTeam": "MIN",
+        "name": "Nasim Nunez",
+        "pos": "SS",
+        "mlbTeam": "WAS",
+        "action": "Added"
+      }
+    ],
+    "effective": "3/25/26"
+  },
+  {
+    "date": "3/23/26 10:00 PM ET",
+    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
+    "players": [
+      {
+        "name": "Ben Joyce",
+        "pos": "RP",
+        "mlbTeam": "LAA",
+        "action": "Added"
+      },
+      {
+        "name": "Brooks Raley",
+        "pos": "RP",
+        "mlbTeam": "NYM",
         "action": "Dropped"
       }
     ],
@@ -738,6 +744,20 @@
         "name": "Evan Carter",
         "pos": "CF",
         "mlbTeam": "TEX",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "3/25/26"
+  },
+  {
+    "date": "3/23/26 9:22 AM ET",
+    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
+    "players": [
+      {
+        "name": "Royce Lewis",
+        "pos": "3B",
+        "mlbTeam": "MIN",
         "action": "Dropped"
       }
     ],
@@ -776,26 +796,6 @@
     "effective": "3/25/26"
   },
   {
-    "date": "3/23/26 10:00 PM ET",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
-    "players": [
-      {
-        "name": "Ben Joyce",
-        "pos": "RP",
-        "mlbTeam": "LAA",
-        "action": "Added"
-      },
-      {
-        "name": "Brooks Raley",
-        "pos": "RP",
-        "mlbTeam": "NYM",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
     "date": "3/22/26 5:44 PM ET",
     "team": "Buddy Buddy Buddy All On Base",
     "teamId": 5,
@@ -804,6 +804,48 @@
         "name": "Willi Castro",
         "pos": "2B,3B,LF,RF",
         "mlbTeam": "COL",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "3/25/26"
+  },
+  {
+    "date": "3/21/26 10:13 PM ET",
+    "team": "Blame it on the Rainiel",
+    "teamId": 10,
+    "players": [
+      {
+        "name": "George Soriano",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "action": "Added"
+      }
+    ],
+    "effective": "3/25/26"
+  },
+  {
+    "date": "3/21/26 11:24 AM ET",
+    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
+    "players": [
+      {
+        "name": "Trent Grisham",
+        "pos": "CF",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "3/25/26"
+  },
+  {
+    "date": "3/21/26 11:22 AM ET",
+    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
+    "players": [
+      {
+        "name": "Otto Lopez",
+        "pos": "2B,SS",
+        "mlbTeam": "MIA",
         "action": "Dropped"
       }
     ],
@@ -858,43 +900,43 @@
     "effective": "3/25/26"
   },
   {
-    "date": "3/21/26 11:24 AM ET",
-    "team": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "date": "3/20/26 11:16 PM ET",
+    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "players": [
       {
-        "name": "Trent Grisham",
-        "pos": "CF",
-        "mlbTeam": "NYY",
+        "name": "Jorge Polanco",
+        "pos": "2B",
+        "mlbTeam": "NYM",
         "action": "Dropped"
       }
     ],
     "effective": "3/25/26"
   },
   {
-    "date": "3/21/26 11:22 AM ET",
-    "team": "Weird Fishes / Arrighetti",
-    "teamId": 1,
-    "players": [
-      {
-        "name": "Otto Lopez",
-        "pos": "2B,SS",
-        "mlbTeam": "MIA",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/21/26 10:13 PM ET",
+    "date": "3/20/26 10:36 PM ET",
     "team": "Blame it on the Rainiel",
     "teamId": 10,
     "players": [
       {
-        "name": "George Soriano",
-        "pos": "RP",
-        "mlbTeam": "STL",
-        "action": "Added"
+        "name": "Jameson Taillon",
+        "pos": "SP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "3/25/26"
+  },
+  {
+    "date": "3/20/26 10:31 PM ET",
+    "team": "Blame it on the Rainiel",
+    "teamId": 10,
+    "players": [
+      {
+        "name": "Alec Bohm",
+        "pos": "3B",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
       }
     ],
     "effective": "3/25/26"
@@ -968,42 +1010,70 @@
     "effective": "3/25/26"
   },
   {
-    "date": "3/20/26 11:16 PM ET",
+    "date": "3/19/26 11:27 PM ET",
+    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
+    "players": [
+      {
+        "name": "George Lombard",
+        "pos": "SS",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "3/25/26"
+  },
+  {
+    "date": "3/19/26 11:17 PM ET",
     "team": "Popped A Mahle I'm Sweating",
     "teamId": 12,
     "players": [
       {
-        "name": "Jorge Polanco",
-        "pos": "2B",
-        "mlbTeam": "NYM",
+        "name": "Alfredo Duno",
+        "pos": "C",
+        "mlbTeam": "CIN",
         "action": "Dropped"
       }
     ],
     "effective": "3/25/26"
   },
   {
-    "date": "3/20/26 10:36 PM ET",
-    "team": "Blame it on the Rainiel",
-    "teamId": 10,
+    "date": "3/19/26 2:35 PM ET",
+    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "players": [
       {
-        "name": "Jameson Taillon",
+        "name": "Matt Strahm",
+        "pos": "RP",
+        "mlbTeam": "KC",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "3/25/26"
+  },
+  {
+    "date": "3/19/26 11:44 AM ET",
+    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
+    "players": [
+      {
+        "name": "Nolan Schanuel",
+        "pos": "1B",
+        "mlbTeam": "LAA",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "3/25/26"
+  },
+  {
+    "date": "3/19/26 11:40 AM ET",
+    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
+    "players": [
+      {
+        "name": "Sean Manaea",
         "pos": "SP",
-        "mlbTeam": "CHC",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/20/26 10:31 PM ET",
-    "team": "Blame it on the Rainiel",
-    "teamId": 10,
-    "players": [
-      {
-        "name": "Alec Bohm",
-        "pos": "3B",
-        "mlbTeam": "PHI",
+        "mlbTeam": "NYM",
         "action": "Dropped"
       }
     ],
@@ -1134,20 +1204,6 @@
     "effective": "3/25/26"
   },
   {
-    "date": "3/19/26 2:35 PM ET",
-    "team": "Weird Fishes / Arrighetti",
-    "teamId": 1,
-    "players": [
-      {
-        "name": "Matt Strahm",
-        "pos": "RP",
-        "mlbTeam": "KC",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
     "date": "3/19/26 1:23 AM ET",
     "team": "Buddy Buddy Buddy All On Base",
     "teamId": 5,
@@ -1156,76 +1212,6 @@
         "name": "Braxton Garrett",
         "pos": "SP",
         "mlbTeam": "MIA",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/19/26 11:44 AM ET",
-    "team": "Weird Fishes / Arrighetti",
-    "teamId": 1,
-    "players": [
-      {
-        "name": "Nolan Schanuel",
-        "pos": "1B",
-        "mlbTeam": "LAA",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/19/26 11:40 AM ET",
-    "team": "Weird Fishes / Arrighetti",
-    "teamId": 1,
-    "players": [
-      {
-        "name": "Sean Manaea",
-        "pos": "SP",
-        "mlbTeam": "NYM",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/19/26 11:27 PM ET",
-    "team": "Colonel Corbin's Ascent",
-    "teamId": 3,
-    "players": [
-      {
-        "name": "George Lombard",
-        "pos": "SS",
-        "mlbTeam": "NYY",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/19/26 11:17 PM ET",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
-    "players": [
-      {
-        "name": "Alfredo Duno",
-        "pos": "C",
-        "mlbTeam": "CIN",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/18/26 10:14 AM ET",
-    "team": "Yesavage Garden",
-    "teamId": 9,
-    "players": [
-      {
-        "name": "Joe Boyle",
-        "pos": "SP",
-        "mlbTeam": "TB",
         "action": "Dropped"
       }
     ],
@@ -1254,6 +1240,20 @@
         "name": "TJ Rumfield",
         "pos": "1B",
         "mlbTeam": "COL",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "3/25/26"
+  },
+  {
+    "date": "3/18/26 10:14 AM ET",
+    "team": "Yesavage Garden",
+    "teamId": 9,
+    "players": [
+      {
+        "name": "Joe Boyle",
+        "pos": "SP",
+        "mlbTeam": "TB",
         "action": "Dropped"
       }
     ],
