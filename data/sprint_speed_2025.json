@@ -1,12 +1,32 @@
 [
   {
     "name": "Chandler Simpson",
-    "speed": 30.6,
+    "speed": 30.7,
     "tier": "elite"
   },
   {
+    "name": "Matt Chapman",
+    "speed": 28.6,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Brandon Lockridge",
+    "speed": 28.3,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Nick Gonzales",
+    "speed": 28.1,
+    "tier": "above_avg"
+  },
+  {
     "name": "Otto Lopez",
-    "speed": 27.5,
+    "speed": 27.8,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Christian Walker",
+    "speed": 27.1,
     "tier": "above_avg"
   }
 ]

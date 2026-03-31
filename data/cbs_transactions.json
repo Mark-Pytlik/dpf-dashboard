@@ -1,5 +1,75 @@
 [
   {
+    "date": "3/31/26 8:48 AM ET",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/31/26",
+    "players": [
+      {
+        "name": "Lance McCullers",
+        "pos": "SP",
+        "mlbTeam": "HOU",
+        "action": "Added"
+      }
+    ],
+    "teamId": 3
+  },
+  {
+    "date": "3/31/26 2:19 AM ET",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/31/26",
+    "players": [
+      {
+        "name": "Randy Vasquez",
+        "pos": "SP",
+        "mlbTeam": "SD",
+        "action": "Added"
+      }
+    ],
+    "teamId": 3
+  },
+  {
+    "date": "3/31/26 2:14 AM ET",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/31/26",
+    "players": [
+      {
+        "name": "Logan Henderson",
+        "pos": "SP",
+        "mlbTeam": "MIL",
+        "action": "Dropped"
+      }
+    ],
+    "teamId": 3
+  },
+  {
+    "date": "3/30/26 6:29 PM ET",
+    "team": "Blame it on the Rainiel",
+    "effective": "3/31/26",
+    "players": [
+      {
+        "name": "Kyle Manzardo",
+        "pos": "1B",
+        "mlbTeam": "CLE",
+        "action": "Dropped"
+      }
+    ],
+    "teamId": 10
+  },
+  {
+    "date": "3/30/26 6:23 PM ET",
+    "team": "Blame it on the Rainiel",
+    "effective": "3/31/26",
+    "players": [
+      {
+        "name": "Jordan Walker",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "action": "Added"
+      }
+    ],
+    "teamId": 10
+  },
+  {
     "date": "3/30/26 9:19 AM ET",
     "team": "Yesavage Garden",
     "effective": "3/30/26",
