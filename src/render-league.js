@@ -51,15 +51,15 @@ function calcOptimalLCV(playerNames) {
   const startingSP = sps.slice(0, 5);
   const startingRP = rps.slice(0, 5);
 
-  let startingLCV = 0;
-  for (const p of Object.values(filled)) startingLCV += (p.lcv || 0);
-  for (const p of startingSP) startingLCV += (p.lcv || 0);
-  for (const p of startingRP) startingLCV += (p.lcv || 0);
+  let startingLCV = 0, startingALCV = 0;
+  for (const p of Object.values(filled)) { startingLCV += (p.lcv || 0); if (p.actualLcv != null) startingALCV += p.actualLcv; }
+  for (const p of startingSP) { startingLCV += (p.lcv || 0); if (p.actualLcv != null) startingALCV += p.actualLcv; }
+  for (const p of startingRP) { startingLCV += (p.lcv || 0); if (p.actualLcv != null) startingALCV += p.actualLcv; }
 
-  let totalLCV = 0;
-  for (const p of players) totalLCV += (p.lcv || 0);
+  let totalLCV = 0, totalALCV = 0;
+  for (const p of players) { totalLCV += (p.lcv || 0); if (p.actualLcv != null) totalALCV += p.actualLcv; }
 
-  return { startingLCV, totalLCV, count: players.length };
+  return { startingLCV, totalLCV, startingALCV, totalALCV, count: players.length };
 }
 
 let leagueSortCol = 'startingLCV', leagueSortDir = -1; // default: Start LCV desc
@@ -93,8 +93,12 @@ function renderLeague() {
     { key: 'owner', label: 'Owner', w: '100px', numeric: false },
     { key: 'count', label: 'Ct', w: '40px', numeric: true },
     { key: 'rookieCount', label: 'Rk', w: '35px', numeric: true, tip: 'Rookie/MiLB keepers', small: true },
-    { key: 'startingLCV', label: 'Start LCV', w: '70px', numeric: true, bar: true },
-    { key: 'totalLCV', label: 'Total LCV', w: '70px', numeric: true, bar: true },
+    { key: 'startingLCV', label: 'Start LCV', w: '70px', numeric: true, bar: true, tip: 'Projected starting lineup LCV' },
+    { key: 'totalLCV', label: 'Total LCV', w: '70px', numeric: true, bar: true, tip: 'Projected total roster LCV' },
+    ...(!isDraftMode ? [
+      { key: 'startingALCV', label: 'Start aLCV', w: '75px', numeric: true, bar: true, tip: 'Actual starting lineup LCV from 2026 in-season stats' },
+      { key: 'totalALCV', label: 'Total aLCV', w: '75px', numeric: true, bar: true, tip: 'Actual total roster LCV from 2026 in-season stats' },
+    ] : []),
     ...(isDraftMode ? [
       { key: 'openRounds', label: 'Open', w: '35px', numeric: true, small: true, tip: 'Open draft rounds (25 minus keeper count)' },
       { key: 'draftCapital', label: 'Draft Cap', w: '75px', numeric: true, bar: true, small: true, tip: 'Draft Capital — estimated total DP from remaining open picks (BPA simulation)' },
@@ -111,7 +115,7 @@ function renderLeague() {
 
   // Max values for bar scaling
   const maxVals = {};
-  ['startingLCV', 'totalLCV', 'draftCapital', 'totalPower'].forEach(k => {
+  ['startingLCV', 'totalLCV', 'startingALCV', 'totalALCV', 'draftCapital', 'totalPower'].forEach(k => {
     maxVals[k] = Math.max(...teamData.map(t => t[k] || 0), 1);
   });
 
@@ -159,13 +163,15 @@ function renderLeague() {
       // Per-team sort state
       const tSort = state._rosterSorts[t.name] || { col: 'lcv', dir: -1 };
       const sortCols = [
-        { key: 'name', label: 'Player', align: 'left', w: '36%' },
-        { key: 'pos', label: 'Pos', align: 'center', w: '8%' },
-        { key: 'keeper', label: 'Keeper', align: 'right', w: '11%' },
-        { key: 'cost', label: '2027 Cost', align: 'right', w: '13%' },
-        { key: 'yrs', label: 'Yrs', align: 'right', w: '8%' },
-        { key: 'lcv', label: 'LCV', align: 'right', w: '12%' },
-        { key: 'pnav', label: 'PNAV', align: 'right', w: '12%' }
+        { key: 'name', label: 'Player', align: 'left', w: '28%' },
+        { key: 'pos', label: 'Pos', align: 'center', w: '6%' },
+        { key: 'keeper', label: 'Kpr', align: 'right', w: '8%' },
+        { key: 'cost', label: 'Cost', align: 'right', w: '8%' },
+        { key: 'yrs', label: 'Yrs', align: 'right', w: '6%' },
+        { key: 'lcv', label: 'LCV', align: 'right', w: '10%' },
+        { key: 'alcv', label: 'aLCV', align: 'right', w: '10%', tip: 'Actual LCV from 2026 stats' },
+        { key: 'dlcv', label: 'ΔLCV', align: 'right', w: '10%', tip: 'Actual minus Projected LCV' },
+        { key: 'pnav', label: 'PNAV', align: 'right', w: '10%' }
       ];
 
       html += `<table style="width:100%;border-collapse:collapse;font-size:11px;table-layout:fixed;">`;
@@ -186,6 +192,8 @@ function renderLeague() {
         return {
           name: n, p, ki, isKeeper: keeperNames.has(n),
           lcvVal: p ? (p.lcv||0) : -99,
+          alcvVal: p && p.actualLcv != null ? p.actualLcv : -99,
+          dlcvVal: p && p.lcvDelta != null ? p.lcvDelta : -99,
           pnavVal: p ? (p.pnav||0) : -99,
           pos: p ? p.primaryPos : '?',
           keeperRd: keeperRd || 0,
@@ -203,6 +211,8 @@ function renderLeague() {
         if (col === 'cost') return dir * (a.costVal - b.costVal);
         if (col === 'yrs') return dir * (a.yrsVal - b.yrsVal);
         if (col === 'pnav') return dir * (a.pnavVal - b.pnavVal);
+        if (col === 'alcv') return dir * (a.alcvVal - b.alcvVal);
+        if (col === 'dlcv') return dir * (a.dlcvVal - b.dlcvVal);
         return dir * (a.lcvVal - b.lcvVal); // default: lcv
       });
 
@@ -221,7 +231,12 @@ function renderLeague() {
         html += `<td style="text-align:right;padding:3px 4px;">${keeperStr}</td>`;
         html += `<td style="text-align:right;padding:3px 4px;${costClr}">${costStr}</td>`;
         html += `<td style="text-align:right;padding:3px 4px;">${ki.yearsLeft}</td>`;
+        const alcv = p && p.actualLcv != null ? p.actualLcv.toFixed(1) : '—';
+        const dlcv = p && p.lcvDelta != null ? ((p.lcvDelta > 0 ? '+' : '') + p.lcvDelta.toFixed(1)) : '—';
+        const dlcvClr = p && p.lcvDelta != null ? (p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : '';
         html += `<td style="text-align:right;padding:3px 4px;font-weight:600;">${lcv}</td>`;
+        html += `<td style="text-align:right;padding:3px 4px;">${alcv}</td>`;
+        html += `<td style="text-align:right;padding:3px 4px;font-weight:600;${dlcvClr}">${dlcv}</td>`;
         html += `<td style="text-align:right;padding:3px 4px;">${pnav}</td>`;
         html += `</tr>`;
       });

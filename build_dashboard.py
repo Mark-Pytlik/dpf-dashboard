@@ -710,6 +710,8 @@ season_status_json = json.dumps(season_status)
 from zoneinfo import ZoneInfo
 build_time = datetime.now(ZoneInfo('America/Los_Angeles')).strftime('%b %d, %Y %I:%M %p PST')
 
+import hashlib
+
 # ── Version: read from VERSION file ───────────────────────────────────────
 version = open('VERSION').read().strip() if os.path.exists('VERSION') else '0.0'
 print(f"Version: {version}")
@@ -748,6 +750,18 @@ _JS_MODULES = [
     'src/init.js',
 ]
 
+# ── Build hash: content-based fingerprint of all source files ─────────────
+# Changes to ANY source file (JS, CSS, data, config) produce a new hash,
+# which triggers an automatic localStorage flush on the client side.
+_hash_sources = _JS_MODULES + ['src/styles.css', 'dashboard.shell.html',
+    'data/cbs_transactions.json', 'data/league_config.json']
+_hasher = hashlib.sha256()
+for _hf in sorted(_hash_sources):
+    if os.path.exists(_hf):
+        _hasher.update(open(_hf, 'rb').read())
+build_hash = _hasher.hexdigest()[:12]
+print(f"Build hash: {build_hash}")
+
 if os.path.exists('dashboard.shell.html') and os.path.exists('src/data.js'):
     print("Building from modular sources (shell + src/*.js)...")
     with open('dashboard.shell.html') as f:
@@ -775,6 +789,7 @@ _replacements = {
     '__CBS_TXNS_JSON__': cbs_txns_json,
     '__PROSPECTS_JSON__': prospects_json,
     '__BUILD_TIME__': build_time,
+    '__BUILD_HASH__': build_hash,
     '__VERSION__': version,
     '__LEAGUE_TEAMS_JSON__': league_teams_json,
     '__LEAGUE_ROOKIES_JSON__': league_rookies_json,

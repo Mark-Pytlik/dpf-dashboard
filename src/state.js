@@ -1,5 +1,9 @@
 // ── State ─────────────────────────────────────────────────────────────────
 const STATE_VERSION = 26;
+// Build hash injected at build time — changes whenever source files change.
+// If the stored hash doesn't match, localStorage is automatically flushed
+// so the user always sees correct data after a deploy without hard-refreshing.
+const BUILD_HASH = '__BUILD_HASH__';
 const DEFAULT_KEEPERS = ['James Wood', 'MacKenzie Gore', 'Zach Neto', 'Nick Kurtz', 'Jo Adell'];
 const DEFAULT_KEEPER_ROUNDS = {'James Wood':12, 'MacKenzie Gore':13, 'Jo Adell':10, 'Zach Neto':14, 'Nick Kurtz':11};
 
@@ -80,7 +84,7 @@ LEAGUE_TEAMS.forEach((t,i) => {
 let _saved = JSON.parse(localStorage.getItem('dpf2026') || 'null');
 // Never wipe saved state on version change — migrate instead
 const _defaults = {
-  _v: STATE_VERSION, drafted: {}, myTeam: [],
+  _v: STATE_VERSION, _buildHash: BUILD_HASH, drafted: {}, myTeam: [],
   keepers: DEFAULT_KEEPERS.slice(),
   keeperRounds: Object.assign({}, DEFAULT_KEEPER_ROUNDS),
   milbKeepers: DEFAULT_MILB_KEEPERS.slice(),
@@ -92,22 +96,38 @@ const _defaults = {
 };
 let state;
 if (_saved) {
-  // Merge defaults for any missing keys, but preserve all existing data
-  state = Object.assign({}, _defaults, _saved);
-  // v17 migration: CBS_TEAM_MAP was wrong in v16, corrupting leagueTeams rosters.
-  // Reset leagueTeams so they rebuild cleanly from keepers + CBS transactions.
-  if (!_saved._v || _saved._v < 26) {
-    console.log('v26 migration: full roster reset — fixed CBS↔FanGraphs MLB team abbreviation mismatch');
-    state.leagueTeams = {};
-    state.leagueMilbKeepers = {};
-    state.drafted = {};
-    // Also clean stale team names from teamOwners
-    const validNames = new Set(LEAGUE_TEAMS.map(t => t.name));
-    for (const k of Object.keys(state.teamOwners)) {
-      if (!validNames.has(k)) delete state.teamOwners[k];
+  // ── Auto-flush on new deploy ──────────────────────────────────────────
+  // If the build hash changed, the source files were updated. Do a full
+  // roster reset so rosters rebuild from the latest keepers + draft +
+  // transactions. User-specific UI prefs (tags, roster overrides, stat
+  // set selection, comparison players) are preserved.
+  const _buildChanged = _saved._buildHash !== BUILD_HASH;
+  if (_buildChanged) {
+    console.log(`Build hash changed: ${_saved._buildHash || 'none'} → ${BUILD_HASH} — flushing roster state`);
+    // Preserve user UI preferences
+    const _keepUiKeys = ['tags', 'rosterOverrides', 'leagueRosterOverrides',
+      '_statSets', '_rosterTeam', '_cmpPlayers', '_rosterView'];
+    const _preserved = {};
+    _keepUiKeys.forEach(k => { if (_saved[k] !== undefined) _preserved[k] = _saved[k]; });
+    // Start fresh, then restore UI prefs
+    state = Object.assign({}, _defaults, _preserved);
+  } else {
+    // Merge defaults for any missing keys, but preserve all existing data
+    state = Object.assign({}, _defaults, _saved);
+    // v26 migration (legacy — for clients that haven't updated yet)
+    if (!_saved._v || _saved._v < 26) {
+      console.log('v26 migration: full roster reset — fixed CBS↔FanGraphs MLB team abbreviation mismatch');
+      state.leagueTeams = {};
+      state.leagueMilbKeepers = {};
+      state.drafted = {};
+      const validNames = new Set(LEAGUE_TEAMS.map(t => t.name));
+      for (const k of Object.keys(state.teamOwners)) {
+        if (!validNames.has(k)) delete state.teamOwners[k];
+      }
     }
   }
   state._v = STATE_VERSION;
+  state._buildHash = BUILD_HASH;
 } else {
   state = _defaults;
 }

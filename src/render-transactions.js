@@ -78,6 +78,8 @@ function _renderTransactionsInner(section) {
   html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Pos</th>';
   html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">MLB</th>';
   html += '<th style="padding:10px 12px;text-align:right;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">LCV</th>';
+  html += '<th style="padding:10px 12px;text-align:right;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);" title="Actual LCV from 2026 in-season stats">aLCV</th>';
+  html += '<th style="padding:10px 12px;text-align:right;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);" title="Actual minus Projected LCV">ΔLCV</th>';
   html += '<th style="padding:10px 12px;text-align:right;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">TV</th>';
   html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Effective</th>';
   html += '</tr></thead><tbody>';
@@ -121,14 +123,19 @@ function _renderTransactionsInner(section) {
     html += `<td style="padding:8px 12px;font-size:13px;font-weight:600;">${tx.player}</td>`;
     html += `<td style="padding:8px 12px;"><span class="pos-badge pos-${(tx.pos||'').split(',')[0]}">${tx.pos}</span></td>`;
     html += `<td style="padding:8px 12px;font-size:12px;color:var(--text2);">${tx.mlbTeam}</td>`;
+    const aLcv = player && player.actualLcv != null ? player.actualLcv.toFixed(1) : '—';
+    const dLcv = player && player.lcvDelta != null ? ((player.lcvDelta > 0 ? '+' : '') + player.lcvDelta.toFixed(1)) : '—';
+    const dLcvClr = player && player.lcvDelta != null ? (player.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : '';
     html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;">${lcv}</td>`;
+    html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;">${aLcv}</td>`;
+    html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;font-weight:600;${dLcvClr}">${dLcv}</td>`;
     html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;">${tvVal}</td>`;
     html += `<td style="padding:8px 12px;font-size:12px;color:var(--text2);">${tx.effective}</td>`;
     html += '</tr>';
   });
 
   if (allTxns.length === 0) {
-    html += '<tr><td colspan="9" style="padding:40px;text-align:center;color:var(--text2);font-size:13px;">No transactions yet. Transactions will appear here once the scheduled task runs.</td></tr>';
+    html += '<tr><td colspan="11" style="padding:40px;text-align:center;color:var(--text2);font-size:13px;">No transactions yet. Transactions will appear here once the scheduled task runs.</td></tr>';
   }
 
   html += '</tbody></table></div>';
