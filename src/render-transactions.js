@@ -64,6 +64,7 @@ function _renderTransactionsInner(section) {
   html += '</select>';
   html += '<select id="txnTypeFilter" style="padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-size:12px;">';
   html += '<option value="all">All Types</option><option value="Added">Adds</option><option value="Dropped">Drops</option><option value="Traded">Trades</option></select>';
+  html += renderSplitToggle('txn-split-toggle');
   html += `<span style="margin-left:auto;font-size:11px;color:var(--text2);">${allTxns.length} moves</span>`;
   html += '</div>';
 
@@ -164,6 +165,16 @@ function _renderTransactionsInner(section) {
   };
   if (teamFilter) teamFilter.addEventListener('change', applyFilters);
   if (typeFilter) typeFilter.addEventListener('change', applyFilters);
+
+  // Wire time-split toggle
+  section.querySelectorAll('.split-toggle').forEach(sel => {
+    sel.addEventListener('change', () => {
+      state._splitWindow = sel.value;
+      applySplitWindow(sel.value);
+      save();
+      renderTransactions();
+    });
+  });
 
   // Wire Check CBS button — compare VERSION file on server vs baked-in version
   // If server has a newer build, hard-reload to get the latest dashboard

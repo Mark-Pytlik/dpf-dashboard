@@ -802,7 +802,8 @@ function _renderAnalyticsInner(section) {
         h += `<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">`;
         h += `<span style="font-weight:700;font-size:12px;">${inj.name}</span>`;
         h += `<span style="font-size:9px;background:${statusClr};color:#fff;padding:1px 4px;border-radius:3px;">${injInfo.status}</span>`;
-        h += `<span style="font-size:10px;color:var(--text2);">${inj.primaryPos} · ${inj.lcv.toFixed(1)} LCV</span>`;
+        const _injAlcv = inj.actualLcv != null ? ` → ${inj.actualLcv.toFixed(1)} aLCV` : '';
+        h += `<span style="font-size:10px;color:var(--text2);">${inj.primaryPos} · ${inj.lcv.toFixed(1)} LCV${_injAlcv}</span>`;
         if (injInfo.injury) h += `<span style="font-size:10px;color:var(--text2);">— ${injInfo.injury}</span>`;
         if (injInfo.return) h += `<span style="font-size:10px;color:var(--accent);">ETA: ${injInfo.return}</span>`;
         h += '</div>';
@@ -835,13 +836,16 @@ function _renderAnalyticsInner(section) {
 
         if (topRepl.length > 0) {
           h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-          h += '<tr style="font-size:9px;color:var(--text2);text-transform:uppercase;"><th style="text-align:left;padding:2px 4px;">Replacement</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">vs Injured</th><th style="text-align:center;padding:2px 4px;">Source</th></tr>';
+          h += '<tr style="font-size:9px;color:var(--text2);text-transform:uppercase;"><th style="text-align:left;padding:2px 4px;">Replacement</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">aLCV</th><th style="text-align:right;padding:2px 4px;">vs Injured</th><th style="text-align:center;padding:2px 4px;">Source</th></tr>';
           topRepl.forEach(r => {
             const diff = r.lcv - inj.lcv;
             const diffClr = diff >= 0 ? 'var(--green)' : 'var(--red)';
             const srcBadge = r.source === 'roster' ? '<span style="font-size:8px;background:var(--accent);color:#fff;padding:1px 3px;border-radius:2px;">ROSTER</span>' : '<span style="font-size:8px;background:var(--green);color:#fff;padding:1px 3px;border-radius:2px;">FA</span>';
             const injTag = r.injured ? ' <span style="color:var(--red);font-size:9px;">⚠ also hurt</span>' : '';
-            h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${r.name}${injTag}</td><td style="padding:3px 4px;text-align:center;">${r.pos}</td><td style="text-align:right;padding:3px 4px;">${r.lcv.toFixed(1)}</td><td style="text-align:right;padding:3px 4px;color:${diffClr};font-weight:600;">${diff>=0?'+':''}${diff.toFixed(1)}</td><td style="text-align:center;padding:3px 4px;">${srcBadge}</td></tr>`;
+            const _rp = _plyrI(r.name);
+            const _rAlcv = _rp && _rp.actualLcv != null ? _rp.actualLcv.toFixed(1) : '—';
+            const _rAlcvClr = _rp && _rp.actualLcv != null ? (_rp.actualLcv >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
+            h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${r.name}${injTag}</td><td style="padding:3px 4px;text-align:center;">${r.pos}</td><td style="text-align:right;padding:3px 4px;">${r.lcv.toFixed(1)}</td><td style="text-align:right;padding:3px 4px;${_rAlcvClr}">${_rAlcv}</td><td style="text-align:right;padding:3px 4px;color:${diffClr};font-weight:600;">${diff>=0?'+':''}${diff.toFixed(1)}</td><td style="text-align:center;padding:3px 4px;">${srcBadge}</td></tr>`;
           });
           h += '</table>';
         } else {

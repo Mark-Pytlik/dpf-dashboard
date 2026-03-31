@@ -18,6 +18,20 @@ function render() {
   if (currentTab === 'league') { renderLeague(); return; }
   if (currentTab === 'futures') { renderFutures(); return; }
 
+  // Show time-split toggle for 2026 Actual views
+  const _splitEl = document.getElementById('tableSplitToggle');
+  if (_splitEl) {
+    _splitEl.innerHTML = (currentView === 's26' || currentView === 'avp') ? renderSplitToggle('table-split') : '';
+    _splitEl.querySelectorAll('.split-toggle').forEach(sel => {
+      sel.addEventListener('change', () => {
+        state._splitWindow = sel.value;
+        applySplitWindow(sel.value);
+        save();
+        render();
+      });
+    });
+  }
+
   buildPosFilters();
   recalcPNAV();
   // renderMyTeamChips(); // chips removed

@@ -131,6 +131,7 @@ function renderLeague() {
     const label = v === 'rosters' ? 'Rosters' : v === 'positional' ? 'Positional LCV' : 'Comparison';
     html += `<button class="league-view-btn" data-view="${v}" style="padding:4px 12px;font-size:11px;border:none;border-radius:4px;cursor:pointer;background:${active?'var(--accent)':'transparent'};color:${active?'#fff':'var(--text2)'};font-weight:${active?'600':'400'};">${label}</button>`;
   });
+  html += renderSplitToggle('league-split-toggle');
   html += '</div></div>';
 
   // ── ROSTERS VIEW (all players with keeper status) ──
@@ -453,6 +454,16 @@ function renderLeague() {
   section.querySelectorAll('.league-view-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       state._leagueView = btn.dataset.view;
+      save();
+      renderLeague();
+    });
+  });
+
+  // Wire time-split toggle
+  section.querySelectorAll('.split-toggle').forEach(sel => {
+    sel.addEventListener('change', () => {
+      state._splitWindow = sel.value;
+      applySplitWindow(sel.value);
       save();
       renderLeague();
     });

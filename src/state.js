@@ -106,7 +106,7 @@ if (_saved) {
     console.log(`Build hash changed: ${_saved._buildHash || 'none'} → ${BUILD_HASH} — flushing roster state`);
     // Preserve user UI preferences
     const _keepUiKeys = ['tags', 'rosterOverrides', 'leagueRosterOverrides',
-      '_statSets', '_rosterTeam', '_cmpPlayers', '_rosterView'];
+      '_statSets', '_rosterTeam', '_cmpPlayers', '_rosterView', '_splitWindow'];
     const _preserved = {};
     _keepUiKeys.forEach(k => { if (_saved[k] !== undefined) _preserved[k] = _saved[k]; });
     // Start fresh, then restore UI prefs

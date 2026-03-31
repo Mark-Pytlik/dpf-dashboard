@@ -331,6 +331,11 @@ function renderRoster() {
     html += `<button class="view-btn stat-set-btn ${_ss==='25,26p,26a'?'active':''}" data-sets="25,26p,26a" title="Show all three stat sets">All</button>`;
     html += '</div>';
   }
+  // Time-split toggle (show when 2026 Actual is in the active stat sets or GM view)
+  if (rosterView === 'gm' || _ss.includes('26a')) {
+    html += '<span style="width:8px;"></span>';
+    html += renderSplitToggle('roster-split-toggle');
+  }
   html += '<span style="width:8px;"></span>';
   html += `<span style="font-size:13px;font-weight:600;">Starting LCV: ${teamLCV.startingLCV.toFixed(1)}</span>`;
   html += `<span style="font-size:11px;color:var(--text2);margin-left:8px;">Total: ${teamLCV.totalLCV.toFixed(1)} | Players: ${teamPlayers.length}</span>`;
@@ -889,11 +894,15 @@ function renderRoster() {
           let h = '';
           if (wwTargets.length > 0) {
             h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
+            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">aLCV</th><th style="text-align:right;padding:2px 4px;">ΔLCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
             wwTargets.forEach(t => {
               const keepTag = t.ki.keepable2027 ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>` : '<span style="color:var(--text2);">—</span>';
               const why = t.bestNeed > 0.5 ? `fills ${t.bestPos}` : (t.p.lcv||0) >= 4 ? 'high LCV' : t.ki.keepable2027 ? 'keeper value' : 'depth';
-              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.p.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;">${(t.p.lcv||0).toFixed(1)}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--accent);">${why}</td></tr>`;
+              const _wAlcv = t.p.actualLcv != null ? t.p.actualLcv.toFixed(1) : '—';
+              const _wAlcvClr = t.p.actualLcv != null ? (t.p.actualLcv >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
+              const _wDlcv = t.p.lcvDelta != null ? ((t.p.lcvDelta > 0 ? '+' : '') + t.p.lcvDelta.toFixed(1)) : '—';
+              const _wDlcvClr = t.p.lcvDelta != null ? (t.p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
+              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.p.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;">${(t.p.lcv||0).toFixed(1)}</td><td style="text-align:right;padding:3px 4px;${_wAlcvClr}">${_wAlcv}</td><td style="text-align:right;padding:3px 4px;font-weight:600;${_wDlcvClr}">${_wDlcv}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--accent);">${why}</td></tr>`;
             });
             h += '</table>';
           } else { h += '<div style="font-size:11px;color:var(--text2);">No strong waiver targets found.</div>'; }
@@ -926,7 +935,7 @@ function renderRoster() {
           let h = '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Players with the lowest combined production + keeper value.</div>';
           if (_dropPlayers.length > 0) {
             h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
+            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">aLCV</th><th style="text-align:right;padding:2px 4px;">ΔLCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
             _dropPlayers.forEach(t => {
               const keepTag = t.ki.keepable2027 ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>` : '<span style="color:var(--red);">NK</span>';
               const reasons = [];
@@ -934,7 +943,11 @@ function renderRoster() {
               if (!t.ki.keepable2027) reasons.push('not keepable');
               if (t.posCount >= 3) reasons.push(`${t.p.primaryPos} surplus (${t.posCount})`);
               const why = reasons.length > 0 ? reasons.slice(0,2).join(', ') : 'marginal value';
-              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;">${t.lcv.toFixed(1)}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--red);">${why}</td></tr>`;
+              const _dAlcv = t.p.actualLcv != null ? t.p.actualLcv.toFixed(1) : '—';
+              const _dAlcvClr = t.p.actualLcv != null ? (t.p.actualLcv >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
+              const _dDlcv = t.p.lcvDelta != null ? ((t.p.lcvDelta > 0 ? '+' : '') + t.p.lcvDelta.toFixed(1)) : '—';
+              const _dDlcvClr = t.p.lcvDelta != null ? (t.p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
+              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;">${t.lcv.toFixed(1)}</td><td style="text-align:right;padding:3px 4px;${_dAlcvClr}">${_dAlcv}</td><td style="text-align:right;padding:3px 4px;font-weight:600;${_dDlcvClr}">${_dDlcv}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--red);">${why}</td></tr>`;
             });
             h += '</table>';
           }
@@ -1013,7 +1026,12 @@ function renderRoster() {
       const icon = tx.type === 'add' ? '<span style="color:var(--green);font-weight:700;">+</span>' : tx.type === 'drop' ? '<span style="color:var(--red);font-weight:700;">−</span>' : '<span style="color:var(--accent);font-weight:700;">↔</span>';
       const cbsBadge = tx.source === 'CBS' ? ' <span style="font-size:8px;background:var(--accent);color:#fff;padding:1px 3px;border-radius:2px;">CBS</span>' : '';
       const _txP = _plyrI(tx.player);
-      const _txLcv = _txP ? ` <span style="color:var(--text2);font-size:9px;">(${(_txP.lcv||0).toFixed(1)})</span>` : '';
+      let _txLcv = _txP ? ` <span style="color:var(--text2);font-size:9px;">(${(_txP.lcv||0).toFixed(1)}` : '';
+      if (_txP && _txP.actualLcv != null) {
+        const _txDClr = _txP.lcvDelta >= 0 ? 'var(--green)' : 'var(--red)';
+        _txLcv += ` → <span style="color:${_txDClr};font-weight:600;">${_txP.actualLcv.toFixed(1)}</span>`;
+      }
+      if (_txP) _txLcv += ')</span>';
       const desc = tx.type === 'add' ? `Added ${tx.player}${_txLcv} from ${tx.from||'FA'}${cbsBadge}` : tx.type === 'drop' ? `Dropped ${tx.player}${_txLcv}${cbsBadge}` : `Traded ${tx.player}${_txLcv} → ${tx.from||'?'}${cbsBadge}`;
       html += `<div style="font-size:10px;padding:2px 0;border-bottom:1px solid var(--border);">${icon} <span style="color:var(--text2);">${tx.date||''}</span> ${desc}</div>`;
     });
@@ -1040,6 +1058,16 @@ function renderRoster() {
   section.querySelectorAll('.stat-set-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       state._statSets = btn.dataset.sets;
+      renderRoster();
+    });
+  });
+
+  // ── Wire Time-Split toggle ──
+  section.querySelectorAll('.split-toggle').forEach(sel => {
+    sel.addEventListener('change', () => {
+      state._splitWindow = sel.value;
+      applySplitWindow(sel.value);
+      save();
       renderRoster();
     });
   });

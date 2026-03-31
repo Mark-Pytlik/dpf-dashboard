@@ -138,4 +138,10 @@ state.keepers.forEach(k => {
   if (!state.drafted[k]) state.drafted[k] = { time: Date.now(), mine: true, round: kRd };
 });
 save();
+// Initialize original LCV values for time-split restoration
+_initOriginalLcvValues();
+// Apply saved split window if any
+if (state._splitWindow && state._splitWindow !== 'full') {
+  applySplitWindow(state._splitWindow);
+}
 render();

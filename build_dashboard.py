@@ -732,6 +732,7 @@ for r in bat_records[:5]:
 
 _JS_MODULES = [
     'src/data.js',
+    'src/time-splits.js',
     'src/keepers.js',
     'src/state.js',
     'src/draft-data.js',
@@ -782,6 +783,60 @@ else:
         html = _tf.read()
 
 # Inject data into template placeholders
+# ── Load daily snapshots for time-split analysis ────────────────────────
+import glob as _glob
+_snap_dir = 'data/snapshots'
+_snapshots = {'dates': [], 'bat': {}, 'pit': {}}
+if os.path.isdir(_snap_dir):
+    # Batting snapshots
+    _bat_snaps = sorted(_glob.glob(os.path.join(_snap_dir, 'bat_*.csv')))
+    _bat_dates = []
+    for _sf in _bat_snaps:
+        _d = os.path.basename(_sf).replace('bat_', '').replace('.csv', '')
+        _bat_dates.append(_d)
+        _sdf = pd.read_csv(_sf, sep='|')
+        for _, _sr in _sdf.iterrows():
+            _name = _sr['name']
+            if _name not in _snapshots['bat']:
+                _snapshots['bat'][_name] = {}
+            # Store as compact array: [pa, ab, h, hr, r, rbi, sb, so, bb, hbp, sf, x1b, x2b, x3b]
+            _row = []
+            for _c in ['pa','ab','h','hr','r','rbi','sb','so','bb','hbp','sf','x1b','x2b','x3b']:
+                _row.append(int(_sr[_c]) if _c in _sr and pd.notna(_sr[_c]) else 0)
+            _snapshots['bat'][_name][_d] = _row
+
+    # Pitching snapshots
+    _pit_snaps = sorted(_glob.glob(os.path.join(_snap_dir, 'pit_*.csv')))
+    _pit_dates = []
+    for _sf in _pit_snaps:
+        _d = os.path.basename(_sf).replace('pit_', '').replace('.csv', '')
+        _pit_dates.append(_d)
+        _sdf = pd.read_csv(_sf, sep='|')
+        for _, _sr in _sdf.iterrows():
+            _name = _sr['name']
+            if _name not in _snapshots['pit']:
+                _snapshots['pit'][_name] = {}
+            # Store as compact array: [ip, w, sv, hld, so, hr, qs, er, h, bb, tbf]
+            _row = []
+            for _c in ['ip','w','sv','hld','so','hr','qs','er','h','bb','tbf']:
+                _row.append(float(_sr[_c]) if _c in _sr and pd.notna(_sr[_c]) else 0)
+            _snapshots['pit'][_name][_d] = _row
+
+    _snapshots['dates'] = sorted(set(_bat_dates + _pit_dates))
+    print(f"Snapshots loaded: {len(_bat_snaps)} batting, {len(_pit_snaps)} pitching, {len(_snapshots['dates'])} unique dates")
+else:
+    print("No snapshots directory found (data/snapshots/) — time splits disabled")
+_snapshots_json = json.dumps(_snapshots)
+
+# ── LCV z-score means/stds for client-side LCV computation ──────────────
+_lcv_stats = {
+    'bat': {col: {'mean': round(bat_proj_stats[col]['mean'], 4), 'std': round(bat_proj_stats[col]['std'], 4)}
+            for col in bat_proj_stats},
+    'pit': {col: {'mean': round(pit_proj_stats[col]['mean'], 4), 'std': round(pit_proj_stats[col]['std'], 4)}
+            for col in pit_proj_stats}
+}
+_lcv_stats_json = json.dumps(_lcv_stats)
+
 _replacements = {
     '__BAT_JSON__': bat_json,
     '__PIT_JSON__': pit_json,
@@ -800,6 +855,8 @@ _replacements = {
     '__SPRINT_SPEED_JSON__': sprint_speed_json,
     '__BULLPEN_ROLES_JSON__': bullpen_roles_json,
     '__SEASON_STATUS_JSON__': season_status_json,
+    '__SNAPSHOTS_JSON__': _snapshots_json,
+    '__LCV_STATS_JSON__': _lcv_stats_json,
 }
 for _token, _value in _replacements.items():
     html = html.replace(_token, _value)

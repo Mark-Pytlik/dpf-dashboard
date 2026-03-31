@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Fetch 2026 in-season MLB stats from FanGraphs via pybaseball.
 Run this periodically to update the dashboard with real stats.
-Creates data/bat_2026.csv and data/pit_2026.csv for the build script."""
+Creates data/bat_2026.csv and data/pit_2026.csv for the build script.
+Also saves daily cumulative snapshots to data/snapshots/ for time-split analysis."""
 
 import sys
 import os
+from datetime import date
 
 try:
     from pybaseball import batting_stats, pitching_stats
@@ -13,9 +15,15 @@ except ImportError:
     sys.exit(1)
 
 OUTDIR = 'data'
+SNAP_DIR = os.path.join(OUTDIR, 'snapshots')
+
+def _ensure_snap_dir():
+    os.makedirs(SNAP_DIR, exist_ok=True)
 
 def fetch_batting():
-    """Fetch 2026 batting stats from FanGraphs."""
+    """Fetch 2026 batting stats from FanGraphs.
+    Saves the standard summary CSV and a daily snapshot with component stats
+    (H, AB, BB, HBP, SF) needed for time-split rate stat recomputation."""
     print("Fetching 2026 batting stats from FanGraphs...")
     try:
         df = batting_stats(2026, qual=0)
@@ -36,13 +44,41 @@ def fetch_batting():
         path = os.path.join(OUTDIR, 'bat_2026.csv')
         out.to_csv(path, sep='|', index=False)
         print(f"  Saved {len(out)} batters to {path}")
+
+        # ── Daily snapshot with component stats for time-split analysis ──
+        _ensure_snap_dir()
+        snap = df.rename(columns={'Name': 'name'})
+        # Map FanGraphs columns to our component stat names
+        # These cumulative counting stats allow window computation via subtraction
+        snap_col_map = {
+            'PA': 'pa', 'AB': 'ab', 'H': 'h', 'HR': 'hr', 'R': 'r',
+            'RBI': 'rbi', 'SB': 'sb', 'SO': 'so', 'BB': 'bb',
+            'HBP': 'hbp', 'SF': 'sf', '1B': 'x1b', '2B': 'x2b', '3B': 'x3b'
+        }
+        for fg_col, our_col in snap_col_map.items():
+            if fg_col in snap.columns:
+                snap = snap.rename(columns={fg_col: our_col})
+
+        snap_cols = ['name'] + [c for c in ['pa','ab','h','hr','r','rbi','sb','so','bb','hbp','sf','x1b','x2b','x3b'] if c in snap.columns]
+        snap_out = snap[snap_cols].copy()
+        snap_out = snap_out[snap_out['pa'] > 0]
+        # Convert to int where possible for compact storage
+        for c in snap_cols[1:]:
+            snap_out[c] = snap_out[c].fillna(0).astype(int)
+
+        snap_path = os.path.join(SNAP_DIR, f'bat_{date.today().isoformat()}.csv')
+        snap_out.to_csv(snap_path, sep='|', index=False)
+        print(f"  Snapshot saved: {snap_path} ({len(snap_out)} players)")
+
         return True
     except Exception as e:
         print(f"  Error fetching batting stats: {e}")
         return False
 
 def fetch_pitching():
-    """Fetch 2026 pitching stats from FanGraphs."""
+    """Fetch 2026 pitching stats from FanGraphs.
+    Saves the standard summary CSV and a daily snapshot with component stats
+    (ER, H_allowed, BB_allowed, BFP) for time-split rate stat recomputation."""
     print("Fetching 2026 pitching stats from FanGraphs...")
     try:
         df = pitching_stats(2026, qual=0)
@@ -64,6 +100,32 @@ def fetch_pitching():
         path = os.path.join(OUTDIR, 'pit_2026.csv')
         out.to_csv(path, sep='|', index=False)
         print(f"  Saved {len(out)} pitchers to {path}")
+
+        # ── Daily snapshot with component stats ──
+        _ensure_snap_dir()
+        snap = df.rename(columns={'Name': 'name'})
+        snap_col_map = {
+            'IP': 'ip', 'W': 'w', 'SV': 'sv', 'HLD': 'hld',
+            'SO': 'so', 'HR': 'hr', 'QS': 'qs',
+            'ER': 'er', 'H': 'h', 'BB': 'bb', 'TBF': 'tbf'
+        }
+        for fg_col, our_col in snap_col_map.items():
+            if fg_col in snap.columns:
+                snap = snap.rename(columns={fg_col: our_col})
+
+        snap_cols = ['name'] + [c for c in ['ip','w','sv','hld','so','hr','qs','er','h','bb','tbf'] if c in snap.columns]
+        snap_out = snap[snap_cols].copy()
+        snap_out = snap_out[snap_out['ip'] > 0]
+        for c in snap_cols[1:]:
+            if c == 'ip':
+                snap_out[c] = snap_out[c].fillna(0).round(1)
+            else:
+                snap_out[c] = snap_out[c].fillna(0).astype(int)
+
+        snap_path = os.path.join(SNAP_DIR, f'pit_{date.today().isoformat()}.csv')
+        snap_out.to_csv(snap_path, sep='|', index=False)
+        print(f"  Snapshot saved: {snap_path} ({len(snap_out)} players)")
+
         return True
     except Exception as e:
         print(f"  Error fetching pitching stats: {e}")
