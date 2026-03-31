@@ -180,7 +180,7 @@ function renderRoster() {
 
   // ── Build compact table row ──
   function pRow(p, slot, tag) {
-    if (!p) return `<tr class="roster-section" data-slot="${slot}" style="opacity:0.3;"><td style="padding:3px 6px;font-weight:600;width:32px;font-size:11px;">${slot}</td><td colspan="11" style="padding:3px 6px;color:var(--text2);">—</td></tr>`;
+    if (!p) return `<tr class="roster-section" data-slot="${slot}" style="opacity:0.3;"><td style="padding:3px 6px;font-weight:600;width:32px;font-size:11px;">${slot}</td><td colspan="13" style="padding:3px 6px;color:var(--text2);">—</td></tr>`;
     const dn = encodeURIComponent(p.name);
     const c = tClr(p.pnav, slot||p.primaryPos);
     const ki = getKeeperInfoCached(p.name);
@@ -226,6 +226,8 @@ function renderRoster() {
       `<td style="padding:3px 4px;font-size:11px;color:var(--text2);white-space:nowrap;">${p.team||''}</td>` +
       `<td style="padding:3px 4px;font-size:10px;white-space:nowrap;">${(p.pos||p.primaryPos||'').split('/').map(pos => '<span class="pos-badge pos-'+pos+'" style="padding:1px 4px;font-size:9px;margin-right:1px;">'+pos+'</span>').join('')}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;color:${c};font-weight:600;">${(p.lcv||0).toFixed(1)}</td>` +
+      `<td style="padding:3px 4px;text-align:right;font-size:10px;${p.actualLcv != null ? (p.actualLcv >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);'}">${p.actualLcv != null ? p.actualLcv.toFixed(1) : '—'}</td>` +
+      `<td style="padding:3px 4px;text-align:right;font-size:10px;font-weight:600;${p.lcvDelta != null ? (p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);'}">${p.lcvDelta != null ? (p.lcvDelta > 0 ? '+' : '') + p.lcvDelta.toFixed(1) : '—'}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;">${(p.pnav||0).toFixed(1)}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;color:var(--text2);">${p.age||'?'}</td>` +
       `<td style="padding:3px 4px;text-align:center;font-size:10px;color:${yrsClr};font-weight:600;">${ki.yearsLeft}</td>` +
@@ -442,6 +444,8 @@ function renderRoster() {
     {key:'team',label:'Team',align:'left'},
     {key:'pos',label:'Elig',align:'left'},
     {key:'lcv',label:'LCV',align:'right',tip:'League Category Value: sum of z-scores across 8 league categories'},
+    {key:'actualLcv',label:'aLCV',align:'right',tip:'Actual LCV from 2026 in-season stats'},
+    {key:'lcvDelta',label:'ΔLCV',align:'right',tip:'Actual LCV minus Projected LCV'},
     {key:'pnav',label:'PNAV',align:'right',tip:'Positional Need-Adjusted Value: LCV weighted by positional scarcity'},
     {key:'age',label:'Age',align:'right'},
     {key:'_yrsCtrl',label:'Yrs',align:'center',tip:'Years of control remaining'},
@@ -452,7 +456,7 @@ function renderRoster() {
 
   const batSlotOrder = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
   // Shared colgroup for all roster tables (main + bench + IL + MiLB) — GM view
-  const rosterColgroup = '<colgroup><col style="width:38px"><col style="width:150px"><col style="width:56px"><col style="width:48px"><col style="width:64px"><col style="width:48px"><col style="width:48px"><col style="width:36px"><col style="width:34px"><col style="width:42px"><col style="width:42px"><col style="width:42px"></colgroup>';
+  const rosterColgroup = '<colgroup><col style="width:38px"><col style="width:140px"><col style="width:52px"><col style="width:40px"><col style="width:56px"><col style="width:44px"><col style="width:44px"><col style="width:44px"><col style="width:44px"><col style="width:32px"><col style="width:30px"><col style="width:38px"><col style="width:38px"><col style="width:42px"></colgroup>';
   // Player view colgroups: Slot(38) + Player(130) + Pos(36) + stat cols(36px each)
   // Dynamic based on how many stat columns are active
   const _filteredStatCount = filteredBatStatCols.filter(c => c.group).length;
@@ -521,8 +525,8 @@ function renderRoster() {
 
   // Row builder helper: picks GM pRow or Player pRowStats based on view
   const rowFn = (p, slot, tag, isPit, padToCols) => rosterView === 'player' ? pRowStats(p, slot, tag, isPit, padToCols) : pRow(p, slot, tag);
-  const colSpan = rosterView === 'player' ? numBatCols : 12;
-  const colSpanPit = rosterView === 'player' ? numBatCols : 12;
+  const colSpan = rosterView === 'player' ? numBatCols : 14;
+  const colSpanPit = rosterView === 'player' ? numBatCols : 14;
 
   if (rsc && rosterView !== 'player') {
     // Flat sorted view (GM only) — all roster players sorted by chosen column
