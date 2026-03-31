@@ -729,7 +729,13 @@ function _renderAnalyticsInner(section) {
         trade.sent.forEach(tx => {
           const p = _plyrI(tx.player);
           const lcv = p ? (p.lcv||0).toFixed(1) : '?';
-          h += `<div style="font-size:11px;padding:2px 0;">${tx.player} <span style="color:var(--text2);">(${lcv} LCV)</span></div>`;
+          const alcv = p && p.actualLcv != null ? p.actualLcv.toFixed(1) : null;
+          const dlcv = p && p.lcvDelta != null ? p.lcvDelta : null;
+          const dlcvClr = dlcv != null ? (dlcv >= 0 ? 'var(--green)' : 'var(--red)') : '';
+          let stats = `<span style="color:var(--text2);">(${lcv} LCV`;
+          if (alcv != null) stats += ` → <span style="font-weight:600;color:${dlcvClr};">${alcv} aLCV</span>`;
+          stats += `)</span>`;
+          h += `<div style="font-size:11px;padding:2px 0;">${tx.player} ${stats}</div>`;
         });
         if (trade.sent.length === 0) h += '<div style="font-size:11px;color:var(--text2);">—</div>';
         h += '</div>';
@@ -739,7 +745,13 @@ function _renderAnalyticsInner(section) {
         trade.received.forEach(tx => {
           const p = _plyrI(tx.player);
           const lcv = p ? (p.lcv||0).toFixed(1) : '?';
-          h += `<div style="font-size:11px;padding:2px 0;">${tx.player} <span style="color:var(--text2);">(${lcv} LCV)</span></div>`;
+          const alcv = p && p.actualLcv != null ? p.actualLcv.toFixed(1) : null;
+          const dlcv = p && p.lcvDelta != null ? p.lcvDelta : null;
+          const dlcvClr = dlcv != null ? (dlcv >= 0 ? 'var(--green)' : 'var(--red)') : '';
+          let stats = `<span style="color:var(--text2);">(${lcv} LCV`;
+          if (alcv != null) stats += ` → <span style="font-weight:600;color:${dlcvClr};">${alcv} aLCV</span>`;
+          stats += `)</span>`;
+          h += `<div style="font-size:11px;padding:2px 0;">${tx.player} ${stats}</div>`;
         });
         if (trade.received.length === 0) h += '<div style="font-size:11px;color:var(--text2);">—</div>';
         h += '</div>';
@@ -750,7 +762,15 @@ function _renderAnalyticsInner(section) {
         const recvLCV = trade.received.reduce((s,tx) => { const p = _plyrI(tx.player); return s + (p ? (p.lcv||0) : 0); }, 0);
         const netLCV = recvLCV - sentLCV;
         const netClr = netLCV >= 0 ? 'var(--green)' : 'var(--red)';
-        h += `<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--border);font-size:10px;text-align:right;">Net LCV: <span style="font-weight:700;color:${netClr};">${netLCV>=0?'+':''}${netLCV.toFixed(1)}</span> (current values)</div>`;
+        // Actual net (only if at least one player on each side has actual data)
+        let sentALCV = 0, recvALCV = 0, hasActual = false;
+        trade.sent.forEach(tx => { const p = _plyrI(tx.player); if (p && p.actualLcv != null) { sentALCV += p.actualLcv; hasActual = true; } else { sentALCV += p ? (p.lcv||0) : 0; } });
+        trade.received.forEach(tx => { const p = _plyrI(tx.player); if (p && p.actualLcv != null) { recvALCV += p.actualLcv; hasActual = true; } else { recvALCV += p ? (p.lcv||0) : 0; } });
+        const netALCV = recvALCV - sentALCV;
+        const netAClr = netALCV >= 0 ? 'var(--green)' : 'var(--red)';
+        let netLine = `Net LCV: <span style="font-weight:700;color:${netClr};">${netLCV>=0?'+':''}${netLCV.toFixed(1)}</span> (projected)`;
+        if (hasActual) netLine += ` · Actual: <span style="font-weight:700;color:${netAClr};">${netALCV>=0?'+':''}${netALCV.toFixed(1)}</span>`;
+        h += `<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--border);font-size:10px;text-align:right;">${netLine}</div>`;
         h += '</div>';
       });
     }

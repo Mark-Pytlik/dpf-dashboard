@@ -63,6 +63,8 @@ const PLAYER_MAP_NORM = new Map(ALL.map(p => [_stripAccents(p.name).toLowerCase(
 // Name aliases: alternative names → canonical name in player pool
 const NAME_ALIASES = {
   'Cameron Schlittler': 'Cam Schlittler',
+  'Luis Robert': 'Luis Robert Jr.',
+  'Jazz Chisholm': 'Jazz Chisholm Jr.',
 };
 // Register aliases in all maps
 Object.entries(NAME_ALIASES).forEach(([alias, canonical]) => {
