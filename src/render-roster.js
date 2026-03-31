@@ -562,7 +562,10 @@ function renderRoster() {
       if (rsc === 'name') return rsd * a.p.name.localeCompare(b.p.name);
       if (rsc === 'team') return rsd * (a.p.team||'').localeCompare(b.p.team||'');
       if (rsc === 'pos') return rsd * (a.p.pos||'').localeCompare(b.p.pos||'');
-      if (['lcv','pnav','age'].includes(rsc)) { av = a.p[rsc]||0; bv = b.p[rsc]||0; }
+      if (['lcv','pnav','age','actualLcv','lcvDelta'].includes(rsc)) {
+        av = a.p[rsc] != null ? a.p[rsc] : -Infinity;
+        bv = b.p[rsc] != null ? b.p[rsc] : -Infinity;
+      }
       else { av = a[rsc]||0; bv = b[rsc]||0; }
       return rsd * (av - bv);
     });
