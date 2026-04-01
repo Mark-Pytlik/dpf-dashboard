@@ -631,9 +631,10 @@ for _, r in pit_pool.iterrows():
         # Compute actual LCV from 2026 stats, pace-adjusted to full season
         # Rate stats (ERA/WHIP) are already on the right scale.
         # Counting stats (W/SV/HD/SO/HR/QS) are annualized: actual * (projectedIP / actualIP)
-        # Minimum 3 IP to avoid extreme noise from tiny samples
+        # IP threshold: 1 IP for RPs (short outings), 3 IP for SPs (need ~half a start)
         a_ip = s26.get('ip', 0)
-        if a_ip and a_ip >= 3:
+        _min_ip = 1.0 if r['role'] == 'RP' else 3.0
+        if a_ip and a_ip >= _min_ip:
             pace = float(r['ip']) / a_ip  # scale factor to full season
             a_lcv = (-zscore_with(s26.get('era',0), pit_proj_stats['era']['mean'], pit_proj_stats['era']['std'])
                    + zscore_with(s26.get('hld',0)*pace, pit_proj_stats['hld']['mean'], pit_proj_stats['hld']['std'])

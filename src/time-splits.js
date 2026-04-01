@@ -176,7 +176,9 @@ function computeBatSplitLcv(player, windowDays) {
  */
 function computePitSplitLcv(player, windowDays) {
   const stats = computePitSplitStats(player.name, windowDays);
-  if (!stats || stats.ip < 3) return null;
+  // IP threshold: 1 IP for RPs (short outings), 3 IP for SPs
+  const minIp = (player.pos === 'RP' || player.primaryPos === 'RP') ? 1.0 : 3.0;
+  if (!stats || stats.ip < minIp) return null;
 
   const projIp = player.ip || 150;
   const pace = projIp / stats.ip;
