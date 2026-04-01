@@ -1,5 +1,25 @@
 [
   {
+    "date": "3/31/26 10:39 PM ET",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/1/26",
+    "players": [
+      {
+        "name": "Owen Caissie",
+        "pos": "RF",
+        "mlbTeam": "MIA",
+        "action": "Added"
+      },
+      {
+        "name": "Noelvi Marte",
+        "pos": "3B,RF",
+        "mlbTeam": "CIN",
+        "action": "Dropped"
+      }
+    ],
+    "teamId": 12
+  },
+  {
     "date": "3/31/26 8:48 AM ET",
     "team": "Colonel Corbin's Ascent",
     "effective": "3/31/26",
