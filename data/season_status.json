@@ -4,179 +4,34 @@
   "periodEnd": "2026-04-12",
   "opponent": "Yesavage Garden",
   "opponentTeam": "Yesavage Garden",
-  "currentScore": {
-    "me": 10.5,
-    "opp": 5.5,
-    "tied": 3
-  },
-  "categoryBreakdown": {
-    "batting": {
-      "BA": {
-        "me": 0.236,
-        "opp": 0.223
-      },
-      "HR": {
-        "me": 9,
-        "opp": 6
-      },
-      "RBI": {
-        "me": 23,
-        "opp": 27
-      },
-      "R": {
-        "me": 30,
-        "opp": 30
-      },
-      "SB": {
-        "me": 1,
-        "opp": 2
-      },
-      "KO": {
-        "me": 62,
-        "opp": 57
-      },
-      "OBP": {
-        "me": 0.349,
-        "opp": 0.307
-      },
-      "SLG": {
-        "me": 0.382,
-        "opp": 0.332
-      }
-    },
-    "pitching": {
-      "K": {
-        "me": 56,
-        "opp": 88
-      },
-      "ERA": {
-        "me": 2.8125,
-        "opp": 3.392
-      },
-      "WHIP": {
-        "me": 1.0469,
-        "opp": 1.0854
-      },
-      "W": {
-        "me": 4,
-        "opp": 4
-      },
-      "S": {
-        "me": 4,
-        "opp": 3
-      },
-      "HD": {
-        "me": 4,
-        "opp": 1
-      },
-      "HRA": {
-        "me": 8,
-        "opp": 8
-      },
-      "QS": {
-        "me": 4,
-        "opp": 3
-      }
-    }
+  "currentScore": {"me": 5, "opp": 3, "tied": 2},
+  "displayScore": {"me": 10.5, "opp": 5.5},
+  "categoryScores": {
+    "BA": {"me": 0.236, "opp": 0.223, "winner": "me"},
+    "HR": {"me": 9, "opp": 6, "winner": "me"},
+    "RBI": {"me": 23, "opp": 27, "winner": "opp"},
+    "R": {"me": 30, "opp": 30, "winner": "tied"},
+    "SB": {"me": 1, "opp": 2, "winner": "opp"},
+    "K": {"me": 56, "opp": 88, "winner": "opp"},
+    "ERA": {"me": 2.8125, "opp": 3.392, "winner": "me"},
+    "WHIP": {"me": 1.0469, "opp": 1.0854, "winner": "me"},
+    "W": {"me": 4, "opp": 4, "winner": "tied"},
+    "S": {"me": 4, "opp": 3, "winner": "me"}
   },
   "myRecord": "0-0-0",
   "standings": [
-    {
-      "team": "Weird Fishes / Arrighetti",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Dinosaur Jr Caminero",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Colonel Corbin's Ascent",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Okamotomami",
-      "mine": true,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Buddy Buddy Buddy All On Base",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "A Pete Crow-Armstrong Looked at Me",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Whoop Whoop that's the sound of Dylan Cease",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Ballesteros, Let the Rhythm Take You Over",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Yesavage Garden",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Blame it on the Rainiel",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Before and After Shohei",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Popped A Mahle I'm Sweating",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    }
+    {"team": "Weird Fishes / Arrighetti", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Dinosaur Jr Caminero", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Colonel Corbin's Ascent", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Okamotomami", "mine": true, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Buddy Buddy Buddy All On Base", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "A Pete Crow-Armstrong Looked at Me", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Whoop Whoop that's the sound of Dylan Cease", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Ballesteros, Let the Rhythm Take You Over", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Yesavage Garden", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Blame it on the Rainiel", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Before and After Shohei", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0},
+    {"team": "Popped A Mahle I'm Sweating", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}
   ],
-  "updated": "2026-04-02T13:07:08Z"
+  "updated": "2026-04-02T09:00:00Z"
 }

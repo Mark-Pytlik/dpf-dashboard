@@ -1,5 +1,19 @@
 [
   {
+    "date": "4/2/26 10:47 AM ET",
+    "team": "Whoop Whoop that's the sound of Dylan Cease",
+    "effective": "4/2/26",
+    "players": [
+      {
+        "name": "Willy Adames",
+        "pos": "SS",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ],
+    "teamId": 7
+  },
+  {
     "date": "4/1/26 2:51 PM ET",
     "team": "Whoop Whoop that's the sound of Dylan Cease",
     "effective": "4/2/26",
