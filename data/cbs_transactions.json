@@ -1,5 +1,59 @@
 [
   {
+    "date": "4/1/26 2:51 PM ET",
+    "team": "Whoop Whoop that's the sound of Dylan Cease",
+    "effective": "4/2/26",
+    "players": [
+      {
+        "name": "Hogan Harris",
+        "pos": "RP",
+        "mlbTeam": "ATH",
+        "action": "Added"
+      }
+    ],
+    "teamId": 7
+  },
+  {
+    "date": "4/1/26 2:50 PM ET",
+    "team": "Whoop Whoop that's the sound of Dylan Cease",
+    "effective": "4/2/26",
+    "players": [
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "action": "Added"
+      },
+      {
+        "name": "Payton Tolle",
+        "pos": "RP",
+        "mlbTeam": "BOS",
+        "action": "Dropped"
+      }
+    ],
+    "teamId": 7
+  },
+  {
+    "date": "4/1/26 2:46 PM ET",
+    "team": "Whoop Whoop that's the sound of Dylan Cease",
+    "effective": "4/2/26",
+    "players": [
+      {
+        "name": "Colt Keith",
+        "pos": "2B,3B",
+        "mlbTeam": "DET",
+        "action": "Added"
+      },
+      {
+        "name": "Josh Jung",
+        "pos": "3B",
+        "mlbTeam": "TEX",
+        "action": "Dropped"
+      }
+    ],
+    "teamId": 7
+  },
+  {
     "date": "3/31/26 10:39 PM ET",
     "team": "Popped A Mahle I'm Sweating",
     "effective": "4/1/26",

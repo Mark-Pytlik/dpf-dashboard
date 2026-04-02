@@ -1,32 +1,127 @@
 [
   {
     "name": "Chandler Simpson",
-    "speed": 30.7,
+    "speed": 30.5,
     "tier": "elite"
   },
   {
-    "name": "Matt Chapman",
-    "speed": 28.6,
+    "name": "Daylen Lile",
+    "speed": 29.5,
+    "tier": "elite"
+  },
+  {
+    "name": "Jackson Merrill",
+    "speed": 29.1,
+    "tier": "elite"
+  },
+  {
+    "name": "Luis Robert Jr.",
+    "speed": 29.0,
+    "tier": "elite"
+  },
+  {
+    "name": "Corbin Carroll",
+    "speed": 28.9,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Fernando Tatis Jr.",
+    "speed": 28.8,
     "tier": "above_avg"
   },
   {
     "name": "Brandon Lockridge",
-    "speed": 28.3,
+    "speed": 28.7,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Kevin McGonigle",
+    "speed": 28.4,
     "tier": "above_avg"
   },
   {
     "name": "Nick Gonzales",
-    "speed": 28.1,
+    "speed": 28.3,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Matt Chapman",
+    "speed": 28.3,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Jake Mangum",
+    "speed": 28.2,
     "tier": "above_avg"
   },
   {
     "name": "Otto Lopez",
-    "speed": 27.8,
+    "speed": 28.0,
     "tier": "above_avg"
   },
   {
-    "name": "Christian Walker",
-    "speed": 27.1,
+    "name": "Wyatt Langford",
+    "speed": 27.6,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Bryan Reynolds",
+    "speed": 27.5,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Nico Hoerner",
+    "speed": 27.5,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Brandon Nimmo",
+    "speed": 27.5,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Brice Turang",
+    "speed": 27.4,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Xander Bogaerts",
+    "speed": 27.4,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Cody Bellinger",
+    "speed": 27.4,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Cole Young",
+    "speed": 27.4,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Ben Rice",
+    "speed": 27.3,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Xavier Edwards",
+    "speed": 27.2,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Harrison Bader",
+    "speed": 27.2,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Jose Altuve",
+    "speed": 27.2,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Brady House",
+    "speed": 27.0,
     "tier": "above_avg"
   }
 ]
