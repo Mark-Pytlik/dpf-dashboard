@@ -1,5 +1,25 @@
 [
   {
+    "date": "4/3/26 2:03 AM ET",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/3/26",
+    "players": [
+      {
+        "name": "Paul Sewald",
+        "pos": "RP",
+        "mlbTeam": "ARI",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Kevin Ginkel",
+        "pos": "RP",
+        "mlbTeam": "ARI",
+        "action": "Dropped"
+      }
+    ],
+    "teamId": 12
+  },
+  {
     "date": "4/2/26 10:47 AM ET",
     "team": "Whoop Whoop that's the sound of Dylan Cease",
     "effective": "4/2/26",

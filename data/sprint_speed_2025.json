@@ -15,16 +15,6 @@
     "tier": "elite"
   },
   {
-    "name": "Luis Robert Jr.",
-    "speed": 29.0,
-    "tier": "elite"
-  },
-  {
-    "name": "Corbin Carroll",
-    "speed": 28.9,
-    "tier": "above_avg"
-  },
-  {
     "name": "Fernando Tatis Jr.",
     "speed": 28.8,
     "tier": "above_avg"
@@ -32,6 +22,21 @@
   {
     "name": "Brandon Lockridge",
     "speed": 28.7,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Luis Robert Jr.",
+    "speed": 28.7,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Luke Keaschall",
+    "speed": 28.5,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Corbin Carroll",
+    "speed": 28.4,
     "tier": "above_avg"
   },
   {
@@ -46,7 +51,7 @@
   },
   {
     "name": "Matt Chapman",
-    "speed": 28.3,
+    "speed": 28.2,
     "tier": "above_avg"
   },
   {
@@ -65,12 +70,12 @@
     "tier": "above_avg"
   },
   {
-    "name": "Bryan Reynolds",
+    "name": "Nico Hoerner",
     "speed": 27.5,
     "tier": "above_avg"
   },
   {
-    "name": "Nico Hoerner",
+    "name": "Bryan Reynolds",
     "speed": 27.5,
     "tier": "above_avg"
   },
@@ -117,6 +122,11 @@
   {
     "name": "Jose Altuve",
     "speed": 27.2,
+    "tier": "above_avg"
+  },
+  {
+    "name": "Maikel Garcia",
+    "speed": 27.1,
     "tier": "above_avg"
   },
   {
