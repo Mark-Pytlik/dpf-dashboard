@@ -1,5 +1,6 @@
 // ── Interactive Mock Draft ─────────────────────────────────────────────────
-let mockState = null; // {picks:[], currentPick:0, userTeamIdx:1, available:[], paused:false, speed:'normal', draftOrder:[]}
+// Moved to DPF namespace
+DPF.mock.state = null; // {picks:[], currentPick:0, userTeamIdx:1, available:[], paused:false, speed:'normal', draftOrder:[]}
 
 function initMockDraft() {
   const TOTAL_ROUNDS = 31;

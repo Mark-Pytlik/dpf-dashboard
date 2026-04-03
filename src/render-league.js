@@ -62,7 +62,10 @@ function calcOptimalLCV(playerNames) {
   return { startingLCV, totalLCV, startingALCV, totalALCV, count: players.length };
 }
 
-let leagueSortCol = 'startingLCV', leagueSortDir = -1; // default: Start LCV desc
+// Moved to DPF namespace in render-league.js initialization
+DPF.league = DPF.league || {};
+DPF.league.sortCol = 'startingLCV';
+DPF.league.sortDir = -1; // default: Start LCV desc
 
 function renderLeague() {
   const section = document.getElementById('rosterSection');
@@ -108,9 +111,9 @@ function renderLeague() {
 
   // Sort
   const sorted = [...teamData].sort((a, b) => {
-    let av = a[leagueSortCol], bv = b[leagueSortCol];
-    if (typeof av === 'string') return leagueSortDir * av.localeCompare(bv);
-    return leagueSortDir * ((av || 0) - (bv || 0));
+    let av = a[DPF.league.sortCol], bv = b[DPF.league.sortCol];
+    if (typeof av === 'string') return DPF.league.sortDir * av.localeCompare(bv);
+    return DPF.league.sortDir * ((av || 0) - (bv || 0));
   });
 
   // Max values for bar scaling
@@ -123,7 +126,13 @@ function renderLeague() {
   if (!state._leagueView || state._leagueView === 'kept') state._leagueView = 'comparison';
   if (state._leagueView === 'available') state._leagueView = 'rosters';
 
-  let html = '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">';
+  // Action Items Panel (season mode only, before views)
+  let html = '';
+  if (state._mode === 'season') {
+    html += renderActionItems();
+  }
+
+  html += '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;margin-top:24px;">';
   html += '<h2 style="margin:0;">League</h2>';
   html += '<div style="display:flex;gap:2px;background:var(--surface2);border-radius:6px;padding:2px;">';
   ['comparison','rosters','positional'].forEach(v => {
@@ -364,8 +373,8 @@ function renderLeague() {
   html += '<table style="width:100%"><thead><tr>';
   html += '<th style="width:25px">#</th>';
   leagueCols.forEach(col => {
-    const isActive = leagueSortCol === col.key;
-    const arrow = isActive ? (leagueSortDir === -1 ? ' ▼' : ' ▲') : '';
+    const isActive = DPF.league.sortCol === col.key;
+    const arrow = isActive ? (DPF.league.sortDir === -1 ? ' ▼' : ' ▲') : '';
     const cursor = 'cursor:pointer;user-select:none;';
     const fontSize = col.small ? 'font-size:11px;' : '';
     const tip = col.tip ? ` title="${col.tip}"` : '';
@@ -497,8 +506,8 @@ function renderLeague() {
   section.querySelectorAll('.league-sort-th').forEach(th => {
     th.addEventListener('click', () => {
       const col = th.dataset.col;
-      if (leagueSortCol === col) { leagueSortDir *= -1; }
-      else { leagueSortCol = col; leagueSortDir = -1; }
+      if (DPF.league.sortCol === col) { DPF.league.sortDir *= -1; }
+      else { DPF.league.sortCol = col; DPF.league.sortDir = -1; }
       renderLeague();
     });
   });
@@ -644,6 +653,240 @@ function renderLeague() {
     const firstOther = LEAGUE_TEAMS.find(t => !t.mine);
     if (firstOther) loadTeamIntoEditor(firstOther.name);
   }
+}
+
+// ── Action Items Panel ──────────────────────────────────────────────────
+// High-impact recommendations: category pace, waiver picks, cold players, hot FA
+function renderActionItems() {
+  const section = document.getElementById('rosterSection');
+  const myTeam = state.myTeam || [];
+  if (myTeam.length === 0) return ''; // No action items without a roster
+
+  // Category helpers
+  const _batCats = ['avg','hr','r','rbi','sb','obp','slg','so'];
+  const _pitCats = ['era','whip','so','w','sv','qs','hld','hr'];
+
+  // Compute team category totals (starting lineup only)
+  function teamCatTotals(teamPlayers) {
+    const allPlayers = teamPlayers.map(n => _plyrI(n)).filter(Boolean);
+    const allBats = allPlayers.filter(p => !['SP','RP'].includes(p.primaryPos)).sort((a,b) => (b.lcv||0) - (a.lcv||0));
+    const allSP = allPlayers.filter(p => p.primaryPos === 'SP').sort((a,b) => (b.lcv||0) - (a.lcv||0));
+    const allRP = allPlayers.filter(p => p.primaryPos === 'RP').sort((a,b) => (b.lcv||0) - (a.lcv||0));
+    const used = new Set();
+    const bats = [];
+    for (const pos of ['C','1B','2B','3B','SS','LF','CF','RF']) {
+      const c = allBats.find(p => !used.has(p.name) && (p.primaryPos === pos || (p.pos||'').split('/').includes(pos)));
+      if (c) { bats.push(c); used.add(c.name); }
+    }
+    const dh = allBats.find(p => !used.has(p.name));
+    if (dh) { bats.push(dh); used.add(dh.name); }
+    const pits = [...allSP.slice(0, 5), ...allRP.slice(0, 5)];
+    const bt = {}, pt = {};
+    _batCats.forEach(cat => {
+      if (cat === 'avg' || cat === 'obp' || cat === 'slg') {
+        let tp=0,w=0;
+        bats.forEach(p=>{const pa=p.pa||500;w+=(p[cat]||0)*pa;tp+=pa;});
+        bt[cat]=tp>0?w/tp:0;
+      } else {
+        bt[cat] = bats.reduce((s,p)=>s+(p[cat]||0),0);
+      }
+    });
+    _pitCats.forEach(cat => {
+      if (cat === 'era' || cat === 'whip') {
+        let ti=0,w=0;
+        pits.forEach(p=>{const ip=p.ip||100;w+=(p[cat]||0)*ip;ti+=ip;});
+        pt[cat]=ti>0?w/ti:0;
+      } else {
+        pt[cat] = pits.reduce((s,p)=>s+(p[cat]||0),0);
+      }
+    });
+    return { bat: bt, pit: pt };
+  }
+
+  // Compute league average for each category
+  const leagueAverages = { bat: {}, pit: {} };
+  const draftedPlayers = new Set(Object.keys(state.drafted));
+  const allLeaguePlayers = [...BATTERS, ...PITCHERS].filter(p => draftedPlayers.has(p.name));
+
+  _batCats.forEach(cat => {
+    const vals = allLeaguePlayers
+      .filter(p => !['SP','RP'].includes(p.primaryPos))
+      .map(p => p[cat] || 0)
+      .filter(v => v > 0);
+    leagueAverages.bat[cat] = vals.length > 0 ? vals.reduce((a,b)=>a+b)/vals.length : 0;
+  });
+
+  _pitCats.forEach(cat => {
+    const vals = allLeaguePlayers
+      .filter(p => ['SP','RP'].includes(p.primaryPos))
+      .map(p => p[cat] || 0)
+      .filter(v => v > 0);
+    leagueAverages.pit[cat] = vals.length > 0 ? vals.reduce((a,b)=>a+b)/vals.length : 0;
+  });
+
+  const myTotals = teamCatTotals(myTeam);
+
+  // ═════════════════════════════════════
+  // 1. CATEGORY PACE
+  // ═════════════════════════════════════
+  let html = '<div style="margin-bottom:24px;"><h3 style="font-size:15px;font-weight:700;margin-bottom:12px;">Action Items</h3>';
+  html += '<div style="font-size:11px;color:var(--text2);margin-bottom:16px;">Real-time recommendations to maximize your category wins.</div>';
+
+  html += '<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:16px;">';
+  html += '<div style="font-weight:700;font-size:12px;margin-bottom:10px;">Category Pace</div>';
+
+  // Helper to determine if higher or lower is better
+  const lowerIsBetter = new Set(['era','whip','so']);
+  const winningCats = { bat: [], losing: [] };
+  const batStatus = [];
+
+  _batCats.forEach(cat => {
+    const mine = myTotals.bat[cat] || 0;
+    const league = leagueAverages.bat[cat] || 0;
+    let status = 'neutral';
+
+    if (lowerIsBetter.has(cat)) {
+      if (mine < league) status = 'winning';
+      else if (mine > league) status = 'losing';
+    } else {
+      if (mine > league) status = 'winning';
+      else if (mine < league) status = 'losing';
+    }
+
+    if (status === 'winning') winningCats.bat.push(cat);
+    else if (status === 'losing') winningCats.losing = winningCats.losing || [];
+
+    batStatus.push({ cat, mine, league, status });
+  });
+
+  const pitStatus = [];
+  _pitCats.forEach(cat => {
+    const mine = myTotals.pit[cat] || 0;
+    const league = leagueAverages.pit[cat] || 0;
+    let status = 'neutral';
+
+    if (lowerIsBetter.has(cat)) {
+      if (mine < league) status = 'winning';
+      else if (mine > league) status = 'losing';
+    } else {
+      if (mine > league) status = 'winning';
+      else if (mine < league) status = 'losing';
+    }
+
+    if (status === 'winning') winningCats.pit = winningCats.pit || [];
+    else if (status === 'losing') {
+      if (!winningCats.losing) winningCats.losing = [];
+      winningCats.losing.push(cat);
+    }
+
+    pitStatus.push({ cat, mine, league, status });
+  });
+
+  html += '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">';
+  batStatus.concat(pitStatus).forEach(s => {
+    const badgeColor = s.status === 'winning' ? 'var(--green)' : s.status === 'losing' ? 'var(--red)' : 'var(--yellow)';
+    const badgeBg = s.status === 'winning' ? 'rgba(22,163,74,0.15)' : s.status === 'losing' ? 'rgba(220,38,38,0.15)' : 'rgba(202,138,4,0.15)';
+    html += `<div style="background:${badgeBg};color:${badgeColor};padding:4px 8px;border-radius:4px;font-weight:600;font-size:10px;">${s.cat.toUpperCase()}</div>`;
+  });
+  html += '</div>';
+  html += '<div style="font-size:10px;color:var(--text2);line-height:1.6;">';
+  const winCount = (winningCats.bat?.length || 0) + (winningCats.pit?.length || 0);
+  const loseCount = (winningCats.losing?.length || 0);
+  html += `<b>Pace:</b> ${winCount} winning, ${loseCount} losing<br>`;
+  html += '<b>Tip:</b> Target undrafted players in your losing categories.';
+  html += '</div>';
+  html += '</div>';
+
+  // ═════════════════════════════════════
+  // 2. WAIVER WIRE PICKS (for losing cats)
+  // ═════════════════════════════════════
+  if (winningCats.losing && winningCats.losing.length > 0) {
+    html += '<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:16px;">';
+    html += '<div style="font-weight:700;font-size:12px;margin-bottom:10px;">Waiver Wire Targets</div>';
+    html += '<div style="font-size:10px;color:var(--text2);margin-bottom:10px;">Top undrafted players for your losing categories:</div>';
+
+    const draftedSet = new Set(Object.keys(state.drafted));
+    const losingCatsSet = new Set(winningCats.losing);
+
+    // Find best available for each losing cat
+    const recommendations = [];
+    winningCats.losing.forEach(cat => {
+      const candidates = ALL.filter(p => !draftedSet.has(p.name) && p[cat] !== undefined);
+      candidates.sort((a,b) => {
+        if (lowerIsBetter.has(cat)) return (a[cat] || 999) - (b[cat] || 999);
+        return (b[cat] || 0) - (a[cat] || 0);
+      });
+      candidates.slice(0, 3).forEach(p => {
+        recommendations.push({ cat, player: p.name, pos: p.primaryPos, value: p[cat] });
+      });
+    });
+
+    // Deduplicate and sort by impact
+    const seen = new Set();
+    const unique = [];
+    recommendations.forEach(r => {
+      if (!seen.has(r.player)) {
+        seen.add(r.player);
+        unique.push(r);
+      }
+    });
+
+    unique.slice(0, 5).forEach(r => {
+      html += `<div style="padding:8px;background:var(--surface2);border-radius:4px;margin-bottom:6px;font-size:11px;"><b>${r.player}</b> <span style="color:var(--text2);">${r.pos}</span> → <span style="color:var(--red);">${r.cat.toUpperCase()}</span></div>`;
+    });
+    html += '</div>';
+  }
+
+  // ═════════════════════════════════════
+  // 3. COLD PLAYER ALERT
+  // ═════════════════════════════════════
+  if (state._mode === 'season') {
+    const coldPlayers = myTeam
+      .map(name => ({ name, p: _plyrI(name) }))
+      .filter(x => x.p && x.p.lcvDelta !== undefined && x.p.lcvDelta !== null)
+      .sort((a, b) => (a.p.lcvDelta || 0) - (b.p.lcvDelta || 0))
+      .slice(0, 3);
+
+    if (coldPlayers.length > 0) {
+      html += '<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:16px;">';
+      html += '<div style="font-weight:700;font-size:12px;margin-bottom:10px;">Cold Players (Drop Candidates)</div>';
+      html += '<div style="font-size:10px;color:var(--text2);margin-bottom:10px;">Players underperforming projections by most:</div>';
+
+      coldPlayers.forEach(x => {
+        const delta = (x.p.lcvDelta || 0).toFixed(1);
+        const color = delta < 0 ? 'var(--red)' : 'var(--green)';
+        html += `<div style="padding:8px;background:var(--surface2);border-radius:4px;margin-bottom:6px;font-size:11px;"><b>${x.name}</b> <span style="color:var(--text2);">${x.p.primaryPos}</span> <span style="color:${color};font-weight:600;">Δ${delta}</span></div>`;
+      });
+      html += '</div>';
+    }
+  }
+
+  // ═════════════════════════════════════
+  // 4. HOT FREE AGENTS
+  // ═════════════════════════════════════
+  if (state._mode === 'season') {
+    const draftedSet = new Set(Object.keys(state.drafted));
+    const hotAgents = ALL
+      .filter(p => !draftedSet.has(p.name))
+      .sort((a, b) => (b.lcvDelta || b.actualLcv || 0) - (a.lcvDelta || a.actualLcv || 0))
+      .slice(0, 5);
+
+    if (hotAgents.length > 0) {
+      html += '<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;">';
+      html += '<div style="font-weight:700;font-size:12px;margin-bottom:10px;">Hot Free Agents</div>';
+      html += '<div style="font-size:10px;color:var(--text2);margin-bottom:10px;">Undrafted players with strongest recent performance:</div>';
+
+      hotAgents.forEach(p => {
+        const delta = p.lcvDelta !== undefined ? (p.lcvDelta || 0).toFixed(1) : '';
+        const alc = p.actualLcv !== undefined ? (p.actualLcv || 0).toFixed(1) : '';
+        html += `<div style="padding:8px;background:var(--surface2);border-radius:4px;margin-bottom:6px;font-size:11px;"><b>${p.name}</b> <span style="color:var(--text2);">${p.primaryPos}</span>${delta ? ` <span style="color:var(--green);font-weight:600;">+${delta}</span>` : ''}${alc ? ` <span style="color:var(--text2);">(aLCV: ${alc})</span>` : ''}</div>`;
+      });
+      html += '</div>';
+    }
+  }
+
+  html += '</div>'; // End action items container
+  return html;
 }
 
 // (renderLeagueRosters removed — combined into renderRoster)

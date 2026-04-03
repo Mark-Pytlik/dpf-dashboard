@@ -145,6 +145,14 @@ a[title^="Sleeper"] { color:var(--green); } a[title^="Avoid"] { color:var(--red)
 .auth-btn { width:100%; padding:10px 12px; font-size:13px; font-weight:600; border:none; border-radius:6px; background:var(--accent2); color:#fff; cursor:pointer; }
 .auth-btn:hover { background:var(--accent); }
 .auth-error { font-size:12px; color:var(--red); margin-top:8px; }
+/* ── Action Items Panel ────────────────────────────────────────────── */
+.action-items-container { max-width:1100px; margin:0 auto; }
+.action-items-badge { display:inline-block; padding:4px 8px; border-radius:4px; font-weight:600; font-size:10px; margin-right:4px; margin-bottom:4px; }
+.action-items-badge.winning { background:rgba(22,163,74,0.15); color:var(--green); }
+.action-items-badge.losing { background:rgba(220,38,38,0.15); color:var(--red); }
+.action-items-badge.neutral { background:rgba(202,138,4,0.15); color:var(--yellow); }
+.action-items-card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:12px; margin-bottom:16px; }
+.action-items-row { padding:8px; background:var(--surface2); border-radius:4px; margin-bottom:6px; font-size:11px; }
 
 /* ── Mobile responsive ──────────────────────────────────────────────── */
 @media (max-width: 768px) {
@@ -233,7 +241,7 @@ a[title^="Sleeper"] { color:var(--green); } a[title^="Avoid"] { color:var(--red)
 <div class="header">
   <div style="display:flex;flex-direction:column;">
     <h1><span>DPF</span> 2026 Dashboard</h1>
-    <div style="font-size:10px;color:var(--text2);margin-top:4px;letter-spacing:0.3px;">v5.5 · build c101f721bcb4 · Last built: Apr 03, 2026 10:15 AM PST</div>
+    <div style="font-size:10px;color:var(--text2);margin-top:4px;letter-spacing:0.3px;">v5.5 · build 4616bd26fa47 · Last built: Apr 03, 2026 10:58 AM PST</div>
   </div>
   <div class="tabs">
     <div class="tab" data-tab="all">Players</div>
@@ -476,10 +484,10 @@ function getKeeperInfoCached(name) {
 function invalidateCaches() { _keeperCache.clear(); _plyrICache.clear(); }
 
 // ── CBS League Transactions (scraped daily) ─────────────────────────────
-const CBS_TRANSACTIONS = [{"date": "4/3/26 2:03 AM ET", "team": "Popped A Mahle I'm Sweating", "teamId": "12", "effective": "4/3/26", "players": [{"name": "Paul Sewald", "pos": "RP", "mlbTeam": "ARI", "action": "Added off Waivers"}, {"name": "Kevin Ginkel", "pos": "RP", "mlbTeam": "ARI", "action": "Dropped"}]}, {"date": "4/2/26 10:47 AM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": "7", "effective": "4/2/26", "players": [{"name": "Willy Adames", "pos": "SS", "mlbTeam": "SF", "action": "Dropped"}]}, {"date": "4/1/26 2:51 PM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": "7", "effective": "4/2/26", "players": [{"name": "Hogan Harris", "pos": "RP", "mlbTeam": "ATH", "action": "Added"}]}, {"date": "4/1/26 2:50 PM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": "7", "effective": "4/2/26", "players": [{"name": "Taj Bradley", "pos": "SP", "mlbTeam": "MIN", "action": "Added"}, {"name": "Payton Tolle", "pos": "RP", "mlbTeam": "BOS", "action": "Dropped"}]}, {"date": "4/1/26 2:46 PM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": "7", "effective": "4/2/26", "players": [{"name": "Colt Keith", "pos": "2B,3B", "mlbTeam": "DET", "action": "Added"}, {"name": "Josh Jung", "pos": "3B", "mlbTeam": "TEX", "action": "Dropped"}]}, {"date": "3/31/26 10:39 PM ET", "team": "Popped A Mahle I'm Sweating", "teamId": "12", "effective": "4/1/26", "players": [{"name": "Owen Caissie", "pos": "RF", "mlbTeam": "MIA", "action": "Added"}, {"name": "Noelvi Marte", "pos": "3B,RF", "mlbTeam": "CIN", "action": "Dropped"}]}, {"date": "3/31/26 8:48 AM ET", "team": "Colonel Corbin's Ascent", "teamId": "3", "effective": "3/31/26", "players": [{"name": "Lance McCullers", "pos": "SP", "mlbTeam": "HOU", "action": "Added"}]}, {"date": "3/31/26 2:19 AM ET", "team": "Colonel Corbin's Ascent", "teamId": "3", "effective": "3/31/26", "players": [{"name": "Randy Vasquez", "pos": "SP", "mlbTeam": "SD", "action": "Added"}]}, {"date": "3/31/26 2:14 AM ET", "team": "Colonel Corbin's Ascent", "teamId": "3", "effective": "3/31/26", "players": [{"name": "Logan Henderson", "pos": "SP", "mlbTeam": "MIL", "action": "Dropped"}]}, {"date": "3/30/26 6:29 PM ET", "team": "Blame it on the Rainiel", "teamId": "6", "effective": "3/31/26", "players": [{"name": "Kyle Manzardo", "pos": "1B", "mlbTeam": "CLE", "action": "Dropped"}]}, {"date": "3/30/26 6:23 PM ET", "team": "Blame it on the Rainiel", "teamId": "6", "effective": "3/31/26", "players": [{"name": "Jordan Walker", "pos": "RF", "mlbTeam": "STL", "action": "Added"}]}, {"date": "3/30/26 9:19 AM ET", "team": "Yesavage Garden", "teamId": "10", "effective": "3/30/26", "players": [{"name": "Cole Sands", "pos": "RP", "mlbTeam": "MIN", "action": "Added"}]}, {"date": "3/29/26 7:20 PM ET", "team": "Popped A Mahle I'm Sweating", "teamId": "12", "effective": "3/30/26", "players": [{"name": "Bryce Hancock", "pos": "SP", "mlbTeam": "SEA", "action": "Added"}, {"name": "Jacob Latz", "pos": "SP,RP", "mlbTeam": "TEX", "action": "Dropped"}]}, {"date": "3/28/26 10:59 PM ET", "team": "Colonel Corbin's Ascent", "teamId": "3", "effective": "3/29/26", "players": [{"name": "Erik Sabrowski", "pos": "RP", "mlbTeam": "CLE", "action": "Added"}, {"name": "Carlos Estevez", "pos": "RP", "mlbTeam": "KC", "action": "Dropped"}]}, {"date": "3/27/26 3:15 PM ET", "team": "Before and After Shohei", "teamId": "11", "effective": "3/27/26", "players": [{"name": "George Lombard", "pos": "SS", "mlbTeam": "NYY", "action": "Added"}]}, {"date": "3/27/26 3:12 PM ET", "team": "Before and After Shohei", "teamId": "11", "effective": "3/27/26", "players": [{"name": "Tanner McDougal", "pos": "SP", "mlbTeam": "CHW", "action": "Added"}]}, {"date": "3/27/26 3:10 PM ET", "team": "Before and After Shohei", "teamId": "11", "effective": "3/27/26", "players": [{"name": "Jordan Romano", "pos": "RP", "mlbTeam": "LAA", "action": "Added"}, {"name": "Louie Varland", "pos": "RP", "mlbTeam": "TOR", "action": "Dropped"}]}, {"date": "3/27/26 9:34 AM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": "7", "effective": "3/27/26", "players": [{"name": "Javier Assad", "pos": "SP", "mlbTeam": "CHC", "action": "Dropped"}]}, {"date": "3/27/26 2:43 AM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": "7", "effective": "3/27/26", "players": [{"name": "Javier Assad", "pos": "SP", "mlbTeam": "CHC", "action": "Added off Waivers"}]}, {"date": "3/26/26 11:24 AM ET", "team": "Colonel Corbin's Ascent", "teamId": "3", "effective": "3/26/26", "players": [{"name": "Carson Whisenhunt", "pos": "SP", "mlbTeam": "SF", "action": "Added"}]}, {"date": "3/26/26 11:22 AM ET", "team": "Colonel Corbin's Ascent", "teamId": "3", "effective": "3/26/26", "players": [{"name": "Kevin Gausman", "pos": "SP", "mlbTeam": "TOR", "action": "Dropped"}]}, {"date": "3/26/26 11:19 AM ET", "team": "Colonel Corbin's Ascent", "teamId": "3", "effective": "3/26/26", "players": [{"name": "Luke Weaver", "pos": "RP", "mlbTeam": "NYY", "action": "Dropped"}]}, {"date": "3/26/26 10:46 AM ET", "team": "Before and After Shohei", "teamId": "11", "effective": "3/26/26", "players": [{"name": "Cristopher Sanchez", "pos": "SP", "mlbTeam": "PHI", "action": "Added"}, {"name": "Chase Anderson", "pos": "RP", "mlbTeam": "CLE", "action": "Dropped"}]}, {"date": "3/26/26 2:25 AM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": "7", "effective": "3/26/26", "players": [{"name": "Javier Assad", "pos": "SP", "mlbTeam": "CHC", "action": "Dropped"}]}, {"date": "3/25/26 11:04 PM ET", "team": "Colonel Corbin's Ascent", "teamId": "3", "effective": "3/26/26", "players": [{"name": "Shota Imanaga", "pos": "SP", "mlbTeam": "CHC", "action": "Added off Waivers"}, {"name": "Tanner Bibee", "pos": "SP", "mlbTeam": "CLE", "action": "Dropped"}]}, {"date": "3/25/26 10:43 PM ET", "team": "Popped A Mahle I'm Sweating", "teamId": "12", "effective": "3/26/26", "players": [{"name": "John Brebbia", "pos": "RP", "mlbTeam": "STL", "action": "Added"}, {"name": "Jared Jones", "pos": "SP", "mlbTeam": "PIT", "action": "Dropped"}]}, {"date": "3/25/26 9:45 PM ET", "team": "Yesavage Garden", "teamId": "10", "effective": "3/26/26", "players": [{"name": "Reynaldo Lopez", "pos": "SP", "mlbTeam": "ATL", "action": "Added off Waivers"}, {"name": "Tobias Myers", "pos": "SP", "mlbTeam": "MIL", "action": "Dropped"}]}, {"date": "3/25/26 7:29 PM ET", "team": "Blame it on the Rainiel", "teamId": "6", "effective": "3/26/26", "players": [{"name": "Garrett Crochet", "pos": "SP", "mlbTeam": "BOS", "action": "Added off Waivers"}, {"name": "Brandon Pfaadt", "pos": "SP", "mlbTeam": "ARI", "action": "Dropped"}]}, {"date": "3/25/26 3:12 PM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": "7", "effective": "3/25/26", "players": [{"name": "Tanner Scott", "pos": "RP", "mlbTeam": "SD", "action": "Added"}, {"name": "Yimi Garcia", "pos": "RP", "mlbTeam": "TOR", "action": "Dropped"}]}, {"date": "3/25/26 2:51 PM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": "7", "effective": "3/25/26", "players": [{"name": "Yusei Kikuchi", "pos": "SP", "mlbTeam": "LAA", "action": "Added"}]}];
-const TXN_BUILD_TIME = 'Apr 03, 2026 10:15 AM PST';
-const PLAYER_NEWS = [{"player": "Yankees", "headline": "How run-it-back Yankees got off to such a hot start", "date": "2026-04-03"}, {"player": "Dylan Cease", "headline": "Trends: Cease's new changeup, McLain's resurgence, more", "date": "2026-04-03"}, {"player": "Paul Skenes", "headline": "Pirates ace Paul Skenes rebounds, even if he still doesn't look himself", "date": "2026-04-03"}, {"player": "MLB", "headline": "MLB Power Rankings: What's real after five days?", "date": "2026-04-03"}, {"player": "Carter Jensen", "headline": "Royals' Jensen scratched from lineup after sleeping through alarm", "date": "2026-04-03"}, {"player": "Konnor Griffin", "headline": "Pirates call up top prospect Konnor Griffin for MLB debut", "date": "2026-04-03"}, {"player": "Masyn Winn", "headline": "Cardinals shortstop Masyn Winn 'OK' after single-car accident", "date": "2026-04-03"}, {"player": "Matt Chapman", "headline": "Frustration spills over for Giants as Chapman appears to cuss out Schmitt", "date": "2026-04-03"}, {"player": "Orioles", "headline": "Orioles beat Rangers on game-ending ABS challenge", "date": "2026-04-03"}, {"player": "Andrew Painter", "headline": "Andrew Painter, top Phillies prospect, impresses in long-awaited debut", "date": "2026-04-02"}, {"player": "Chris Sale", "headline": "Chris Sale illness update - Questionable", "date": "2026-04-03"}, {"player": "Shohei Ohtani", "headline": "Shohei Ohtani placed on IL with shoulder injury", "date": "2026-04-02"}, {"player": "Jordan Lawlar", "headline": "Jordan Lawlar probable to return from wrist issue", "date": "2026-04-03"}, {"player": "Michael Wacha", "headline": "Michael Wacha questionable with illness", "date": "2026-04-03"}, {"player": "Jose Ramirez", "headline": "Jose Ramirez on IL with knee injury, expected back Apr 6", "date": "2026-04-02"}];
-const INJURIES = [{"name": "Garrett Cleavinger", "status": "IL", "injury": "Calf", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Jose Davila", "status": "IL", "injury": "Undisclosed", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Ian Petrutz", "status": "IL", "injury": "Undisclosed", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Johan Oviedo", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Garrett Whitlock", "status": "Out", "injury": "Personal", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Jordan Lawlar", "status": "Probable", "injury": "Wrist", "returnDate": "Probable for Apr 3"}, {"name": "Everson Pereira", "status": "Questionable", "injury": "Ankle", "returnDate": "Expected to be out until at least Apr 4"}, {"name": "Brennan Malone", "status": "Out", "injury": "Undisclosed", "returnDate": "Expected to be out until at least Apr 3"}, {"name": "Nick Lodolo", "status": "IL", "injury": "Finger", "returnDate": "Expected to be out until at least Apr 18"}, {"name": "Trey Yesavage", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Apr 24"}, {"name": "Jadher Areinamo", "status": "Probable", "injury": "Hamstring", "returnDate": "Probable for Apr 3"}, {"name": "Winston Santos", "status": "Probable", "injury": "Hand", "returnDate": "Probable for Apr 3"}, {"name": "Devin Fitz-Gerald", "status": "Probable", "injury": "Shoulder", "returnDate": "Probable for Apr 3"}, {"name": "Matt Cronin", "status": "Out", "injury": "Undisclosed", "returnDate": "Expected to be out until at least Apr 3"}, {"name": "Jon Gray", "status": "Out", "injury": "Shoulder", "returnDate": "Expected to be out until at least Apr 3"}, {"name": "Michael Kopech", "status": "Out", "injury": "Knee", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Ryan Gusto", "status": "Probable", "injury": "Knee", "returnDate": "Probable for Apr 3"}, {"name": "Casey Lawrence", "status": "Out", "injury": "Knee", "returnDate": "Expected to be out until at least Apr 7"}, {"name": "Robert Garcia", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 20"}, {"name": "Wen-Hui Pan", "status": "Probable", "injury": "Elbow", "returnDate": "Probable for Apr 3"}, {"name": "Carter Holton", "status": "Probable", "injury": "Elbow", "returnDate": "Probable for Apr 3"}, {"name": "Josh Knoth", "status": "Probable", "injury": "Elbow", "returnDate": "Probable for Apr 3"}, {"name": "Cade Kuehler", "status": "Probable", "injury": "Elbow", "returnDate": "Probable for Apr 3"}, {"name": "Calvin Ziegler", "status": "Probable", "injury": "Elbow", "returnDate": "Probable for Apr 3"}, {"name": "Justin Campbell", "status": "Probable", "injury": "Elbow", "returnDate": "Probable for Apr 3"}, {"name": "Chris Sale", "status": "Questionable", "injury": "Illness", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Michael Wacha", "status": "Questionable", "injury": "Illness", "returnDate": "Expected to be out until at least Apr 8"}, {"name": "Jose Quintana", "status": "IL", "injury": "Hamstring", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "David Banuelos", "status": "DEVELOPMENTAL LIST", "injury": "Undisclosed", "returnDate": "Expected to be out until at least Apr 3"}, {"name": "Adrian Morejon", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Austin Wells", "status": "IL", "injury": "Wrist", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Clayton Andrews", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "Colton Gordon", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "Matt Harvey", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 3"}, {"name": "Matt Manning", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Ezequiel Tovar", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least Apr 28"}, {"name": "Jared Jones", "status": "IL", "injury": "Foot", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Jesus Luzardo", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jul 1"}, {"name": "Tanner Bibee", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Aug 1"}, {"name": "Camilo Doval", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 15"}, {"name": "Luis Gil", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jul 1"}, {"name": "Brandon Pfaadt", "status": "IL", "injury": "Undisclosed", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Brandon Woodruff", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Cody Morris", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jul 1"}, {"name": "Cole Ragans", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Davis Schneider", "status": "IL", "injury": "Wrist", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Gary Sanchez", "status": "IL", "injury": "Finger", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "James Paxton", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least Aug 1"}, {"name": "Joshua Mears", "status": "IL", "injury": "Hamstring", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Landon Knack", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "Osvaldo Bido", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Reynaldo Lopez", "status": "IL", "injury": "Forearm", "returnDate": "Expected to be out until at least Apr 27"}, {"name": "Shane Bieber", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Brendan White", "status": "Probable", "injury": "Shoulder", "returnDate": "Probable for Apr 3"}, {"name": "Blake Larson", "status": "Questionable", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 4"}, {"name": "Thatcher Hurd", "status": "Probable", "injury": "Elbow", "returnDate": "Probable for Apr 3"}, {"name": "Zack Qin", "status": "Probable", "injury": "Undisclosed", "returnDate": "Probable for Apr 3"}, {"name": "Ryan Forcucci", "status": "Questionable", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 4"}, {"name": "T.J. Brock", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Luis Rodriguez", "status": "Probable", "injury": "Undisclosed", "returnDate": "Probable for Apr 3"}, {"name": "Reggie Crawford", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Ryan Feltner", "status": "Questionable", "injury": "Back", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Matt Pushard", "status": "IL", "injury": "Undisclosed", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Max Scherzer", "status": "IL", "injury": "Undisclosed", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Masataka Yoshida", "status": "IL", "injury": "Calf", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Ryan Brasier", "status": "IL", "injury": "Back", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Shane Baz", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 1"}, {"name": "Bryce Elder", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "Ryne Nelson", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jul 1"}, {"name": "Shohei Ohtani", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Apr 14"}, {"name": "Danny Jansen", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Aug 1"}, {"name": "Michael Busch", "status": "IL", "injury": "Concussion", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Trent Grisham", "status": "IL", "injury": "Hamstring", "returnDate": "Expected to be out until at least Apr 12"}, {"name": "J.D. Martinez", "status": "IL", "injury": "Hip", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Mitch Keller", "status": "IL", "injury": "Oblique", "returnDate": "Expected to be out until at least Apr 26"}, {"name": "Nick Martinez", "status": "IL", "injury": "Undisclosed", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Cade Cavalli", "status": "IL", "injury": "Arm", "returnDate": "Expected to be out until at least Aug 1"}, {"name": "Miguel Rojas", "status": "IL", "injury": "Adductor", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Freddy Peralta", "status": "IL", "injury": "Lat", "returnDate": "Expected to be out until at least May 1"}, {"name": "Tyler Glasnow", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Jose Berrios", "status": "IL", "injury": "Oblique", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Trevor Story", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Apr 5"}, {"name": "Dustin May", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Kyle Harrison", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Apr 14"}, {"name": "Jose Ramirez", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Tyler O'Neill", "status": "IL", "injury": "Hip", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Jacob Misiorowski", "status": "IL", "injury": "Lat", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Dane Dunning", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Clayton Kershaw", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 10"}, {"name": "Spencer Strider", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "Max Fried", "status": "IL", "injury": "Forearm", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "DL Hall", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Jul 1"}, {"name": "JT Brubaker", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "Zack Wheeler", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Apr 14"}, {"name": "Hayden Wesneski", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Aug 1"}, {"name": "Cameron Sullivan", "status": "IL", "injury": "Undisclosed", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Kendry Rojas", "status": "IL", "injury": "Hamstring", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Reed Trimble", "status": "IL", "injury": "Hamstring", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Joe Musgrove", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 25"}, {"name": "Vaughn Grissom", "status": "IL", "injury": "Wrist", "returnDate": "Expected to be out until at least Apr 3"}, {"name": "Ricky Tiedemann", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 5"}, {"name": "Gabriel Rincones", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least Apr 5"}, {"name": "Paul Bonzagni", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Elvis Peguero", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Mar 1"}, {"name": "David Festa", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least May 15"}, {"name": "Jackson Jobe", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Aug 15"}, {"name": "Moises Chace", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jul 1"}, {"name": "Josh Staumont", "status": "IL", "injury": "Undisclosed", "returnDate": "Expected to be out until at least Apr 8"}, {"name": "Justin Armbruester", "status": "IL", "injury": "Lat", "returnDate": "Expected to be out until at least Apr 9"}, {"name": "J.B. Bukauskas", "status": "IL", "injury": "Lat", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Thomas Pannone", "status": "IL", "injury": "Forearm", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Andrew Painter", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Jack Flaherty", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Tobias Myers", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Grayson Rodriguez", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Aug 1"}, {"name": "Justin Martinez", "status": "IL", "injury": "Bicep", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Sandy Alcantara", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Jose Soriano", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Marcus Stroman", "status": "IL", "injury": "Forearm", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Tyler Mahle", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Christian Encarnacion-Strand", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least May 1"}, {"name": "Bobby Miller", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least May 1"}, {"name": "Brendan McKay", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Andres Munoz", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least Apr 20"}, {"name": "Taylor Walls", "status": "IL", "injury": "Oblique", "returnDate": "Expected to be out until at least Apr 14"}, {"name": "Craig Yoho", "status": "IL", "injury": "Calf", "returnDate": "Expected to be out until at least Apr 12"}, {"name": "Zach Dezenzo", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 24"}, {"name": "Seiya Suzuki", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Mike Vasil", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jul 1, 2027"}, {"name": "Caleb Ferguson", "status": "IL", "injury": "Oblique", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Miles Mastrobuoni", "status": "IL", "injury": "Calf", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Brooks Baldwin", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "Maximo Acosta", "status": "IL", "injury": "Undisclosed", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Brandon Marsh", "status": "IL", "injury": "Hamstring", "returnDate": "Expected to be out until at least Apr 12"}, {"name": "Eloy Jimenez", "status": "IL", "injury": "Wrist", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Ross Stripling", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Nick Pivetta", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "Keider Montero", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Apr 14"}, {"name": "Adrian Houser", "status": "IL", "injury": "Back", "returnDate": "Expected to be out until at least May 1"}, {"name": "Cooper Hjerpe", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jul 1"}, {"name": "Jake Bauers", "status": "IL", "injury": "Oblique", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Jackson Holliday", "status": "IL", "injury": "Hand", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Sawyer Gipson-Long", "status": "IL", "injury": "Oblique", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Bailey Horn", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 24"}, {"name": "Anthony Santander", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Aug 1"}, {"name": "Blake Snell", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least May 29"}, {"name": "Ha-seong Kim", "status": "IL", "injury": "Finger", "returnDate": "Expected to be out until at least May 12"}, {"name": "Griffin Canning", "status": "IL", "injury": "Achilles", "returnDate": "Expected to be out until at least Apr 27"}, {"name": "Danny Young", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jul 1"}, {"name": "Sam Hentges", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Joc Pederson", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Patrick Corbin", "status": "IL", "injury": "Groin", "returnDate": "Expected to be out until at least Apr 12"}, {"name": "Joey Wiemer", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Adam Cimber", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Shane McClanahan", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Andrew Benintendi", "status": "IL", "injury": "Back", "returnDate": "Expected to be out until at least Apr 12"}, {"name": "Kyle Tucker", "status": "IL", "injury": "Foot", "returnDate": "Expected to be out until at least Apr 20"}, {"name": "Carlos Carrasco", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Jeffrey Springs", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least May 1"}, {"name": "Michael King", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "Bryan Hudson", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Brayan Rocchio", "status": "IL", "injury": "Hamstring", "returnDate": "Expected to be out until at least Apr 14"}, {"name": "Brady Singer", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Apr 22"}, {"name": "Seth Lugo", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least May 8"}, {"name": "Jose Leclerc", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Jul 1"}, {"name": "Kevin Gausman", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Aug 1"}, {"name": "Joey Wentz", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least Feb 1"}, {"name": "Tyler Austin", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least May 23"}, {"name": "Ben Joyce", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Anthony Rendon", "status": "IL", "injury": "Hip", "returnDate": "Expected to be out until at least Feb 1"}, {"name": "Ethan Conrad", "status": "Out", "injury": "Back", "returnDate": "Expected to be out until at least May 1"}, {"name": "Josiah Gray", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 29"}, {"name": "Paxton Schultz", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Hunter Greene", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jul 1"}, {"name": "Tekoah Roby", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Brandon Lowe", "status": "IL", "injury": "Oblique", "returnDate": "Expected to be out until at least Apr 14"}, {"name": "Colton Cowser", "status": "IL", "injury": "Wrist", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Walker Buehler", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Mason Miller", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jul 1"}, {"name": "Justin Verlander", "status": "IL", "injury": "Undisclosed", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Will Smith", "status": "IL", "injury": "Oblique", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Robbie Ray", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jul 1"}, {"name": "Yimi Garcia", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Cristian Mena", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Andrew Walters", "status": "IL", "injury": "Lat", "returnDate": "Expected to be out until at least May 1"}, {"name": "A.J. Smith-Shawver", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Aug 1"}, {"name": "Ronel Blanco", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Aug 1"}, {"name": "A.J. Minter", "status": "IL", "injury": "Lat", "returnDate": "Expected to be out until at least May 1"}, {"name": "Justin Steele", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 25"}, {"name": "Blake Walston", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jul 1"}, {"name": "Cody Bradford", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "Prelander Berroa", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "James McArthur", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "Drew Thorpe", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Brusdar Graterol", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least May 1"}, {"name": "Kirby Yates", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Alek Manoah", "status": "IL", "injury": "Finger", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Akil Baddoo", "status": "IL", "injury": "Quadriceps", "returnDate": "Expected to be out until at least Apr 14"}, {"name": "Fernando Tatis Jr.", "status": "Suspended", "injury": "", "returnDate": "Suspended until Feb 1"}, {"name": "Evan Phillips", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jul 17"}, {"name": "Shelby Miller", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Feb 1"}, {"name": "Aiva Arquette", "status": "Out", "injury": "Groin", "returnDate": "Expected to be out until at least Apr 4"}, {"name": "Austin Peterson", "status": "Out", "injury": "Triceps", "returnDate": "Expected to be out until at least Apr 11"}, {"name": "Pablo Lopez", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 1"}, {"name": "Ryan Harbin", "status": "Out", "injury": "Lat", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Brian Holiday", "status": "Out", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Jake Miller", "status": "Out", "injury": "Hip", "returnDate": "Expected to be out until at least May 1"}, {"name": "Rowan Wick", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "Sean Manaea", "status": "IL", "injury": "Forearm", "returnDate": "Expected to be out until at least Apr 12"}, {"name": "Lance Lynn", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least May 10"}, {"name": "Andre Lipcius", "status": "Out", "injury": "Wrist", "returnDate": "Expected to be out until at least May 1"}, {"name": "Robert Suarez", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Chris Bassitt", "status": "IL", "injury": "Undisclosed", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Jake Irvin", "status": "IL", "injury": "Wrist", "returnDate": "Expected to be out until at least Apr 12"}, {"name": "Patrick Sandoval", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Elly De La Cruz", "status": "IL", "injury": "Wrist", "returnDate": "Expected to be out until at least Apr 10"}, {"name": "Triston McKenzie", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 5"}, {"name": "Jordan Hicks", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Gavin Stone", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Kyle Bradish", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "Jose Ramirez", "status": "IL", "injury": "Knee", "returnDate": "Expected to be out until at least Apr 6"}, {"name": "Corbin Burnes", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Apr 15"}, {"name": "Bryce Harper", "status": "Out", "injury": "Personal", "returnDate": "Expected to be out until at least May 4"}, {"name": "Conrad Cason", "status": "Out", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Trevor Williams", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 1"}, {"name": "Tyler Stuart", "status": "Out", "injury": "Elbow", "returnDate": "Expected to be out until at least Sep 1"}, {"name": "Clarke Schmidt", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Aug 1"}, {"name": "Dedniel Nunez", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Sep 1"}, {"name": "Luis Ortiz", "status": "Out", "injury": "Personal", "returnDate": "Expected to be out until at least May 1"}, {"name": "Spencer Schwellenbach", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Jun 2"}, {"name": "Tylor Megill", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Feb 1"}, {"name": "Bowden Francis", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least May 1"}, {"name": "Emmet Sheehan", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Aug 1"}, {"name": "Brandon McMullen", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Aug 1"}, {"name": "Kumar Rocker", "status": "IL", "injury": "Elbow", "returnDate": "Expected to be out until at least Aug 1"}, {"name": "Kodai Senga", "status": "IL", "injury": "Shoulder", "returnDate": "Expected to be out until at least May 1"}];
+const CBS_TRANSACTIONS = [{"date": "4/3/26 2:03 AM ET", "team": "Popped A Mahle I'm Sweating", "effective": "4/3/26", "players": [{"name": "Paul Sewald", "pos": "RP", "mlbTeam": "ARI", "action": "Added off Waivers"}, {"name": "Kevin Ginkel", "pos": "RP", "mlbTeam": "ARI", "action": "Dropped"}], "teamId": 12}, {"date": "4/2/26 10:47 AM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "effective": "4/2/26", "players": [{"name": "Willy Adames", "pos": "SS", "mlbTeam": "SF", "action": "Dropped"}], "teamId": 7}, {"date": "4/1/26 2:51 PM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "effective": "4/2/26", "players": [{"name": "Hogan Harris", "pos": "RP", "mlbTeam": "ATH", "action": "Added"}], "teamId": 7}, {"date": "4/1/26 2:50 PM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "effective": "4/2/26", "players": [{"name": "Taj Bradley", "pos": "SP", "mlbTeam": "MIN", "action": "Added"}, {"name": "Payton Tolle", "pos": "RP", "mlbTeam": "BOS", "action": "Dropped"}], "teamId": 7}, {"date": "4/1/26 2:46 PM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "effective": "4/2/26", "players": [{"name": "Colt Keith", "pos": "2B,3B", "mlbTeam": "DET", "action": "Added"}, {"name": "Josh Jung", "pos": "3B", "mlbTeam": "TEX", "action": "Dropped"}], "teamId": 7}, {"date": "3/31/26 10:39 PM ET", "team": "Popped A Mahle I'm Sweating", "effective": "4/1/26", "players": [{"name": "Owen Caissie", "pos": "RF", "mlbTeam": "MIA", "action": "Added"}, {"name": "Noelvi Marte", "pos": "3B,RF", "mlbTeam": "CIN", "action": "Dropped"}], "teamId": 12}, {"date": "3/31/26 8:48 AM ET", "team": "Colonel Corbin's Ascent", "effective": "3/31/26", "players": [{"name": "Lance McCullers", "pos": "SP", "mlbTeam": "HOU", "action": "Added"}], "teamId": 3}, {"date": "3/31/26 2:19 AM ET", "team": "Colonel Corbin's Ascent", "effective": "3/31/26", "players": [{"name": "Randy Vasquez", "pos": "SP", "mlbTeam": "SD", "action": "Added"}], "teamId": 3}, {"date": "3/31/26 2:14 AM ET", "team": "Colonel Corbin's Ascent", "effective": "3/31/26", "players": [{"name": "Logan Henderson", "pos": "SP", "mlbTeam": "MIL", "action": "Dropped"}], "teamId": 3}, {"date": "3/30/26 6:29 PM ET", "team": "Blame it on the Rainiel", "effective": "3/31/26", "players": [{"name": "Kyle Manzardo", "pos": "1B", "mlbTeam": "CLE", "action": "Dropped"}], "teamId": 10}, {"date": "3/30/26 6:23 PM ET", "team": "Blame it on the Rainiel", "effective": "3/31/26", "players": [{"name": "Jordan Walker", "pos": "RF", "mlbTeam": "STL", "action": "Added"}], "teamId": 10}, {"date": "3/30/26 9:19 AM ET", "team": "Yesavage Garden", "effective": "3/30/26", "players": [{"name": "Cole Sands", "pos": "RP", "mlbTeam": "MIN", "action": "Added"}], "teamId": 9}, {"date": "3/30/26 9:18 AM ET", "team": "Yesavage Garden", "effective": "3/30/26", "players": [{"name": "Anthony Volpe", "pos": "SS", "mlbTeam": "NYY", "action": "Dropped"}], "teamId": 9}, {"date": "3/29/26 11:29 PM ET", "team": "Buddy Buddy Buddy All On Base", "effective": "3/30/26", "players": [{"name": "Royce Lewis", "pos": "3B", "mlbTeam": "MIN", "action": "Added"}], "teamId": 5}, {"date": "3/29/26 10:21 PM ET", "team": "Before and After Shohei", "effective": "3/30/26", "players": [{"name": "Emerson Hancock", "pos": "SP", "mlbTeam": "SEA", "action": "Added"}, {"name": "Jacob Latz", "pos": "SP,RP", "mlbTeam": "TEX", "action": "Dropped"}], "teamId": 11}, {"date": "3/28/26 10:59 PM ET", "team": "Colonel Corbin's Ascent", "effective": "3/29/26", "players": [{"name": "Erik Sabrowski", "pos": "RP", "mlbTeam": "CLE", "action": "Added"}, {"name": "Carlos Estevez", "pos": "RP", "mlbTeam": "KC", "action": "Dropped"}], "teamId": 3}, {"date": "3/27/26 3:15 PM ET", "team": "Before and After Shohei", "effective": "3/27/26", "players": [{"name": "George Lombard", "pos": "SS", "mlbTeam": "NYY", "action": "Added"}], "teamId": 11}, {"date": "3/27/26 3:12 PM ET", "team": "Before and After Shohei", "effective": "3/27/26", "players": [{"name": "Tanner McDougal", "pos": "SP", "mlbTeam": "CHW", "action": "Added"}], "teamId": 11}, {"date": "3/27/26 3:10 PM ET", "team": "Before and After Shohei", "effective": "3/27/26", "players": [{"name": "Jordan Romano", "pos": "RP", "mlbTeam": "LAA", "action": "Added"}, {"name": "Louie Varland", "pos": "RP", "mlbTeam": "TOR", "action": "Dropped"}], "teamId": 11}, {"date": "3/27/26 9:34 AM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": 7, "players": [{"name": "Javier Assad", "pos": "SP", "mlbTeam": "CHC", "action": "Dropped"}], "effective": "3/27/26"}, {"date": "3/27/26 2:43 AM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": 7, "players": [{"name": "Javier Assad", "pos": "SP", "mlbTeam": "CHC", "action": "Added off Waivers"}], "effective": "3/27/26"}, {"date": "3/26/26 11:24 AM ET", "team": "Colonel Corbin's Ascent", "teamId": 3, "players": [{"name": "A.J. Minter", "pos": "RP", "mlbTeam": "NYM", "action": "Dropped"}], "effective": "3/26/26"}, {"date": "3/26/26 7:32 AM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Tyler Mahle", "pos": "SP", "mlbTeam": "SF", "action": "Added"}], "effective": "3/26/26"}, {"date": "3/25/26 10:46 PM ET", "team": "Popped A Mahle I'm Sweating", "teamId": 12, "players": [{"name": "Carson Williams", "pos": "SS", "mlbTeam": "TB", "action": "Added"}], "effective": "3/26/26"}, {"date": "3/25/26 2:58 PM ET", "team": "Weird Fishes / Arrighetti", "teamId": 1, "players": [{"name": "Jose Alvarado", "pos": "RP", "mlbTeam": "PHI", "action": "Added"}, {"name": "Gabe Speier", "pos": "RP", "mlbTeam": "SEA", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/25/26 2:55 PM ET", "team": "Colonel Corbin's Ascent", "teamId": 3, "players": [{"name": "A.J. Minter", "pos": "RP", "mlbTeam": "NYM", "action": "Added"}], "effective": "3/25/26"}, {"date": "3/25/26 2:55 PM ET", "team": "Colonel Corbin's Ascent", "teamId": 3, "players": [{"name": "Andrew Kittredge", "pos": "RP", "mlbTeam": "BAL", "action": "Added"}], "effective": "3/25/26"}, {"date": "3/25/26 2:52 PM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": 7, "players": [{"name": "Ryan Zeferjahn", "pos": "RP", "mlbTeam": "LAA", "action": "Added"}], "effective": "3/25/26"}, {"date": "3/25/26 2:52 PM ET", "team": "Dinosaur Jr Caminero", "teamId": 2, "players": [{"name": "Jorge Polanco", "pos": "2B", "mlbTeam": "NYM", "action": "Added"}, {"name": "Brayan Bello", "pos": "SP", "mlbTeam": "BOS", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/25/26 2:52 PM ET", "team": "Colonel Corbin's Ascent", "effective": "3/25/26", "players": [{"name": "Carlos Estevez", "pos": "RP", "mlbTeam": "KC", "action": "Added"}], "teamId": 3}, {"date": "3/25/26 2:51 PM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": 7, "players": [{"name": "Yusei Kikuchi", "pos": "SP", "mlbTeam": "LAA", "action": "Added"}], "effective": "3/25/26"}, {"date": "3/25/26 2:51 PM ET", "team": "Dinosaur Jr Caminero", "teamId": 2, "players": [{"name": "Orion Kerkering", "pos": "RP", "mlbTeam": "PHI", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/25/26 2:50 PM ET", "team": "Before and After Shohei", "teamId": 11, "players": [{"name": "Jack Dreyer", "pos": "SP,RP", "mlbTeam": "LAD", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/25/26 2:48 PM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": 7, "players": [{"name": "Mike Soroka", "pos": "SP", "mlbTeam": "ARI", "action": "Added"}], "effective": "3/25/26"}, {"date": "3/25/26 2:24 PM ET", "team": "Yesavage Garden", "teamId": 9, "players": [{"name": "Dylan Lee", "pos": "RP", "mlbTeam": "ATL", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/25/26 1:37 PM ET", "team": "Popped A Mahle I'm Sweating", "teamId": 12, "players": [{"name": "Chris Martin", "pos": "RP", "mlbTeam": "TEX", "action": "Added"}], "effective": "3/25/26"}, {"date": "3/25/26 9:20 AM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": 7, "players": [{"name": "Trent Grisham", "pos": "CF", "mlbTeam": "NYY", "action": "Added"}, {"name": "Andrew Benintendi", "pos": "LF", "mlbTeam": "CHW", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/25/26 9:18 AM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": 7, "players": [{"name": "Andrew Benintendi", "pos": "LF", "mlbTeam": "CHW", "action": "Added"}, {"name": "Andrew Vaughn", "pos": "1B", "mlbTeam": "MIL", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/25/26 9:04 AM ET", "team": "Yesavage Garden", "teamId": 9, "players": [{"name": "Ha-seong Kim", "pos": "SS", "mlbTeam": "ATL", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/24/26 12:56 PM ET", "team": "Before and After Shohei", "teamId": 11, "players": [{"name": "Hunter Barco", "pos": "RP", "mlbTeam": "PIT", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/24/26 12:54 PM ET", "team": "Ballesteros, Let the Rhythm Take You Over", "teamId": 8, "players": [{"name": "Marcelo Mayer", "pos": "3B", "mlbTeam": "BOS", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/24/26 12:47 PM ET", "team": "Ballesteros, Let the Rhythm Take You Over", "teamId": 8, "players": [{"name": "Jared Koenig", "pos": "RP", "mlbTeam": "MIL", "action": "Added"}, {"name": "Jose Ferrer", "pos": "RP", "mlbTeam": "SEA", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/24/26 12:45 PM ET", "team": "Ballesteros, Let the Rhythm Take You Over", "teamId": 8, "players": [{"name": "Matt Strahm", "pos": "RP", "mlbTeam": "KC", "action": "Added"}, {"name": "Edwin Uceta", "pos": "RP", "mlbTeam": "TB", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/24/26 12:34 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Bryan King", "pos": "RP", "mlbTeam": "HOU", "action": "Added"}], "effective": "3/25/26"}, {"date": "3/24/26 11:56 AM ET", "team": "Before and After Shohei", "teamId": 11, "players": [{"name": "Johan Oviedo", "pos": "SP", "mlbTeam": "BOS", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/24/26 10:07 AM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": 7, "players": [{"name": "Javier Assad", "pos": "SP", "mlbTeam": "CHC", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/24/26 10:07 AM ET", "team": "Dinosaur Jr Caminero", "teamId": 2, "players": [{"name": "Shane Drohan", "pos": "SP", "mlbTeam": "MIL", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/24/26 10:05 AM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": 7, "players": [{"name": "Carson Whisenhunt", "pos": "SP", "mlbTeam": "SF", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/24/26 10:04 AM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": 7, "players": [{"name": "Cade Smith", "pos": "SP", "mlbTeam": "NYY", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/24/26 10:04 AM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": 7, "players": [{"name": "Josue Briceno", "pos": "C", "mlbTeam": "DET", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/24/26 10:03 AM ET", "team": "Whoop Whoop that's the sound of Dylan Cease", "teamId": 7, "players": [{"name": "Jose Butto", "pos": "RP", "mlbTeam": "SF", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/24/26 1:22 AM ET", "team": "Colonel Corbin's Ascent", "teamId": 3, "players": [{"name": "Nasim Nunez", "pos": "SS", "mlbTeam": "WAS", "action": "Added"}], "effective": "3/25/26"}, {"date": "3/23/26 1:30 PM ET", "team": "Ballesteros, Let the Rhythm Take You Over", "teamId": 8, "players": [{"name": "Coby Mayo", "pos": "1B", "mlbTeam": "BAL", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/23/26 1:24 PM ET", "team": "Ballesteros, Let the Rhythm Take You Over", "teamId": 8, "players": [{"name": "Evan Carter", "pos": "CF", "mlbTeam": "TEX", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/23/26 9:22 AM ET", "team": "Colonel Corbin's Ascent", "teamId": 3, "players": [{"name": "Royce Lewis", "pos": "3B", "mlbTeam": "MIN", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/23/26 1:09 AM ET", "team": "Colonel Corbin's Ascent", "teamId": 3, "players": [{"name": "Alec Bohm", "pos": "", "mlbTeam": "", "action": "Added off Waivers"}, {"name": "Carlos Lagrange", "pos": "SP", "mlbTeam": "NYY", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/23/26 1:09 AM ET", "team": "Colonel Corbin's Ascent", "teamId": 3, "players": [{"name": "Royce Lewis", "pos": "", "mlbTeam": "", "action": "Added off Waivers"}, {"name": "Jasson Dominguez", "pos": "LF", "mlbTeam": "NYY", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/22/26 5:44 PM ET", "team": "Buddy Buddy Buddy All On Base", "teamId": 5, "players": [{"name": "Caleb Durbin", "pos": "2B", "mlbTeam": "CIN", "action": "Added off Waivers"}, {"name": "Jordan Beck", "pos": "LF", "mlbTeam": "COL", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/22/26 5:44 PM ET", "team": "Buddy Buddy Buddy All On Base", "teamId": 5, "players": [{"name": "Braxton Ashcraft", "pos": "SP", "mlbTeam": "PIT", "action": "Added off Waivers"}, {"name": "TJ Rumfield", "pos": "1B", "mlbTeam": "COL", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/22/26 2:14 PM ET", "team": "Yesavage Garden", "teamId": 9, "players": [{"name": "Dylan Lee", "pos": "RP", "mlbTeam": "ATL", "action": "Added off Waivers"}, {"name": "Gage Jump", "pos": "SP", "mlbTeam": "LAA", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/22/26 2:12 PM ET", "team": "Yesavage Garden", "teamId": 9, "players": [{"name": "Salvador Perez", "pos": "C", "mlbTeam": "KC", "action": "Added off Waivers"}, {"name": "Nasim Nunez", "pos": "SS", "mlbTeam": "WAS", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/22/26 9:20 AM ET", "team": "Weird Fishes / Arrighetti", "teamId": 1, "players": [{"name": "Gabe Speier", "pos": "RP", "mlbTeam": "SEA", "action": "Added off Waivers"}, {"name": "Shawn Armstrong", "pos": "RP", "mlbTeam": "CLE", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Edwin Arroyo", "pos": "SS", "mlbTeam": "CIN", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Daylen Lile", "pos": "LF", "mlbTeam": "KC", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Mickey Moniak", "pos": "LF", "mlbTeam": "PHI", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Max Meyer", "pos": "RP", "mlbTeam": "MIA", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Shane Smith", "pos": "RP", "mlbTeam": "NYM", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Hunter Harvey", "pos": "RP", "mlbTeam": "KC", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Giancarlo Stanton", "pos": "", "mlbTeam": "", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Bryan Reynolds", "pos": "", "mlbTeam": "", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Brendan Donovan", "pos": "", "mlbTeam": "", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Rhett Lowder", "pos": "", "mlbTeam": "", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Blake Snell", "pos": "", "mlbTeam": "", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Andrew Abbott", "pos": "", "mlbTeam": "", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Lucas Erceg", "pos": "", "mlbTeam": "", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Shane Bieber", "pos": "", "mlbTeam": "", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Hunter Gaddis", "pos": "", "mlbTeam": "", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Corbin Burnes", "pos": "SP", "mlbTeam": "ARI", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:19 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Kyle Harrison", "pos": "SP", "mlbTeam": "SF", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:18 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Corbin Burnes", "pos": "SP", "mlbTeam": "ARI", "action": "Added off Waivers"}, {"name": "Spencer Arrighetti", "pos": "SP", "mlbTeam": "HOU", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:18 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Kyle Harrison", "pos": "SP", "mlbTeam": "SF", "action": "Added off Waivers"}, {"name": "Tyler Stephenson", "pos": "C", "mlbTeam": "CIN", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:18 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Luis Castillo", "pos": "SP", "mlbTeam": "LAD", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:18 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Trevor Megill", "pos": "RP", "mlbTeam": "MIL", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:18 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Matthew Boyd", "pos": "SP", "mlbTeam": "CLE", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:18 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Noah Cameron", "pos": "", "mlbTeam": "", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:18 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Josh Hader", "pos": "RP", "mlbTeam": "HOU", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:18 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Edwin Diaz", "pos": "RP", "mlbTeam": "NYM", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:18 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Alex Bregman", "pos": "3B", "mlbTeam": "BOS", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:17 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Kerry Carpenter", "pos": "LF,RF", "mlbTeam": "DET", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:17 PM ET", "team": "A Pete Crow-Armstrong Looked at Me", "teamId": 6, "players": [{"name": "Taylor Ward", "pos": "RF", "mlbTeam": "LAA", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:15 PM ET", "team": "Before and After Shohei", "teamId": 11, "players": [{"name": "Cam Smith", "pos": "SP", "mlbTeam": "TOR", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:15 PM ET", "team": "Before and After Shohei", "teamId": 11, "players": [{"name": "Andy Pages", "pos": "RF", "mlbTeam": "LAD", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:15 PM ET", "team": "Before and After Shohei", "teamId": 11, "players": [{"name": "Gregory Soto", "pos": "RP", "mlbTeam": "BAL", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:15 PM ET", "team": "Before and After Shohei", "teamId": 11, "players": [{"name": "Spencer Schwellenbach", "pos": "SP", "mlbTeam": "ATL", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:14 PM ET", "team": "Before and After Shohei", "teamId": 11, "players": [{"name": "Josh H. Smith", "pos": "3B", "mlbTeam": "TEX", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:14 PM ET", "team": "Before and After Shohei", "teamId": 11, "players": [{"name": "Jack Dreyer", "pos": "SP,RP", "mlbTeam": "LAD", "action": "Added off Waivers"}, {"name": "Colt Keith", "pos": "2B,3B", "mlbTeam": "DET", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:14 PM ET", "team": "Before and After Shohei", "teamId": 11, "players": [{"name": "Landen Roupp", "pos": "", "mlbTeam": "", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:14 PM ET", "team": "Before and After Shohei", "teamId": 11, "players": [{"name": "David Bednar", "pos": "RP", "mlbTeam": "PIT", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:14 PM ET", "team": "Before and After Shohei", "teamId": 11, "players": [{"name": "Louis Varland", "pos": "SP", "mlbTeam": "MIN", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:13 PM ET", "team": "Before and After Shohei", "teamId": 11, "players": [{"name": "Joe Musgrove", "pos": "SP", "mlbTeam": "SD", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:12 PM ET", "team": "Blame it on the Rainiel", "teamId": 10, "players": [{"name": "Addison Barger", "pos": "2B,SS", "mlbTeam": "TOR", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:12 PM ET", "team": "Blame it on the Rainiel", "teamId": 10, "players": [{"name": "Casey Mize", "pos": "SP", "mlbTeam": "DET", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:12 PM ET", "team": "Blame it on the Rainiel", "teamId": 10, "players": [{"name": "Willi Castro", "pos": "2B,3B,SS", "mlbTeam": "MIN", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:11 PM ET", "team": "Blame it on the Rainiel", "teamId": 10, "players": [{"name": "Braxton Garrett", "pos": "SP", "mlbTeam": "MIA", "action": "Dropped"}], "effective": "3/25/26"}, {"date": "3/21/26 10:10 PM ET", "team": "Blame it on the Rainiel", "teamId": 10, "players": [{"name": "Jared Jones", "pos": "SP", "mlbTeam": "PIT", "action": "Dropped"}], "effective": "3/25/26"}];
+const TXN_BUILD_TIME = 'Apr 03, 2026 10:58 AM PST';
+const PLAYER_NEWS = [{"player": "Various", "headline": "Week 3 two-start pitcher rankings", "date": "2026-04-03"}, {"player": "Various", "headline": "Rankings risers: Towers' stock up, stock down", "date": "2026-04-03"}, {"player": "Konnor Griffin", "headline": "Konnor Griffin debut: Fantasy fallout", "date": "2026-04-03"}, {"player": "Various", "headline": "Week 2 Trade Values", "date": "2026-04-02"}, {"player": "Various", "headline": "Rankings Movers: 10 biggest changes", "date": "2026-04-02"}, {"player": "Garrett Crochet", "headline": "Waivers: Crochet shows red flags", "date": "2026-04-02"}, {"player": "Konnor Griffin", "headline": "Prospects: Griffin, Condon await - Sam Antonacci quickly raising his stock", "date": "2026-04-02"}, {"player": "Various", "headline": "Pitching debuts offer optimism - Strong returns from injury offer early optimism", "date": "2026-04-02"}, {"player": "Various", "headline": "Positional Eligibility Updates - Who has gained new eligibility so far?", "date": "2026-04-01"}, {"player": "Various", "headline": "Bullpen breakdown for all 30 teams - Start of season clarifying closer roles", "date": "2026-04-01"}, {"player": "Various", "headline": "Early pitching standouts - Early returns appear promising but sustainability questions remain", "date": "2026-04-01"}, {"player": "Various", "headline": "Six Opening Weekend takeaways - Hot starts, velocity concerns, and early trends", "date": "2026-03-31"}, {"player": "Various", "headline": "10 notable numbers so far - Key stats from opening weekend", "date": "2026-03-31"}, {"player": "Various", "headline": "Week 2 two-start pitcher rankings", "date": "2026-03-31"}, {"player": "Sandy Alcantara", "headline": "Alcantara pitches complete game vs White Sox, allowing 3 hits with 7 strikeouts", "date": "2026-04-02"}, {"player": "Nick Lodolo", "headline": "Lodolo (blister) scheduled to throw 60-65 pitches in rehab start for Single-A Daytona", "date": "2026-04-02"}, {"player": "Jack Leiter", "headline": "Leiter impresses with deeper pitch mix in impressive first start of 2026 season", "date": "2026-04-01"}, {"player": "Corbin Carroll", "headline": "Carroll recovering from hamate bone surgery - fantasy managers should be patient with power timeline", "date": "2026-04-01"}, {"player": "Francisco Lindor", "headline": "Lindor also recovering from hamate bone surgery - power impact expected early in season", "date": "2026-04-01"}, {"player": "Jackson Chourio", "headline": "Chourio placed on 10-Day IL with undisclosed issue - expected return around Apr 10", "date": "2026-03-30"}];
+const INJURIES = [{"name": "Gunnar Hoglund", "status": "O", "injury": "Back", "returnDate": "Apr 10"}, {"name": "Jordan Lawlar", "status": "DTD", "injury": "Wrist", "returnDate": "Apr 3"}, {"name": "Adrian Del Castillo", "status": "O", "injury": "Calf", "returnDate": "Apr 3"}, {"name": "A.J. Puk", "status": "O", "injury": "Elbow", "returnDate": "Jun 15"}, {"name": "Merrill Kelly", "status": "O", "injury": "Ribs", "returnDate": "Apr 8"}, {"name": "Pavin Smith", "status": "O", "injury": "Elbow", "returnDate": "Apr 8"}, {"name": "Lourdes Gurriel", "status": "O", "injury": "Knee", "returnDate": "May 1"}, {"name": "Cristian Mena", "status": "O", "injury": "Shoulder", "returnDate": "Jun 1"}, {"name": "Blake Walston", "status": "O", "injury": "Elbow", "returnDate": "Jul 1"}, {"name": "Tyler Locklear", "status": "O", "injury": "Elbow", "returnDate": "May 18"}, {"name": "Corbin Burnes", "status": "O", "injury": "Elbow", "returnDate": "Jul 17"}, {"name": "Justin Martinez", "status": "O", "injury": "Elbow", "returnDate": "Aug 21"}, {"name": "Andrew Saalfrank", "status": "O", "injury": "Shoulder", "returnDate": "Feb 1"}, {"name": "Max Fried", "status": "O", "injury": "Forearm", "returnDate": "Apr 10"}, {"name": "Ian Anderson", "status": "O", "injury": "Elbow", "returnDate": "Aug 1"}, {"name": "Ozzie Albies", "status": "O", "injury": "Wrist", "returnDate": "May 1"}, {"name": "Ramon Laureano", "status": "O", "injury": "Hip", "returnDate": "Apr 10"}, {"name": "Austin Riley", "status": "O", "injury": "Knee", "returnDate": "May 15"}, {"name": "Heston Kjerstad", "status": "O", "injury": "Knee", "returnDate": "Apr 10"}, {"name": "John Means", "status": "O", "injury": "Elbow", "returnDate": "Jun 1"}, {"name": "Matt Bowman", "status": "O", "injury": "Elbow", "returnDate": "May 1"}, {"name": "Cedric Mullins", "status": "O", "injury": "Groin", "returnDate": "Apr 14"}, {"name": "Garrett Crochet", "status": "O", "injury": "Elbow", "returnDate": "Jul 1"}, {"name": "Cooper Criswell", "status": "O", "injury": "Elbow", "returnDate": "Jun 1"}, {"name": "James Paxton", "status": "O", "injury": "Back", "returnDate": "Apr 15"}, {"name": "Chris Sale", "status": "O", "injury": "Back", "returnDate": "Apr 10"}, {"name": "Brayan Bello", "status": "O", "injury": "Shoulder", "returnDate": "May 1"}, {"name": "Wilyer Abreu", "status": "O", "injury": "Shoulder", "returnDate": "Apr 10"}, {"name": "Jake Burger", "status": "O", "injury": "Groin", "returnDate": "May 1"}, {"name": "Javier Assad", "status": "O", "injury": "Shoulder", "returnDate": "Apr 18"}, {"name": "Caleb Kilian", "status": "O", "injury": "Elbow", "returnDate": "Aug 1"}, {"name": "Isaac Paredes", "status": "O", "injury": "Shoulder", "returnDate": "Apr 6"}, {"name": "Christian Encarnacion-Strand", "status": "O", "injury": "Hand", "returnDate": "Apr 10"}, {"name": "Hunter Greene", "status": "O", "injury": "Elbow", "returnDate": "Jul 1"}, {"name": "Noelvi Marte", "status": "O", "injury": "Knee", "returnDate": "Apr 8"}, {"name": "Sam Moll", "status": "O", "injury": "Elbow", "returnDate": "Feb 1"}, {"name": "Spencer Steer", "status": "O", "injury": "Back", "returnDate": "Apr 10"}, {"name": "Rhett Lowder", "status": "O", "injury": "Elbow", "returnDate": "Apr 24"}, {"name": "Brandon Lowe", "status": "O", "injury": "Wrist", "returnDate": "Apr 14"}, {"name": "Tanner Bibee", "status": "O", "injury": "Elbow", "returnDate": "Apr 15"}, {"name": "Porter Hodge", "status": "O", "injury": "Elbow", "returnDate": "May 1"}, {"name": "Jordan Wicks", "status": "O", "injury": "Elbow", "returnDate": "Apr 15"}, {"name": "Justin Steele", "status": "O", "injury": "Elbow", "returnDate": "May 25"}, {"name": "Seiya Suzuki", "status": "O", "injury": "Knee", "returnDate": "Apr 10"}, {"name": "Tyler Austin", "status": "O", "injury": "Knee", "returnDate": "May 23"}, {"name": "Shelby Miller", "status": "O", "injury": "Elbow", "returnDate": "Feb 1"}, {"name": "Everson Pereira", "status": "O", "injury": "Ankle", "returnDate": "Apr 4"}, {"name": "Ky Bush", "status": "O", "injury": "Elbow", "returnDate": "Jun 1"}, {"name": "Kyle Teel", "status": "O", "injury": "Hamstring", "returnDate": "Apr 14"}, {"name": "Brooks Baldwin", "status": "O", "injury": "Elbow", "returnDate": "May 1"}, {"name": "Mike Vasil", "status": "O", "injury": "Elbow", "returnDate": "Jul 1"}, {"name": "Prelander Berroa", "status": "O", "injury": "Elbow", "returnDate": "May 1"}, {"name": "Drew Thorpe", "status": "O", "injury": "Elbow", "returnDate": "Jun 1"}, {"name": "Nick Lodolo", "status": "O", "injury": "Finger", "returnDate": "Apr 14"}, {"name": "Erick Fedde", "status": "O", "injury": "Elbow", "returnDate": "Apr 18"}, {"name": "Nolan Jones", "status": "O", "injury": "Knee", "returnDate": "Jun 1"}, {"name": "Cody Bellinger", "status": "DTD", "injury": "Knee", "returnDate": "Apr 3"}, {"name": "Kenta Maeda", "status": "O", "injury": "Elbow", "returnDate": "Apr 17"}, {"name": "Steven Matz", "status": "O", "injury": "Back", "returnDate": "Apr 10"}, {"name": "Cole Ragans", "status": "O", "injury": "Elbow", "returnDate": "May 8"}, {"name": "Lance McCullers", "status": "O", "injury": "Elbow", "returnDate": "Apr 8"}, {"name": "Julio Urias", "status": "O", "injury": "Elbow", "returnDate": "May 1"}, {"name": "River Ryan", "status": "O", "injury": "Elbow", "returnDate": "Jul 1"}, {"name": "Dustin May", "status": "O", "injury": "Elbow", "returnDate": "May 15"}, {"name": "Tony Gonsolin", "status": "O", "injury": "Elbow", "returnDate": "Jun 15"}, {"name": "Emmet Sheehan", "status": "O", "injury": "Elbow", "returnDate": "Aug 1"}, {"name": "Miguel Vargas", "status": "O", "injury": "Thumb", "returnDate": "May 29"}, {"name": "Jesus Luzardo", "status": "O", "injury": "Elbow", "returnDate": "Jul 1"}, {"name": "Sandy Alcantara", "status": "O", "injury": "Elbow", "returnDate": "Jun 1"}, {"name": "Sixto Sanchez", "status": "O", "injury": "Shoulder", "returnDate": "Apr 15"}, {"name": "Huascar Brazoban", "status": "O", "injury": "Elbow", "returnDate": "Jun 1"}, {"name": "Eury Perez", "status": "O", "injury": "Elbow", "returnDate": "Aug 1"}, {"name": "Joe Ross", "status": "O", "injury": "Elbow", "returnDate": "Jul 1"}, {"name": "Carlos Carrasco", "status": "O", "injury": "Elbow", "returnDate": "May 1"}, {"name": "Bryan Woo", "status": "O", "injury": "Elbow", "returnDate": "May 1"}, {"name": "Tyler Anderson", "status": "O", "injury": "Knee", "returnDate": "Apr 18"}, {"name": "Royce Lewis", "status": "O", "injury": "Knee", "returnDate": "Jun 1"}, {"name": "Carlos Correa", "status": "DTD", "injury": "Finger", "returnDate": "Apr 4"}, {"name": "Zach Dezenzo", "status": "O", "injury": "Elbow", "returnDate": "Apr 24"}, {"name": "Brandon Walter", "status": "O", "injury": "Elbow", "returnDate": "Feb 1"}, {"name": "Nate Pearson", "status": "O", "injury": "Elbow", "returnDate": "May 1"}, {"name": "Ronel Blanco", "status": "O", "injury": "Elbow", "returnDate": "Aug 1"}, {"name": "Michael Wacha", "status": "O", "injury": "Illness", "returnDate": "Apr 8"}, {"name": "Carlos Estevez", "status": "O", "injury": "Foot", "returnDate": "Apr 14"}, {"name": "Michael Massey", "status": "DTD", "injury": "Calf", "returnDate": "Apr 3"}, {"name": "James McArthur", "status": "O", "injury": "Elbow", "returnDate": "May 1"}, {"name": "Stephen Kolek", "status": "O", "injury": "Oblique", "returnDate": "Apr 6"}, {"name": "Alec Marsh", "status": "O", "injury": "Shoulder", "returnDate": "Feb 1"}, {"name": "Grayson Rodriguez", "status": "O", "injury": "Shoulder", "returnDate": "Apr 22"}, {"name": "Vaughn Grissom", "status": "O", "injury": "Wrist", "returnDate": "Apr 3"}, {"name": "Robert Stephenson", "status": "O", "injury": "Elbow", "returnDate": "May 1"}, {"name": "Tyler Wells", "status": "O", "injury": "Elbow", "returnDate": "Apr 14"}, {"name": "Walker Buehler", "status": "O", "injury": "Hip", "returnDate": "May 1"}, {"name": "Clayton Kershaw", "status": "O", "injury": "Knee", "returnDate": "May 8"}, {"name": "Andrew Heaney", "status": "O", "injury": "Elbow", "returnDate": "May 1"}, {"name": "Jazz Chisholm", "status": "O", "injury": "Elbow", "returnDate": "Apr 22"}, {"name": "Max Muncy", "status": "O", "injury": "Hip", "returnDate": "May 1"}, {"name": "Blake Snell", "status": "O", "injury": "Groin", "returnDate": "Apr 15"}, {"name": "Framber Valdez", "status": "O", "injury": "Elbow", "returnDate": "Jul 1"}, {"name": "Cristian Javier", "status": "O", "injury": "Elbow", "returnDate": "Feb 1"}, {"name": "Jose Urquidy", "status": "O", "injury": "Elbow", "returnDate": "Jun 1"}, {"name": "Luis Garcia", "status": "O", "injury": "Elbow", "returnDate": "May 15"}, {"name": "Jose Abreu", "status": "O", "injury": "Knee", "returnDate": "Jun 1"}, {"name": "Kyle Tucker", "status": "O", "injury": "Shin", "returnDate": "Apr 17"}, {"name": "Dane Dunning", "status": "O", "injury": "Hip", "returnDate": "Apr 10"}, {"name": "Josh Jung", "status": "O", "injury": "Wrist", "returnDate": "May 1"}, {"name": "Jacob deGrom", "status": "O", "injury": "Elbow", "returnDate": "Jun 1"}, {"name": "Corey Kluber", "status": "O", "injury": "Shoulder", "returnDate": "May 15"}, {"name": "Kumar Rocker", "status": "O", "injury": "Elbow", "returnDate": "May 25"}, {"name": "Adolis Garcia", "status": "O", "injury": "Knee", "returnDate": "May 15"}, {"name": "Wyatt Langford", "status": "O", "injury": "Hamstring", "returnDate": "Apr 10"}, {"name": "Travis Adams", "status": "O", "injury": "Triceps", "returnDate": "Apr 10"}, {"name": "Pablo Lopez", "status": "O", "injury": "Elbow", "returnDate": "Apr 1"}, {"name": "A.J. Minter", "status": "O", "injury": "Lat", "returnDate": "May 1"}, {"name": "Justin Hagenman", "status": "O", "injury": "Ribs", "returnDate": "May 27"}, {"name": "Tylor Megill", "status": "O", "injury": "Elbow", "returnDate": "Feb 1"}, {"name": "Reed Garrett", "status": "O", "injury": "Elbow", "returnDate": "Feb 1"}, {"name": "Dedniel Nunez", "status": "O", "injury": "Elbow", "returnDate": "Sep 1"}, {"name": "Gerrit Cole", "status": "O", "injury": "Elbow", "returnDate": "May 15"}, {"name": "Carlos Rodon", "status": "O", "injury": "Elbow", "returnDate": "Apr 25"}, {"name": "Anthony Volpe", "status": "O", "injury": "Shoulder", "returnDate": "May 1"}, {"name": "Clarke Schmidt", "status": "O", "injury": "Elbow", "returnDate": "Aug 1"}, {"name": "Orion Kerkering", "status": "O", "injury": "Hamstring", "returnDate": "Apr 6"}, {"name": "Zack Wheeler", "status": "O", "injury": "Shoulder", "returnDate": "Apr 14"}, {"name": "Aaron Nola", "status": "O", "injury": "Elbow", "returnDate": "May 1"}, {"name": "Ranger Suarez", "status": "O", "injury": "Back", "returnDate": "Apr 15"}, {"name": "Paul Skenes", "status": "O", "injury": "Elbow", "returnDate": "Apr 14"}, {"name": "Mitch Keller", "status": "O", "injury": "Shoulder", "returnDate": "Apr 20"}, {"name": "Dennis Santana", "status": "O", "injury": "Elbow", "returnDate": "Jun 1"}, {"name": "Jared Jones", "status": "O", "injury": "Lat", "returnDate": "Apr 25"}, {"name": "Yu Darvish", "status": "O", "injury": "Elbow", "returnDate": "May 15"}, {"name": "Joe Musgrove", "status": "O", "injury": "Elbow", "returnDate": "Jul 1"}, {"name": "Griffin Canning", "status": "O", "injury": "Achilles", "returnDate": "Apr 27"}, {"name": "Yuki Matsui", "status": "O", "injury": "Groin", "returnDate": "Apr 10"}, {"name": "Bryan Hoeing", "status": "O", "injury": "Elbow", "returnDate": "Feb 1"}, {"name": "Jose Butto", "status": "O", "injury": "Forearm", "returnDate": "Apr 17"}, {"name": "Hayden Birdsong", "status": "O", "injury": "Elbow", "returnDate": "Jun 1"}, {"name": "Joel Peguero", "status": "O", "injury": "Hamstring", "returnDate": "Apr 10"}, {"name": "Reiver Sanmartin", "status": "O", "injury": "Hip", "returnDate": "Jun 9"}, {"name": "Sam Hentges", "status": "O", "injury": "Knee", "returnDate": "Apr 17"}, {"name": "Jason Foley", "status": "O", "injury": "Shoulder", "returnDate": "Jul 1"}, {"name": "Rowan Wick", "status": "O", "injury": "Elbow", "returnDate": "Feb 1"}, {"name": "Randy Rodriguez", "status": "O", "injury": "Elbow", "returnDate": "Feb 1"}, {"name": "Carlos Vargas", "status": "O", "injury": "Lat", "returnDate": "Apr 3"}, {"name": "Miles Mastrobuoni", "status": "O", "injury": "Calf", "returnDate": "Apr 10"}, {"name": "Jeffrey Springs", "status": "O", "injury": "Knee", "returnDate": "May 15"}, {"name": "Shane Baz", "status": "O", "injury": "Elbow", "returnDate": "Jul 1"}, {"name": "Matt Pushard", "status": "O", "injury": "Knee", "returnDate": "Apr 14"}, {"name": "Hunter Dobbins", "status": "O", "injury": "Knee", "returnDate": "Apr 7"}, {"name": "Lars Nootbaar", "status": "O", "injury": "Heel", "returnDate": "May 26"}, {"name": "Ricardo Genoves", "status": "O", "injury": "Undisclosed", "returnDate": "Apr 3"}, {"name": "Ryan Pepiot", "status": "O", "injury": "Hip", "returnDate": "Apr 6"}, {"name": "Gavin Lux", "status": "O", "injury": "Shoulder", "returnDate": "Apr 10"}, {"name": "Taylor Walls", "status": "O", "injury": "Oblique", "returnDate": "Apr 14"}, {"name": "Edwin Uceta", "status": "O", "injury": "Shoulder", "returnDate": "Apr 20"}, {"name": "Steven Wilson", "status": "O", "injury": "Back", "returnDate": "May 29"}, {"name": "Manuel Rodriguez", "status": "O", "injury": "Elbow", "returnDate": "Jun 1"}, {"name": "Cody Freeman", "status": "O", "injury": "Back", "returnDate": "May 1"}, {"name": "Cody Bradford", "status": "O", "injury": "Elbow", "returnDate": "May 1"}, {"name": "Jordan Montgomery", "status": "O", "injury": "Elbow", "returnDate": "Jul 1"}, {"name": "Max Scherzer", "status": "O", "injury": "Shoulder", "returnDate": "May 1"}, {"name": "MacKenzie Gore", "status": "O", "injury": "Elbow", "returnDate": "Jun 1"}, {"name": "Shane Bieber", "status": "O", "injury": "Elbow", "returnDate": "May 15"}, {"name": "Trey Yesavage", "status": "O", "injury": "Shoulder", "returnDate": "May 1"}, {"name": "Jose Berrios", "status": "O", "injury": "Elbow", "returnDate": "Apr 18"}, {"name": "Cody Ponce", "status": "O", "injury": "Knee", "returnDate": "Aug 1"}, {"name": "Yimi Garcia", "status": "O", "injury": "Elbow", "returnDate": "Apr 15"}, {"name": "Anthony Santander", "status": "O", "injury": "Shoulder", "returnDate": "Aug 1"}, {"name": "Bowden Francis", "status": "O", "injury": "Elbow", "returnDate": "Apr 1"}, {"name": "Josiah Gray", "status": "O", "injury": "Elbow", "returnDate": "May 29"}, {"name": "Paxton Schultz", "status": "O", "injury": "Elbow", "returnDate": "Apr 6"}, {"name": "Trevor Williams", "status": "O", "injury": "Elbow", "returnDate": "Jun 1"}, {"name": "Davidjohn Herz", "status": "O", "injury": "Elbow", "returnDate": "Jul 1"}];
 // Build injury lookup: name -> { status, injury, return }
 const INJURY_MAP = new Map();
 (INJURIES || []).forEach(inj => INJURY_MAP.set(inj.name, inj));
@@ -505,7 +513,7 @@ function _injBadge(name) {
 const PARK_FACTORS = {"NYY": {"hr": 1.15, "r": 1.02, "h": 0.98}, "KCR": {"hr": 0.85, "r": 0.95, "h": 1.0}, "SEA": {"hr": 0.9, "r": 0.92, "h": 0.96}, "LAD": {"hr": 0.95, "r": 0.96, "h": 0.97}, "NYM": {"hr": 0.92, "r": 0.95, "h": 0.98}, "BAL": {"hr": 1.08, "r": 1.03, "h": 1.0}, "CLE": {"hr": 0.95, "r": 0.97, "h": 0.99}, "TOR": {"hr": 1.05, "r": 1.02, "h": 1.0}, "ARI": {"hr": 1.12, "r": 1.08, "h": 1.03}, "CIN": {"hr": 1.18, "r": 1.1, "h": 1.02}, "SDP": {"hr": 0.88, "r": 0.9, "h": 0.95}, "ATL": {"hr": 1.05, "r": 1.02, "h": 1.0}, "SFG": {"hr": 0.85, "r": 0.92, "h": 0.97}, "HOU": {"hr": 1.05, "r": 1.02, "h": 1.0}, "CHC": {"hr": 1.1, "r": 1.05, "h": 1.02}, "TBR": {"hr": 0.92, "r": 0.95, "h": 0.98}, "TEX": {"hr": 1.08, "r": 1.05, "h": 1.01}, "PHI": {"hr": 1.1, "r": 1.05, "h": 1.02}, "LAA": {"hr": 1.0, "r": 1.0, "h": 1.0}, "STL": {"hr": 0.95, "r": 0.97, "h": 0.99}, "COL": {"hr": 1.38, "r": 1.25, "h": 1.12}, "MIL": {"hr": 1.02, "r": 1.0, "h": 1.0}, "MIN": {"hr": 1.02, "r": 1.0, "h": 0.99}, "BOS": {"hr": 0.98, "r": 1.05, "h": 1.05}, "DET": {"hr": 0.92, "r": 0.95, "h": 0.98}, "CHW": {"hr": 1.1, "r": 1.03, "h": 1.0}, "PIT": {"hr": 0.9, "r": 0.95, "h": 0.99}, "MIA": {"hr": 0.88, "r": 0.9, "h": 0.96}, "WSN": {"hr": 1.02, "r": 1.0, "h": 1.0}, "ATH": {"hr": 0.9, "r": 0.95, "h": 0.98}};
 const SPRINT_SPEEDS = [{"name": "Chandler Simpson", "speed": 30.5, "tier": "elite"}, {"name": "Daylen Lile", "speed": 29.5, "tier": "elite"}, {"name": "Jackson Merrill", "speed": 29.1, "tier": "elite"}, {"name": "Fernando Tatis Jr.", "speed": 28.8, "tier": "above_avg"}, {"name": "Brandon Lockridge", "speed": 28.7, "tier": "above_avg"}, {"name": "Luis Robert Jr.", "speed": 28.7, "tier": "above_avg"}, {"name": "Luke Keaschall", "speed": 28.5, "tier": "above_avg"}, {"name": "Corbin Carroll", "speed": 28.4, "tier": "above_avg"}, {"name": "Kevin McGonigle", "speed": 28.4, "tier": "above_avg"}, {"name": "Nick Gonzales", "speed": 28.3, "tier": "above_avg"}, {"name": "Matt Chapman", "speed": 28.2, "tier": "above_avg"}, {"name": "Jake Mangum", "speed": 28.2, "tier": "above_avg"}, {"name": "Otto Lopez", "speed": 28.0, "tier": "above_avg"}, {"name": "Wyatt Langford", "speed": 27.6, "tier": "above_avg"}, {"name": "Nico Hoerner", "speed": 27.5, "tier": "above_avg"}, {"name": "Bryan Reynolds", "speed": 27.5, "tier": "above_avg"}, {"name": "Brandon Nimmo", "speed": 27.5, "tier": "above_avg"}, {"name": "Brice Turang", "speed": 27.4, "tier": "above_avg"}, {"name": "Xander Bogaerts", "speed": 27.4, "tier": "above_avg"}, {"name": "Cody Bellinger", "speed": 27.4, "tier": "above_avg"}, {"name": "Cole Young", "speed": 27.4, "tier": "above_avg"}, {"name": "Ben Rice", "speed": 27.3, "tier": "above_avg"}, {"name": "Xavier Edwards", "speed": 27.2, "tier": "above_avg"}, {"name": "Harrison Bader", "speed": 27.2, "tier": "above_avg"}, {"name": "Jose Altuve", "speed": 27.2, "tier": "above_avg"}, {"name": "Maikel Garcia", "speed": 27.1, "tier": "above_avg"}, {"name": "Brady House", "speed": 27.0, "tier": "above_avg"}];
 const BULLPEN_ROLES = [{"team": "ARI", "closer": "Kevin Ginkel", "setup": ["Paul Sewald", "A.J. Puk"], "handcuff": "Michael Soroka", "notes": "Ginkel elite K rate, stable role. Sewald has limited upside. Injury history concern."}, {"team": "ATL", "closer": "Raisel Iglesias", "setup": ["Robert Suarez", "Dylan Lee"], "handcuff": "A.J. Minter", "notes": "Iglesias 26 saves, reliable. Suarez emerging as strong setup man. Potential deadline interest."}, {"team": "ATH", "closer": "Justin Sterner", "setup": ["Hogan Harris", "Mark Leiter Jr."], "handcuff": "Scott Barlow", "notes": "Oakland volatile situation. Multiple closer candidates. High trade potential at deadline."}, {"team": "BAL", "closer": "Ryan Helsley", "setup": ["Yennier Cano", "Keegan Akin"], "handcuff": "Andrew Kittredge", "notes": "Helsley 26 saves, elite stuff. Cano impressive young setup man. Strong bullpen depth."}, {"team": "BOS", "closer": "Aroldis Chapman", "setup": ["Garrett Whitlock", "Greg Weissert"], "handcuff": "Connor Brogdon", "notes": "Chapman aging (31 saves), still reliable. Whitlock versatile. Age risk on closer."}, {"team": "CHC", "closer": "Daniel Palencia", "setup": ["Hunter Harvey", "Phil Maton"], "handcuff": "Caleb Thielbar", "notes": "Palencia 30 saves, solid. Harvey highly effective. Potential closer competition if Palencia falters."}, {"team": "CHW", "closer": "Seranthony Dom\u00ednguez", "setup": ["Jordan Leasure", "Grant Taylor"], "handcuff": "Sean Newcomb", "notes": "Dom\u00ednguez 20 saves coming from CWS. Setup depth questionable. Watch for stability."}, {"team": "CIN", "closer": "Emilio Pag\u00e1n", "setup": ["Graham Ashcraft", "Pierce Johnson"], "handcuff": "Tony Santillan", "notes": "Pag\u00e1n 27 saves, reliable. Ashcraft improving. Solid depth in bullpen."}, {"team": "CLE", "closer": "Cade Smith", "setup": ["Shawn Armstrong", "Hunter Gaddis"], "handcuff": "Mike Clevinger", "notes": "Smith 30 saves elite K rate 91/700 IP. Armstrong steady. Strong role security."}, {"team": "COL", "closer": "Victor Vodnik", "setup": ["Juan Mejia", "Zach Agnos"], "handcuff": "Jimmy Herget", "notes": "Vodnik 23 saves, solid. Coors effect inflates ERA. Volatile Mile High situation."}, {"team": "DET", "closer": "Kenley Jansen", "setup": ["Will Vest", "Kyle Finnegan"], "handcuff": "Tyler Holton", "notes": "Jansen veteran (23 saves), reliable but aging. Vest emerging. Setup capable of closing."}, {"team": "HOU", "closer": "Josh Hader", "setup": ["Bryan Abreu", "Bryan King"], "handcuff": "Spencer Arrighetti", "notes": "Hader 29 saves, elite. Abreu strong setup, could close. Top-tier bullpen depth."}, {"team": "KCR", "closer": "Carlos Est\u00e9vez", "setup": ["Lucas Erceg", "John Schreiber"], "handcuff": "Matt Strahm", "notes": "Est\u00e9vez 31 saves, consistent performer. Erceg improving setup man. Stable situation."}, {"team": "LAA", "closer": "Ben Joyce", "setup": ["Robert Stephenson", "Kirby Yates"], "handcuff": "Jordan Romano", "notes": "Joyce 10 holds, recent acquisition. Stephenson 13 holds solid. Watch role clarification."}, {"team": "LAD", "closer": "Edwin D\u00edaz", "setup": ["Tanner Scott", "Blake Treinen"], "handcuff": "Alex Vesia", "notes": "D\u00edaz elite 36 saves, dominant strikeout rate. Scott emerging setup. Top bullpen."}, {"team": "MIA", "closer": "Pete Fairbanks", "setup": ["Calvin Faucher", "Anthony Bender"], "handcuff": "Tyler Phillips", "notes": "Fairbanks 27 saves, excellent. Injury history warrants monitor. Faucher solid depth."}, {"team": "MIL", "closer": "Abner Uribe", "setup": ["Trevor Megill", "Jared Koenig"], "handcuff": "Aaron Ashby", "notes": "Uribe 19 saves, steady role. Megill 11 holds setup. Solid midwest bullpen."}, {"team": "MIN", "closer": "Taylor Rogers", "setup": ["Liam Hendriks", "Cole Sands"], "handcuff": "Kody Funderburk", "notes": "Rogers 19 saves, veteran. Hendriks acquiring legend. Sands emerging. Deep bullpen."}, {"team": "NYM", "closer": "Devin Williams", "setup": ["A.J. Minter", "Brooks Raley"], "handcuff": "Luke Weaver", "notes": "Williams 32 saves, elite. Recently acquired from Milwaukee. Minter capable. Strong crew."}, {"team": "NYY", "closer": "David Bednar", "setup": ["Camilo Doval", "Fernando Cruz"], "handcuff": "Will Warren", "notes": "Bednar 33 saves, dominant. Recently acquired from Pittsburgh. Doval multi-tool. Top tier."}, {"team": "PHI", "closer": "Jhoan Duran", "setup": ["Jos\u00e9 Alvarado", "Brad Keller"], "handcuff": "Orion Kerkering", "notes": "Duran 29 saves, elite elite K rate 84/700 IP. Alvarado efficient setup. Acquired depth."}, {"team": "PIT", "closer": "Dennis Santana", "setup": ["Gregory Soto", "Isaac Mattson"], "handcuff": "Justin Lawrence", "notes": "Santana 26 saves, emerging star. Soto capable multi-tool. Young elite arms developing."}, {"team": "SDP", "closer": "Mason Miller", "setup": ["Adrian Morejon", "Jason Adam"], "handcuff": "Jeremiah Estrada", "notes": "Miller 32 saves, phenomenal K rate 106/660 IP. Morejon efficient. Star prospect emerging."}, {"team": "SEA", "closer": "Andr\u00e9s Mu\u00f1oz", "setup": ["Matt Brash", "Jose A. Ferrer"], "handcuff": "Eduard Bazardo", "notes": "Mu\u00f1oz 28 saves, solid. Brash 3 holds improving. Ferrer multi-role. Potential deadline trade."}, {"team": "SFG", "closer": "Ryan Walker", "setup": ["Gregory Santos", "Joel Peguero"], "handcuff": "Jos\u00e9 Butt\u00f3", "notes": "Walker 24 saves, steady. Santos emerging upside. San Francisco competitive situation."}, {"team": "STL", "closer": "JoJo Romero", "setup": ["Riley O'Brien", "Matt Svanson"], "handcuff": "Ryne Stanek", "notes": "Romero 12 holds, sharing role. O'Brien 13 holds competitive. Volatile St. Louis bullpen."}, {"team": "TBR", "closer": "Griffin Jax", "setup": ["Edwin Uceta", "Garrett Cleavinger"], "handcuff": "Bryan Baker", "notes": "Jax 12 saves, capable. Uceta 12 holds solid setup. Baker veteran depth. Stable group."}, {"team": "TEX", "closer": "Robert Garcia", "setup": ["Cole Winn", "Chris Martin"], "handcuff": "Kumar Rocker", "notes": "Garcia 20 saves, steady. Winn 6 saves emerging. Rocker young prospect depth."}, {"team": "TOR", "closer": "Jeff Hoffman", "setup": ["Yimi Garc\u00eda", "Louis Varland"], "handcuff": "Tyler Rogers", "notes": "Hoffman 26 saves, dominant. Garc\u00eda 4 holds setup. Rogers aging veteran depth."}, {"team": "WSN", "closer": "Clayton Beeter", "setup": ["Cole Henry", "Jackson Rutledge"], "handcuff": "PJ Poulin", "notes": "Beeter 17 holds, young prospect. Henry 16 holds young arm. Washington developing bullpen."}];
-const SEASON_STATUS = {"currentPeriod": 1, "periodStart": "2026-03-25", "periodEnd": "2026-04-12", "opponent": "Yesavage Garden", "opponentTeam": "Yesavage Garden", "currentScore": {"me": 11, "opp": 5, "tied": 2}, "categoryBreakdown": {"batting": {"BA": {"me": 0.232, "opp": 0.228, "winner": "me"}, "HR": {"me": 9, "opp": 6, "winner": "me"}, "KO": {"me": 66, "opp": 57, "winner": "opp"}, "OBP": {"me": 0.341, "opp": 0.309, "winner": "me"}, "R": {"me": 37, "opp": 31, "winner": "me"}, "RBI": {"me": 26, "opp": 28, "winner": "opp"}, "SB": {"me": 1, "opp": 2, "winner": "opp"}, "SLG": {"me": 0.37, "opp": 0.338, "winner": "me"}}, "pitching": {"ERA": {"me": 2.813, "opp": 3.493, "winner": "me"}, "HD": {"me": 4, "opp": 2, "winner": "me"}, "HRA": {"me": 8, "opp": 8, "winner": "tied"}, "K": {"me": 56, "opp": 88, "winner": "opp"}, "QS": {"me": 4, "opp": 3, "winner": "me"}, "S": {"me": 4, "opp": 3, "winner": "me"}, "W": {"me": 4, "opp": 4, "winner": "tied"}, "WHIP": {"me": 1.047, "opp": 1.104, "winner": "me"}}}, "allMatchups": [{"away": "Yesavage Garden", "home": "Okamotomami", "awayScore": 5, "homeScore": 11}, {"away": "RESCAN", "home": "Before and After Shohei", "awayScore": 4, "homeScore": 12}, {"away": "Icarus", "home": "A Pete Crow-Armstrong Looked at Me", "awayScore": 10, "homeScore": 6}, {"away": "Drew", "home": "Buddy Buddy Buddy All On Base", "awayScore": 7.5, "homeScore": 8.5}, {"away": "ROTH", "home": "Fran", "awayScore": 6.5, "homeScore": 9.5}, {"away": "Milli", "home": "woba", "awayScore": 10.5, "homeScore": 5.5}], "myRecord": "0-0-0", "standings": [{"team": "Weird Fishes / Arrighetti", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Dinosaur Jr Caminero", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Colonel Corbin's Ascent", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Okamotomami", "mine": true, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Buddy Buddy Buddy All On Base", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "A Pete Crow-Armstrong Looked at Me", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Whoop Whoop that's the sound of Dylan Cease", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Ballesteros, Let the Rhythm Take You Over", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Yesavage Garden", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Blame it on the Rainiel", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Before and After Shohei", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Popped A Mahle I'm Sweating", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}], "updated": "2026-04-03T17:08:46Z"};
+const SEASON_STATUS = {"currentPeriod": 1, "periodStart": "2026-03-25", "periodEnd": "2026-04-12", "opponent": "Yesavage Garden", "opponentTeam": "Yesavage Garden", "currentScore": {"me": 11, "opp": 5, "tied": 0}, "myRecord": "0-0-0", "standings": [{"team": "Weird Fishes / Arrighetti", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Dinosaur Jr Caminero", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Colonel Corbin's Ascent", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Okamotomami", "mine": true, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Buddy Buddy Buddy All On Base", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "A Pete Crow-Armstrong Looked at Me", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Whoop Whoop that's the sound of Dylan Cease", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Ballesteros, Let the Rhythm Take You Over", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Yesavage Garden", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Blame it on the Rainiel", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Before and After Shohei", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}, {"team": "Popped A Mahle I'm Sweating", "mine": false, "w": 0, "l": 0, "t": 0, "pts": 0}], "updated": "2026-04-03T16:10:44Z"};
 
 // Sprint speed lookup by name
 const SPEED_MAP = new Map();
@@ -592,6 +600,44 @@ function stuffTrendBadge(player) {
   if (delta === '' || delta === undefined || delta === null) return '';
   if (delta >= 8) return '<span class="pbadge" title="Stuff+ improved +' + delta + ' vs 2024 (' + (player.s24_stuff||'?') + '→' + (player.s25_stuff||'?') + ')" style="background:#16a34a;color:#fff;">STF↑</span>';
   if (delta <= -8) return '<span class="pbadge" title="Stuff+ declined ' + delta + ' vs 2024 (' + (player.s24_stuff||'?') + '→' + (player.s25_stuff||'?') + ')" style="background:#dc2626;color:#fff;">STF↓</span>';
+  return '';
+}
+
+// ── 2026 Regression analysis badges ──────────────────────────────────────
+// Batters: xwOBA vs wOBA luck indicator
+function luckBadge(player) {
+  if (!player) return '';
+
+  // Batter luck: compare 2026 xwOBA to wOBA (if 2026 data exists)
+  if (player.type === 'BAT' && player.s26_xwoba && player.s26_woba) {
+    const xwoba = parseFloat(player.s26_xwoba);
+    const woba = parseFloat(player.s26_woba);
+    const delta = xwoba - woba;
+    if (delta > 0.030) {
+      return '<span class="pbadge" title="Underperforming 2026: xwOBA ' + (delta*1000).toFixed(0) + ' pts above wOBA (unlucky)" style="background:#16a34a;color:#fff;">UNLUCKY</span>';
+    }
+    if (delta < -0.030) {
+      return '<span class="pbadge" title="Overperforming 2026: xwOBA ' + (Math.abs(delta)*1000).toFixed(0) + ' pts below wOBA (lucky)" style="background:#dc2626;color:#fff;">LUCKY</span>';
+    }
+  }
+
+  // Pitcher luck: ERA vs FIP (when both available); also Stuff+ trend
+  if (player.type === 'PIT') {
+    // Stuff+ improvement badge (already covered by stuffTrendBadge, but check for dStuff)
+    if (player.dStuff !== undefined && player.dStuff !== null && player.dStuff > 5) {
+      return '<span class="pbadge" title="Stuff+ improved +' + player.dStuff + ' in 2026" style="background:#16a34a;color:#fff;">STUFF↑</span>';
+    }
+    // ERA vs FIP: if ERA significantly worse than FIP, pitcher is unlucky
+    const era = parseFloat(player.s26_era);
+    const fip = parseFloat(player.s26_fip);
+    if (era && fip && !isNaN(era) && !isNaN(fip)) {
+      const delta = era - fip;
+      if (delta > 1.0) {
+        return '<span class="pbadge" title="2026 ERA ' + delta.toFixed(2) + ' worse than FIP (unlucky)" style="background:#16a34a;color:#fff;">UNLUCKY</span>';
+      }
+    }
+  }
+
   return '';
 }
 
@@ -762,7 +808,7 @@ function computePitSplitStats(playerName, windowDays) {
 /**
  * Compute actual LCV for a batter in a given time window.
  * Uses pace-adjusted counting stats relative to projected PA.
- * Returns { actualLcv, lcvDelta } or null.
+ * Returns { actualLcv, lcvDelta, splitConfidence } or null.
  */
 function computeBatSplitLcv(player, windowDays) {
   const stats = computeBatSplitStats(player.name, windowDays);
@@ -781,12 +827,17 @@ function computeBatSplitLcv(player, windowDays) {
     + _zscore(stats.sb * pace, bs.sb.mean, bs.sb.std)
     - _zscore(stats.so * pace, bs.so.mean, bs.so.std);
 
-  return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - (player.lcv || 0)) * 100) / 100 };
+  // Sample size confidence: PA < 20 = low, 20-50 = med, >50 = high
+  let splitConfidence = 'high';
+  if (stats.pa < 20) splitConfidence = 'low';
+  else if (stats.pa < 50) splitConfidence = 'med';
+
+  return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - (player.lcv || 0)) * 100) / 100, splitConfidence };
 }
 
 /**
  * Compute actual LCV for a pitcher in a given time window.
- * Returns { actualLcv, lcvDelta } or null.
+ * Returns { actualLcv, lcvDelta, splitConfidence } or null.
  */
 function computePitSplitLcv(player, windowDays) {
   const stats = computePitSplitStats(player.name, windowDays);
@@ -807,7 +858,12 @@ function computePitSplitLcv(player, windowDays) {
     - _zscore(stats.whip, ps.whip.mean, ps.whip.std)
     + _zscore(stats.qs * pace, ps.qs.mean, ps.qs.std);
 
-  return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - (player.lcv || 0)) * 100) / 100 };
+  // Sample size confidence: IP < 5 = low, 5-15 = med, >15 = high
+  let splitConfidence = 'high';
+  if (stats.ip < 5) splitConfidence = 'low';
+  else if (stats.ip < 15) splitConfidence = 'med';
+
+  return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - (player.lcv || 0)) * 100) / 100, splitConfidence };
 }
 
 /**
@@ -835,9 +891,11 @@ function applySplitWindow(windowKey) {
     if (splitResult) {
       p.actualLcv = splitResult.actualLcv;
       p.lcvDelta = splitResult.lcvDelta;
+      p._splitConfidence = splitResult.splitConfidence;
     } else {
       p.actualLcv = null;
       p.lcvDelta = null;
+      p._splitConfidence = null;
     }
   });
 }
@@ -977,7 +1035,7 @@ const STATE_VERSION = 26;
 // Build hash injected at build time — changes whenever source files change.
 // If the stored hash doesn't match, localStorage is automatically flushed
 // so the user always sees correct data after a deploy without hard-refreshing.
-const BUILD_HASH = 'c101f721bcb4';
+const BUILD_HASH = '4616bd26fa47';
 const DEFAULT_KEEPERS = ['James Wood', 'MacKenzie Gore', 'Zach Neto', 'Nick Kurtz', 'Jo Adell'];
 const DEFAULT_KEEPER_ROUNDS = {'James Wood':12, 'MacKenzie Gore':13, 'Jo Adell':10, 'Zach Neto':14, 'Nick Kurtz':11};
 
@@ -2175,54 +2233,57 @@ const allColsGM = [
 ];
 
 function getCols() {
-  if (currentView === 'gm') {
-    if (filterType === 'bat') return batColsGM;
-    if (filterType === 'pit') return pitColsGM;
+  if (DPF.ui.currentView === 'gm') {
+    if (DPF.ui.filterType === 'bat') return batColsGM;
+    if (DPF.ui.filterType === 'pit') return pitColsGM;
     return allColsGM;
   }
-  if (currentView === 's25') {
-    if (filterType === 'bat') return batCols25;
-    if (filterType === 'pit') return pitCols25;
+  if (DPF.ui.currentView === 's25') {
+    if (DPF.ui.filterType === 'bat') return batCols25;
+    if (DPF.ui.filterType === 'pit') return pitCols25;
     return allCols25;
   }
-  if (currentView === 'p26') {
-    if (filterType === 'bat') return batCols26;
-    if (filterType === 'pit') return pitCols26;
+  if (DPF.ui.currentView === 'p26') {
+    if (DPF.ui.filterType === 'bat') return batCols26;
+    if (DPF.ui.filterType === 'pit') return pitCols26;
     return allCols26;
   }
-  if (currentView === 's26') {
-    if (filterType === 'bat') return batCols26A;
-    if (filterType === 'pit') return pitCols26A;
+  if (DPF.ui.currentView === 's26') {
+    if (DPF.ui.filterType === 'bat') return batCols26A;
+    if (DPF.ui.filterType === 'pit') return pitCols26A;
     return allCols26A;
   }
-  if (currentView === 'avp') {
-    if (filterType === 'bat') return batColsAVP;
-    if (filterType === 'pit') return pitColsAVP;
+  if (DPF.ui.currentView === 'avp') {
+    if (DPF.ui.filterType === 'bat') return batColsAVP;
+    if (DPF.ui.filterType === 'pit') return pitColsAVP;
     return allColsAVP;
   }
   // main/analytics view
-  if (filterType === 'bat') return batCols;
-  if (filterType === 'pit') return pitCols;
+  if (DPF.ui.filterType === 'bat') return batCols;
+  if (DPF.ui.filterType === 'pit') return pitCols;
   return allCols;
 }
 
 
 // ── src/tabs.js ─────────────────────────────────────────────────
+// ── Global State Namespace ────────────────────────────────────────────────
+const DPF = { ui: {}, table: {}, league: {}, mock: {} };
+
 // ── Tab management ────────────────────────────────────────────────────────
-let currentTab = state._currentTab || 'league';
+DPF.ui.currentTab = state._currentTab || 'league';
 const tabs = document.querySelectorAll('.tab');
 // Restore active tab highlight from saved state
 tabs.forEach(t => {
-  t.classList.toggle('active', t.dataset.tab === currentTab);
+  t.classList.toggle('active', t.dataset.tab === DPF.ui.currentTab);
 });
 tabs.forEach(t => t.addEventListener('click', () => {
   tabs.forEach(x => x.classList.remove('active'));
   t.classList.add('active');
-  currentTab = t.dataset.tab;
-  state._currentTab = currentTab;
+  DPF.ui.currentTab = t.dataset.tab;
+  state._currentTab = DPF.ui.currentTab;
   save();
   // Sync filterType from tab
-  if (currentTab === 'all') { filterType = 'all'; }
+  if (DPF.ui.currentTab === 'all') { DPF.ui.filterType = 'all'; }
   render();
 }));
 
@@ -2270,9 +2331,9 @@ function updateModeUI() {
 document.getElementById('modeDraft').addEventListener('click', () => {
   state._mode = 'draft'; save(); updateModeUI();
   // If current tab is hidden, switch to default
-  if (!DRAFT_TABS.includes(currentTab)) {
+  if (!DRAFT_TABS.includes(DPF.ui.currentTab)) {
     document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
-    currentTab = 'all';
+    DPF.ui.currentTab = 'all';
     const allTab = document.querySelector('.tab[data-tab="all"]');
     if (allTab) allTab.classList.add('active');
   }
@@ -2280,22 +2341,32 @@ document.getElementById('modeDraft').addEventListener('click', () => {
 });
 document.getElementById('modeSeason').addEventListener('click', () => {
   state._mode = 'season'; save(); updateModeUI();
-  if (!SEASON_TABS.includes(currentTab)) {
+  if (!SEASON_TABS.includes(DPF.ui.currentTab)) {
     document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
-    currentTab = 'roster';
-    const rTab = document.querySelector('.tab[data-tab="roster"]');
-    if (rTab) rTab.classList.add('active');
+    DPF.ui.currentTab = 'league'; // Default to League tab in season mode
+    const lTab = document.querySelector('.tab[data-tab="league"]');
+    if (lTab) lTab.classList.add('active');
   }
   render();
 });
 updateModeUI();
 
 // ── Sorting ───────────────────────────────────────────────────────────────
-let sortCol = 'dp', sortDir = -1;
+DPF.table.sortCol = 'dp';
+DPF.table.sortDir = -1;
 
 // ── Filters ───────────────────────────────────────────────────────────────
-let filterPos = 'ALL';
-let filterType = 'all'; // 'all', 'bat', 'pit'
+// Restore filter state from localStorage
+try {
+  const savedFilters = JSON.parse(localStorage.getItem('dpf_filters') || '{}');
+  DPF.table.filterPos = savedFilters.filterPos || 'ALL';
+  DPF.ui.filterType = savedFilters.filterType || 'all';
+  DPF.ui.currentView = savedFilters.currentView || 'main';
+} catch(e) {
+  DPF.table.filterPos = 'ALL';
+  DPF.ui.filterType = 'all';
+  DPF.ui.currentView = 'main';
+}
 const posGroups = { all: ['ALL','C','1B','2B','3B','SS','LF','CF','RF','DH','SP','RP'],
                     bat: ['ALL','C','1B','2B','3B','SS','LF','CF','RF','DH'],
                     pit: ['ALL','SP','RP'] };
@@ -2304,7 +2375,7 @@ function syncNavTabs() {
   // Highlight the Players tab when switching filter types
   document.querySelectorAll('.tab').forEach(t => {
     if (t.dataset.tab === 'all') {
-      t.classList.toggle('active', currentTab === 'all');
+      t.classList.toggle('active', DPF.ui.currentTab === 'all');
     }
   });
 }
@@ -2314,9 +2385,15 @@ function buildTypeFilters() {
   container.innerHTML = '';
   ['all','bat','pit'].forEach(t => {
     const btn = document.createElement('button');
-    btn.className = 'filter-btn' + (t === filterType ? ' active' : '');
+    btn.className = 'filter-btn' + (t === DPF.ui.filterType ? ' active' : '');
     btn.textContent = t === 'all' ? 'All' : t === 'bat' ? 'Hitters' : 'Pitchers';
-    btn.onclick = () => { filterType = t; filterPos = 'ALL'; syncNavTabs(); render(); };
+    btn.onclick = () => {
+      DPF.ui.filterType = t;
+      DPF.table.filterPos = 'ALL';
+      _saveFilters();
+      syncNavTabs();
+      render();
+    };
     container.appendChild(btn);
   });
 }
@@ -2325,45 +2402,60 @@ function buildPosFilters() {
   buildTypeFilters();
   const container = document.getElementById('posFilters');
   container.innerHTML = '';
-  const group = filterType === 'pit' ? 'pit' : filterType === 'bat' ? 'bat' : 'all';
+  const group = DPF.ui.filterType === 'pit' ? 'pit' : DPF.ui.filterType === 'bat' ? 'bat' : 'all';
   posGroups[group].forEach(pos => {
     const btn = document.createElement('button');
-    btn.className = 'filter-btn' + (pos === filterPos ? ' active' : '');
+    btn.className = 'filter-btn' + (pos === DPF.table.filterPos ? ' active' : '');
     btn.textContent = pos;
-    btn.onclick = () => { filterPos = pos; render(); };
+    btn.onclick = () => {
+      DPF.table.filterPos = pos;
+      _saveFilters();
+      render();
+    };
     container.appendChild(btn);
   });
 }
 
+// Helper to save filter state
+function _saveFilters() {
+  try {
+    localStorage.setItem('dpf_filters', JSON.stringify({
+      filterPos: DPF.table.filterPos,
+      filterType: DPF.ui.filterType,
+      currentView: DPF.ui.currentView
+    }));
+  } catch(e) {}
+}
+
 // ── View toggle ──────────────────────────────────────────────────────────
-let currentView = 'main'; // 'main', 's25', 'p26', 's26', 'avp'
+DPF.ui.currentView = 'main'; // 'main', 's25', 'p26', 's26', 'avp'
 
 
 // ── src/render-table.js ─────────────────────────────────────────
 // ── Render ─────────────────────────────────────────────────────────────────
 function render() {
-  const isPlayerTab = (currentTab === 'all');
+  const isPlayerTab = (DPF.ui.currentTab === 'all');
   document.getElementById('playerControls').style.display = isPlayerTab ? 'flex' : 'none';
-  document.getElementById('draftPanel').classList.toggle('show', currentTab === 'all' && state._mode === 'draft');
+  document.getElementById('draftPanel').classList.toggle('show', DPF.ui.currentTab === 'all' && state._mode === 'draft');
   document.getElementById('tableWrap').style.display = isPlayerTab ? '' : 'none';
   document.getElementById('liveSidebar').style.display = 'none';
-  document.getElementById('rosterSection').style.display = ['myRoster','roster','board','mock','league','futures'].includes(currentTab) ? '' : 'none';
-  document.getElementById('txnsSection').style.display = currentTab === 'txns' ? '' : 'none';
-  document.getElementById('analyticsSection').style.display = currentTab === 'analytics' ? '' : 'none';
+  document.getElementById('rosterSection').style.display = ['myRoster','roster','board','mock','league','futures'].includes(DPF.ui.currentTab) ? '' : 'none';
+  document.getElementById('txnsSection').style.display = DPF.ui.currentTab === 'txns' ? '' : 'none';
+  document.getElementById('analyticsSection').style.display = DPF.ui.currentTab === 'analytics' ? '' : 'none';
 
-  if (currentTab === 'analytics') { renderAnalytics(); return; }
-  if (currentTab === 'txns') { renderTransactions(); return; }
-  if (currentTab === 'myRoster') { state._rosterTeam = '__mine__'; renderRoster(); return; }
-  if (currentTab === 'roster') { renderRoster(); return; }
-  if (currentTab === 'board') { renderDraftBoard(); return; }
-  if (currentTab === 'mock') { renderMockDraft(); return; }
-  if (currentTab === 'league') { renderLeague(); return; }
-  if (currentTab === 'futures') { renderFutures(); return; }
+  if (DPF.ui.currentTab === 'analytics') { renderAnalytics(); return; }
+  if (DPF.ui.currentTab === 'txns') { renderTransactions(); return; }
+  if (DPF.ui.currentTab === 'myRoster') { state._rosterTeam = '__mine__'; renderRoster(); return; }
+  if (DPF.ui.currentTab === 'roster') { renderRoster(); return; }
+  if (DPF.ui.currentTab === 'board') { renderDraftBoard(); return; }
+  if (DPF.ui.currentTab === 'mock') { renderMockDraft(); return; }
+  if (DPF.ui.currentTab === 'league') { renderLeague(); return; }
+  if (DPF.ui.currentTab === 'futures') { renderFutures(); return; }
 
   // Show time-split toggle for 2026 Actual views
   const _splitEl = document.getElementById('tableSplitToggle');
   if (_splitEl) {
-    _splitEl.innerHTML = (currentView === 's26' || currentView === 'avp') ? renderSplitToggle('table-split') : '';
+    _splitEl.innerHTML = (DPF.ui.currentView === 's26' || DPF.ui.currentView === 'avp') ? renderSplitToggle('table-split') : '';
     _splitEl.querySelectorAll('.split-toggle').forEach(sel => {
       sel.addEventListener('change', () => {
         state._splitWindow = sel.value;
@@ -2375,12 +2467,17 @@ function render() {
   }
 
   buildPosFilters();
-  recalcPNAV();
+  // Cache PNAV: only recalculate if roster state changes (checked via length)
+  const _rosterHash = (state.myTeam || []).length;
+  if (!window._lastRosterHash || window._lastRosterHash !== _rosterHash) {
+    recalcPNAV();
+    window._lastRosterHash = _rosterHash;
+  }
   // renderMyTeamChips(); // chips removed
 
   let data;
-  if (filterType === 'bat') data = BATTERS;
-  else if (filterType === 'pit') data = PITCHERS;
+  if (DPF.ui.filterType === 'bat') data = BATTERS;
+  else if (DPF.ui.filterType === 'pit') data = PITCHERS;
   else data = ALL;
 
   const q = document.getElementById('searchBox').value.toLowerCase();
@@ -2390,7 +2487,7 @@ function render() {
 
   let filtered = data.filter(p => {
     if (q && !p.name.toLowerCase().includes(q) && !(p.team||'').toLowerCase().includes(q)) return false;
-    if (filterPos !== 'ALL' && p.primaryPos !== filterPos && !p.pos.includes(filterPos)) return false;
+    if (DPF.table.filterPos !== 'ALL' && p.primaryPos !== DPF.table.filterPos && !p.pos.includes(DPF.table.filterPos)) return false;
     if (teamFilter !== 'all') {
       const tObj = LEAGUE_TEAMS.find(t => t.name === teamFilter);
       const onTeam = tObj && tObj.mine ? (state.myTeam||[]).includes(p.name) : (state.leagueTeams[teamFilter]||[]).includes(p.name);
@@ -2419,7 +2516,7 @@ function render() {
     if (tagFilter === 'stuff-up' && !(p.type === 'PIT' && p.stuffTrend >= 8)) return false;
     if (tagFilter === 'stuff-down' && !(p.type === 'PIT' && p.stuffTrend <= -8)) return false;
     // For s26/avp views, only show players with actual 2026 data
-    if ((currentView === 's26' || currentView === 'avp') && !p.s26_pa && !p.s26_ip) return false;
+    if ((DPF.ui.currentView === 's26' || DPF.ui.currentView === 'avp') && !p.s26_pa && !p.s26_ip) return false;
     return true;
   });
 
@@ -2445,8 +2542,9 @@ function render() {
     p._parkBadge = parkBadge(p);
     p._closerBadge = closerBadge(p);
     p._stuffTrend = stuffTrendBadge(p);
+    p._luckBadge = luckBadge(p);
     // Compute additional GM values only when in GM view
-    if (currentView === 'gm') {
+    if (DPF.ui.currentView === 'gm') {
       p._keeperRound = ki.draftRound || 99;
       p._keeperCost2027 = ki.keepable2027 ? ki.cost2027 : 99;
       p._yearsControl = ki.yearsLeft || 0;
@@ -2459,17 +2557,17 @@ function render() {
   const gmSortMap = {keeperRound:'_keeperRound',keeperCost2027:'_keeperCost2027',yearsControl:'_yearsControl',surplusNow:'_surplusNow',multiYearSurplus:'_multiYearSurplus',prospectValue:'_prospectValue',tradeValue:'_tradeValue'};
 
   filtered.sort((a,b) => {
-    const sc = gmSortMap[sortCol] || sortCol;
+    const sc = gmSortMap[DPF.table.sortCol] || DPF.table.sortCol;
     let av = a[sc], bv = b[sc];
-    if (typeof av === 'string') return sortDir * av.localeCompare(bv);
-    return sortDir * ((av||0) - (bv||0));
+    if (typeof av === 'string') return DPF.table.sortDir * av.localeCompare(bv);
+    return DPF.table.sortDir * ((av||0) - (bv||0));
   });
 
   const cols = getCols();
 
   function buildHeaderHtml(colSet) {
     return '<tr>' + colSet.map(c => {
-      let cls = (sortCol === c.key ? (sortDir === 1 ? 'sorted-asc' : 'sorted-desc') : '');
+      let cls = (DPF.table.sortCol === c.key ? (DPF.table.sortDir === 1 ? 'sorted-asc' : 'sorted-desc') : '');
       let inner = c.label;
       if (c.tip) {
         inner = `<span class="tooltip">${c.label}<span class="tt-text">${c.tip}</span></span>`;
@@ -2484,8 +2582,8 @@ function render() {
   thead.querySelectorAll('th').forEach(th => {
     th.addEventListener('click', () => {
       const col = th.dataset.col;
-      if (sortCol === col) sortDir *= -1;
-      else { sortCol = col; sortDir = -1; }
+      if (DPF.table.sortCol === col) DPF.table.sortDir *= -1;
+      else { DPF.table.sortCol = col; DPF.table.sortDir = -1; }
       render();
     });
   });
@@ -2543,7 +2641,7 @@ function render() {
       // Handle empty 2025 stats (player not in 2025 data)
       if (val === '' || val === undefined || val === null) return `<td class="no-data">—</td>`;
       // 2026 projected vs 2025 actual comparison coloring
-      if (currentView === 'p26' && !c.key.startsWith('s25_')) {
+      if (DPF.ui.currentView === 'p26' && !c.key.startsWith('s25_')) {
         const s25map = {pa:'s25_pa',avg:'s25_avg',obp:'s25_obp',slg:'s25_slg',hr:'s25_hr',r:'s25_r',rbi:'s25_rbi',sb:'s25_sb',so:'s25_so',
                          ip:'s25_ip',era:'s25_era',whip:'s25_whip',w:'s25_w',sv:'s25_sv',hld:'s25_hld',qs:'s25_qs'};
         const s25k = s25map[c.key];
@@ -2562,7 +2660,7 @@ function render() {
         }
       }
       // AVP view: color actual stats relative to projected
-      if (currentView === 'avp' && c.key.startsWith('s26_')) {
+      if (DPF.ui.currentView === 'avp' && c.key.startsWith('s26_')) {
         const projMap = {s26_avg:'avg',s26_obp:'obp',s26_slg:'slg',s26_hr:'hr',s26_r:'r',s26_rbi:'rbi',s26_sb:'sb',s26_so:'so',s26_pa:'pa',
                           s26_ip:'ip',s26_era:'era',s26_whip:'whip',s26_w:'w',s26_sv:'sv',s26_hld:'hld',s26_qs:'qs'};
         const projK = projMap[c.key];
@@ -2604,6 +2702,13 @@ function render() {
         const v = parseFloat(val);
         cls += v >= 0 ? ' val-pos' : ' val-neg';
         val = v.toFixed(2);
+        // Add confidence indicator for actualLcv in time-split windows
+        if (c.key === 'actualLcv' && p._splitConfidence) {
+          const confColors = { 'low': '#e88a0a', 'med': '#2563eb', 'high': '#16a34a' };
+          const confTips = { 'low': 'Low sample size', 'med': 'Medium sample size', 'high': 'High sample size' };
+          const dot = `<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${confColors[p._splitConfidence]};margin-right:4px;vertical-align:middle;" title="${confTips[p._splitConfidence]}"></span>`;
+          return `<td class="${cls}">${dot}${val}</td>`;
+        }
       }
       else if (c.key === 'lcvDelta') {
         const v = parseFloat(val);
@@ -2705,7 +2810,7 @@ function render() {
         if (p._buySell === 'buy') aBadges += ' <span class="pbadge" title="Buy-low: xwOBA ' + ((p.s25_delta||0)*1000).toFixed(0) + ' pts above wOBA" style="background:#16a34a;color:#fff;">BUY</span>';
         if (p._buySell === 'sell') aBadges += ' <span class="pbadge" title="Sell-high: xwOBA ' + (Math.abs(p.s25_delta||0)*1000).toFixed(0) + ' pts below wOBA" style="background:#dc2626;color:#fff;">SELL</span>';
         if (p._sbBreakout) aBadges += ' <span class="pbadge" title="SB breakout: ' + (p.sprintSpeed||'?') + ' ft/s speed, only ' + (p.sb||0) + ' proj SB" style="background:#7c3aed;color:#fff;">SB</span>';
-        aBadges += (p._kAdj || '') + (p._parkBadge || '') + (p._closerBadge || '') + (p._stuffTrend || '');
+        aBadges += (p._kAdj || '') + (p._parkBadge || '') + (p._closerBadge || '') + (p._stuffTrend || '') + (p._luckBadge || '');
         return `<td style="font-weight:600;white-space:nowrap;">${val}${_injBadge(p.name)}${enoR}${aBadges}${tagHtml}${kp}${ownerBadge}${tagBtns}</td>`;
       }
       return `<td class="${cls}">${val}</td>`;
@@ -5981,7 +6086,10 @@ function calcOptimalLCV(playerNames) {
   return { startingLCV, totalLCV, startingALCV, totalALCV, count: players.length };
 }
 
-let leagueSortCol = 'startingLCV', leagueSortDir = -1; // default: Start LCV desc
+// Moved to DPF namespace in render-league.js initialization
+DPF.league = DPF.league || {};
+DPF.league.sortCol = 'startingLCV';
+DPF.league.sortDir = -1; // default: Start LCV desc
 
 function renderLeague() {
   const section = document.getElementById('rosterSection');
@@ -6027,9 +6135,9 @@ function renderLeague() {
 
   // Sort
   const sorted = [...teamData].sort((a, b) => {
-    let av = a[leagueSortCol], bv = b[leagueSortCol];
-    if (typeof av === 'string') return leagueSortDir * av.localeCompare(bv);
-    return leagueSortDir * ((av || 0) - (bv || 0));
+    let av = a[DPF.league.sortCol], bv = b[DPF.league.sortCol];
+    if (typeof av === 'string') return DPF.league.sortDir * av.localeCompare(bv);
+    return DPF.league.sortDir * ((av || 0) - (bv || 0));
   });
 
   // Max values for bar scaling
@@ -6042,7 +6150,13 @@ function renderLeague() {
   if (!state._leagueView || state._leagueView === 'kept') state._leagueView = 'comparison';
   if (state._leagueView === 'available') state._leagueView = 'rosters';
 
-  let html = '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">';
+  // Action Items Panel (season mode only, before views)
+  let html = '';
+  if (state._mode === 'season') {
+    html += renderActionItems();
+  }
+
+  html += '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;margin-top:24px;">';
   html += '<h2 style="margin:0;">League</h2>';
   html += '<div style="display:flex;gap:2px;background:var(--surface2);border-radius:6px;padding:2px;">';
   ['comparison','rosters','positional'].forEach(v => {
@@ -6283,8 +6397,8 @@ function renderLeague() {
   html += '<table style="width:100%"><thead><tr>';
   html += '<th style="width:25px">#</th>';
   leagueCols.forEach(col => {
-    const isActive = leagueSortCol === col.key;
-    const arrow = isActive ? (leagueSortDir === -1 ? ' ▼' : ' ▲') : '';
+    const isActive = DPF.league.sortCol === col.key;
+    const arrow = isActive ? (DPF.league.sortDir === -1 ? ' ▼' : ' ▲') : '';
     const cursor = 'cursor:pointer;user-select:none;';
     const fontSize = col.small ? 'font-size:11px;' : '';
     const tip = col.tip ? ` title="${col.tip}"` : '';
@@ -6416,8 +6530,8 @@ function renderLeague() {
   section.querySelectorAll('.league-sort-th').forEach(th => {
     th.addEventListener('click', () => {
       const col = th.dataset.col;
-      if (leagueSortCol === col) { leagueSortDir *= -1; }
-      else { leagueSortCol = col; leagueSortDir = -1; }
+      if (DPF.league.sortCol === col) { DPF.league.sortDir *= -1; }
+      else { DPF.league.sortCol = col; DPF.league.sortDir = -1; }
       renderLeague();
     });
   });
@@ -6565,13 +6679,248 @@ function renderLeague() {
   }
 }
 
+// ── Action Items Panel ──────────────────────────────────────────────────
+// High-impact recommendations: category pace, waiver picks, cold players, hot FA
+function renderActionItems() {
+  const section = document.getElementById('rosterSection');
+  const myTeam = state.myTeam || [];
+  if (myTeam.length === 0) return ''; // No action items without a roster
+
+  // Category helpers
+  const _batCats = ['avg','hr','r','rbi','sb','obp','slg','so'];
+  const _pitCats = ['era','whip','so','w','sv','qs','hld','hr'];
+
+  // Compute team category totals (starting lineup only)
+  function teamCatTotals(teamPlayers) {
+    const allPlayers = teamPlayers.map(n => _plyrI(n)).filter(Boolean);
+    const allBats = allPlayers.filter(p => !['SP','RP'].includes(p.primaryPos)).sort((a,b) => (b.lcv||0) - (a.lcv||0));
+    const allSP = allPlayers.filter(p => p.primaryPos === 'SP').sort((a,b) => (b.lcv||0) - (a.lcv||0));
+    const allRP = allPlayers.filter(p => p.primaryPos === 'RP').sort((a,b) => (b.lcv||0) - (a.lcv||0));
+    const used = new Set();
+    const bats = [];
+    for (const pos of ['C','1B','2B','3B','SS','LF','CF','RF']) {
+      const c = allBats.find(p => !used.has(p.name) && (p.primaryPos === pos || (p.pos||'').split('/').includes(pos)));
+      if (c) { bats.push(c); used.add(c.name); }
+    }
+    const dh = allBats.find(p => !used.has(p.name));
+    if (dh) { bats.push(dh); used.add(dh.name); }
+    const pits = [...allSP.slice(0, 5), ...allRP.slice(0, 5)];
+    const bt = {}, pt = {};
+    _batCats.forEach(cat => {
+      if (cat === 'avg' || cat === 'obp' || cat === 'slg') {
+        let tp=0,w=0;
+        bats.forEach(p=>{const pa=p.pa||500;w+=(p[cat]||0)*pa;tp+=pa;});
+        bt[cat]=tp>0?w/tp:0;
+      } else {
+        bt[cat] = bats.reduce((s,p)=>s+(p[cat]||0),0);
+      }
+    });
+    _pitCats.forEach(cat => {
+      if (cat === 'era' || cat === 'whip') {
+        let ti=0,w=0;
+        pits.forEach(p=>{const ip=p.ip||100;w+=(p[cat]||0)*ip;ti+=ip;});
+        pt[cat]=ti>0?w/ti:0;
+      } else {
+        pt[cat] = pits.reduce((s,p)=>s+(p[cat]||0),0);
+      }
+    });
+    return { bat: bt, pit: pt };
+  }
+
+  // Compute league average for each category
+  const leagueAverages = { bat: {}, pit: {} };
+  const draftedPlayers = new Set(Object.keys(state.drafted));
+  const allLeaguePlayers = [...BATTERS, ...PITCHERS].filter(p => draftedPlayers.has(p.name));
+
+  _batCats.forEach(cat => {
+    const vals = allLeaguePlayers
+      .filter(p => !['SP','RP'].includes(p.primaryPos))
+      .map(p => p[cat] || 0)
+      .filter(v => v > 0);
+    leagueAverages.bat[cat] = vals.length > 0 ? vals.reduce((a,b)=>a+b)/vals.length : 0;
+  });
+
+  _pitCats.forEach(cat => {
+    const vals = allLeaguePlayers
+      .filter(p => ['SP','RP'].includes(p.primaryPos))
+      .map(p => p[cat] || 0)
+      .filter(v => v > 0);
+    leagueAverages.pit[cat] = vals.length > 0 ? vals.reduce((a,b)=>a+b)/vals.length : 0;
+  });
+
+  const myTotals = teamCatTotals(myTeam);
+
+  // ═════════════════════════════════════
+  // 1. CATEGORY PACE
+  // ═════════════════════════════════════
+  let html = '<div style="margin-bottom:24px;"><h3 style="font-size:15px;font-weight:700;margin-bottom:12px;">Action Items</h3>';
+  html += '<div style="font-size:11px;color:var(--text2);margin-bottom:16px;">Real-time recommendations to maximize your category wins.</div>';
+
+  html += '<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:16px;">';
+  html += '<div style="font-weight:700;font-size:12px;margin-bottom:10px;">Category Pace</div>';
+
+  // Helper to determine if higher or lower is better
+  const lowerIsBetter = new Set(['era','whip','so']);
+  const winningCats = { bat: [], losing: [] };
+  const batStatus = [];
+
+  _batCats.forEach(cat => {
+    const mine = myTotals.bat[cat] || 0;
+    const league = leagueAverages.bat[cat] || 0;
+    let status = 'neutral';
+
+    if (lowerIsBetter.has(cat)) {
+      if (mine < league) status = 'winning';
+      else if (mine > league) status = 'losing';
+    } else {
+      if (mine > league) status = 'winning';
+      else if (mine < league) status = 'losing';
+    }
+
+    if (status === 'winning') winningCats.bat.push(cat);
+    else if (status === 'losing') winningCats.losing = winningCats.losing || [];
+
+    batStatus.push({ cat, mine, league, status });
+  });
+
+  const pitStatus = [];
+  _pitCats.forEach(cat => {
+    const mine = myTotals.pit[cat] || 0;
+    const league = leagueAverages.pit[cat] || 0;
+    let status = 'neutral';
+
+    if (lowerIsBetter.has(cat)) {
+      if (mine < league) status = 'winning';
+      else if (mine > league) status = 'losing';
+    } else {
+      if (mine > league) status = 'winning';
+      else if (mine < league) status = 'losing';
+    }
+
+    if (status === 'winning') winningCats.pit = winningCats.pit || [];
+    else if (status === 'losing') {
+      if (!winningCats.losing) winningCats.losing = [];
+      winningCats.losing.push(cat);
+    }
+
+    pitStatus.push({ cat, mine, league, status });
+  });
+
+  html += '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">';
+  batStatus.concat(pitStatus).forEach(s => {
+    const badgeColor = s.status === 'winning' ? 'var(--green)' : s.status === 'losing' ? 'var(--red)' : 'var(--yellow)';
+    const badgeBg = s.status === 'winning' ? 'rgba(22,163,74,0.15)' : s.status === 'losing' ? 'rgba(220,38,38,0.15)' : 'rgba(202,138,4,0.15)';
+    html += `<div style="background:${badgeBg};color:${badgeColor};padding:4px 8px;border-radius:4px;font-weight:600;font-size:10px;">${s.cat.toUpperCase()}</div>`;
+  });
+  html += '</div>';
+  html += '<div style="font-size:10px;color:var(--text2);line-height:1.6;">';
+  const winCount = (winningCats.bat?.length || 0) + (winningCats.pit?.length || 0);
+  const loseCount = (winningCats.losing?.length || 0);
+  html += `<b>Pace:</b> ${winCount} winning, ${loseCount} losing<br>`;
+  html += '<b>Tip:</b> Target undrafted players in your losing categories.';
+  html += '</div>';
+  html += '</div>';
+
+  // ═════════════════════════════════════
+  // 2. WAIVER WIRE PICKS (for losing cats)
+  // ═════════════════════════════════════
+  if (winningCats.losing && winningCats.losing.length > 0) {
+    html += '<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:16px;">';
+    html += '<div style="font-weight:700;font-size:12px;margin-bottom:10px;">Waiver Wire Targets</div>';
+    html += '<div style="font-size:10px;color:var(--text2);margin-bottom:10px;">Top undrafted players for your losing categories:</div>';
+
+    const draftedSet = new Set(Object.keys(state.drafted));
+    const losingCatsSet = new Set(winningCats.losing);
+
+    // Find best available for each losing cat
+    const recommendations = [];
+    winningCats.losing.forEach(cat => {
+      const candidates = ALL.filter(p => !draftedSet.has(p.name) && p[cat] !== undefined);
+      candidates.sort((a,b) => {
+        if (lowerIsBetter.has(cat)) return (a[cat] || 999) - (b[cat] || 999);
+        return (b[cat] || 0) - (a[cat] || 0);
+      });
+      candidates.slice(0, 3).forEach(p => {
+        recommendations.push({ cat, player: p.name, pos: p.primaryPos, value: p[cat] });
+      });
+    });
+
+    // Deduplicate and sort by impact
+    const seen = new Set();
+    const unique = [];
+    recommendations.forEach(r => {
+      if (!seen.has(r.player)) {
+        seen.add(r.player);
+        unique.push(r);
+      }
+    });
+
+    unique.slice(0, 5).forEach(r => {
+      html += `<div style="padding:8px;background:var(--surface2);border-radius:4px;margin-bottom:6px;font-size:11px;"><b>${r.player}</b> <span style="color:var(--text2);">${r.pos}</span> → <span style="color:var(--red);">${r.cat.toUpperCase()}</span></div>`;
+    });
+    html += '</div>';
+  }
+
+  // ═════════════════════════════════════
+  // 3. COLD PLAYER ALERT
+  // ═════════════════════════════════════
+  if (state._mode === 'season') {
+    const coldPlayers = myTeam
+      .map(name => ({ name, p: _plyrI(name) }))
+      .filter(x => x.p && x.p.lcvDelta !== undefined && x.p.lcvDelta !== null)
+      .sort((a, b) => (a.p.lcvDelta || 0) - (b.p.lcvDelta || 0))
+      .slice(0, 3);
+
+    if (coldPlayers.length > 0) {
+      html += '<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:16px;">';
+      html += '<div style="font-weight:700;font-size:12px;margin-bottom:10px;">Cold Players (Drop Candidates)</div>';
+      html += '<div style="font-size:10px;color:var(--text2);margin-bottom:10px;">Players underperforming projections by most:</div>';
+
+      coldPlayers.forEach(x => {
+        const delta = (x.p.lcvDelta || 0).toFixed(1);
+        const color = delta < 0 ? 'var(--red)' : 'var(--green)';
+        html += `<div style="padding:8px;background:var(--surface2);border-radius:4px;margin-bottom:6px;font-size:11px;"><b>${x.name}</b> <span style="color:var(--text2);">${x.p.primaryPos}</span> <span style="color:${color};font-weight:600;">Δ${delta}</span></div>`;
+      });
+      html += '</div>';
+    }
+  }
+
+  // ═════════════════════════════════════
+  // 4. HOT FREE AGENTS
+  // ═════════════════════════════════════
+  if (state._mode === 'season') {
+    const draftedSet = new Set(Object.keys(state.drafted));
+    const hotAgents = ALL
+      .filter(p => !draftedSet.has(p.name))
+      .sort((a, b) => (b.lcvDelta || b.actualLcv || 0) - (a.lcvDelta || a.actualLcv || 0))
+      .slice(0, 5);
+
+    if (hotAgents.length > 0) {
+      html += '<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;">';
+      html += '<div style="font-weight:700;font-size:12px;margin-bottom:10px;">Hot Free Agents</div>';
+      html += '<div style="font-size:10px;color:var(--text2);margin-bottom:10px;">Undrafted players with strongest recent performance:</div>';
+
+      hotAgents.forEach(p => {
+        const delta = p.lcvDelta !== undefined ? (p.lcvDelta || 0).toFixed(1) : '';
+        const alc = p.actualLcv !== undefined ? (p.actualLcv || 0).toFixed(1) : '';
+        html += `<div style="padding:8px;background:var(--surface2);border-radius:4px;margin-bottom:6px;font-size:11px;"><b>${p.name}</b> <span style="color:var(--text2);">${p.primaryPos}</span>${delta ? ` <span style="color:var(--green);font-weight:600;">+${delta}</span>` : ''}${alc ? ` <span style="color:var(--text2);">(aLCV: ${alc})</span>` : ''}</div>`;
+      });
+      html += '</div>';
+    }
+  }
+
+  html += '</div>'; // End action items container
+  return html;
+}
+
 // (renderLeagueRosters removed — combined into renderRoster)
 
 // (renderFreeAgents removed — use All/Drafted/Available filter on main player tables instead)
 
 // ── src/render-mock.js ──────────────────────────────────────────
 // ── Interactive Mock Draft ─────────────────────────────────────────────────
-let mockState = null; // {picks:[], currentPick:0, userTeamIdx:1, available:[], paused:false, speed:'normal', draftOrder:[]}
+// Moved to DPF namespace
+DPF.mock.state = null; // {picks:[], currentPick:0, userTeamIdx:1, available:[], paused:false, speed:'normal', draftOrder:[]}
 
 function initMockDraft() {
   const TOTAL_ROUNDS = 31;
@@ -8509,13 +8858,21 @@ document.querySelectorAll('.view-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    currentView = btn.dataset.view;
+    DPF.ui.currentView = btn.dataset.view;
+    _saveFilters();
     render();
   });
 });
 
 // ── Search & filter listeners ─────────────────────────────────────────────
-document.getElementById('searchBox').addEventListener('input', render);
+// Debounce wrapper for search (200ms)
+let _searchDebounceTimer = null;
+function debouncedRender() {
+  clearTimeout(_searchDebounceTimer);
+  _searchDebounceTimer = setTimeout(render, 200);
+}
+
+document.getElementById('searchBox').addEventListener('input', debouncedRender);
 document.getElementById('draftFilter').addEventListener('change', render);
 document.getElementById('tagFilter').addEventListener('change', render);
 // Populate team filter dropdown with fantasy league teams

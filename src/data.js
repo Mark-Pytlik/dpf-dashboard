@@ -221,6 +221,44 @@ function stuffTrendBadge(player) {
   return '';
 }
 
+// ── 2026 Regression analysis badges ──────────────────────────────────────
+// Batters: xwOBA vs wOBA luck indicator
+function luckBadge(player) {
+  if (!player) return '';
+
+  // Batter luck: compare 2026 xwOBA to wOBA (if 2026 data exists)
+  if (player.type === 'BAT' && player.s26_xwoba && player.s26_woba) {
+    const xwoba = parseFloat(player.s26_xwoba);
+    const woba = parseFloat(player.s26_woba);
+    const delta = xwoba - woba;
+    if (delta > 0.030) {
+      return '<span class="pbadge" title="Underperforming 2026: xwOBA ' + (delta*1000).toFixed(0) + ' pts above wOBA (unlucky)" style="background:#16a34a;color:#fff;">UNLUCKY</span>';
+    }
+    if (delta < -0.030) {
+      return '<span class="pbadge" title="Overperforming 2026: xwOBA ' + (Math.abs(delta)*1000).toFixed(0) + ' pts below wOBA (lucky)" style="background:#dc2626;color:#fff;">LUCKY</span>';
+    }
+  }
+
+  // Pitcher luck: ERA vs FIP (when both available); also Stuff+ trend
+  if (player.type === 'PIT') {
+    // Stuff+ improvement badge (already covered by stuffTrendBadge, but check for dStuff)
+    if (player.dStuff !== undefined && player.dStuff !== null && player.dStuff > 5) {
+      return '<span class="pbadge" title="Stuff+ improved +' + player.dStuff + ' in 2026" style="background:#16a34a;color:#fff;">STUFF↑</span>';
+    }
+    // ERA vs FIP: if ERA significantly worse than FIP, pitcher is unlucky
+    const era = parseFloat(player.s26_era);
+    const fip = parseFloat(player.s26_fip);
+    if (era && fip && !isNaN(era) && !isNaN(fip)) {
+      const delta = era - fip;
+      if (delta > 1.0) {
+        return '<span class="pbadge" title="2026 ERA ' + delta.toFixed(2) + ' worse than FIP (unlucky)" style="background:#16a34a;color:#fff;">UNLUCKY</span>';
+      }
+    }
+  }
+
+  return '';
+}
+
 // ── Age-curve keeper decay ──────────────────────────────────────────────
 // Adjusts keeper surplus for age-related decline
 function ageDecayFactor(age, yearsOut) {

@@ -133,6 +133,14 @@ a[title^="Sleeper"] { color:var(--green); } a[title^="Avoid"] { color:var(--red)
 .auth-btn { width:100%; padding:10px 12px; font-size:13px; font-weight:600; border:none; border-radius:6px; background:var(--accent2); color:#fff; cursor:pointer; }
 .auth-btn:hover { background:var(--accent); }
 .auth-error { font-size:12px; color:var(--red); margin-top:8px; }
+/* ── Action Items Panel ────────────────────────────────────────────── */
+.action-items-container { max-width:1100px; margin:0 auto; }
+.action-items-badge { display:inline-block; padding:4px 8px; border-radius:4px; font-weight:600; font-size:10px; margin-right:4px; margin-bottom:4px; }
+.action-items-badge.winning { background:rgba(22,163,74,0.15); color:var(--green); }
+.action-items-badge.losing { background:rgba(220,38,38,0.15); color:var(--red); }
+.action-items-badge.neutral { background:rgba(202,138,4,0.15); color:var(--yellow); }
+.action-items-card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:12px; margin-bottom:16px; }
+.action-items-row { padding:8px; background:var(--surface2); border-radius:4px; margin-bottom:6px; font-size:11px; }
 
 /* ── Mobile responsive ──────────────────────────────────────────────── */
 @media (max-width: 768px) {

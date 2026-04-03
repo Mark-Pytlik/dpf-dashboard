@@ -244,34 +244,34 @@ const allColsGM = [
 ];
 
 function getCols() {
-  if (currentView === 'gm') {
-    if (filterType === 'bat') return batColsGM;
-    if (filterType === 'pit') return pitColsGM;
+  if (DPF.ui.currentView === 'gm') {
+    if (DPF.ui.filterType === 'bat') return batColsGM;
+    if (DPF.ui.filterType === 'pit') return pitColsGM;
     return allColsGM;
   }
-  if (currentView === 's25') {
-    if (filterType === 'bat') return batCols25;
-    if (filterType === 'pit') return pitCols25;
+  if (DPF.ui.currentView === 's25') {
+    if (DPF.ui.filterType === 'bat') return batCols25;
+    if (DPF.ui.filterType === 'pit') return pitCols25;
     return allCols25;
   }
-  if (currentView === 'p26') {
-    if (filterType === 'bat') return batCols26;
-    if (filterType === 'pit') return pitCols26;
+  if (DPF.ui.currentView === 'p26') {
+    if (DPF.ui.filterType === 'bat') return batCols26;
+    if (DPF.ui.filterType === 'pit') return pitCols26;
     return allCols26;
   }
-  if (currentView === 's26') {
-    if (filterType === 'bat') return batCols26A;
-    if (filterType === 'pit') return pitCols26A;
+  if (DPF.ui.currentView === 's26') {
+    if (DPF.ui.filterType === 'bat') return batCols26A;
+    if (DPF.ui.filterType === 'pit') return pitCols26A;
     return allCols26A;
   }
-  if (currentView === 'avp') {
-    if (filterType === 'bat') return batColsAVP;
-    if (filterType === 'pit') return pitColsAVP;
+  if (DPF.ui.currentView === 'avp') {
+    if (DPF.ui.filterType === 'bat') return batColsAVP;
+    if (DPF.ui.filterType === 'pit') return pitColsAVP;
     return allColsAVP;
   }
   // main/analytics view
-  if (filterType === 'bat') return batCols;
-  if (filterType === 'pit') return pitCols;
+  if (DPF.ui.filterType === 'bat') return batCols;
+  if (DPF.ui.filterType === 'pit') return pitCols;
   return allCols;
 }
 

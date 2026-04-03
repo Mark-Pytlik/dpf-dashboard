@@ -3,13 +3,21 @@ document.querySelectorAll('.view-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    currentView = btn.dataset.view;
+    DPF.ui.currentView = btn.dataset.view;
+    _saveFilters();
     render();
   });
 });
 
 // ── Search & filter listeners ─────────────────────────────────────────────
-document.getElementById('searchBox').addEventListener('input', render);
+// Debounce wrapper for search (200ms)
+let _searchDebounceTimer = null;
+function debouncedRender() {
+  clearTimeout(_searchDebounceTimer);
+  _searchDebounceTimer = setTimeout(render, 200);
+}
+
+document.getElementById('searchBox').addEventListener('input', debouncedRender);
 document.getElementById('draftFilter').addEventListener('change', render);
 document.getElementById('tagFilter').addEventListener('change', render);
 // Populate team filter dropdown with fantasy league teams

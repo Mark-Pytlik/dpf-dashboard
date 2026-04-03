@@ -148,7 +148,7 @@ function computePitSplitStats(playerName, windowDays) {
 /**
  * Compute actual LCV for a batter in a given time window.
  * Uses pace-adjusted counting stats relative to projected PA.
- * Returns { actualLcv, lcvDelta } or null.
+ * Returns { actualLcv, lcvDelta, splitConfidence } or null.
  */
 function computeBatSplitLcv(player, windowDays) {
   const stats = computeBatSplitStats(player.name, windowDays);
@@ -167,12 +167,17 @@ function computeBatSplitLcv(player, windowDays) {
     + _zscore(stats.sb * pace, bs.sb.mean, bs.sb.std)
     - _zscore(stats.so * pace, bs.so.mean, bs.so.std);
 
-  return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - (player.lcv || 0)) * 100) / 100 };
+  // Sample size confidence: PA < 20 = low, 20-50 = med, >50 = high
+  let splitConfidence = 'high';
+  if (stats.pa < 20) splitConfidence = 'low';
+  else if (stats.pa < 50) splitConfidence = 'med';
+
+  return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - (player.lcv || 0)) * 100) / 100, splitConfidence };
 }
 
 /**
  * Compute actual LCV for a pitcher in a given time window.
- * Returns { actualLcv, lcvDelta } or null.
+ * Returns { actualLcv, lcvDelta, splitConfidence } or null.
  */
 function computePitSplitLcv(player, windowDays) {
   const stats = computePitSplitStats(player.name, windowDays);
@@ -193,7 +198,12 @@ function computePitSplitLcv(player, windowDays) {
     - _zscore(stats.whip, ps.whip.mean, ps.whip.std)
     + _zscore(stats.qs * pace, ps.qs.mean, ps.qs.std);
 
-  return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - (player.lcv || 0)) * 100) / 100 };
+  // Sample size confidence: IP < 5 = low, 5-15 = med, >15 = high
+  let splitConfidence = 'high';
+  if (stats.ip < 5) splitConfidence = 'low';
+  else if (stats.ip < 15) splitConfidence = 'med';
+
+  return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - (player.lcv || 0)) * 100) / 100, splitConfidence };
 }
 
 /**
@@ -221,9 +231,11 @@ function applySplitWindow(windowKey) {
     if (splitResult) {
       p.actualLcv = splitResult.actualLcv;
       p.lcvDelta = splitResult.lcvDelta;
+      p._splitConfidence = splitResult.splitConfidence;
     } else {
       p.actualLcv = null;
       p.lcvDelta = null;
+      p._splitConfidence = null;
     }
   });
 }

@@ -1,27 +1,27 @@
 // ── Render ─────────────────────────────────────────────────────────────────
 function render() {
-  const isPlayerTab = (currentTab === 'all');
+  const isPlayerTab = (DPF.ui.currentTab === 'all');
   document.getElementById('playerControls').style.display = isPlayerTab ? 'flex' : 'none';
-  document.getElementById('draftPanel').classList.toggle('show', currentTab === 'all' && state._mode === 'draft');
+  document.getElementById('draftPanel').classList.toggle('show', DPF.ui.currentTab === 'all' && state._mode === 'draft');
   document.getElementById('tableWrap').style.display = isPlayerTab ? '' : 'none';
   document.getElementById('liveSidebar').style.display = 'none';
-  document.getElementById('rosterSection').style.display = ['myRoster','roster','board','mock','league','futures'].includes(currentTab) ? '' : 'none';
-  document.getElementById('txnsSection').style.display = currentTab === 'txns' ? '' : 'none';
-  document.getElementById('analyticsSection').style.display = currentTab === 'analytics' ? '' : 'none';
+  document.getElementById('rosterSection').style.display = ['myRoster','roster','board','mock','league','futures'].includes(DPF.ui.currentTab) ? '' : 'none';
+  document.getElementById('txnsSection').style.display = DPF.ui.currentTab === 'txns' ? '' : 'none';
+  document.getElementById('analyticsSection').style.display = DPF.ui.currentTab === 'analytics' ? '' : 'none';
 
-  if (currentTab === 'analytics') { renderAnalytics(); return; }
-  if (currentTab === 'txns') { renderTransactions(); return; }
-  if (currentTab === 'myRoster') { state._rosterTeam = '__mine__'; renderRoster(); return; }
-  if (currentTab === 'roster') { renderRoster(); return; }
-  if (currentTab === 'board') { renderDraftBoard(); return; }
-  if (currentTab === 'mock') { renderMockDraft(); return; }
-  if (currentTab === 'league') { renderLeague(); return; }
-  if (currentTab === 'futures') { renderFutures(); return; }
+  if (DPF.ui.currentTab === 'analytics') { renderAnalytics(); return; }
+  if (DPF.ui.currentTab === 'txns') { renderTransactions(); return; }
+  if (DPF.ui.currentTab === 'myRoster') { state._rosterTeam = '__mine__'; renderRoster(); return; }
+  if (DPF.ui.currentTab === 'roster') { renderRoster(); return; }
+  if (DPF.ui.currentTab === 'board') { renderDraftBoard(); return; }
+  if (DPF.ui.currentTab === 'mock') { renderMockDraft(); return; }
+  if (DPF.ui.currentTab === 'league') { renderLeague(); return; }
+  if (DPF.ui.currentTab === 'futures') { renderFutures(); return; }
 
   // Show time-split toggle for 2026 Actual views
   const _splitEl = document.getElementById('tableSplitToggle');
   if (_splitEl) {
-    _splitEl.innerHTML = (currentView === 's26' || currentView === 'avp') ? renderSplitToggle('table-split') : '';
+    _splitEl.innerHTML = (DPF.ui.currentView === 's26' || DPF.ui.currentView === 'avp') ? renderSplitToggle('table-split') : '';
     _splitEl.querySelectorAll('.split-toggle').forEach(sel => {
       sel.addEventListener('change', () => {
         state._splitWindow = sel.value;
@@ -33,12 +33,17 @@ function render() {
   }
 
   buildPosFilters();
-  recalcPNAV();
+  // Cache PNAV: only recalculate if roster state changes (checked via length)
+  const _rosterHash = (state.myTeam || []).length;
+  if (!window._lastRosterHash || window._lastRosterHash !== _rosterHash) {
+    recalcPNAV();
+    window._lastRosterHash = _rosterHash;
+  }
   // renderMyTeamChips(); // chips removed
 
   let data;
-  if (filterType === 'bat') data = BATTERS;
-  else if (filterType === 'pit') data = PITCHERS;
+  if (DPF.ui.filterType === 'bat') data = BATTERS;
+  else if (DPF.ui.filterType === 'pit') data = PITCHERS;
   else data = ALL;
 
   const q = document.getElementById('searchBox').value.toLowerCase();
@@ -48,7 +53,7 @@ function render() {
 
   let filtered = data.filter(p => {
     if (q && !p.name.toLowerCase().includes(q) && !(p.team||'').toLowerCase().includes(q)) return false;
-    if (filterPos !== 'ALL' && p.primaryPos !== filterPos && !p.pos.includes(filterPos)) return false;
+    if (DPF.table.filterPos !== 'ALL' && p.primaryPos !== DPF.table.filterPos && !p.pos.includes(DPF.table.filterPos)) return false;
     if (teamFilter !== 'all') {
       const tObj = LEAGUE_TEAMS.find(t => t.name === teamFilter);
       const onTeam = tObj && tObj.mine ? (state.myTeam||[]).includes(p.name) : (state.leagueTeams[teamFilter]||[]).includes(p.name);
@@ -77,7 +82,7 @@ function render() {
     if (tagFilter === 'stuff-up' && !(p.type === 'PIT' && p.stuffTrend >= 8)) return false;
     if (tagFilter === 'stuff-down' && !(p.type === 'PIT' && p.stuffTrend <= -8)) return false;
     // For s26/avp views, only show players with actual 2026 data
-    if ((currentView === 's26' || currentView === 'avp') && !p.s26_pa && !p.s26_ip) return false;
+    if ((DPF.ui.currentView === 's26' || DPF.ui.currentView === 'avp') && !p.s26_pa && !p.s26_ip) return false;
     return true;
   });
 
@@ -103,8 +108,9 @@ function render() {
     p._parkBadge = parkBadge(p);
     p._closerBadge = closerBadge(p);
     p._stuffTrend = stuffTrendBadge(p);
+    p._luckBadge = luckBadge(p);
     // Compute additional GM values only when in GM view
-    if (currentView === 'gm') {
+    if (DPF.ui.currentView === 'gm') {
       p._keeperRound = ki.draftRound || 99;
       p._keeperCost2027 = ki.keepable2027 ? ki.cost2027 : 99;
       p._yearsControl = ki.yearsLeft || 0;
@@ -117,17 +123,17 @@ function render() {
   const gmSortMap = {keeperRound:'_keeperRound',keeperCost2027:'_keeperCost2027',yearsControl:'_yearsControl',surplusNow:'_surplusNow',multiYearSurplus:'_multiYearSurplus',prospectValue:'_prospectValue',tradeValue:'_tradeValue'};
 
   filtered.sort((a,b) => {
-    const sc = gmSortMap[sortCol] || sortCol;
+    const sc = gmSortMap[DPF.table.sortCol] || DPF.table.sortCol;
     let av = a[sc], bv = b[sc];
-    if (typeof av === 'string') return sortDir * av.localeCompare(bv);
-    return sortDir * ((av||0) - (bv||0));
+    if (typeof av === 'string') return DPF.table.sortDir * av.localeCompare(bv);
+    return DPF.table.sortDir * ((av||0) - (bv||0));
   });
 
   const cols = getCols();
 
   function buildHeaderHtml(colSet) {
     return '<tr>' + colSet.map(c => {
-      let cls = (sortCol === c.key ? (sortDir === 1 ? 'sorted-asc' : 'sorted-desc') : '');
+      let cls = (DPF.table.sortCol === c.key ? (DPF.table.sortDir === 1 ? 'sorted-asc' : 'sorted-desc') : '');
       let inner = c.label;
       if (c.tip) {
         inner = `<span class="tooltip">${c.label}<span class="tt-text">${c.tip}</span></span>`;
@@ -142,8 +148,8 @@ function render() {
   thead.querySelectorAll('th').forEach(th => {
     th.addEventListener('click', () => {
       const col = th.dataset.col;
-      if (sortCol === col) sortDir *= -1;
-      else { sortCol = col; sortDir = -1; }
+      if (DPF.table.sortCol === col) DPF.table.sortDir *= -1;
+      else { DPF.table.sortCol = col; DPF.table.sortDir = -1; }
       render();
     });
   });
@@ -201,7 +207,7 @@ function render() {
       // Handle empty 2025 stats (player not in 2025 data)
       if (val === '' || val === undefined || val === null) return `<td class="no-data">—</td>`;
       // 2026 projected vs 2025 actual comparison coloring
-      if (currentView === 'p26' && !c.key.startsWith('s25_')) {
+      if (DPF.ui.currentView === 'p26' && !c.key.startsWith('s25_')) {
         const s25map = {pa:'s25_pa',avg:'s25_avg',obp:'s25_obp',slg:'s25_slg',hr:'s25_hr',r:'s25_r',rbi:'s25_rbi',sb:'s25_sb',so:'s25_so',
                          ip:'s25_ip',era:'s25_era',whip:'s25_whip',w:'s25_w',sv:'s25_sv',hld:'s25_hld',qs:'s25_qs'};
         const s25k = s25map[c.key];
@@ -220,7 +226,7 @@ function render() {
         }
       }
       // AVP view: color actual stats relative to projected
-      if (currentView === 'avp' && c.key.startsWith('s26_')) {
+      if (DPF.ui.currentView === 'avp' && c.key.startsWith('s26_')) {
         const projMap = {s26_avg:'avg',s26_obp:'obp',s26_slg:'slg',s26_hr:'hr',s26_r:'r',s26_rbi:'rbi',s26_sb:'sb',s26_so:'so',s26_pa:'pa',
                           s26_ip:'ip',s26_era:'era',s26_whip:'whip',s26_w:'w',s26_sv:'sv',s26_hld:'hld',s26_qs:'qs'};
         const projK = projMap[c.key];
@@ -262,6 +268,13 @@ function render() {
         const v = parseFloat(val);
         cls += v >= 0 ? ' val-pos' : ' val-neg';
         val = v.toFixed(2);
+        // Add confidence indicator for actualLcv in time-split windows
+        if (c.key === 'actualLcv' && p._splitConfidence) {
+          const confColors = { 'low': '#e88a0a', 'med': '#2563eb', 'high': '#16a34a' };
+          const confTips = { 'low': 'Low sample size', 'med': 'Medium sample size', 'high': 'High sample size' };
+          const dot = `<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${confColors[p._splitConfidence]};margin-right:4px;vertical-align:middle;" title="${confTips[p._splitConfidence]}"></span>`;
+          return `<td class="${cls}">${dot}${val}</td>`;
+        }
       }
       else if (c.key === 'lcvDelta') {
         const v = parseFloat(val);
@@ -363,7 +376,7 @@ function render() {
         if (p._buySell === 'buy') aBadges += ' <span class="pbadge" title="Buy-low: xwOBA ' + ((p.s25_delta||0)*1000).toFixed(0) + ' pts above wOBA" style="background:#16a34a;color:#fff;">BUY</span>';
         if (p._buySell === 'sell') aBadges += ' <span class="pbadge" title="Sell-high: xwOBA ' + (Math.abs(p.s25_delta||0)*1000).toFixed(0) + ' pts below wOBA" style="background:#dc2626;color:#fff;">SELL</span>';
         if (p._sbBreakout) aBadges += ' <span class="pbadge" title="SB breakout: ' + (p.sprintSpeed||'?') + ' ft/s speed, only ' + (p.sb||0) + ' proj SB" style="background:#7c3aed;color:#fff;">SB</span>';
-        aBadges += (p._kAdj || '') + (p._parkBadge || '') + (p._closerBadge || '') + (p._stuffTrend || '');
+        aBadges += (p._kAdj || '') + (p._parkBadge || '') + (p._closerBadge || '') + (p._stuffTrend || '') + (p._luckBadge || '');
         return `<td style="font-weight:600;white-space:nowrap;">${val}${_injBadge(p.name)}${enoR}${aBadges}${tagHtml}${kp}${ownerBadge}${tagBtns}</td>`;
       }
       return `<td class="${cls}">${val}</td>`;

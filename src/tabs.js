@@ -1,18 +1,21 @@
+// ── Global State Namespace ────────────────────────────────────────────────
+const DPF = { ui: {}, table: {}, league: {}, mock: {} };
+
 // ── Tab management ────────────────────────────────────────────────────────
-let currentTab = state._currentTab || 'league';
+DPF.ui.currentTab = state._currentTab || 'league';
 const tabs = document.querySelectorAll('.tab');
 // Restore active tab highlight from saved state
 tabs.forEach(t => {
-  t.classList.toggle('active', t.dataset.tab === currentTab);
+  t.classList.toggle('active', t.dataset.tab === DPF.ui.currentTab);
 });
 tabs.forEach(t => t.addEventListener('click', () => {
   tabs.forEach(x => x.classList.remove('active'));
   t.classList.add('active');
-  currentTab = t.dataset.tab;
-  state._currentTab = currentTab;
+  DPF.ui.currentTab = t.dataset.tab;
+  state._currentTab = DPF.ui.currentTab;
   save();
   // Sync filterType from tab
-  if (currentTab === 'all') { filterType = 'all'; }
+  if (DPF.ui.currentTab === 'all') { DPF.ui.filterType = 'all'; }
   render();
 }));
 
@@ -60,9 +63,9 @@ function updateModeUI() {
 document.getElementById('modeDraft').addEventListener('click', () => {
   state._mode = 'draft'; save(); updateModeUI();
   // If current tab is hidden, switch to default
-  if (!DRAFT_TABS.includes(currentTab)) {
+  if (!DRAFT_TABS.includes(DPF.ui.currentTab)) {
     document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
-    currentTab = 'all';
+    DPF.ui.currentTab = 'all';
     const allTab = document.querySelector('.tab[data-tab="all"]');
     if (allTab) allTab.classList.add('active');
   }
@@ -70,22 +73,32 @@ document.getElementById('modeDraft').addEventListener('click', () => {
 });
 document.getElementById('modeSeason').addEventListener('click', () => {
   state._mode = 'season'; save(); updateModeUI();
-  if (!SEASON_TABS.includes(currentTab)) {
+  if (!SEASON_TABS.includes(DPF.ui.currentTab)) {
     document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
-    currentTab = 'roster';
-    const rTab = document.querySelector('.tab[data-tab="roster"]');
-    if (rTab) rTab.classList.add('active');
+    DPF.ui.currentTab = 'league'; // Default to League tab in season mode
+    const lTab = document.querySelector('.tab[data-tab="league"]');
+    if (lTab) lTab.classList.add('active');
   }
   render();
 });
 updateModeUI();
 
 // ── Sorting ───────────────────────────────────────────────────────────────
-let sortCol = 'dp', sortDir = -1;
+DPF.table.sortCol = 'dp';
+DPF.table.sortDir = -1;
 
 // ── Filters ───────────────────────────────────────────────────────────────
-let filterPos = 'ALL';
-let filterType = 'all'; // 'all', 'bat', 'pit'
+// Restore filter state from localStorage
+try {
+  const savedFilters = JSON.parse(localStorage.getItem('dpf_filters') || '{}');
+  DPF.table.filterPos = savedFilters.filterPos || 'ALL';
+  DPF.ui.filterType = savedFilters.filterType || 'all';
+  DPF.ui.currentView = savedFilters.currentView || 'main';
+} catch(e) {
+  DPF.table.filterPos = 'ALL';
+  DPF.ui.filterType = 'all';
+  DPF.ui.currentView = 'main';
+}
 const posGroups = { all: ['ALL','C','1B','2B','3B','SS','LF','CF','RF','DH','SP','RP'],
                     bat: ['ALL','C','1B','2B','3B','SS','LF','CF','RF','DH'],
                     pit: ['ALL','SP','RP'] };
@@ -94,7 +107,7 @@ function syncNavTabs() {
   // Highlight the Players tab when switching filter types
   document.querySelectorAll('.tab').forEach(t => {
     if (t.dataset.tab === 'all') {
-      t.classList.toggle('active', currentTab === 'all');
+      t.classList.toggle('active', DPF.ui.currentTab === 'all');
     }
   });
 }
@@ -104,9 +117,15 @@ function buildTypeFilters() {
   container.innerHTML = '';
   ['all','bat','pit'].forEach(t => {
     const btn = document.createElement('button');
-    btn.className = 'filter-btn' + (t === filterType ? ' active' : '');
+    btn.className = 'filter-btn' + (t === DPF.ui.filterType ? ' active' : '');
     btn.textContent = t === 'all' ? 'All' : t === 'bat' ? 'Hitters' : 'Pitchers';
-    btn.onclick = () => { filterType = t; filterPos = 'ALL'; syncNavTabs(); render(); };
+    btn.onclick = () => {
+      DPF.ui.filterType = t;
+      DPF.table.filterPos = 'ALL';
+      _saveFilters();
+      syncNavTabs();
+      render();
+    };
     container.appendChild(btn);
   });
 }
@@ -115,16 +134,31 @@ function buildPosFilters() {
   buildTypeFilters();
   const container = document.getElementById('posFilters');
   container.innerHTML = '';
-  const group = filterType === 'pit' ? 'pit' : filterType === 'bat' ? 'bat' : 'all';
+  const group = DPF.ui.filterType === 'pit' ? 'pit' : DPF.ui.filterType === 'bat' ? 'bat' : 'all';
   posGroups[group].forEach(pos => {
     const btn = document.createElement('button');
-    btn.className = 'filter-btn' + (pos === filterPos ? ' active' : '');
+    btn.className = 'filter-btn' + (pos === DPF.table.filterPos ? ' active' : '');
     btn.textContent = pos;
-    btn.onclick = () => { filterPos = pos; render(); };
+    btn.onclick = () => {
+      DPF.table.filterPos = pos;
+      _saveFilters();
+      render();
+    };
     container.appendChild(btn);
   });
 }
 
+// Helper to save filter state
+function _saveFilters() {
+  try {
+    localStorage.setItem('dpf_filters', JSON.stringify({
+      filterPos: DPF.table.filterPos,
+      filterType: DPF.ui.filterType,
+      currentView: DPF.ui.currentView
+    }));
+  } catch(e) {}
+}
+
 // ── View toggle ──────────────────────────────────────────────────────────
-let currentView = 'main'; // 'main', 's25', 'p26', 's26', 'avp'
+DPF.ui.currentView = 'main'; // 'main', 's25', 'p26', 's26', 'avp'
 
