@@ -160,5 +160,6 @@ function _saveFilters() {
 }
 
 // ── View toggle ──────────────────────────────────────────────────────────
-DPF.ui.currentView = 'main'; // 'main', 's25', 'p26', 's26', 'avp'
+// Don't overwrite currentView if it was already restored from localStorage above
+if (!DPF.ui.currentView) DPF.ui.currentView = 'main'; // 'main', 's25', 'p26', 's26', 'avp'
 

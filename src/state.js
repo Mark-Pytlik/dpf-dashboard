@@ -1,5 +1,5 @@
 // ── State ─────────────────────────────────────────────────────────────────
-const STATE_VERSION = 26;
+const STATE_VERSION = 27;
 // Build hash injected at build time — changes whenever source files change.
 // If the stored hash doesn't match, localStorage is automatically flushed
 // so the user always sees correct data after a deploy without hard-refreshing.
@@ -198,11 +198,11 @@ const CBS_TEAM_MAP = {
   3: "Colonel Corbin's Ascent",             // David Roth
   4: 'Okamotomami',                         // Mark Pytlik (mine)
   5: 'Buddy Buddy Buddy All On Base',       // Fran Devinney
-  6: 'A Pete Crow-Armstrong Looked at Me',  // Ian Wolfe
+  6: 'Blame it on the Rainiel',            // Trei Brundrett
   7: "Whoop Whoop that's the sound of Dylan Cease", // Andrew Gaerig
   8: 'Ballesteros, Let the Rhythm Take You Over',   // Mark Azar
-  9: 'Yesavage Garden',                     // Blake Murphy
-  10: 'Blame it on the Rainiel',            // Trei Brundrett
+  9: 'A Pete Crow-Armstrong Looked at Me',  // Ian Wolfe
+  10: 'Yesavage Garden',                     // Blake Murphy
   11: 'Before and After Shohei',            // Eno Sarris (renamed)
   12: "Popped A Mahle I'm Sweating"          // Matt Dennewitz
 };

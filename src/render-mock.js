@@ -371,7 +371,7 @@ function renderMockDraftUI() {
     });
     save();
     mockState = null;
-    currentTab = 'roster';
+    DPF.ui.currentTab = 'roster';
     document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === 'roster'));
     render();
   });
