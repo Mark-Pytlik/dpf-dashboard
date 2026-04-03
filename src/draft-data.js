@@ -207,15 +207,21 @@ if (CBS_TRANSACTIONS.length > 0) {
     txn.players.forEach(p => {
       const found = _plyrI(p.name);
       // Cross-check MLB team to avoid name collisions (e.g. Cade Smith NYY vs CLE)
-      // If the transaction's MLB team doesn't match the player record's team,
-      // this is a DIFFERENT player with the same name — skip entirely so we don't
-      // corrupt the real player's drafted status or roster assignment.
-      // Normalize CBS abbreviations → FanGraphs abbreviations before comparing
+      // Only skip if multiple players share the same name in the pool.
+      // A simple team mismatch usually means the player changed MLB teams
+      // (e.g. Snell LAD→SF) and our projection data is outdated.
       const _cbsToFg = {KC:'KCR',SF:'SFG',TB:'TBR',WAS:'WSN',AZ:'ARI',CWS:'CHW',SD:'SDP'};
       const _normTeam = t => _cbsToFg[t] || t;
       if (found && p.mlbTeam && found.team && _normTeam(found.team) !== _normTeam(p.mlbTeam)) {
-        console.log(`Skipping transaction for ${p.name} (${p.mlbTeam}) — name collision with ${found.team} player`);
-        return;
+        // Check if there are genuinely multiple players with this name
+        const lcName = p.name.toLowerCase();
+        const dupes = ALL.filter(pl => pl.name.toLowerCase() === lcName);
+        if (dupes.length > 1) {
+          console.log(`Skipping transaction for ${p.name} (${p.mlbTeam}) — name collision with ${found.team} player`);
+          return;
+        }
+        // Single player — team mismatch is just an outdated team assignment
+        console.log(`Team mismatch for ${p.name}: pool=${found.team} vs CBS=${p.mlbTeam} (allowing — no duplicate names)`);
       }
       const playerName = found ? found.name : p.name;
       const action = p.action || '';
@@ -241,11 +247,14 @@ if (CBS_TRANSACTIONS.length > 0) {
   postDraft.forEach(txn => {
     const teamName = resolveCbsTeam(txn);
     txn.players.forEach(p => {
-      // Skip name-collision transactions (same skip as roster processing above)
+      // Skip name-collision transactions only if genuinely multiple players share the name
       const _txFound = _plyrI(p.name);
       const _cbsToFg2 = {KC:'KCR',SF:'SFG',TB:'TBR',WAS:'WSN',AZ:'ARI',CWS:'CHW',SD:'SDP'};
       const _normTeam2 = t => _cbsToFg2[t] || t;
-      if (_txFound && p.mlbTeam && _txFound.team && _normTeam2(_txFound.team) !== _normTeam2(p.mlbTeam)) return;
+      if (_txFound && p.mlbTeam && _txFound.team && _normTeam2(_txFound.team) !== _normTeam2(p.mlbTeam)) {
+        const _lcN = p.name.toLowerCase();
+        if (ALL.filter(pl => pl.name.toLowerCase() === _lcN).length > 1) return;
+      }
       const action = p.action || '';
       let txType = 'add';
       if (action === 'Dropped') txType = 'drop';

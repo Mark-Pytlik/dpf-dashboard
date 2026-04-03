@@ -213,20 +213,21 @@ for (const [id, name] of Object.entries(CBS_TEAM_MAP)) CBS_NAME_TO_LEAGUE[name] 
 // Also infer team name changes: if CBS shows a different name for a known teamId,
 // update LEAGUE_TEAMS to use the new name so the UI stays current
 CBS_TRANSACTIONS.forEach(txn => {
+  const cbsName = txn.teamName || txn.team;
   if (txn.teamId && CBS_TEAM_MAP[txn.teamId]) {
     const leagueName = CBS_TEAM_MAP[txn.teamId];
-    CBS_NAME_TO_LEAGUE[txn.team] = leagueName;
+    if (cbsName) CBS_NAME_TO_LEAGUE[cbsName] = leagueName;
     // If the CBS name differs, update the team's display name
-    if (txn.team !== leagueName) {
+    if (cbsName && cbsName !== leagueName) {
       const team = LEAGUE_TEAMS.find(t => t.name === leagueName);
       if (team) {
         const oldName = team.name;
-        team.name = txn.team;
-        CBS_TEAM_MAP[txn.teamId] = txn.team;
-        CBS_NAME_TO_LEAGUE[txn.team] = txn.team;
+        team.name = cbsName;
+        CBS_TEAM_MAP[txn.teamId] = cbsName;
+        CBS_NAME_TO_LEAGUE[cbsName] = cbsName;
         // Migrate roster data to new name
         if (state.leagueTeams[oldName]) {
-          state.leagueTeams[txn.team] = state.leagueTeams[oldName];
+          state.leagueTeams[cbsName] = state.leagueTeams[oldName];
           delete state.leagueTeams[oldName];
         }
       }
@@ -252,8 +253,9 @@ for (const [oldName, cbsId] of Object.entries(CBS_OLD_NAMES)) {
 
 function resolveCbsTeam(txn) {
   if (txn.teamId && CBS_TEAM_MAP[txn.teamId]) return CBS_TEAM_MAP[txn.teamId];
-  if (CBS_NAME_TO_LEAGUE[txn.team]) return CBS_NAME_TO_LEAGUE[txn.team];
-  return txn.team;
+  const cbsName = txn.teamName || txn.team;
+  if (cbsName && CBS_NAME_TO_LEAGUE[cbsName]) return CBS_NAME_TO_LEAGUE[cbsName];
+  return cbsName;
 }
 
 function addToRoster(playerName, teamName) {
