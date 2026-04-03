@@ -7,8 +7,132 @@
   "currentScore": {
     "me": 11,
     "opp": 5,
-    "tied": 0
+    "tied": 2
   },
+  "categoryBreakdown": {
+    "batting": {
+      "BA": {
+        "me": 0.232,
+        "opp": 0.228,
+        "winner": "me"
+      },
+      "HR": {
+        "me": 9,
+        "opp": 6,
+        "winner": "me"
+      },
+      "KO": {
+        "me": 66,
+        "opp": 57,
+        "winner": "opp"
+      },
+      "OBP": {
+        "me": 0.341,
+        "opp": 0.309,
+        "winner": "me"
+      },
+      "R": {
+        "me": 37,
+        "opp": 31,
+        "winner": "me"
+      },
+      "RBI": {
+        "me": 26,
+        "opp": 28,
+        "winner": "opp"
+      },
+      "SB": {
+        "me": 1,
+        "opp": 2,
+        "winner": "opp"
+      },
+      "SLG": {
+        "me": 0.37,
+        "opp": 0.338,
+        "winner": "me"
+      }
+    },
+    "pitching": {
+      "ERA": {
+        "me": 2.813,
+        "opp": 3.493,
+        "winner": "me"
+      },
+      "HD": {
+        "me": 4,
+        "opp": 2,
+        "winner": "me"
+      },
+      "HRA": {
+        "me": 8,
+        "opp": 8,
+        "winner": "tied"
+      },
+      "K": {
+        "me": 56,
+        "opp": 88,
+        "winner": "opp"
+      },
+      "QS": {
+        "me": 4,
+        "opp": 3,
+        "winner": "me"
+      },
+      "S": {
+        "me": 4,
+        "opp": 3,
+        "winner": "me"
+      },
+      "W": {
+        "me": 4,
+        "opp": 4,
+        "winner": "tied"
+      },
+      "WHIP": {
+        "me": 1.047,
+        "opp": 1.104,
+        "winner": "me"
+      }
+    }
+  },
+  "allMatchups": [
+    {
+      "away": "Yesavage Garden",
+      "home": "Okamotomami",
+      "awayScore": 5,
+      "homeScore": 11
+    },
+    {
+      "away": "RESCAN",
+      "home": "Before and After Shohei",
+      "awayScore": 4,
+      "homeScore": 12
+    },
+    {
+      "away": "Icarus",
+      "home": "A Pete Crow-Armstrong Looked at Me",
+      "awayScore": 10,
+      "homeScore": 6
+    },
+    {
+      "away": "Drew",
+      "home": "Buddy Buddy Buddy All On Base",
+      "awayScore": 7.5,
+      "homeScore": 8.5
+    },
+    {
+      "away": "ROTH",
+      "home": "Fran",
+      "awayScore": 6.5,
+      "homeScore": 9.5
+    },
+    {
+      "away": "Milli",
+      "home": "woba",
+      "awayScore": 10.5,
+      "homeScore": 5.5
+    }
+  ],
   "myRecord": "0-0-0",
   "standings": [
     {
@@ -108,5 +232,5 @@
       "pts": 0
     }
   ],
-  "updated": "2026-04-03T16:10:44Z"
+  "updated": "2026-04-03T17:08:46Z"
 }
