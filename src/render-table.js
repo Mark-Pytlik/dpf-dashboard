@@ -389,18 +389,8 @@ function render() {
   const rows = filtered.slice(0, 500);
   tbody.innerHTML = rows.map(p => buildRowHtml(p, cols)).join('');
 
-  // Right-click to draft, double-click to draft to my team
-  tbody.querySelectorAll('tr').forEach(tr => {
-    tr.addEventListener('contextmenu', e => {
-      e.preventDefault();
-      const name = tr.dataset.name;
-      if (!state.drafted[name]) { draftPlayer(name, false); }
-    });
-    tr.addEventListener('dblclick', () => {
-      const name = tr.dataset.name;
-      if (!state.drafted[name]) { draftPlayer(name, true); }
-    });
-  });
+  // Click-to-draft handlers removed to prevent accidental roster additions.
+  // Use the Draft panel (in Draft mode) or the roster tabs to manage players.
 
   // Tag buttons (want / avoid)
   tbody.querySelectorAll('.tag-btn').forEach(btn => {

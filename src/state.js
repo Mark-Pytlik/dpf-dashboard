@@ -131,6 +131,17 @@ if (_saved) {
 } else {
   state = _defaults;
 }
+// One-time cleanup: remove accidentally-added players from myTeam
+const _accidentalAdds = ['Jeffrey Springs', 'Aaron Civale'];
+try {
+  if (!localStorage.getItem('dpf_accidental_cleanup_v1')) {
+    _accidentalAdds.forEach(n => {
+      if (state.myTeam) state.myTeam = state.myTeam.filter(x => x !== n);
+      if (state.drafted && state.drafted[n] && state.drafted[n].mine) delete state.drafted[n];
+    });
+    localStorage.setItem('dpf_accidental_cleanup_v1', '1');
+  }
+} catch(e) {}
 // Ensure keeperRounds always exists and has defaults merged in
 if (!state.keeperRounds) state.keeperRounds = {};
 for (const [k, rd] of Object.entries(DEFAULT_KEEPER_ROUNDS)) {

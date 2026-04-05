@@ -2,16 +2,9 @@
 const DPF = { ui: {}, table: {}, league: {}, mock: {} };
 
 // ── Tab management ────────────────────────────────────────────────────────
-// One-time reset to Players + 2026 Actuals default (April 2026)
-try {
-  if (!localStorage.getItem('dpf_default_reset_v2')) {
-    localStorage.removeItem('dpf_filters');
-    state._currentTab = 'all';
-    if (typeof save === 'function') save();
-    localStorage.setItem('dpf_default_reset_v2', '1');
-  }
-} catch(e) {}
-DPF.ui.currentTab = state._currentTab || 'all';
+// Always land on Players tab on reload (per user request)
+DPF.ui.currentTab = 'all';
+state._currentTab = 'all';
 const tabs = document.querySelectorAll('.tab');
 // Restore active tab highlight from saved state
 tabs.forEach(t => {
@@ -102,7 +95,7 @@ try {
   const savedFilters = JSON.parse(localStorage.getItem('dpf_filters') || '{}');
   DPF.table.filterPos = savedFilters.filterPos || 'ALL';
   DPF.ui.filterType = savedFilters.filterType || 'all';
-  DPF.ui.currentView = savedFilters.currentView || 's26';
+  DPF.ui.currentView = 's26';
 } catch(e) {
   DPF.table.filterPos = 'ALL';
   DPF.ui.filterType = 'all';

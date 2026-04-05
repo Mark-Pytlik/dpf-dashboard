@@ -37,10 +37,11 @@ tr:hover { background:var(--surface2); }
 tr.drafted { opacity:1; background:rgba(0,0,0,0.03); }
 tr.drafted td { color:var(--text2); }
 tr.drafted td:first-child { color:var(--text); }
-.compare-mode tr.drafted { opacity:0.42; }
-.compare-mode tr.drafted:hover { opacity:0.85; }
-.compare-mode tr:not(.drafted) td:first-child { box-shadow: inset 3px 0 0 #16a34a; }
-.compare-mode tr:not(.drafted) { background:rgba(22,163,74,0.04); }
+.compare-mode tr.drafted { opacity:0.38; }
+.compare-mode tr.drafted:hover { opacity:0.9; }
+.compare-mode tr:not(.drafted) { background:rgba(22,163,74,0.12) !important; }
+.compare-mode tr:not(.drafted) td:first-child { box-shadow: inset 4px 0 0 #16a34a; font-weight:700; }
+.compare-mode tr:not(.drafted):hover { background:rgba(22,163,74,0.2) !important; }
 tr:not(.drafted):not(.keeper) td:first-child { font-weight:700; }
 .owner-badge { display:inline-block; font-size:8px; padding:1px 4px; border-radius:3px; margin-left:4px; font-weight:600; white-space:nowrap; max-width:90px; overflow:hidden; text-overflow:ellipsis; vertical-align:middle; }
 .owner-badge.mine { background:rgba(74,107,255,0.15); border:1px solid rgba(74,107,255,0.3); color:#4a6bff; }
