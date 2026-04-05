@@ -4,10 +4,11 @@ const DPF = { ui: {}, table: {}, league: {}, mock: {} };
 // ── Tab management ────────────────────────────────────────────────────────
 // One-time reset to Players + 2026 Actuals default (April 2026)
 try {
-  if (!localStorage.getItem('dpf_default_reset_v1')) {
+  if (!localStorage.getItem('dpf_default_reset_v2')) {
     localStorage.removeItem('dpf_filters');
     state._currentTab = 'all';
-    localStorage.setItem('dpf_default_reset_v1', '1');
+    if (typeof save === 'function') save();
+    localStorage.setItem('dpf_default_reset_v2', '1');
   }
 } catch(e) {}
 DPF.ui.currentTab = state._currentTab || 'all';
