@@ -2083,6 +2083,19 @@
     "team": "Whoop Whoop that's the sound of Dylan Cease"
   },
   {
+    "date": "3/24/26 10:03 AM ET",
+    "team": "Everythings McGonigle Green",
+    "teamId": "7",
+    "players": [
+      {
+        "name": "Jose Butto",
+        "pos": "RP",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
     "date": "3/24/26 10:04 AM ET",
     "team": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
@@ -2139,6 +2152,32 @@
     "team": "Whoop Whoop that's the sound of Dylan Cease"
   },
   {
+    "date": "3/24/26 10:04 AM ET",
+    "team": "Everythings McGonigle Green",
+    "teamId": "7",
+    "players": [
+      {
+        "name": "Cade Smith",
+        "pos": "SP",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/24/26 10:04 AM ET",
+    "team": "Everythings McGonigle Green",
+    "teamId": "7",
+    "players": [
+      {
+        "name": "Josue Briceno",
+        "pos": "C",
+        "mlbTeam": "DET",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
     "date": "3/24/26 10:05 AM ET",
     "team": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
@@ -2165,6 +2204,19 @@
       }
     ],
     "team": "Whoop Whoop that's the sound of Dylan Cease"
+  },
+  {
+    "date": "3/24/26 10:05 AM ET",
+    "team": "Everythings McGonigle Green",
+    "teamId": "7",
+    "players": [
+      {
+        "name": "Carson Whisenhunt",
+        "pos": "SP",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
   },
   {
     "date": "3/24/26 10:07 AM ET",
@@ -2221,6 +2273,19 @@
       }
     ],
     "team": "Whoop Whoop that's the sound of Dylan Cease"
+  },
+  {
+    "date": "3/24/26 10:07 AM ET",
+    "team": "Everythings McGonigle Green",
+    "teamId": "7",
+    "players": [
+      {
+        "name": "Javier Assad",
+        "pos": "SP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ]
   },
   {
     "date": "3/24/26 11:56 AM ET",
@@ -2483,6 +2548,25 @@
     "team": "Whoop Whoop that's the sound of Dylan Cease"
   },
   {
+    "date": "3/25/26 9:18 AM ET",
+    "team": "Everythings McGonigle Green",
+    "teamId": "7",
+    "players": [
+      {
+        "name": "Andrew Benintendi",
+        "pos": "LF",
+        "mlbTeam": "CHW",
+        "action": "Added"
+      },
+      {
+        "name": "Andrew Vaughn",
+        "pos": "1B",
+        "mlbTeam": "MIL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
     "date": "3/25/26 9:20 AM ET",
     "team": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
@@ -2521,6 +2605,25 @@
       }
     ],
     "team": "Whoop Whoop that's the sound of Dylan Cease"
+  },
+  {
+    "date": "3/25/26 9:20 AM ET",
+    "team": "Everythings McGonigle Green",
+    "teamId": "7",
+    "players": [
+      {
+        "name": "Trent Grisham",
+        "pos": "CF",
+        "mlbTeam": "NYY",
+        "action": "Added"
+      },
+      {
+        "name": "Andrew Benintendi",
+        "pos": "LF",
+        "mlbTeam": "CHW",
+        "action": "Dropped"
+      }
+    ]
   },
   {
     "date": "3/25/26 1:37 PM ET",
@@ -3247,6 +3350,19 @@
     "team": "Whoop Whoop that's the sound of Dylan Cease"
   },
   {
+    "date": "3/27/26 9:34 AM ET",
+    "team": "Everythings McGonigle Green",
+    "teamId": "7",
+    "players": [
+      {
+        "name": "Javier Assad",
+        "pos": "SP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
     "date": "3/27/26 3:10 PM ET",
     "team": "Before and After Shohei",
     "effective": "3/27/26",
@@ -3767,6 +3883,25 @@
     "team": "Whoop Whoop that's the sound of Dylan Cease"
   },
   {
+    "date": "4/1/26 2:46 PM ET",
+    "team": "Everythings McGonigle Green",
+    "teamId": "7",
+    "players": [
+      {
+        "name": "Colt Keith",
+        "pos": "2B,3B",
+        "mlbTeam": "DET",
+        "action": "Added"
+      },
+      {
+        "name": "Josh Jung",
+        "pos": "3B",
+        "mlbTeam": "TEX",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
     "date": "4/1/26 2:50 PM ET",
     "team": "Whoop Whoop that's the sound of Dylan Cease",
     "effective": "4/2/26",
@@ -3807,6 +3942,25 @@
     "team": "Whoop Whoop that's the sound of Dylan Cease"
   },
   {
+    "date": "4/1/26 2:50 PM ET",
+    "team": "Everythings McGonigle Green",
+    "teamId": "7",
+    "players": [
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "action": "Added"
+      },
+      {
+        "name": "Payton Tolle",
+        "pos": "RP",
+        "mlbTeam": "BOS",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
     "date": "4/1/26 2:51 PM ET",
     "team": "Whoop Whoop that's the sound of Dylan Cease",
     "effective": "4/2/26",
@@ -3835,6 +3989,19 @@
     "team": "Whoop Whoop that's the sound of Dylan Cease"
   },
   {
+    "date": "4/1/26 2:51 PM ET",
+    "team": "Everythings McGonigle Green",
+    "teamId": "7",
+    "players": [
+      {
+        "name": "Hogan Harris",
+        "pos": "RP",
+        "mlbTeam": "ATH",
+        "action": "Added"
+      }
+    ]
+  },
+  {
     "date": "4/2/26 10:47 AM ET",
     "team": "Whoop Whoop that's the sound of Dylan Cease",
     "effective": "4/2/26",
@@ -3861,6 +4028,19 @@
       }
     ],
     "team": "Whoop Whoop that's the sound of Dylan Cease"
+  },
+  {
+    "date": "4/2/26 10:47 AM ET",
+    "team": "Everythings McGonigle Green",
+    "teamId": "7",
+    "players": [
+      {
+        "name": "Willy Adames",
+        "pos": "SS",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
   },
   {
     "date": "4/3/26 12:00 AM ET",
@@ -4675,6 +4855,102 @@
     ]
   },
   {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "7",
+    "teamName": "Everythings McGonigle Green",
+    "players": [
+      {
+        "name": "Salvador Perez",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "7",
+    "teamName": "Everythings McGonigle Green",
+    "players": [
+      {
+        "name": "Trent Grisham",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "7",
+    "teamName": "Everythings McGonigle Green",
+    "players": [
+      {
+        "name": "Colt Keith",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "7",
+    "teamName": "Everythings McGonigle Green",
+    "players": [
+      {
+        "name": "Hogan Harris",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "7",
+    "teamName": "Everythings McGonigle Green",
+    "players": [
+      {
+        "name": "Ryan Zeferjahn",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "7",
+    "teamName": "Everythings McGonigle Green",
+    "players": [
+      {
+        "name": "Taj Bradley",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "7",
+    "teamName": "Everythings McGonigle Green",
+    "players": [
+      {
+        "name": "Yusei Kikuchi",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "7",
+    "teamName": "Everythings McGonigle Green",
+    "players": [
+      {
+        "name": "Mike Soroka",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
     "date": "4/3/26 2:03 AM ET",
     "team": "Popped A Mahle I'm Sweating",
     "effective": "4/3/26",
@@ -4843,6 +5119,19 @@
     "team": "Popped A Mahle I'm Sweating"
   },
   {
+    "date": "4/4/26 3:40 PM ET",
+    "team": "Before and After Shohei",
+    "teamId": "11",
+    "players": [
+      {
+        "name": "Joe Musgrove",
+        "pos": "SP",
+        "mlbTeam": "SD",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
     "date": "4/5/26 1:48 AM ET",
     "team": "Weird Fishes / Arrighetti",
     "teamId": "1",
@@ -4941,6 +5230,19 @@
         "pos": "SP",
         "mlbTeam": "HOU",
         "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "team": "Dinosaur Jr Caminero",
+    "teamId": "2",
+    "players": [
+      {
+        "name": "Andres Gimenez",
+        "pos": "2B",
+        "mlbTeam": "TOR",
+        "action": "Activated"
       }
     ]
   }
