@@ -48,6 +48,8 @@ function render() {
 
   const q = document.getElementById('searchBox').value.toLowerCase();
   const draftFilter = document.getElementById('draftFilter').value;
+  const tableWrap = document.getElementById('tableWrap');
+  if (tableWrap) tableWrap.classList.toggle('compare-mode', draftFilter === 'compare');
   const tagFilter = document.getElementById('tagFilter').value;
   const teamFilter = document.getElementById('teamFilter')?.value || 'all';
 
