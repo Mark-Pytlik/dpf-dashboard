@@ -2,7 +2,15 @@
 const DPF = { ui: {}, table: {}, league: {}, mock: {} };
 
 // ── Tab management ────────────────────────────────────────────────────────
-DPF.ui.currentTab = state._currentTab || 'league';
+// One-time reset to Players + 2026 Actuals default (April 2026)
+try {
+  if (!localStorage.getItem('dpf_default_reset_v1')) {
+    localStorage.removeItem('dpf_filters');
+    state._currentTab = 'all';
+    localStorage.setItem('dpf_default_reset_v1', '1');
+  }
+} catch(e) {}
+DPF.ui.currentTab = state._currentTab || 'all';
 const tabs = document.querySelectorAll('.tab');
 // Restore active tab highlight from saved state
 tabs.forEach(t => {
@@ -93,11 +101,11 @@ try {
   const savedFilters = JSON.parse(localStorage.getItem('dpf_filters') || '{}');
   DPF.table.filterPos = savedFilters.filterPos || 'ALL';
   DPF.ui.filterType = savedFilters.filterType || 'all';
-  DPF.ui.currentView = savedFilters.currentView || 'main';
+  DPF.ui.currentView = savedFilters.currentView || 's26';
 } catch(e) {
   DPF.table.filterPos = 'ALL';
   DPF.ui.filterType = 'all';
-  DPF.ui.currentView = 'main';
+  DPF.ui.currentView = 's26';
 }
 const posGroups = { all: ['ALL','C','1B','2B','3B','SS','LF','CF','RF','DH','SP','RP'],
                     bat: ['ALL','C','1B','2B','3B','SS','LF','CF','RF','DH'],
@@ -161,5 +169,5 @@ function _saveFilters() {
 
 // ── View toggle ──────────────────────────────────────────────────────────
 // Don't overwrite currentView if it was already restored from localStorage above
-if (!DPF.ui.currentView) DPF.ui.currentView = 'main'; // 'main', 's25', 'p26', 's26', 'avp'
+if (!DPF.ui.currentView) DPF.ui.currentView = 's26'; // 'main', 's25', 'p26', 's26', 'avp'
 
