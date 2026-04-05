@@ -1,0 +1,104 @@
+[
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "team": "Weird Fishes / Arrighetti",
+    "teamId": "1",
+    "players": [
+      {
+        "name": "Jose Fernandez",
+        "pos": "SS",
+        "mlbTeam": "ARI",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jose Alvarado",
+        "pos": "RP",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "team": "Dinosaur Jr Caminero",
+    "teamId": "2",
+    "players": [
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Slade Cecconi",
+        "pos": "SP",
+        "mlbTeam": "CLE",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "team": "Dinosaur Jr Caminero",
+    "teamId": "2",
+    "players": [
+      {
+        "name": "Andres Gimenez",
+        "pos": "2B",
+        "mlbTeam": "TOR",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jorge Polanco",
+        "pos": "2B",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": "6",
+    "players": [
+      {
+        "name": "Jesus Sanchez",
+        "pos": "LF,RF",
+        "mlbTeam": "TOR",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "team": "Before and After Shohei",
+    "teamId": "11",
+    "players": [
+      {
+        "name": "J.T. Realmuto",
+        "pos": "C",
+        "mlbTeam": "PHI",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "team": "Popped A Mahle I'm Sweating",
+    "teamId": "12",
+    "players": [
+      {
+        "name": "Joe Boyle",
+        "pos": "SP",
+        "mlbTeam": "TB",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Cristian Javier",
+        "pos": "SP",
+        "mlbTeam": "HOU",
+        "action": "Dropped"
+      }
+    ]
+  }
+]

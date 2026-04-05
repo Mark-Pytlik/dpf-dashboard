@@ -1,5 +1,85 @@
 [
   {
+    "player": "Cameron Schlittler",
+    "headline": "Schlittler 'on another level' early in 2026 season",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "Oneil Cruz",
+    "headline": "Cruz following through on fantasy potential with strong early start",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "Sandy Alcantara",
+    "headline": "Alcantara looks fully recovered, back to elite form early in 2026",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "J.J. Wetherholt",
+    "headline": "Wetherholt cementing himself as a stellar rookie for Cardinals",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "Masyn Winn",
+    "headline": "Winn involved in car accident Wednesday but uninjured, won't miss games",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "Justin Verlander",
+    "headline": "Verlander placed on 15-day IL with left hip inflammation, eligible back April 16",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "David Bednar",
+    "headline": "Bednar allows run in 9-7 win, earns 4th save of season for Yankees",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "Colt Emerson",
+    "headline": "Emerson's foot X-rays negative after fouling ball off it, likely sits a day or two",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "Jo Adell",
+    "headline": "Adell robs three homers in Angels' 1-0 victory over Mariners",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "Jack Kochanowicz",
+    "headline": "Kochanowicz strikes out 7 over 5.2 scoreless innings, picks up win",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "Emerson Hancock",
+    "headline": "Hancock fans 5 over 6.2 IP of one-run ball, takes loss vs. Angels",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "Jordan Romano",
+    "headline": "Romano works scoreless 9th for 3rd save of season with Angels",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "Zach Neto",
+    "headline": "Neto blasts leadoff HR off Hancock, gives Angels 1-0 win over Mariners",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "Angel Martinez",
+    "headline": "Martinez out of Guardians lineup Sunday vs. Cubs after 3-for-23 start",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "Brady House",
+    "headline": "House sitting Sunday's finale vs. Dodgers, Vivas covers 3B",
+    "date": "2026-04-05"
+  },
+  {
+    "player": "Ceddanne Rafaela",
+    "headline": "Rafaela out of Red Sox lineup Sunday vs. Padres, Yoshida and Duran filling in",
+    "date": "2026-04-05"
+  },
+  {
     "player": "Chase DeLauter",
     "headline": "DeLauter blasts 4 HR in first week, more than 12 MLB teams",
     "date": "2026-04-04"
@@ -80,13 +160,13 @@
     "date": "2026-04-04"
   },
   {
-    "player": "Ranger Suárez",
-    "headline": "Red Sox newcomer Suárez struggling early with 7.56 ERA after first appearance",
+    "player": "Ranger Su\u00e1rez",
+    "headline": "Red Sox newcomer Su\u00e1rez struggling early with 7.56 ERA after first appearance",
     "date": "2026-04-04"
   },
   {
     "player": "Sonny Gray",
-    "headline": "Red Sox newcomer Gray struggling early with combined 7.56 ERA alongside Suárez",
+    "headline": "Red Sox newcomer Gray struggling early with combined 7.56 ERA alongside Su\u00e1rez",
     "date": "2026-04-04"
   },
   {
@@ -118,15 +198,5 @@
     "player": "Justin Wrobleski",
     "headline": "Dodgers adding hybrid pitcher Wrobleski to rotation early next week with six-man setup",
     "date": "2026-04-04"
-  },
-  {
-    "player": "Phil Bickford",
-    "headline": "Tigers release right-hander Bickford on April 2 after signing minor league deal in offseason",
-    "date": "2026-04-02"
-  },
-  {
-    "player": "Colin Poche",
-    "headline": "Tigers release left-hander Poche on April 2 after signing minor league deal in offseason",
-    "date": "2026-04-02"
   }
 ]
