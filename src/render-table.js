@@ -227,6 +227,24 @@ function render() {
           }
         }
       }
+      // S26 view: color 2026 actual stats relative to 2025 actuals
+      if (DPF.ui.currentView === 's26' && c.key.startsWith('s26_')) {
+        const s25map = {s26_avg:'s25_avg',s26_obp:'s25_obp',s26_slg:'s25_slg',s26_hr:'s25_hr',s26_r:'s25_r',s26_rbi:'s25_rbi',s26_sb:'s25_sb',s26_so:'s25_so',s26_pa:'s25_pa',
+                          s26_ip:'s25_ip',s26_era:'s25_era',s26_whip:'s25_whip',s26_w:'s25_w',s26_sv:'s25_sv',s26_hld:'s25_hld',s26_qs:'s25_qs'};
+        const s25k = s25map[c.key];
+        if (s25k) {
+          const prev = p[s25k];
+          if (prev !== '' && prev !== undefined && prev !== null) {
+            const act = parseFloat(val), prv = parseFloat(prev);
+            const lowerBetter = (c.key === 's26_era' || c.key === 's26_whip' || (c.key === 's26_so' && p.type === 'BAT'));
+            const diff = act - prv;
+            if (diff !== 0) {
+              const better = lowerBetter ? diff < 0 : diff > 0;
+              cls += better ? ' val-pos' : ' val-neg';
+            }
+          }
+        }
+      }
       // AVP view: color actual stats relative to projected
       if (DPF.ui.currentView === 'avp' && c.key.startsWith('s26_')) {
         const projMap = {s26_avg:'avg',s26_obp:'obp',s26_slg:'slg',s26_hr:'hr',s26_r:'r',s26_rbi:'rbi',s26_sb:'sb',s26_so:'so',s26_pa:'pa',
