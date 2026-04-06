@@ -123,9 +123,15 @@ if os.path.exists(_sc26_path):
         xwoba = float(r['xwoba']) if 'xwoba' in r and r['xwoba'] not in ('', None) else 0
         entry = {'woba': round(woba, 3), 'xwoba': round(xwoba, 3), 'delta': round(xwoba - woba, 3)}
         if 'barrel_pct' in r and pd.notna(r.get('barrel_pct')):
-            entry['barrel'] = round(float(r['barrel_pct']), 1)
+            brl = float(r['barrel_pct'])
+            if brl <= 1.0:  # source returns proportion (0-1), convert to pct
+                brl *= 100
+            entry['barrel'] = round(brl, 1)
         if 'hard_hit_pct' in r and pd.notna(r.get('hard_hit_pct')):
-            entry['hardhit'] = round(float(r['hard_hit_pct']), 1)
+            hh = float(r['hard_hit_pct'])
+            if hh <= 1.0:  # source returns proportion (0-1), convert to pct
+                hh *= 100
+            entry['hardhit'] = round(hh, 1)
         statcast26_lookup[r['name']] = entry
     print(f"Statcast 2026 loaded: {len(statcast26_lookup)} batters")
 else:
