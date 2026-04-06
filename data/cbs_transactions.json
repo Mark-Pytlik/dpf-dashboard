@@ -5245,5 +5245,56 @@
         "action": "Activated"
       }
     ]
+  },
+  {
+    "date": "4/6/26 1:57 AM ET",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": "8",
+    "players": [
+      {
+        "name": "Kyle Isbel",
+        "pos": "CF",
+        "mlbTeam": "KC",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/6/26 1:57 AM ET",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": "8",
+    "players": [
+      {
+        "name": "Kyle Isbel",
+        "pos": "CF",
+        "mlbTeam": "KC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Brenton Doyle",
+        "pos": "CF",
+        "mlbTeam": "COL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/6/26 1:57 AM ET",
+    "team": "Blame it on the Rainiel",
+    "teamId": "10",
+    "players": [
+      {
+        "name": "Tim Hill",
+        "pos": "RP",
+        "mlbTeam": "NYY",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "George Soriano",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "action": "Dropped"
+      }
+    ]
   }
 ]
