@@ -392,11 +392,16 @@ function render() {
         }
         const enoR = p.eno_rank ? ` <span class="eno-rank" title="Eno 150 Best Pitchers #${p.eno_rank}">P${p.eno_rank}</span>` : '';
         // Analytics badges (v5.0) — inline after name, never wrap
+        // 2026 BUY/SELL badge (luckBadge) supersedes the 2025-based buySell when present
         let aBadges = '';
-        if (p._buySell === 'buy') aBadges += ' <span class="pbadge" title="Buy-low: xwOBA ' + ((p.s25_delta||0)*1000).toFixed(0) + ' pts above wOBA" style="background:#16a34a;color:#fff;">BUY</span>';
-        if (p._buySell === 'sell') aBadges += ' <span class="pbadge" title="Sell-high: xwOBA ' + (Math.abs(p.s25_delta||0)*1000).toFixed(0) + ' pts below wOBA" style="background:#dc2626;color:#fff;">SELL</span>';
+        if (p._luckBadge) {
+          aBadges += p._luckBadge;
+        } else {
+          if (p._buySell === 'buy') aBadges += ' <span class="pbadge" title="Buy-low (2025): xwOBA ' + ((p.s25_delta||0)*1000).toFixed(0) + ' pts above wOBA" style="background:#16a34a;color:#fff;">BUY</span>';
+          if (p._buySell === 'sell') aBadges += ' <span class="pbadge" title="Sell-high (2025): xwOBA ' + (Math.abs(p.s25_delta||0)*1000).toFixed(0) + ' pts below wOBA" style="background:#dc2626;color:#fff;">SELL</span>';
+        }
         if (p._sbBreakout) aBadges += ' <span class="pbadge" title="SB breakout: ' + (p.sprintSpeed||'?') + ' ft/s speed, only ' + (p.sb||0) + ' proj SB" style="background:#7c3aed;color:#fff;">SB</span>';
-        aBadges += (p._kAdj || '') + (p._parkBadge || '') + (p._closerBadge || '') + (p._stuffTrend || '') + (p._luckBadge || '');
+        aBadges += (p._kAdj || '') + (p._parkBadge || '') + (p._closerBadge || '') + (p._stuffTrend || '');
         return `<td style="font-weight:600;white-space:nowrap;">${val}${_injBadge(p.name)}${enoR}${aBadges}${tagHtml}${kp}${ownerBadge}${tagBtns}</td>`;
       }
       return `<td class="${cls}">${val}</td>`;
