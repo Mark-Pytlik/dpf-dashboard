@@ -85,8 +85,11 @@ a[title^="Sleeper"] { color:var(--green); } a[title^="Avoid"] { color:var(--red)
 .view-btn.active { background:var(--accent2); color:#fff; }
 .no-data { color:var(--text2); font-style:italic; }
 .tooltip { position:relative; }
-.tooltip .tt-text { visibility:hidden; background:var(--surface2); border:1px solid var(--border); color:var(--text); padding:10px 14px; border-radius:8px; position:absolute; z-index:100; width:340px; top:120%; left:50%; transform:translateX(-50%); font-size:12px; line-height:1.5; font-weight:400; text-transform:none; box-shadow:0 8px 24px rgba(0,0,0,.4); pointer-events:none; }
+.tooltip .tt-text { visibility:hidden; background:var(--surface2); border:1px solid var(--border); color:var(--text); padding:10px 14px; border-radius:8px; position:absolute; z-index:100; width:340px; max-width:90vw; top:120%; left:50%; transform:translateX(-50%); font-size:12px; line-height:1.5; font-weight:400; text-transform:none; box-shadow:0 8px 24px rgba(0,0,0,.4); pointer-events:none; word-wrap:break-word; overflow-wrap:break-word; white-space:normal; }
 .tooltip:hover .tt-text { visibility:visible; }
+/* Keep tooltips on right-side columns from overflowing the viewport */
+th:nth-last-child(-n+5) .tooltip .tt-text { left:auto; right:0; transform:none; }
+th:nth-child(-n+2) .tooltip .tt-text { left:0; transform:none; }
 .draft-panel { background:var(--surface); border-bottom:1px solid var(--border); padding:12px 20px; display:none; gap:10px; align-items:center; flex-wrap:wrap; }
 .draft-panel.show { display:flex; }
 .draft-input { background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:7px 12px; color:var(--text); font-size:13px; width:280px; outline:none; }

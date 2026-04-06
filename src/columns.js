@@ -78,22 +78,22 @@ const allCols26 = [
 const batCols26A = [
   {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:60},
   {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55,tip:'Projected LCV from pre-season projections'},
-  {key:'actualLcv',label:'aLCV',w:60,cls:'lcv-col',tip:'Actual LCV: z-score sum from 2026 in-season stats (same scale as projected LCV)'},
+  {key:'actualLcv',label:'aLCV',w:60,cls:'lcv-col',tip:'Actual LCV from 2026 in-season stats. When a time-split window is selected, a colored dot shows sample confidence: \u{1F7E2} green = reliable (50+ PA / 15+ IP), \u{1F7E1} blue = moderate (20-50 PA / 5-15 IP), \u{1F7E0} orange = small sample (<20 PA / <5 IP)'},
   {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual LCV minus Projected LCV. Positive = outperforming projections, negative = underperforming'},
-  {key:'s26_pa',label:'PA',w:50}, {key:'s26_avg',label:'AVG',w:55}, {key:'s26_obp',label:'OBP',w:55},
-  {key:'s26_slg',label:'SLG',w:55}, {key:'s26_hr',label:'HR',w:45}, {key:'s26_r',label:'R',w:45},
+  {key:'s26_pa',label:'PA',w:50}, {key:'s26_avg',label:'AVG',w:55,tip:'2026 batting average. Green = above 2025, red = below'}, {key:'s26_obp',label:'OBP',w:55,tip:'2026 on-base pct. Green = above 2025, red = below'},
+  {key:'s26_slg',label:'SLG',w:55,tip:'2026 slugging pct. Green = above 2025, red = below'}, {key:'s26_hr',label:'HR',w:45}, {key:'s26_r',label:'R',w:45},
   {key:'s26_rbi',label:'RBI',w:45}, {key:'s26_sb',label:'SB',w:45}, {key:'s26_so',label:'K',w:45},
-  {key:'s26_barrel',label:'Brl%',w:50,tip:'2026 barrel rate'}, {key:'dBarrel',label:'\u0394Brl',w:50,tip:'2026 Brl% minus 2025 Brl%. Positive = hitting more barrels'},
-  {key:'s26_hardhit',label:'HH%',w:50,tip:'2026 hard hit rate'}, {key:'dHardhit',label:'\u0394HH',w:50,tip:'2026 HH% minus 2025 HH%. Positive = hitting ball harder'},
-  {key:'s26_woba',label:'wOBA',w:55,tip:'2026 wOBA'}, {key:'dWoba',label:'\u0394wOBA',w:55,tip:'2026 wOBA minus 2025 wOBA'},
-  {key:'s26_xwoba',label:'xwOBA',w:55,tip:'2026 xwOBA'}, {key:'dXwoba',label:'\u0394xwOBA',w:58,tip:'2026 xwOBA minus 2025 xwOBA. Positive = underlying metrics improving'}
+  {key:'s26_barrel',label:'Brl%',w:50,tip:'2026 barrel rate. Green = above 2025, red = below'}, {key:'dBarrel',label:'\u0394Brl',w:50,tip:'2026 Brl% minus 2025 Brl%. Positive = hitting more barrels'},
+  {key:'s26_hardhit',label:'HH%',w:50,tip:'2026 hard hit rate. Green = above 2025, red = below'}, {key:'dHardhit',label:'\u0394HH',w:50,tip:'2026 HH% minus 2025 HH%. Positive = hitting ball harder'},
+  {key:'s26_woba',label:'wOBA',w:55,tip:'2026 wOBA. Green = above 2025, red = below'}, {key:'dWoba',label:'\u0394wOBA',w:55,tip:'2026 wOBA minus 2025 wOBA'},
+  {key:'s26_xwoba',label:'xwOBA',w:55,tip:'2026 xwOBA (expected wOBA from contact quality)'}, {key:'dXwoba',label:'\u0394xwOBA',w:58,tip:'2026 xwOBA minus 2025 xwOBA. Positive = underlying contact quality improving'}
 ];
 const pitCols26A = [
   {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:50},
   {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55,tip:'Projected LCV from pre-season projections'},
-  {key:'actualLcv',label:'aLCV',w:60,cls:'lcv-col',tip:'Actual LCV: z-score sum from 2026 in-season stats (same scale as projected LCV)'},
+  {key:'actualLcv',label:'aLCV',w:60,cls:'lcv-col',tip:'Actual LCV from 2026 in-season stats. When a time-split window is selected, a colored dot shows sample confidence: \u{1F7E2} green = reliable, \u{1F7E1} blue = moderate, \u{1F7E0} orange = small sample'},
   {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual LCV minus Projected LCV. Positive = outperforming projections, negative = underperforming'},
-  {key:'s26_ip',label:'IP',w:50}, {key:'s26_era',label:'ERA',w:55}, {key:'s26_whip',label:'WHIP',w:60},
+  {key:'s26_ip',label:'IP',w:50}, {key:'s26_era',label:'ERA',w:55,tip:'2026 ERA. Green = below 2025 (better), red = above'}, {key:'s26_whip',label:'WHIP',w:60,tip:'2026 WHIP. Green = below 2025 (better), red = above'},
   {key:'s26_so',label:'K',w:50}, {key:'s26_w',label:'W',w:40}, {key:'s26_sv',label:'SV',w:40},
   {key:'s26_hld',label:'HD',w:40}, {key:'s26_qs',label:'QS',w:40}, {key:'s26_hr',label:'HRA',w:45},
   {key:'s26_stuff',label:'Stf+',w:50,tip:'2026 Stuff+'}, {key:'dStuff',label:'\u0394Stf',w:50,tip:'2026 Stuff+ minus 2025. Positive = stuff improving'},
