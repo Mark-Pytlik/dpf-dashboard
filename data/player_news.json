@@ -1,152 +1,17 @@
 [
-  {
-    "player": "Juan Soto",
-    "headline": "Mets' Juan Soto: Placed on 10-day IL with right calf strain",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Spencer Strider",
-    "headline": "Braves' Spencer Strider: Threw bullpen session, targeting late-April return",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Hunter Brown",
-    "headline": "Astros' Hunter Brown: Grade 2 shoulder strain, shut down from throwing",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Mookie Betts",
-    "headline": "Dodgers' Mookie Betts: On IL with right oblique strain, hopeful for early return",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Brent Rooker",
-    "headline": "Athletics' Brent Rooker: Questionable with side injury, day-to-day",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Jackson Chourio",
-    "headline": "Brewers' Jackson Chourio: On IL with hand injury, expected back mid-April",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Mark Vientos",
-    "headline": "Mets' Mark Vientos: Added off waivers by Colonel Corbin's Ascent",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Max Muncy",
-    "headline": "Athletics' Max Muncy: Added off waivers by Yesavage Garden",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Janson Junk",
-    "headline": "Marlins' Janson Junk: Added off waivers by Before and After Shohei",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Carlos Rodon",
-    "headline": "Yankees' Carlos Rodon: On IL with elbow injury, expected back early May",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Jordan Lawlar",
-    "headline": "D-backs' Jordan Lawlar: On IL with wrist injury, expected back in June",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Zack Wheeler",
-    "headline": "Phillies' Zack Wheeler: On IL with shoulder issue, targeting mid-April return",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Cole Ragans",
-    "headline": "Royals' Cole Ragans: Questionable with thumb issue, status uncertain",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Noelvi Marte",
-    "headline": "Reds' Noelvi Marte: Added off waivers by Everythings McGonigle Green",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Seth Lugo",
-    "headline": "Royals' Seth Lugo: Added off waivers by A Pete Crow-Armstrong Looked at Me",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Alejandro Kirk",
-    "headline": "Blue Jays' Alejandro Kirk: On IL with thumb injury, expected back mid-May",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Jackson Jobe",
-    "headline": "Tigers' Jackson Jobe: Season likely over with elbow injury",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Reynaldo Lopez",
-    "headline": "Braves' Reynaldo Lopez: Suspended until April 14",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Gerrit Cole",
-    "headline": "Yankees' Gerrit Cole: On IL with elbow, targeting mid-May return",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Bryce Elder",
-    "headline": "Braves' Bryce Elder: Added off waivers by Popped A Mahle I'm Sweating",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "J.T. Realmuto",
-    "headline": "Phillies' J.T. Realmuto: Questionable with foot issue, day-to-day",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Justin Steele",
-    "headline": "Cubs' Justin Steele: On IL with elbow, targeting late-May return",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Blake Snell",
-    "headline": "Dodgers' Blake Snell: On IL with shoulder, targeting late-May return",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Corbin Burnes",
-    "headline": "D-backs' Corbin Burnes: On IL with elbow, targeting mid-July return",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Emmet Sheehan",
-    "headline": "Dodgers' Emmet Sheehan: Activated, added by Colonel Corbin's Ascent",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Kyle Isbel",
-    "headline": "Royals' Kyle Isbel: Activated, added by Ballesteros",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Kirby Yates",
-    "headline": "Angels' Kirby Yates: On IL with knee injury",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Ryan Pepiot",
-    "headline": "Rays' Ryan Pepiot: On IL with hip injury, expected back late April",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Giancarlo Stanton",
-    "headline": "Yankees' Giancarlo Stanton: Added off waivers by Okamotomami",
-    "date": "2026-04-09"
-  },
-  {
-    "player": "Christian Walker",
-    "headline": "Astros' Christian Walker: Added off waivers by Buddy Buddy Buddy",
-    "date": "2026-04-09"
-  }
+  {"player":"James Tibbs","headline":"Prospects: Tibbs too powerful to ignore — power surge headlines risers","date":"2026-04-10"},
+  {"player":"Fantasy Advice","headline":"Week 4 sleeper pitchers: Ryan Weathers, Randy Vasquez headline waiver options","date":"2026-04-10"},
+  {"player":"Fantasy Advice","headline":"Week 4 two-start pitcher rankings: Jeffrey Springs, Mitch Keller highlight","date":"2026-04-10"},
+  {"player":"Taj Bradley","headline":"Waiver Wire: A Bradley breakout — new saves sources emerge in St. Louis and Texas","date":"2026-04-10"},
+  {"player":"Juan Soto","headline":"Top 40 IL stash rankings: Soto, Mookie Betts, Hunter Brown headline IL stashes","date":"2026-04-10"},
+  {"player":"Jordan Walker","headline":"Waiver Wire: Run to Walker — Emerson Hancock and Bryce Elder continue pitching well","date":"2026-04-07"},
+  {"player":"Fantasy Advice","headline":"Rankings risers: Early season movers — stock up and stock down after week 1","date":"2026-04-07"},
+  {"player":"Fantasy Advice","headline":"Rankings Movers: 10 biggest changes — early discernment guiding moves","date":"2026-04-07"},
+  {"player":"Garrett Crochet","headline":"Waivers: Crochet shows minor red flags despite ace expectations","date":"2026-04-07"},
+  {"player":"Fantasy Advice","headline":"Week 3 sleeper hitters: Best matchups include Rockies, Padres and Reds","date":"2026-04-03"},
+  {"player":"Fantasy Advice","headline":"Week 3 sleeper pitchers: Jose Soriano, Reynaldo Lopez headline targets","date":"2026-04-03"},
+  {"player":"Fantasy Advice","headline":"Week 3 two-start pitcher rankings: Andrew Painter, Bubba Chandler highlight","date":"2026-04-03"},
+  {"player":"Konnor Griffin","headline":"Konnor Griffin MLB debut: Fantasy fallout for the Pirates top prospect","date":"2026-04-03"},
+  {"player":"Konnor Griffin","headline":"Prospects: Griffin, Condon await — Antonacci quickly raising his stock","date":"2026-04-03"},
+  {"player":"Brandon Woodruff","headline":"Pitching debuts offer optimism: Woodruff, McClanahan return from injury","date":"2026-04-03"}
 ]
