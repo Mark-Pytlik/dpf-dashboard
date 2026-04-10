@@ -1,17 +1,82 @@
 [
-  {"player":"James Tibbs","headline":"Prospects: Tibbs too powerful to ignore — power surge headlines risers","date":"2026-04-10"},
-  {"player":"Fantasy Advice","headline":"Week 4 sleeper pitchers: Ryan Weathers, Randy Vasquez headline waiver options","date":"2026-04-10"},
-  {"player":"Fantasy Advice","headline":"Week 4 two-start pitcher rankings: Jeffrey Springs, Mitch Keller highlight","date":"2026-04-10"},
-  {"player":"Taj Bradley","headline":"Waiver Wire: A Bradley breakout — new saves sources emerge in St. Louis and Texas","date":"2026-04-10"},
-  {"player":"Juan Soto","headline":"Top 40 IL stash rankings: Soto, Mookie Betts, Hunter Brown headline IL stashes","date":"2026-04-10"},
-  {"player":"Jordan Walker","headline":"Waiver Wire: Run to Walker — Emerson Hancock and Bryce Elder continue pitching well","date":"2026-04-07"},
-  {"player":"Fantasy Advice","headline":"Rankings risers: Early season movers — stock up and stock down after week 1","date":"2026-04-07"},
-  {"player":"Fantasy Advice","headline":"Rankings Movers: 10 biggest changes — early discernment guiding moves","date":"2026-04-07"},
-  {"player":"Garrett Crochet","headline":"Waivers: Crochet shows minor red flags despite ace expectations","date":"2026-04-07"},
-  {"player":"Fantasy Advice","headline":"Week 3 sleeper hitters: Best matchups include Rockies, Padres and Reds","date":"2026-04-03"},
-  {"player":"Fantasy Advice","headline":"Week 3 sleeper pitchers: Jose Soriano, Reynaldo Lopez headline targets","date":"2026-04-03"},
-  {"player":"Fantasy Advice","headline":"Week 3 two-start pitcher rankings: Andrew Painter, Bubba Chandler highlight","date":"2026-04-03"},
-  {"player":"Konnor Griffin","headline":"Konnor Griffin MLB debut: Fantasy fallout for the Pirates top prospect","date":"2026-04-03"},
-  {"player":"Konnor Griffin","headline":"Prospects: Griffin, Condon await — Antonacci quickly raising his stock","date":"2026-04-03"},
-  {"player":"Brandon Woodruff","headline":"Pitching debuts offer optimism: Woodruff, McClanahan return from injury","date":"2026-04-03"}
+  {
+    "player": "Fantasy Advice",
+    "headline": "Week 4 sleeper hitters",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "Fantasy Advice",
+    "headline": "Week 4 sleeper pitchers",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "Fantasy Advice",
+    "headline": "Week 4 two-start pitcher rankings",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "Taj Bradley",
+    "headline": "Waiver Wire: A Bradley breakout",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "James Tibbs",
+    "headline": "Prospects: Tibbs too powerful to ignore",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "Fantasy Advice",
+    "headline": "Top 40 IL stash rankings",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "Jordan Walker",
+    "headline": "Waiver Wire: Run to Walker",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "Fantasy Advice",
+    "headline": "Week 3 sleeper hitters",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "Fantasy Advice",
+    "headline": "Week 3 sleeper pitchers",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "Fantasy Advice",
+    "headline": "Week 3 two-start pitcher rankings",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "Fantasy Advice",
+    "headline": "Rankings risers: Towers' stock up, stock down",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "Fantasy Advice",
+    "headline": "Konnor Griffin debut: Fantasy fallout",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "Fantasy Advice",
+    "headline": "Week 2 Trade Values",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "Fantasy Advice",
+    "headline": "Rankings Movers: 10 biggest changes",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "Fantasy Advice",
+    "headline": "Waivers: Crochet shows red flags",
+    "date": "2026-04-10"
+  },
+  {
+    "player": "Griffin",
+    "headline": "Prospects: Griffin, Condon await",
+    "date": "2026-04-10"
+  }
 ]
