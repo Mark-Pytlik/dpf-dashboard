@@ -2,9 +2,7 @@
 const DPF = { ui: {}, table: {}, league: {}, mock: {} };
 
 // ── Tab management ────────────────────────────────────────────────────────
-// Always land on Players tab on reload (per user request)
-DPF.ui.currentTab = 'all';
-state._currentTab = 'all';
+DPF.ui.currentTab = state._currentTab || 'league';
 const tabs = document.querySelectorAll('.tab');
 // Restore active tab highlight from saved state
 tabs.forEach(t => {
@@ -95,11 +93,15 @@ try {
   const savedFilters = JSON.parse(localStorage.getItem('dpf_filters') || '{}');
   DPF.table.filterPos = savedFilters.filterPos || 'ALL';
   DPF.ui.filterType = savedFilters.filterType || 'all';
-  DPF.ui.currentView = 's26';
+  DPF.ui.currentView = savedFilters.currentView || 'main';
+  DPF.table.filterMinPA = savedFilters.filterMinPA || 0;
+  DPF.table.filterMinIP = savedFilters.filterMinIP || 0;
 } catch(e) {
   DPF.table.filterPos = 'ALL';
   DPF.ui.filterType = 'all';
-  DPF.ui.currentView = 's26';
+  DPF.ui.currentView = 'main';
+  DPF.table.filterMinPA = 0;
+  DPF.table.filterMinIP = 0;
 }
 const posGroups = { all: ['ALL','C','1B','2B','3B','SS','LF','CF','RF','DH','SP','RP'],
                     bat: ['ALL','C','1B','2B','3B','SS','LF','CF','RF','DH'],
@@ -156,12 +158,13 @@ function _saveFilters() {
     localStorage.setItem('dpf_filters', JSON.stringify({
       filterPos: DPF.table.filterPos,
       filterType: DPF.ui.filterType,
-      currentView: DPF.ui.currentView
+      currentView: DPF.ui.currentView,
+      filterMinPA: DPF.table.filterMinPA,
+      filterMinIP: DPF.table.filterMinIP
     }));
   } catch(e) {}
 }
 
 // ── View toggle ──────────────────────────────────────────────────────────
-// Don't overwrite currentView if it was already restored from localStorage above
-if (!DPF.ui.currentView) DPF.ui.currentView = 's26'; // 'main', 's25', 'p26', 's26', 'avp'
+DPF.ui.currentView = 'main'; // 'main', 's25', 'p26', 's26', 'avp'
 

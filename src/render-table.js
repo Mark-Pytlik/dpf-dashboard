@@ -48,8 +48,6 @@ function render() {
 
   const q = document.getElementById('searchBox').value.toLowerCase();
   const draftFilter = document.getElementById('draftFilter').value;
-  const tableWrap = document.getElementById('tableWrap');
-  if (tableWrap) tableWrap.classList.toggle('compare-mode', draftFilter === 'compare');
   const tagFilter = document.getElementById('tagFilter').value;
   const teamFilter = document.getElementById('teamFilter')?.value || 'all';
 
@@ -85,8 +83,19 @@ function render() {
     if (tagFilter === 'stuff-down' && !(p.type === 'PIT' && p.stuffTrend <= -8)) return false;
     // For s26/avp views, only show players with actual 2026 data
     if ((DPF.ui.currentView === 's26' || DPF.ui.currentView === 'avp') && !p.s26_pa && !p.s26_ip) return false;
+    // Min PA / IP filters — use the stat field matching the current view
+    const _paField = DPF.ui.currentView === 's25' ? 's25_pa' : DPF.ui.currentView === 's26' || DPF.ui.currentView === 'avp' ? 's26_pa' : 'pa';
+    const _ipField = DPF.ui.currentView === 's25' ? 's25_ip' : DPF.ui.currentView === 's26' || DPF.ui.currentView === 'avp' ? 's26_ip' : 'ip';
+    if (p.type === 'BAT' && DPF.table.filterMinPA > 0 && (parseFloat(p[_paField]) || 0) < DPF.table.filterMinPA) return false;
+    if (p.type === 'PIT' && DPF.table.filterMinIP > 0 && (parseFloat(p[_ipField]) || 0) < DPF.table.filterMinIP) return false;
     return true;
   });
+
+  // Sync min PA/IP dropdown selected values to match state (in case they were restored from localStorage)
+  const _paEl = document.getElementById('minPAFilter');
+  const _ipEl = document.getElementById('minIPFilter');
+  if (_paEl && parseInt(_paEl.value) !== DPF.table.filterMinPA) _paEl.value = String(DPF.table.filterMinPA);
+  if (_ipEl && parseInt(_ipEl.value) !== DPF.table.filterMinIP) _ipEl.value = String(DPF.table.filterMinIP);
 
   // Compute trade value, prospect value, and analytics badges for ALL views
   filtered.forEach(p => {
@@ -220,24 +229,6 @@ function render() {
             // For ERA, WHIP, SO(batters): lower is better
             const lowerBetter = (c.key === 'era' || c.key === 'whip' || (c.key === 'so' && p.type === 'BAT'));
             const diff = cur - prv;
-            if (diff !== 0) {
-              const better = lowerBetter ? diff < 0 : diff > 0;
-              cls += better ? ' val-pos' : ' val-neg';
-            }
-          }
-        }
-      }
-      // S26 view: color 2026 actual stats relative to 2025 actuals
-      if (DPF.ui.currentView === 's26' && c.key.startsWith('s26_')) {
-        const s25map = {s26_avg:'s25_avg',s26_obp:'s25_obp',s26_slg:'s25_slg',s26_hr:'s25_hr',s26_r:'s25_r',s26_rbi:'s25_rbi',s26_sb:'s25_sb',s26_so:'s25_so',s26_pa:'s25_pa',
-                          s26_ip:'s25_ip',s26_era:'s25_era',s26_whip:'s25_whip',s26_w:'s25_w',s26_sv:'s25_sv',s26_hld:'s25_hld',s26_qs:'s25_qs'};
-        const s25k = s25map[c.key];
-        if (s25k) {
-          const prev = p[s25k];
-          if (prev !== '' && prev !== undefined && prev !== null) {
-            const act = parseFloat(val), prv = parseFloat(prev);
-            const lowerBetter = (c.key === 's26_era' || c.key === 's26_whip' || (c.key === 's26_so' && p.type === 'BAT'));
-            const diff = act - prv;
             if (diff !== 0) {
               const better = lowerBetter ? diff < 0 : diff > 0;
               cls += better ? ' val-pos' : ' val-neg';
@@ -392,16 +383,19 @@ function render() {
         }
         const enoR = p.eno_rank ? ` <span class="eno-rank" title="Eno 150 Best Pitchers #${p.eno_rank}">P${p.eno_rank}</span>` : '';
         // Analytics badges (v5.0) — inline after name, never wrap
-        // 2026 BUY/SELL badge (luckBadge) supersedes the 2025-based buySell when present
         let aBadges = '';
-        if (p._luckBadge) {
-          aBadges += p._luckBadge;
-        } else {
-          if (p._buySell === 'buy') aBadges += ' <span class="pbadge" title="Buy-low (2025): xwOBA ' + ((p.s25_delta||0)*1000).toFixed(0) + ' pts above wOBA" style="background:#16a34a;color:#fff;">BUY</span>';
-          if (p._buySell === 'sell') aBadges += ' <span class="pbadge" title="Sell-high (2025): xwOBA ' + (Math.abs(p.s25_delta||0)*1000).toFixed(0) + ' pts below wOBA" style="background:#dc2626;color:#fff;">SELL</span>';
+        if (p._buySell === 'buy') {
+          const _bsDelta = (p.s26_xwoba && p.s26_woba) ? (parseFloat(p.s26_xwoba) - parseFloat(p.s26_woba)) : (p.s25_delta || 0);
+          const _bsYr = (p.s26_xwoba && p.s26_woba) ? '2026' : '2025';
+          aBadges += ' <span class="pbadge" title="Buy-low (' + _bsYr + '): xwOBA ' + (_bsDelta*1000).toFixed(0) + ' pts above wOBA (unlucky)" style="background:#16a34a;color:#fff;">BUY</span>';
+        }
+        if (p._buySell === 'sell') {
+          const _bsDelta = (p.s26_xwoba && p.s26_woba) ? (parseFloat(p.s26_xwoba) - parseFloat(p.s26_woba)) : (p.s25_delta || 0);
+          const _bsYr = (p.s26_xwoba && p.s26_woba) ? '2026' : '2025';
+          aBadges += ' <span class="pbadge" title="Sell-high (' + _bsYr + '): xwOBA ' + (Math.abs(_bsDelta)*1000).toFixed(0) + ' pts below wOBA (lucky)" style="background:#dc2626;color:#fff;">SELL</span>';
         }
         if (p._sbBreakout) aBadges += ' <span class="pbadge" title="SB breakout: ' + (p.sprintSpeed||'?') + ' ft/s speed, only ' + (p.sb||0) + ' proj SB" style="background:#7c3aed;color:#fff;">SB</span>';
-        aBadges += (p._kAdj || '') + (p._parkBadge || '') + (p._closerBadge || '') + (p._stuffTrend || '');
+        aBadges += (p._kAdj || '') + (p._parkBadge || '') + (p._closerBadge || '') + (p._stuffTrend || '') + (p._luckBadge || '');
         return `<td style="font-weight:600;white-space:nowrap;">${val}${_injBadge(p.name)}${enoR}${aBadges}${tagHtml}${kp}${ownerBadge}${tagBtns}</td>`;
       }
       return `<td class="${cls}">${val}</td>`;
@@ -412,8 +406,18 @@ function render() {
   const rows = filtered.slice(0, 500);
   tbody.innerHTML = rows.map(p => buildRowHtml(p, cols)).join('');
 
-  // Click-to-draft handlers removed to prevent accidental roster additions.
-  // Use the Draft panel (in Draft mode) or the roster tabs to manage players.
+  // Right-click to draft, double-click to draft to my team
+  tbody.querySelectorAll('tr').forEach(tr => {
+    tr.addEventListener('contextmenu', e => {
+      e.preventDefault();
+      const name = tr.dataset.name;
+      if (!state.drafted[name]) { draftPlayer(name, false); }
+    });
+    tr.addEventListener('dblclick', () => {
+      const name = tr.dataset.name;
+      if (!state.drafted[name]) { draftPlayer(name, true); }
+    });
+  });
 
   // Tag buttons (want / avoid)
   tbody.querySelectorAll('.tag-btn').forEach(btn => {

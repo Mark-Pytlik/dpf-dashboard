@@ -20,6 +20,16 @@ function debouncedRender() {
 document.getElementById('searchBox').addEventListener('input', debouncedRender);
 document.getElementById('draftFilter').addEventListener('change', render);
 document.getElementById('tagFilter').addEventListener('change', render);
+document.getElementById('minPAFilter').addEventListener('change', function() {
+  DPF.table.filterMinPA = parseInt(this.value) || 0;
+  _saveFilters();
+  render();
+});
+document.getElementById('minIPFilter').addEventListener('change', function() {
+  DPF.table.filterMinIP = parseInt(this.value) || 0;
+  _saveFilters();
+  render();
+});
 // Populate team filter dropdown with fantasy league teams
 (() => {
   const tf = document.getElementById('teamFilter');

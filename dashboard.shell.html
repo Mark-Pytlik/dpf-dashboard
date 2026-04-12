@@ -28,7 +28,7 @@ __STYLES__
 <div class="header">
   <div style="display:flex;flex-direction:column;">
     <h1><span>DPF</span> 2026 Dashboard</h1>
-    <div style="font-size:10px;color:var(--text2);margin-top:4px;letter-spacing:0.3px;">v__VERSION__ · build __BUILD_HASH__ · Last built: __BUILD_TIME__</div>
+    <div style="font-size:10px;color:var(--text2);margin-top:4px;letter-spacing:0.3px;">v__VERSION__ · Last built: __BUILD_TIME__</div>
   </div>
   <div class="tabs">
     <div class="tab" data-tab="all">Players</div>
@@ -52,7 +52,6 @@ __STYLES__
   <select id="draftFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;">
     <option value="all">All Players</option>
     <option value="available">Available</option>
-    <option value="compare">Available + Teams</option>
     <option value="drafted">Drafted</option>
   </select>
   <select id="teamFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;">
@@ -61,6 +60,27 @@ __STYLES__
   <div id="typeFilters" style="display:flex;gap:2px;"></div>
   <div style="width:1px;height:20px;background:var(--border);"></div>
   <div id="posFilters"></div>
+  <div style="width:1px;height:20px;background:var(--border);"></div>
+  <select id="minPAFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;">
+    <option value="0">Min PA</option>
+    <option value="50">50+ PA</option>
+    <option value="100">100+ PA</option>
+    <option value="150">150+ PA</option>
+    <option value="200">200+ PA</option>
+    <option value="300">300+ PA</option>
+    <option value="400">400+ PA</option>
+    <option value="500">500+ PA</option>
+  </select>
+  <select id="minIPFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;">
+    <option value="0">Min IP</option>
+    <option value="10">10+ IP</option>
+    <option value="20">20+ IP</option>
+    <option value="40">40+ IP</option>
+    <option value="60">60+ IP</option>
+    <option value="100">100+ IP</option>
+    <option value="150">150+ IP</option>
+    <option value="180">180+ IP</option>
+  </select>
   <select id="tagFilter" style="padding:4px 8px;font-size:12px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;">
     <option value="all">All tags</option>
     <option value="want">Want only</option>
@@ -93,7 +113,6 @@ __STYLES__
     <button class="view-btn" data-view="s26">2026 Actual</button>
     <button class="view-btn" data-view="avp">Actual vs Proj</button>
   </div>
-  <span id="tableSplitToggle"></span>
   <div class="stats-bar">
     <span>Showing <b id="showCount">0</b> players</span>
     <span>Drafted <b id="draftedCount">0</b></span>
