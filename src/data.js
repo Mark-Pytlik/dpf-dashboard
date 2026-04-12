@@ -150,10 +150,16 @@ const BP_ROLE_NOTES = new Map();   // team abbr → notes
 // ── Buy-low / sell-high detection (xwOBA - wOBA gap) ─────────────────────
 // Batter: positive delta (xwOBA > wOBA) = buy-low candidate (unlucky)
 //         negative delta (xwOBA < wOBA) = sell-high candidate (lucky)
+// Prefer 2026 in-season data when available; fall back to 2025 full-season.
 function getBuySellTag(player) {
   if (!player || player.type !== 'BAT') return '';
-  const delta = player.s25_delta;
-  if (delta === '' || delta === undefined || delta === null) return '';
+  let delta;
+  if (player.s26_xwoba && player.s26_woba) {
+    delta = parseFloat(player.s26_xwoba) - parseFloat(player.s26_woba);
+  } else {
+    delta = player.s25_delta;
+  }
+  if (delta === '' || delta === undefined || delta === null || isNaN(delta)) return '';
   if (delta >= 0.020) return 'buy';   // xwOBA 20+ pts above wOBA = significantly unlucky
   if (delta <= -0.020) return 'sell';  // xwOBA 20+ pts below wOBA = significantly lucky
   return '';
@@ -222,24 +228,9 @@ function stuffTrendBadge(player) {
 }
 
 // ── 2026 Regression analysis badges ──────────────────────────────────────
-// Batters: xwOBA vs wOBA luck indicator
+// Batters are covered by getBuySellTag (BUY/SELL). luckBadge handles pitchers only.
 function luckBadge(player) {
   if (!player) return '';
-
-  // Batter luck: compare 2026 xwOBA to wOBA (if 2026 data exists)
-  // xwOBA > wOBA = contact quality better than results = buy-low candidate
-  // wOBA > xwOBA = results exceeding contact quality = sell-high candidate
-  if (player.type === 'BAT' && player.s26_xwoba && player.s26_woba) {
-    const xwoba = parseFloat(player.s26_xwoba);
-    const woba = parseFloat(player.s26_woba);
-    const delta = xwoba - woba;
-    if (delta > 0.030) {
-      return '<span class="pbadge" title="Buy low: xwOBA ' + (delta*1000).toFixed(0) + ' pts above wOBA — contact quality better than results, expect improvement" style="background:#16a34a;color:#fff;">BUY</span>';
-    }
-    if (delta < -0.030) {
-      return '<span class="pbadge" title="Sell high: wOBA ' + (Math.abs(delta)*1000).toFixed(0) + ' pts above xwOBA — results exceeding contact quality, expect regression" style="background:#dc2626;color:#fff;">SELL</span>';
-    }
-  }
 
   // Pitcher luck: ERA vs FIP (when both available); also Stuff+ trend
   if (player.type === 'PIT') {
@@ -247,13 +238,13 @@ function luckBadge(player) {
     if (player.dStuff !== undefined && player.dStuff !== null && player.dStuff > 5) {
       return '<span class="pbadge" title="Stuff+ improved +' + player.dStuff + ' in 2026" style="background:#16a34a;color:#fff;">STUFF↑</span>';
     }
-    // ERA vs FIP: if ERA significantly worse than FIP, pitcher underperforming
+    // ERA vs FIP: if ERA significantly worse than FIP, pitcher is unlucky
     const era = parseFloat(player.s26_era);
     const fip = parseFloat(player.s26_fip);
     if (era && fip && !isNaN(era) && !isNaN(fip)) {
       const delta = era - fip;
       if (delta > 1.0) {
-        return '<span class="pbadge" title="Buy low: ERA ' + delta.toFixed(2) + ' worse than FIP — results worse than stuff, expect improvement" style="background:#16a34a;color:#fff;">BUY</span>';
+        return '<span class="pbadge" title="2026 ERA ' + delta.toFixed(2) + ' worse than FIP (unlucky)" style="background:#16a34a;color:#fff;">UNLUCKY</span>';
       }
     }
   }
