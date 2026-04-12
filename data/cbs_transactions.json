@@ -5335,6 +5335,102 @@
     ]
   },
   {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Bryson Stott",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Chad Patrick",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "players": [
+      {
+        "name": "Gabriel Moreno",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "players": [
+      {
+        "name": "Mick Abel",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "players": [
+      {
+        "name": "Brady Singer",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "players": [
+      {
+        "name": "Shane Smith",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "players": [
+      {
+        "name": "Max Muncy",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 12:00 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "players": [
+      {
+        "name": "Josh H. Smith",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
     "date": "4/3/26 2:03 AM ET",
     "team": "Popped A Mahle I'm Sweating",
     "effective": "4/3/26",
