@@ -84,10 +84,19 @@ function render() {
     // For s26/avp views, only show players with actual 2026 data
     if ((DPF.ui.currentView === 's26' || DPF.ui.currentView === 'avp') && !p.s26_pa && !p.s26_ip) return false;
     // Min PA / IP filters — use the stat field matching the current view
-    const _paField = DPF.ui.currentView === 's25' ? 's25_pa' : DPF.ui.currentView === 's26' || DPF.ui.currentView === 'avp' ? 's26_pa' : 'pa';
-    const _ipField = DPF.ui.currentView === 's25' ? 's25_ip' : DPF.ui.currentView === 's26' || DPF.ui.currentView === 'avp' ? 's26_ip' : 'ip';
-    if (p.type === 'BAT' && DPF.table.filterMinPA > 0 && (parseFloat(p[_paField]) || 0) < DPF.table.filterMinPA) return false;
-    if (p.type === 'PIT' && DPF.table.filterMinIP > 0 && (parseFloat(p[_ipField]) || 0) < DPF.table.filterMinIP) return false;
+    const _paField = DPF.ui.currentView === 's25' ? 's25_pa' : (DPF.ui.currentView === 's26' || DPF.ui.currentView === 'avp') ? 's26_pa' : 'pa';
+    const _ipField = DPF.ui.currentView === 's25' ? 's25_ip' : (DPF.ui.currentView === 's26' || DPF.ui.currentView === 'avp') ? 's26_ip' : 'ip';
+    const _minPA = DPF.table.filterMinPA || 0;
+    const _minIP = DPF.table.filterMinIP || 0;
+    if (p.type === 'BAT') {
+      // Batters filtered by PA threshold; if only IP minimum is set (no PA), hide batters entirely
+      if (_minPA > 0 && (parseFloat(p[_paField]) || 0) < _minPA) return false;
+      if (_minPA === 0 && _minIP > 0) return false;
+    } else if (p.type === 'PIT') {
+      // Pitchers filtered by IP threshold; if only PA minimum is set (no IP), hide pitchers entirely
+      if (_minIP > 0 && (parseFloat(p[_ipField]) || 0) < _minIP) return false;
+      if (_minIP === 0 && _minPA > 0) return false;
+    }
     return true;
   });
 
