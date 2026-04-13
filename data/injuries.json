@@ -1,2246 +1,4314 @@
 [
   {
-    "name": "Phil Maton",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 23"
-  },
-  {
-    "name": "Drew Rasmussen",
-    "status": "Out",
-    "injury": "Personal",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Alessandro Ercolani",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Kendry Rojas",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
+    "updated": "4/13/26",
     "name": "Brennan Malone",
+    "pos": "SP",
+    "mlbTeam": "PIT",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
-    "name": "Jadher Areinamo",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
+    "updated": "4/13/26",
     "name": "Matt Cronin",
+    "pos": "RP",
+    "mlbTeam": "WAS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
+    "updated": "4/13/26",
     "name": "Jon Gray",
+    "pos": "RP",
+    "mlbTeam": "TEX",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
+    "updated": "4/13/26",
     "name": "Michael Kopech",
+    "pos": "RP",
+    "mlbTeam": "LAD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
     "status": "Out",
     "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
+    "updated": "4/13/26",
     "name": "Tom Murphy",
+    "pos": "C",
+    "mlbTeam": "SF",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Back",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
+    "updated": "4/13/26",
     "name": "Ricardo Genoves",
+    "pos": "C",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
+    "updated": "4/13/26",
     "name": "Alex Cobb",
+    "pos": "SP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Hip",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
+    "updated": "4/13/26",
     "name": "Wade Miley",
+    "pos": "SP",
+    "mlbTeam": "CIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Forearm",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
+    "updated": "4/13/26",
     "name": "Jose Iglesias",
+    "pos": "2B,3B,SS",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Suspended",
     "injury": "",
-    "returnDate": "Suspended until Apr 10"
+    "expectedReturn": "Suspended until Apr 13"
   },
   {
+    "updated": "4/13/26",
     "name": "Parker Dunshee",
+    "pos": "RP",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
+    "updated": "4/13/26",
     "name": "Joan Adon",
+    "pos": "RP",
+    "mlbTeam": "WAS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
+    "updated": "4/13/26",
     "name": "Robinson Pina",
+    "pos": "RP",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
+    "updated": "4/13/26",
     "name": "Tyler Matzek",
+    "pos": "RP",
+    "mlbTeam": "NYY",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
+    "updated": "4/13/26",
     "name": "Alex Young",
+    "pos": "RP",
+    "mlbTeam": "CIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
+    "updated": "4/13/26",
     "name": "Alex Faedo",
+    "pos": "RP",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
+    "updated": "4/13/26",
     "name": "Evan White",
+    "pos": "1B",
+    "mlbTeam": "LAA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Hip",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
-    "name": "Jason Adam",
-    "status": "IL",
-    "injury": "Quadriceps",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Jack Brannigan",
-    "status": "IL",
-    "injury": "Nose",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Ty Floyd",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Owen Hall",
-    "status": "Probable",
-    "injury": "Shoulder",
-    "returnDate": "Probable for Apr 10"
-  },
-  {
+    "updated": "4/13/26",
     "name": "Anthony Solometo",
+    "pos": "SP",
+    "mlbTeam": "PIT",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
     "status": "Probable",
     "injury": "Shoulder",
-    "returnDate": "Probable for Apr 10"
+    "expectedReturn": "Probable for Apr 13"
   },
   {
-    "name": "Justin Armbruester",
-    "status": "IL",
-    "injury": "Lat",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Tyler Gough",
-    "status": "Probable",
-    "injury": "Elbow",
-    "returnDate": "Probable for Apr 10"
-  },
-  {
-    "name": "Thomas Pannone",
-    "status": "IL",
-    "injury": "Forearm",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Thatcher Hurd",
-    "status": "Probable",
-    "injury": "Elbow",
-    "returnDate": "Probable for Apr 10"
-  },
-  {
-    "name": "Hunter Goodman",
-    "status": "Probable",
-    "injury": "Finger",
-    "returnDate": "Probable for Apr 10"
-  },
-  {
-    "name": "Chris Murphy",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 23"
-  },
-  {
-    "name": "Ryan Bergert",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Corbin Carroll",
-    "status": "Probable",
+    "updated": "4/12/26",
+    "name": "Jonathan Cannon",
+    "pos": "SP",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Questionable",
     "injury": "Hip",
-    "returnDate": "Probable for Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 14"
   },
   {
-    "name": "Jorge Polanco",
-    "status": "Probable",
-    "injury": "Achilles",
-    "returnDate": "Probable for Apr 10"
-  },
-  {
-    "name": "Parker Meadows",
-    "status": "Out",
-    "injury": "Concussion",
-    "returnDate": "Expected to be out until at least Apr 17"
-  },
-  {
-    "name": "Griffin Conine",
-    "status": "Out",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 20"
-  },
-  {
-    "name": "Brent Rooker",
-    "status": "Probable",
-    "injury": "Side",
-    "returnDate": "Probable for Apr 10"
-  },
-  {
-    "name": "Josh Bostick",
-    "status": "IL",
-    "injury": "Achilles",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Ching-Hsien Ko",
-    "status": "IL",
-    "injury": "Quadriceps",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Patrick Forbes",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 15"
-  },
-  {
+    "updated": "4/12/26",
     "name": "Cody Bolton",
+    "pos": "RP",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
     "status": "Questionable",
     "injury": "Back",
-    "returnDate": "Expected to be out until at least Apr 12"
+    "expectedReturn": "Expected to be out until at least Apr 16"
   },
   {
-    "name": "Aidan Smith",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Carlos Estevez",
-    "status": "IL",
-    "injury": "Foot",
-    "returnDate": "Expected to be out until at least Apr 20"
-  },
-  {
-    "name": "Ryan Pepiot",
-    "status": "IL",
-    "injury": "Hip",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Spencer Strider",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 20"
-  },
-  {
-    "name": "Parks Harber",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 27"
-  },
-  {
-    "name": "Caleb Ferguson",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Miles Mastrobuoni",
-    "status": "IL",
-    "injury": "Calf",
-    "returnDate": "Expected to be out until at least Apr 13"
-  },
-  {
-    "name": "Merrill Kelly",
-    "status": "IL",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Edwin Uceta",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "J.D. Thompson",
-    "status": "Out",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Ricardo Cabrera",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Reynaldo Lopez",
-    "status": "Suspended",
-    "injury": "",
-    "returnDate": "Suspended until Apr 14"
-  },
-  {
-    "name": "Ian Happ",
-    "status": "Probable",
-    "injury": "Heel",
-    "returnDate": "Probable for Apr 10"
-  },
-  {
-    "name": "Cristian Javier",
+    "updated": "4/12/26",
+    "name": "Nick Pivetta",
+    "pos": "SP",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Everythings McGonigle Green",
+    "rosteredPct": "97",
     "status": "Questionable",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 14"
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 18"
   },
   {
-    "name": "Jake Meyers",
-    "status": "Probable",
-    "injury": "Back",
-    "returnDate": "Probable for Apr 10"
-  },
-  {
-    "name": "Carlos Correa",
-    "status": "Probable",
-    "injury": "Illness",
-    "returnDate": "Probable for Apr 10"
-  },
-  {
-    "name": "Cole Ragans",
+    "updated": "4/12/26",
+    "name": "Ken Waldichuk",
+    "pos": "SP",
+    "mlbTeam": "WAS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Questionable",
-    "injury": "Thumb",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Jose Perdomo",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Mar 1"
-  },
-  {
-    "name": "R.J. Gordon",
-    "status": "IL",
-    "injury": "Lat",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Dylan Ross",
-    "status": "IL",
-    "injury": "Arm",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Max Williams",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Victor Robles",
-    "status": "IL",
-    "injury": "Pectoral",
-    "returnDate": "Expected to be out until at least Apr 17"
-  },
-  {
-    "name": "Robert Gasser",
-    "status": "Questionable",
-    "injury": "Biceps",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Jose Trevino",
-    "status": "IL",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Ivan Brethowr",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Blake Burkhalter",
-    "status": "IL",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Luke Sinnard",
-    "status": "Out",
-    "injury": "Abdomen",
-    "returnDate": "Expected to be out until at least Apr 22"
-  },
-  {
-    "name": "Esmil Valencia",
-    "status": "IL",
-    "injury": "Finger",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "J.T. Realmuto",
-    "status": "Probable",
-    "injury": "Foot",
-    "returnDate": "Probable for Apr 10"
-  },
-  {
-    "name": "Justin Slaten",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 20"
-  },
-  {
-    "name": "Josh Jung",
-    "status": "Probable",
-    "injury": "Undisclosed",
-    "returnDate": "Probable for Apr 10"
-  },
-  {
-    "name": "Brice Turang",
-    "status": "Probable",
-    "injury": "Ankle",
-    "returnDate": "Probable for Apr 10"
-  },
-  {
-    "name": "Gabriel Arias",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least May 15"
-  },
-  {
-    "name": "Johan Oviedo",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 17"
-  },
-  {
-    "name": "Zach Eflin",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1, 2027"
-  },
-  {
-    "name": "Pavin Smith",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 12"
-  },
-  {
-    "name": "Carlos Vargas",
-    "status": "IL",
-    "injury": "Lat",
-    "returnDate": "Expected to be out until at least May 23"
-  },
-  {
-    "name": "Kirby Yates",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 13"
-  },
-  {
-    "name": "Alek Manoah",
-    "status": "IL",
-    "injury": "Finger",
-    "returnDate": "Expected to be out until at least Apr 18"
-  },
-  {
-    "name": "Peter Kussow",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "George Valera",
-    "status": "IL",
-    "injury": "Calf",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Vaughn Grissom",
-    "status": "IL",
-    "injury": "Wrist",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Brooks Baldwin",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Kyle Teel",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 18"
-  },
-  {
-    "name": "Max Lazar",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Andrew Kittredge",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Caden Dana",
-    "status": "Questionable",
-    "injury": "Illness",
-    "returnDate": "Expected to be out until at least Apr 12"
-  },
-  {
-    "name": "Gabriel Rincones",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Carlos Rodon",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 2"
-  },
-  {
-    "name": "Robert Stephenson",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Daysbel Hernandez",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Tommy Hawke",
-    "status": "Questionable",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Brandon Birdsell",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Oct 1"
-  },
-  {
-    "name": "Hunter Dobbins",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 12"
-  },
-  {
-    "name": "Andrew Walters",
-    "status": "IL",
-    "injury": "Lat",
-    "returnDate": "Expected to be out until at least May 25"
-  },
-  {
-    "name": "Josh Staumont",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Luke Holman",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Ben Joyce",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Jose Marte",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Glenn Otto",
-    "status": "Questionable",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Alejandro Rosario",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Mar 1"
-  },
-  {
-    "name": "Wen-Hui Pan",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Carter Holton",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 12"
-  },
-  {
-    "name": "Josh Knoth",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 15"
-  },
-  {
-    "name": "Luis Rodriguez",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 12"
-  },
-  {
-    "name": "Calvin Ziegler",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Chia-Shi Shen",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Griffin Hugus",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1, 2027"
-  },
-  {
-    "name": "Marcelo Perez",
-    "status": "IL",
     "injury": "Forearm",
-    "returnDate": "Expected to be out until at least May 1"
+    "expectedReturn": "Expected to be out until at least Apr 15"
   },
   {
-    "name": "Barrett Kent",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Alonzo Tredwell",
-    "status": "Out",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 6"
-  },
-  {
-    "name": "Ethan Pecko",
-    "status": "IL",
-    "injury": "Arm",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Henry Baez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 22"
-  },
-  {
-    "name": "Steven Zobac",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Jaden Hamm",
-    "status": "Out",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 13"
-  },
-  {
-    "name": "Andrew Sears",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Aldrin Batista",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 27"
-  },
-  {
-    "name": "Kelvis Salcedo",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least May 13"
-  },
-  {
-    "name": "Alexander Albertus",
-    "status": "Out",
-    "injury": "Lower Leg",
-    "returnDate": "Expected to be out until at least Apr 29"
-  },
-  {
-    "name": "Mathias LaCombe",
-    "status": "Out",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 22"
-  },
-  {
-    "name": "Austin Hays",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Carlos Santana",
-    "status": "IL",
-    "injury": "Groin",
-    "returnDate": "Expected to be out until at least Apr 17"
-  },
-  {
-    "name": "Addison Barger",
-    "status": "IL",
-    "injury": "Ankle",
-    "returnDate": "Expected to be out until at least Apr 16"
-  },
-  {
-    "name": "Hunter Brown",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 29"
-  },
-  {
-    "name": "Cade Horton",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1, 2027"
-  },
-  {
-    "name": "Alejandro Kirk",
-    "status": "IL",
-    "injury": "Thumb",
-    "returnDate": "Expected to be out until at least May 18"
-  },
-  {
-    "name": "Jordan Lawlar",
-    "status": "IL",
-    "injury": "Wrist",
-    "returnDate": "Expected to be out until at least Jun 3"
-  },
-  {
-    "name": "Cody Ponce",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Andrew Vaughn",
-    "status": "IL",
-    "injury": "Hand",
-    "returnDate": "Expected to be out until at least May 8"
-  },
-  {
-    "name": "Jackson Chourio",
-    "status": "IL",
-    "injury": "Hand",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Trey Yesavage",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 21"
-  },
-  {
-    "name": "Rob Zastryzny",
-    "status": "IL",
-    "injury": "Chest",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Mike Vasil",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1, 2027"
-  },
-  {
-    "name": "Caden Scarborough",
-    "status": "Out",
-    "injury": "Illness",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Grant Knipp",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Ryan Burr",
-    "status": "Out",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Gunnar Hoglund",
-    "status": "IL",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least May 25"
-  },
-  {
-    "name": "Sean Murphy",
-    "status": "IL",
-    "injury": "Hip",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Franyerber Montilla",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Yimi Garcia",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 27"
-  },
-  {
-    "name": "Blake Larson",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Ryan Forcucci",
-    "status": "Out",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Noble Meyer",
-    "status": "Out",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Jun 30"
-  },
-  {
-    "name": "Jose Corniell",
-    "status": "Out",
-    "injury": "Arm",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Jake Cook",
-    "status": "Out",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Jared Koenig",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 21"
-  },
-  {
-    "name": "Slater de Brun",
-    "status": "IL",
-    "injury": "Wrist",
-    "returnDate": "Expected to be out until at least Jun 2"
-  },
-  {
-    "name": "Ty Johnson",
-    "status": "IL",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Bryce Cunningham",
-    "status": "IL",
-    "injury": "Arm",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Stiven Martinez",
-    "status": "Out",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Dax Kilby",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Juaron Watts-Brown",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Matthew Boyd",
-    "status": "IL",
-    "injury": "Biceps",
-    "returnDate": "Expected to be out until at least Apr 18"
-  },
-  {
-    "name": "Dietrich Enns",
-    "status": "IL",
-    "injury": "Foot",
-    "returnDate": "Expected to be out until at least Apr 19"
-  },
-  {
-    "name": "Ryan Johnson",
-    "status": "IL",
-    "injury": "Illness",
-    "returnDate": "Expected to be out until at least Apr 21"
-  },
-  {
-    "name": "Mookie Betts",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Juan Soto",
-    "status": "IL",
-    "injury": "Calf",
-    "returnDate": "Expected to be out until at least Apr 21"
-  },
-  {
-    "name": "Victor Arias",
-    "status": "Out",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 15"
-  },
-  {
-    "name": "Reed Trimble",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Christopher Morel",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Payton Eeles",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Keegan Akin",
-    "status": "IL",
-    "injury": "Groin",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Patrick Sandoval",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 23"
-  },
-  {
-    "name": "Heston Kjerstad",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Enrique Jimenez",
-    "status": "IL",
-    "injury": "Finger",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Aiva Arquette",
-    "status": "IL",
-    "injury": "Groin",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Stephen Kolek",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 28"
-  },
-  {
-    "name": "Ricky Tiedemann",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Raimon Gomez",
-    "status": "Out",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Adrian Pinto",
+    "updated": "4/12/26",
+    "name": "Kyle Freeland",
+    "pos": "SP",
+    "mlbTeam": "COL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "7",
     "status": "Questionable",
-    "injury": "Personal",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Zack Qin",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 12"
-  },
-  {
-    "name": "Izack Tiger",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Yorman Gomez",
-    "status": "IL",
     "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 13"
+    "expectedReturn": "Expected to be out until at least Apr 18"
   },
   {
-    "name": "Carter Baumler",
-    "status": "IL",
-    "injury": "Ribs",
-    "returnDate": "Expected to be out until at least Apr 21"
-  },
-  {
-    "name": "Jared Triolo",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Yaramil Hiraldo",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 17"
-  },
-  {
-    "name": "Everson Pereira",
-    "status": "IL",
-    "injury": "Ankle",
-    "returnDate": "Expected to be out until at least Apr 12"
-  },
-  {
-    "name": "Anthony Santander",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Zack Wheeler",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 19"
-  },
-  {
-    "name": "Justin Verlander",
-    "status": "IL",
-    "injury": "Hip",
-    "returnDate": "Expected to be out until at least Apr 16"
-  },
-  {
-    "name": "Jose Butto",
-    "status": "IL",
-    "injury": "Forearm",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Jose Berrios",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "McCade Brown",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 24"
-  },
-  {
-    "name": "David Festa",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 24"
-  },
-  {
-    "name": "Bailey Falter",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 17"
-  },
-  {
-    "name": "Garrett Cleavinger",
-    "status": "IL",
-    "injury": "Calf",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Jose Davila",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Nick Lodolo",
-    "status": "IL",
-    "injury": "Finger",
-    "returnDate": "Expected to be out until at least Apr 18"
-  },
-  {
-    "name": "A.J. Smith-Shawver",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Cooper Hjerpe",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 17"
-  },
-  {
-    "name": "Jose Quintana",
-    "status": "IL",
+    "updated": "4/12/26",
+    "name": "Christian Yelich",
+    "pos": "DH",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Popped A Mahle I'm Sweating",
+    "rosteredPct": "99",
+    "status": "Questionable",
     "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 15"
+    "expectedReturn": "Expected to be out until at least Apr 14"
   },
   {
-    "name": "David Banuelos",
-    "status": "DEVELOPMENTAL LIST",
-    "injury": "Not Injury Related",
-    "returnDate": "Not Injury Related"
-  },
-  {
-    "name": "Grayson Rodriguez",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 22"
-  },
-  {
-    "name": "Bennett Sousa",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Gavin Stone",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 22"
-  },
-  {
-    "name": "Kutter Crawford",
-    "status": "IL",
-    "injury": "Wrist",
-    "returnDate": "Expected to be out until at least May 5"
-  },
-  {
-    "name": "Jordan Westburg",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 22"
-  },
-  {
-    "name": "Jake Cousins",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Shane Bieber",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 15"
-  },
-  {
-    "name": "Juan Pinto",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Joseph Montalvo",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Paul Wilson",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Triston Casas",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least May 12"
-  },
-  {
-    "name": "A.J. Puk",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 15"
-  },
-  {
-    "name": "Michael Massey",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "T.J. Brock",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Reggie Crawford",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Matt Pushard",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Zach Cole",
-    "status": "Out",
-    "injury": "Toe",
-    "returnDate": "Expected to be out until at least Apr 30"
-  },
-  {
-    "name": "Charlee Soto",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 5"
-  },
-  {
-    "name": "Sean Harney",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Mar 1"
-  },
-  {
-    "name": "Connor O'Halloran",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Jose Leclerc",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Kyle Amendt",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Hayden Wesneski",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Cameron Sullivan",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Joe Musgrove",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 25"
-  },
-  {
-    "name": "Paul Bonzagni",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Elvis Peguero",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Mar 1"
-  },
-  {
-    "name": "Jackson Jobe",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 15"
-  },
-  {
-    "name": "Moises Chace",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "J.B. Bukauskas",
-    "status": "IL",
-    "injury": "Lat",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Case Williams",
+    "updated": "4/12/26",
+    "name": "Hunter Harvey",
+    "pos": "RP",
+    "mlbTeam": "CHC",
+    "fantasyTeam": "A Pete Crow-Armstrong Looked at Me",
+    "rosteredPct": "6",
     "status": "IL",
     "injury": "Triceps",
-    "returnDate": "Expected to be out until at least Jun 1"
+    "expectedReturn": "Expected to be out until at least Apr 24"
   },
   {
-    "name": "Sung-Mun Song",
+    "updated": "4/12/26",
+    "name": "J.T. Realmuto",
+    "pos": "C",
+    "mlbTeam": "PHI",
+    "fantasyTeam": "Before and After Shohei",
+    "rosteredPct": "51",
+    "status": "Probable",
+    "injury": "Foot",
+    "expectedReturn": "Probable for Apr 13"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Tyler Heineman",
+    "pos": "C",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Questionable",
+    "injury": "Back",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Jeremy Pena",
+    "pos": "SS",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Yesavage Garden",
+    "rosteredPct": "97",
+    "status": "Probable",
+    "injury": "Knee",
+    "expectedReturn": "Probable for Apr 13"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Luis Arraez",
+    "pos": "1B,2B",
+    "mlbTeam": "SF",
+    "fantasyTeam": "Blame it on the Rainiel",
+    "rosteredPct": "82",
+    "status": "Questionable",
+    "injury": "Wrist",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Ryan Mountcastle",
+    "pos": "1B",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "Out",
+    "injury": "Foot",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "George Springer",
+    "pos": "RF",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Okamotomami",
+    "rosteredPct": "98",
     "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 12"
+    "injury": "Toe",
+    "expectedReturn": "Expected to be out until at least Apr 22"
   },
   {
-    "name": "Landon Knack",
+    "updated": "4/12/26",
+    "name": "Eli White",
+    "pos": "LF,RF",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Probable",
+    "injury": "Foot",
+    "expectedReturn": "Probable for Apr 13"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Wyatt Langford",
+    "pos": "LF,CF",
+    "mlbTeam": "TEX",
+    "fantasyTeam": "Colonel Corbin’s Ascent",
+    "rosteredPct": "99",
+    "status": "Probable",
+    "injury": "Quadriceps",
+    "expectedReturn": "Probable for Apr 13"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Masyn Winn",
+    "pos": "SS",
+    "mlbTeam": "STL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "22",
+    "status": "Probable",
+    "injury": "Lower Leg",
+    "expectedReturn": "Probable for Apr 13"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Tyler O'Neill",
+    "pos": "RF",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "18",
     "status": "IL",
-    "injury": "Chest",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "injury": "Concussion",
+    "expectedReturn": "Expected to be out until at least Apr 18"
   },
   {
-    "name": "Beau Brieske",
+    "updated": "4/12/26",
+    "name": "Aidan Smith",
+    "pos": "CF",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least Apr 16"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Carlos Santana",
+    "pos": "1B",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
     "status": "IL",
     "injury": "Thigh",
-    "returnDate": "Expected to be out until at least May 26"
+    "expectedReturn": "Expected to be out until at least Apr 17"
   },
   {
-    "name": "Will Wagner",
+    "updated": "4/12/26",
+    "name": "Jose Davila",
+    "pos": "RP",
+    "mlbTeam": "STL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 24"
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Apr 17"
   },
   {
-    "name": "Hayden Birdsong",
+    "updated": "4/12/26",
+    "name": "Matt Pushard",
+    "pos": "RP",
+    "mlbTeam": "STL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1, 2027"
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least Apr 24"
   },
   {
-    "name": "RJ Petit",
+    "updated": "4/12/26",
+    "name": "Alessandro Ercolani",
+    "pos": "SP",
+    "mlbTeam": "PIT",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1, 2027"
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Apr 17"
   },
   {
-    "name": "Matt Waldron",
-    "status": "IL",
-    "injury": "Lower Body",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Josh Hader",
-    "status": "IL",
-    "injury": "Biceps",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Felix Bautista",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Sep 10, 2027"
-  },
-  {
-    "name": "Gerrit Cole",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 15"
-  },
-  {
-    "name": "Ky Bush",
+    "updated": "4/12/26",
+    "name": "Pavin Smith",
+    "pos": "1B",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "4",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
+    "expectedReturn": "Expected to be out until at least Apr 17"
   },
   {
-    "name": "Gavin Lux",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Esteury Ruiz",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least May 15"
-  },
-  {
-    "name": "Kyle Stowers",
+    "updated": "4/12/26",
+    "name": "Reed Trimble",
+    "pos": "CF",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "IL",
     "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 20"
+    "expectedReturn": "Expected to be out until at least Apr 15"
   },
   {
+    "updated": "4/12/26",
+    "name": "Christopher Morel",
+    "pos": "LF",
+    "mlbTeam": "MIA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "3",
+    "status": "IL",
+    "injury": "Oblique",
+    "expectedReturn": "Expected to be out until at least Apr 20"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Sung-Mun Song",
+    "pos": "2B",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Oblique",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Landon Knack",
+    "pos": "SP",
+    "mlbTeam": "LAD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Chest",
+    "expectedReturn": "Expected to be out until at least Apr 20"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Kirby Yates",
+    "pos": "RP",
+    "mlbTeam": "LAA",
+    "fantasyTeam": "Popped A Mahle I'm Sweating",
+    "rosteredPct": "26",
+    "status": "IL",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least Apr 17"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Payton Eeles",
+    "pos": "SS",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Spencer Strider",
+    "pos": "SP",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Weird Fishes / Arrighetti",
+    "rosteredPct": "95",
+    "status": "IL",
+    "injury": "Oblique",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/12/26",
     "name": "Craig Yoho",
+    "pos": "RP",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
     "status": "IL",
     "injury": "Calf",
-    "returnDate": "Expected to be out until at least Apr 12"
+    "expectedReturn": "Expected to be out until at least Apr 16"
   },
   {
-    "name": "Zach Dezenzo",
+    "updated": "4/12/26",
+    "name": "George Valera",
+    "pos": "DH",
+    "mlbTeam": "CLE",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "6",
     "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 24"
+    "injury": "Calf",
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
+    "updated": "4/12/26",
     "name": "Maximo Acosta",
+    "pos": "3B",
+    "mlbTeam": "MIA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
     "status": "IL",
     "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 17"
   },
   {
+    "updated": "4/12/26",
     "name": "Travis Adams",
+    "pos": "RP",
+    "mlbTeam": "MIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "IL",
     "injury": "Triceps",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 19"
   },
   {
-    "name": "Porter Hodge",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Adam Mazur",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Reiver Sanmartin",
-    "status": "IL",
-    "injury": "Hip",
-    "returnDate": "Expected to be out until at least Jun 9"
-  },
-  {
-    "name": "Hunter Gaddis",
-    "status": "IL",
-    "injury": "Forearm",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Quinn Priester",
-    "status": "IL",
-    "injury": "Wrist",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Bryan Hoeing",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Bryce Miller",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Bobby Miller",
+    "updated": "4/12/26",
+    "name": "Andrew Kittredge",
+    "pos": "RP",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "4",
     "status": "IL",
     "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 29"
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
-    "name": "Steven Wilson",
-    "status": "IL",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least May 29"
-  },
-  {
-    "name": "Jordan Wicks",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Pierson Ohl",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Nate Pearson",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Cody Freeman",
-    "status": "IL",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Yuki Matsui",
-    "status": "IL",
-    "injury": "Groin",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Trey Sweeney",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Joel Peguero",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Hurston Waldrep",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 2"
-  },
-  {
-    "name": "Jackson Holliday",
-    "status": "IL",
-    "injury": "Hand",
-    "returnDate": "Expected to be out until at least Apr 10"
-  },
-  {
-    "name": "Bailey Horn",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 24"
-  },
-  {
-    "name": "Blake Snell",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 29"
-  },
-  {
-    "name": "Ha-seong Kim",
+    "updated": "4/12/26",
+    "name": "Enrique Jimenez",
+    "pos": "C",
+    "mlbTeam": "MIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "IL",
     "injury": "Finger",
-    "returnDate": "Expected to be out until at least May 12"
+    "expectedReturn": "Expected to be out until at least Apr 14"
   },
   {
-    "name": "Griffin Canning",
+    "updated": "4/12/26",
+    "name": "Hunter Gaddis",
+    "pos": "RP",
+    "mlbTeam": "CLE",
+    "fantasyTeam": "A Pete Crow-Armstrong Looked at Me",
+    "rosteredPct": "10",
     "status": "IL",
-    "injury": "Achilles",
-    "returnDate": "Expected to be out until at least Apr 27"
+    "injury": "Forearm",
+    "expectedReturn": "Expected to be out until at least Apr 13"
   },
   {
-    "name": "Danny Young",
+    "updated": "4/12/26",
+    "name": "Aiva Arquette",
+    "pos": "SS",
+    "mlbTeam": "MIA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "7",
+    "status": "IL",
+    "injury": "Groin",
+    "expectedReturn": "Expected to be out until at least Apr 16"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Austin Peterson",
+    "pos": "SP",
+    "mlbTeam": "CLE",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Triceps",
+    "expectedReturn": "Expected to be out until at least Apr 20"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Ricky Tiedemann",
+    "pos": "SP",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "7",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
+    "expectedReturn": "Expected to be out until at least Apr 18"
   },
   {
-    "name": "Sam Hentges",
+    "updated": "4/12/26",
+    "name": "Jadher Areinamo",
+    "pos": "SS",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Yuki Matsui",
+    "pos": "RP",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Groin",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Caden Dana",
+    "pos": "SP",
+    "mlbTeam": "LAA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "3",
+    "status": "Questionable",
+    "injury": "Illness",
+    "expectedReturn": "Expected to be out until at least Apr 16"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Joel Peguero",
+    "pos": "RP",
+    "mlbTeam": "SF",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Gabriel Rincones",
+    "pos": "RF",
+    "mlbTeam": "PHI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
     "status": "IL",
     "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 17"
+    "expectedReturn": "Expected to be out until at least Apr 14"
   },
   {
-    "name": "Tommy Edman",
+    "updated": "4/12/26",
+    "name": "Jackson Holliday",
+    "pos": "2B",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Dinosaur Jr Caminero",
+    "rosteredPct": "87",
+    "status": "IL",
+    "injury": "Hand",
+    "expectedReturn": "Expected to be out until at least Apr 13"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Tommy Hawke",
+    "pos": "LF",
+    "mlbTeam": "CLE",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Apr 16"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Brock Stewart",
+    "pos": "RP",
+    "mlbTeam": "LAD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Apr 19"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Raimon Gomez",
+    "pos": "SP",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Back",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Felix Bautista",
+    "pos": "RP",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "4",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Sep 7"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Hunter Dobbins",
+    "pos": "SP",
+    "mlbTeam": "STL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least Apr 17"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Jack Brannigan",
+    "pos": "SS",
+    "mlbTeam": "PIT",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Nose",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Ty Floyd",
+    "pos": "SP",
+    "mlbTeam": "CIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Owen Hall",
+    "pos": "SP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Questionable",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Triston Casas",
+    "pos": "1B",
+    "mlbTeam": "BOS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "10",
+    "status": "IL",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least Jun 2"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Justin Armbruester",
+    "pos": "SP",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Lat",
+    "expectedReturn": "Expected to be out until at least Apr 16"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Tyler Gough",
+    "pos": "SP",
+    "mlbTeam": "SEA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Jose Marte",
+    "pos": "RP",
+    "mlbTeam": "LAA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Glenn Otto",
+    "pos": "RP",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Questionable",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "J.B. Bukauskas",
+    "pos": "RP",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Lat",
+    "expectedReturn": "Expected to be out until at least Apr 18"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Thomas Pannone",
+    "pos": "RP",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Forearm",
+    "expectedReturn": "Expected to be out until at least Apr 17"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Thatcher Hurd",
+    "pos": "SP",
+    "mlbTeam": "NYY",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Questionable",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 17"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Zack Qin",
+    "pos": "RP",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Apr 17"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Carter Holton",
+    "pos": "SP",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 19"
+  },
+  {
+    "updated": "4/12/26",
+    "name": "Luis Rodriguez",
+    "pos": "RP",
+    "mlbTeam": "NYM",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Apr 16"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Kyle Harrison",
+    "pos": "SP",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Dinosaur Jr Caminero",
+    "rosteredPct": "59",
+    "status": "Questionable",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least Apr 16"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Adley Rutschman",
+    "pos": "C",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Weird Fishes / Arrighetti",
+    "rosteredPct": "87",
     "status": "IL",
     "injury": "Ankle",
-    "returnDate": "Expected to be out until at least May 29"
+    "expectedReturn": "Expected to be out until at least Apr 21"
   },
   {
-    "name": "Lars Nootbaar",
-    "status": "IL",
-    "injury": "Heel",
-    "returnDate": "Expected to be out until at least May 26"
+    "updated": "4/11/26",
+    "name": "Tatsuya Imai",
+    "pos": "SP",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Popped A Mahle I'm Sweating",
+    "rosteredPct": "79",
+    "status": "Questionable",
+    "injury": "Arm",
+    "expectedReturn": "Expected to be out until at least Apr 16"
   },
   {
-    "name": "Anthony Volpe",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Tyler Locklear",
+    "updated": "4/11/26",
+    "name": "Joe Boyle",
+    "pos": "SP",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "17",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 18"
+    "expectedReturn": "Expected to be out until at least Apr 25"
   },
   {
-    "name": "Lourdes Gurriel",
+    "updated": "4/11/26",
+    "name": "Michael Harris",
+    "pos": "CF",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Buddy Buddy Buddy All On Base",
+    "rosteredPct": "91",
+    "status": "Out",
+    "injury": "Personal",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Anthony Simonelli",
+    "pos": "SP",
+    "mlbTeam": "KC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Tyson Guerrero",
+    "pos": "SP",
+    "mlbTeam": "KC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Javier Vaz",
+    "pos": "3B",
+    "mlbTeam": "KC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Alberto Rodriguez",
+    "pos": "RF",
+    "mlbTeam": "SEA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Apr 18"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Simeon Woods Richardson",
+    "pos": "SP",
+    "mlbTeam": "MIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "10",
+    "status": "Questionable",
+    "injury": "Illness",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Cody Laweryson",
+    "pos": "RP",
+    "mlbTeam": "MIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Forearm",
+    "expectedReturn": "Expected to be out until at least Apr 24"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Royce Lewis",
+    "pos": "3B",
+    "mlbTeam": "MIN",
+    "fantasyTeam": "Buddy Buddy Buddy All On Base",
+    "rosteredPct": "68",
     "status": "IL",
     "injury": "Knee",
-    "returnDate": "Expected to be out until at least May 1"
+    "expectedReturn": "Expected to be out until at least Apr 21"
   },
   {
-    "name": "Brock Stewart",
+    "updated": "4/11/26",
+    "name": "Gabriel Moreno",
+    "pos": "C",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "49",
+    "status": "Out",
+    "injury": "Back",
+    "expectedReturn": "Expected to be out until at least Apr 21"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Ben Kudrna",
+    "pos": "SP",
+    "mlbTeam": "KC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 15"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Ryan Bergert",
+    "pos": "SP",
+    "mlbTeam": "KC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Griffin Conine",
+    "pos": "LF",
+    "mlbTeam": "MIA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "3",
+    "status": "IL",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Everson Pereira",
+    "pos": "CF",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Ankle",
+    "expectedReturn": "Expected to be out until at least Apr 17"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Gavin Lux",
+    "pos": "LF",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "5",
     "status": "IL",
     "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 10"
+    "expectedReturn": "Expected to be out until at least Apr 14"
   },
   {
-    "name": "Brandon Walter",
+    "updated": "4/11/26",
+    "name": "Keegan Akin",
+    "pos": "RP",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
     "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
+    "injury": "Groin",
+    "expectedReturn": "Expected to be out until at least Apr 16"
   },
   {
-    "name": "Cristian Mena",
+    "updated": "4/11/26",
+    "name": "Heston Kjerstad",
+    "pos": "LF,RF",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "3",
+    "status": "IL",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least Apr 16"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Grayson Rodriguez",
+    "pos": "SP",
+    "mlbTeam": "LAA",
+    "fantasyTeam": "Yesavage Garden",
+    "rosteredPct": "59",
     "status": "IL",
     "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Jun 1"
+    "expectedReturn": "Expected to be out until at least Apr 27"
   },
   {
-    "name": "Ronel Blanco",
+    "updated": "4/11/26",
+    "name": "Bennett Sousa",
+    "pos": "RP",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Blame it on the Rainiel",
+    "rosteredPct": "9",
+    "status": "IL",
+    "injury": "Oblique",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Max Lazar",
+    "pos": "RP",
+    "mlbTeam": "PHI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Oblique",
+    "expectedReturn": "Expected to be out until at least Apr 20"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Trey Sweeney",
+    "pos": "SS",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 24"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "John Means",
+    "pos": "SP",
+    "mlbTeam": "KC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Achilles",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "4/11/26",
+    "name": "Danny Young",
+    "pos": "RP",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1"
+    "expectedReturn": "Expected to be out until at least Jul 1"
   },
   {
-    "name": "A.J. Minter",
-    "status": "IL",
-    "injury": "Lat",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Justin Steele",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 25"
-  },
-  {
-    "name": "Blake Walston",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Cody Bradford",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Prelander Berroa",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "James McArthur",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Drew Thorpe",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
+    "updated": "4/11/26",
     "name": "Brusdar Graterol",
+    "pos": "RP",
+    "mlbTeam": "LAD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
     "status": "IL",
     "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 1"
+    "expectedReturn": "Expected to be out until at least May 22"
   },
   {
-    "name": "Akil Baddoo",
+    "updated": "4/10/26",
+    "name": "Jeremiah Estrada",
+    "pos": "RP",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "15",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 25"
+  },
+  {
+    "updated": "4/10/26",
+    "name": "Clay Holmes",
+    "pos": "SP",
+    "mlbTeam": "NYM",
+    "fantasyTeam": "Yesavage Garden",
+    "rosteredPct": "64",
+    "status": "Questionable",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/10/26",
+    "name": "Phil Maton",
+    "pos": "RP",
+    "mlbTeam": "CHC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "3",
+    "status": "IL",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least Apr 23"
+  },
+  {
+    "updated": "4/10/26",
+    "name": "Parker Meadows",
+    "pos": "CF",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "6",
+    "status": "IL",
+    "injury": "Arm",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "4/10/26",
+    "name": "Brent Rooker",
+    "pos": "RF",
+    "mlbTeam": "ATH",
+    "fantasyTeam": "Yesavage Garden",
+    "rosteredPct": "99",
+    "status": "IL",
+    "injury": "Oblique",
+    "expectedReturn": "Expected to be out until at least Apr 20"
+  },
+  {
+    "updated": "4/10/26",
+    "name": "Cristian Javier",
+    "pos": "SP",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "22",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 15"
+  },
+  {
+    "updated": "4/10/26",
+    "name": "Jake Meyers",
+    "pos": "CF",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "9",
+    "status": "IL",
+    "injury": "Back",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/10/26",
+    "name": "Addison Barger",
+    "pos": "3B,RF",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "64",
+    "status": "IL",
+    "injury": "Ankle",
+    "expectedReturn": "Expected to be out until at least Apr 24"
+  },
+  {
+    "updated": "4/10/26",
+    "name": "Jackson Chourio",
+    "pos": "LF,CF,RF",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Colonel Corbin’s Ascent",
+    "rosteredPct": "99",
+    "status": "IL",
+    "injury": "Hand",
+    "expectedReturn": "Expected to be out until at least Apr 21"
+  },
+  {
+    "updated": "4/10/26",
+    "name": "Nick Lodolo",
+    "pos": "SP",
+    "mlbTeam": "CIN",
+    "fantasyTeam": "Colonel Corbin’s Ascent",
+    "rosteredPct": "94",
+    "status": "IL",
+    "injury": "Finger",
+    "expectedReturn": "Expected to be out until at least Apr 24"
+  },
+  {
+    "updated": "4/10/26",
+    "name": "Ronel Blanco",
+    "pos": "SP",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Aug 1"
+  },
+  {
+    "updated": "4/10/26",
+    "name": "Ben Joyce",
+    "pos": "RP",
+    "mlbTeam": "LAA",
+    "fantasyTeam": "Popped A Mahle I'm Sweating",
+    "rosteredPct": "10",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Apr 24"
+  },
+  {
+    "updated": "4/9/26",
+    "name": "Chris Murphy",
+    "pos": "RP",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 23"
+  },
+  {
+    "updated": "4/9/26",
+    "name": "Josh Bostick",
+    "pos": "SP",
+    "mlbTeam": "SF",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Achilles",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "4/9/26",
+    "name": "Ching-Hsien Ko",
+    "pos": "LF",
+    "mlbTeam": "LAD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
     "status": "IL",
     "injury": "Quadriceps",
-    "returnDate": "Expected to be out until at least Jun 1"
+    "expectedReturn": "Expected to be out until at least Apr 15"
   },
   {
-    "name": "Joey Wentz",
+    "updated": "4/9/26",
+    "name": "Patrick Forbes",
+    "pos": "SP",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
     "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Feb 1"
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 15"
   },
   {
-    "name": "Tyler Austin",
+    "updated": "4/9/26",
+    "name": "Carlos Estevez",
+    "pos": "RP",
+    "mlbTeam": "KC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "64",
     "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least May 23"
+    "injury": "Foot",
+    "expectedReturn": "Expected to be out until at least Apr 20"
   },
   {
-    "name": "Anthony Rendon",
+    "updated": "4/9/26",
+    "name": "Ryan Pepiot",
+    "pos": "SP",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Everythings McGonigle Green",
+    "rosteredPct": "93",
     "status": "IL",
     "injury": "Hip",
-    "returnDate": "Expected to be out until at least Feb 1"
+    "expectedReturn": "Expected to be out until at least Apr 24"
   },
   {
-    "name": "Ethan Conrad",
-    "status": "Out",
+    "updated": "4/9/26",
+    "name": "Parks Harber",
+    "pos": "3B",
+    "mlbTeam": "SF",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least Apr 27"
+  },
+  {
+    "updated": "4/9/26",
+    "name": "Caleb Ferguson",
+    "pos": "RP",
+    "mlbTeam": "CIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Oblique",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "4/9/26",
+    "name": "Miles Mastrobuoni",
+    "pos": "3B",
+    "mlbTeam": "SEA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Calf",
+    "expectedReturn": "Expected to be out until at least Apr 13"
+  },
+  {
+    "updated": "4/9/26",
+    "name": "Merrill Kelly",
+    "pos": "SP",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Blame it on the Rainiel",
+    "rosteredPct": "82",
+    "status": "IL",
     "injury": "Back",
-    "returnDate": "Expected to be out until at least May 1"
+    "expectedReturn": "Expected to be out until at least Apr 14"
   },
   {
-    "name": "Josiah Gray",
+    "updated": "4/9/26",
+    "name": "Edwin Uceta",
+    "pos": "RP",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "18",
     "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 29"
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Apr 24"
   },
   {
-    "name": "Hunter Greene",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Tekoah Roby",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Asa Lacy",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Davis Sharpe",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Brandon Clarke",
-    "status": "IL",
-    "injury": "Arm",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Nic Enright",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Jake Bloss",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Victor Santos",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Brody McCullough",
-    "status": "IL",
-    "injury": "Forearm",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "David Sandlin",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Josuar De Jesus Gonzalez",
+    "updated": "4/8/26",
+    "name": "J.D. Thompson",
+    "pos": "SP",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "Out",
     "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 17"
-  },
-  {
-    "name": "Chih-Jung Liu",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Jun 2"
-  },
-  {
-    "name": "Zach Fogell",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Oct 1"
-  },
-  {
-    "name": "Yordanny Monegro",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Johan Rojas",
-    "status": "Suspended",
-    "injury": "",
-    "returnDate": "Suspended until Jun 24"
-  },
-  {
-    "name": "Jose Olivares",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Justin Hagenman",
-    "status": "IL",
-    "injury": "Ribs",
-    "returnDate": "Expected to be out until at least May 27"
-  },
-  {
-    "name": "Romy Gonzalez",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 26"
-  },
-  {
-    "name": "Jhony Brito",
-    "status": "IL",
-    "injury": "Forearm",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Thayron Liranzo",
-    "status": "Out",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 14"
-  },
-  {
-    "name": "Troy Melton",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 26"
-  },
-  {
-    "name": "Jordan Montgomery",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Josue Briceno",
-    "status": "Out",
-    "injury": "Wrist",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Matt Barr",
-    "status": "Out",
-    "injury": "Arm",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Enrique Hernandez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 24"
-  },
-  {
-    "name": "Jurickson Profar",
-    "status": "Suspended",
-    "injury": "",
-    "returnDate": "Suspended until Feb 1"
-  },
-  {
-    "name": "Evan Phillips",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 17"
-  },
-  {
-    "name": "Shelby Miller",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Austin Peterson",
-    "status": "Out",
-    "injury": "Triceps",
-    "returnDate": "Expected to be out until at least Apr 11"
-  },
-  {
-    "name": "Pablo Lopez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Ryan Harbin",
-    "status": "Out",
-    "injury": "Lat",
-    "returnDate": "Expected to be out until at least Apr 15"
-  },
-  {
-    "name": "Brian Holiday",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Jake Miller",
-    "status": "Out",
-    "injury": "Hip",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Rowan Wick",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Ian Anderson",
-    "status": "Out",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Colin Selby",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 25"
-  },
-  {
-    "name": "Andrew Saalfrank",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Logan Evans",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Michael Salina",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 30"
-  },
-  {
-    "name": "Frank Cairone",
-    "status": "Out",
-    "injury": "Head",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Braxton Bragg",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "John Means",
-    "status": "Out",
-    "injury": "Achilles",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Max Kranick",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Sep 1"
-  },
-  {
-    "name": "Frankie Montas",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Nestor Cortes",
-    "status": "Out",
-    "injury": "Biceps",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Tony Gonsolin",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Thyago Vieira",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Luis Garcia",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Josh Winder",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Ronny Henriquez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Jason Foley",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Connor Thomas",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Yu Darvish",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Reed Garrett",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Humberto Cruz",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Randy Rodriguez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Reese Olson",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Feb 21"
-  },
-  {
-    "name": "Emmanuel Clase",
-    "status": "Out",
-    "injury": "Personal",
-    "returnDate": "Expected to be out until at least May 4"
-  },
-  {
-    "name": "Conrad Cason",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Trevor Williams",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Tyler Stuart",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Sep 1"
-  },
-  {
-    "name": "Clarke Schmidt",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1"
-  },
-  {
-    "name": "Dedniel Nunez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Sep 1"
-  },
-  {
-    "name": "Luis Ortiz",
-    "status": "Out",
-    "injury": "Personal",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Spencer Schwellenbach",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 2"
-  },
-  {
-    "name": "Tylor Megill",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Bowden Francis",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 1"
-  },
-  {
-    "name": "Manuel Rodriguez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Justin Martinez",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 21"
-  },
-  {
-    "name": "Corbin Burnes",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 17"
-  },
-  {
-    "name": "Tanner Houck",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Patrick Reilly",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Juan Carela",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Kris Bryant",
-    "status": "IL",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Zach Swanson",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Christian McGowan",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Chase Hampton",
-    "status": "Out",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 1"
-  },
-  {
-    "name": "Davidjohn Herz",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1"
-  },
-  {
-    "name": "Jared Jones",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 25"
-  },
-  {
-    "name": "Jeff Criswell",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1"
-  },
-  {
-    "name": "Alec Marsh",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Feb 1"
-  },
-  {
-    "name": "Joe Jimenez",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Ricardo Cabrera",
+    "pos": "3B",
+    "mlbTeam": "CIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
     "status": "IL",
     "injury": "Knee",
-    "returnDate": "Expected to be out until at least Jul 17"
+    "expectedReturn": "Expected to be out until at least Jun 1"
   },
   {
-    "name": "Wander Franco",
-    "status": "Out",
-    "injury": "Personal",
-    "returnDate": "Expected to be out until at least Feb 1, 2028"
-  },
-  {
-    "name": "Max Kepler",
+    "updated": "4/8/26",
+    "name": "Reynaldo Lopez",
+    "pos": "SP",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Buddy Buddy Buddy All On Base",
+    "rosteredPct": "71",
     "status": "Suspended",
     "injury": "",
-    "returnDate": "Suspended until Jun 15"
+    "expectedReturn": "Suspended until Apr 14"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Jose Perdomo",
+    "pos": "SS",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least Mar 1"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "R.J. Gordon",
+    "pos": "SP",
+    "mlbTeam": "NYM",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Lat",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Dylan Ross",
+    "pos": "RP",
+    "mlbTeam": "NYM",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Arm",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Max Williams",
+    "pos": "LF",
+    "mlbTeam": "MIA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Victor Robles",
+    "pos": "RF",
+    "mlbTeam": "SEA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "8",
+    "status": "IL",
+    "injury": "Pectoral",
+    "expectedReturn": "Expected to be out until at least Apr 17"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Robert Gasser",
+    "pos": "SP",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "5",
+    "status": "Questionable",
+    "injury": "Biceps",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Jose Trevino",
+    "pos": "C",
+    "mlbTeam": "CIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Back",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Ivan Brethowr",
+    "pos": "RF",
+    "mlbTeam": "PIT",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Blake Burkhalter",
+    "pos": "SP",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Back",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Luke Sinnard",
+    "pos": "SP",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Out",
+    "injury": "Abdomen",
+    "expectedReturn": "Expected to be out until at least Apr 22"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Esmil Valencia",
+    "pos": "CF",
+    "mlbTeam": "MIA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Finger",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Justin Slaten",
+    "pos": "RP",
+    "mlbTeam": "BOS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Oblique",
+    "expectedReturn": "Expected to be out until at least Apr 20"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Gabriel Arias",
+    "pos": "2B,SS",
+    "mlbTeam": "CLE",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "3",
+    "status": "IL",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least May 15"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Johan Oviedo",
+    "pos": "SP",
+    "mlbTeam": "BOS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "7",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 17"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Zach Eflin",
+    "pos": "SP",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "11",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1, 2027"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Carlos Vargas",
+    "pos": "RP",
+    "mlbTeam": "SEA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Lat",
+    "expectedReturn": "Expected to be out until at least May 23"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Alek Manoah",
+    "pos": "SP",
+    "mlbTeam": "LAA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "3",
+    "status": "IL",
+    "injury": "Finger",
+    "expectedReturn": "Expected to be out until at least Apr 18"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Peter Kussow",
+    "pos": "SP",
+    "mlbTeam": "NYM",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Brooks Baldwin",
+    "pos": "LF,CF,RF",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "5",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Kyle Teel",
+    "pos": "C",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Dinosaur Jr Caminero",
+    "rosteredPct": "38",
+    "status": "IL",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least Apr 18"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Carlos Rodon",
+    "pos": "SP",
+    "mlbTeam": "NYY",
+    "fantasyTeam": "Yesavage Garden",
+    "rosteredPct": "94",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 2"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Robert Stephenson",
+    "pos": "RP",
+    "mlbTeam": "LAA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Brandon Birdsell",
+    "pos": "SP",
+    "mlbTeam": "CHC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Oct 1"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Andrew Walters",
+    "pos": "RP",
+    "mlbTeam": "CLE",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Lat",
+    "expectedReturn": "Expected to be out until at least May 25"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Josh Staumont",
+    "pos": "RP",
+    "mlbTeam": "CIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Luke Holman",
+    "pos": "SP",
+    "mlbTeam": "CIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Alejandro Rosario",
+    "pos": "SP",
+    "mlbTeam": "WAS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Mar 1"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Wen-Hui Pan",
+    "pos": "RP",
+    "mlbTeam": "PHI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Josh Knoth",
+    "pos": "SP",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 15"
+  },
+  {
+    "updated": "4/8/26",
+    "name": "Calvin Ziegler",
+    "pos": "SP",
+    "mlbTeam": "NYM",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Chia-Shi Shen",
+    "pos": "SP",
+    "mlbTeam": "SEA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Griffin Hugus",
+    "pos": "SP",
+    "mlbTeam": "SEA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1, 2027"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Marcelo Perez",
+    "pos": "SP",
+    "mlbTeam": "SEA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Forearm",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Barrett Kent",
+    "pos": "SP",
+    "mlbTeam": "LAA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Alonzo Tredwell",
+    "pos": "SP",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 6"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Ethan Pecko",
+    "pos": "SP",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Arm",
+    "expectedReturn": "Expected to be out until at least Apr 24"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Henry Baez",
+    "pos": "SP",
+    "mlbTeam": "ATH",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 22"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Steven Zobac",
+    "pos": "SP",
+    "mlbTeam": "KC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Jaden Hamm",
+    "pos": "SP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Out",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 13"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Andrew Sears",
+    "pos": "SP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Aldrin Batista",
+    "pos": "SP",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 27"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Kelvis Salcedo",
+    "pos": "SP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least May 13"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Alexander Albertus",
+    "pos": "3B",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Lower Leg",
+    "expectedReturn": "Expected to be out until at least Apr 29"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Mathias LaCombe",
+    "pos": "SP",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Apr 22"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Austin Hays",
+    "pos": "LF",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "10",
+    "status": "IL",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least Apr 24"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Hunter Brown",
+    "pos": "SP",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Yesavage Garden",
+    "rosteredPct": "97",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 29"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Cade Horton",
+    "pos": "SP",
+    "mlbTeam": "CHC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "47",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1, 2027"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Alejandro Kirk",
+    "pos": "C",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Before and After Shohei",
+    "rosteredPct": "66",
+    "status": "IL",
+    "injury": "Thumb",
+    "expectedReturn": "Expected to be out until at least May 18"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Jordan Lawlar",
+    "pos": "3B",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Blame it on the Rainiel",
+    "rosteredPct": "40",
+    "status": "IL",
+    "injury": "Wrist",
+    "expectedReturn": "Expected to be out until at least Jun 3"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Cody Ponce",
+    "pos": "RP",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "24",
+    "status": "IL",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Andrew Vaughn",
+    "pos": "1B",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "37",
+    "status": "IL",
+    "injury": "Hand",
+    "expectedReturn": "Expected to be out until at least May 8"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Trey Yesavage",
+    "pos": "SP",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Yesavage Garden",
+    "rosteredPct": "92",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Apr 21"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Rob Zastryzny",
+    "pos": "RP",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Chest",
+    "expectedReturn": "Expected to be out until at least Apr 24"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Mike Vasil",
+    "pos": "RP",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1, 2027"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Caden Scarborough",
+    "pos": "SP",
+    "mlbTeam": "TEX",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "4",
+    "status": "Out",
+    "injury": "Illness",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Grant Knipp",
+    "pos": "RP",
+    "mlbTeam": "SEA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Ryan Burr",
+    "pos": "RP",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Gunnar Hoglund",
+    "pos": "SP",
+    "mlbTeam": "ATH",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Back",
+    "expectedReturn": "Expected to be out until at least May 25"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Sean Murphy",
+    "pos": "C",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "5",
+    "status": "IL",
+    "injury": "Hip",
+    "expectedReturn": "Expected to be out until at least Apr 24"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Franyerber Montilla",
+    "pos": "SS",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Yimi Garcia",
+    "pos": "RP",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 27"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Blake Larson",
+    "pos": "SP",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "4/7/26",
+    "name": "Ryan Forcucci",
+    "pos": "SP",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Out",
+    "injury": "Back",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Noble Meyer",
+    "pos": "SP",
+    "mlbTeam": "MIA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "5",
+    "status": "Out",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Jun 30"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Jose Corniell",
+    "pos": "RP",
+    "mlbTeam": "TEX",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Out",
+    "injury": "Arm",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Jake Cook",
+    "pos": "CF",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Jared Koenig",
+    "pos": "RP",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Ballesteros, Let the Rhythm Take You Over",
+    "rosteredPct": "3",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 21"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Slater de Brun",
+    "pos": "CF",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Wrist",
+    "expectedReturn": "Expected to be out until at least Jun 2"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Ty Johnson",
+    "pos": "SP",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Back",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Bryce Cunningham",
+    "pos": "SP",
+    "mlbTeam": "NYY",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Arm",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Stiven Martinez",
+    "pos": "CF",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Dax Kilby",
+    "pos": "SS",
+    "mlbTeam": "NYY",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "7",
+    "status": "IL",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Juaron Watts-Brown",
+    "pos": "SP",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Matthew Boyd",
+    "pos": "SP",
+    "mlbTeam": "CHC",
+    "fantasyTeam": "A Pete Crow-Armstrong Looked at Me",
+    "rosteredPct": "96",
+    "status": "IL",
+    "injury": "Biceps",
+    "expectedReturn": "Expected to be out until at least Apr 18"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Dietrich Enns",
+    "pos": "RP",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Foot",
+    "expectedReturn": "Expected to be out until at least Apr 19"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Ryan Johnson",
+    "pos": "RP",
+    "mlbTeam": "LAA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "4",
+    "status": "IL",
+    "injury": "Illness",
+    "expectedReturn": "Expected to be out until at least Apr 21"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Mookie Betts",
+    "pos": "SS",
+    "mlbTeam": "LAD",
+    "fantasyTeam": "A Pete Crow-Armstrong Looked at Me",
+    "rosteredPct": "99",
+    "status": "IL",
+    "injury": "Oblique",
+    "expectedReturn": "Expected to be out until at least Apr 24"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Juan Soto",
+    "pos": "RF",
+    "mlbTeam": "NYM",
+    "fantasyTeam": "Everythings McGonigle Green",
+    "rosteredPct": "100",
+    "status": "IL",
+    "injury": "Calf",
+    "expectedReturn": "Expected to be out until at least Apr 21"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Victor Arias",
+    "pos": "CF",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 15"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Patrick Sandoval",
+    "pos": "SP",
+    "mlbTeam": "BOS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 23"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Stephen Kolek",
+    "pos": "SP",
+    "mlbTeam": "KC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Oblique",
+    "expectedReturn": "Expected to be out until at least Apr 28"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Adrian Pinto",
+    "pos": "2B",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Questionable",
+    "injury": "Personal",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/6/26",
+    "name": "Izack Tiger",
+    "pos": "SP",
+    "mlbTeam": "TEX",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "4/5/26",
+    "name": "Yorman Gomez",
+    "pos": "SP",
+    "mlbTeam": "CLE",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Apr 13"
+  },
+  {
+    "updated": "4/5/26",
+    "name": "Carter Baumler",
+    "pos": "SP",
+    "mlbTeam": "TEX",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Ribs",
+    "expectedReturn": "Expected to be out until at least Apr 21"
+  },
+  {
+    "updated": "4/5/26",
+    "name": "Jared Triolo",
+    "pos": "1B,3B,SS",
+    "mlbTeam": "PIT",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "4",
+    "status": "IL",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/5/26",
+    "name": "Yaramil Hiraldo",
+    "pos": "RP",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Apr 17"
+  },
+  {
+    "updated": "4/5/26",
+    "name": "Anthony Santander",
+    "pos": "DH",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "5",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Aug 1"
+  },
+  {
+    "updated": "4/5/26",
+    "name": "Zack Wheeler",
+    "pos": "SP",
+    "mlbTeam": "PHI",
+    "fantasyTeam": "Dinosaur Jr Caminero",
+    "rosteredPct": "97",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Apr 19"
+  },
+  {
+    "updated": "4/4/26",
+    "name": "Justin Verlander",
+    "pos": "SP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "18",
+    "status": "IL",
+    "injury": "Hip",
+    "expectedReturn": "Expected to be out until at least Apr 16"
+  },
+  {
+    "updated": "4/4/26",
+    "name": "Jose Butto",
+    "pos": "RP",
+    "mlbTeam": "SF",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Forearm",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "4/4/26",
+    "name": "Jose Berrios",
+    "pos": "SP",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "12",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "4/4/26",
+    "name": "McCade Brown",
+    "pos": "SP",
+    "mlbTeam": "COL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 24"
+  },
+  {
+    "updated": "4/4/26",
+    "name": "David Festa",
+    "pos": "SP",
+    "mlbTeam": "MIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 24"
+  },
+  {
+    "updated": "4/3/26",
+    "name": "Bailey Falter",
+    "pos": "SP",
+    "mlbTeam": "KC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 17"
+  },
+  {
+    "updated": "4/3/26",
+    "name": "Garrett Cleavinger",
+    "pos": "RP",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Buddy Buddy Buddy All On Base",
+    "rosteredPct": "11",
+    "status": "IL",
+    "injury": "Calf",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/3/26",
+    "name": "A.J. Smith-Shawver",
+    "pos": "SP",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "5",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Aug 1"
+  },
+  {
+    "updated": "4/3/26",
+    "name": "Cooper Hjerpe",
+    "pos": "SP",
+    "mlbTeam": "STL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 17"
+  },
+  {
+    "updated": "4/2/26",
+    "name": "Jose Quintana",
+    "pos": "SP",
+    "mlbTeam": "COL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "4/2/26",
+    "name": "David Banuelos",
+    "pos": "DH",
+    "mlbTeam": "MIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "DEVELOPMENTAL LIST",
+    "injury": "Not Injury Related",
+    "expectedReturn": "Not Injury Related"
+  },
+  {
+    "updated": "4/1/26",
+    "name": "Gavin Stone",
+    "pos": "SP",
+    "mlbTeam": "LAD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "5",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 22"
+  },
+  {
+    "updated": "4/1/26",
+    "name": "Kutter Crawford",
+    "pos": "SP",
+    "mlbTeam": "BOS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "3",
+    "status": "IL",
+    "injury": "Wrist",
+    "expectedReturn": "Expected to be out until at least May 5"
+  },
+  {
+    "updated": "4/1/26",
+    "name": "Jordan Westburg",
+    "pos": "3B",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Colonel Corbin’s Ascent",
+    "rosteredPct": "43",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 22"
+  },
+  {
+    "updated": "4/1/26",
+    "name": "Jake Cousins",
+    "pos": "RP",
+    "mlbTeam": "LAD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Aug 1"
+  },
+  {
+    "updated": "4/1/26",
+    "name": "Shane Bieber",
+    "pos": "SP",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "A Pete Crow-Armstrong Looked at Me",
+    "rosteredPct": "62",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 15"
+  },
+  {
+    "updated": "4/1/26",
+    "name": "Juan Pinto",
+    "pos": "SP",
+    "mlbTeam": "SEA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "4/1/26",
+    "name": "Joseph Montalvo",
+    "pos": "SP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "4/1/26",
+    "name": "Paul Wilson",
+    "pos": "SP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "4/1/26",
+    "name": "A.J. Puk",
+    "pos": "RP",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "4",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 15"
+  },
+  {
+    "updated": "4/1/26",
+    "name": "Michael Massey",
+    "pos": "SP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "4/1/26",
+    "name": "T.J. Brock",
+    "pos": "RP",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "4/1/26",
+    "name": "Reggie Crawford",
+    "pos": "RP",
+    "mlbTeam": "SF",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/31/26",
+    "name": "Zach Cole",
+    "pos": "RF",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "11",
+    "status": "Out",
+    "injury": "Toe",
+    "expectedReturn": "Expected to be out until at least Apr 30"
+  },
+  {
+    "updated": "3/31/26",
+    "name": "Charlee Soto",
+    "pos": "SP",
+    "mlbTeam": "MIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 5"
+  },
+  {
+    "updated": "3/30/26",
+    "name": "Sean Harney",
+    "pos": "RP",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Mar 1"
+  },
+  {
+    "updated": "3/30/26",
+    "name": "Connor O'Halloran",
+    "pos": "RP",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/30/26",
+    "name": "Jose Leclerc",
+    "pos": "RP",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "3/30/26",
+    "name": "Kyle Amendt",
+    "pos": "RP",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "3/30/26",
+    "name": "Hayden Wesneski",
+    "pos": "SP",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Aug 1"
+  },
+  {
+    "updated": "3/29/26",
+    "name": "Cameron Sullivan",
+    "pos": "SP",
+    "mlbTeam": "CLE",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/29/26",
+    "name": "Joe Musgrove",
+    "pos": "SP",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "49",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 25"
+  },
+  {
+    "updated": "3/29/26",
+    "name": "Paul Bonzagni",
+    "pos": "SP",
+    "mlbTeam": "TEX",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/29/26",
+    "name": "Elvis Peguero",
+    "pos": "RP",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Mar 1"
+  },
+  {
+    "updated": "3/29/26",
+    "name": "Jackson Jobe",
+    "pos": "SP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Yesavage Garden",
+    "rosteredPct": "13",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Aug 15"
+  },
+  {
+    "updated": "3/29/26",
+    "name": "Moises Chace",
+    "pos": "SP",
+    "mlbTeam": "PHI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "3/29/26",
+    "name": "Case Williams",
+    "pos": "SP",
+    "mlbTeam": "COL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Triceps",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/26/26",
+    "name": "Beau Brieske",
+    "pos": "RP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Thigh",
+    "expectedReturn": "Expected to be out until at least May 26"
+  },
+  {
+    "updated": "3/26/26",
+    "name": "Will Wagner",
+    "pos": "3B",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Oblique",
+    "expectedReturn": "Expected to be out until at least Apr 24"
+  },
+  {
+    "updated": "3/26/26",
+    "name": "Hayden Birdsong",
+    "pos": "SP,RP",
+    "mlbTeam": "SF",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1, 2027"
+  },
+  {
+    "updated": "3/26/26",
+    "name": "RJ Petit",
+    "pos": "RP",
+    "mlbTeam": "COL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1, 2027"
+  },
+  {
+    "updated": "3/26/26",
+    "name": "Matt Waldron",
+    "pos": "SP",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Lower Body",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "3/26/26",
+    "name": "Josh Hader",
+    "pos": "RP",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Dinosaur Jr Caminero",
+    "rosteredPct": "92",
+    "status": "IL",
+    "injury": "Biceps",
+    "expectedReturn": "Expected to be out until at least Apr 24"
+  },
+  {
+    "updated": "3/26/26",
+    "name": "Gerrit Cole",
+    "pos": "SP",
+    "mlbTeam": "NYY",
+    "fantasyTeam": "Everythings McGonigle Green",
+    "rosteredPct": "93",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 15"
+  },
+  {
+    "updated": "3/26/26",
+    "name": "Ky Bush",
+    "pos": "SP",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Esteury Ruiz",
+    "pos": "LF",
+    "mlbTeam": "MIA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Oblique",
+    "expectedReturn": "Expected to be out until at least May 15"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Kyle Stowers",
+    "pos": "LF,RF",
+    "mlbTeam": "MIA",
+    "fantasyTeam": "Everythings McGonigle Green",
+    "rosteredPct": "95",
+    "status": "IL",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least Apr 20"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Zach Dezenzo",
+    "pos": "LF",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 24"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Porter Hodge",
+    "pos": "RP",
+    "mlbTeam": "CHC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Adam Mazur",
+    "pos": "SP",
+    "mlbTeam": "MIA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Reiver Sanmartin",
+    "pos": "RP",
+    "mlbTeam": "SF",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Hip",
+    "expectedReturn": "Expected to be out until at least Jun 9"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Quinn Priester",
+    "pos": "SP",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Popped A Mahle I'm Sweating",
+    "rosteredPct": "36",
+    "status": "IL",
+    "injury": "Wrist",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Bryan Hoeing",
+    "pos": "RP",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Bryce Miller",
+    "pos": "SP",
+    "mlbTeam": "SEA",
+    "fantasyTeam": "Blame it on the Rainiel",
+    "rosteredPct": "56",
+    "status": "IL",
+    "injury": "Oblique",
+    "expectedReturn": "Expected to be out until at least Apr 24"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Bobby Miller",
+    "pos": "SP",
+    "mlbTeam": "LAD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 29"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Steven Wilson",
+    "pos": "RP",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Back",
+    "expectedReturn": "Expected to be out until at least May 29"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Jordan Wicks",
+    "pos": "RP",
+    "mlbTeam": "CHC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Pierson Ohl",
+    "pos": "RP",
+    "mlbTeam": "COL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Nate Pearson",
+    "pos": "RP",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Cody Freeman",
+    "pos": "2B",
+    "mlbTeam": "TEX",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Back",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Hurston Waldrep",
+    "pos": "SP",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "11",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 2"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Bailey Horn",
+    "pos": "RP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 24"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Blake Snell",
+    "pos": "SP",
+    "mlbTeam": "LAD",
+    "fantasyTeam": "A Pete Crow-Armstrong Looked at Me",
+    "rosteredPct": "90",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 29"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Ha-seong Kim",
+    "pos": "SS",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "8",
+    "status": "IL",
+    "injury": "Finger",
+    "expectedReturn": "Expected to be out until at least May 12"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Griffin Canning",
+    "pos": "SP",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "3",
+    "status": "IL",
+    "injury": "Achilles",
+    "expectedReturn": "Expected to be out until at least Apr 27"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Sam Hentges",
+    "pos": "RP",
+    "mlbTeam": "SF",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least Apr 17"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Tommy Edman",
+    "pos": "2B,CF",
+    "mlbTeam": "LAD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "14",
+    "status": "IL",
+    "injury": "Ankle",
+    "expectedReturn": "Expected to be out until at least May 29"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Lars Nootbaar",
+    "pos": "LF,RF",
+    "mlbTeam": "STL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "5",
+    "status": "IL",
+    "injury": "Heel",
+    "expectedReturn": "Expected to be out until at least May 26"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Anthony Volpe",
+    "pos": "SS",
+    "mlbTeam": "NYY",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "22",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Tyler Locklear",
+    "pos": "1B",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 18"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Lourdes Gurriel",
+    "pos": "LF",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "10",
+    "status": "IL",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Brandon Walter",
+    "pos": "SP",
+    "mlbTeam": "HOU",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Cristian Mena",
+    "pos": "RP",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "A.J. Minter",
+    "pos": "RP",
+    "mlbTeam": "NYM",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Lat",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Justin Steele",
+    "pos": "SP",
+    "mlbTeam": "CHC",
+    "fantasyTeam": "Ballesteros, Let the Rhythm Take You Over",
+    "rosteredPct": "41",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 25"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Blake Walston",
+    "pos": "RP",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Cody Bradford",
+    "pos": "SP",
+    "mlbTeam": "TEX",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "3",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Prelander Berroa",
+    "pos": "RP",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "James McArthur",
+    "pos": "RP",
+    "mlbTeam": "KC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "3/25/26",
+    "name": "Drew Thorpe",
+    "pos": "SP",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "3",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/24/26",
+    "name": "Akil Baddoo",
+    "pos": "LF",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Quadriceps",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/24/26",
+    "name": "Joey Wentz",
+    "pos": "SP,RP",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "3/24/26",
+    "name": "Tyler Austin",
+    "pos": "RF",
+    "mlbTeam": "CHC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least May 23"
+  },
+  {
+    "updated": "3/24/26",
+    "name": "Anthony Rendon",
+    "pos": "3B",
+    "mlbTeam": "LAA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Hip",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "3/23/26",
+    "name": "Ethan Conrad",
+    "pos": "RF",
+    "mlbTeam": "CHC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "5",
+    "status": "Out",
+    "injury": "Back",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "3/23/26",
+    "name": "Josiah Gray",
+    "pos": "SP",
+    "mlbTeam": "WAS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 29"
+  },
+  {
+    "updated": "3/23/26",
+    "name": "Hunter Greene",
+    "pos": "SP",
+    "mlbTeam": "CIN",
+    "fantasyTeam": "Before and After Shohei",
+    "rosteredPct": "72",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "3/23/26",
+    "name": "Tekoah Roby",
+    "pos": "SP",
+    "mlbTeam": "STL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "3/23/26",
+    "name": "Asa Lacy",
+    "pos": "RP",
+    "mlbTeam": "KC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/22/26",
+    "name": "Davis Sharpe",
+    "pos": "RP",
+    "mlbTeam": "CLE",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/22/26",
+    "name": "Brandon Clarke",
+    "pos": "SP",
+    "mlbTeam": "STL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Arm",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/22/26",
+    "name": "Nic Enright",
+    "pos": "RP",
+    "mlbTeam": "CLE",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "3/22/26",
+    "name": "Jake Bloss",
+    "pos": "SP",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "3/22/26",
+    "name": "Victor Santos",
+    "pos": "RP",
+    "mlbTeam": "STL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/22/26",
+    "name": "Brody McCullough",
+    "pos": "SP",
+    "mlbTeam": "CHC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Forearm",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/20/26",
+    "name": "David Sandlin",
+    "pos": "RP",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "3/19/26",
+    "name": "Josuar De Jesus Gonzalez",
+    "pos": "SS",
+    "mlbTeam": "SF",
+    "fantasyTeam": "Dinosaur Jr Caminero",
+    "rosteredPct": "8",
+    "status": "Out",
+    "injury": "Hamstring",
+    "expectedReturn": "Expected to be out until at least Apr 17"
+  },
+  {
+    "updated": "3/17/26",
+    "name": "Chih-Jung Liu",
+    "pos": "SP",
+    "mlbTeam": "BOS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "expectedReturn": "Expected to be out until at least Jun 2"
+  },
+  {
+    "updated": "3/17/26",
+    "name": "Zach Fogell",
+    "pos": "RP",
+    "mlbTeam": "BOS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Oct 1"
+  },
+  {
+    "updated": "3/17/26",
+    "name": "Yordanny Monegro",
+    "pos": "SP",
+    "mlbTeam": "BOS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Aug 1"
+  },
+  {
+    "updated": "3/16/26",
+    "name": "Johan Rojas",
+    "pos": "CF",
+    "mlbTeam": "PHI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Suspended",
+    "injury": "",
+    "expectedReturn": "Suspended until Jun 24"
+  },
+  {
+    "updated": "3/15/26",
+    "name": "Jose Olivares",
+    "pos": "SP",
+    "mlbTeam": "MIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "3/14/26",
+    "name": "Justin Hagenman",
+    "pos": "RP",
+    "mlbTeam": "NYM",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Ribs",
+    "expectedReturn": "Expected to be out until at least May 27"
+  },
+  {
+    "updated": "3/12/26",
+    "name": "Romy Gonzalez",
+    "pos": "1B,2B",
+    "mlbTeam": "BOS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 26"
+  },
+  {
+    "updated": "3/12/26",
+    "name": "Jhony Brito",
+    "pos": "RP",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Forearm",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "3/10/26",
+    "name": "Thayron Liranzo",
+    "pos": "C",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "Out",
+    "injury": "Oblique",
+    "expectedReturn": "Expected to be out until at least Apr 14"
+  },
+  {
+    "updated": "3/10/26",
+    "name": "Troy Melton",
+    "pos": "RP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "6",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 26"
+  },
+  {
+    "updated": "3/8/26",
+    "name": "Jordan Montgomery",
+    "pos": "SP",
+    "mlbTeam": "TEX",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "3/6/26",
+    "name": "Josue Briceno",
+    "pos": "C",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "8",
+    "status": "Out",
+    "injury": "Wrist",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "3/4/26",
+    "name": "Matt Barr",
+    "pos": "SP",
+    "mlbTeam": "MIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Arm",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "3/4/26",
+    "name": "Enrique Hernandez",
+    "pos": "1B,3B,LF",
+    "mlbTeam": "LAD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 24"
+  },
+  {
+    "updated": "3/3/26",
+    "name": "Jurickson Profar",
+    "pos": "LF",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Suspended",
+    "injury": "",
+    "expectedReturn": "Suspended until Feb 1"
+  },
+  {
+    "updated": "3/3/26",
+    "name": "Evan Phillips",
+    "pos": "RP",
+    "mlbTeam": "LAD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 17"
+  },
+  {
+    "updated": "3/1/26",
+    "name": "Shelby Miller",
+    "pos": "RP",
+    "mlbTeam": "CHC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/26/26",
+    "name": "Pablo Lopez",
+    "pos": "SP",
+    "mlbTeam": "MIN",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "9",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 1"
+  },
+  {
+    "updated": "2/23/26",
+    "name": "Ryan Harbin",
+    "pos": "RP",
+    "mlbTeam": "PIT",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Lat",
+    "expectedReturn": "Expected to be out until at least Apr 15"
+  },
+  {
+    "updated": "2/22/26",
+    "name": "Brian Holiday",
+    "pos": "SP",
+    "mlbTeam": "STL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Jake Miller",
+    "pos": "SP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Hip",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Rowan Wick",
+    "pos": "RP",
+    "mlbTeam": "SF",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Ian Anderson",
+    "pos": "RP",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Colin Selby",
+    "pos": "RP",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least May 25"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Andrew Saalfrank",
+    "pos": "RP",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Logan Evans",
+    "pos": "SP",
+    "mlbTeam": "SEA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Michael Salina",
+    "pos": "SP",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 30"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Frank Cairone",
+    "pos": "SP",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Head",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Braxton Bragg",
+    "pos": "SP",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Max Kranick",
+    "pos": "RP",
+    "mlbTeam": "NYM",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Sep 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Frankie Montas",
+    "pos": "SP",
+    "mlbTeam": "NYM",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Nestor Cortes",
+    "pos": "SP",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Out",
+    "injury": "Biceps",
+    "expectedReturn": "Expected to be out until at least Aug 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Tony Gonsolin",
+    "pos": "SP",
+    "mlbTeam": "LAD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Aug 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Thyago Vieira",
+    "pos": "RP",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Luis Garcia",
+    "pos": "SP",
+    "mlbTeam": "NYY",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Josh Winder",
+    "pos": "RP",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Ronny Henriquez",
+    "pos": "RP",
+    "mlbTeam": "MIA",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Jason Foley",
+    "pos": "RP",
+    "mlbTeam": "SF",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Connor Thomas",
+    "pos": "RP",
+    "mlbTeam": "MIL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Yu Darvish",
+    "pos": "SP",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Reed Garrett",
+    "pos": "RP",
+    "mlbTeam": "NYM",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Humberto Cruz",
+    "pos": "SP",
+    "mlbTeam": "SD",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Randy Rodriguez",
+    "pos": "RP",
+    "mlbTeam": "SF",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Reese Olson",
+    "pos": "SP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "4",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Feb 21"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Emmanuel Clase",
+    "pos": "RP",
+    "mlbTeam": "CLE",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "Out",
+    "injury": "Personal",
+    "expectedReturn": "Expected to be out until at least May 4"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Conrad Cason",
+    "pos": "SP",
+    "mlbTeam": "BOS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Trevor Williams",
+    "pos": "SP",
+    "mlbTeam": "WAS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Tyler Stuart",
+    "pos": "SP",
+    "mlbTeam": "WAS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Sep 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Clarke Schmidt",
+    "pos": "SP",
+    "mlbTeam": "NYY",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "5",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Aug 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Dedniel Nunez",
+    "pos": "RP",
+    "mlbTeam": "NYM",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Sep 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Luis Ortiz",
+    "pos": "SP",
+    "mlbTeam": "CLE",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Personal",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Spencer Schwellenbach",
+    "pos": "SP",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Before and After Shohei",
+    "rosteredPct": "45",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 2"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Tylor Megill",
+    "pos": "SP",
+    "mlbTeam": "NYM",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Bowden Francis",
+    "pos": "SP",
+    "mlbTeam": "TOR",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Apr 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Manuel Rodriguez",
+    "pos": "RP",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Justin Martinez",
+    "pos": "RP",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Aug 21"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Corbin Burnes",
+    "pos": "SP",
+    "mlbTeam": "ARI",
+    "fantasyTeam": "A Pete Crow-Armstrong Looked at Me",
+    "rosteredPct": "44",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 17"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Tanner Houck",
+    "pos": "SP",
+    "mlbTeam": "BOS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Patrick Reilly",
+    "pos": "SP",
+    "mlbTeam": "BAL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Juan Carela",
+    "pos": "SP",
+    "mlbTeam": "CHW",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Kris Bryant",
+    "pos": "DH",
+    "mlbTeam": "COL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Back",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Zach Swanson",
+    "pos": "SP",
+    "mlbTeam": "DET",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Christian McGowan",
+    "pos": "SP",
+    "mlbTeam": "PHI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Chase Hampton",
+    "pos": "SP",
+    "mlbTeam": "NYY",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "2",
+    "status": "Out",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Davidjohn Herz",
+    "pos": "SP",
+    "mlbTeam": "WAS",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "1",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jul 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Jared Jones",
+    "pos": "SP",
+    "mlbTeam": "PIT",
+    "fantasyTeam": "Buddy Buddy Buddy All On Base",
+    "rosteredPct": "31",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least May 25"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Jeff Criswell",
+    "pos": "RP",
+    "mlbTeam": "COL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Elbow",
+    "expectedReturn": "Expected to be out until at least Jun 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Alec Marsh",
+    "pos": "SP",
+    "mlbTeam": "KC",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Shoulder",
+    "expectedReturn": "Expected to be out until at least Feb 1"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Joe Jimenez",
+    "pos": "RP",
+    "mlbTeam": "ATL",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "IL",
+    "injury": "Knee",
+    "expectedReturn": "Expected to be out until at least Jul 17"
+  },
+  {
+    "updated": "2/19/26",
+    "name": "Wander Franco",
+    "pos": "SS",
+    "mlbTeam": "TB",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Out",
+    "injury": "Personal",
+    "expectedReturn": "Expected to be out until at least Feb 1, 2028"
+  },
+  {
+    "updated": "2/9/26",
+    "name": "Max Kepler",
+    "pos": "LF,RF",
+    "mlbTeam": "PHI",
+    "fantasyTeam": "Free Agent",
+    "rosteredPct": "0",
+    "status": "Suspended",
+    "injury": "",
+    "expectedReturn": "Suspended until Jun 15"
   }
 ]
