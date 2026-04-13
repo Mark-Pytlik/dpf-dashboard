@@ -117,8 +117,8 @@
   },
   {
     "date": "3/16/26 12:55 PM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -171,8 +171,8 @@
   },
   {
     "date": "3/16/26 1:42 PM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -270,9 +270,29 @@
   },
   {
     "date": "3/17/26 12:38 PM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
+    "players": [
+      {
+        "name": "Nick Kurtz",
+        "pos": "1B",
+        "mlbTeam": "ATH",
+        "action": "Traded from Okamotomami"
+      },
+      {
+        "name": "Nick Lodolo",
+        "pos": "SP",
+        "mlbTeam": "CIN",
+        "action": "Traded from Okamotomami"
+      }
+    ]
+  },
+  {
+    "date": "3/17/26 12:38 PM ET",
+    "team": "Colonel Corbin’s Ascent",
+    "teamId": 4,
+    "effective": "3/25/26",
     "players": [
       {
         "name": "Nick Kurtz",
@@ -304,8 +324,8 @@
   },
   {
     "date": "3/17/26 12:43 PM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -332,8 +352,8 @@
   },
   {
     "date": "3/17/26 12:49 PM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -430,8 +450,8 @@
   },
   {
     "date": "3/19/26 3:05 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -458,8 +478,8 @@
   },
   {
     "date": "3/19/26 3:06 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -486,8 +506,8 @@
   },
   {
     "date": "3/19/26 3:14 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -528,8 +548,8 @@
   },
   {
     "date": "3/19/26 3:16 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -542,8 +562,8 @@
   },
   {
     "date": "3/19/26 3:16 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -724,8 +744,8 @@
   },
   {
     "date": "3/19/26 11:27 PM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -752,8 +772,8 @@
   },
   {
     "date": "3/20/26 1:11 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -940,8 +960,8 @@
   },
   {
     "date": "3/21/26 12:45 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -2124,8 +2144,8 @@
   },
   {
     "date": "3/23/26 1:09 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -2144,8 +2164,8 @@
   },
   {
     "date": "3/23/26 1:09 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -2192,8 +2212,8 @@
   },
   {
     "date": "3/23/26 9:22 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -2310,8 +2330,8 @@
   },
   {
     "date": "3/24/26 1:22 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -3201,8 +3221,8 @@
   },
   {
     "date": "3/25/26 2:55 PM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -3215,8 +3235,8 @@
   },
   {
     "date": "3/25/26 2:55 PM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -3591,8 +3611,8 @@
   },
   {
     "date": "3/26/26 11:24 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -3830,8 +3850,8 @@
   },
   {
     "date": "3/28/26 10:59 PM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -4078,8 +4098,8 @@
   },
   {
     "date": "3/31/26 2:14 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -4120,8 +4140,8 @@
   },
   {
     "date": "3/31/26 2:19 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -4162,8 +4182,8 @@
   },
   {
     "date": "3/31/26 8:48 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -5600,8 +5620,8 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -5614,8 +5634,8 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -5921,8 +5941,8 @@
   },
   {
     "date": "4/7/26 2:07 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -5935,8 +5955,8 @@
   },
   {
     "date": "4/7/26 2:07 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -6069,8 +6089,8 @@
   },
   {
     "date": "4/8/26 3:06 AM ET",
-    "team": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
-    "teamName": "Colonel Corbin\u00c3\u00a2\u00c2\u0080\u00c2\u0099s Ascent",
+    "team": "Colonel CorbinÃ¢ÂÂs Ascent",
+    "teamName": "Colonel CorbinÃ¢ÂÂs Ascent",
     "teamId": "3",
     "players": [
       {
@@ -6355,6 +6375,100 @@
         "pos": "1B,2B",
         "mlbTeam": "SF",
         "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/13/26 1:59 AM ET",
+    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
+    "effective": "4/13/26",
+    "players": [
+      {
+        "name": "Victor Vodnik",
+        "pos": "RP",
+        "mlbTeam": "COL",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/13/26 1:59 AM ET",
+    "team": "Colonel Corbin’s Ascent",
+    "teamId": 3,
+    "effective": "4/13/26",
+    "players": [
+      {
+        "name": "Sam Antonacci",
+        "pos": "2B",
+        "mlbTeam": "CHW",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jung Hoo Lee",
+        "pos": "CF,RF",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/13/26 1:59 AM ET",
+    "team": "Colonel Corbin’s Ascent",
+    "teamId": 3,
+    "effective": "4/13/26",
+    "players": [
+      {
+        "name": "Noah Schultz",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Andrew Kittredge",
+        "pos": "RP",
+        "mlbTeam": "BAL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/13/26 1:59 AM ET",
+    "team": "Yesavage Garden",
+    "teamId": 9,
+    "effective": "4/13/26",
+    "players": [
+      {
+        "name": "Luis Severino",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jeremiah Estrada",
+        "pos": "RP",
+        "mlbTeam": "SD",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/13/26 1:59 AM ET",
+    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
+    "effective": "4/13/26",
+    "players": [
+      {
+        "name": "Ramon Laureano",
+        "pos": "LF,RF",
+        "mlbTeam": "SD",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Joe Boyle",
+        "pos": "SP",
+        "mlbTeam": "TB",
+        "action": "Dropped"
       }
     ]
   }
