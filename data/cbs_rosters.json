@@ -1,418 +1,1154 @@
-{
-  "Weird Fishes / Arrighetti": [
-    "Adley Rutschman",
-    "Freddie Freeman",
-    "Luke Keaschall",
-    "Manny Machado",
-    "Trevor Story",
-    "Chandler Simpson",
-    "Justin Crawford",
-    "Teoscar Hernandez",
-    "Kyle Schwarber",
-    "Yainer Diaz",
-    "Ceddanne Rafaela",
-    "Jose Fernandez",
-    "Ryan O'Hearn",
-    "Mike Trout",
-    "Colson Montgomery",
-    "Travis Bazzana",
-    "Josue De Paula",
-    "Dylan Cease",
-    "Parker Messick",
-    "Aaron Nola",
-    "Trevor Rogers",
-    "Cameron Schlittler",
-    "Aaron Ashby",
-    "Braxton Ashcraft",
-    "Emilio Pagan",
-    "Dennis Santana",
-    "Cade Smith",
-    "Andrew Painter",
-    "Spencer Strider"
-  ],
-  "Dinosaur Jr Caminero": [
-    "Samuel Basallo",
-    "Yandy Diaz",
-    "Andres Gimenez",
-    "Junior Caminero",
-    "Gunnar Henderson",
-    "Taylor Ward",
-    "Julio Rodriguez",
-    "Fernando Tatis Jr.",
-    "Brandon Nimmo",
-    "Willson Contreras",
-    "Munetaka Murakami",
-    "Kyle Teel",
-    "Jackson Holliday",
-    "Josuar De Jesus Gonzalez",
-    "Leo De Vries",
-    "Aidan Miller",
-    "Chris Bassitt",
-    "Bubba Chandler",
-    "Mitch Keller",
-    "Cristopher Sanchez",
-    "Jacob deGrom",
-    "Tyler Holton",
-    "Taylor Rogers",
-    "Grant Taylor",
-    "Alex Vesia",
-    "Garrett Whitlock",
-    "Max Fried",
-    "Kyle Harrison",
-    "Ranger Suarez",
-    "Michael Wacha",
-    "Zack Wheeler",
-    "Josh Hader",
-    "Brody Hopkins"
-  ],
-  "Colonel Corbin's Ascent": [
-    "Ben Rice",
-    "Nick Kurtz",
-    "Brice Turang",
-    "Mark Vientos",
-    "JJ Wetherholt",
-    "Wyatt Langford",
-    "Luis Robert",
-    "Corbin Carroll",
-    "Tyler Soderstrom",
-    "Nasim Nunez",
-    "Isaac Paredes",
-    "Jordan Westburg",
-    "Jackson Chourio",
-    "Bryce Rainer",
-    "Eduardo Quintero",
-    "James Tibbs",
-    "Tyler Glasnow",
-    "Chad Patrick",
-    "Cole Ragans",
-    "Robbie Ray",
-    "Randy Vasquez",
-    "Bryan Baker",
-    "Riley O'Brien",
-    "Erik Sabrowski",
-    "Tanner Scott",
-    "Will Vest",
-    "Didier Fuentes",
-    "Sonny Gray",
-    "Jacob Misiorowski",
-    "Freddy Peralta",
-    "Emmet Sheehan",
-    "Nick Lodolo",
-    "Andrew Kittredge",
-    "Ryan Sloan"
-  ],
-  "Okamotomami": [
-    "Liam Hicks",
-    "Vladimir Guerrero Jr.",
-    "Gleyber Torres",
-    "Austin Riley",
-    "Zachary Neto",
-    "James Wood",
-    "Jo Adell",
-    "George Springer",
-    "Drake Baldwin",
-    "Ernie Clement",
-    "Jakob Marsee",
-    "Jac Caglianone",
-    "Kazuma Okamoto",
-    "Giancarlo Stanton",
-    "Ethan Holliday",
-    "Eli Willits",
-    "Charlie Condon",
-    "Max Clark",
-    "Tanner Bibee",
-    "MacKenzie Gore",
-    "Matthew Liberatore",
-    "Shane McClanahan",
-    "Jose Soriano",
-    "Jhoan Duran",
-    "Griffin Jax",
-    "Mason Miller",
-    "Tyler Rogers",
-    "JoJo Romero",
-    "Mick Abel",
-    "Yoshinobu Yamamoto"
-  ],
-  "Buddy Buddy Buddy All On Base": [
-    "Cal Raleigh",
-    "Christian Walker",
-    "Nico Hoerner",
-    "Miguel Vargas",
-    "Xander Bogaerts",
-    "Alec Burleson",
-    "Michael Harris",
-    "Ronald Acuna Jr.",
-    "Yordan Alvarez",
-    "Josh Naylor",
-    "Royce Lewis",
-    "Jacob Wilson",
-    "Ian Happ",
-    "Wilyer Abreu",
-    "Jacob Reimer",
-    "Caleb Bonemer",
-    "Kyle Bradish",
-    "Michael King",
-    "Reynaldo Lopez",
-    "Jesus Luzardo",
-    "Chris Sale",
-    "Bryan Abreu",
-    "Matt Brash",
-    "Fernando Cruz",
-    "Robert Garcia",
-    "Abner Uribe",
-    "Casey Mize",
-    "Brady Singer",
-    "Jared Jones",
-    "Jason Adam",
-    "Garrett Cleavinger",
-    "Quinn Mathews",
-    "Robby Snelling"
-  ],
-  "A Pete Crow-Armstrong Looked at Me": [
-    "Hunter Goodman",
-    "Sal Stewart",
-    "Brendan Donovan",
-    "Alex Bregman",
-    "Elly De La Cruz",
-    "Daylen Lile",
-    "Pete Crow-Armstrong",
-    "Mickey Moniak",
-    "Bryce Harper",
-    "Kerry Carpenter",
-    "Bryan Reynolds",
-    "Mookie Betts",
-    "Edwin Arroyo",
-    "Colt Emerson",
-    "Jesus Made",
-    "Sebastian Walcott",
-    "Andrew Abbott",
-    "Matthew Boyd",
-    "Rhett Lowder",
-    "Seth Lugo",
-    "Tyler Mahle",
-    "Edwin Diaz",
-    "Lucas Erceg",
-    "Hunter Harvey",
-    "Bryan King",
-    "Trevor Megill",
-    "Noah Cameron",
-    "Luis Castillo",
-    "Bryan Woo",
-    "Joey Cantillo",
-    "Shane Bieber",
-    "Corbin Burnes",
-    "Blake Snell",
-    "Hunter Gaddis"
-  ],
-  "Whoop Whoop that's the sound of Dylan Cease": [
-    "Salvador Perez",
-    "Spencer Torkelson",
-    "Xavier Edwards",
-    "Jazz Chisholm",
-    "Konnor Griffin",
-    "Cody Bellinger",
-    "Trent Grisham",
-    "Noelvi Marte",
-    "Kevin McGonigle",
-    "Agustin Ramirez",
-    "Colt Keith",
-    "Geraldo Perdomo",
-    "Bo Bichette",
-    "Kyle Stowers",
-    "Juan Soto",
-    "Luis Pena",
-    "Walker Jenkins",
-    "Taj Bradley",
-    "Kris Bubic",
-    "Mike Soroka",
-    "Brandon Sproat",
-    "Ryan Weathers",
-    "Hogan Harris",
-    "Raisel Iglesias",
-    "Kenley Jansen",
-    "Justin Sterner",
-    "Ryan Zeferjahn",
-    "Yusei Kikuchi",
-    "George Kirby",
-    "Nick Pivetta",
-    "Gerrit Cole",
-    "Ryan Pepiot",
-    "Zebby Matthews"
-  ],
-  "Ballesteros, Let the Rhythm Take You Over": [
-    "Will Smith",
-    "Vinnie Pasquantino",
-    "Matt McLain",
-    "Eugenio Suarez",
-    "Bobby Witt",
-    "Dylan Beavers",
-    "Steven Kwan",
-    "Aaron Judge",
-    "Kyle Tucker",
-    "Carter Jensen",
-    "Brett Baty",
-    "Kyle Isbel",
-    "Moises Ballesteros",
-    "Ralphy Velazquez",
-    "Zyhir Hope",
-    "Emmanuel Rodriguez",
-    "Michael Burrows",
-    "Garrett Crochet",
-    "Zac Gallen",
-    "Paul Skenes",
-    "Logan Webb",
-    "Clayton Beeter",
-    "Mark Leiter",
-    "Daniel Palencia",
-    "Matt Strahm",
-    "Matt Svanson",
-    "Ryne Nelson",
-    "Kodai Senga",
-    "Thomas White",
-    "Justin Steele",
-    "Jared Koenig",
-    "Elmer Rodriguez-Cruz"
-  ],
-  "Yesavage Garden": [
-    "William Contreras",
-    "Pete Alonso",
-    "Jose Altuve",
-    "Max Muncy",
-    "C.J. Abrams",
-    "Riley Greene",
-    "Daulton Varsho",
-    "Lawrence Butler",
-    "Jeremy Pena",
-    "Marcus Semien",
-    "Jose Caballero",
-    "Brent Rooker",
-    "Matt Chapman",
-    "Jett Williams",
-    "Edward Florentino",
-    "Tyler Alexander",
-    "Clay Holmes",
-    "Jack Leiter",
-    "Eury Perez",
-    "Drew Rasmussen",
-    "Seranthony Dominguez",
-    "Jeremiah Estrada",
-    "Pete Fairbanks",
-    "Jeff Hoffman",
-    "Robert Suarez",
-    "Hunter Brown",
-    "Joe Ryan",
-    "Reid Detmers",
-    "Jackson Jobe",
-    "Carlos Rodon",
-    "Grayson Rodriguez",
-    "Trey Yesavage",
-    "Kade Anderson",
-    "Gage Jump"
-  ],
-  "Blame it on the Rainiel": [
-    "Shea Langeliers",
-    "Michael Busch",
-    "Ketel Marte",
-    "Carlos Correa",
-    "Corey Seager",
-    "Jarren Duran",
-    "Oneil Cruz",
-    "Roman Anthony",
-    "Jordan Walker",
-    "Dansby Swanson",
-    "Colton Cowser",
-    "Ivan Herrera",
-    "Jordan Lawlar",
-    "Rainiel Rodriguez",
-    "Ryan Waldschmidt",
-    "Sandy Alcantara",
-    "Chase Burns",
-    "Jack Flaherty",
-    "Kevin Gausman",
-    "Eduardo Rodriguez",
-    "Aroldis Chapman",
-    "Ryan Helsley",
-    "Tim Hill",
-    "Brad Keller",
-    "Ryan Walker",
-    "Nathan Eovaldi",
-    "Logan Gilbert",
-    "Dustin May",
-    "Merrill Kelly",
-    "Bryce Miller",
-    "Bennett Sousa",
-    "Liam Doyle",
-    "Hagen Smith"
-  ],
-  "Before and After Shohei": [
-    "J.T. Realmuto",
-    "Matt Olson",
-    "Ozzie Albies",
-    "Maikel Garcia",
-    "Francisco Lindor",
-    "Andy Pages",
-    "Jackson Merrill",
-    "Chase DeLauter",
-    "Shohei Ohtani",
-    "Cam Smith",
-    "Josh H. Smith",
-    "Ezequiel Tovar",
-    "Alejandro Kirk",
-    "Seiya Suzuki",
-    "George Lombard",
-    "Tommy Troy",
-    "Spencer Jones",
-    "Shane Baz",
-    "Connelly Early",
-    "Emerson Hancock",
-    "Caleb Kilian",
-    "Tarik Skubal",
-    "David Bednar",
-    "Adrian Morejon",
-    "Andres Munoz",
-    "Jordan Romano",
-    "Gregory Soto",
-    "Edward Cabrera",
-    "Cade Cavalli",
-    "Janson Junk",
-    "Landen Roupp",
-    "Hunter Greene",
-    "Spencer Schwellenbach",
-    "Tanner McDougal"
-  ],
-  "Popped A Mahle I'm Sweating": [
-    "Francisco Alvarez",
-    "TJ Rumfield",
-    "Brandon Lowe",
-    "Jose Ramirez",
-    "Trea Turner",
-    "Randy Arozarena",
-    "Byron Buxton",
-    "Owen Caissie",
-    "Christian Yelich",
-    "Jonathan Aranda",
-    "Rafael Devers",
-    "Carson Benge",
-    "Sal Frelick",
-    "A.J. Ewing",
-    "Dylan Crews",
-    "Bryce Eldridge",
-    "Tatsuya Imai",
-    "Shota Imanaga",
-    "Nolan McLean",
-    "Framber Valdez",
-    "Gavin Williams",
-    "Graham Ashcraft",
-    "Tony Santillan",
-    "Paul Sewald",
-    "Luke Weaver",
-    "Devin Williams",
-    "Joe Boyle",
-    "Bryce Elder",
-    "Brandon Woodruff",
-    "Quinn Priester",
-    "Ben Joyce",
-    "Kirby Yates",
-    "Jonah Tong"
-  ]
-}
+[
+  {
+    "teamId": 1,
+    "teamName": "Fantasy & Games",
+    "players": [
+      {
+        "name": "Jeffrey Springs",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Noah Schultz",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "slot": ""
+      },
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Mauricio Dubon",
+        "pos": "2B,3B,SS,LF",
+        "mlbTeam": "ATL",
+        "slot": ""
+      },
+      {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "slot": ""
+      },
+      {
+        "name": "Jordan Walker",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Jorge Soler",
+        "pos": "RF",
+        "mlbTeam": "LAA",
+        "slot": ""
+      },
+      {
+        "name": "Cam Smith",
+        "pos": "RF",
+        "mlbTeam": "HOU",
+        "slot": ""
+      },
+      {
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Josh Bell",
+        "pos": "1B",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Riley O'Brien",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "slot": ""
+      },
+      {
+        "name": "Ryan O'Hearn",
+        "pos": "1B,RF",
+        "mlbTeam": "PIT",
+        "slot": ""
+      }
+    ]
+  },
+  {
+    "teamId": 2,
+    "teamName": "Fantasy & Games",
+    "players": [
+      {
+        "name": "Jeffrey Springs",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Noah Schultz",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "slot": ""
+      },
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Mauricio Dubon",
+        "pos": "2B,3B,SS,LF",
+        "mlbTeam": "ATL",
+        "slot": ""
+      },
+      {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "slot": ""
+      },
+      {
+        "name": "Jordan Walker",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Jorge Soler",
+        "pos": "RF",
+        "mlbTeam": "LAA",
+        "slot": ""
+      },
+      {
+        "name": "Cam Smith",
+        "pos": "RF",
+        "mlbTeam": "HOU",
+        "slot": ""
+      },
+      {
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Josh Bell",
+        "pos": "1B",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Riley O'Brien",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "slot": ""
+      },
+      {
+        "name": "Ryan O'Hearn",
+        "pos": "1B,RF",
+        "mlbTeam": "PIT",
+        "slot": ""
+      }
+    ]
+  },
+  {
+    "teamId": 3,
+    "teamName": "Fantasy & Games",
+    "players": [
+      {
+        "name": "Jeffrey Springs",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Noah Schultz",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "slot": ""
+      },
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Mauricio Dubon",
+        "pos": "2B,3B,SS,LF",
+        "mlbTeam": "ATL",
+        "slot": ""
+      },
+      {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "slot": ""
+      },
+      {
+        "name": "Jordan Walker",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Jorge Soler",
+        "pos": "RF",
+        "mlbTeam": "LAA",
+        "slot": ""
+      },
+      {
+        "name": "Cam Smith",
+        "pos": "RF",
+        "mlbTeam": "HOU",
+        "slot": ""
+      },
+      {
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Josh Bell",
+        "pos": "1B",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Riley O'Brien",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "slot": ""
+      },
+      {
+        "name": "Ryan O'Hearn",
+        "pos": "1B,RF",
+        "mlbTeam": "PIT",
+        "slot": ""
+      }
+    ]
+  },
+  {
+    "teamId": 4,
+    "teamName": "Fantasy & Games",
+    "players": [
+      {
+        "name": "Jeffrey Springs",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Noah Schultz",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "slot": ""
+      },
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Mauricio Dubon",
+        "pos": "2B,3B,SS,LF",
+        "mlbTeam": "ATL",
+        "slot": ""
+      },
+      {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "slot": ""
+      },
+      {
+        "name": "Jordan Walker",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Jorge Soler",
+        "pos": "RF",
+        "mlbTeam": "LAA",
+        "slot": ""
+      },
+      {
+        "name": "Cam Smith",
+        "pos": "RF",
+        "mlbTeam": "HOU",
+        "slot": ""
+      },
+      {
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Josh Bell",
+        "pos": "1B",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Riley O'Brien",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "slot": ""
+      },
+      {
+        "name": "Ryan O'Hearn",
+        "pos": "1B,RF",
+        "mlbTeam": "PIT",
+        "slot": ""
+      }
+    ]
+  },
+  {
+    "teamId": 5,
+    "teamName": "Fantasy & Games",
+    "players": [
+      {
+        "name": "Jeffrey Springs",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Noah Schultz",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "slot": ""
+      },
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Mauricio Dubon",
+        "pos": "2B,3B,SS,LF",
+        "mlbTeam": "ATL",
+        "slot": ""
+      },
+      {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "slot": ""
+      },
+      {
+        "name": "Jordan Walker",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Jorge Soler",
+        "pos": "RF",
+        "mlbTeam": "LAA",
+        "slot": ""
+      },
+      {
+        "name": "Cam Smith",
+        "pos": "RF",
+        "mlbTeam": "HOU",
+        "slot": ""
+      },
+      {
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Josh Bell",
+        "pos": "1B",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Riley O'Brien",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "slot": ""
+      },
+      {
+        "name": "Ryan O'Hearn",
+        "pos": "1B,RF",
+        "mlbTeam": "PIT",
+        "slot": ""
+      }
+    ]
+  },
+  {
+    "teamId": 6,
+    "teamName": "Fantasy & Games",
+    "players": [
+      {
+        "name": "Jeffrey Springs",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Noah Schultz",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "slot": ""
+      },
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Mauricio Dubon",
+        "pos": "2B,3B,SS,LF",
+        "mlbTeam": "ATL",
+        "slot": ""
+      },
+      {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "slot": ""
+      },
+      {
+        "name": "Jordan Walker",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Jorge Soler",
+        "pos": "RF",
+        "mlbTeam": "LAA",
+        "slot": ""
+      },
+      {
+        "name": "Cam Smith",
+        "pos": "RF",
+        "mlbTeam": "HOU",
+        "slot": ""
+      },
+      {
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Josh Bell",
+        "pos": "1B",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Riley O'Brien",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "slot": ""
+      },
+      {
+        "name": "Ryan O'Hearn",
+        "pos": "1B,RF",
+        "mlbTeam": "PIT",
+        "slot": ""
+      }
+    ]
+  },
+  {
+    "teamId": 7,
+    "teamName": "Fantasy & Games",
+    "players": [
+      {
+        "name": "Jeffrey Springs",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Noah Schultz",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "slot": ""
+      },
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Mauricio Dubon",
+        "pos": "2B,3B,SS,LF",
+        "mlbTeam": "ATL",
+        "slot": ""
+      },
+      {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "slot": ""
+      },
+      {
+        "name": "Jordan Walker",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Jorge Soler",
+        "pos": "RF",
+        "mlbTeam": "LAA",
+        "slot": ""
+      },
+      {
+        "name": "Cam Smith",
+        "pos": "RF",
+        "mlbTeam": "HOU",
+        "slot": ""
+      },
+      {
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Josh Bell",
+        "pos": "1B",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Riley O'Brien",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "slot": ""
+      },
+      {
+        "name": "Ryan O'Hearn",
+        "pos": "1B,RF",
+        "mlbTeam": "PIT",
+        "slot": ""
+      }
+    ]
+  },
+  {
+    "teamId": 8,
+    "teamName": "Fantasy & Games",
+    "players": [
+      {
+        "name": "Jeffrey Springs",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Noah Schultz",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "slot": ""
+      },
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Mauricio Dubon",
+        "pos": "2B,3B,SS,LF",
+        "mlbTeam": "ATL",
+        "slot": ""
+      },
+      {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "slot": ""
+      },
+      {
+        "name": "Jordan Walker",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Jorge Soler",
+        "pos": "RF",
+        "mlbTeam": "LAA",
+        "slot": ""
+      },
+      {
+        "name": "Cam Smith",
+        "pos": "RF",
+        "mlbTeam": "HOU",
+        "slot": ""
+      },
+      {
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Josh Bell",
+        "pos": "1B",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Riley O'Brien",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "slot": ""
+      },
+      {
+        "name": "Ryan O'Hearn",
+        "pos": "1B,RF",
+        "mlbTeam": "PIT",
+        "slot": ""
+      }
+    ]
+  },
+  {
+    "teamId": 9,
+    "teamName": "Fantasy & Games",
+    "players": [
+      {
+        "name": "Jeffrey Springs",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Noah Schultz",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "slot": ""
+      },
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Mauricio Dubon",
+        "pos": "2B,3B,SS,LF",
+        "mlbTeam": "ATL",
+        "slot": ""
+      },
+      {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "slot": ""
+      },
+      {
+        "name": "Jordan Walker",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Jorge Soler",
+        "pos": "RF",
+        "mlbTeam": "LAA",
+        "slot": ""
+      },
+      {
+        "name": "Cam Smith",
+        "pos": "RF",
+        "mlbTeam": "HOU",
+        "slot": ""
+      },
+      {
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Josh Bell",
+        "pos": "1B",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Riley O'Brien",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "slot": ""
+      },
+      {
+        "name": "Ryan O'Hearn",
+        "pos": "1B,RF",
+        "mlbTeam": "PIT",
+        "slot": ""
+      }
+    ]
+  },
+  {
+    "teamId": 10,
+    "teamName": "Fantasy & Games",
+    "players": [
+      {
+        "name": "Jeffrey Springs",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Noah Schultz",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "slot": ""
+      },
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Mauricio Dubon",
+        "pos": "2B,3B,SS,LF",
+        "mlbTeam": "ATL",
+        "slot": ""
+      },
+      {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "slot": ""
+      },
+      {
+        "name": "Jordan Walker",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Jorge Soler",
+        "pos": "RF",
+        "mlbTeam": "LAA",
+        "slot": ""
+      },
+      {
+        "name": "Cam Smith",
+        "pos": "RF",
+        "mlbTeam": "HOU",
+        "slot": ""
+      },
+      {
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Josh Bell",
+        "pos": "1B",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Riley O'Brien",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "slot": ""
+      },
+      {
+        "name": "Ryan O'Hearn",
+        "pos": "1B,RF",
+        "mlbTeam": "PIT",
+        "slot": ""
+      }
+    ]
+  },
+  {
+    "teamId": 11,
+    "teamName": "Fantasy & Games",
+    "players": [
+      {
+        "name": "Jeffrey Springs",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Noah Schultz",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "slot": ""
+      },
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Mauricio Dubon",
+        "pos": "2B,3B,SS,LF",
+        "mlbTeam": "ATL",
+        "slot": ""
+      },
+      {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "slot": ""
+      },
+      {
+        "name": "Jordan Walker",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Jorge Soler",
+        "pos": "RF",
+        "mlbTeam": "LAA",
+        "slot": ""
+      },
+      {
+        "name": "Cam Smith",
+        "pos": "RF",
+        "mlbTeam": "HOU",
+        "slot": ""
+      },
+      {
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Josh Bell",
+        "pos": "1B",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Riley O'Brien",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "slot": ""
+      },
+      {
+        "name": "Ryan O'Hearn",
+        "pos": "1B,RF",
+        "mlbTeam": "PIT",
+        "slot": ""
+      }
+    ]
+  },
+  {
+    "teamId": 12,
+    "teamName": "Fantasy & Games",
+    "players": [
+      {
+        "name": "Jeffrey Springs",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Noah Schultz",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "slot": ""
+      },
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Mauricio Dubon",
+        "pos": "2B,3B,SS,LF",
+        "mlbTeam": "ATL",
+        "slot": ""
+      },
+      {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "slot": ""
+      },
+      {
+        "name": "Jordan Walker",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Jorge Soler",
+        "pos": "RF",
+        "mlbTeam": "LAA",
+        "slot": ""
+      },
+      {
+        "name": "Cam Smith",
+        "pos": "RF",
+        "mlbTeam": "HOU",
+        "slot": ""
+      },
+      {
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
+        "slot": ""
+      },
+      {
+        "name": "Josh Bell",
+        "pos": "1B",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Riley O'Brien",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "slot": ""
+      },
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "slot": ""
+      },
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "slot": ""
+      },
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "slot": ""
+      },
+      {
+        "name": "Ryan O'Hearn",
+        "pos": "1B,RF",
+        "mlbTeam": "PIT",
+        "slot": ""
+      }
+    ]
+  }
+]
