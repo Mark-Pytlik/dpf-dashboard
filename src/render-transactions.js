@@ -14,8 +14,12 @@ function _renderTransactionsInner(section) {
   const allTxns = [];
 
   // CBS transactions (scraped from league page)
+  // Skip IL/activation moves — only show waiver adds, drops, and trades
+  const SKIP_ACTIONS = /^(activated|placed on il|il|recalled|promoted|optioned)/i;
   CBS_TRANSACTIONS.forEach(txn => {
     txn.players.forEach(p => {
+      const action = (p.action || '').replace(/^Added off Waivers$/i, 'Added');
+      if (SKIP_ACTIONS.test(action)) return;
       allTxns.push({
         date: txn.date,
         team: txn.team,
@@ -23,7 +27,7 @@ function _renderTransactionsInner(section) {
         player: p.name,
         pos: p.pos,
         mlbTeam: p.mlbTeam,
-        action: (p.action || '').replace(/^Added off Waivers$/i, 'Added'),
+        action,
         effective: txn.effective,
         source: 'CBS'
       });
