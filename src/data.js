@@ -107,8 +107,10 @@ const TXN_BUILD_TIME = '__BUILD_TIME__';
 const PLAYER_NEWS = __PLAYER_NEWS_JSON__;
 const INJURIES = __INJURIES_JSON__;
 // Build injury lookup: name -> { status, injury, return }
+// Handle both flat array format and wrapped {scraped, count, injuries:[]} format
+const INJURY_LIST = Array.isArray(INJURIES) ? INJURIES : (INJURIES && INJURIES.injuries || []);
 const INJURY_MAP = new Map();
-(INJURIES || []).forEach(inj => INJURY_MAP.set(inj.name, inj));
+INJURY_LIST.forEach(inj => INJURY_MAP.set(inj.name, inj));
 function _injBadge(name) {
   const inj = INJURY_MAP.get(name);
   if (!inj) return '';
