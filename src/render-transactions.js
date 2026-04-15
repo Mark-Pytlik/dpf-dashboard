@@ -123,7 +123,7 @@ function _renderTransactionsInner(section) {
     html += `<tr class="txn-row" data-team="${tx.team}" data-action="${filterAction}" style="background:${rowBg};">`;
     html += `<td style="padding:8px 12px;font-size:12px;color:var(--text2);white-space:nowrap;">${tx.date}</td>`;
     html += `<td style="padding:8px 12px;font-size:12px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${tx.team}">${tx.team}</td>`;
-    html += `<td style="padding:8px 12px;font-size:13px;font-weight:700;color:${actionColor};">${actionIcon} ${tx.action}</td>`;
+    html += `<td style="padding:8px 12px;font-size:13px;font-weight:700;color:${actionColor};max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${tx.action}">${actionIcon} ${tx.action}</td>`;
     html += `<td style="padding:8px 12px;font-size:13px;font-weight:600;">${tx.player}</td>`;
     html += `<td style="padding:8px 12px;"><span class="pos-badge pos-${(tx.pos||'').split(',')[0]}">${tx.pos}</span></td>`;
     html += `<td style="padding:8px 12px;font-size:12px;color:var(--text2);">${tx.mlbTeam}</td>`;
