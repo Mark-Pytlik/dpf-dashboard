@@ -345,11 +345,11 @@ function render() {
             if (ownerTeam) {
               ownerLabel = ownerTeam.owner || ownerTeam.name;
             } else {
-              // Fallback to draft pick data
+              // Fallback to draft pick data (dp.team is a pick number 1-12)
               const dp = PICK_BY_NAME[p.name];
               if (dp && dp.team) {
-                const dpTeam = LEAGUE_TEAMS.find(t => t.name === dp.team);
-                ownerLabel = dpTeam ? (dpTeam.owner || dpTeam.name) : dp.team;
+                const dpTeam = LEAGUE_TEAMS.find(t => t.pick === dp.team || t.name === dp.team);
+                ownerLabel = dpTeam ? (dpTeam.owner || dpTeam.name) : 'Owned';
               } else {
                 ownerLabel = 'Owned';
               }
