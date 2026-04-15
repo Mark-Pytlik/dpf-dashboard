@@ -1,7 +1,7 @@
-[
-  {
-    "teamId": 1,
-    "teamName": "Baseball",
+{
+  "1": {
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Yainer Diaz",
@@ -55,7 +55,7 @@
         "name": "Kyle Schwarber",
         "pos": "U",
         "mlbTeam": "PHI",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Ceddanne Rafaela",
@@ -91,7 +91,7 @@
         "name": "Colson Montgomery",
         "pos": "SS",
         "mlbTeam": "CHW",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Adley Rutschman",
@@ -124,12 +124,6 @@
         "slot": "SP"
       },
       {
-        "name": "Aaron Nola",
-        "pos": "SP",
-        "mlbTeam": "PHI",
-        "slot": "SP"
-      },
-      {
         "name": "Andrew Painter",
         "pos": "SP",
         "mlbTeam": "PHI",
@@ -139,6 +133,12 @@
         "name": "Trevor Rogers",
         "pos": "SP",
         "mlbTeam": "BAL",
+        "slot": "SP"
+      },
+      {
+        "name": "Cameron Schlittler",
+        "pos": "SP",
+        "mlbTeam": "NYY",
         "slot": "SP"
       },
       {
@@ -172,9 +172,9 @@
         "slot": "RP"
       },
       {
-        "name": "Cameron Schlittler",
+        "name": "Aaron Nola",
         "pos": "SP",
-        "mlbTeam": "NYY",
+        "mlbTeam": "PHI",
         "slot": "SP"
       },
       {
@@ -185,9 +185,9 @@
       }
     ]
   },
-  {
-    "teamId": 2,
-    "teamName": "Baseball",
+  "2": {
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
     "players": [
       {
         "name": "Samuel Basallo",
@@ -202,9 +202,9 @@
         "slot": "1B"
       },
       {
-        "name": "Andres Gimenez",
-        "pos": "2B,SS",
-        "mlbTeam": "TOR",
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF",
+        "mlbTeam": "CLE",
         "slot": "2B"
       },
       {
@@ -241,7 +241,7 @@
         "name": "Brandon Nimmo",
         "pos": "LF,RF",
         "mlbTeam": "TEX",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Willson Contreras",
@@ -253,7 +253,7 @@
         "name": "Munetaka Murakami",
         "pos": "1B",
         "mlbTeam": "CHW",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Kyle Teel",
@@ -283,7 +283,7 @@
         "name": "Aidan Miller",
         "pos": "SS",
         "mlbTeam": "PHI",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Bubba Chandler",
@@ -346,15 +346,15 @@
         "slot": "RP"
       },
       {
-        "name": "Chris Bassitt",
-        "pos": "SP",
-        "mlbTeam": "BAL",
-        "slot": "SP"
-      },
-      {
         "name": "Kyle Harrison",
         "pos": "SP",
         "mlbTeam": "MIL",
+        "slot": "SP"
+      },
+      {
+        "name": "David Peterson",
+        "pos": "SP",
+        "mlbTeam": "NYM",
         "slot": "SP"
       },
       {
@@ -389,9 +389,9 @@
       }
     ]
   },
-  {
-    "teamId": 3,
-    "teamName": "Baseball",
+  "3": {
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Ben Rice",
@@ -445,7 +445,7 @@
         "name": "Wyatt Langford",
         "pos": "LF,CF",
         "mlbTeam": "TEX",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Sam Antonacci",
@@ -463,7 +463,7 @@
         "name": "Isaac Paredes",
         "pos": "3B",
         "mlbTeam": "HOU",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Jordan Westburg",
@@ -475,7 +475,7 @@
         "name": "Jackson Chourio",
         "pos": "LF,CF,RF",
         "mlbTeam": "MIL",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Bryce Rainer",
@@ -593,9 +593,9 @@
       }
     ]
   },
-  {
-    "teamId": 4,
-    "teamName": "Baseball",
+  "4": {
+    "teamId": "4",
+    "teamName": "Okamotomami",
     "players": [
       {
         "name": "Drake Baldwin",
@@ -610,9 +610,9 @@
         "slot": "1B"
       },
       {
-        "name": "Gleyber Torres",
-        "pos": "2B",
-        "mlbTeam": "DET",
+        "name": "Ernie Clement",
+        "pos": "2B,3B,SS",
+        "mlbTeam": "TOR",
         "slot": "2B"
       },
       {
@@ -649,12 +649,12 @@
         "name": "Liam Hicks",
         "pos": "C,1B",
         "mlbTeam": "MIA",
-        "slot": ""
+        "slot": "U"
       },
       {
-        "name": "Ernie Clement",
-        "pos": "2B,3B,SS",
-        "mlbTeam": "TOR",
+        "name": "Gleyber Torres",
+        "pos": "2B",
+        "mlbTeam": "DET",
         "slot": "2B"
       },
       {
@@ -667,13 +667,13 @@
         "name": "Kazuma Okamoto",
         "pos": "3B",
         "mlbTeam": "TOR",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Giancarlo Stanton",
         "pos": "U",
         "mlbTeam": "NYY",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "George Springer",
@@ -779,9 +779,9 @@
       }
     ]
   },
-  {
-    "teamId": 5,
-    "teamName": "Baseball",
+  "5": {
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Cal Raleigh",
@@ -802,15 +802,15 @@
         "slot": "2B"
       },
       {
-        "name": "Miguel Vargas",
-        "pos": "1B,3B",
-        "mlbTeam": "CHW",
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
         "slot": "3B"
       },
       {
-        "name": "Jacob Wilson",
+        "name": "Xander Bogaerts",
         "pos": "SS",
-        "mlbTeam": "ATH",
+        "mlbTeam": "SD",
         "slot": "SS"
       },
       {
@@ -835,7 +835,7 @@
         "name": "Yordan Alvarez",
         "pos": "U",
         "mlbTeam": "HOU",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Josh Naylor",
@@ -844,15 +844,15 @@
         "slot": "1B"
       },
       {
-        "name": "Max Muncy",
-        "pos": "2B,3B",
-        "mlbTeam": "ATH",
+        "name": "Miguel Vargas",
+        "pos": "1B,3B",
+        "mlbTeam": "CHW",
         "slot": "3B"
       },
       {
-        "name": "Xander Bogaerts",
+        "name": "Jacob Wilson",
         "pos": "SS",
-        "mlbTeam": "SD",
+        "mlbTeam": "ATH",
         "slot": "SS"
       },
       {
@@ -983,9 +983,9 @@
       }
     ]
   },
-  {
-    "teamId": 6,
-    "teamName": "Baseball",
+  "6": {
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Hunter Goodman",
@@ -1039,7 +1039,7 @@
         "name": "Bryce Harper",
         "pos": "1B",
         "mlbTeam": "PHI",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Kerry Carpenter",
@@ -1057,7 +1057,7 @@
         "name": "Mookie Betts",
         "pos": "SS",
         "mlbTeam": "LAD",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Edwin Arroyo",
@@ -1090,15 +1090,15 @@
         "slot": "SP"
       },
       {
-        "name": "Joey Cantillo",
-        "pos": "SP,RP",
-        "mlbTeam": "CLE",
+        "name": "Rhett Lowder",
+        "pos": "SP",
+        "mlbTeam": "CIN",
         "slot": "SP"
       },
       {
-        "name": "Luis Castillo",
+        "name": "Seth Lugo",
         "pos": "SP",
-        "mlbTeam": "SEA",
+        "mlbTeam": "KC",
         "slot": "SP"
       },
       {
@@ -1150,15 +1150,15 @@
         "slot": "SP"
       },
       {
-        "name": "Rhett Lowder",
-        "pos": "SP",
-        "mlbTeam": "CIN",
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
         "slot": "SP"
       },
       {
-        "name": "Seth Lugo",
+        "name": "Luis Castillo",
         "pos": "SP",
-        "mlbTeam": "KC",
+        "mlbTeam": "SEA",
         "slot": "SP"
       },
       {
@@ -1193,9 +1193,9 @@
       }
     ]
   },
-  {
-    "teamId": 7,
-    "teamName": "Baseball",
+  "7": {
+    "teamId": "7",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "players": [
       {
         "name": "Agustin Ramirez",
@@ -1249,7 +1249,7 @@
         "name": "Kevin McGonigle",
         "pos": "SS",
         "mlbTeam": "DET",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Salvador Perez",
@@ -1273,7 +1273,7 @@
         "name": "Bo Bichette",
         "pos": "3B,SS",
         "mlbTeam": "NYM",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Kyle Stowers",
@@ -1397,9 +1397,9 @@
       }
     ]
   },
-  {
-    "teamId": 8,
-    "teamName": "Baseball",
+  "8": {
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Will Smith",
@@ -1453,7 +1453,7 @@
         "name": "Kyle Tucker",
         "pos": "RF",
         "mlbTeam": "LAD",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Carter Jensen",
@@ -1477,7 +1477,7 @@
         "name": "Moises Ballesteros",
         "pos": "U",
         "mlbTeam": "CHC",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Ralphy Velazquez",
@@ -1595,9 +1595,9 @@
       }
     ]
   },
-  {
-    "teamId": 9,
-    "teamName": "Baseball",
+  "9": {
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
     "players": [
       {
         "name": "William Contreras",
@@ -1642,16 +1642,22 @@
         "slot": "CF"
       },
       {
+        "name": "Lawrence Butler",
+        "pos": "CF,RF",
+        "mlbTeam": "ATH",
+        "slot": "RF"
+      },
+      {
+        "name": "Matt Chapman",
+        "pos": "3B",
+        "mlbTeam": "SF",
+        "slot": "U"
+      },
+      {
         "name": "Jose Caballero",
         "pos": "2B,3B,SS,RF",
         "mlbTeam": "NYY",
         "slot": "RF"
-      },
-      {
-        "name": "Marcus Semien",
-        "pos": "2B",
-        "mlbTeam": "NYM",
-        "slot": ""
       },
       {
         "name": "Brent Rooker",
@@ -1660,22 +1666,16 @@
         "slot": "RF"
       },
       {
-        "name": "Lawrence Butler",
-        "pos": "CF,RF",
-        "mlbTeam": "ATH",
-        "slot": ""
-      },
-      {
-        "name": "Matt Chapman",
-        "pos": "3B",
-        "mlbTeam": "SF",
-        "slot": ""
-      },
-      {
         "name": "Jeremy Pena",
         "pos": "SS",
         "mlbTeam": "HOU",
-        "slot": ""
+        "slot": "U"
+      },
+      {
+        "name": "Marcus Semien",
+        "pos": "2B",
+        "mlbTeam": "NYM",
+        "slot": "U"
       },
       {
         "name": "Jett Williams",
@@ -1690,15 +1690,15 @@
         "slot": "CF"
       },
       {
-        "name": "Jack Leiter",
+        "name": "Clay Holmes",
         "pos": "SP",
-        "mlbTeam": "TEX",
+        "mlbTeam": "NYM",
         "slot": "SP"
       },
       {
-        "name": "Eury Perez",
+        "name": "Jack Leiter",
         "pos": "SP",
-        "mlbTeam": "MIA",
+        "mlbTeam": "TEX",
         "slot": "SP"
       },
       {
@@ -1732,15 +1732,15 @@
         "slot": "RP"
       },
       {
-        "name": "Jeff Hoffman",
+        "name": "Rico Garcia",
         "pos": "RP",
-        "mlbTeam": "TOR",
+        "mlbTeam": "BAL",
         "slot": "RP"
       },
       {
-        "name": "Ryne Stanek",
+        "name": "Jeff Hoffman",
         "pos": "RP",
-        "mlbTeam": "STL",
+        "mlbTeam": "TOR",
         "slot": "RP"
       },
       {
@@ -1750,9 +1750,9 @@
         "slot": "RP"
       },
       {
-        "name": "Clay Holmes",
+        "name": "Eury Perez",
         "pos": "SP",
-        "mlbTeam": "NYM",
+        "mlbTeam": "MIA",
         "slot": "SP"
       },
       {
@@ -1805,9 +1805,9 @@
       }
     ]
   },
-  {
-    "teamId": 10,
-    "teamName": "Baseball",
+  "10": {
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Shea Langeliers",
@@ -1861,7 +1861,7 @@
         "name": "Roman Anthony",
         "pos": "RF",
         "mlbTeam": "BOS",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Michael Busch",
@@ -1885,13 +1885,13 @@
         "name": "Ivan Herrera",
         "pos": "U",
         "mlbTeam": "STL",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Jordan Lawlar",
         "pos": "3B",
         "mlbTeam": "ARI",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Rainiel Rodriguez",
@@ -1918,9 +1918,9 @@
         "slot": "SP"
       },
       {
-        "name": "Kevin Gausman",
+        "name": "Jack Flaherty",
         "pos": "SP",
-        "mlbTeam": "TOR",
+        "mlbTeam": "DET",
         "slot": "SP"
       },
       {
@@ -1930,7 +1930,7 @@
         "slot": "SP"
       },
       {
-        "name": "Merrill Kelly",
+        "name": "Eduardo Rodriguez",
         "pos": "SP",
         "mlbTeam": "ARI",
         "slot": "SP"
@@ -1972,13 +1972,13 @@
         "slot": "SP"
       },
       {
-        "name": "Jack Flaherty",
+        "name": "Kevin Gausman",
         "pos": "SP",
-        "mlbTeam": "DET",
+        "mlbTeam": "TOR",
         "slot": "SP"
       },
       {
-        "name": "Eduardo Rodriguez",
+        "name": "Merrill Kelly",
         "pos": "SP",
         "mlbTeam": "ARI",
         "slot": "SP"
@@ -2009,9 +2009,9 @@
       }
     ]
   },
-  {
-    "teamId": 11,
-    "teamName": "Baseball",
+  "11": {
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
     "players": [
       {
         "name": "J.T. Realmuto",
@@ -2062,22 +2062,16 @@
         "slot": "RF"
       },
       {
-        "name": "Shohei Ohtani",
-        "pos": "U,SP",
-        "mlbTeam": "LAD",
-        "slot": ""
+        "name": "Chase DeLauter",
+        "pos": "RF",
+        "mlbTeam": "CLE",
+        "slot": "U"
       },
       {
         "name": "Francisco Lindor",
         "pos": "SS",
         "mlbTeam": "NYM",
         "slot": "SS"
-      },
-      {
-        "name": "Chase DeLauter",
-        "pos": "RF",
-        "mlbTeam": "CLE",
-        "slot": "RF"
       },
       {
         "name": "Seiya Suzuki",
@@ -2089,7 +2083,7 @@
         "name": "Shohei Ohtani",
         "pos": "U,SP",
         "mlbTeam": "LAD",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Alejandro Kirk",
@@ -2116,9 +2110,9 @@
         "slot": "CF"
       },
       {
-        "name": "Edward Cabrera",
+        "name": "Slade Cecconi",
         "pos": "SP",
-        "mlbTeam": "CHC",
+        "mlbTeam": "CLE",
         "slot": "SP"
       },
       {
@@ -2140,9 +2134,9 @@
         "slot": "SP"
       },
       {
-        "name": "Tarik Skubal",
-        "pos": "SP",
-        "mlbTeam": "DET",
+        "name": "Shohei Ohtani",
+        "pos": "U,SP",
+        "mlbTeam": "LAD",
         "slot": "SP"
       },
       {
@@ -2182,9 +2176,9 @@
         "slot": "SP"
       },
       {
-        "name": "Slade Cecconi",
+        "name": "Edward Cabrera",
         "pos": "SP",
-        "mlbTeam": "CLE",
+        "mlbTeam": "CHC",
         "slot": "SP"
       },
       {
@@ -2197,6 +2191,12 @@
         "name": "Landen Roupp",
         "pos": "SP",
         "mlbTeam": "SF",
+        "slot": "SP"
+      },
+      {
+        "name": "Tarik Skubal",
+        "pos": "SP",
+        "mlbTeam": "DET",
         "slot": "SP"
       },
       {
@@ -2225,9 +2225,9 @@
       }
     ]
   },
-  {
-    "teamId": 12,
-    "teamName": "Baseball",
+  "12": {
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Francisco Alvarez",
@@ -2281,7 +2281,7 @@
         "name": "Ramon Laureano",
         "pos": "LF,RF",
         "mlbTeam": "SD",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Jonathan Aranda",
@@ -2311,7 +2311,7 @@
         "name": "Christian Yelich",
         "pos": "U",
         "mlbTeam": "MIL",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "A.J. Ewing",
@@ -2329,7 +2329,7 @@
         "name": "Bryce Eldridge",
         "pos": "U",
         "mlbTeam": "SF",
-        "slot": ""
+        "slot": "U"
       },
       {
         "name": "Bryce Elder",
@@ -2368,6 +2368,12 @@
         "slot": "RP"
       },
       {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "slot": "RP"
+      },
+      {
         "name": "Tony Santillan",
         "pos": "RP",
         "mlbTeam": "CIN",
@@ -2377,12 +2383,6 @@
         "name": "Paul Sewald",
         "pos": "RP",
         "mlbTeam": "ARI",
-        "slot": "RP"
-      },
-      {
-        "name": "Luke Weaver",
-        "pos": "RP",
-        "mlbTeam": "NYM",
         "slot": "RP"
       },
       {
@@ -2423,4 +2423,4 @@
       }
     ]
   }
-]
+}
