@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Compare CBS rosters with cbs_transactions.json and generate missing Add transactions.
+"""Compare CBS rosters with cbs_transactions.json and generate missing Add/Drop transactions.
 
 Usage: python3 roster_sync.py
 Reads: cbs_rosters.json, data/cbs_transactions.json
-Writes: Updated data/cbs_transactions.json with synthetic "Added" transactions
+Writes: Updated data/cbs_transactions.json with synthetic transactions
 """
 import json, sys
+from datetime import datetime
 
 CBS_TEAM_IDS = {
     'Weird Fishes / Arrighetti': '1',
@@ -23,22 +24,23 @@ CBS_TEAM_IDS = {
     "Popped A Mahle I'm Sweating": '12',
 }
 
+# Reverse map: team_id -> team_name (first match)
+TEAM_ID_TO_NAME = {}
+for name, tid in CBS_TEAM_IDS.items():
+    if tid not in TEAM_ID_TO_NAME:
+        TEAM_ID_TO_NAME[tid] = name
+
 cbs_rosters = json.load(open('cbs_rosters.json'))
 txns = json.load(open('data/cbs_transactions.json'))
 
-# Build current state: for each player, find the LAST action affecting them
-# (sorted by date). If the last action was "Dropped", they're a free agent.
-# If the last action was "Added"/"Added off Waivers"/"Traded from...", they're on a team.
-from datetime import datetime
-import re
-
 def parse_date(s):
-    """Parse CBS date string like '3/21/26 10:18 PM ET' to datetime."""
-    s = s.replace(' ET', '').strip()
-    try:
-        return datetime.strptime(s, '%m/%d/%y %I:%M %p')
-    except:
-        return datetime.min
+    s = s.replace('\u00a0', ' ').replace(' ET', '').strip()
+    for fmt in ('%m/%d/%y %I:%M %p', '%m/%d/%y'):
+        try:
+            return datetime.strptime(s, fmt)
+        except:
+            pass
+    return datetime.min
 
 # Sort transactions by date
 txns_sorted = sorted(txns, key=lambda t: parse_date(t['date']))
@@ -46,14 +48,29 @@ txns_sorted = sorted(txns, key=lambda t: parse_date(t['date']))
 # Track last action per player
 player_last_action = {}  # name -> (action, teamId, date)
 for txn in txns_sorted:
-    team_id = txn.get('teamId', '')
+    team_id = str(txn.get('teamId', ''))
     for p in txn.get('players', []):
         name = p.get('name', '')
+        if not name:
+            continue
         action = p.get('action', '')
         player_last_action[name] = (action, team_id, txn['date'])
 
-# Now check each CBS roster player
+# Build set of all players currently on CBS rosters
+rostered_players = set()
+roster_team = {}  # player_name -> team_name
+for team_name, players in cbs_rosters.items():
+    for player_name in players:
+        rostered_players.add(player_name)
+        roster_team[player_name] = team_name
+
+from datetime import date as dt_date
+TODAY = dt_date.today().strftime('%-m/%-d/%y') + ' 12:00 AM ET'
+SYNTHETIC_ADD_DATE = '4/3/26 12:00 AM ET'
+
 new_txns = []
+
+# --- MISSING ADDS: player is on CBS roster but last transaction says Dropped ---
 for team_name, players in cbs_rosters.items():
     team_id = CBS_TEAM_IDS.get(team_name, '')
     for player_name in players:
@@ -61,36 +78,38 @@ for team_name, players in cbs_rosters.items():
         if last:
             action, last_team, last_date = last
             if action == 'Dropped':
-                # Player was dropped but is now on a CBS roster — missing re-add
                 new_txns.append({
-                    'date': '4/3/26 12:00 AM ET',
+                    'date': SYNTHETIC_ADD_DATE,
                     'teamId': team_id,
-                    'teamName': team_name,
-                    'players': [{
-                        'name': player_name,
-                        'action': 'Added',
-                        'synthetic': True
-                    }]
+                    'team': team_name,
+                    'players': [{'name': player_name, 'action': 'Added', 'synthetic': True}]
                 })
                 print(f"  MISSING ADD: {player_name} → {team_name} (was Dropped on {last_date})")
-            elif action in ('Added', 'Added off Waivers') and last_team != team_id:
-                # Player was added to a different team than their CBS roster
+            elif action in ('Added', 'Added off Waivers') and str(last_team) != str(team_id):
                 new_txns.append({
-                    'date': '4/3/26 12:00 AM ET',
+                    'date': SYNTHETIC_ADD_DATE,
                     'teamId': team_id,
-                    'teamName': team_name,
-                    'players': [{
-                        'name': player_name,
-                        'action': 'Added',
-                        'synthetic': True
-                    }]
+                    'team': team_name,
+                    'players': [{'name': player_name, 'action': 'Added', 'synthetic': True}]
                 })
                 print(f"  WRONG TEAM: {player_name} → {team_name} (was on team {last_team})")
 
+# --- MISSING DROPS: player's last action was Add but they're not on any CBS roster ---
+ADD_ACTIONS = {'added', 'added off waivers', 'activated'}
+for player_name, (action, team_id, last_date) in player_last_action.items():
+    if action.lower() in ADD_ACTIONS and player_name not in rostered_players:
+        team_name = TEAM_ID_TO_NAME.get(str(team_id), f'Team {team_id}')
+        new_txns.append({
+            'date': TODAY,
+            'teamId': team_id,
+            'team': team_name,
+            'players': [{'name': player_name, 'action': 'Dropped', 'synthetic': True}]
+        })
+        print(f"  MISSING DROP: {player_name} from {team_name} (last seen: {action} on {last_date})")
+
 if new_txns:
     txns.extend(new_txns)
-    # Sort by date
-    txns.sort(key=lambda t: parse_date(t['date']))
+    txns.sort(key=lambda t: parse_date(t['date']), reverse=True)
     json.dump(txns, open('data/cbs_transactions.json', 'w'), indent=2)
     print(f"\nAdded {len(new_txns)} synthetic transactions. Total: {len(txns)}")
 else:
