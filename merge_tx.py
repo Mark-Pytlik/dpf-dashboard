@@ -27,10 +27,16 @@ TEAM_IDS = {
     "Popped A Mahle I'm Sweating": 12,
 }
 
+def normalize_date(d):
+    """Normalize date string by replacing non-breaking spaces with regular spaces."""
+    return d.replace('\u00a0', ' ').replace('\xa0', ' ').strip() if d else ''
+
 def tx_key(tx):
     """Unique key for deduplication."""
     players = ",".join(sorted(p["name"] for p in tx.get("players", [])))
-    return (tx.get("date", ""), tx.get("team", ""), players)
+    date = normalize_date(tx.get("date", ""))
+    team = tx.get("team", tx.get("teamName", ""))
+    return (date, team, players)
 
 def parse_date(d):
     try:
