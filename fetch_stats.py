@@ -1,279 +1,241 @@
 #!/usr/bin/env python3
-"""Fetch 2026 in-season MLB stats from FanGraphs via pybaseball.
+"""Fetch 2026 in-season MLB stats from the MLB Stats API.
+No third-party baseball libraries required — uses only requests.
+
 Run this periodically to update the dashboard with real stats.
 Creates data/bat_2026.csv and data/pit_2026.csv for the build script.
-Also saves daily cumulative snapshots to data/snapshots/ for time-split analysis."""
+
+Usage: python3 fetch_stats.py
+"""
 
 import sys
 import os
-from datetime import date
-
-try:
-    from pybaseball import batting_stats, pitching_stats
-except ImportError:
-    print("ERROR: pybaseball not installed. Run: pip install pybaseball")
-    sys.exit(1)
+import json
+import time
+import requests
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 OUTDIR = 'data'
-SNAP_DIR = os.path.join(OUTDIR, 'snapshots')
+MLB_API = 'https://statsapi.mlb.com/api/v1'
+SEASON = 2026
 
-def _ensure_snap_dir():
-    os.makedirs(SNAP_DIR, exist_ok=True)
+# MLB → FanGraphs team abbreviation mapping (for name consistency with the player pool)
+MLB_TO_FG = {
+    'SD':  'SDP',
+    'SF':  'SFG',
+    'TB':  'TBR',
+    'WAS': 'WSN',
+    'AZ':  'ARI',
+    'CWS': 'CHW',
+    'KC':  'KCR',
+    # Everything else maps 1:1
+}
 
-def fetch_batting():
-    """Fetch 2026 batting stats from FanGraphs.
-    Saves the standard summary CSV and a daily snapshot with component stats
-    (H, AB, BB, HBP, SF) needed for time-split rate stat recomputation."""
-    print("Fetching 2026 batting stats from FanGraphs...")
+def norm_team(abbr):
+    """Normalize MLB API team abbreviation to FanGraphs style."""
+    return MLB_TO_FG.get(abbr, abbr) if abbr else ''
+
+def parse_ip(ip_str):
+    """Parse MLB API inningsPitched string (e.g. '6.2' = 6 innings + 2 outs = 6.667).
+    Returns a float representing true innings pitched."""
     try:
-        df = batting_stats(2026, qual=0)
-        if df is None or len(df) == 0:
-            print("  No 2026 batting data available yet (season may not have started)")
-            return False
+        parts = str(ip_str).split('.')
+        full = int(parts[0]) if parts[0] else 0
+        outs = int(parts[1]) if len(parts) > 1 and parts[1] else 0
+        return round(full + outs / 3, 1)
+    except Exception:
+        return 0.0
 
-        out = df.rename(columns={
-            'Name': 'name', 'Team': 'team',
-            'PA': 'pa', 'HR': 'hr', 'R': 'r', 'RBI': 'rbi',
-            'SB': 'sb', 'SO': 'so', 'AVG': 'avg', 'OBP': 'obp', 'SLG': 'slg'
-        })
+def fetch_pitching_stats():
+    """Fetch 2026 pitching stats for all MLB pitchers."""
+    print("Fetching 2026 pitching stats from MLB Stats API...")
+    url = (f'{MLB_API}/stats?stats=season&season={SEASON}&group=pitching'
+           f'&gameType=R&limit=600&playerPool=ALL&sportId=1&hydrate=team')
+    try:
+        r = requests.get(url, timeout=20)
+        r.raise_for_status()
+        splits = r.json().get('stats', [{}])[0].get('splits', [])
+        print(f"  Got {len(splits)} pitchers from API")
+    except Exception as e:
+        print(f"  ERROR fetching pitching stats: {e}")
+        return False
 
-        cols = ['name', 'team', 'pa', 'hr', 'r', 'rbi', 'sb', 'so', 'avg', 'obp', 'slg']
-        out = out[[c for c in cols if c in out.columns]]
-        out = out[out['pa'] > 0]
+    # Build list of starters (need QS calculation via game logs)
+    starters = []
+    rows = []
+    for s in splits:
+        stat = s.get('stat', {})
+        player = s.get('player', {})
+        team_obj = s.get('team', {})
+        name = player.get('fullName', '')
+        pid = player.get('id')
+        team = norm_team(team_obj.get('abbreviation', ''))
+        gs = int(stat.get('gamesStarted', 0) or 0)
 
-        path = os.path.join(OUTDIR, 'bat_2026.csv')
-        out.to_csv(path, sep='|', index=False)
-        print(f"  Saved {len(out)} batters to {path}")
+        # Parse IP: MLB API returns "20.1" = 20⅓ innings
+        ip_raw = stat.get('inningsPitched', '0')
+        ip = parse_ip(ip_raw)
 
-        # ── Daily snapshot with component stats for time-split analysis ──
-        _ensure_snap_dir()
-        snap = df.rename(columns={'Name': 'name'})
-        # Map FanGraphs columns to our component stat names
-        # These cumulative counting stats allow window computation via subtraction
-        snap_col_map = {
-            'PA': 'pa', 'AB': 'ab', 'H': 'h', 'HR': 'hr', 'R': 'r',
-            'RBI': 'rbi', 'SB': 'sb', 'SO': 'so', 'BB': 'bb',
-            'HBP': 'hbp', 'SF': 'sf', '1B': 'x1b', '2B': 'x2b', '3B': 'x3b'
+        def safe_float(v, default=0.0):
+            try:
+                return float(v) if v and v not in ('-.--', '-.-', '-') else default
+            except (ValueError, TypeError):
+                return default
+
+        row = {
+            'name': name,
+            'team': team,
+            'ip': round(ip, 1),
+            'w': int(stat.get('wins', 0) or 0),
+            'sv': int(stat.get('saves', 0) or 0),
+            'hld': int(stat.get('holds', 0) or 0),
+            'era': safe_float(stat.get('era')),
+            'whip': safe_float(stat.get('whip')),
+            'so': int(stat.get('strikeOuts', 0) or 0),
+            'hr': int(stat.get('homeRuns', 0) or 0),
+            'qs': 0,
+            '_pid': pid,
+            '_gs': gs,
         }
-        for fg_col, our_col in snap_col_map.items():
-            if fg_col in snap.columns:
-                snap = snap.rename(columns={fg_col: our_col})
+        rows.append(row)
+        if gs >= 1 and pid:
+            starters.append((pid, name))
 
-        snap_cols = ['name'] + [c for c in ['pa','ab','h','hr','r','rbi','sb','so','bb','hbp','sf','x1b','x2b','x3b'] if c in snap.columns]
-        snap_out = snap[snap_cols].copy()
-        snap_out = snap_out[snap_out['pa'] > 0]
-        # Convert to int where possible for compact storage
-        for c in snap_cols[1:]:
-            snap_out[c] = snap_out[c].fillna(0).astype(int)
+    # Calculate Quality Starts from game logs
+    print(f"  Computing QS for {len(starters)} starters via game logs...")
+    qs_map = {}
 
-        snap_path = os.path.join(SNAP_DIR, f'bat_{date.today().isoformat()}.csv')
-        snap_out.to_csv(snap_path, sep='|', index=False)
-        print(f"  Snapshot saved: {snap_path} ({len(snap_out)} players)")
+    def fetch_qs(pid_name):
+        pid, name = pid_name
+        url = (f'{MLB_API}/people/{pid}/stats?stats=gameLog&season={SEASON}'
+               f'&group=pitching&gameType=R')
+        try:
+            resp = requests.get(url, timeout=10)
+            game_splits = resp.json().get('stats', [{}])[0].get('splits', [])
+            qs = 0
+            for g in game_splits:
+                gs = int(g.get('stat', {}).get('gamesStarted', 0) or 0)
+                if gs < 1:
+                    continue
+                ip_dec = parse_ip(g.get('stat', {}).get('inningsPitched', '0'))
+                er_raw = g.get('stat', {}).get('earnedRuns')
+                er = int(er_raw) if er_raw is not None else 99
+                if ip_dec >= 6.0 and er <= 3:
+                    qs += 1
+            return pid, qs
+        except Exception:
+            return pid, 0
 
-        return True
-    except Exception as e:
-        print(f"  Error fetching batting stats: {e}")
+    with ThreadPoolExecutor(max_workers=20) as ex:
+        futures = {ex.submit(fetch_qs, pn): pn for pn in starters}
+        done = 0
+        for fut in as_completed(futures):
+            pid, qs = fut.result()
+            qs_map[pid] = qs
+            done += 1
+            if done % 50 == 0:
+                print(f"    {done}/{len(starters)} QS calculations done...")
+
+    print(f"  QS computed for {len(qs_map)} starters")
+
+    # Apply QS and filter to meaningful pitchers
+    out_rows = []
+    for row in rows:
+        pid = row.pop('_pid')
+        gs = row.pop('_gs')
+        row['qs'] = qs_map.get(pid, 0)
+        if row['ip'] > 0:
+            out_rows.append(row)
+
+    if not out_rows:
+        print("  No pitching data to save")
         return False
 
-def fetch_pitching():
-    """Fetch 2026 pitching stats from FanGraphs.
-    Saves the standard summary CSV and a daily snapshot with component stats
-    (ER, H_allowed, BB_allowed, BFP) for time-split rate stat recomputation."""
-    print("Fetching 2026 pitching stats from FanGraphs...")
-    try:
-        df = pitching_stats(2026, qual=0)
-        if df is None or len(df) == 0:
-            print("  No 2026 pitching data available yet (season may not have started)")
-            return False
+    # Write to CSV
+    path = os.path.join(OUTDIR, 'pit_2026.csv')
+    cols = ['name', 'team', 'ip', 'w', 'sv', 'hld', 'era', 'whip', 'so', 'hr', 'qs']
+    with open(path, 'w') as f:
+        f.write('|'.join(cols) + '\n')
+        for row in out_rows:
+            vals = [str(row.get(c, '')) for c in cols]
+            f.write('|'.join(vals) + '\n')
 
-        out = df.rename(columns={
-            'Name': 'name', 'Team': 'team',
-            'IP': 'ip', 'W': 'w', 'SV': 'sv', 'HLD': 'hld',
-            'ERA': 'era', 'WHIP': 'whip', 'SO': 'so',
-            'HR': 'hr', 'QS': 'qs'
+    print(f"  Saved {len(out_rows)} pitchers to {path}")
+    return True
+
+
+def fetch_batting_stats():
+    """Fetch 2026 batting stats for all MLB batters."""
+    print("Fetching 2026 batting stats from MLB Stats API...")
+    url = (f'{MLB_API}/stats?stats=season&season={SEASON}&group=hitting'
+           f'&gameType=R&limit=600&playerPool=ALL&sportId=1&hydrate=team')
+    try:
+        r = requests.get(url, timeout=20)
+        r.raise_for_status()
+        splits = r.json().get('stats', [{}])[0].get('splits', [])
+        print(f"  Got {len(splits)} batters from API")
+    except Exception as e:
+        print(f"  ERROR fetching batting stats: {e}")
+        return False
+
+    out_rows = []
+    for s in splits:
+        stat = s.get('stat', {})
+        player = s.get('player', {})
+        team_obj = s.get('team', {})
+        name = player.get('fullName', '')
+        team = norm_team(team_obj.get('abbreviation', ''))
+        pa = int(stat.get('plateAppearances', 0) or 0)
+        if pa == 0:
+            continue
+
+        def safe_float_b(v, default=0.0):
+            try:
+                return float(v) if v and v not in ('-.--', '-.-', '-') else default
+            except (ValueError, TypeError):
+                return default
+
+        out_rows.append({
+            'name': name,
+            'team': team,
+            'pa': pa,
+            'hr': int(stat.get('homeRuns', 0) or 0),
+            'r': int(stat.get('runs', 0) or 0),
+            'rbi': int(stat.get('rbi', 0) or 0),
+            'sb': int(stat.get('stolenBases', 0) or 0),
+            'so': int(stat.get('strikeOuts', 0) or 0),
+            'avg': safe_float_b(stat.get('avg')),
+            'obp': safe_float_b(stat.get('obp')),
+            'slg': safe_float_b(stat.get('slg')),
         })
 
-        cols = ['name', 'team', 'ip', 'w', 'sv', 'hld', 'era', 'whip', 'so', 'hr', 'qs']
-        out = out[[c for c in cols if c in out.columns]]
-        out = out[out['ip'] > 0]
-
-        path = os.path.join(OUTDIR, 'pit_2026.csv')
-        out.to_csv(path, sep='|', index=False)
-        print(f"  Saved {len(out)} pitchers to {path}")
-
-        # ── Daily snapshot with component stats ──
-        _ensure_snap_dir()
-        snap = df.rename(columns={'Name': 'name'})
-        snap_col_map = {
-            'IP': 'ip', 'W': 'w', 'SV': 'sv', 'HLD': 'hld',
-            'SO': 'so', 'HR': 'hr', 'QS': 'qs',
-            'ER': 'er', 'H': 'h', 'BB': 'bb', 'TBF': 'tbf'
-        }
-        for fg_col, our_col in snap_col_map.items():
-            if fg_col in snap.columns:
-                snap = snap.rename(columns={fg_col: our_col})
-
-        snap_cols = ['name'] + [c for c in ['ip','w','sv','hld','so','hr','qs','er','h','bb','tbf'] if c in snap.columns]
-        snap_out = snap[snap_cols].copy()
-        snap_out = snap_out[snap_out['ip'] > 0]
-        for c in snap_cols[1:]:
-            if c == 'ip':
-                snap_out[c] = snap_out[c].fillna(0).round(1)
-            else:
-                snap_out[c] = snap_out[c].fillna(0).astype(int)
-
-        snap_path = os.path.join(SNAP_DIR, f'pit_{date.today().isoformat()}.csv')
-        snap_out.to_csv(snap_path, sep='|', index=False)
-        print(f"  Snapshot saved: {snap_path} ({len(snap_out)} players)")
-
-        return True
-    except Exception as e:
-        print(f"  Error fetching pitching stats: {e}")
+    if not out_rows:
+        print("  No batting data to save")
         return False
 
-def fetch_statcast_sprint():
-    """Fetch sprint speed data from Baseball Savant via pybaseball."""
-    print("Fetching sprint speed data...")
-    try:
-        from pybaseball import statcast_sprint_speed
-        df = statcast_sprint_speed(2026)
-        if df is None or len(df) == 0:
-            print("  No 2026 sprint speed data (trying 2025)...")
-            df = statcast_sprint_speed(2025)
-        if df is None or len(df) == 0:
-            print("  No sprint speed data available")
-            return False
+    path = os.path.join(OUTDIR, 'bat_2026.csv')
+    cols = ['name', 'team', 'pa', 'hr', 'r', 'rbi', 'sb', 'so', 'avg', 'obp', 'slg']
+    with open(path, 'w') as f:
+        f.write('|'.join(cols) + '\n')
+        for row in out_rows:
+            vals = [str(row.get(c, '')) for c in cols]
+            f.write('|'.join(vals) + '\n')
 
-        # Keep relevant columns and rename
-        out = df.rename(columns={
-            'last_name, first_name': 'name_raw',
-            'hp_to_1b': 'hp_to_1b',
-            'sprint_speed': 'speed'
-        })
-        # Convert "Last, First" to "First Last"
-        if 'name_raw' in out.columns:
-            out['name'] = out['name_raw'].apply(lambda x: ' '.join(reversed(x.split(', '))) if ', ' in str(x) else x)
-        elif 'Name' in df.columns:
-            out['name'] = df['Name']
+    print(f"  Saved {len(out_rows)} batters to {path}")
+    return True
 
-        # Assign tiers
-        def tier(spd):
-            if spd >= 29: return 'elite'
-            if spd >= 27: return 'above_avg'
-            if spd >= 25: return 'avg'
-            return 'below_avg'
-
-        out['tier'] = out['speed'].apply(tier)
-        # Only keep players with above-avg or elite speed for breakout detection
-        out = out[out['speed'] >= 27][['name', 'speed', 'tier']].sort_values('speed', ascending=False)
-
-        import json
-        path = os.path.join(OUTDIR, 'sprint_speed_2025.json')
-        records = out.to_dict('records')
-        for r in records:
-            r['speed'] = round(float(r['speed']), 1)
-        json.dump(records, open(path, 'w'), indent=2)
-        print(f"  Saved {len(records)} sprint speed records to {path}")
-        return True
-    except Exception as e:
-        print(f"  Sprint speed fetch skipped: {e}")
-        return False
-
-def fetch_statcast_batting():
-    """Fetch 2026 Statcast advanced batting metrics from FanGraphs."""
-    print("Fetching 2026 Statcast batting metrics from FanGraphs...")
-    try:
-        df = batting_stats(2026, qual=0)
-        if df is None or len(df) == 0:
-            print("  No 2026 batting data for Statcast metrics")
-            return False
-
-        # FanGraphs batting_stats includes Statcast columns when available
-        col_map = {}
-        # Try common FanGraphs column names for Statcast data
-        for src, dst in [('Barrel%', 'barrel_pct'), ('HardHit%', 'hard_hit_pct'),
-                         ('wOBA', 'woba'), ('xwOBA', 'xwoba'),
-                         ('Barrels', 'barrels'), ('Events', 'events')]:
-            if src in df.columns:
-                col_map[src] = dst
-
-        if 'wOBA' not in df.columns:
-            print("  Statcast columns not available in FanGraphs data")
-            return False
-
-        out = df.rename(columns={'Name': 'name', **col_map})
-        # Compute barrel% from Barrels/Events if Barrel% not directly available
-        if 'barrel_pct' not in out.columns and 'barrels' in out.columns and 'events' in out.columns:
-            out['barrel_pct'] = (out['barrels'] / out['events'] * 100).round(1)
-        # Compute hard hit% if available
-        if 'hard_hit_pct' not in out.columns:
-            for alt in ['HardHit%', 'Hard%']:
-                if alt in df.columns:
-                    out['hard_hit_pct'] = df[alt]
-                    break
-
-        keep = ['name']
-        for c in ['barrel_pct', 'hard_hit_pct', 'woba', 'xwoba']:
-            if c in out.columns:
-                keep.append(c)
-
-        out = out[keep].dropna(subset=['woba'])
-        out = out[out['woba'] > 0]
-
-        path = os.path.join(OUTDIR, 'bat_statcast_2026.csv')
-        out.to_csv(path, sep='|', index=False)
-        print(f"  Saved {len(out)} batter Statcast records to {path}")
-        return True
-    except Exception as e:
-        print(f"  Error fetching Statcast batting: {e}")
-        return False
-
-def fetch_statcast_pitching():
-    """Fetch 2026 Stuff+ / pitching metrics from FanGraphs."""
-    print("Fetching 2026 pitching advanced metrics from FanGraphs...")
-    try:
-        df = pitching_stats(2026, qual=0)
-        if df is None or len(df) == 0:
-            print("  No 2026 pitching data for Stuff+ metrics")
-            return False
-
-        col_map = {}
-        for src, dst in [('Stf+', 'stuff_plus'), ('Loc+', 'location_plus'),
-                         ('Pit+', 'pitching_plus'), ('Stuff+', 'stuff_plus'),
-                         ('Location+', 'location_plus'), ('Pitching+', 'pitching_plus')]:
-            if src in df.columns and dst not in col_map.values():
-                col_map[src] = dst
-
-        out = df.rename(columns={'Name': 'name', **col_map})
-        keep = ['name']
-        for c in ['stuff_plus', 'location_plus', 'pitching_plus']:
-            if c in out.columns:
-                keep.append(c)
-
-        if len(keep) <= 1:
-            print("  Stuff+/Location+/Pitching+ columns not available yet")
-            return False
-
-        out = out[keep].dropna(subset=[k for k in keep if k != 'name'])
-        path = os.path.join(OUTDIR, 'stuff_plus_2026.csv')
-        out.to_csv(path, sep='|', index=False)
-        print(f"  Saved {len(out)} pitcher Stuff+ records to {path}")
-        return True
-    except Exception as e:
-        print(f"  Error fetching Stuff+ data: {e}")
-        return False
 
 if __name__ == '__main__':
-    print("=== Fetching 2026 MLB Stats ===")
-    bat_ok = fetch_batting()
-    pit_ok = fetch_pitching()
-    sprint_ok = fetch_statcast_sprint()
-    sc_bat_ok = fetch_statcast_batting()
-    sc_pit_ok = fetch_statcast_pitching()
+    print(f"=== Fetching {SEASON} MLB Stats (MLB Stats API) ===")
+    start = time.time()
+
+    bat_ok = fetch_batting_stats()
+    pit_ok = fetch_pitching_stats()
+
+    elapsed = round(time.time() - start, 1)
+    print(f"\nDone in {elapsed}s.")
 
     if bat_ok or pit_ok:
-        print("\nStats updated! Now run: python3 build_dashboard.py")
-    elif sprint_ok or sc_bat_ok or sc_pit_ok:
-        print("\nAdvanced metrics updated. Run: python3 build_dashboard.py")
+        print("Stats updated! Now run: python3 build_dashboard.py")
     else:
-        print("\nNo stats available yet. The 2026 season starts March 25, 2026.")
+        print(f"No stats available for {SEASON}. Season may not have started yet.")
