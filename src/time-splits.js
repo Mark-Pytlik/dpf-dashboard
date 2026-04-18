@@ -5,6 +5,9 @@
 // Snapshot format (batting):  [pa, ab, h, hr, r, rbi, sb, so, bb, hbp, sf, x1b, x2b, x3b]
 // Snapshot format (pitching): [ip, w, sv, hld, so, hr, qs, er, h, bb, tbf]
 
+// SNAPSHOTS and LCV_STATS are injected by build_dashboard.py.
+// If the daily-snapshots pipeline hasn't produced data yet, the build
+// substitutes empty defaults so this file still evaluates cleanly.
 const SNAPSHOTS = __SNAPSHOTS_JSON__;
 const LCV_STATS = __LCV_STATS_JSON__;
 
@@ -152,13 +155,13 @@ function computePitSplitStats(playerName, windowDays) {
  */
 function computeBatSplitLcv(player, windowDays) {
   const stats = computeBatSplitStats(player.name, windowDays);
-  if (!stats || stats.pa < 10) return null;
+  if (!stats || stats.pa < 30) return null;
 
   const projPa = player.pa || 550; // projected full-season PA
   const pace = projPa / stats.pa;
   const bs = LCV_STATS.bat;
 
-  const lcv = _zscore(stats.avg, bs.avg.mean, bs.avg.std)
+  const rawLcv = _zscore(stats.avg, bs.avg.mean, bs.avg.std)
     + _zscore(stats.hr * pace, bs.hr.mean, bs.hr.std)
     + _zscore(stats.obp, bs.obp.mean, bs.obp.std)
     + _zscore(stats.slg, bs.slg.mean, bs.slg.std)
@@ -167,12 +170,18 @@ function computeBatSplitLcv(player, windowDays) {
     + _zscore(stats.sb * pace, bs.sb.mean, bs.sb.std)
     - _zscore(stats.so * pace, bs.so.mean, bs.so.std);
 
-  // Sample size confidence: PA < 20 = low, 20-50 = med, >50 = high
-  let splitConfidence = 'high';
-  if (stats.pa < 20) splitConfidence = 'low';
-  else if (stats.pa < 50) splitConfidence = 'med';
+  // Regress toward projected LCV based on sample size.
+  // At 30 PA trust actual ~30%, at 200 PA trust ~80%, at 500+ PA trust ~100%.
+  const reliability = Math.min(1, stats.pa / 500);
+  const projLcv = player.lcv || 0;
+  const lcv = reliability * rawLcv + (1 - reliability) * projLcv;
 
-  return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - (player.lcv || 0)) * 100) / 100, splitConfidence };
+  // Sample size confidence: PA < 50 = low, 50-120 = med, >120 = high
+  let splitConfidence = 'high';
+  if (stats.pa < 50) splitConfidence = 'low';
+  else if (stats.pa < 120) splitConfidence = 'med';
+
+  return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - projLcv) * 100) / 100, splitConfidence };
 }
 
 /**
@@ -181,15 +190,15 @@ function computeBatSplitLcv(player, windowDays) {
  */
 function computePitSplitLcv(player, windowDays) {
   const stats = computePitSplitStats(player.name, windowDays);
-  // IP threshold: 1 IP for RPs (short outings), 3 IP for SPs
-  const minIp = (player.pos === 'RP' || player.primaryPos === 'RP') ? 1.0 : 3.0;
+  // IP threshold: 3 IP for RPs (short outings), 10 IP for SPs
+  const minIp = (player.pos === 'RP' || player.primaryPos === 'RP') ? 3.0 : 10.0;
   if (!stats || stats.ip < minIp) return null;
 
   const projIp = player.ip || 150;
   const pace = projIp / stats.ip;
   const ps = LCV_STATS.pit;
 
-  const lcv = -_zscore(stats.era, ps.era.mean, ps.era.std)
+  const rawLcv = -_zscore(stats.era, ps.era.mean, ps.era.std)
     + _zscore(stats.hld * pace, ps.hld.mean, ps.hld.std)
     - _zscore(stats.hr * pace, ps.hr.mean, ps.hr.std)
     + _zscore(stats.so * pace, ps.so.mean, ps.so.std)
@@ -198,12 +207,19 @@ function computePitSplitLcv(player, windowDays) {
     - _zscore(stats.whip, ps.whip.mean, ps.whip.std)
     + _zscore(stats.qs * pace, ps.qs.mean, ps.qs.std);
 
-  // Sample size confidence: IP < 5 = low, 5-15 = med, >15 = high
-  let splitConfidence = 'high';
-  if (stats.ip < 5) splitConfidence = 'low';
-  else if (stats.ip < 15) splitConfidence = 'med';
+  // Regress toward projected LCV based on sample size.
+  // At 10 IP trust actual ~10%, at 80 IP trust ~53%, at 150+ IP trust ~100%.
+  const projIpFull = player.ip || 150;
+  const reliability = Math.min(1, stats.ip / projIpFull);
+  const projLcv = player.lcv || 0;
+  const lcv = reliability * rawLcv + (1 - reliability) * projLcv;
 
-  return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - (player.lcv || 0)) * 100) / 100, splitConfidence };
+  // Sample size confidence: IP < 15 = low, 15-40 = med, >40 = high
+  let splitConfidence = 'high';
+  if (stats.ip < 15) splitConfidence = 'low';
+  else if (stats.ip < 40) splitConfidence = 'med';
+
+  return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - projLcv) * 100) / 100, splitConfidence };
 }
 
 /**
@@ -240,11 +256,33 @@ function applySplitWindow(windowKey) {
   });
 }
 
-// On initial load, save the original full-season values so we can restore them
+// On initial load, save the original full-season values so we can restore them.
+// Also compute an always-on rolling 14-day "hot/cold" signal, independent of
+// whatever window the user has selected. This lights up the HOT/COLD column
+// and the Waiver War Room without requiring the user to switch windows.
 function _initOriginalLcvValues() {
+  const hasRolling = hasSplitData();
   ALL.forEach(p => {
     if (p.actualLcv != null) p._origActualLcv = p.actualLcv;
     if (p.lcvDelta != null) p._origLcvDelta = p.lcvDelta;
+
+    if (!hasRolling) return;
+    const split = p.type === 'PIT'
+      ? computePitSplitLcv(p, 14)
+      : computeBatSplitLcv(p, 14);
+    if (!split) return;
+    p.rollingLcv14 = split.actualLcv;
+    p.rollingLcvDelta14 = split.lcvDelta;
+    p._splitConfidence14 = split.splitConfidence;
+
+    // The HOT/COLD status is the 14-day LCV's swing relative to the
+    // projection. Thresholds are generous for pitchers because their IP-
+    // scaled z-scores move faster.
+    const thresh = p.type === 'PIT' ? 3.5 : 2.5;
+    const coldThresh = p.type === 'PIT' ? -3.0 : -2.5;
+    if (split.lcvDelta >= thresh) p.hotCold14 = 'HOT';
+    else if (split.lcvDelta <= coldThresh) p.hotCold14 = 'COLD';
+    else p.hotCold14 = '';
   });
 }
 

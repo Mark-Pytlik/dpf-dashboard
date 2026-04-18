@@ -1,65 +1,77 @@
 {
   "teams": [
     {
-      "pick": 5,
-      "name": "Weird Fishes / Arrighetti",
-      "owner": "Fran Devinney"
+      "cbs_id": 1,
+      "pick": 1,
+      "owner": "Chris Kaskie",
+      "name": "Colonel Corbin's Ascent"
     },
     {
+      "cbs_id": 2,
+      "pick": 7,
+      "owner": "Anthony Rescan",
+      "name": "Dinosaur Jr Caminero"
+    },
+    {
+      "cbs_id": 3,
+      "pick": 3,
+      "owner": "David Roth",
+      "name": "Popped A Mahle I'm Sweating"
+    },
+    {
+      "cbs_id": 4,
       "pick": 2,
-      "name": "Okamotomami",
       "owner": "Mark Pytlik",
+      "name": "Okamotomami",
       "mine": true
     },
     {
-      "pick": 1,
-      "name": "Colonel Corbin's Ascent",
-      "owner": "Chris Kaskie"
+      "cbs_id": 5,
+      "pick": 5,
+      "owner": "Fran Devinney",
+      "name": "Weird Fishes / Arrighetti"
     },
     {
-      "pick": 4,
-      "name": "Whoop Whoop that's the sound of Dylan Cease",
-      "owner": "Andrew Gaerig"
-    },
-    {
-      "pick": 10,
-      "name": "Buddy Buddy Buddy All On Base",
-      "owner": "Trei Brundrett"
-    },
-    {
+      "cbs_id": 6,
       "pick": 6,
-      "name": "A Pete Crow-Armstrong Looked at Me",
-      "owner": "Ian Wolfe"
+      "owner": "Ian Wolfe",
+      "name": "A Pete Crow-Armstrong Looked at Me"
     },
     {
-      "pick": 7,
-      "name": "Dinosaur Jr Caminero",
-      "owner": "Anthony Rescan"
+      "cbs_id": 7,
+      "pick": 4,
+      "owner": "Andrew Gaerig",
+      "name": "Whoop Whoop that's the sound of Dylan Cease"
     },
     {
-      "pick": 12,
-      "name": "Ballesteros, Let the Rhythm Take You Over",
-      "owner": "Matt Dennewitz"
-    },
-    {
-      "pick": 9,
-      "name": "Yesavage Garden",
-      "owner": "Blake Murphy"
-    },
-    {
+      "cbs_id": 8,
       "pick": 8,
-      "name": "Blame it on the Rainiel",
-      "owner": "Mark Azar"
+      "owner": "Mark Azar",
+      "name": "Blame it on the Rainiel"
     },
     {
+      "cbs_id": 9,
+      "pick": 9,
+      "owner": "Blake Murphy",
+      "name": "Yesavage Garden"
+    },
+    {
+      "cbs_id": 10,
+      "pick": 10,
+      "owner": "Trei Brundrett",
+      "name": "Buddy Buddy Buddy All On Base"
+    },
+    {
+      "cbs_id": 11,
       "pick": 11,
-      "name": "Before and After Shohei",
-      "owner": "Eno Sarris"
+      "owner": "Eno Sarris",
+      "name": "Before and After Shohei"
     },
     {
-      "pick": 3,
-      "name": "Popped A Mahle I'm Sweating",
-      "owner": "David Roth"
+      "cbs_id": 12,
+      "pick": 12,
+      "owner": "Matt Dennewitz",
+      "name": "Ballesteros, Let the Rhythm Take You Over"
     }
   ],
   "rookies": {
@@ -153,5 +165,345 @@
     "Julio Rodriguez",
     "Jackson Chourio",
     "Marcell Ozuna"
-  ]
+  ],
+  "keepers": {
+    "Azar": [
+      {
+        "name": "Ketel Marte",
+        "round": 1
+      },
+      {
+        "name": "Oneil Cruz",
+        "round": 8
+      },
+      {
+        "name": "Aroldis Chapman",
+        "round": 11
+      },
+      {
+        "name": "Roman Anthony",
+        "round": 15
+      },
+      {
+        "name": "Shea Langeliers",
+        "round": 16
+      }
+    ],
+    "Brundrett": [
+      {
+        "name": "Ronald Acuna Jr.",
+        "round": 4
+      },
+      {
+        "name": "Cal Raleigh",
+        "round": 7
+      },
+      {
+        "name": "Kyle Bradish",
+        "round": 11
+      },
+      {
+        "name": "Nico Hoerner",
+        "round": 12
+      },
+      {
+        "name": "Jesus Luzardo",
+        "round": 14
+      }
+    ],
+    "Dennewitz": [
+      {
+        "name": "Kyle Tucker",
+        "round": 2
+      },
+      {
+        "name": "Aaron Judge",
+        "round": 3
+      },
+      {
+        "name": "Bobby Witt Jr.",
+        "round": 4
+      },
+      {
+        "name": "Paul Skenes",
+        "round": 10
+      },
+      {
+        "name": "Garrett Crochet",
+        "round": 11
+      }
+    ],
+    "Devinney": [
+      {
+        "name": "Manny Machado",
+        "round": 1
+      },
+      {
+        "name": "Spencer Strider",
+        "round": 6
+      },
+      {
+        "name": "Colson Montgomery",
+        "round": 14
+      },
+      {
+        "name": "Cameron Schlittler",
+        "round": 15
+      },
+      {
+        "name": "Ceddanne Rafaela",
+        "round": 22
+      }
+    ],
+    "Gaerig": [
+      {
+        "name": "Juan Soto",
+        "round": 4
+      },
+      {
+        "name": "Bo Bichette",
+        "round": 5
+      },
+      {
+        "name": "Geraldo Perdomo",
+        "round": 15
+      },
+      {
+        "name": "Gerrit Cole",
+        "round": 26
+      },
+      {
+        "name": "Spencer Torkelson",
+        "round": 27
+      }
+    ],
+    "Kaskie": [
+      {
+        "name": "Corbin Carroll",
+        "round": 6
+      },
+      {
+        "name": "Jackson Chourio",
+        "round": 10
+      },
+      {
+        "name": "Wyatt Langford",
+        "round": 12
+      },
+      {
+        "name": "Ben Rice",
+        "round": 15
+      },
+      {
+        "name": "Tyler Soderstrom",
+        "round": 25
+      }
+    ],
+    "Murphy": [
+      {
+        "name": "CJ Abrams",
+        "round": 8
+      },
+      {
+        "name": "Jeremy Pena",
+        "round": 15
+      },
+      {
+        "name": "Brent Rooker",
+        "round": 17
+      },
+      {
+        "name": "Max Muncy",
+        "round": 21
+      },
+      {
+        "name": "Eury Perez",
+        "round": 24
+      }
+    ],
+    "Pytlik": [
+      {
+        "name": "Jo Adell",
+        "round": 10
+      },
+      {
+        "name": "James Wood",
+        "round": 12
+      },
+      {
+        "name": "MacKenzie Gore",
+        "round": 13
+      },
+      {
+        "name": "Zach Neto",
+        "round": 14
+      }
+    ],
+    "Rescan": [
+      {
+        "name": "Fernando Tatis Jr.",
+        "round": 4
+      },
+      {
+        "name": "Julio Rodriguez",
+        "round": 5
+      },
+      {
+        "name": "Gunnar Henderson",
+        "round": 6
+      },
+      {
+        "name": "Junior Caminero",
+        "round": 12
+      },
+      {
+        "name": "Jackson Holliday",
+        "round": 16
+      }
+    ],
+    "Roth": [
+      {
+        "name": "Jose Ramirez",
+        "round": 1
+      },
+      {
+        "name": "Trea Turner",
+        "round": 4
+      },
+      {
+        "name": "Devin Williams",
+        "round": 7
+      },
+      {
+        "name": "Brandon Woodruff",
+        "round": 10
+      },
+      {
+        "name": "Dylan Crews",
+        "round": 15
+      }
+    ],
+    "Sarris": [
+      {
+        "name": "Shohei Ohtani",
+        "round": 1
+      },
+      {
+        "name": "Francisco Lindor",
+        "round": 3
+      },
+      {
+        "name": "Jackson Merrill",
+        "round": 10
+      },
+      {
+        "name": "Tarik Skubal",
+        "round": 11
+      },
+      {
+        "name": "Maikel Garcia",
+        "round": 15
+      }
+    ],
+    "Wolfe": [
+      {
+        "name": "Mookie Betts",
+        "round": 2
+      },
+      {
+        "name": "Bryce Harper",
+        "round": 5
+      },
+      {
+        "name": "Elly De La Cruz",
+        "round": 6
+      },
+      {
+        "name": "Pete Crow-Armstrong",
+        "round": 11
+      },
+      {
+        "name": "Hunter Goodman",
+        "round": 15
+      }
+    ]
+  },
+  "milb_keepers": {
+    "Azar": [
+      "Liam Doyle",
+      "Chase Burns",
+      "Hagen Smith",
+      "Jordan Lawlar"
+    ],
+    "Brundrett": [
+      "Jacob Reimer",
+      "Caleb Bonemer",
+      "Quinn Mathews",
+      "Robby Snelling"
+    ],
+    "Dennewitz": [
+      "Ralphy Velazquez",
+      "Zyhir Hope",
+      "Emmanuel Rodriguez"
+    ],
+    "Devinney": [
+      "Travis Bazzana",
+      "Justin Crawford",
+      "Josue De Paula",
+      "Andrew Painter"
+    ],
+    "Gaerig": [
+      "Konnor Griffin",
+      "Kevin McGonigle",
+      "Walker Jenkins",
+      "Luis Pena"
+    ],
+    "Kaskie": [
+      "JJ Wetherholt",
+      "Carson Williams",
+      "George Lombard"
+    ],
+    "Murphy": [
+      "Trey Yesavage",
+      "Jett Williams",
+      "Kade Anderson",
+      "Edward Florentino"
+    ],
+    "Pytlik": [
+      "Charlie Condon",
+      "Max Clark",
+      "Ethan Holliday",
+      "Eli Willits"
+    ],
+    "Rescan": [
+      "Leo De Vries",
+      "Aidan Miller",
+      "Samuel Basallo",
+      "Bubba Chandler"
+    ],
+    "Roth": [
+      "Nolan McLean",
+      "Carson Benge",
+      "Bryce Eldridge",
+      "Jonah Tong"
+    ],
+    "Sarris": [
+      "Connolly Early",
+      "Tommy Troy",
+      "Chase deLauter",
+      "Spencer Jones"
+    ],
+    "Wolfe": [
+      "Sal Stewart",
+      "Jesus Made",
+      "Colt Emerson",
+      "Sebastian Wolcott"
+    ]
+  },
+  "_notes": {
+    "keys": "teams[] keyed by cbs_id+pick+owner+name. keepers and milb_keepers are keyed by owner LAST NAME (stable — team names change frequently). build_dashboard.py resolves owner→team at build time.",
+    "keepers": "Source of truth for who starts 2026 on each team. Update when a player is traded or dropped. state.js reads this at load time.",
+    "milb_keepers": "Minor-league keepers (max 4 per team). Separate from MLB-level keepers.",
+    "rookies": "Legacy duplicate of milb_keepers — retained for existing code paths; should be merged into milb_keepers in a follow-up."
+  }
 }

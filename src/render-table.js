@@ -8,8 +8,11 @@ function render() {
   document.getElementById('rosterSection').style.display = ['myRoster','roster','board','mock','league','futures'].includes(DPF.ui.currentTab) ? '' : 'none';
   document.getElementById('txnsSection').style.display = DPF.ui.currentTab === 'txns' ? '' : 'none';
   document.getElementById('analyticsSection').style.display = DPF.ui.currentTab === 'analytics' ? '' : 'none';
+  const _waiverEl = document.getElementById('waiverSection');
+  if (_waiverEl) _waiverEl.style.display = DPF.ui.currentTab === 'waiver' ? '' : 'none';
 
   if (DPF.ui.currentTab === 'analytics') { renderAnalytics(); return; }
+  if (DPF.ui.currentTab === 'waiver') { renderWaiverWarRoom(); return; }
   if (DPF.ui.currentTab === 'txns') { renderTransactions(); return; }
   if (DPF.ui.currentTab === 'myRoster') { state._rosterTeam = '__mine__'; renderRoster(); return; }
   if (DPF.ui.currentTab === 'roster') { renderRoster(); return; }
@@ -224,6 +227,13 @@ function render() {
         const badges = positions.map(pos => `<span class="pos-badge pos-${pos}" style="margin-right:1px;font-size:10px;padding:1px 4px;">${pos}</span>`).join('');
         return `<td style="white-space:nowrap;">${badges}</td>`;
       }
+      // HOT/COLD renders BEFORE the empty-value early return, because "no trend
+      // either direction" is a legitimate non-empty value (empty cell).
+      if (c.key === 'hotCold14') {
+        if (val === 'HOT') return `<td class="${c.cls || ''}" style="text-align:center;"><span class="pbadge" style="background:#dc2626;color:#fff;">HOT</span></td>`;
+        if (val === 'COLD') return `<td class="${c.cls || ''}" style="text-align:center;"><span class="pbadge" style="background:#2563eb;color:#fff;">COLD</span></td>`;
+        return `<td class="${c.cls || ''}"></td>`;
+      }
       // Handle empty 2025 stats (player not in 2025 data)
       if (val === '' || val === undefined || val === null) return `<td class="no-data">—</td>`;
       // 2026 projected vs 2025 actual comparison coloring
@@ -297,6 +307,12 @@ function render() {
         }
       }
       else if (c.key === 'lcvDelta') {
+        const v = parseFloat(val);
+        cls += v >= 0 ? ' val-pos' : ' val-neg';
+        val = (v > 0 ? '+' : '') + v.toFixed(2);
+      }
+      else if (c.key === 'rollingLcvDelta14') {
+        // Always-on 14-day LCV swing vs. projection.
         const v = parseFloat(val);
         cls += v >= 0 ? ' val-pos' : ' val-neg';
         val = (v > 0 ? '+' : '') + v.toFixed(2);

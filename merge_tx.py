@@ -5,7 +5,10 @@ Usage:
   python3 merge_tx.py new_transactions.json          # merge from file
   echo '[...]' | python3 merge_tx.py -                # merge from stdin
 
-The script deduplicates by (date, team, player names) and sorts by date ascending.
+The script deduplicates by (date, teamId, player names) and sorts by date ascending.
+Team names are unstable in CBS (users rename their teams mid-season), so the stable
+team identifier is teamId. If a record lacks teamId, we fall back to a normalized
+team-name key so legacy exports still dedup correctly.
 It NEVER overwrites — it only adds transactions that don't already exist.
 """
 import json, sys
@@ -32,11 +35,21 @@ def normalize_date(d):
     return d.replace('\u00a0', ' ').replace('\xa0', ' ').strip() if d else ''
 
 def tx_key(tx):
-    """Unique key for deduplication."""
+    """Unique key for deduplication.
+
+    Prefer teamId because CBS team names are unstable (owners rename frequently).
+    If teamId is missing (older exports), fall back to a lowercased team-name hash
+    so the key still dedups cleanly across the two formats.
+    """
     players = ",".join(sorted(p["name"] for p in tx.get("players", [])))
     date = normalize_date(tx.get("date", ""))
-    team = tx.get("team", tx.get("teamName", ""))
-    return (date, team, players)
+    team_id = str(tx.get("teamId") or "").strip()
+    if team_id:
+        team_key = f"id:{team_id}"
+    else:
+        team_name = (tx.get("teamName") or tx.get("team") or "").strip().lower()
+        team_key = f"name:{team_name}"
+    return (date, team_key, players)
 
 def parse_date(d):
     try:
@@ -57,8 +70,10 @@ def merge(new_txs, filepath="data/cbs_transactions.json"):
     # Add teamId if missing, then merge
     added = 0
     for tx in new_txs:
-        if "teamId" not in tx and tx.get("team") in TEAM_IDS:
-            tx["teamId"] = str(TEAM_IDS[tx["team"]])
+        if "teamId" not in tx:
+            candidate = tx.get("team") or tx.get("teamName")
+            if candidate in TEAM_IDS:
+                tx["teamId"] = str(TEAM_IDS[candidate])
         k = tx_key(tx)
         if k not in existing_keys:
             existing.append(tx)

@@ -721,12 +721,53 @@ else:
     print("No CBS transactions file found (data/cbs_transactions.json)")
 cbs_txns_json = json.dumps(cbs_txns)
 
-# ── League config (teams, rookies, untouchables) ─────────────────────────
+# ── League config (teams, rookies, untouchables, keepers) ───────────────
+# In league_config.json, keepers and milb_keepers are keyed by OWNER LAST NAME
+# (stable — team names change frequently). We resolve owner → current team name
+# at build time using the teams[] mapping, so the JS continues to consume a
+# team-name-keyed dict (state.js logic is unchanged).
+#
+# Note: keepers represent season-opening rosters. CBS transactions (trades,
+# drops) are applied on top by state.js to mutate rosters during the season.
+# roster_sync.py emits synthetic corrections if CBS rosters diverge from the
+# transaction-derived state.
 league_config = json.load(open('data/league_config.json'))
 league_teams_json = json.dumps(league_config['teams'])
 league_rookies_json = json.dumps(league_config['rookies'])
 untouchable_json = json.dumps(league_config['untouchable'])
-print(f"League config loaded: {len(league_config['teams'])} teams, {len(league_config['untouchable'])} untouchables")
+
+def _owner_last_name(full):
+    """Extract last name from 'First Last' format. Used to match keepers by owner."""
+    parts = (full or '').strip().split()
+    return parts[-1] if parts else ''
+
+def _resolve_to_team_name(by_owner_dict, teams):
+    """Convert an owner-last-name-keyed dict to a team-name-keyed dict using
+    the current teams[] mapping. Unknown owners are dropped with a warning."""
+    out = {}
+    owner_ln_to_team = {_owner_last_name(t['owner']): t['name'] for t in teams}
+    for owner_ln, value in (by_owner_dict or {}).items():
+        tn = owner_ln_to_team.get(owner_ln)
+        if tn is None:
+            print(f"WARN: keepers for owner {owner_ln!r} have no matching team in teams[] — dropping")
+            continue
+        out[tn] = value
+    return out
+
+_keepers_by_owner = league_config.get('keepers', {})
+_milb_by_owner = league_config.get('milb_keepers', {})
+_keepers_by_team = _resolve_to_team_name(_keepers_by_owner, league_config['teams'])
+_milb_by_team = _resolve_to_team_name(_milb_by_owner, league_config['teams'])
+
+# JS consumes team-name-keyed dicts (state.js key scheme unchanged)
+league_keepers_json = json.dumps(_keepers_by_team)
+league_milb_keepers_json = json.dumps(_milb_by_team)
+_kcount = sum(len(v) for v in _keepers_by_team.values())
+_mcount = sum(len(v) for v in _milb_by_team.values())
+print(f"League config loaded: {len(league_config['teams'])} teams, "
+      f"{_kcount} keepers, {_mcount} MiLB keepers "
+      f"(resolved owner→team for {len(_keepers_by_team)}/{len(league_config['teams'])} teams), "
+      f"{len(league_config['untouchable'])} untouchables")
 
 # ── Player news (scraped from CBS My Team > News) ────────────────────────
 _news_path = 'data/player_news.json'
@@ -785,6 +826,7 @@ _JS_MODULES = [
     'src/state.js',
     'src/draft-data.js',
     'src/draft-engine.js',
+    'src/time-splits.js',
     'src/columns.js',
     'src/tabs.js',
     'src/render-table.js',
@@ -795,6 +837,7 @@ _JS_MODULES = [
     'src/render-board.js',
     'src/render-league.js',
     'src/render-mock.js',
+    'src/render-waiver.js',
     'src/ui.js',
     'src/init.js',
 ]
@@ -818,6 +861,39 @@ else:
     with open('dashboard.template.html') as _tf:
         html = _tf.read()
 
+# ── Time-split snapshot data ──────────────────────────────────────────────
+# time-splits.js expects SNAPSHOTS = {dates: [...], bat: {name: {date: [...]}}, pit: {...}}
+# and LCV_STATS = {bat: {cat: {mean, std}}, pit: {...}} for z-score normalization.
+# If the daily-snapshots pipeline hasn't populated data/snapshots/ yet, we inject
+# empty defaults so the JS evaluates cleanly and rolling features are simply no-ops.
+_snapshots_default = {"dates": [], "bat": {}, "pit": {}}
+_lcv_stats_default = {"bat": {}, "pit": {}}
+_snapshots_path = 'data/snapshots/index.json'
+_lcv_stats_path = 'data/snapshots/lcv_stats.json'
+if os.path.exists(_snapshots_path):
+    try:
+        with open(_snapshots_path) as f:
+            snapshots_data = json.load(f)
+        print(f"Snapshots loaded: {len(snapshots_data.get('dates', []))} dates, "
+              f"{len(snapshots_data.get('bat', {}))} batters, "
+              f"{len(snapshots_data.get('pit', {}))} pitchers")
+    except Exception as _e:
+        print(f"WARN: snapshots load failed ({_e}); using empty defaults")
+        snapshots_data = _snapshots_default
+else:
+    snapshots_data = _snapshots_default
+if os.path.exists(_lcv_stats_path):
+    try:
+        with open(_lcv_stats_path) as f:
+            lcv_stats_data = json.load(f)
+    except Exception as _e:
+        print(f"WARN: LCV stats load failed ({_e}); using empty defaults")
+        lcv_stats_data = _lcv_stats_default
+else:
+    lcv_stats_data = _lcv_stats_default
+snapshots_json = json.dumps(snapshots_data)
+lcv_stats_json = json.dumps(lcv_stats_data)
+
 # Inject data into template placeholders
 _replacements = {
     '__BAT_JSON__': bat_json,
@@ -829,6 +905,8 @@ _replacements = {
     '__VERSION__': version,
     '__LEAGUE_TEAMS_JSON__': league_teams_json,
     '__LEAGUE_ROOKIES_JSON__': league_rookies_json,
+    '__LEAGUE_KEEPERS_JSON__': league_keepers_json,
+    '__LEAGUE_MILB_KEEPERS_JSON__': league_milb_keepers_json,
     '__UNTOUCHABLE_JSON__': untouchable_json,
     '__PLAYER_NEWS_JSON__': player_news_json,
     '__INJURIES_JSON__': injuries_json,
@@ -836,9 +914,29 @@ _replacements = {
     '__SPRINT_SPEED_JSON__': sprint_speed_json,
     '__BULLPEN_ROLES_JSON__': bullpen_roles_json,
     '__SEASON_STATUS_JSON__': season_status_json,
+    '__SNAPSHOTS_JSON__': snapshots_json,
+    '__LCV_STATS_JSON__': lcv_stats_json,
 }
 for _token, _value in _replacements.items():
     html = html.replace(_token, _value)
+
+# ── BUILD_HASH: compute a 12-char content hash and substitute the placeholder
+# in state.js. state.js compares its baked-in hash to the one saved in
+# localStorage; a mismatch triggers the auto-flush branch and clears stale
+# roster state while preserving UI prefs (tags, comparison players, etc.)
+# Without this substitution the placeholder is literal '__BUILD_HASH__' and
+# the flush never fires, which is why stale keepers (Kurtz, etc.) survived
+# trade updates across deploys.
+import hashlib
+build_hash = hashlib.sha256(html.encode('utf-8')).hexdigest()[:12]
+_bh_token = "const BUILD_HASH = '__BUILD_HASH__';"
+_bh_replacement = f"const BUILD_HASH = '{build_hash}';"
+if _bh_token in html:
+    html = html.replace(_bh_token, _bh_replacement, 1)
+    print(f"BUILD_HASH substituted: {build_hash}")
+else:
+    print("WARNING: BUILD_HASH placeholder not found in assembled HTML — "
+          "state.js auto-flush will be disabled. Check src/state.js line 6.")
 
 with open('index.html', 'w') as f:
     f.write(html)

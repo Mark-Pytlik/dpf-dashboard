@@ -1,70 +1,38 @@
 // ── State ─────────────────────────────────────────────────────────────────
-const STATE_VERSION = 29;
-// Build hash injected at build time — changes whenever source files change.
-// If the stored hash doesn't match, localStorage is automatically flushed
-// so the user always sees correct data after a deploy without hard-refreshing.
+// STATE_VERSION bumped to 30 to force a full roster reset for clients carrying
+// the pre-fix state with Nick Kurtz (and any other traded-away keeper) stuck
+// on Mark's team. The pre-fix code unconditionally force-added DEFAULT_KEEPERS
+// into state.myTeam on every load, so a migration alone won't clear it —
+// we need the full-reset path in the _buildChanged branch.
+const STATE_VERSION = 30;
+// Build hash injected at build time by build_dashboard.py — a 12-char SHA256
+// of the fully-assembled HTML. If the stored hash doesn't match the baked-in
+// hash, localStorage is automatically flushed so the user always sees correct
+// data after a deploy without hard-refreshing. IMPORTANT: this placeholder
+// MUST be substituted at build time. If it isn't (i.e. the literal string
+// '__BUILD_HASH__' is shipped), the flush never fires and stale state
+// survives across deploys — that was the root cause of the persistent
+// "Kurtz on my team" bug before the 2026-04-18 fix.
 const BUILD_HASH = '__BUILD_HASH__';
-const DEFAULT_KEEPERS = ['James Wood', 'MacKenzie Gore', 'Zach Neto', 'Nick Kurtz', 'Jo Adell'];
-const DEFAULT_KEEPER_ROUNDS = {'James Wood':12, 'MacKenzie Gore':13, 'Jo Adell':10, 'Zach Neto':14, 'Nick Kurtz':11};
 
-// All league keepers from 2026 keeper sheet (clamped rounds)
-const DEFAULT_LEAGUE_KEEPERS = {
-  'Weird Fishes / Arrighetti': [
-    {name:'Manny Machado',rd:1}, {name:'Spencer Strider',rd:6}, {name:'Colson Montgomery',rd:14}, {name:'Cameron Schlittler',rd:15}, {name:'Ceddanne Rafaela',rd:22}
-  ],
-  'Okamotomami': [
-    {name:'Jo Adell',rd:10}, {name:'Nick Kurtz',rd:11}, {name:'James Wood',rd:12}, {name:'MacKenzie Gore',rd:13}, {name:'Zach Neto',rd:14}
-  ],
-  "Colonel Corbin's Ascent": [
-    {name:'Corbin Carroll',rd:6}, {name:'Jackson Chourio',rd:10}, {name:'Wyatt Langford',rd:12}, {name:'Ben Rice',rd:15}, {name:'Tyler Soderstrom',rd:25}
-  ],
-  "Whoop Whoop that\'s the sound of Dylan Cease": [
-    {name:'Juan Soto',rd:4}, {name:'Bo Bichette',rd:5}, {name:'Geraldo Perdomo',rd:15}, {name:'Gerrit Cole',rd:26}, {name:'Spencer Torkelson',rd:27}
-  ],
-  'Blame it on the Rainiel': [
-    {name:'Ketel Marte',rd:1}, {name:'Oneil Cruz',rd:8}, {name:'Aroldis Chapman',rd:11}, {name:'Roman Anthony',rd:15}, {name:'Shea Langeliers',rd:16}
-  ],
-  'A Pete Crow-Armstrong Looked at Me': [
-    {name:'Mookie Betts',rd:2}, {name:'Bryce Harper',rd:5}, {name:'Elly De La Cruz',rd:6}, {name:'Pete Crow-Armstrong',rd:11}, {name:'Hunter Goodman',rd:15}
-  ],
-  'Dinosaur Jr Caminero': [
-    {name:'Fernando Tatis Jr.',rd:4}, {name:'Julio Rodriguez',rd:5}, {name:'Gunnar Henderson',rd:6}, {name:'Junior Caminero',rd:12}, {name:'Jackson Holliday',rd:16}
-  ],
-  "Ballesteros, Let the Rhythm Take You Over": [
-    {name:'Kyle Tucker',rd:2}, {name:'Aaron Judge',rd:3}, {name:'Bobby Witt Jr.',rd:4}, {name:'Paul Skenes',rd:10}, {name:'Garrett Crochet',rd:11}
-  ],
-  'Yesavage Garden': [
-    {name:'CJ Abrams',rd:8}, {name:'Jeremy Pena',rd:15}, {name:'Brent Rooker',rd:17}, {name:'Max Muncy',rd:21}, {name:'Eury Perez',rd:24}
-  ],
-  'Buddy Buddy Buddy All On Base': [
-    {name:'Ronald Acuna Jr.',rd:4}, {name:'Cal Raleigh',rd:7}, {name:'Kyle Bradish',rd:11}, {name:'Nico Hoerner',rd:12}, {name:'Jesus Luzardo',rd:14}
-  ],
-  'Before and After Shohei': [
-    {name:'Shohei Ohtani',rd:1}, {name:'Francisco Lindor',rd:3}, {name:'Jackson Merrill',rd:10}, {name:'Tarik Skubal',rd:11}, {name:'Maikel Garcia',rd:15}
-  ],
-  "Popped A Mahle I'm Sweating": [
-    {name:'Jose Ramirez',rd:1}, {name:'Trea Turner',rd:4}, {name:'Devin Williams',rd:7}, {name:'Brandon Woodruff',rd:10}, {name:'Dylan Crews',rd:15}
-  ],
-};
-const DEFAULT_MILB_KEEPERS = ['Charlie Condon', 'Max Clark', 'Ethan Holliday', 'Eli Willits'];
-
-// All league rookie/MiLB keepers from 2026 keeper sheet
-const DEFAULT_LEAGUE_MILB_KEEPERS = {
-  'Weird Fishes / Arrighetti': ['Travis Bazzana', 'Justin Crawford', 'Josue De Paula', 'Andrew Painter'],
-  "Colonel Corbin's Ascent": ['JJ Wetherholt', 'Carson Williams', 'George Lombard'],
-  "Whoop Whoop that's the sound of Dylan Cease": ['Konnor Griffin', 'Kevin McGonigle', 'Walker Jenkins', 'Luis Pena'],
-  'Blame it on the Rainiel': ['Liam Doyle', 'Chase Burns', 'Hagen Smith', 'Jordan Lawlar'],
-  'A Pete Crow-Armstrong Looked at Me': ['Sal Stewart', 'Jesus Made', 'Colt Emerson', 'Sebastian Wolcott'],
-  'Dinosaur Jr Caminero': ['Leo De Vries', 'Aidan Miller', 'Samuel Basallo', 'Bubba Chandler'],
-  "Ballesteros, Let the Rhythm Take You Over": ['Ralphy Velazquez', 'Zyhir Hope', 'Emmanuel Rodriguez'],
-  'Yesavage Garden': ['Trey Yesavage', 'Jett Williams', 'Kade Anderson', 'Edward Florentino'],
-  'Buddy Buddy Buddy All On Base': ['Jacob Reimer', 'Caleb Bonemer', 'Quinn Mathews', 'Robby Snelling'],
-  'Before and After Shohei': ['Connolly Early', 'Tommy Troy', 'Chase deLauter', 'Spencer Jones'],
-  "Popped A Mahle I'm Sweating": ['Nolan McLean', 'Carson Benge', 'Bryce Eldridge', 'Jonah Tong']
-};
+// ── Keepers: read from league_config.json via build-time JSON injection ──
+// This is the SINGLE SOURCE OF TRUTH for who starts the season on each team.
+// When a keeper is traded, dropped, or otherwise no longer on their team,
+// update data/league_config.json and rebuild. The old pattern of hardcoding
+// constants here caused persistent state pollution because the code kept
+// re-adding them to state.keepers/state.myTeam on every page load.
+const LEAGUE_KEEPERS = __LEAGUE_KEEPERS_JSON__;         // { teamName: [{name,round}] }
+const LEAGUE_MILB_KEEPERS = __LEAGUE_MILB_KEEPERS_JSON__; // { teamName: [name] }
 
 // Draft order (pick 1 → pick 12) = reverse of last year's standings
 const LEAGUE_TEAMS = __LEAGUE_TEAMS_JSON__;
+
+// Derive my-team keepers from the config (no more DEFAULT_KEEPERS constant)
+const _MY_TEAM_NAME_BOOT = (LEAGUE_TEAMS.find(t => t.mine) || {}).name;
+const MY_KEEPERS = (LEAGUE_KEEPERS[_MY_TEAM_NAME_BOOT] || []).map(k => k.name);
+const MY_KEEPER_ROUNDS = {};
+(LEAGUE_KEEPERS[_MY_TEAM_NAME_BOOT] || []).forEach(k => { MY_KEEPER_ROUNDS[k.name] = k.round; });
+const MY_MILB_KEEPERS = (LEAGUE_MILB_KEEPERS[_MY_TEAM_NAME_BOOT] || []).slice();
 
 const TEAM_COLORS = {};
 const teamColorPalette = [
@@ -82,12 +50,15 @@ LEAGUE_TEAMS.forEach((t,i) => {
 });
 
 let _saved = JSON.parse(localStorage.getItem('dpf2026') || 'null');
-// Never wipe saved state on version change — migrate instead
+// Fresh-boot defaults. Keepers start as the config-defined set; runtime
+// mutations (e.g. user drops a keeper, a trade removes one) update state.keepers
+// and are persisted. We NEVER force-add config keepers back on later loads —
+// that was the root cause of the Kurtz bug.
 const _defaults = {
   _v: STATE_VERSION, _buildHash: BUILD_HASH, drafted: {}, myTeam: [],
-  keepers: DEFAULT_KEEPERS.slice(),
-  keeperRounds: Object.assign({}, DEFAULT_KEEPER_ROUNDS),
-  milbKeepers: DEFAULT_MILB_KEEPERS.slice(),
+  keepers: MY_KEEPERS.slice(),
+  keeperRounds: Object.assign({}, MY_KEEPER_ROUNDS),
+  milbKeepers: MY_MILB_KEEPERS.slice(),
   leagueTeams: {},
   teamOwners: {},
   tags: {},
@@ -101,61 +72,50 @@ if (_saved) {
   // roster reset so rosters rebuild from the latest keepers + draft +
   // transactions. User-specific UI prefs (tags, roster overrides, stat
   // set selection, comparison players) are preserved.
+  //
+  // Additionally force a reset if _v < 30 — that version introduced the
+  // keepers-from-config refactor and the old localStorage state contains
+  // stale keeper entries (e.g. Nick Kurtz) that were force-pushed by the
+  // pre-fix code. A simple migration wouldn't know which entries were
+  // user-added vs. force-added, so we do a clean rebuild.
   const _buildChanged = _saved._buildHash !== BUILD_HASH;
-  if (_buildChanged) {
-    console.log(`Build hash changed: ${_saved._buildHash || 'none'} → ${BUILD_HASH} — flushing roster state`);
-    // Preserve user UI preferences
+  const _versionForcesReset = !_saved._v || _saved._v < 30;
+  if (_buildChanged || _versionForcesReset) {
+    const _reason = _versionForcesReset
+      ? `state version ${_saved._v || 'none'} → ${STATE_VERSION}`
+      : `build hash ${_saved._buildHash || 'none'} → ${BUILD_HASH}`;
+    console.log(`Flushing roster state (${_reason})`);
+    // Preserve user UI preferences across the flush
     const _keepUiKeys = ['tags', 'rosterOverrides', 'leagueRosterOverrides',
       '_statSets', '_rosterTeam', '_cmpPlayers', '_rosterView', '_splitWindow'];
     const _preserved = {};
     _keepUiKeys.forEach(k => { if (_saved[k] !== undefined) _preserved[k] = _saved[k]; });
-    // Start fresh, then restore UI prefs
     state = Object.assign({}, _defaults, _preserved);
   } else {
     // Merge defaults for any missing keys, but preserve all existing data
     state = Object.assign({}, _defaults, _saved);
-    // v26 migration (legacy — for clients that haven't updated yet)
-    if (!_saved._v || _saved._v < 26) {
-      console.log('v26 migration: full roster reset — fixed CBS↔FanGraphs MLB team abbreviation mismatch');
-      state.leagueTeams = {};
-      state.leagueMilbKeepers = {};
-      state.drafted = {};
-      const validNames = new Set(LEAGUE_TEAMS.map(t => t.name));
-      for (const k of Object.keys(state.teamOwners)) {
-        if (!validNames.has(k)) delete state.teamOwners[k];
-      }
-    }
   }
   state._v = STATE_VERSION;
   state._buildHash = BUILD_HASH;
 } else {
   state = _defaults;
 }
-// One-time cleanup: remove accidentally-added players from myTeam
-const _accidentalAdds = ['Jeffrey Springs', 'Aaron Civale'];
-try {
-  if (!localStorage.getItem('dpf_accidental_cleanup_v1')) {
-    _accidentalAdds.forEach(n => {
-      if (state.myTeam) state.myTeam = state.myTeam.filter(x => x !== n);
-      if (state.drafted && state.drafted[n] && state.drafted[n].mine) delete state.drafted[n];
-    });
-    localStorage.setItem('dpf_accidental_cleanup_v1', '1');
-  }
-} catch(e) {}
-// Ensure keeperRounds always exists and has defaults merged in
+// Ensure keeperRounds has the config rounds available as defaults, but do NOT
+// override runtime values. This is read-only augmentation.
 if (!state.keeperRounds) state.keeperRounds = {};
-for (const [k, rd] of Object.entries(DEFAULT_KEEPER_ROUNDS)) {
+for (const [k, rd] of Object.entries(MY_KEEPER_ROUNDS)) {
   if (!(k in state.keeperRounds)) state.keeperRounds[k] = rd;
 }
-// Ensure keepers array has defaults
-if (!state.keepers || state.keepers.length === 0) state.keepers = DEFAULT_KEEPERS.slice();
-DEFAULT_KEEPERS.forEach(k => { if (!state.keepers.includes(k)) state.keepers.push(k); });
-// Ensure MiLB keepers
-if (!state.milbKeepers) state.milbKeepers = DEFAULT_MILB_KEEPERS.slice();
-DEFAULT_MILB_KEEPERS.forEach(k => { if (!state.milbKeepers.includes(k)) state.milbKeepers.push(k); });
-// Ensure league MiLB keepers
+// keepers/milbKeepers: only bootstrap on empty state. DO NOT force-add config
+// entries on later loads — user/trade mutations must be respected. This is
+// the specific line that used to read:
+//   DEFAULT_KEEPERS.forEach(k => { if (!state.keepers.includes(k)) state.keepers.push(k); });
+// That pattern re-added traded-away keepers to my team on every page load.
+if (!state.keepers || state.keepers.length === 0) state.keepers = MY_KEEPERS.slice();
+if (!state.milbKeepers) state.milbKeepers = MY_MILB_KEEPERS.slice();
+// leagueMilbKeepers: bootstrap if empty; do not force-add entries
 if (!state.leagueMilbKeepers) state.leagueMilbKeepers = {};
-for (const [teamName, rookies] of Object.entries(DEFAULT_LEAGUE_MILB_KEEPERS)) {
+for (const [teamName, rookies] of Object.entries(LEAGUE_MILB_KEEPERS)) {
   if (!state.leagueMilbKeepers[teamName] || state.leagueMilbKeepers[teamName].length === 0) {
     state.leagueMilbKeepers[teamName] = rookies.slice();
   }
@@ -224,21 +184,24 @@ for (const [id, name] of Object.entries(CBS_TEAM_MAP)) CBS_NAME_TO_LEAGUE[name] 
 // Also infer team name changes: if CBS shows a different name for a known teamId,
 // update LEAGUE_TEAMS to use the new name so the UI stays current
 CBS_TRANSACTIONS.forEach(txn => {
-  const cbsName = txn.teamName || txn.team;
+  // CBS records the team name in `teamName`; older exports used `team`. Fall back so
+  // a schema drift can't silently wipe CBS_TEAM_MAP with `undefined`.
+  const txTeam = txn.teamName || txn.team;
+  if (!txTeam) return;
   if (txn.teamId && CBS_TEAM_MAP[txn.teamId]) {
     const leagueName = CBS_TEAM_MAP[txn.teamId];
-    if (cbsName) CBS_NAME_TO_LEAGUE[cbsName] = leagueName;
+    CBS_NAME_TO_LEAGUE[txTeam] = leagueName;
     // If the CBS name differs, update the team's display name
-    if (cbsName && cbsName !== leagueName) {
+    if (txTeam !== leagueName) {
       const team = LEAGUE_TEAMS.find(t => t.name === leagueName);
       if (team) {
         const oldName = team.name;
-        team.name = cbsName;
-        CBS_TEAM_MAP[txn.teamId] = cbsName;
-        CBS_NAME_TO_LEAGUE[cbsName] = cbsName;
+        team.name = txTeam;
+        CBS_TEAM_MAP[txn.teamId] = txTeam;
+        CBS_NAME_TO_LEAGUE[txTeam] = txTeam;
         // Migrate roster data to new name
         if (state.leagueTeams[oldName]) {
-          state.leagueTeams[cbsName] = state.leagueTeams[oldName];
+          state.leagueTeams[txTeam] = state.leagueTeams[oldName];
           delete state.leagueTeams[oldName];
         }
       }
@@ -263,10 +226,10 @@ for (const [oldName, cbsId] of Object.entries(CBS_OLD_NAMES)) {
 }
 
 function resolveCbsTeam(txn) {
+  const txTeam = txn.teamName || txn.team;
   if (txn.teamId && CBS_TEAM_MAP[txn.teamId]) return CBS_TEAM_MAP[txn.teamId];
-  const cbsName = txn.teamName || txn.team;
-  if (cbsName && CBS_NAME_TO_LEAGUE[cbsName]) return CBS_NAME_TO_LEAGUE[cbsName];
-  return cbsName;
+  if (txTeam && CBS_NAME_TO_LEAGUE[txTeam]) return CBS_NAME_TO_LEAGUE[txTeam];
+  return txTeam;
 }
 
 function addToRoster(playerName, teamName) {

@@ -29,7 +29,7 @@ if (_myTeam) {
 // ── Mode toggle (Draft vs Season) ─────────────────────────────────────────
 state._mode = 'season';
 const DRAFT_TABS = ['all','myRoster','roster','board','mock','league','futures','txns','analytics'];
-const SEASON_TABS = ['all','myRoster','roster','league','futures','txns','analytics'];
+const SEASON_TABS = ['all','myRoster','roster','league','futures','waiver','txns','analytics'];
 
 function updateModeUI() {
   const isDraft = state._mode === 'draft';

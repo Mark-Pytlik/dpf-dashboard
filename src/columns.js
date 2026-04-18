@@ -21,7 +21,7 @@ const pitCols25 = [
   {key:'s25_hld',label:'HD',w:40}, {key:'s25_qs',label:'QS',w:40}, {key:'s25_hr',label:'HRA',w:45},
   {key:'s25_stuff',label:'Stf+',w:50,tip:'Stuff+ measures pitch quality based on movement/velo. 100=avg'},
   {key:'s25_loc',label:'Loc+',w:50,tip:'Location+ measures command/control. 100=avg'},
-  {key:'s25_pitching',label:'Pit+',w:50,tip:'Pitching+ combines Stuff+ and Location+. 100=avg'}
+  // s25_pitching (Stf+ × Loc+ combo) removed — components shown instead
 ];
 // Unified All-tab columns for 2025: bat+pit stats in one row (non-applicable show —)
 const allCols25 = [
@@ -40,7 +40,7 @@ const allCols25 = [
   {key:'s25_delta',label:'xw\u0394',w:48,tip:'xwOBA minus wOBA. Positive = underperforming (unlucky), negative = overperforming (lucky)'},
   {key:'s25_stuff',label:'Stf+',w:48,tip:'Stuff+ measures pitch quality. 100=avg'},
   {key:'s25_loc',label:'Loc+',w:48,tip:'Location+. 100=avg'},
-  {key:'s25_pitching',label:'Pit+',w:48,tip:'Pitching+ combined. 100=avg'}
+  // s25_pitching (Stf+ × Loc+ combo) removed from mixed view
 ];
 
 // 2026 Projected columns (same stats as main but without analytics clutter)
@@ -80,16 +80,19 @@ const batCols26A = [
   {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55,tip:'Projected LCV from pre-season projections'},
   {key:'actualLcv',label:'aLCV',w:60,cls:'lcv-col',tip:'Actual LCV: z-score sum from 2026 in-season stats (same scale as projected LCV)'},
   {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual LCV minus Projected LCV. Positive = outperforming projections, negative = underperforming'},
+  {key:'hotCold14',label:'14d',w:50,tip:'Trend over the last 14 days of snapshots: HOT = LCV swing ≥ +2.5, COLD = ≤ -2.5'},
+  {key:'rollingLcvDelta14',label:'\u039414d',w:55,tip:'14-day rolling LCV minus projected LCV. Sample-size regressed toward projection.'},
   {key:'s26_pa',label:'PA',w:50}, {key:'s26_avg',label:'AVG',w:55}, {key:'s26_obp',label:'OBP',w:55},
   {key:'s26_slg',label:'SLG',w:55}, {key:'s26_hr',label:'HR',w:45}, {key:'s26_r',label:'R',w:45},
   {key:'s26_rbi',label:'RBI',w:45}, {key:'s26_sb',label:'SB',w:45}, {key:'s26_so',label:'K',w:45},
+  // Simplified 2026 batter view: removed s26_iso (derivable from SLG-AVG),
+  // s26_woba/dWoba (xwOBA captures the underlying quality better). BABIP kept as
+  // regression indicator; K%/BB% kept (useful rate stats for an -K league).
   {key:'s26_bb',label:'BB',w:45,tip:'2026 walks'},
   {key:'s26_kpct',label:'K%',w:48,tip:'2026 strikeout rate (K/PA). High = swing-and-miss; this league penalizes Ks'},
   {key:'s26_bbpct',label:'BB%',w:48,tip:'2026 walk rate (BB/PA). High = plate discipline'},
-  {key:'s26_iso',label:'ISO',w:48,tip:'2026 Isolated Power (SLG−AVG). Measures raw power'},
   {key:'s26_babip',label:'BABIP',w:55,tip:'2026 Batting Average on Balls in Play. Regression indicator: outliers tend to normalize'},
-  {key:'s26_woba',label:'wOBA',w:55,tip:'2026 wOBA'}, {key:'dWoba',label:'\u0394wOBA',w:55,tip:'2026 wOBA minus 2025 wOBA'},
-  {key:'s26_xwoba',label:'xwOBA',w:55,tip:'2026 xwOBA (Statcast expected)'}, {key:'dXwoba',label:'\u0394xwOBA',w:58,tip:'2026 xwOBA minus 2025 xwOBA. Positive = underlying quality improving'},
+  {key:'s26_xwoba',label:'xwOBA',w:55,tip:'2026 xwOBA (Statcast expected). Better than wOBA for future-predictive signal'}, {key:'dXwoba',label:'\u0394xwOBA',w:58,tip:'2026 xwOBA minus 2025 xwOBA. Positive = underlying quality improving'},
   {key:'s26_barrel',label:'Brl%',w:50,tip:'2026 barrel rate (Statcast)'}, {key:'dBarrel',label:'\u0394Brl',w:50,tip:'2026 Brl% minus 2025 Brl%'},
   {key:'s26_hardhit',label:'HH%',w:50,tip:'2026 hard hit rate (95+ mph exit velo)'}, {key:'dHardhit',label:'\u0394HH',w:50,tip:'2026 HH% minus 2025 HH%'}
 ];
@@ -98,33 +101,39 @@ const pitCols26A = [
   {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55,tip:'Projected LCV from pre-season projections'},
   {key:'actualLcv',label:'aLCV',w:60,cls:'lcv-col',tip:'Actual LCV: z-score sum from 2026 in-season stats (same scale as projected LCV)'},
   {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual LCV minus Projected LCV. Positive = outperforming projections, negative = underperforming'},
+  {key:'hotCold14',label:'14d',w:50,tip:'Trend over the last 14 days of snapshots: HOT = LCV swing ≥ +3.5, COLD = ≤ -3.0 (pitchers move faster)'},
+  {key:'rollingLcvDelta14',label:'\u039414d',w:55,tip:'14-day rolling LCV minus projected LCV. Sample-size regressed toward projection.'},
   {key:'s26_ip',label:'IP',w:50}, {key:'s26_era',label:'ERA',w:55}, {key:'s26_whip',label:'WHIP',w:60},
   {key:'s26_fip',label:'FIP',w:50,tip:'2026 FIP = (13×HR + 3×(BB+HBP) − 2×K) / IP + 3.10. ERA estimator that strips luck'},
   {key:'s26_so',label:'K',w:50}, {key:'s26_w',label:'W',w:40}, {key:'s26_sv',label:'SV',w:40},
   {key:'s26_hld',label:'HD',w:40}, {key:'s26_qs',label:'QS',w:40}, {key:'s26_hr',label:'HRA',w:45},
+  // Simplified 2026 pitcher view: removed s26_hr9 (derivable from HRA/IP),
+  // s26_pitching/dPitching (combo of Stuff+ and Loc+ — keep the components).
+  // FIP retained as a luck-free ERA estimator.
   {key:'s26_bb',label:'BB',w:45,tip:'2026 walks allowed'},
   {key:'s26_kpct',label:'K%',w:48,tip:'2026 strikeout rate (K/BF). 25%+ is above average'},
   {key:'s26_bbpct',label:'BB%',w:48,tip:'2026 walk rate (BB/BF). Sub-8% is good control'},
-  {key:'s26_hr9',label:'HR/9',w:50,tip:'2026 home runs allowed per 9 innings'},
   {key:'s26_stuff',label:'Stf+',w:50,tip:'2026 Stuff+ (pitch quality, 100=avg)'}, {key:'dStuff',label:'\u0394Stf',w:50,tip:'2026 Stuff+ minus 2025. Positive = stuff improving'},
-  {key:'s26_loc',label:'Loc+',w:50,tip:'2026 Location+ (command, 100=avg)'}, {key:'dLoc',label:'\u0394Loc',w:50,tip:'2026 Loc+ minus 2025. Positive = command improving'},
-  {key:'s26_pitching',label:'Pit+',w:50,tip:'2026 Pitching+ (overall, 100=avg)'}, {key:'dPitching',label:'\u0394Pit',w:55,tip:'2026 Pit+ minus 2025. Positive = overall pitching improving'}
+  {key:'s26_loc',label:'Loc+',w:50,tip:'2026 Location+ (command, 100=avg)'}, {key:'dLoc',label:'\u0394Loc',w:50,tip:'2026 Loc+ minus 2025. Positive = command improving'}
 ];
+// Mixed bat+pit view — kept intentionally slim. Use BAT or PIT filter for full analytics.
 const allCols26A = [
   {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:60},
-  {key:'type',label:'Type',w:50}, {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55,cls:'lcv-col',tip:'Projected LCV'},
+  {key:'type',label:'Type',w:50}, {key:'age',label:'Age',w:40},
+  {key:'lcv',label:'LCV',w:55,cls:'lcv-col',tip:'Projected LCV'},
   {key:'actualLcv',label:'aLCV',w:60,cls:'lcv-col',tip:'Actual LCV from 2026 in-season stats'},
   {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual minus Projected LCV. Positive = outperforming'},
-  {key:'tradeValue',label:'TV',w:55,tip:'Trade value: production + keeper premium + prospect value'},
-  {key:'s26_pa',label:'PA',w:45}, {key:'s26_avg',label:'AVG',w:50}, {key:'s26_obp',label:'OBP',w:50},
-  {key:'s26_slg',label:'SLG',w:50}, {key:'s26_r',label:'R',w:38}, {key:'s26_rbi',label:'RBI',w:38},
-  {key:'s26_sb',label:'SB',w:38}, {key:'s26_hr',label:'HR',w:38}, {key:'s26_so',label:'K',w:38},
-  {key:'s26_kpct',label:'K%',w:45,tip:'2026 K%'}, {key:'s26_bbpct',label:'BB%',w:45,tip:'2026 BB%'},
-  {key:'s26_woba',label:'wOBA',w:50,tip:'2026 wOBA'}, {key:'s26_xwoba',label:'xwOBA',w:52,tip:'2026 xwOBA'},
-  {key:'s26_ip',label:'IP',w:45}, {key:'s26_era',label:'ERA',w:50}, {key:'s26_whip',label:'WHIP',w:55},
-  {key:'s26_fip',label:'FIP',w:48,tip:'2026 FIP'}, {key:'s26_w',label:'W',w:38}, {key:'s26_sv',label:'SV',w:38},
-  {key:'s26_hld',label:'HD',w:38}, {key:'s26_qs',label:'QS',w:38},
-  {key:'s26_stuff',label:'Stf+',w:48,tip:'2026 Stuff+'}, {key:'dStuff',label:'\u0394Stf',w:45,tip:'Stuff+ vs 2025'}
+  {key:'hotCold14',label:'14d',w:50,tip:'Rolling HOT/COLD over the last 14 snapshots'},
+  {key:'rollingLcvDelta14',label:'\u039414d',w:55,tip:'14-day rolling ΔLCV (sample-size regressed)'},
+  {key:'tradeValue',label:'TV',w:55,tip:'Trade value'},
+  // Batting stats (blank for pitchers)
+  {key:'s26_pa',label:'PA',w:45}, {key:'s26_avg',label:'AVG',w:50},
+  {key:'s26_hr',label:'HR',w:38}, {key:'s26_r',label:'R',w:38},
+  {key:'s26_woba',label:'wOBA',w:50,tip:'2026 wOBA (batters) / — (pitchers)'},
+  // Pitching stats (blank for batters)
+  {key:'s26_ip',label:'IP',w:45}, {key:'s26_era',label:'ERA',w:50},
+  {key:'s26_whip',label:'WHIP',w:55}, {key:'s26_so',label:'K',w:38},
+  {key:'s26_qs',label:'QS',w:38}
 ];
 
 // Actual vs Projected comparison columns (side by side: proj then actual then delta)
@@ -189,7 +198,7 @@ const pitCols = [
   {key:'trend',label:'Trend',w:60,cls:'pnav-col',tip:trendTip},
   {key:'s25_stuff',label:'Stf+',w:50,tip:'Stuff+ measures pitch quality based on movement/velo. 100=avg'},
   {key:'s25_loc',label:'Loc+',w:50,tip:'Location+ measures command/control. 100=avg'},
-  {key:'s25_pitching',label:'Pit+',w:50,tip:'Pitching+ combines Stuff+ and Location+. 100=avg'},
+  // s25_pitching (Stf+ × Loc+ combo) removed — components shown instead,
   {key:'ip',label:'IP',w:50}, {key:'era',label:'ERA',w:55}, {key:'whip',label:'WHIP',w:60},
   {key:'so',label:'K',w:50}, {key:'w',label:'W',w:40}, {key:'sv',label:'SV',w:40},
   {key:'hld',label:'HD',w:40}, {key:'qs',label:'QS',w:40}, {key:'hr',label:'HRA',w:45}
@@ -209,7 +218,7 @@ const allCols = [
   {key:'s25_delta',label:'xw\u0394',w:48,tip:'xwOBA minus wOBA. Positive = underperforming (unlucky), negative = overperforming (lucky)'},
   {key:'s25_stuff',label:'Stf+',w:48,tip:'Stuff+ measures pitch quality. 100=avg'},
   {key:'s25_loc',label:'Loc+',w:48,tip:'Location+. 100=avg'},
-  {key:'s25_pitching',label:'Pit+',w:48,tip:'Pitching+ combined. 100=avg'}
+  // s25_pitching (Stf+ × Loc+ combo) removed from mixed view
 ];
 
 // GM View columns
@@ -256,35 +265,49 @@ const allColsGM = [
   {key:'tradeValue',label:'Trade Val',w:70,tip:'Trade value: production + keeper premium (if surplus justifies slot) + prospect value'}
 ];
 
+// Positions that imply a batter-only or pitcher-only view when filterType==='all'
+const BAT_POSITIONS = new Set(['C','1B','2B','3B','SS','LF','CF','RF','OF','DH','MI','CI','UTIL']);
+const PIT_POSITIONS = new Set(['SP','RP']);
+
+// When filterType is 'all' but a position filter is active, infer bat/pit
+function _inferType() {
+  const pos = (DPF.table && DPF.table.filterPos) || 'ALL';
+  if (BAT_POSITIONS.has(pos)) return 'bat';
+  if (PIT_POSITIONS.has(pos)) return 'pit';
+  return DPF.ui.filterType || 'all';
+}
+
 function getCols() {
+  const ft = DPF.ui.filterType === 'all' ? _inferType() : DPF.ui.filterType;
+
   if (DPF.ui.currentView === 'gm') {
-    if (DPF.ui.filterType === 'bat') return batColsGM;
-    if (DPF.ui.filterType === 'pit') return pitColsGM;
+    if (ft === 'bat') return batColsGM;
+    if (ft === 'pit') return pitColsGM;
     return allColsGM;
   }
   if (DPF.ui.currentView === 's25') {
-    if (DPF.ui.filterType === 'bat') return batCols25;
-    if (DPF.ui.filterType === 'pit') return pitCols25;
+    if (ft === 'bat') return batCols25;
+    if (ft === 'pit') return pitCols25;
     return allCols25;
   }
   if (DPF.ui.currentView === 'p26') {
-    if (DPF.ui.filterType === 'bat') return batCols26;
-    if (DPF.ui.filterType === 'pit') return pitCols26;
+    if (ft === 'bat') return batCols26;
+    if (ft === 'pit') return pitCols26;
     return allCols26;
   }
   if (DPF.ui.currentView === 's26') {
-    if (DPF.ui.filterType === 'bat') return batCols26A;
-    if (DPF.ui.filterType === 'pit') return pitCols26A;
+    if (ft === 'bat') return batCols26A;
+    if (ft === 'pit') return pitCols26A;
     return allCols26A;
   }
   if (DPF.ui.currentView === 'avp') {
-    if (DPF.ui.filterType === 'bat') return batColsAVP;
-    if (DPF.ui.filterType === 'pit') return pitColsAVP;
+    if (ft === 'bat') return batColsAVP;
+    if (ft === 'pit') return pitColsAVP;
     return allColsAVP;
   }
   // main/analytics view
-  if (DPF.ui.filterType === 'bat') return batCols;
-  if (DPF.ui.filterType === 'pit') return pitCols;
+  if (ft === 'bat') return batCols;
+  if (ft === 'pit') return pitCols;
   return allCols;
 }
 

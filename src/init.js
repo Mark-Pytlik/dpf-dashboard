@@ -132,25 +132,27 @@ const _origRender = render;
 render = function() { _origRender.apply(this, arguments); requestAnimationFrame(() => initColumnResize()); };
 
 // ── Init ──────────────────────────────────────────────────────────────────
-// Ensure keepers are on team (but skip any that were traded away via CBS transactions)
-const _tradedAway = new Set();
-CBS_TRANSACTIONS.forEach(txn => {
-  if (txn.teamId && CBS_TEAM_MAP[txn.teamId]) {
-    const destTeam = CBS_TEAM_MAP[txn.teamId];
-    const isMine = LEAGUE_TEAMS.find(t => t.name === destTeam && t.mine);
-    if (!isMine) {
-      // This transaction's destination is NOT my team
-      txn.players.forEach(p => {
-        if (p.action && p.action.startsWith('Traded from')) {
-          const found = _plyrI(p.name);
-          _tradedAway.add(found ? found.name : p.name);
-        }
-      });
-    }
-  }
-});
+// Re-attach my keepers, but ONLY when nothing else claims them.
+//
+// Background: CBS does not emit a "Traded from" action on the receiving team's
+// transaction page, so the legacy _tradedAway detector here was always empty
+// — which meant a deleted/traded keeper (e.g. Nick Kurtz, traded pre-season)
+// got force-pushed back onto my team on every page load. The fix is twofold:
+//   1. Source of truth for keepers is now `data/league_config.json`, so Kurtz
+//      is simply not in `state.keepers` to begin with.
+//   2. This loop is now defensive instead of authoritative: it only restores
+//      a keeper if that keeper isn't already drafted by someone else and
+//      isn't on another league team's roster.
+const _otherRosterPlayers = new Set();
+for (const tn of Object.keys(state.leagueTeams || {})) {
+  for (const pn of (state.leagueTeams[tn] || [])) _otherRosterPlayers.add(pn);
+}
 state.keepers.forEach(k => {
-  if (_tradedAway.has(k)) return; // Don't re-add traded keepers
+  // Drafted by someone else? Leave it alone.
+  const d = state.drafted[k];
+  if (d && d.mine === false) return;
+  // On another league team's roster? Leave it alone.
+  if (_otherRosterPlayers.has(k)) return;
   if (!state.myTeam.includes(k)) state.myTeam.push(k);
   const kRd = state.keeperRounds[k] || null;
   if (!state.drafted[k]) state.drafted[k] = { time: Date.now(), mine: true, round: kRd };

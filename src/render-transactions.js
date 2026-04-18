@@ -17,18 +17,20 @@ function _renderTransactionsInner(section) {
   // Skip IL/activation moves — only show waiver adds, drops, and trades
   const SKIP_ACTIONS = /^(activated|placed on il|il|recalled|promoted|optioned)/i;
   CBS_TRANSACTIONS.forEach(txn => {
+    const txTeam = txn.teamName || txn.team;
     txn.players.forEach(p => {
       const action = (p.action || '').replace(/^Added off Waivers$/i, 'Added');
       if (SKIP_ACTIONS.test(action)) return;
       allTxns.push({
         date: txn.date,
-        team: txn.team,
+        team: txTeam,
         teamId: txn.teamId,
         player: p.name,
         pos: p.pos,
         mlbTeam: p.mlbTeam,
         action,
         effective: txn.effective,
+        synthetic: !!(txn.synthetic || p.synthetic),
         source: 'CBS'
       });
     });
@@ -61,7 +63,7 @@ function _renderTransactionsInner(section) {
   html += '<select id="txnTeamFilter" style="padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-size:12px;">';
   html += '<option value="all">All Teams</option>';
   const teamsSeen = new Set();
-  CBS_TRANSACTIONS.forEach(t => teamsSeen.add(t.team));
+  CBS_TRANSACTIONS.forEach(t => teamsSeen.add(t.teamName || t.team));
   [...teamsSeen].sort().forEach(t => {
     html += `<option value="${t}">${t}</option>`;
   });
