@@ -1,2466 +1,2018 @@
 [
   {
-    "player": "Brent Rooker",
-    "team": "",
+    "name": "Brent Rooker",
+    "team": "ATH",
     "pos": "DH",
-    "mlbTeam": "ATH",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Fri, Apr 10",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 10"
   },
   {
-    "player": "Gunnar Hoglund",
-    "team": "",
+    "name": "Gunnar Hoglund",
+    "team": "ATH",
     "pos": "P",
-    "mlbTeam": "ATH",
     "status": "IL",
     "injury": "Back",
     "returnDate": "Expected to be out until at least May 25",
-    "updated": "Tue, Apr 7",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 7"
   },
   {
-    "player": "Carlos Santana",
-    "team": "",
+    "name": "Carlos Santana",
+    "team": "ARI",
     "pos": "1B",
-    "mlbTeam": "ARI",
     "status": "IL",
     "injury": "Thigh",
     "returnDate": "Expected to be out until at least Apr 19",
-    "updated": "Sat, Apr 18",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 18"
   },
   {
-    "player": "Pavin Smith",
-    "team": "",
+    "name": "Pavin Smith",
+    "team": "ARI",
     "pos": "RF",
-    "mlbTeam": "ARI",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 29",
-    "updated": "Sat, Apr 18",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 18"
   },
   {
-    "player": "Lourdes Gurriel",
-    "team": "",
+    "name": "Lourdes Gurriel",
+    "team": "ARI",
     "pos": "LF",
-    "mlbTeam": "ARI",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least Apr 18",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Gabriel Moreno",
-    "team": "",
+    "name": "Gabriel Moreno",
+    "team": "ARI",
     "pos": "C",
-    "mlbTeam": "ARI",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 21",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Jordan Lawlar",
-    "team": "",
+    "name": "Jordan Lawlar",
+    "team": "ARI",
     "pos": "SS",
-    "mlbTeam": "ARI",
     "status": "IL",
     "injury": "Wrist",
     "returnDate": "Expected to be out until at least Jun 3",
-    "updated": "Tue, Apr 7",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 7"
   },
   {
-    "player": "A.J. Puk",
-    "team": "",
+    "name": "A.J. Puk",
+    "team": "ARI",
     "pos": "RP",
-    "mlbTeam": "ARI",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 15",
-    "updated": "Wed, Apr 1",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 1"
   },
   {
-    "player": "Cristian Mena",
-    "team": "",
+    "name": "Cristian Mena",
+    "team": "ARI",
     "pos": "SP",
-    "mlbTeam": "ARI",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Jun 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Tyler Locklear",
-    "team": "",
+    "name": "Tyler Locklear",
+    "team": "ARI",
     "pos": "3B",
-    "mlbTeam": "ARI",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 18",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Blake Walston",
-    "team": "",
+    "name": "Blake Walston",
+    "team": "ARI",
     "pos": "SP",
-    "mlbTeam": "ARI",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jul 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Andrew Saalfrank",
-    "team": "",
+    "name": "Andrew Saalfrank",
+    "team": "ARI",
     "pos": "RP",
-    "mlbTeam": "ARI",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Justin Martinez",
-    "team": "",
+    "name": "Justin Martinez",
+    "team": "ARI",
     "pos": "RP",
-    "mlbTeam": "ARI",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Aug 21",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Corbin Burnes",
-    "team": "",
+    "name": "Corbin Burnes",
+    "team": "ARI",
     "pos": "SP",
-    "mlbTeam": "ARI",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jul 17",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Spencer Strider",
-    "team": "",
+    "name": "Spencer Strider",
+    "team": "ATL",
     "pos": "SP",
-    "mlbTeam": "ATL",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least May 3",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Danny Young",
-    "team": "",
+    "name": "Danny Young",
+    "team": "ATL",
     "pos": "RP",
-    "mlbTeam": "ATL",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jul 1",
-    "updated": "Sat, Apr 11",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 11"
   },
   {
-    "player": "Sean Murphy",
-    "team": "",
+    "name": "Sean Murphy",
+    "team": "ATL",
     "pos": "C",
-    "mlbTeam": "ATL",
     "status": "IL",
     "injury": "Hip",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Tue, Apr 7",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 7"
   },
   {
-    "player": "A.J. Smith-Shawver",
-    "team": "",
+    "name": "A.J. Smith-Shawver",
+    "team": "ATL",
     "pos": "SP",
-    "mlbTeam": "ATL",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Aug 1",
-    "updated": "Fri, Apr 3",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 3"
   },
   {
-    "player": "Hurston Waldrep",
-    "team": "",
+    "name": "Hurston Waldrep",
+    "team": "ATL",
     "pos": "SP",
-    "mlbTeam": "ATL",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 2",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Ha-seong Kim",
-    "team": "",
+    "name": "Ha-seong Kim",
+    "team": "ATL",
     "pos": "2B",
-    "mlbTeam": "ATL",
     "status": "IL",
     "injury": "Finger",
     "returnDate": "Expected to be out until at least May 12",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Joey Wentz",
-    "team": "",
+    "name": "Joey Wentz",
+    "team": "ATL",
     "pos": "SP",
-    "mlbTeam": "ATL",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Tue, Mar 24",
-    "rosteredPct": ""
+    "updated": "Tue, Mar 24"
   },
   {
-    "player": "Spencer Schwellenbach",
-    "team": "",
+    "name": "Spencer Schwellenbach",
+    "team": "ATL",
     "pos": "P",
-    "mlbTeam": "ATL",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 2",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Joe Jimenez",
-    "team": "",
+    "name": "Joe Jimenez",
+    "team": "ATL",
     "pos": "RP",
-    "mlbTeam": "ATL",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least Jul 17",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Tyler O'Neill",
-    "team": "",
+    "name": "Tyler O'Neill",
+    "team": "BAL",
     "pos": "LF",
-    "mlbTeam": "BAL",
     "status": "IL",
     "injury": "Concussion",
     "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Jackson Holliday",
-    "team": "",
+    "name": "Jackson Holliday",
+    "team": "BAL",
     "pos": "SS",
-    "mlbTeam": "BAL",
     "status": "IL",
     "injury": "Wrist",
     "returnDate": "Expected to be out until at least Apr 28",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Andrew Kittredge",
-    "team": "",
+    "name": "Andrew Kittredge",
+    "team": "BAL",
     "pos": "RP",
-    "mlbTeam": "BAL",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Heston Kjerstad",
-    "team": "",
+    "name": "Heston Kjerstad",
+    "team": "BAL",
     "pos": "DH",
-    "mlbTeam": "BAL",
     "status": "IL",
     "injury": "Hamstring",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Keegan Akin",
-    "team": "",
+    "name": "Keegan Akin",
+    "team": "BAL",
     "pos": "RP",
-    "mlbTeam": "BAL",
     "status": "IL",
     "injury": "Groin",
     "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Ryan Mountcastle",
-    "team": "",
+    "name": "Ryan Mountcastle",
+    "team": "BAL",
     "pos": "1B",
-    "mlbTeam": "BAL",
     "status": "IL",
     "injury": "Foot",
     "returnDate": "Expected to be out until at least Jun 19",
-    "updated": "Mon, Apr 13",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 13"
   },
   {
-    "player": "Yaramil Hiraldo",
-    "team": "",
+    "name": "Yaramil Hiraldo",
+    "team": "BAL",
     "pos": "RP",
-    "mlbTeam": "BAL",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Jun 4",
-    "updated": "Mon, Apr 13",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 13"
   },
   {
-    "player": "Felix Bautista",
-    "team": "",
+    "name": "Felix Bautista",
+    "team": "BAL",
     "pos": "RP",
-    "mlbTeam": "BAL",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Sep 7",
-    "updated": "Sun, Apr 12",
-    "rosteredPct": ""
+    "updated": "Sun, Apr 12"
   },
   {
-    "player": "Adley Rutschman",
-    "team": "",
+    "name": "Adley Rutschman",
+    "team": "BAL",
     "pos": "C",
-    "mlbTeam": "BAL",
     "status": "IL",
     "injury": "Ankle",
     "returnDate": "Expected to be out until at least Apr 21",
-    "updated": "Sat, Apr 11",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 11"
   },
   {
-    "player": "Zach Eflin",
-    "team": "",
+    "name": "Zach Eflin",
+    "team": "BAL",
     "pos": "SP",
-    "mlbTeam": "BAL",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jul 1, 2027",
-    "updated": "Wed, Apr 8",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 8"
   },
   {
-    "player": "Dietrich Enns",
-    "team": "",
+    "name": "Dietrich Enns",
+    "team": "BAL",
     "pos": "RP",
-    "mlbTeam": "BAL",
     "status": "IL",
     "injury": "Foot",
     "returnDate": "Expected to be out until at least Apr 19",
-    "updated": "Mon, Apr 6",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 6"
   },
   {
-    "player": "Jordan Westburg",
-    "team": "",
+    "name": "Jordan Westburg",
+    "team": "BAL",
     "pos": "2B",
-    "mlbTeam": "BAL",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 22",
-    "updated": "Wed, Apr 1",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 1"
   },
   {
-    "player": "Colin Selby",
-    "team": "",
+    "name": "Colin Selby",
+    "team": "BAL",
     "pos": "RP",
-    "mlbTeam": "BAL",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 25",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Kutter Crawford",
-    "team": "",
+    "name": "Kutter Crawford",
+    "team": "BOS",
     "pos": "SP",
-    "mlbTeam": "BOS",
     "status": "IL",
     "injury": "Wrist",
     "returnDate": "Expected to be out until at least May 12",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Johan Oviedo",
-    "team": "",
+    "name": "Johan Oviedo",
+    "team": "BOS",
     "pos": "SP",
-    "mlbTeam": "BOS",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 17",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Triston Casas",
-    "team": "",
+    "name": "Triston Casas",
+    "team": "BOS",
     "pos": "1B",
-    "mlbTeam": "BOS",
     "status": "IL",
     "injury": "Abdomen",
     "returnDate": "Expected to be out until at least Jun 2",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Justin Slaten",
-    "team": "",
+    "name": "Justin Slaten",
+    "team": "BOS",
     "pos": "RP",
-    "mlbTeam": "BOS",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Wed, Apr 8",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 8"
   },
   {
-    "player": "Patrick Sandoval",
-    "team": "",
+    "name": "Patrick Sandoval",
+    "team": "BOS",
     "pos": "SP",
-    "mlbTeam": "BOS",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 23",
-    "updated": "Mon, Apr 6",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 6"
   },
   {
-    "player": "Romy Gonzalez",
-    "team": "",
+    "name": "Romy Gonzalez",
+    "team": "BOS",
     "pos": "2B",
-    "mlbTeam": "BOS",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 26",
-    "updated": "Thu, Mar 12",
-    "rosteredPct": ""
+    "updated": "Thu, Mar 12"
   },
   {
-    "player": "Tanner Houck",
-    "team": "",
+    "name": "Tanner Houck",
+    "team": "BOS",
     "pos": "SP",
-    "mlbTeam": "BOS",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Daniel Palencia",
-    "team": "",
+    "name": "Daniel Palencia",
+    "team": "CHC",
     "pos": "RP",
-    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Cade Horton",
-    "team": "",
+    "name": "Cade Horton",
+    "team": "CHC",
     "pos": "P",
-    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Aug 1, 2027",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Matthew Boyd",
-    "team": "",
+    "name": "Matthew Boyd",
+    "team": "CHC",
     "pos": "SP",
-    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Biceps",
     "returnDate": "Expected to be out until at least Apr 21",
-    "updated": "Thu, Apr 16",
-    "rosteredPct": ""
+    "updated": "Thu, Apr 16"
   },
   {
-    "player": "Porter Hodge",
-    "team": "",
+    "name": "Porter Hodge",
+    "team": "CHC",
     "pos": "SP",
-    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Jordan Wicks",
-    "team": "",
+    "name": "Jordan Wicks",
+    "team": "CHC",
     "pos": "SP",
-    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 22",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Ethan Roberts",
-    "team": "",
+    "name": "Ethan Roberts",
+    "team": "CHC",
     "pos": "RP",
-    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Undisclosed",
     "returnDate": "Expected to be out until at least Apr 28",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Hunter Harvey",
-    "team": "",
+    "name": "Hunter Harvey",
+    "team": "CHC",
     "pos": "RP",
-    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Triceps",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Sun, Apr 12",
-    "rosteredPct": ""
+    "updated": "Sun, Apr 12"
   },
   {
-    "player": "Phil Maton",
-    "team": "",
+    "name": "Phil Maton",
+    "team": "CHC",
     "pos": "RP",
-    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least Apr 23",
-    "updated": "Fri, Apr 10",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 10"
   },
   {
-    "player": "Justin Steele",
-    "team": "",
+    "name": "Justin Steele",
+    "team": "CHC",
     "pos": "SP",
-    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 25",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Tyler Austin",
-    "team": "",
+    "name": "Tyler Austin",
+    "team": "CHC",
     "pos": "RF",
-    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least May 23",
-    "updated": "Tue, Mar 24",
-    "rosteredPct": ""
+    "updated": "Tue, Mar 24"
   },
   {
-    "player": "Shelby Miller",
-    "team": "",
+    "name": "Shelby Miller",
+    "team": "CHC",
     "pos": "RP",
-    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Sun, Mar 1",
-    "rosteredPct": ""
+    "updated": "Sun, Mar 1"
   },
   {
-    "player": "Kyle Teel",
-    "team": "",
+    "name": "Kyle Teel",
+    "team": "CHW",
     "pos": "C",
-    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Hamstring",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Jonathan Cannon",
-    "team": "",
+    "name": "Jonathan Cannon",
+    "team": "CHW",
     "pos": "P",
-    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Hip",
     "returnDate": "Expected to be out until at least Apr 28",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Chris Murphy",
-    "team": "",
+    "name": "Chris Murphy",
+    "team": "CHW",
     "pos": "RP",
-    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 23",
-    "updated": "Thu, Apr 9",
-    "rosteredPct": ""
+    "updated": "Thu, Apr 9"
   },
   {
-    "player": "Brooks Baldwin",
-    "team": "",
+    "name": "Brooks Baldwin",
+    "team": "CHW",
     "pos": "SS",
-    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Wed, Apr 8",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 8"
   },
   {
-    "player": "Mike Vasil",
-    "team": "",
+    "name": "Mike Vasil",
+    "team": "CHW",
     "pos": "P",
-    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jul 1, 2027",
-    "updated": "Tue, Apr 7",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 7"
   },
   {
-    "player": "Austin Hays",
-    "team": "",
+    "name": "Austin Hays",
+    "team": "CHW",
     "pos": "LF",
-    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Hamstring",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Tue, Apr 7",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 7"
   },
   {
-    "player": "Ky Bush",
-    "team": "",
+    "name": "Ky Bush",
+    "team": "CHW",
     "pos": "P",
-    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 1",
-    "updated": "Thu, Mar 26",
-    "rosteredPct": ""
+    "updated": "Thu, Mar 26"
   },
   {
-    "player": "Prelander Berroa",
-    "team": "",
+    "name": "Prelander Berroa",
+    "team": "CHW",
     "pos": "RP",
-    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Drew Thorpe",
-    "team": "",
+    "name": "Drew Thorpe",
+    "team": "CHW",
     "pos": "P",
-    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Caleb Ferguson",
-    "team": "",
+    "name": "Caleb Ferguson",
+    "team": "CIN",
     "pos": "RP",
-    "mlbTeam": "CIN",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 25",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Jose Trevino",
-    "team": "",
+    "name": "Jose Trevino",
+    "team": "CIN",
     "pos": "C",
-    "mlbTeam": "CIN",
     "status": "IL",
     "injury": "Back",
     "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Nick Lodolo",
-    "team": "",
+    "name": "Nick Lodolo",
+    "team": "CIN",
     "pos": "SP",
-    "mlbTeam": "CIN",
     "status": "IL",
     "injury": "Finger",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Fri, Apr 10",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 10"
   },
   {
-    "player": "Hunter Greene",
-    "team": "",
+    "name": "Hunter Greene",
+    "team": "CIN",
     "pos": "SP",
-    "mlbTeam": "CIN",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jul 1",
-    "updated": "Mon, Mar 23",
-    "rosteredPct": ""
+    "updated": "Mon, Mar 23"
   },
   {
-    "player": "Andrew Walters",
-    "team": "",
+    "name": "Andrew Walters",
+    "team": "CLE",
     "pos": "P",
-    "mlbTeam": "CLE",
     "status": "IL",
     "injury": "Lat",
     "returnDate": "Expected to be out until at least May 25",
-    "updated": "Wed, Apr 8",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 8"
   },
   {
-    "player": "Gabriel Arias",
-    "team": "",
+    "name": "Gabriel Arias",
+    "team": "CLE",
     "pos": "SS",
-    "mlbTeam": "CLE",
     "status": "IL",
     "injury": "Hamstring",
     "returnDate": "Expected to be out until at least May 15",
-    "updated": "Wed, Apr 8",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 8"
   },
   {
-    "player": "Willi Castro",
-    "team": "",
+    "name": "Willi Castro",
+    "team": "COL",
     "pos": "LF",
-    "mlbTeam": "COL",
-    "status": "IL",
+    "status": "DTD",
     "injury": "Hand",
     "returnDate": "Probable for Apr 18",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Kyle Freeland",
-    "team": "",
+    "name": "Kyle Freeland",
+    "team": "COL",
     "pos": "SP",
-    "mlbTeam": "COL",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Apr 28",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "McCade Brown",
-    "team": "",
+    "name": "McCade Brown",
+    "team": "COL",
     "pos": "P",
-    "mlbTeam": "COL",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 24",
-    "updated": "Sat, Apr 4",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 4"
   },
   {
-    "player": "RJ Petit",
-    "team": "",
+    "name": "RJ Petit",
+    "team": "COL",
     "pos": "SP",
-    "mlbTeam": "COL",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 1, 2027",
-    "updated": "Thu, Mar 26",
-    "rosteredPct": ""
+    "updated": "Thu, Mar 26"
   },
   {
-    "player": "Pierson Ohl",
-    "team": "",
+    "name": "Pierson Ohl",
+    "team": "COL",
     "pos": "RP",
-    "mlbTeam": "COL",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Jeff Criswell",
-    "team": "",
+    "name": "Jeff Criswell",
+    "team": "COL",
     "pos": "P",
-    "mlbTeam": "COL",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Kris Bryant",
-    "team": "",
+    "name": "Kris Bryant",
+    "team": "COL",
     "pos": "RF",
-    "mlbTeam": "COL",
     "status": "IL",
     "injury": "Back",
     "returnDate": "Expected to be out until at least Jun 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Zach McKinstry",
-    "team": "",
+    "name": "Zach McKinstry",
+    "team": "DET",
     "pos": "3B",
-    "mlbTeam": "DET",
     "status": "IL",
     "injury": "Hip",
     "returnDate": "Expected to be out until at least Apr 26",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Beau Brieske",
-    "team": "",
+    "name": "Beau Brieske",
+    "team": "DET",
     "pos": "RP",
-    "mlbTeam": "DET",
     "status": "IL",
     "injury": "Groin",
     "returnDate": "Expected to be out until at least May 26",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Parker Meadows",
-    "team": "",
+    "name": "Parker Meadows",
+    "team": "DET",
     "pos": "CF",
-    "mlbTeam": "DET",
     "status": "IL",
     "injury": "Arm",
     "returnDate": "Expected to be out until at least Jun 9",
-    "updated": "Mon, Apr 13",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 13"
   },
   {
-    "player": "Justin Verlander",
-    "team": "",
+    "name": "Justin Verlander",
+    "team": "DET",
     "pos": "SP",
-    "mlbTeam": "DET",
     "status": "IL",
     "injury": "Hip",
     "returnDate": "Expected to be out until at least Apr 26",
-    "updated": "Mon, Apr 13",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 13"
   },
   {
-    "player": "Trey Sweeney",
-    "team": "",
+    "name": "Trey Sweeney",
+    "team": "DET",
     "pos": "SS",
-    "mlbTeam": "DET",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 24",
-    "updated": "Sat, Apr 11",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 11"
   },
   {
-    "player": "Jackson Jobe",
-    "team": "",
+    "name": "Jackson Jobe",
+    "team": "DET",
     "pos": "P",
-    "mlbTeam": "DET",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Aug 15",
-    "updated": "Sun, Mar 29",
-    "rosteredPct": ""
+    "updated": "Sun, Mar 29"
   },
   {
-    "player": "Bailey Horn",
-    "team": "",
+    "name": "Bailey Horn",
+    "team": "DET",
     "pos": "P",
-    "mlbTeam": "DET",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Troy Melton",
-    "team": "",
+    "name": "Troy Melton",
+    "team": "DET",
     "pos": "P",
-    "mlbTeam": "DET",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 26",
-    "updated": "Tue, Mar 10",
-    "rosteredPct": ""
+    "updated": "Tue, Mar 10"
   },
   {
-    "player": "Reese Olson",
-    "team": "",
+    "name": "Reese Olson",
+    "team": "DET",
     "pos": "SP",
-    "mlbTeam": "DET",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Feb 21",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Bennett Sousa",
-    "team": "",
+    "name": "Bennett Sousa",
+    "team": "HOU",
     "pos": "RP",
-    "mlbTeam": "HOU",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 18",
-    "updated": "Sat, Apr 18",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 18"
   },
   {
-    "player": "Isaac Paredes",
-    "team": "",
+    "name": "Isaac Paredes",
+    "team": "HOU",
     "pos": "3B",
-    "mlbTeam": "HOU",
-    "status": "IL",
+    "status": "DTD",
     "injury": "Leg",
     "returnDate": "Probable for Apr 18",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Joey Loperfido",
-    "team": "",
+    "name": "Joey Loperfido",
+    "team": "HOU",
     "pos": "OF",
-    "mlbTeam": "HOU",
-    "status": "IL",
+    "status": "DTD",
     "injury": "Quadriceps",
     "returnDate": "Probable for Apr 18",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Josh Hader",
-    "team": "",
+    "name": "Josh Hader",
+    "team": "HOU",
     "pos": "RP",
-    "mlbTeam": "HOU",
     "status": "IL",
     "injury": "Biceps",
     "returnDate": "Expected to be out until at least May 24",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Cody Bolton",
-    "team": "",
+    "name": "Cody Bolton",
+    "team": "HOU",
     "pos": "RP",
-    "mlbTeam": "HOU",
     "status": "IL",
     "injury": "Back",
     "returnDate": "Expected to be out until at least Apr 28",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Tatsuya Imai",
-    "team": "",
+    "name": "Tatsuya Imai",
+    "team": "HOU",
     "pos": "SP",
-    "mlbTeam": "HOU",
     "status": "IL",
     "injury": "Arm",
     "returnDate": "Expected to be out until at least Apr 26",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Jeremy Pena",
-    "team": "",
+    "name": "Jeremy Pena",
+    "team": "HOU",
     "pos": "SS",
-    "mlbTeam": "HOU",
     "status": "IL",
     "injury": "Hamstring",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Mon, Apr 13",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 13"
   },
   {
-    "player": "Jake Meyers",
-    "team": "",
+    "name": "Jake Meyers",
+    "team": "HOU",
     "pos": "CF",
-    "mlbTeam": "HOU",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Mon, Apr 13",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 13"
   },
   {
-    "player": "Cristian Javier",
-    "team": "",
+    "name": "Cristian Javier",
+    "team": "HOU",
     "pos": "SP",
-    "mlbTeam": "HOU",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 15",
-    "updated": "Fri, Apr 10",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 10"
   },
   {
-    "player": "Ronel Blanco",
-    "team": "",
+    "name": "Ronel Blanco",
+    "team": "HOU",
     "pos": "RP",
-    "mlbTeam": "HOU",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Aug 1",
-    "updated": "Fri, Apr 10",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 10"
   },
   {
-    "player": "Hunter Brown",
-    "team": "",
+    "name": "Hunter Brown",
+    "team": "HOU",
     "pos": "SP",
-    "mlbTeam": "HOU",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 29",
-    "updated": "Tue, Apr 7",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 7"
   },
   {
-    "player": "Hayden Wesneski",
-    "team": "",
+    "name": "Hayden Wesneski",
+    "team": "HOU",
     "pos": "RP",
-    "mlbTeam": "HOU",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Aug 1",
-    "updated": "Mon, Mar 30",
-    "rosteredPct": ""
+    "updated": "Mon, Mar 30"
   },
   {
-    "player": "Zach Dezenzo",
-    "team": "",
+    "name": "Zach Dezenzo",
+    "team": "HOU",
     "pos": "SS",
-    "mlbTeam": "HOU",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Brandon Walter",
-    "team": "",
+    "name": "Brandon Walter",
+    "team": "HOU",
     "pos": "RP",
-    "mlbTeam": "HOU",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Nate Pearson",
-    "team": "",
+    "name": "Nate Pearson",
+    "team": "HOU",
     "pos": "RP",
-    "mlbTeam": "HOU",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Isaac Collins",
-    "team": "",
+    "name": "Isaac Collins",
+    "team": "KC",
     "pos": "LF",
-    "mlbTeam": "KC",
-    "status": "IL",
+    "status": "DTD",
     "injury": "Knee",
     "returnDate": "Probable for Apr 18",
-    "updated": "Sat, Apr 18",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 18"
   },
   {
-    "player": "Carlos Estevez",
-    "team": "",
+    "name": "Carlos Estevez",
+    "team": "KC",
     "pos": "RP",
-    "mlbTeam": "KC",
     "status": "IL",
     "injury": "Foot",
     "returnDate": "Expected to be out until at least Apr 28",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Bailey Falter",
-    "team": "",
+    "name": "Bailey Falter",
+    "team": "KC",
     "pos": "SP",
-    "mlbTeam": "KC",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Stephen Kolek",
-    "team": "",
+    "name": "Stephen Kolek",
+    "team": "KC",
     "pos": "RP",
-    "mlbTeam": "KC",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 28",
-    "updated": "Mon, Apr 6",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 6"
   },
   {
-    "player": "James McArthur",
-    "team": "",
+    "name": "James McArthur",
+    "team": "KC",
     "pos": "RP",
-    "mlbTeam": "KC",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Alec Marsh",
-    "team": "",
+    "name": "Alec Marsh",
+    "team": "KC",
     "pos": "RP",
-    "mlbTeam": "KC",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Kirby Yates",
-    "team": "",
+    "name": "Kirby Yates",
+    "team": "LAA",
     "pos": "RP",
-    "mlbTeam": "LAA",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Sat, Apr 18",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 18"
   },
   {
-    "player": "Alek Manoah",
-    "team": "",
+    "name": "Alek Manoah",
+    "team": "LAA",
     "pos": "SP",
-    "mlbTeam": "LAA",
     "status": "IL",
     "injury": "Finger",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Grayson Rodriguez",
-    "team": "",
+    "name": "Grayson Rodriguez",
+    "team": "LAA",
     "pos": "SP",
-    "mlbTeam": "LAA",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Ryan Johnson",
-    "team": "",
+    "name": "Ryan Johnson",
+    "team": "LAA",
     "pos": "SP",
-    "mlbTeam": "LAA",
     "status": "IL",
     "injury": "Illness",
     "returnDate": "Expected to be out until at least Apr 21",
-    "updated": "Mon, Apr 13",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 13"
   },
   {
-    "player": "Ben Joyce",
-    "team": "",
+    "name": "Ben Joyce",
+    "team": "LAA",
     "pos": "RP",
-    "mlbTeam": "LAA",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Fri, Apr 10",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 10"
   },
   {
-    "player": "Robert Stephenson",
-    "team": "",
+    "name": "Robert Stephenson",
+    "team": "LAA",
     "pos": "RP",
-    "mlbTeam": "LAA",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Wed, Apr 8",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 8"
   },
   {
-    "player": "Anthony Rendon",
-    "team": "",
+    "name": "Anthony Rendon",
+    "team": "LAA",
     "pos": "3B",
-    "mlbTeam": "LAA",
     "status": "IL",
     "injury": "Hip",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Tue, Mar 24",
-    "rosteredPct": ""
+    "updated": "Tue, Mar 24"
   },
   {
-    "player": "Ben Casparius",
-    "team": "",
+    "name": "Ben Casparius",
+    "team": "LAD",
     "pos": "P",
-    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Apr 28",
-    "updated": "Mon, Apr 13",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 13"
   },
   {
-    "player": "Landon Knack",
-    "team": "",
+    "name": "Landon Knack",
+    "team": "LAD",
     "pos": "SP",
-    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Chest",
     "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Sun, Apr 12",
-    "rosteredPct": ""
+    "updated": "Sun, Apr 12"
   },
   {
-    "player": "Brock Stewart",
-    "team": "",
+    "name": "Brock Stewart",
+    "team": "LAD",
     "pos": "RP",
-    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Apr 19",
-    "updated": "Sun, Apr 12",
-    "rosteredPct": ""
+    "updated": "Sun, Apr 12"
   },
   {
-    "player": "Brusdar Graterol",
-    "team": "",
+    "name": "Brusdar Graterol",
+    "team": "LAD",
     "pos": "RP",
-    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 22",
-    "updated": "Sat, Apr 11",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 11"
   },
   {
-    "player": "Mookie Betts",
-    "team": "",
+    "name": "Mookie Betts",
+    "team": "LAD",
     "pos": "RF",
-    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Mon, Apr 6",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 6"
   },
   {
-    "player": "Gavin Stone",
-    "team": "",
+    "name": "Gavin Stone",
+    "team": "LAD",
     "pos": "SP",
-    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 22",
-    "updated": "Wed, Apr 1",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 1"
   },
   {
-    "player": "Jake Cousins",
-    "team": "",
+    "name": "Jake Cousins",
+    "team": "LAD",
     "pos": "RP",
-    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Aug 1",
-    "updated": "Wed, Apr 1",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 1"
   },
   {
-    "player": "Blake Snell",
-    "team": "",
+    "name": "Blake Snell",
+    "team": "LAD",
     "pos": "SP",
-    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 29",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Bobby Miller",
-    "team": "",
+    "name": "Bobby Miller",
+    "team": "LAD",
     "pos": "SP",
-    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 29",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Tommy Edman",
-    "team": "",
+    "name": "Tommy Edman",
+    "team": "LAD",
     "pos": "2B",
-    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Ankle",
     "returnDate": "Expected to be out until at least May 29",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Enrique Hernandez",
-    "team": "",
+    "name": "Enrique Hernandez",
+    "team": "LAD",
     "pos": "SS",
-    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 24",
-    "updated": "Wed, Mar 4",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 4"
   },
   {
-    "player": "Maximo Acosta",
-    "team": "",
+    "name": "Maximo Acosta",
+    "team": "MIA",
     "pos": "SS",
-    "mlbTeam": "MIA",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 18",
-    "updated": "Sat, Apr 18",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 18"
   },
   {
-    "player": "Kyle Stowers",
-    "team": "",
+    "name": "Kyle Stowers",
+    "team": "MIA",
     "pos": "RF",
-    "mlbTeam": "MIA",
     "status": "IL",
     "injury": "Hamstring",
     "returnDate": "Expected to be out until at least Apr 19",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Graham Pauley",
-    "team": "",
+    "name": "Graham Pauley",
+    "team": "MIA",
     "pos": "3B",
-    "mlbTeam": "MIA",
-    "status": "IL",
+    "status": "DTD",
     "injury": "Oblique",
     "returnDate": "Probable for Apr 18",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Christopher Morel",
-    "team": "",
+    "name": "Christopher Morel",
+    "team": "MIA",
     "pos": "DH",
-    "mlbTeam": "MIA",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Sun, Apr 12",
-    "rosteredPct": ""
+    "updated": "Sun, Apr 12"
   },
   {
-    "player": "Griffin Conine",
-    "team": "",
+    "name": "Griffin Conine",
+    "team": "MIA",
     "pos": "RF",
-    "mlbTeam": "MIA",
     "status": "IL",
     "injury": "Hamstring",
     "returnDate": "Expected to be out until at least Jun 1",
-    "updated": "Sat, Apr 11",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 11"
   },
   {
-    "player": "Adam Mazur",
-    "team": "",
+    "name": "Adam Mazur",
+    "team": "MIA",
     "pos": "P",
-    "mlbTeam": "MIA",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Esteury Ruiz",
-    "team": "",
+    "name": "Esteury Ruiz",
+    "team": "MIA",
     "pos": "CF",
-    "mlbTeam": "MIA",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least May 15",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Ronny Henriquez",
-    "team": "",
+    "name": "Ronny Henriquez",
+    "team": "MIA",
     "pos": "RP",
-    "mlbTeam": "MIA",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Craig Yoho",
-    "team": "",
+    "name": "Craig Yoho",
+    "team": "MIL",
     "pos": "RP",
-    "mlbTeam": "MIL",
     "status": "IL",
     "injury": "Calf",
     "returnDate": "Expected to be out until at least Apr 22",
-    "updated": "Thu, Apr 16",
-    "rosteredPct": ""
+    "updated": "Thu, Apr 16"
   },
   {
-    "player": "Kyle Harrison",
-    "team": "",
+    "name": "Kyle Harrison",
+    "team": "MIL",
     "pos": "SP",
-    "mlbTeam": "MIL",
     "status": "IL",
     "injury": "Wrist",
     "returnDate": "Expected to be out until at least Apr 21",
-    "updated": "Thu, Apr 16",
-    "rosteredPct": ""
+    "updated": "Thu, Apr 16"
   },
   {
-    "player": "Jackson Chourio",
-    "team": "",
+    "name": "Jackson Chourio",
+    "team": "MIL",
     "pos": "CF",
-    "mlbTeam": "MIL",
     "status": "IL",
     "injury": "Hand",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Rob Zastryzny",
-    "team": "",
+    "name": "Rob Zastryzny",
+    "team": "MIL",
     "pos": "RP",
-    "mlbTeam": "MIL",
     "status": "IL",
     "injury": "Ribs",
     "returnDate": "Expected to be out until at least May 25",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Christian Yelich",
-    "team": "",
+    "name": "Christian Yelich",
+    "team": "MIL",
     "pos": "LF",
-    "mlbTeam": "MIL",
     "status": "IL",
     "injury": "Groin",
     "returnDate": "Expected to be out until at least May 12",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Andrew Vaughn",
-    "team": "",
+    "name": "Andrew Vaughn",
+    "team": "MIL",
     "pos": "1B",
-    "mlbTeam": "MIL",
     "status": "IL",
     "injury": "Hand",
     "returnDate": "Expected to be out until at least May 8",
-    "updated": "Tue, Apr 7",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 7"
   },
   {
-    "player": "Jared Koenig",
-    "team": "",
+    "name": "Jared Koenig",
+    "team": "MIL",
     "pos": "SP",
-    "mlbTeam": "MIL",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 21",
-    "updated": "Mon, Apr 6",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 6"
   },
   {
-    "player": "Quinn Priester",
-    "team": "",
+    "name": "Quinn Priester",
+    "team": "MIL",
     "pos": "SP",
-    "mlbTeam": "MIL",
     "status": "IL",
     "injury": "Wrist",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Akil Baddoo",
-    "team": "",
+    "name": "Akil Baddoo",
+    "team": "MIL",
     "pos": "LF",
-    "mlbTeam": "MIL",
     "status": "IL",
     "injury": "Quadriceps",
     "returnDate": "Expected to be out until at least Jun 1",
-    "updated": "Tue, Mar 24",
-    "rosteredPct": ""
+    "updated": "Tue, Mar 24"
   },
   {
-    "player": "Travis Adams",
-    "team": "",
+    "name": "Travis Adams",
+    "team": "MIN",
     "pos": "P",
-    "mlbTeam": "MIN",
     "status": "IL",
     "injury": "Triceps",
     "returnDate": "Expected to be out until at least Apr 27",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Royce Lewis",
-    "team": "",
+    "name": "Royce Lewis",
+    "team": "MIN",
     "pos": "3B",
-    "mlbTeam": "MIN",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least Apr 21",
-    "updated": "Sat, Apr 11",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 11"
   },
   {
-    "player": "Cody Laweryson",
-    "team": "",
+    "name": "Cody Laweryson",
+    "team": "MIN",
     "pos": "RP",
-    "mlbTeam": "MIN",
     "status": "IL",
     "injury": "Forearm",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Sat, Apr 11",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 11"
   },
   {
-    "player": "David Festa",
-    "team": "",
+    "name": "David Festa",
+    "team": "MIN",
     "pos": "P",
-    "mlbTeam": "MIN",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 24",
-    "updated": "Sat, Apr 4",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 4"
   },
   {
-    "player": "Pablo Lopez",
-    "team": "",
+    "name": "Pablo Lopez",
+    "team": "MIN",
     "pos": "SP",
-    "mlbTeam": "MIN",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 1",
-    "updated": "Thu, Feb 26",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 26"
   },
   {
-    "player": "Jorge Polanco",
-    "team": "",
+    "name": "Jorge Polanco",
+    "team": "NYM",
     "pos": "1B",
-    "mlbTeam": "NYM",
-    "status": "IL",
+    "status": "DTD",
     "injury": "Achilles",
     "returnDate": "Probable for Apr 18",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Jared Young",
-    "team": "",
+    "name": "Jared Young",
+    "team": "NYM",
     "pos": "1B",
-    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least Jul 1",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Joey Gerber",
-    "team": "",
+    "name": "Joey Gerber",
+    "team": "NYM",
     "pos": "RP",
-    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Finger",
     "returnDate": "Expected to be out until at least Apr 29",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Juan Soto",
-    "team": "",
+    "name": "Juan Soto",
+    "team": "NYM",
     "pos": "LF",
-    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Calf",
     "returnDate": "Expected to be out until at least Apr 21",
-    "updated": "Mon, Apr 6",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 6"
   },
   {
-    "player": "A.J. Minter",
-    "team": "",
+    "name": "A.J. Minter",
+    "team": "NYM",
     "pos": "RP",
-    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Lat",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Justin Hagenman",
-    "team": "",
+    "name": "Justin Hagenman",
+    "team": "NYM",
     "pos": "SP",
-    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Ribs",
     "returnDate": "Expected to be out until at least May 27",
-    "updated": "Sat, Mar 14",
-    "rosteredPct": ""
+    "updated": "Sat, Mar 14"
   },
   {
-    "player": "Reed Garrett",
-    "team": "",
+    "name": "Reed Garrett",
+    "team": "NYM",
     "pos": "RP",
-    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Tylor Megill",
-    "team": "",
+    "name": "Tylor Megill",
+    "team": "NYM",
     "pos": "SP",
-    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Dedniel Nunez",
-    "team": "",
+    "name": "Dedniel Nunez",
+    "team": "NYM",
     "pos": "SP",
-    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Sep 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Gerrit Cole",
-    "team": "",
+    "name": "Gerrit Cole",
+    "team": "NYY",
     "pos": "SP",
-    "mlbTeam": "NYY",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 7",
-    "updated": "Thu, Apr 16",
-    "rosteredPct": ""
+    "updated": "Thu, Apr 16"
   },
   {
-    "player": "Carlos Rodon",
-    "team": "",
+    "name": "Carlos Rodon",
+    "team": "NYY",
     "pos": "SP",
-    "mlbTeam": "NYY",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 2",
-    "updated": "Wed, Apr 8",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 8"
   },
   {
-    "player": "Anthony Volpe",
-    "team": "",
+    "name": "Anthony Volpe",
+    "team": "NYY",
     "pos": "SS",
-    "mlbTeam": "NYY",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Clarke Schmidt",
-    "team": "",
+    "name": "Clarke Schmidt",
+    "team": "NYY",
     "pos": "SP",
-    "mlbTeam": "NYY",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Aug 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Zach Pop",
-    "team": "",
+    "name": "Zach Pop",
+    "team": "PHI",
     "pos": "RP",
-    "mlbTeam": "PHI",
     "status": "IL",
     "injury": "Calf",
     "returnDate": "Expected to be out until at least Apr 28",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Zack Wheeler",
-    "team": "",
+    "name": "Zack Wheeler",
+    "team": "PHI",
     "pos": "SP",
-    "mlbTeam": "PHI",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Jonathan Bowlan",
-    "team": "",
+    "name": "Jonathan Bowlan",
+    "team": "PHI",
     "pos": "RP",
-    "mlbTeam": "PHI",
     "status": "IL",
     "injury": "Groin",
     "returnDate": "Expected to be out until at least Apr 28",
-    "updated": "Mon, Apr 13",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 13"
   },
   {
-    "player": "Max Lazar",
-    "team": "",
+    "name": "Max Lazar",
+    "team": "PHI",
     "pos": "P",
-    "mlbTeam": "PHI",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Sat, Apr 11",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 11"
   },
   {
-    "player": "Jared Triolo",
-    "team": "",
+    "name": "Jared Triolo",
+    "team": "PIT",
     "pos": "3B",
-    "mlbTeam": "PIT",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Sun, Apr 5",
-    "rosteredPct": ""
+    "updated": "Sun, Apr 5"
   },
   {
-    "player": "Jared Jones",
-    "team": "",
+    "name": "Jared Jones",
+    "team": "PIT",
     "pos": "SP",
-    "mlbTeam": "PIT",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 25",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Yuki Matsui",
-    "team": "",
+    "name": "Yuki Matsui",
+    "team": "SD",
     "pos": "RP",
-    "mlbTeam": "SD",
     "status": "IL",
     "injury": "Groin",
     "returnDate": "Expected to be out until at least Apr 18",
-    "updated": "Sat, Apr 18",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 18"
   },
   {
-    "player": "Freddy Fermin",
-    "team": "",
+    "name": "Freddy Fermin",
+    "team": "SD",
     "pos": "C",
-    "mlbTeam": "SD",
-    "status": "IL",
+    "status": "DTD",
     "injury": "Head",
     "returnDate": "Probable for Apr 18",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Joe Musgrove",
-    "team": "",
+    "name": "Joe Musgrove",
+    "team": "SD",
     "pos": "SP",
-    "mlbTeam": "SD",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 6",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Nick Pivetta",
-    "team": "",
+    "name": "Nick Pivetta",
+    "team": "SD",
     "pos": "RP",
-    "mlbTeam": "SD",
     "status": "IL",
     "injury": "Forearm",
     "returnDate": "Expected to be out until at least Jun 15",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Jeremiah Estrada",
-    "team": "",
+    "name": "Jeremiah Estrada",
+    "team": "SD",
     "pos": "RP",
-    "mlbTeam": "SD",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 25",
-    "updated": "Fri, Apr 10",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 10"
   },
   {
-    "player": "Will Wagner",
-    "team": "",
+    "name": "Will Wagner",
+    "team": "SD",
     "pos": "2B",
-    "mlbTeam": "SD",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Thu, Mar 26",
-    "rosteredPct": ""
+    "updated": "Thu, Mar 26"
   },
   {
-    "player": "Griffin Canning",
-    "team": "",
+    "name": "Griffin Canning",
+    "team": "SD",
     "pos": "SP",
-    "mlbTeam": "SD",
     "status": "IL",
     "injury": "Achilles",
     "returnDate": "Expected to be out until at least Apr 27",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Bryan Hoeing",
-    "team": "",
+    "name": "Bryan Hoeing",
+    "team": "SD",
     "pos": "RP",
-    "mlbTeam": "SD",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Joel Peguero",
-    "team": "",
+    "name": "Joel Peguero",
+    "team": "SF",
     "pos": "P",
-    "mlbTeam": "SF",
     "status": "IL",
     "injury": "Hamstring",
     "returnDate": "Expected to be out until at least Apr 18",
-    "updated": "Sat, Apr 18",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 18"
   },
   {
-    "player": "Sam Hentges",
-    "team": "",
+    "name": "Sam Hentges",
+    "team": "SF",
     "pos": "RP",
-    "mlbTeam": "SF",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least Apr 21",
-    "updated": "Thu, Apr 16",
-    "rosteredPct": ""
+    "updated": "Thu, Apr 16"
   },
   {
-    "player": "Jared Oliva",
-    "team": "",
+    "name": "Jared Oliva",
+    "team": "SF",
     "pos": "RF",
-    "mlbTeam": "SF",
     "status": "IL",
     "injury": "Wrist",
     "returnDate": "Expected to be out until at least Jun 1",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Harrison Bader",
-    "team": "",
+    "name": "Harrison Bader",
+    "team": "SF",
     "pos": "CF",
-    "mlbTeam": "SF",
     "status": "IL",
     "injury": "Hamstring",
     "returnDate": "Expected to be out until at least Apr 22",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Jose Butto",
-    "team": "",
+    "name": "Jose Butto",
+    "team": "SF",
     "pos": "SP",
-    "mlbTeam": "SF",
     "status": "IL",
     "injury": "Forearm",
     "returnDate": "Expected to be out until at least Jul 1",
-    "updated": "Sat, Apr 4",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 4"
   },
   {
-    "player": "Hayden Birdsong",
-    "team": "",
+    "name": "Hayden Birdsong",
+    "team": "SF",
     "pos": "P",
-    "mlbTeam": "SF",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 1, 2027",
-    "updated": "Thu, Mar 26",
-    "rosteredPct": ""
+    "updated": "Thu, Mar 26"
   },
   {
-    "player": "Reiver Sanmartin",
-    "team": "",
+    "name": "Reiver Sanmartin",
+    "team": "SF",
     "pos": "RP",
-    "mlbTeam": "SF",
     "status": "IL",
     "injury": "Hip",
     "returnDate": "Expected to be out until at least Jun 9",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Jason Foley",
-    "team": "",
+    "name": "Jason Foley",
+    "team": "SF",
     "pos": "RP",
-    "mlbTeam": "SF",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Jul 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Randy Rodriguez",
-    "team": "",
+    "name": "Randy Rodriguez",
+    "team": "SF",
     "pos": "RP",
-    "mlbTeam": "SF",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Rowan Wick",
-    "team": "",
+    "name": "Rowan Wick",
+    "team": "SF",
     "pos": "RP",
-    "mlbTeam": "SF",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Brendan Donovan",
-    "team": "",
+    "name": "Brendan Donovan",
+    "team": "SEA",
     "pos": "2B",
-    "mlbTeam": "SEA",
-    "status": "IL",
+    "status": "DTD",
     "injury": "Hip",
     "returnDate": "Probable for Apr 18",
-    "updated": "Sat, Apr 18",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 18"
   },
   {
-    "player": "Miles Mastrobuoni",
-    "team": "",
+    "name": "Miles Mastrobuoni",
+    "team": "SEA",
     "pos": "3B",
-    "mlbTeam": "SEA",
     "status": "IL",
     "injury": "Calf",
     "returnDate": "Expected to be out until at least Apr 18",
-    "updated": "Sat, Apr 18",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 18"
   },
   {
-    "player": "Bryce Miller",
-    "team": "",
+    "name": "Bryce Miller",
+    "team": "SEA",
     "pos": "SP",
-    "mlbTeam": "SEA",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least May 22",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Patrick Wisdom",
-    "team": "",
+    "name": "Patrick Wisdom",
+    "team": "SEA",
     "pos": "3B",
-    "mlbTeam": "SEA",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 25",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Victor Robles",
-    "team": "",
+    "name": "Victor Robles",
+    "team": "SEA",
     "pos": "CF",
-    "mlbTeam": "SEA",
     "status": "IL",
     "injury": "Pectoral",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Carlos Vargas",
-    "team": "",
+    "name": "Carlos Vargas",
+    "team": "SEA",
     "pos": "RP",
-    "mlbTeam": "SEA",
     "status": "IL",
     "injury": "Lat",
     "returnDate": "Expected to be out until at least May 23",
-    "updated": "Wed, Apr 8",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 8"
   },
   {
-    "player": "Logan Evans",
-    "team": "",
+    "name": "Logan Evans",
+    "team": "SEA",
     "pos": "RP",
-    "mlbTeam": "SEA",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Hunter Dobbins",
-    "team": "",
+    "name": "Hunter Dobbins",
+    "team": "STL",
     "pos": "SP",
-    "mlbTeam": "STL",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Matt Pushard",
-    "team": "",
+    "name": "Matt Pushard",
+    "team": "STL",
     "pos": "SP",
-    "mlbTeam": "STL",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Sun, Apr 12",
-    "rosteredPct": ""
+    "updated": "Sun, Apr 12"
   },
   {
-    "player": "Lars Nootbaar",
-    "team": "",
+    "name": "Lars Nootbaar",
+    "team": "STL",
     "pos": "CF",
-    "mlbTeam": "STL",
     "status": "IL",
     "injury": "Heel",
     "returnDate": "Expected to be out until at least May 26",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Edwin Uceta",
-    "team": "",
+    "name": "Edwin Uceta",
+    "team": "TB",
     "pos": "RP",
-    "mlbTeam": "TB",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 8",
-    "updated": "Sat, Apr 18",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 18"
   },
   {
-    "player": "Ricardo Genoves",
-    "team": "",
+    "name": "Ricardo Genoves",
+    "team": "TB",
     "pos": "C",
-    "mlbTeam": "TB",
     "status": "IL",
     "injury": "Undisclosed",
     "returnDate": "Expected to be out until at least Apr 18",
-    "updated": "Sat, Apr 18",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 18"
   },
   {
-    "player": "Garrett Cleavinger",
-    "team": "",
+    "name": "Garrett Cleavinger",
+    "team": "TB",
     "pos": "RP",
-    "mlbTeam": "TB",
     "status": "IL",
     "injury": "Calf",
     "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Michael Grove",
-    "team": "",
+    "name": "Michael Grove",
+    "team": "TB",
     "pos": "SP",
-    "mlbTeam": "TB",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Ryan Pepiot",
-    "team": "",
+    "name": "Ryan Pepiot",
+    "team": "TB",
     "pos": "RP",
-    "mlbTeam": "TB",
     "status": "IL",
     "injury": "Hip",
     "returnDate": "Expected to be out until at least May 23",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Gavin Lux",
-    "team": "",
+    "name": "Gavin Lux",
+    "team": "TB",
     "pos": "SS",
-    "mlbTeam": "TB",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Mon, Apr 13",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 13"
   },
   {
-    "player": "Joe Boyle",
-    "team": "",
+    "name": "Joe Boyle",
+    "team": "TB",
     "pos": "SP",
-    "mlbTeam": "TB",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 25",
-    "updated": "Sat, Apr 11",
-    "rosteredPct": ""
+    "updated": "Sat, Apr 11"
   },
   {
-    "player": "Steven Wilson",
-    "team": "",
+    "name": "Steven Wilson",
+    "team": "TB",
     "pos": "RP",
-    "mlbTeam": "TB",
     "status": "IL",
     "injury": "Back",
     "returnDate": "Expected to be out until at least May 29",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Manuel Rodriguez",
-    "team": "",
+    "name": "Manuel Rodriguez",
+    "team": "TB",
     "pos": "RP",
-    "mlbTeam": "TB",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Luis Curvelo",
-    "team": "",
+    "name": "Luis Curvelo",
+    "team": "TEX",
     "pos": "RP",
-    "mlbTeam": "TEX",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Cody Bradford",
-    "team": "",
+    "name": "Cody Bradford",
+    "team": "TEX",
     "pos": "RP",
-    "mlbTeam": "TEX",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 26",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Chris Martin",
-    "team": "",
+    "name": "Chris Martin",
+    "team": "TEX",
     "pos": "RP",
-    "mlbTeam": "TEX",
     "status": "IL",
     "injury": "Biceps",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
+    "updated": "Wed, Apr 15"
   },
   {
-    "player": "Carter Baumler",
-    "team": "",
+    "name": "Carter Baumler",
+    "team": "TEX",
     "pos": "RP",
-    "mlbTeam": "TEX",
     "status": "IL",
     "injury": "Ribs",
     "returnDate": "Expected to be out until at least Apr 21",
-    "updated": "Sun, Apr 5",
-    "rosteredPct": ""
+    "updated": "Sun, Apr 5"
   },
   {
-    "player": "Cody Freeman",
-    "team": "",
+    "name": "Cody Freeman",
+    "team": "TEX",
     "pos": "SS",
-    "mlbTeam": "TEX",
     "status": "IL",
     "injury": "Back",
     "returnDate": "Expected to be out until at least May 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
+    "updated": "Wed, Mar 25"
   },
   {
-    "player": "Jordan Montgomery",
-    "team": "",
+    "name": "Jordan Montgomery",
+    "team": "TEX",
     "pos": "SP",
-    "mlbTeam": "TEX",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jul 1",
-    "updated": "Sun, Mar 8",
-    "rosteredPct": ""
+    "updated": "Sun, Mar 8"
   },
   {
-    "player": "Daulton Varsho",
-    "team": "",
+    "name": "Daulton Varsho",
+    "team": "TOR",
     "pos": "LF",
-    "mlbTeam": "TOR",
-    "status": "IL",
+    "status": "DTD",
     "injury": "Knee",
     "returnDate": "Probable for Apr 18",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "Trey Yesavage",
-    "team": "",
+    "name": "Trey Yesavage",
+    "team": "TOR",
     "pos": "SP",
-    "mlbTeam": "TOR",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Apr 27",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
+    "updated": "Fri, Apr 17"
   },
   {
-    "player": "George Springer",
-    "team": "",
+    "name": "George Springer",
+    "team": "TOR",
     "pos": "RF",
-    "mlbTeam": "TOR",
     "status": "IL",
     "injury": "Toe",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Thu, Apr 16",
-    "rosteredPct": ""
+    "updated": "Thu, Apr 16"
   },
   {
-    "player": "Addison Barger",
-    "team": "",
+    "name": "Addison Barger",
+    "team": "TOR",
     "pos": "SS",
-    "mlbTeam": "TOR",
     "status": "IL",
     "injury": "Ankle",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Thu, Apr 16",
-    "rosteredPct": ""
+    "updated": "Thu, Apr 16"
   },
   {
-    "player": "Jose Berrios",
-    "team": "",
+    "name": "Jose Berrios",
+    "team": "TOR",
     "pos": "SP",
-    "mlbTeam": "TOR",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 27",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 14"
   },
   {
-    "player": "Shane Bieber",
-    "team": "",
+    "name": "Shane Bieber",
+    "team": "TOR",
     "pos": "SP",
-    "mlbTeam": "TOR",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 24",
-    "updated": "Mon, Apr 13",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 13"
   },
   {
-    "player": "Yimi Garcia",
-    "team": "",
+    "name": "Yimi Garcia",
+    "team": "TOR",
     "pos": "RP",
-    "mlbTeam": "TOR",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 27",
-    "updated": "Tue, Apr 7",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 7"
   },
   {
-    "player": "Cody Ponce",
-    "team": "",
+    "name": "Cody Ponce",
+    "team": "TOR",
     "pos": "RP",
-    "mlbTeam": "TOR",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Tue, Apr 7",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 7"
   },
   {
-    "player": "Alejandro Kirk",
-    "team": "",
+    "name": "Alejandro Kirk",
+    "team": "TOR",
     "pos": "C",
-    "mlbTeam": "TOR",
     "status": "IL",
     "injury": "Thumb",
     "returnDate": "Expected to be out until at least May 18",
-    "updated": "Tue, Apr 7",
-    "rosteredPct": ""
+    "updated": "Tue, Apr 7"
   },
   {
-    "player": "Anthony Santander",
-    "team": "",
+    "name": "Anthony Santander",
+    "team": "TOR",
     "pos": "RF",
-    "mlbTeam": "TOR",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Aug 1",
-    "updated": "Sun, Apr 5",
-    "rosteredPct": ""
+    "updated": "Sun, Apr 5"
   },
   {
-    "player": "Bowden Francis",
-    "team": "",
+    "name": "Bowden Francis",
+    "team": "TOR",
     "pos": "RP",
-    "mlbTeam": "TOR",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Ken Waldichuk",
-    "team": "",
+    "name": "Ken Waldichuk",
+    "team": "WAS",
     "pos": "SP",
-    "mlbTeam": "WAS",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 1",
-    "updated": "Thu, Apr 16",
-    "rosteredPct": ""
+    "updated": "Thu, Apr 16"
   },
   {
-    "player": "Cole Henry",
-    "team": "",
+    "name": "Cole Henry",
+    "team": "WAS",
     "pos": "RP",
-    "mlbTeam": "WAS",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Apr 28",
-    "updated": "Mon, Apr 13",
-    "rosteredPct": ""
+    "updated": "Mon, Apr 13"
   },
   {
-    "player": "Josiah Gray",
-    "team": "",
+    "name": "Josiah Gray",
+    "team": "WAS",
     "pos": "SP",
-    "mlbTeam": "WAS",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 29",
-    "updated": "Mon, Mar 23",
-    "rosteredPct": ""
+    "updated": "Mon, Mar 23"
   },
   {
-    "player": "Trevor Williams",
-    "team": "",
+    "name": "Trevor Williams",
+    "team": "WAS",
     "pos": "SP",
-    "mlbTeam": "WAS",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   },
   {
-    "player": "Davidjohn Herz",
-    "team": "",
+    "name": "Davidjohn Herz",
+    "team": "WAS",
     "pos": "P",
-    "mlbTeam": "WAS",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jul 1",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
+    "updated": "Thu, Feb 19"
   }
 ]
