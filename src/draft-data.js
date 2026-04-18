@@ -206,16 +206,22 @@ if (CBS_TRANSACTIONS.length > 0) {
     const teamName = resolveCbsTeam(txn);
     txn.players.forEach(p => {
       const found = _plyrI(p.name);
-      // Cross-check MLB team to avoid name collisions (e.g. Cade Smith NYY vs CLE)
-      // If the transaction's MLB team doesn't match the player record's team,
-      // this is a DIFFERENT player with the same name — skip entirely so we don't
-      // corrupt the real player's drafted status or roster assignment.
-      // Normalize CBS abbreviations → FanGraphs abbreviations before comparing
+      // Cross-check MLB team to avoid name collisions (e.g. Cade Smith NYY vs CLE).
+      // BUT only skip if the pool contains MULTIPLE players with this name. If
+      // there's only one, an mlbTeam mismatch means the player was traded in real
+      // life (Snell SF→LAD, Bregman HOU→CHC, etc.) and the CBS transaction's
+      // mlbTeam is just stale — we MUST still apply the transaction or the player
+      // will remain incorrectly available.
       const _cbsToFg = {KC:'KCR',SF:'SFG',TB:'TBR',WAS:'WSN',AZ:'ARI',CWS:'CHW',SD:'SDP'};
       const _normTeam = t => _cbsToFg[t] || t;
       if (found && p.mlbTeam && found.team && _normTeam(found.team) !== _normTeam(p.mlbTeam)) {
-        console.log(`Skipping transaction for ${p.name} (${p.mlbTeam}) — name collision with ${found.team} player`);
-        return;
+        const _lcName = p.name.toLowerCase();
+        const _sameNameCount = ALL.filter(pl => pl.name.toLowerCase() === _lcName).length;
+        if (_sameNameCount > 1) {
+          console.log(`Skipping transaction for ${p.name} (${p.mlbTeam}) — genuine name collision with ${found.team} player`);
+          return;
+        }
+        // else: single player, real-life trade — fall through and apply
       }
       const playerName = found ? found.name : p.name;
       const action = p.action || '';
@@ -241,11 +247,15 @@ if (CBS_TRANSACTIONS.length > 0) {
   postDraft.forEach(txn => {
     const teamName = resolveCbsTeam(txn);
     txn.players.forEach(p => {
-      // Skip name-collision transactions (same skip as roster processing above)
+      // Skip name-collision transactions (same logic as roster processing above):
+      // only skip when the pool has MULTIPLE players with this name.
       const _txFound = _plyrI(p.name);
       const _cbsToFg2 = {KC:'KCR',SF:'SFG',TB:'TBR',WAS:'WSN',AZ:'ARI',CWS:'CHW',SD:'SDP'};
       const _normTeam2 = t => _cbsToFg2[t] || t;
-      if (_txFound && p.mlbTeam && _txFound.team && _normTeam2(_txFound.team) !== _normTeam2(p.mlbTeam)) return;
+      if (_txFound && p.mlbTeam && _txFound.team && _normTeam2(_txFound.team) !== _normTeam2(p.mlbTeam)) {
+        const _lcName2 = p.name.toLowerCase();
+        if (ALL.filter(pl => pl.name.toLowerCase() === _lcName2).length > 1) return;
+      }
       const action = p.action || '';
       let txType = 'add';
       if (action === 'Dropped') txType = 'drop';
