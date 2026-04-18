@@ -3,7 +3,7 @@
     "player": "Brent Rooker",
     "team": "",
     "pos": "DH",
-    "mlbTeam": "OAK",
+    "mlbTeam": "ATH",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 20",
@@ -14,11 +14,33 @@
     "player": "Gunnar Hoglund",
     "team": "",
     "pos": "P",
-    "mlbTeam": "OAK",
+    "mlbTeam": "ATH",
     "status": "IL",
     "injury": "Back",
     "returnDate": "Expected to be out until at least May 25",
     "updated": "Tue, Apr 7",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Carlos Santana",
+    "team": "",
+    "pos": "1B",
+    "mlbTeam": "ARI",
+    "status": "IL",
+    "injury": "Thigh",
+    "returnDate": "Expected to be out until at least Apr 19",
+    "updated": "Sat, Apr 18",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Pavin Smith",
+    "team": "",
+    "pos": "RF",
+    "mlbTeam": "ARI",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Expected to be out until at least May 29",
+    "updated": "Sat, Apr 18",
     "rosteredPct": ""
   },
   {
@@ -33,17 +55,6 @@
     "rosteredPct": ""
   },
   {
-    "player": "Pavin Smith",
-    "team": "",
-    "pos": "RF",
-    "mlbTeam": "ARI",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
-  },
-  {
     "player": "Gabriel Moreno",
     "team": "",
     "pos": "C",
@@ -52,17 +63,6 @@
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 21",
     "updated": "Tue, Apr 14",
-    "rosteredPct": ""
-  },
-  {
-    "player": "Carlos Santana",
-    "team": "",
-    "pos": "1B",
-    "mlbTeam": "ARI",
-    "status": "IL",
-    "injury": "Thigh",
-    "returnDate": "Expected to be out until at least Apr 17",
-    "updated": "Sun, Apr 12",
     "rosteredPct": ""
   },
   {
@@ -99,17 +99,6 @@
     "rosteredPct": ""
   },
   {
-    "player": "Blake Walston",
-    "team": "",
-    "pos": "SP",
-    "mlbTeam": "ARI",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
-  },
-  {
     "player": "Tyler Locklear",
     "team": "",
     "pos": "3B",
@@ -117,6 +106,17 @@
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 18",
+    "updated": "Wed, Mar 25",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Blake Walston",
+    "team": "",
+    "pos": "SP",
+    "mlbTeam": "ARI",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Expected to be out until at least Jul 1",
     "updated": "Wed, Mar 25",
     "rosteredPct": ""
   },
@@ -132,17 +132,6 @@
     "rosteredPct": ""
   },
   {
-    "player": "Corbin Burnes",
-    "team": "",
-    "pos": "SP",
-    "mlbTeam": "ARI",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 17",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
-  },
-  {
     "player": "Justin Martinez",
     "team": "",
     "pos": "RP",
@@ -150,6 +139,17 @@
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Aug 21",
+    "updated": "Thu, Feb 19",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Corbin Burnes",
+    "team": "",
+    "pos": "SP",
+    "mlbTeam": "ARI",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Expected to be out until at least Jul 17",
     "updated": "Thu, Feb 19",
     "rosteredPct": ""
   },
@@ -198,17 +198,6 @@
     "rosteredPct": ""
   },
   {
-    "player": "Ha-seong Kim",
-    "team": "",
-    "pos": "2B",
-    "mlbTeam": "ATL",
-    "status": "IL",
-    "injury": "Finger",
-    "returnDate": "Expected to be out until at least May 12",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
-  },
-  {
     "player": "Hurston Waldrep",
     "team": "",
     "pos": "SP",
@@ -216,6 +205,17 @@
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 2",
+    "updated": "Wed, Mar 25",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Ha-seong Kim",
+    "team": "",
+    "pos": "2B",
+    "mlbTeam": "ATL",
+    "status": "IL",
+    "injury": "Finger",
+    "returnDate": "Expected to be out until at least May 12",
     "updated": "Wed, Mar 25",
     "rosteredPct": ""
   },
@@ -231,17 +231,6 @@
     "rosteredPct": ""
   },
   {
-    "player": "Joe Jimenez",
-    "team": "",
-    "pos": "RP",
-    "mlbTeam": "ATL",
-    "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Jul 17",
-    "updated": "Thu, Feb 19",
-    "rosteredPct": ""
-  },
-  {
     "player": "Spencer Schwellenbach",
     "team": "",
     "pos": "P",
@@ -249,6 +238,17 @@
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 2",
+    "updated": "Thu, Feb 19",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Joe Jimenez",
+    "team": "",
+    "pos": "RP",
+    "mlbTeam": "ATL",
+    "status": "IL",
+    "injury": "Knee",
+    "returnDate": "Expected to be out until at least Jul 17",
     "updated": "Thu, Feb 19",
     "rosteredPct": ""
   },
@@ -275,17 +275,6 @@
     "rosteredPct": ""
   },
   {
-    "player": "Heston Kjerstad",
-    "team": "",
-    "pos": "DH",
-    "mlbTeam": "BAL",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
-  },
-  {
     "player": "Andrew Kittredge",
     "team": "",
     "pos": "RP",
@@ -293,6 +282,17 @@
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Apr 20",
+    "updated": "Tue, Apr 14",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Heston Kjerstad",
+    "team": "",
+    "pos": "DH",
+    "mlbTeam": "BAL",
+    "status": "IL",
+    "injury": "Hamstring",
+    "returnDate": "Expected to be out until at least Apr 24",
     "updated": "Tue, Apr 14",
     "rosteredPct": ""
   },
@@ -308,17 +308,6 @@
     "rosteredPct": ""
   },
   {
-    "player": "Yaramil Hiraldo",
-    "team": "",
-    "pos": "RP",
-    "mlbTeam": "BAL",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Jun 4",
-    "updated": "Mon, Apr 13",
-    "rosteredPct": ""
-  },
-  {
     "player": "Ryan Mountcastle",
     "team": "",
     "pos": "1B",
@@ -326,6 +315,17 @@
     "status": "IL",
     "injury": "Foot",
     "returnDate": "Expected to be out until at least Jun 19",
+    "updated": "Mon, Apr 13",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Yaramil Hiraldo",
+    "team": "",
+    "pos": "RP",
+    "mlbTeam": "BAL",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Expected to be out until at least Jun 4",
     "updated": "Mon, Apr 13",
     "rosteredPct": ""
   },
@@ -407,17 +407,6 @@
     "rosteredPct": ""
   },
   {
-    "player": "Triston Casas",
-    "team": "",
-    "pos": "1B",
-    "mlbTeam": "BOS",
-    "status": "IL",
-    "injury": "Abdomen",
-    "returnDate": "Expected to be out until at least Jun 2",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
-  },
-  {
     "player": "Johan Oviedo",
     "team": "",
     "pos": "SP",
@@ -425,6 +414,17 @@
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 17",
+    "updated": "Tue, Apr 14",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Triston Casas",
+    "team": "",
+    "pos": "1B",
+    "mlbTeam": "BOS",
+    "status": "IL",
+    "injury": "Abdomen",
+    "returnDate": "Expected to be out until at least Jun 2",
     "updated": "Tue, Apr 14",
     "rosteredPct": ""
   },
@@ -473,21 +473,10 @@
     "rosteredPct": ""
   },
   {
-    "player": "Cade Horton",
-    "team": "",
-    "pos": "P",
-    "mlbTeam": "Chi. Cubs",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Aug 1, 2027",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
-  },
-  {
     "player": "Daniel Palencia",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "Chi. Cubs",
+    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least May 1",
@@ -495,10 +484,21 @@
     "rosteredPct": ""
   },
   {
+    "player": "Cade Horton",
+    "team": "",
+    "pos": "P",
+    "mlbTeam": "CHC",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Expected to be out until at least Aug 1, 2027",
+    "updated": "Fri, Apr 17",
+    "rosteredPct": ""
+  },
+  {
     "player": "Matthew Boyd",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "Chi. Cubs",
+    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Biceps",
     "returnDate": "Expected to be out until at least Apr 21",
@@ -509,7 +509,7 @@
     "player": "Porter Hodge",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "Chi. Cubs",
+    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
@@ -520,7 +520,7 @@
     "player": "Jordan Wicks",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "Chi. Cubs",
+    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 22",
@@ -531,7 +531,7 @@
     "player": "Ethan Roberts",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "Chi. Cubs",
+    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Undisclosed",
     "returnDate": "Expected to be out until at least Apr 28",
@@ -542,7 +542,7 @@
     "player": "Hunter Harvey",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "Chi. Cubs",
+    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Triceps",
     "returnDate": "Expected to be out until at least Apr 24",
@@ -553,7 +553,7 @@
     "player": "Phil Maton",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "Chi. Cubs",
+    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least Apr 23",
@@ -564,7 +564,7 @@
     "player": "Justin Steele",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "Chi. Cubs",
+    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 25",
@@ -575,7 +575,7 @@
     "player": "Tyler Austin",
     "team": "",
     "pos": "RF",
-    "mlbTeam": "Chi. Cubs",
+    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least May 23",
@@ -586,7 +586,7 @@
     "player": "Shelby Miller",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "Chi. Cubs",
+    "mlbTeam": "CHC",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
@@ -597,7 +597,7 @@
     "player": "Kyle Teel",
     "team": "",
     "pos": "C",
-    "mlbTeam": "Chi. White Sox",
+    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Hamstring",
     "returnDate": "Expected to be out until at least May 1",
@@ -608,7 +608,7 @@
     "player": "Jonathan Cannon",
     "team": "",
     "pos": "P",
-    "mlbTeam": "Chi. White Sox",
+    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Hip",
     "returnDate": "Expected to be out until at least Apr 28",
@@ -619,7 +619,7 @@
     "player": "Chris Murphy",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "Chi. White Sox",
+    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Apr 23",
@@ -630,7 +630,7 @@
     "player": "Brooks Baldwin",
     "team": "",
     "pos": "SS",
-    "mlbTeam": "Chi. White Sox",
+    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
@@ -638,21 +638,10 @@
     "rosteredPct": ""
   },
   {
-    "player": "Austin Hays",
-    "team": "",
-    "pos": "LF",
-    "mlbTeam": "Chi. White Sox",
-    "status": "IL",
-    "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Tue, Apr 7",
-    "rosteredPct": ""
-  },
-  {
     "player": "Mike Vasil",
     "team": "",
     "pos": "P",
-    "mlbTeam": "Chi. White Sox",
+    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jul 1, 2027",
@@ -660,10 +649,21 @@
     "rosteredPct": ""
   },
   {
+    "player": "Austin Hays",
+    "team": "",
+    "pos": "LF",
+    "mlbTeam": "CHW",
+    "status": "IL",
+    "injury": "Hamstring",
+    "returnDate": "Expected to be out until at least Apr 24",
+    "updated": "Tue, Apr 7",
+    "rosteredPct": ""
+  },
+  {
     "player": "Ky Bush",
     "team": "",
     "pos": "P",
-    "mlbTeam": "Chi. White Sox",
+    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 1",
@@ -674,7 +674,7 @@
     "player": "Prelander Berroa",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "Chi. White Sox",
+    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 1",
@@ -685,22 +685,11 @@
     "player": "Drew Thorpe",
     "team": "",
     "pos": "P",
-    "mlbTeam": "Chi. White Sox",
+    "mlbTeam": "CHW",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 1",
     "updated": "Wed, Mar 25",
-    "rosteredPct": ""
-  },
-  {
-    "player": "Emilio Pagan",
-    "team": "",
-    "pos": "RP",
-    "mlbTeam": "CIN",
-    "status": "Probable",
-    "injury": "Hamstring",
-    "returnDate": "Probable for Apr 17",
-    "updated": "Thu, Apr 16",
     "rosteredPct": ""
   },
   {
@@ -774,7 +763,7 @@
     "team": "",
     "pos": "LF",
     "mlbTeam": "COL",
-    "status": "Probable",
+    "status": "IL",
     "injury": "Hand",
     "returnDate": "Probable for Apr 18",
     "updated": "Fri, Apr 17",
@@ -946,6 +935,39 @@
     "rosteredPct": ""
   },
   {
+    "player": "Bennett Sousa",
+    "team": "",
+    "pos": "RP",
+    "mlbTeam": "HOU",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "Expected to be out until at least Apr 18",
+    "updated": "Sat, Apr 18",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Isaac Paredes",
+    "team": "",
+    "pos": "3B",
+    "mlbTeam": "HOU",
+    "status": "IL",
+    "injury": "Leg",
+    "returnDate": "Probable for Apr 18",
+    "updated": "Fri, Apr 17",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Joey Loperfido",
+    "team": "",
+    "pos": "OF",
+    "mlbTeam": "HOU",
+    "status": "IL",
+    "injury": "Quadriceps",
+    "returnDate": "Probable for Apr 18",
+    "updated": "Fri, Apr 17",
+    "rosteredPct": ""
+  },
+  {
     "player": "Josh Hader",
     "team": "",
     "pos": "RP",
@@ -954,17 +976,6 @@
     "injury": "Biceps",
     "returnDate": "Expected to be out until at least May 24",
     "updated": "Fri, Apr 17",
-    "rosteredPct": ""
-  },
-  {
-    "player": "Bennett Sousa",
-    "team": "",
-    "pos": "RP",
-    "mlbTeam": "HOU",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 17",
-    "updated": "Thu, Apr 16",
     "rosteredPct": ""
   },
   {
@@ -990,17 +1001,6 @@
     "rosteredPct": ""
   },
   {
-    "player": "Jake Meyers",
-    "team": "",
-    "pos": "CF",
-    "mlbTeam": "HOU",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least May 1",
-    "updated": "Mon, Apr 13",
-    "rosteredPct": ""
-  },
-  {
     "player": "Jeremy Pena",
     "team": "",
     "pos": "SS",
@@ -1008,6 +1008,17 @@
     "status": "IL",
     "injury": "Hamstring",
     "returnDate": "Expected to be out until at least Apr 24",
+    "updated": "Mon, Apr 13",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Jake Meyers",
+    "team": "",
+    "pos": "CF",
+    "mlbTeam": "HOU",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "Expected to be out until at least May 1",
     "updated": "Mon, Apr 13",
     "rosteredPct": ""
   },
@@ -1056,6 +1067,17 @@
     "rosteredPct": ""
   },
   {
+    "player": "Zach Dezenzo",
+    "team": "",
+    "pos": "SS",
+    "mlbTeam": "HOU",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Expected to be out until at least Apr 24",
+    "updated": "Wed, Mar 25",
+    "rosteredPct": ""
+  },
+  {
     "player": "Brandon Walter",
     "team": "",
     "pos": "RP",
@@ -1078,25 +1100,14 @@
     "rosteredPct": ""
   },
   {
-    "player": "Zach Dezenzo",
+    "player": "Isaac Collins",
     "team": "",
-    "pos": "SS",
-    "mlbTeam": "HOU",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
-  },
-  {
-    "player": "Bailey Falter",
-    "team": "",
-    "pos": "SP",
+    "pos": "LF",
     "mlbTeam": "KC",
     "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Tue, Apr 14",
+    "injury": "Knee",
+    "returnDate": "Probable for Apr 18",
+    "updated": "Sat, Apr 18",
     "rosteredPct": ""
   },
   {
@@ -1107,6 +1118,17 @@
     "status": "IL",
     "injury": "Foot",
     "returnDate": "Expected to be out until at least Apr 28",
+    "updated": "Tue, Apr 14",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Bailey Falter",
+    "team": "",
+    "pos": "SP",
+    "mlbTeam": "KC",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Expected to be out until at least Apr 20",
     "updated": "Tue, Apr 14",
     "rosteredPct": ""
   },
@@ -1147,18 +1169,18 @@
     "player": "Kirby Yates",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "L.A. Angels",
+    "mlbTeam": "LAA",
     "status": "IL",
     "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Fri, Apr 17",
+    "returnDate": "Expected to be out until at least Apr 24",
+    "updated": "Sat, Apr 18",
     "rosteredPct": ""
   },
   {
     "player": "Alek Manoah",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "L.A. Angels",
+    "mlbTeam": "LAA",
     "status": "IL",
     "injury": "Finger",
     "returnDate": "Expected to be out until at least May 1",
@@ -1169,7 +1191,7 @@
     "player": "Grayson Rodriguez",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "L.A. Angels",
+    "mlbTeam": "LAA",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 1",
@@ -1180,7 +1202,7 @@
     "player": "Ryan Johnson",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "L.A. Angels",
+    "mlbTeam": "LAA",
     "status": "IL",
     "injury": "Illness",
     "returnDate": "Expected to be out until at least Apr 21",
@@ -1191,7 +1213,7 @@
     "player": "Ben Joyce",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "L.A. Angels",
+    "mlbTeam": "LAA",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Apr 24",
@@ -1202,7 +1224,7 @@
     "player": "Robert Stephenson",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "L.A. Angels",
+    "mlbTeam": "LAA",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
@@ -1213,7 +1235,7 @@
     "player": "Anthony Rendon",
     "team": "",
     "pos": "3B",
-    "mlbTeam": "L.A. Angels",
+    "mlbTeam": "LAA",
     "status": "IL",
     "injury": "Hip",
     "returnDate": "Expected to be out until at least Feb 1",
@@ -1224,7 +1246,7 @@
     "player": "Ben Casparius",
     "team": "",
     "pos": "P",
-    "mlbTeam": "L.A. Dodgers",
+    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Apr 28",
@@ -1232,21 +1254,10 @@
     "rosteredPct": ""
   },
   {
-    "player": "Brock Stewart",
-    "team": "",
-    "pos": "RP",
-    "mlbTeam": "L.A. Dodgers",
-    "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Apr 19",
-    "updated": "Sun, Apr 12",
-    "rosteredPct": ""
-  },
-  {
     "player": "Landon Knack",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "L.A. Dodgers",
+    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Chest",
     "returnDate": "Expected to be out until at least Apr 20",
@@ -1254,10 +1265,21 @@
     "rosteredPct": ""
   },
   {
+    "player": "Brock Stewart",
+    "team": "",
+    "pos": "RP",
+    "mlbTeam": "LAD",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Expected to be out until at least Apr 19",
+    "updated": "Sun, Apr 12",
+    "rosteredPct": ""
+  },
+  {
     "player": "Brusdar Graterol",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "L.A. Dodgers",
+    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 22",
@@ -1268,7 +1290,7 @@
     "player": "Mookie Betts",
     "team": "",
     "pos": "RF",
-    "mlbTeam": "L.A. Dodgers",
+    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 24",
@@ -1279,7 +1301,7 @@
     "player": "Gavin Stone",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "L.A. Dodgers",
+    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 22",
@@ -1290,7 +1312,7 @@
     "player": "Jake Cousins",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "L.A. Dodgers",
+    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Aug 1",
@@ -1298,10 +1320,10 @@
     "rosteredPct": ""
   },
   {
-    "player": "Bobby Miller",
+    "player": "Blake Snell",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "L.A. Dodgers",
+    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 29",
@@ -1309,10 +1331,10 @@
     "rosteredPct": ""
   },
   {
-    "player": "Blake Snell",
+    "player": "Bobby Miller",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "L.A. Dodgers",
+    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 29",
@@ -1323,7 +1345,7 @@
     "player": "Tommy Edman",
     "team": "",
     "pos": "2B",
-    "mlbTeam": "L.A. Dodgers",
+    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Ankle",
     "returnDate": "Expected to be out until at least May 29",
@@ -1334,11 +1356,22 @@
     "player": "Enrique Hernandez",
     "team": "",
     "pos": "SS",
-    "mlbTeam": "L.A. Dodgers",
+    "mlbTeam": "LAD",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 24",
     "updated": "Wed, Mar 4",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Maximo Acosta",
+    "team": "",
+    "pos": "SS",
+    "mlbTeam": "MIA",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "Expected to be out until at least Apr 18",
+    "updated": "Sat, Apr 18",
     "rosteredPct": ""
   },
   {
@@ -1353,6 +1386,17 @@
     "rosteredPct": ""
   },
   {
+    "player": "Graham Pauley",
+    "team": "",
+    "pos": "3B",
+    "mlbTeam": "MIA",
+    "status": "IL",
+    "injury": "Oblique",
+    "returnDate": "Probable for Apr 18",
+    "updated": "Fri, Apr 17",
+    "rosteredPct": ""
+  },
+  {
     "player": "Christopher Morel",
     "team": "",
     "pos": "DH",
@@ -1360,17 +1404,6 @@
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least Apr 20",
-    "updated": "Sun, Apr 12",
-    "rosteredPct": ""
-  },
-  {
-    "player": "Maximo Acosta",
-    "team": "",
-    "pos": "SS",
-    "mlbTeam": "MIA",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least Apr 17",
     "updated": "Sun, Apr 12",
     "rosteredPct": ""
   },
@@ -1419,17 +1452,6 @@
     "rosteredPct": ""
   },
   {
-    "player": "Kyle Harrison",
-    "team": "",
-    "pos": "SP",
-    "mlbTeam": "MIL",
-    "status": "IL",
-    "injury": "Wrist",
-    "returnDate": "Expected to be out until at least Apr 21",
-    "updated": "Thu, Apr 16",
-    "rosteredPct": ""
-  },
-  {
     "player": "Craig Yoho",
     "team": "",
     "pos": "RP",
@@ -1437,6 +1459,17 @@
     "status": "IL",
     "injury": "Calf",
     "returnDate": "Expected to be out until at least Apr 22",
+    "updated": "Thu, Apr 16",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Kyle Harrison",
+    "team": "",
+    "pos": "SP",
+    "mlbTeam": "MIL",
+    "status": "IL",
+    "injury": "Wrist",
+    "returnDate": "Expected to be out until at least Apr 21",
     "updated": "Thu, Apr 16",
     "rosteredPct": ""
   },
@@ -1529,17 +1562,6 @@
     "rosteredPct": ""
   },
   {
-    "player": "Cody Laweryson",
-    "team": "",
-    "pos": "RP",
-    "mlbTeam": "MIN",
-    "status": "IL",
-    "injury": "Forearm",
-    "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Sat, Apr 11",
-    "rosteredPct": ""
-  },
-  {
     "player": "Royce Lewis",
     "team": "",
     "pos": "3B",
@@ -1547,6 +1569,17 @@
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least Apr 21",
+    "updated": "Sat, Apr 11",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Cody Laweryson",
+    "team": "",
+    "pos": "RP",
+    "mlbTeam": "MIN",
+    "status": "IL",
+    "injury": "Forearm",
+    "returnDate": "Expected to be out until at least Apr 24",
     "updated": "Sat, Apr 11",
     "rosteredPct": ""
   },
@@ -1576,8 +1609,8 @@
     "player": "Jorge Polanco",
     "team": "",
     "pos": "1B",
-    "mlbTeam": "N.Y. Mets",
-    "status": "Probable",
+    "mlbTeam": "NYM",
+    "status": "IL",
     "injury": "Achilles",
     "returnDate": "Probable for Apr 18",
     "updated": "Fri, Apr 17",
@@ -1587,7 +1620,7 @@
     "player": "Jared Young",
     "team": "",
     "pos": "1B",
-    "mlbTeam": "N.Y. Mets",
+    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Knee",
     "returnDate": "Expected to be out until at least Jul 1",
@@ -1598,7 +1631,7 @@
     "player": "Joey Gerber",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "N.Y. Mets",
+    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Finger",
     "returnDate": "Expected to be out until at least Apr 29",
@@ -1609,7 +1642,7 @@
     "player": "Juan Soto",
     "team": "",
     "pos": "LF",
-    "mlbTeam": "N.Y. Mets",
+    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Calf",
     "returnDate": "Expected to be out until at least Apr 21",
@@ -1620,7 +1653,7 @@
     "player": "A.J. Minter",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "N.Y. Mets",
+    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Lat",
     "returnDate": "Expected to be out until at least May 1",
@@ -1631,7 +1664,7 @@
     "player": "Justin Hagenman",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "N.Y. Mets",
+    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Ribs",
     "returnDate": "Expected to be out until at least May 27",
@@ -1639,13 +1672,13 @@
     "rosteredPct": ""
   },
   {
-    "player": "Dedniel Nunez",
+    "player": "Reed Garrett",
     "team": "",
-    "pos": "SP",
-    "mlbTeam": "N.Y. Mets",
+    "pos": "RP",
+    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Sep 1",
+    "returnDate": "Expected to be out until at least Feb 1",
     "updated": "Thu, Feb 19",
     "rosteredPct": ""
   },
@@ -1653,7 +1686,7 @@
     "player": "Tylor Megill",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "N.Y. Mets",
+    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Feb 1",
@@ -1661,13 +1694,13 @@
     "rosteredPct": ""
   },
   {
-    "player": "Reed Garrett",
+    "player": "Dedniel Nunez",
     "team": "",
-    "pos": "RP",
-    "mlbTeam": "N.Y. Mets",
+    "pos": "SP",
+    "mlbTeam": "NYM",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1",
+    "returnDate": "Expected to be out until at least Sep 1",
     "updated": "Thu, Feb 19",
     "rosteredPct": ""
   },
@@ -1675,7 +1708,7 @@
     "player": "Gerrit Cole",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "N.Y. Yankees",
+    "mlbTeam": "NYY",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 7",
@@ -1686,7 +1719,7 @@
     "player": "Carlos Rodon",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "N.Y. Yankees",
+    "mlbTeam": "NYY",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 2",
@@ -1697,7 +1730,7 @@
     "player": "Anthony Volpe",
     "team": "",
     "pos": "SS",
-    "mlbTeam": "N.Y. Yankees",
+    "mlbTeam": "NYY",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 1",
@@ -1708,7 +1741,7 @@
     "player": "Clarke Schmidt",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "N.Y. Yankees",
+    "mlbTeam": "NYY",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Aug 1",
@@ -1782,24 +1815,35 @@
     "rosteredPct": ""
   },
   {
-    "player": "Freddy Fermin",
-    "team": "",
-    "pos": "C",
-    "mlbTeam": "SD",
-    "status": "Probable",
-    "injury": "Head",
-    "returnDate": "Probable for Apr 18",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
-  },
-  {
     "player": "Yuki Matsui",
     "team": "",
     "pos": "RP",
     "mlbTeam": "SD",
     "status": "IL",
     "injury": "Groin",
-    "returnDate": "Expected to be out until at least Apr 17",
+    "returnDate": "Expected to be out until at least Apr 18",
+    "updated": "Sat, Apr 18",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Freddy Fermin",
+    "team": "",
+    "pos": "C",
+    "mlbTeam": "SD",
+    "status": "IL",
+    "injury": "Head",
+    "returnDate": "Probable for Apr 18",
+    "updated": "Fri, Apr 17",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Joe Musgrove",
+    "team": "",
+    "pos": "SP",
+    "mlbTeam": "SD",
+    "status": "IL",
+    "injury": "Elbow",
+    "returnDate": "Expected to be out until at least May 6",
     "updated": "Wed, Apr 15",
     "rosteredPct": ""
   },
@@ -1811,17 +1855,6 @@
     "status": "IL",
     "injury": "Forearm",
     "returnDate": "Expected to be out until at least Jun 15",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
-  },
-  {
-    "player": "Joe Musgrove",
-    "team": "",
-    "pos": "SP",
-    "mlbTeam": "SD",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least May 6",
     "updated": "Wed, Apr 15",
     "rosteredPct": ""
   },
@@ -1848,17 +1881,6 @@
     "rosteredPct": ""
   },
   {
-    "player": "Bryan Hoeing",
-    "team": "",
-    "pos": "RP",
-    "mlbTeam": "SD",
-    "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1",
-    "updated": "Wed, Mar 25",
-    "rosteredPct": ""
-  },
-  {
     "player": "Griffin Canning",
     "team": "",
     "pos": "SP",
@@ -1870,14 +1892,14 @@
     "rosteredPct": ""
   },
   {
-    "player": "Sam Hentges",
+    "player": "Bryan Hoeing",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "SF",
+    "mlbTeam": "SD",
     "status": "IL",
-    "injury": "Knee",
-    "returnDate": "Expected to be out until at least Apr 21",
-    "updated": "Thu, Apr 16",
+    "injury": "Elbow",
+    "returnDate": "Expected to be out until at least Feb 1",
+    "updated": "Wed, Mar 25",
     "rosteredPct": ""
   },
   {
@@ -1887,7 +1909,18 @@
     "mlbTeam": "SF",
     "status": "IL",
     "injury": "Hamstring",
-    "returnDate": "Expected to be out until at least Apr 17",
+    "returnDate": "Expected to be out until at least Apr 18",
+    "updated": "Sat, Apr 18",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Sam Hentges",
+    "team": "",
+    "pos": "RP",
+    "mlbTeam": "SF",
+    "status": "IL",
+    "injury": "Knee",
+    "returnDate": "Expected to be out until at least Apr 21",
     "updated": "Thu, Apr 16",
     "rosteredPct": ""
   },
@@ -1947,13 +1980,13 @@
     "rosteredPct": ""
   },
   {
-    "player": "Rowan Wick",
+    "player": "Jason Foley",
     "team": "",
     "pos": "RP",
     "mlbTeam": "SF",
     "status": "IL",
-    "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Feb 1",
+    "injury": "Shoulder",
+    "returnDate": "Expected to be out until at least Jul 1",
     "updated": "Thu, Feb 19",
     "rosteredPct": ""
   },
@@ -1969,14 +2002,36 @@
     "rosteredPct": ""
   },
   {
-    "player": "Jason Foley",
+    "player": "Rowan Wick",
     "team": "",
     "pos": "RP",
     "mlbTeam": "SF",
     "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least Jul 1",
+    "injury": "Elbow",
+    "returnDate": "Expected to be out until at least Feb 1",
     "updated": "Thu, Feb 19",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Brendan Donovan",
+    "team": "",
+    "pos": "2B",
+    "mlbTeam": "SEA",
+    "status": "IL",
+    "injury": "Hip",
+    "returnDate": "Probable for Apr 18",
+    "updated": "Sat, Apr 18",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Miles Mastrobuoni",
+    "team": "",
+    "pos": "3B",
+    "mlbTeam": "SEA",
+    "status": "IL",
+    "injury": "Calf",
+    "returnDate": "Expected to be out until at least Apr 18",
+    "updated": "Sat, Apr 18",
     "rosteredPct": ""
   },
   {
@@ -2009,17 +2064,6 @@
     "status": "IL",
     "injury": "Pectoral",
     "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
-  },
-  {
-    "player": "Miles Mastrobuoni",
-    "team": "",
-    "pos": "3B",
-    "mlbTeam": "SEA",
-    "status": "IL",
-    "injury": "Calf",
-    "returnDate": "Expected to be out until at least Apr 17",
     "updated": "Wed, Apr 15",
     "rosteredPct": ""
   },
@@ -2079,25 +2123,25 @@
     "rosteredPct": ""
   },
   {
-    "player": "Ricardo Genoves",
-    "team": "",
-    "pos": "C",
-    "mlbTeam": "TB",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least Apr 17",
-    "updated": "Fri, Apr 17",
-    "rosteredPct": ""
-  },
-  {
     "player": "Edwin Uceta",
     "team": "",
     "pos": "RP",
     "mlbTeam": "TB",
     "status": "IL",
     "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 1",
-    "updated": "Fri, Apr 17",
+    "returnDate": "Expected to be out until at least May 8",
+    "updated": "Sat, Apr 18",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Ricardo Genoves",
+    "team": "",
+    "pos": "C",
+    "mlbTeam": "TB",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "returnDate": "Expected to be out until at least Apr 18",
+    "updated": "Sat, Apr 18",
     "rosteredPct": ""
   },
   {
@@ -2112,17 +2156,6 @@
     "rosteredPct": ""
   },
   {
-    "player": "Ryan Pepiot",
-    "team": "",
-    "pos": "RP",
-    "mlbTeam": "TB",
-    "status": "IL",
-    "injury": "Hip",
-    "returnDate": "Expected to be out until at least May 23",
-    "updated": "Tue, Apr 14",
-    "rosteredPct": ""
-  },
-  {
     "player": "Michael Grove",
     "team": "",
     "pos": "SP",
@@ -2130,6 +2163,17 @@
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least May 1",
+    "updated": "Tue, Apr 14",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Ryan Pepiot",
+    "team": "",
+    "pos": "RP",
+    "mlbTeam": "TB",
+    "status": "IL",
+    "injury": "Hip",
+    "returnDate": "Expected to be out until at least May 23",
     "updated": "Tue, Apr 14",
     "rosteredPct": ""
   },
@@ -2189,17 +2233,6 @@
     "rosteredPct": ""
   },
   {
-    "player": "Chris Martin",
-    "team": "",
-    "pos": "RP",
-    "mlbTeam": "TEX",
-    "status": "IL",
-    "injury": "Biceps",
-    "returnDate": "Expected to be out until at least May 1",
-    "updated": "Wed, Apr 15",
-    "rosteredPct": ""
-  },
-  {
     "player": "Cody Bradford",
     "team": "",
     "pos": "RP",
@@ -2207,6 +2240,17 @@
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 26",
+    "updated": "Wed, Apr 15",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Chris Martin",
+    "team": "",
+    "pos": "RP",
+    "mlbTeam": "TEX",
+    "status": "IL",
+    "injury": "Biceps",
+    "returnDate": "Expected to be out until at least May 1",
     "updated": "Wed, Apr 15",
     "rosteredPct": ""
   },
@@ -2244,6 +2288,17 @@
     "rosteredPct": ""
   },
   {
+    "player": "Daulton Varsho",
+    "team": "",
+    "pos": "LF",
+    "mlbTeam": "TOR",
+    "status": "IL",
+    "injury": "Knee",
+    "returnDate": "Probable for Apr 18",
+    "updated": "Fri, Apr 17",
+    "rosteredPct": ""
+  },
+  {
     "player": "Trey Yesavage",
     "team": "",
     "pos": "SP",
@@ -2255,23 +2310,23 @@
     "rosteredPct": ""
   },
   {
-    "player": "Addison Barger",
-    "team": "",
-    "pos": "SS",
-    "mlbTeam": "TOR",
-    "status": "IL",
-    "injury": "Ankle",
-    "returnDate": "Expected to be out until at least Apr 24",
-    "updated": "Thu, Apr 16",
-    "rosteredPct": ""
-  },
-  {
     "player": "George Springer",
     "team": "",
     "pos": "RF",
     "mlbTeam": "TOR",
     "status": "IL",
     "injury": "Toe",
+    "returnDate": "Expected to be out until at least Apr 24",
+    "updated": "Thu, Apr 16",
+    "rosteredPct": ""
+  },
+  {
+    "player": "Addison Barger",
+    "team": "",
+    "pos": "SS",
+    "mlbTeam": "TOR",
+    "status": "IL",
+    "injury": "Ankle",
     "returnDate": "Expected to be out until at least Apr 24",
     "updated": "Thu, Apr 16",
     "rosteredPct": ""
@@ -2357,7 +2412,7 @@
     "player": "Ken Waldichuk",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "WSH",
+    "mlbTeam": "WAS",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least Jun 1",
@@ -2368,7 +2423,7 @@
     "player": "Cole Henry",
     "team": "",
     "pos": "RP",
-    "mlbTeam": "WSH",
+    "mlbTeam": "WAS",
     "status": "IL",
     "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Apr 28",
@@ -2379,7 +2434,7 @@
     "player": "Josiah Gray",
     "team": "",
     "pos": "SP",
-    "mlbTeam": "WSH",
+    "mlbTeam": "WAS",
     "status": "IL",
     "injury": "Elbow",
     "returnDate": "Expected to be out until at least May 29",
@@ -2387,24 +2442,24 @@
     "rosteredPct": ""
   },
   {
-    "player": "Davidjohn Herz",
+    "player": "Trevor Williams",
     "team": "",
-    "pos": "P",
-    "mlbTeam": "WSH",
+    "pos": "SP",
+    "mlbTeam": "WAS",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jul 1",
+    "returnDate": "Expected to be out until at least Jun 1",
     "updated": "Thu, Feb 19",
     "rosteredPct": ""
   },
   {
-    "player": "Trevor Williams",
+    "player": "Davidjohn Herz",
     "team": "",
-    "pos": "SP",
-    "mlbTeam": "WSH",
+    "pos": "P",
+    "mlbTeam": "WAS",
     "status": "IL",
     "injury": "Elbow",
-    "returnDate": "Expected to be out until at least Jun 1",
+    "returnDate": "Expected to be out until at least Jul 1",
     "updated": "Thu, Feb 19",
     "rosteredPct": ""
   }
