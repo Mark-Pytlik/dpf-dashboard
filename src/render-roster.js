@@ -291,7 +291,7 @@ function renderRoster() {
 
   // ── HTML ──
   let html = '';
-  const isMyRosterTab = (currentTab === 'myRoster');
+  const isMyRosterTab = (DPF.ui.currentTab === 'myRoster');
 
   // View mode: 'player' or 'gm' — applies to all roster tabs
   if (!state._rosterView) state._rosterView = isMyRosterTab ? 'gm' : 'player';
