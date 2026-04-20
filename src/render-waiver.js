@@ -75,32 +75,64 @@ function _computeWaiverScore(p) {
   return { wp, base: baseLcv, delta: weightedDelta, role, inj: injPenalty };
 }
 
-function _isWaiverAvailable(p) {
-  // "Available" means not drafted locally AND not on any team's roster in state.leagueTeams
-  if (state.drafted && state.drafted[p.name]) return false;
-  if (state.leagueTeams) {
-    for (const tn of Object.keys(state.leagueTeams)) {
-      const list = state.leagueTeams[tn] || [];
-      if (list.includes(p.name)) return false;
+// Build a normalized Set of every rostered player across state.drafted,
+// state.leagueTeams, and state.myTeam. CBS transactions use ASCII names
+// ("Edwin Diaz") but the projection pool is often accented ("Edwin Díaz"),
+// so raw string equality misses hits. Normalize both sides (strip accents,
+// lowercase, drop punctuation) and also resolve each name through _plyrI
+// so we catch aliases (e.g. "Cam Schlittler" ↔ "Cameron Schlittler").
+let _waiverRosteredSet = null;
+function _normRosterName(s) {
+  if (!s) return '';
+  return _stripAccents(s).toLowerCase().replace(/[\.\s'`]+/g, '').replace(/\bjr\b/g, '');
+}
+function _buildWaiverRosteredSet() {
+  const set = new Set();
+  const addName = (n) => {
+    if (!n || typeof n !== 'string') return;
+    set.add(_normRosterName(n));
+    // Also resolve to canonical via _plyrI so aliases all collapse
+    if (typeof _plyrI === 'function') {
+      const canon = _plyrI(n);
+      if (canon && canon.name) set.add(_normRosterName(canon.name));
     }
+  };
+  if (state.drafted) Object.keys(state.drafted).forEach(addName);
+  if (state.myTeam) state.myTeam.forEach(addName);
+  if (state.leagueTeams) {
+    Object.values(state.leagueTeams).forEach(list => (list || []).forEach(addName));
   }
-  // Also exclude players on my roster (covered by drafted, but belt+suspenders)
-  if ((state.myTeam || []).includes(p.name)) return false;
-  return true;
+  _waiverRosteredSet = set;
+  return set;
+}
+function _isWaiverAvailable(p) {
+  const set = _waiverRosteredSet || _buildWaiverRosteredSet();
+  return !set.has(_normRosterName(p.name));
 }
 
 function _renderWaiverInner(section) {
   const ws = _getWaiverState();
   const hasRolling = typeof hasSplitData === 'function' && hasSplitData();
 
-  // Build candidate pool with scores
+  // Build candidate pool with scores. Rebuild the rostered-name set fresh
+  // each render so adds/drops since last render are reflected.
+  _waiverRosteredSet = null;
+  _buildWaiverRosteredSet();
   const candidates = [];
   ALL.forEach(p => {
     if (!_isWaiverAvailable(p)) return;
-    // Skip deep dregs — below 0 LCV and no positive signal
-    const baseLcv = p.actualLcv != null ? p.actualLcv : (p.lcv || 0);
+    // Only skip truly unrosterable dregs. Early in the season actualLcv
+    // swings hard negative on 10-PA samples (a hitter who's 1-for-25 sits
+    // at −6), and projected LCV for deep bench bats commonly sits below
+    // −3. We still want those visible so the user can sort/filter. Only
+    // drop players whose season projection AND rolling signal are both
+    // very bad, with no role upside.
+    const projLcv = p.lcv || 0;
+    const actLcv = p.actualLcv != null ? p.actualLcv : projLcv;
     const delta14 = p.rollingLcvDelta14 || 0;
-    if (baseLcv < -3 && delta14 < 1) return;
+    const hasSignal = delta14 >= 1 || p.hotCold14 === 'HOT' || p.rookie
+      || (p.type === 'PIT' && (BP_CLOSER_MAP.get(p.team) === p.name || BP_HANDCUFF_MAP.get(p.team) === p.name));
+    if (projLcv < -10 && actLcv < -5 && !hasSignal) return;
     const s = _computeWaiverScore(p);
     candidates.push({ p, ...s });
   });
