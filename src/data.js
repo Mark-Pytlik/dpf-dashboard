@@ -60,19 +60,38 @@ const PLAYER_MAP = new Map(ALL.map(p => [p.name, p]));
 const PLAYER_MAP_LC = new Map(ALL.map(p => [p.name.toLowerCase(), p]));
 const _stripAccents = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 const PLAYER_MAP_NORM = new Map(ALL.map(p => [_stripAccents(p.name).toLowerCase(), p]));
-// Name aliases: alternative names → canonical name in player pool
+// Aggressive normalization: strip accents, lowercase, remove punctuation
+// (spaces, periods, apostrophes, hyphens), drop generational suffixes
+// (Jr/Sr/II/III/IV). This lets us match common CBS↔pool drift:
+//   • "Bobby Witt" ↔ "Bobby Witt Jr."
+//   • "C.J. Abrams" ↔ "CJ Abrams"
+//   • "Mark Leiter" ↔ "Mark Leiter Jr."
+//   • "Jose Ramirez" ↔ "José Ramírez" (accent)
+const _normAggressive = s => _stripAccents(s).toLowerCase()
+  .replace(/[\.\s'`\-]+/g, '')
+  .replace(/(jr|sr|iii|iv|ii)$/g, '');
+const PLAYER_MAP_AGGRESSIVE = new Map(ALL.map(p => [_normAggressive(p.name), p]));
+// Name aliases: alternative names → canonical name in player pool. Use for
+// nickname variants that normalization can't catch (Mike↔Michael, Louie↔Louis,
+// Alex↔Alexander, etc.) and for anything else that needs to collapse.
 const NAME_ALIASES = {
   'Cameron Schlittler': 'Cam Schlittler',
   'Luis Robert': 'Luis Robert Jr.',
   'Jazz Chisholm': 'Jazz Chisholm Jr.',
+  // Nickname variants (CBS uses casual form; pool uses formal)
+  'Mike Soroka': 'Michael Soroka',
+  'Louie Varland': 'Louis Varland',
 };
 // Register aliases in all maps
 Object.entries(NAME_ALIASES).forEach(([alias, canonical]) => {
-  const p = PLAYER_MAP.get(canonical) || PLAYER_MAP_LC.get(canonical.toLowerCase());
+  const p = PLAYER_MAP.get(canonical) || PLAYER_MAP_LC.get(canonical.toLowerCase())
+    || PLAYER_MAP_NORM.get(_stripAccents(canonical).toLowerCase())
+    || PLAYER_MAP_AGGRESSIVE.get(_normAggressive(canonical));
   if (p) {
     PLAYER_MAP.set(alias, p);
     PLAYER_MAP_LC.set(alias.toLowerCase(), p);
     PLAYER_MAP_NORM.set(_stripAccents(alias).toLowerCase(), p);
+    PLAYER_MAP_AGGRESSIVE.set(_normAggressive(alias), p);
   }
 });
 function _plyr(name) { return PLAYER_MAP.get(name); }
@@ -80,7 +99,8 @@ function _plyrI(name) {
   if (!name) return undefined;
   return PLAYER_MAP.get(name)
     || PLAYER_MAP_LC.get(name.toLowerCase())
-    || PLAYER_MAP_NORM.get(_stripAccents(name).toLowerCase());
+    || PLAYER_MAP_NORM.get(_stripAccents(name).toLowerCase())
+    || PLAYER_MAP_AGGRESSIVE.get(_normAggressive(name));
 }
 
 // ── Performance cache for hot-path lookups ────────────────────────────────

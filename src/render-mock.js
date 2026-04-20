@@ -520,9 +520,16 @@ function _renderAnalyticsInner(section) {
     const now = new Date();
     const msPerDay = 86400000;
     const daysSinceP1 = Math.max(0, Math.floor((now - period1Start) / msPerDay));
-    const currentPeriod = ss.currentPeriod || (daysSinceP1 >= 0 ? Math.floor(daysSinceP1 / 14) + 1 : 0);
-    const periodStart = ss.periodStart || (currentPeriod > 0 ? new Date(period1Start.getTime() + (currentPeriod - 1) * 14 * msPerDay).toISOString().slice(0,10) : '');
-    const periodEnd = ss.periodEnd || (currentPeriod > 0 ? new Date(period1Start.getTime() + currentPeriod * 14 * msPerDay - msPerDay).toISOString().slice(0,10) : '');
+    // Always compute period from today's date as the source of truth.
+    // The SEASON_STATUS blob is only updated when a fresh CBS scrape runs,
+    // and when it lags we must NOT display a stale opponent/score from a
+    // prior period. If ss.currentPeriod matches the computed period we
+    // use its opponent/score data; otherwise we treat that data as stale.
+    const computedPeriod = daysSinceP1 >= 0 ? Math.floor(daysSinceP1 / 14) + 1 : 0;
+    const currentPeriod = computedPeriod;
+    const ssPeriodMatches = ss.currentPeriod && ss.currentPeriod === computedPeriod;
+    const periodStart = (ssPeriodMatches && ss.periodStart) || (currentPeriod > 0 ? new Date(period1Start.getTime() + (currentPeriod - 1) * 14 * msPerDay).toISOString().slice(0,10) : '');
+    const periodEnd = (ssPeriodMatches && ss.periodEnd) || (currentPeriod > 0 ? new Date(period1Start.getTime() + currentPeriod * 14 * msPerDay - msPerDay).toISOString().slice(0,10) : '');
     const daysSinceStart = Math.floor((now - seasonStart) / msPerDay);
     const daysLeftInPeriod = periodEnd ? Math.max(0, Math.ceil((new Date(periodEnd) - now) / msPerDay)) : 0;
 
@@ -544,8 +551,10 @@ function _renderAnalyticsInner(section) {
       }
       h += '</div>';
 
-      // Current matchup info (from CBS scrape)
-      if (ss.opponent) {
+      // Current matchup info (from CBS scrape) — only show if the scraped
+      // data is for the CURRENT period. Stale period-N data must not
+      // render when we've moved to period N+1.
+      if (ss.opponent && ssPeriodMatches) {
         h += '<div style="background:var(--surface2);border-radius:8px;padding:12px 16px;margin-bottom:12px;">';
         h += `<div style="font-weight:700;font-size:13px;margin-bottom:6px;">Current Matchup: Period ${currentPeriod}</div>`;
         h += '<div style="display:flex;align-items:center;justify-content:center;gap:16px;padding:8px 0;">';
