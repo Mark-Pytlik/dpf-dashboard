@@ -17,8 +17,12 @@ function _renderTransactionsInner(section) {
   // Skip IL/activation moves — only show waiver adds, drops, and trades
   const SKIP_ACTIONS = /^(activated|placed on il|il|recalled|promoted|optioned)/i;
   CBS_TRANSACTIONS.forEach(txn => {
+    // Hide synthetic roster-reconciliation entries — they're internal state
+    // corrections that populate state.drafted, not real league moves.
+    if (txn.synthetic) return;
     const txTeam = txn.teamName || txn.team;
     txn.players.forEach(p => {
+      if (p.synthetic) return;
       const action = (p.action || '').replace(/^Added off Waivers$/i, 'Added');
       if (SKIP_ACTIONS.test(action)) return;
       allTxns.push({
