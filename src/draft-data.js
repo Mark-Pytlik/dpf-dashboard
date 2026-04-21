@@ -238,6 +238,13 @@ if (CBS_TRANSACTIONS.length > 0) {
         // all teams (handles edge cases with renamed teams, mine vs leagueTeams, etc.)
         removeFromAllRosters(playerName);
         addToRoster(playerName, teamName);
+      } else if (action === 'Activated' || action === 'Moved to IR') {
+        // Activated: coming off IL → still on this team's roster.
+        // Moved to IR: going to IL → still on this team's roster (NOT a drop).
+        // Either way, the player belongs to this team — reconcile in case we
+        // missed their original add/drop because of CBS's ~30-row cap.
+        removeFromAllRosters(playerName);
+        addToRoster(playerName, teamName);
       }
     });
   });
@@ -263,6 +270,8 @@ if (CBS_TRANSACTIONS.length > 0) {
       let txType = 'add';
       if (action === 'Dropped') txType = 'drop';
       else if (action.startsWith('Traded from')) txType = 'trade';
+      else if (action === 'Activated') txType = 'activate';
+      else if (action === 'Moved to IR') txType = 'ir';
       const dateKey = (txn.date || '').split(' ')[0];
       // Normalize the "from" key too — mojibake copies of the same team name
       // would otherwise evade dedup.
