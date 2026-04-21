@@ -31,10 +31,13 @@ function _getWaiverState() {
     type: 'all',       // 'all' | 'bat' | 'pit'
     pos: 'ALL',
     minScore: 0,
-    sortBy: 'wp',      // 'wp' | 'delta' | 'lcv' | 'role'
+    sortBy: 'wp',      // any column key: wp, proj, act, delta, role, inj, name, pos, team, age
+    sortDir: 'desc',   // 'asc' | 'desc'
     roleOnly: false,   // only show closers/setup/handcuffs
     hotOnly: false,    // only players flagged HOT
   };
+  // Back-compat: older saved state may not have sortDir
+  if (!state._waiver.sortDir) state._waiver.sortDir = 'desc';
   return state._waiver;
 }
 
@@ -153,12 +156,20 @@ function _renderWaiverInner(section) {
     return true;
   });
 
-  // Sort
-  const cmpNum = (k) => (a, b) => (b[k] || 0) - (a[k] || 0);
-  if (ws.sortBy === 'wp') filtered.sort(cmpNum('wp'));
-  else if (ws.sortBy === 'delta') filtered.sort(cmpNum('delta'));
-  else if (ws.sortBy === 'lcv') filtered.sort(cmpNum('base'));
-  else if (ws.sortBy === 'role') filtered.sort(cmpNum('role'));
+  // Sort (column-driven; sortBy = column key, sortDir = 'asc' | 'desc')
+  const SCORE_KEYS = { wp: 'wp', proj: 'proj', act: 'act', delta: 'delta', role: 'role', inj: 'inj', lcv: 'base' };
+  const dir = ws.sortDir === 'asc' ? 1 : -1;
+  filtered.sort((a, b) => {
+    if (SCORE_KEYS[ws.sortBy]) {
+      const k = SCORE_KEYS[ws.sortBy];
+      return ((a[k] || 0) - (b[k] || 0)) * dir;
+    }
+    if (ws.sortBy === 'name')  return (a.p.name || '').localeCompare(b.p.name || '') * dir;
+    if (ws.sortBy === 'pos')   return ((a.p.primaryPos || a.p.pos || '')).localeCompare(b.p.primaryPos || b.p.pos || '') * dir;
+    if (ws.sortBy === 'team')  return (a.p.team || '').localeCompare(b.p.team || '') * dir;
+    if (ws.sortBy === 'age')   return (((a.p.age != null ? a.p.age : 999)) - ((b.p.age != null ? b.p.age : 999))) * dir;
+    return ((b.wp || 0) - (a.wp || 0));  // fallback
+  });
 
   // Header
   let html = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">';
@@ -194,36 +205,36 @@ function _renderWaiverInner(section) {
   html += `<input type="checkbox" id="waiverHotOnly"${ws.hotOnly ? ' checked' : ''}> HOT only</label>`;
   html += '<label style="display:flex;align-items:center;gap:4px;font-size:11px;cursor:pointer;">';
   html += `<input type="checkbox" id="waiverRoleOnly"${ws.roleOnly ? ' checked' : ''}> Role/rookie only</label>`;
-  html += '<div style="width:1px;height:20px;background:var(--border);"></div>';
-  html += '<span style="font-size:11px;color:var(--text2);">Sort:</span>';
-  html += '<select id="waiverSort" style="padding:4px 8px;font-size:11px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:4px;">';
-  const sortOpts = [['wp','WP Score'],['delta','14-day Δ'],['lcv','Season LCV'],['role','Role upside']];
-  sortOpts.forEach(([k, label]) => {
-    html += `<option value="${k}"${ws.sortBy === k ? ' selected' : ''}>${label}</option>`;
-  });
-  html += '</select>';
   html += '</div>';
 
   // Table
   html += '<div style="background:var(--surface);border-radius:10px;border:1px solid var(--border);overflow-x:auto;">';
   html += '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
   html += '<thead><tr style="text-align:left;border-bottom:1px solid var(--border);">';
+  //           [label, sortKey or null, style]
   const cols = [
-    ['#', 'width:32px;color:var(--text2);'],
-    ['Player', ''],
-    ['Pos', 'width:60px;'],
-    ['Team', 'width:50px;'],
-    ['Age', 'width:40px;'],
-    ['WP', 'width:60px;text-align:right;'],
-    ['LCV', 'width:60px;text-align:right;color:var(--text2);'],
-    ['aLCV', 'width:60px;text-align:right;color:var(--text2);'],
-    ['14d Δ', 'width:60px;text-align:right;'],
-    ['Role', 'width:50px;text-align:right;'],
-    ['Inj', 'width:50px;text-align:right;'],
-    ['Tags', ''],
+    ['#',      null,    'width:32px;color:var(--text2);'],
+    ['Player', 'name',  ''],
+    ['Pos',    'pos',   'width:60px;'],
+    ['Team',   'team',  'width:50px;'],
+    ['Age',    'age',   'width:40px;'],
+    ['WP',     'wp',    'width:60px;text-align:right;'],
+    ['LCV',    'proj',  'width:60px;text-align:right;color:var(--text2);'],
+    ['aLCV',   'act',   'width:60px;text-align:right;color:var(--text2);'],
+    ['14d Δ',  'delta', 'width:60px;text-align:right;'],
+    ['Role',   'role',  'width:50px;text-align:right;'],
+    ['Inj',    'inj',   'width:50px;text-align:right;'],
+    ['Tags',   null,    ''],
   ];
-  cols.forEach(([label, style]) => {
-    html += `<th style="padding:8px 10px;font-weight:600;font-size:11px;color:var(--text2);${style}">${label}</th>`;
+  cols.forEach(([label, sortKey, style]) => {
+    if (sortKey) {
+      const isActive = ws.sortBy === sortKey;
+      const arrow = isActive ? (ws.sortDir === 'asc' ? ' ▲' : ' ▼') : '';
+      const activeColor = isActive ? 'color:var(--accent);' : 'color:var(--text2);';
+      html += `<th data-waiver-sort="${sortKey}" style="padding:8px 10px;font-weight:600;font-size:11px;cursor:pointer;user-select:none;${style}${activeColor}" title="Click to sort">${label}${arrow}</th>`;
+    } else {
+      html += `<th style="padding:8px 10px;font-weight:600;font-size:11px;color:var(--text2);${style}">${label}</th>`;
+    }
   });
   html += '</tr></thead><tbody>';
 
@@ -305,10 +316,26 @@ function _renderWaiverInner(section) {
       render();
     });
   });
+  // Column-header sorting: click toggles direction on the active column,
+  // or switches to a new column using its default direction (asc for strings,
+  // desc for numbers).
+  const STRING_SORT_KEYS = new Set(['name', 'pos', 'team']);
+  section.querySelectorAll('[data-waiver-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const key = th.getAttribute('data-waiver-sort');
+      if (ws.sortBy === key) {
+        ws.sortDir = ws.sortDir === 'desc' ? 'asc' : 'desc';
+      } else {
+        ws.sortBy = key;
+        ws.sortDir = STRING_SORT_KEYS.has(key) ? 'asc' : 'desc';
+      }
+      save();
+      render();
+    });
+  });
   const hotCb = document.getElementById('waiverHotOnly');
   if (hotCb) hotCb.addEventListener('change', () => { ws.hotOnly = hotCb.checked; save(); render(); });
   const roleCb = document.getElementById('waiverRoleOnly');
   if (roleCb) roleCb.addEventListener('change', () => { ws.roleOnly = roleCb.checked; save(); render(); });
-  const sortSel = document.getElementById('waiverSort');
-  if (sortSel) sortSel.addEventListener('change', () => { ws.sortBy = sortSel.value; save(); render(); });
+
 }

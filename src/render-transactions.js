@@ -10,6 +10,10 @@ function renderTransactions() {
 }
 function _renderTransactionsInner(section) {
 
+  // Persisted sort state (column-header sorting)
+  state._txnSort = state._txnSort || { key: 'date', dir: 'desc' };
+  const tsort = state._txnSort;
+
   // Combine CBS transactions + local user transactions
   const allTxns = [];
 
@@ -82,50 +86,85 @@ function _renderTransactionsInner(section) {
   html += '<div style="background:var(--surface);border-radius:10px;border:1px solid var(--border);overflow-x:auto;">';
   html += '<table style="width:100%;border-collapse:collapse;" id="txnTable">';
   html += '<thead><tr>';
-  html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Date</th>';
-  html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Team</th>';
-  html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Action</th>';
-  html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Player</th>';
-  html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Pos</th>';
-  html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">MLB</th>';
-  html += '<th style="padding:10px 12px;text-align:right;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">LCV</th>';
-  html += '<th style="padding:10px 12px;text-align:right;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);" title="Actual LCV from 2026 in-season stats">aLCV</th>';
-  html += '<th style="padding:10px 12px;text-align:right;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);" title="Actual minus Projected LCV">ΔLCV</th>';
-  html += '<th style="padding:10px 12px;text-align:right;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">TV</th>';
-  html += '<th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;color:var(--text2);background:var(--surface2);border-bottom:2px solid var(--border);">Effective</th>';
+  //           [key, label, align]
+  const txnCols = [
+    ['date',      'Date',      'left'],
+    ['team',      'Team',      'left'],
+    ['action',    'Action',    'left'],
+    ['player',    'Player',    'left'],
+    ['pos',       'Pos',       'left'],
+    ['mlbTeam',   'MLB',       'left'],
+    ['lcvVal',    'LCV',       'right'],
+    ['aLcvVal',   'aLCV',      'right', 'Actual LCV from 2026 in-season stats'],
+    ['dLcvVal',   'ΔLCV',      'right', 'Actual minus Projected LCV'],
+    ['tvVal',     'TV',        'right'],
+    ['effective', 'Effective', 'left'],
+  ];
+  txnCols.forEach(([k, label, align, tip]) => {
+    const isActive = tsort.key === k;
+    const arrow = isActive ? (tsort.dir === 'asc' ? ' ▲' : ' ▼') : '';
+    const activeColor = isActive ? 'color:var(--accent);' : 'color:var(--text2);';
+    const titleAttr = tip ? ` title="${tip}"` : '';
+    html += `<th data-txn-sort="${k}"${titleAttr} style="padding:10px 12px;text-align:${align};font-size:11px;text-transform:uppercase;${activeColor};background:var(--surface2);border-bottom:2px solid var(--border);cursor:pointer;user-select:none;">${label}${arrow}</th>`;
+  });
   html += '</tr></thead><tbody>';
 
-  // Sort by date descending (most recent first)
-  // Dates are like "3/16/26 12:55 PM ET" — fix 2-digit year and strip timezone for reliable parsing
+  // Parse dates up front for sorting ("3/16/26 12:55 PM ET" → Date object)
   function parseTxDate(s) {
     if (!s) return new Date(0);
     let d = s.replace(/\s*ET\s*$/, '').trim();
-    // Fix 2-digit year: "3/16/26" → "3/16/2026"
     d = d.replace(/^(\d{1,2})\/(\d{1,2})\/(\d{2})\b/, (m,mo,dy,yr) => `${mo}/${dy}/20${yr}`);
     return new Date(d);
   }
-  allTxns.sort((a, b) => parseTxDate(b.date) - parseTxDate(a.date));
 
-  allTxns.forEach((tx, idx) => {
-    const isTrade = (tx.action || '').startsWith('Traded');
-    const actionColor = tx.action === 'Added' ? 'var(--green)' : tx.action === 'Dropped' ? 'var(--red)' : 'var(--accent)';
-    const actionIcon = tx.action === 'Added' ? '+' : tx.action === 'Dropped' ? '−' : '↔';
+  // Enrich each row with numeric/canonical fields used for sorting.
+  const _cbsFg = {KC:'KCR',SF:'SFG',TB:'TBR',WAS:'WSN',AZ:'ARI',CWS:'CHW',SD:'SDP'};
+  const _nt = t => _cbsFg[t] || t;
+  allTxns.forEach(tx => {
+    tx._dateTs = parseTxDate(tx.date).getTime();
     let player = _plyrI(tx.player);
-    // Cross-check MLB team to avoid name collisions (e.g. Cade Smith NYY vs CLE)
-    // Normalize CBS↔FanGraphs abbreviations before comparing
-    const _cbsFg = {KC:'KCR',SF:'SFG',TB:'TBR',WAS:'WSN',AZ:'ARI',CWS:'CHW',SD:'SDP'};
-    const _nt = t => _cbsFg[t] || t;
     if (player && tx.mlbTeam && player.team && _nt(player.team) !== _nt(tx.mlbTeam)) player = null;
-    const lcv = player ? (player.lcv||0).toFixed(1) : '—';
-    let tvVal = '—';
+    tx._player = player;
+    tx.lcvVal = player ? (player.lcv || 0) : null;
+    tx.aLcvVal = player && player.actualLcv != null ? player.actualLcv : null;
+    tx.dLcvVal = player && player.lcvDelta != null ? player.lcvDelta : null;
+    let tvNum = null;
     if (player) {
       const ki = getKeeperInfoCached(tx.player);
       const pr = findProspect(tx.player);
       const pv = pr ? Math.max(0, ((pr.fv||0) - 40) * 0.15) : 0;
       const plLcv = player.lcv || 0;
-      if (!ki.keepable2027) { tvVal = (plLcv * 0.8 + pv).toFixed(1); }
-      else { const eMYS = ki.multiYearSurplus > 1.0 ? ki.multiYearSurplus : (ki.multiYearSurplus||0) * 0.3; tvVal = (plLcv * 0.5 + Math.max(0, eMYS) * 1.0 + pv + (ki.yearsLeft >= 2 && ki.multiYearSurplus > 1.0 ? ki.yearsLeft * 0.3 : 0)).toFixed(1); }
+      if (!ki.keepable2027) { tvNum = plLcv * 0.8 + pv; }
+      else { const eMYS = ki.multiYearSurplus > 1.0 ? ki.multiYearSurplus : (ki.multiYearSurplus||0) * 0.3; tvNum = plLcv * 0.5 + Math.max(0, eMYS) * 1.0 + pv + (ki.yearsLeft >= 2 && ki.multiYearSurplus > 1.0 ? ki.yearsLeft * 0.3 : 0); }
     }
+    tx.tvVal = tvNum;
+  });
+
+  // Apply current sort
+  const _NUM_KEYS = new Set(['lcvVal', 'aLcvVal', 'dLcvVal', 'tvVal']);
+  const _d = tsort.dir === 'asc' ? 1 : -1;
+  allTxns.sort((a, b) => {
+    if (tsort.key === 'date') return (a._dateTs - b._dateTs) * _d;
+    if (_NUM_KEYS.has(tsort.key)) {
+      const av = a[tsort.key], bv = b[tsort.key];
+      // Nulls always sink to the bottom regardless of direction
+      if (av == null && bv == null) return 0;
+      if (av == null) return 1;
+      if (bv == null) return -1;
+      return (av - bv) * _d;
+    }
+    const av = (a[tsort.key] || '').toString();
+    const bv = (b[tsort.key] || '').toString();
+    return av.localeCompare(bv) * _d;
+  });
+
+  allTxns.forEach((tx, idx) => {
+    const isTrade = (tx.action || '').startsWith('Traded');
+    const actionColor = tx.action === 'Added' ? 'var(--green)' : tx.action === 'Dropped' ? 'var(--red)' : 'var(--accent)';
+    const actionIcon = tx.action === 'Added' ? '+' : tx.action === 'Dropped' ? '−' : '↔';
+    const player = tx._player;
+    const lcv = tx.lcvVal != null ? tx.lcvVal.toFixed(1) : '—';
+    const tvVal = tx.tvVal != null ? tx.tvVal.toFixed(1) : '—';
     const _myName = LEAGUE_TEAMS.find(t => t.mine)?.name || 'Okamotomami';
     const isMine = (tx.teamId === 4) || tx.team === _myName || tx.team === 'Father Jhon Kensy' || tx.team === 'Okamotomami' || (tx.action && (tx.action.includes(_myName) || tx.action.includes('Father Jhon Kensy') || tx.action.includes('Okamotomami')));
     const rowBg = isMine ? 'rgba(74,107,255,0.06)' : (idx % 2 === 0 ? 'transparent' : 'var(--surface)');
@@ -137,9 +176,9 @@ function _renderTransactionsInner(section) {
     html += `<td style="padding:8px 12px;font-size:13px;font-weight:600;">${tx.player}</td>`;
     html += `<td style="padding:8px 12px;"><span class="pos-badge pos-${(tx.pos||'').split(',')[0]}">${tx.pos}</span></td>`;
     html += `<td style="padding:8px 12px;font-size:12px;color:var(--text2);">${tx.mlbTeam}</td>`;
-    const aLcv = player && player.actualLcv != null ? player.actualLcv.toFixed(1) : '—';
-    const dLcv = player && player.lcvDelta != null ? ((player.lcvDelta > 0 ? '+' : '') + player.lcvDelta.toFixed(1)) : '—';
-    const dLcvClr = player && player.lcvDelta != null ? (player.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : '';
+    const aLcv = tx.aLcvVal != null ? tx.aLcvVal.toFixed(1) : '—';
+    const dLcv = tx.dLcvVal != null ? ((tx.dLcvVal > 0 ? '+' : '') + tx.dLcvVal.toFixed(1)) : '—';
+    const dLcvClr = tx.dLcvVal != null ? (tx.dLcvVal >= 0 ? 'color:var(--green);' : 'color:var(--red);') : '';
     html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;">${lcv}</td>`;
     html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;">${aLcv}</td>`;
     html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;font-weight:600;${dLcvClr}">${dLcv}</td>`;
@@ -175,6 +214,23 @@ function _renderTransactionsInner(section) {
   };
   if (teamFilter) teamFilter.addEventListener('change', applyFilters);
   if (typeFilter) typeFilter.addEventListener('change', applyFilters);
+
+  // Column-header sorting — toggle direction on active column, or switch to a
+  // new column using its default direction (asc for strings, desc for numbers/date)
+  const _TXN_STR_KEYS = new Set(['team', 'action', 'player', 'pos', 'mlbTeam', 'effective']);
+  section.querySelectorAll('[data-txn-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const key = th.getAttribute('data-txn-sort');
+      if (state._txnSort.key === key) {
+        state._txnSort.dir = state._txnSort.dir === 'desc' ? 'asc' : 'desc';
+      } else {
+        state._txnSort.key = key;
+        state._txnSort.dir = _TXN_STR_KEYS.has(key) ? 'asc' : 'desc';
+      }
+      save();
+      renderTransactions();
+    });
+  });
 
   // Wire time-split toggle
   section.querySelectorAll('.split-toggle').forEach(sel => {

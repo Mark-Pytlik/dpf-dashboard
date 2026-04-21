@@ -88,7 +88,7 @@ if (_saved) {
     // Preserve user UI preferences across the flush
     const _keepUiKeys = ['tags', 'rosterOverrides', 'leagueRosterOverrides',
       '_statSets', '_rosterTeam', '_cmpPlayers', '_rosterView', '_splitWindow',
-      '_currentTab', '_mode', '_waiver'];
+      '_currentTab', '_mode', '_waiver', '_txnSort'];
     const _preserved = {};
     _keepUiKeys.forEach(k => { if (_saved[k] !== undefined) _preserved[k] = _saved[k]; });
     state = Object.assign({}, _defaults, _preserved);
