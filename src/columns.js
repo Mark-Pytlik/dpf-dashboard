@@ -116,7 +116,8 @@ const pitCols26A = [
   {key:'s26_stuff',label:'Stf+',w:50,tip:'2026 Stuff+ (pitch quality, 100=avg)'}, {key:'dStuff',label:'\u0394Stf',w:50,tip:'2026 Stuff+ minus 2025. Positive = stuff improving'},
   {key:'s26_loc',label:'Loc+',w:50,tip:'2026 Location+ (command, 100=avg)'}, {key:'dLoc',label:'\u0394Loc',w:50,tip:'2026 Loc+ minus 2025. Positive = command improving'}
 ];
-// Mixed bat+pit view — kept intentionally slim. Use BAT or PIT filter for full analytics.
+// Mixed bat+pit view — shows advanced metrics alongside core stats.
+// Batting cells are blank for pitchers and vice versa.
 const allCols26A = [
   {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:60},
   {key:'type',label:'Type',w:50}, {key:'age',label:'Age',w:40},
@@ -125,15 +126,22 @@ const allCols26A = [
   {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual minus Projected LCV. Positive = outperforming'},
   {key:'hotCold14',label:'14d',w:50,tip:'Rolling HOT/COLD over the last 14 snapshots'},
   {key:'rollingLcvDelta14',label:'\u039414d',w:55,tip:'14-day rolling ΔLCV (sample-size regressed)'},
-  {key:'tradeValue',label:'TV',w:55,tip:'Trade value'},
-  // Batting stats (blank for pitchers)
+  // Batting core (blank for pitchers)
   {key:'s26_pa',label:'PA',w:45}, {key:'s26_avg',label:'AVG',w:50},
-  {key:'s26_hr',label:'HR',w:38}, {key:'s26_r',label:'R',w:38},
-  {key:'s26_woba',label:'wOBA',w:50,tip:'2026 wOBA (batters) / — (pitchers)'},
-  // Pitching stats (blank for batters)
+  {key:'s26_hr',label:'HR',w:38}, {key:'s26_r',label:'R',w:38}, {key:'s26_sb',label:'SB',w:38},
+  // Pitching core (blank for batters)
   {key:'s26_ip',label:'IP',w:45}, {key:'s26_era',label:'ERA',w:50},
-  {key:'s26_whip',label:'WHIP',w:55}, {key:'s26_so',label:'K',w:38},
-  {key:'s26_qs',label:'QS',w:38}
+  {key:'s26_whip',label:'WHIP',w:55}, {key:'s26_so',label:'K',w:38}, {key:'s26_sv',label:'SV',w:38},
+  {key:'s26_qs',label:'QS',w:38},
+  // Advanced batter metrics
+  {key:'s26_kpct',label:'K%',w:48,tip:'2026 K rate (batters)'},
+  {key:'s26_xwoba',label:'xwOBA',w:55,tip:'2026 xwOBA (Statcast expected)'},
+  {key:'s26_barrel',label:'Brl%',w:50,tip:'2026 barrel rate'},
+  {key:'s26_hardhit',label:'HH%',w:50,tip:'2026 hard-hit rate'},
+  // Advanced pitcher metrics
+  {key:'s26_fip',label:'FIP',w:50,tip:'2026 FIP (luck-free ERA estimator)'},
+  {key:'s26_stuff',label:'Stf+',w:50,tip:'2026 Stuff+ (pitch quality, 100=avg)'},
+  {key:'s26_loc',label:'Loc+',w:50,tip:'2026 Location+ (command, 100=avg)'}
 ];
 
 // Actual vs Projected comparison columns (side by side: proj then actual then delta)

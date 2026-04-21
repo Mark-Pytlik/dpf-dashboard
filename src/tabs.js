@@ -101,13 +101,13 @@ try {
   const savedFilters = JSON.parse(localStorage.getItem('dpf_filters') || '{}');
   DPF.table.filterPos = savedFilters.filterPos || 'ALL';
   DPF.ui.filterType = savedFilters.filterType || 'all';
-  DPF.ui.currentView = savedFilters.currentView || 'main';
+  DPF.ui.currentView = savedFilters.currentView || 's26';
   DPF.table.filterMinPA = savedFilters.filterMinPA || 0;
   DPF.table.filterMinIP = savedFilters.filterMinIP || 0;
 } catch(e) {
   DPF.table.filterPos = 'ALL';
   DPF.ui.filterType = 'all';
-  DPF.ui.currentView = 'main';
+  DPF.ui.currentView = 's26';
   DPF.table.filterMinPA = 0;
   DPF.table.filterMinIP = 0;
 }
@@ -174,5 +174,5 @@ function _saveFilters() {
 }
 
 // ── View toggle ──────────────────────────────────────────────────────────
-DPF.ui.currentView = 'main'; // 'main', 's25', 'p26', 's26', 'avp'
+DPF.ui.currentView = 's26'; // 'main', 's25', 'p26', 's26', 'avp'
 
