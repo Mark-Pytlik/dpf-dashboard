@@ -1,0 +1,19 @@
+name: Cleanup Porkbun /dpf/ (one-shot)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace /dpf/ with redirect
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: pixie-ss1-ftp.porkbun.com
+          username: markpytlik.com
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dpf-redirect/
+          server-dir: /dpf/
+          dangerous-clean-slate: true
