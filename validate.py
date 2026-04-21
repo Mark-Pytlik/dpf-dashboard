@@ -437,6 +437,168 @@ def check_trade_integrity(report: Report, txns):
                     f"(suggests a missing counter-party): {broken[:3]}")
 
 
+
+def check_known_actions(report: Report, txns):
+    """Fail if CBS emits an action type we don't yet handle in draft-data.js.
+
+    draft-data.js has explicit branches for:
+      Added, Added off Waivers, Dropped, Traded from <Team>, Activated, Moved to IR
+    Any other action type silently falls through to no-op, which is how the
+    Rico Garcia / Activated bug happened (CBS added the type, dashboard
+    ignored it, rosters drifted from ground truth).
+
+    When a new action type appears here, first decide how it should be
+    handled in draft-data.js, THEN add it to KNOWN_ACTIONS below.
+    """
+    if not txns:
+        return
+    report.section("cbs action types (drift guard)")
+    KNOWN_ACTIONS = {
+        'Added',
+        'Added off Waivers',
+        'Dropped',
+        'Activated',
+        'Moved to IR',
+    }
+    # "Traded from <Team>" is a family of action strings — check prefix.
+    unknown = defaultdict(int)
+    for tx in txns:
+        for p in tx.get('players', []):
+            a = (p.get('action') or '').strip()
+            if not a:
+                continue
+            if a in KNOWN_ACTIONS:
+                continue
+            if a.startswith('Traded from '):
+                continue
+            unknown[a] += 1
+    if unknown:
+        report.err(
+            "unknown CBS action type(s) found — draft-data.js will silently "
+            "ignore these, leaving rosters inconsistent with CBS: " +
+            ", ".join(f"{a!r} (x{n})" for a, n in sorted(unknown.items()))
+        )
+
+
+def check_roster_ground_truth(report: Report):
+    """cbs_rosters.json is ground truth. Every player listed there should be
+    explainable by the latest transaction referencing them.
+
+    Distinguishes two failure modes:
+      ERROR: player has txns but their latest active-team signal points to a
+             different team than cbs_rosters says. This is real drift —
+             draft-data.js is going to put them on the wrong team.
+      WARN:  player is on cbs_rosters but has no txn signal at all. This is
+             usually a pre-draft keeper (LIVE_PICKS / LEAGUE_MILB_KEEPERS)
+             or a player whose original Add rolled off CBS's ~30-row cap
+             before Activated/Moved to IR entries appeared.
+
+    This would have caught Rico Garcia: his most recent txn is 'Activated'
+    on Yesavage Garden; if draft-data.js doesn't handle Activated, the last
+    add-like signal becomes None → error.
+    """
+    report.section("cbs_rosters vs cbs_transactions (end-to-end roster integrity)")
+    rosters_path = CBS_ROSTERS if os.path.exists(CBS_ROSTERS) else CBS_ROSTERS_FALLBACK
+    if not os.path.exists(rosters_path):
+        return
+    rosters = _load_json(rosters_path, report)
+    txns = _load_json(CBS_TRANSACTIONS, report)
+    if not rosters or not txns:
+        return
+
+    # player -> expected team per cbs_rosters
+    expected = {}
+    for team_name, players in rosters.items():
+        for p in players:
+            nm = p if isinstance(p, str) else (p.get('name') if isinstance(p, dict) else None)
+            if nm:
+                expected[nm] = team_name
+
+    # Known team-rename aliases — add here when an owner renames mid-season.
+    rename_aliases = {
+        "Whoop Whoop that's the sound of Dylan Cease": 'Everythings McGonigle Green',
+    }
+
+    def _norm(team):
+        return rename_aliases.get(team, team)
+
+    # Replay txns chronologically. For each player, track the "last team that
+    # claimed them via an add-like action" — Added, Added off Waivers,
+    # Traded from <X>, Activated, Moved to IR. Dropped clears the signal.
+    rostered = {}
+    ADD_ACTIONS = {'Added', 'Added off Waivers', 'Activated', 'Moved to IR'}
+    for tx in sorted(txns, key=lambda t: t.get('date', '')):
+        team = tx.get('teamName') or tx.get('team')
+        for p in tx.get('players', []):
+            nm = p.get('name')
+            a = (p.get('action') or '')
+            if not nm or not team:
+                continue
+            if a in ADD_ACTIONS or a.startswith('Traded from '):
+                rostered[nm] = team
+            elif a == 'Dropped':
+                if rostered.get(nm) == team:
+                    rostered.pop(nm, None)
+
+    # Identify duplicate-name players we should skip. These are handled by
+    # draft-data.js's _sameNameCount collision check — our simple replay
+    # above can't disambiguate without the player pool, so skip them here.
+    all_names_in_rosters = []
+    for team_name, players in rosters.items():
+        for p in players:
+            nm = p if isinstance(p, str) else (p.get('name') if isinstance(p, dict) else None)
+            if nm:
+                all_names_in_rosters.append(nm)
+    dup_names_in_rosters = {n for n in all_names_in_rosters if all_names_in_rosters.count(n) > 1}
+
+    # Also collision if same name has txns with different mlbTeam values.
+    name_to_mlb = {}
+    for tx in txns:
+        for p in tx.get('players', []):
+            nm, mt = p.get('name'), p.get('mlbTeam')
+            if nm and mt:
+                name_to_mlb.setdefault(nm, set()).add(mt)
+    dup_names_from_mlb = {n for n, ts in name_to_mlb.items() if len(ts) > 1}
+
+    collision_names = dup_names_in_rosters | dup_names_from_mlb
+
+    # Known-ignorable drift cases. Each entry documents WHY the apparent
+    # drift is not a real dashboard bug. Remove an entry once the root cause
+    # is fixed (e.g. once roster_sync stops adding the same name to two teams).
+    KNOWN_DRIFT_IGNORES = {
+        # Cade Smith: two MLB players with this name (NYY + CLE). roster_sync
+        # synthetically added to two teams; draft-data.js disambiguates via
+        # _sameNameCount collision check at runtime.
+        'Cade Smith',
+        # Landen Roupp: dropped by 'Before and After Shohei' pre-season then
+        # re-picked; roster_sync added him to two teams. Dashboard's
+        # last-txn-wins matches cbs_rosters, so this is cosmetic drift.
+        'Landen Roupp',
+    }
+
+    # For each cbs_rosters player, classify: drift (err), no-signal (warn), ok.
+    drifts = []
+    no_signal = 0
+    for nm, exp_team in expected.items():
+        if nm in collision_names or nm in KNOWN_DRIFT_IGNORES:
+            continue
+        got_team = rostered.get(nm)
+        if got_team is None:
+            no_signal += 1
+            continue
+        if _norm(got_team) != _norm(exp_team):
+            drifts.append((nm, exp_team, got_team))
+
+    if drifts:
+        for nm, exp_team, got_team in drifts[:10]:
+            report.err(f"roster drift: {nm!r} should be on {exp_team!r} per cbs_rosters but last txn puts him on {got_team!r}")
+        if len(drifts) > 10:
+            report.err(f"...and {len(drifts) - 10} more roster drift(s)")
+    if no_signal:
+        # Expected for pre-draft keepers and deep-bench players whose Add rolled off the 30-row cap
+        report.warn(f"{no_signal} rostered players have no txn signal (likely pre-draft keepers or dropped off CBS 30-row cap — roster_sync.py should backfill)")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument('--fail-on-warn', action='store_true')
@@ -447,7 +609,9 @@ def main() -> int:
     txns, _ = check_transactions(report, cfg)
     check_tx_mojibake(report, txns)
     check_trade_integrity(report, txns)
+    check_known_actions(report, txns)
     check_roster_sizes(report, cfg)
+    check_roster_ground_truth(report)
     inj_list = check_injuries(report)
     check_rostered_injured(report, cfg, inj_list)
     return report.summary(args.fail_on_warn)
