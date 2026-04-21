@@ -39,7 +39,9 @@ function _getWaiverState() {
 }
 
 function _computeWaiverScore(p) {
-  const baseLcv = p.actualLcv != null ? p.actualLcv : (p.lcv || 0);
+  const projLcv = p.lcv || 0;
+  const actLcv = p.actualLcv != null ? p.actualLcv : projLcv;
+  const baseLcv = actLcv;
   const delta14 = p.rollingLcvDelta14 != null ? p.rollingLcvDelta14 : 0;
   const conf14 = p._splitConfidence14 != null ? p._splitConfidence14 : 0;
   // Confidence-weight the rolling signal so small-sample blow-ups don't
@@ -72,7 +74,7 @@ function _computeWaiverScore(p) {
   }
 
   const wp = baseLcv * 0.5 + weightedDelta * 1.2 + role - injPenalty;
-  return { wp, base: baseLcv, delta: weightedDelta, role, inj: injPenalty };
+  return { wp, base: baseLcv, proj: projLcv, act: actLcv, delta: weightedDelta, role, inj: injPenalty };
 }
 
 // Build a normalized Set of every rostered player across state.drafted,
@@ -213,7 +215,8 @@ function _renderWaiverInner(section) {
     ['Team', 'width:50px;'],
     ['Age', 'width:40px;'],
     ['WP', 'width:60px;text-align:right;'],
-    ['Base', 'width:60px;text-align:right;color:var(--text2);'],
+    ['LCV', 'width:60px;text-align:right;color:var(--text2);'],
+    ['aLCV', 'width:60px;text-align:right;color:var(--text2);'],
     ['14d Δ', 'width:60px;text-align:right;'],
     ['Role', 'width:50px;text-align:right;'],
     ['Inj', 'width:50px;text-align:right;'],
@@ -258,7 +261,8 @@ function _renderWaiverInner(section) {
     html += `<td style="padding:6px 10px;color:var(--text2);">${p.team || ''}</td>`;
     html += `<td style="padding:6px 10px;color:var(--text2);">${p.age != null ? p.age : ''}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;font-weight:700;color:${wpColor};">${c.wp.toFixed(1)}</td>`;
-    html += `<td style="padding:6px 10px;text-align:right;color:var(--text2);">${c.base.toFixed(1)}</td>`;
+    html += `<td style="padding:6px 10px;text-align:right;color:var(--text2);">${c.proj.toFixed(1)}</td>`;
+    html += `<td style="padding:6px 10px;text-align:right;color:var(--text2);">${c.act.toFixed(1)}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;color:${deltaColor};font-weight:600;">${deltaFmt}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;color:var(--text2);">${c.role ? '+' + c.role.toFixed(1) : '—'}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;color:${c.inj ? 'var(--red)' : 'var(--text2)'};">${c.inj ? '−' + c.inj.toFixed(1) : '—'}</td>`;
@@ -267,9 +271,9 @@ function _renderWaiverInner(section) {
   });
 
   if (filtered.length === 0) {
-    html += '<tr><td colspan="11" style="padding:40px;text-align:center;color:var(--text2);">No available players match these filters.</td></tr>';
+    html += '<tr><td colspan="12" style="padding:40px;text-align:center;color:var(--text2);">No available players match these filters.</td></tr>';
   } else if (filtered.length > cap) {
-    html += `<tr><td colspan="11" style="padding:10px;text-align:center;color:var(--text2);font-size:11px;">Showing top ${cap} of ${filtered.length}. Tighten filters to see more.</td></tr>`;
+    html += `<tr><td colspan="12" style="padding:10px;text-align:center;color:var(--text2);font-size:11px;">Showing top ${cap} of ${filtered.length}. Tighten filters to see more.</td></tr>`;
   }
 
   html += '</tbody></table></div>';
