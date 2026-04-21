@@ -261,8 +261,10 @@ function _renderWaiverInner(section) {
     html += `<td style="padding:6px 10px;color:var(--text2);">${p.team || ''}</td>`;
     html += `<td style="padding:6px 10px;color:var(--text2);">${p.age != null ? p.age : ''}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;font-weight:700;color:${wpColor};">${c.wp.toFixed(1)}</td>`;
-    html += `<td style="padding:6px 10px;text-align:right;color:var(--text2);">${c.proj.toFixed(1)}</td>`;
-    html += `<td style="padding:6px 10px;text-align:right;color:var(--text2);">${c.act.toFixed(1)}</td>`;
+    const projClr = c.proj >= 0 ? 'var(--green)' : 'var(--red)';
+    const actClr  = c.act  >= 0 ? 'var(--green)' : 'var(--red)';
+    html += `<td style="padding:6px 10px;text-align:right;color:${projClr};">${c.proj.toFixed(1)}</td>`;
+    html += `<td style="padding:6px 10px;text-align:right;color:${actClr};">${c.act.toFixed(1)}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;color:${deltaColor};font-weight:600;">${deltaFmt}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;color:var(--text2);">${c.role ? '+' + c.role.toFixed(1) : '—'}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;color:${c.inj ? 'var(--red)' : 'var(--text2)'};">${c.inj ? '−' + c.inj.toFixed(1) : '—'}</td>`;

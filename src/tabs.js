@@ -31,6 +31,14 @@ state._mode = 'season';
 const DRAFT_TABS = ['all','myRoster','roster','board','mock','league','futures','txns','analytics'];
 const SEASON_TABS = ['all','myRoster','roster','league','futures','waiver','txns','analytics'];
 
+// If the persisted tab isn't valid for the current (season) mode, fall back
+// to the default. Keeps "open on last page" behaviour safe across mode force.
+if (!SEASON_TABS.includes(DPF.ui.currentTab)) {
+  DPF.ui.currentTab = 'league';
+  state._currentTab = 'league';
+  tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === 'league'));
+}
+
 function updateModeUI() {
   const isDraft = state._mode === 'draft';
   const draftBtn = document.getElementById('modeDraft');
