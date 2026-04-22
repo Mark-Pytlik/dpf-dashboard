@@ -1,7 +1,7 @@
 [
   {
     "name": "Brent Rooker",
-    "team": "ATH",
+    "team": "OAK",
     "pos": "DH",
     "status": "IL",
     "injury": "Oblique",
@@ -9,7 +9,7 @@
   },
   {
     "name": "Gunnar Hoglund",
-    "team": "ATH",
+    "team": "OAK",
     "pos": "P",
     "status": "IL",
     "injury": "Back",
@@ -555,7 +555,7 @@
     "name": "Tyler Freeman",
     "team": "COL",
     "pos": "3B",
-    "status": "DTD",
+    "status": "Questionable",
     "injury": "Illness",
     "returnDate": "Probable for Apr 22"
   },
@@ -875,7 +875,7 @@
     "name": "Travis d'Arnaud",
     "team": "LAA",
     "pos": "C",
-    "status": "DTD",
+    "status": "Questionable",
     "injury": "Foot",
     "returnDate": "Probable for Apr 22"
   },
@@ -1283,7 +1283,7 @@
     "name": "Jose Alvarado",
     "team": "PHI",
     "pos": "RP",
-    "status": "DTD",
+    "status": "Questionable",
     "injury": "Back",
     "returnDate": "Probable for Apr 22"
   },
@@ -1331,7 +1331,7 @@
     "name": "Brandon Lowe",
     "team": "PIT",
     "pos": "2B",
-    "status": "DTD",
+    "status": "Questionable",
     "injury": "Knee",
     "returnDate": "Probable for Apr 22"
   },
@@ -1339,7 +1339,7 @@
     "name": "Spencer Horwitz",
     "team": "PIT",
     "pos": "1B",
-    "status": "DTD",
+    "status": "Questionable",
     "injury": "Neck",
     "returnDate": "Probable for Apr 22"
   },
@@ -1435,7 +1435,7 @@
     "name": "Jung Hoo Lee",
     "team": "SF",
     "pos": "CF",
-    "status": "DTD",
+    "status": "Questionable",
     "injury": "Leg",
     "returnDate": "Probable for Apr 22"
   },
@@ -1603,7 +1603,7 @@
     "name": "Jake Fraley",
     "team": "TB",
     "pos": "RF",
-    "status": "DTD",
+    "status": "Questionable",
     "injury": "Lower Leg",
     "returnDate": "Probable for Apr 22"
   },
@@ -1683,7 +1683,7 @@
     "name": "Robert Garcia",
     "team": "TEX",
     "pos": "RP",
-    "status": "DTD",
+    "status": "Questionable",
     "injury": "Shoulder",
     "returnDate": "Probable for Apr 22"
   },
@@ -1699,7 +1699,7 @@
     "name": "Wyatt Langford",
     "team": "TEX",
     "pos": "OF",
-    "status": "DTD",
+    "status": "Questionable",
     "injury": "Forearm",
     "returnDate": "Probable for Apr 22"
   },
