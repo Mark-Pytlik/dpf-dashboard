@@ -1046,9 +1046,9 @@ function renderRoster() {
       const cbsBadge = tx.source === 'CBS' ? ' <span style="font-size:8px;background:var(--accent);color:#fff;padding:1px 3px;border-radius:2px;">CBS</span>' : '';
       const _txP = _plyrI(tx.player);
       let _txLcv = _txP ? ` <span style="color:var(--text2);font-size:9px;">(${(_txP.lcv||0).toFixed(1)}` : '';
-      if (_txP && _txP.actualLcv != null) {
-        const _txDClr = _txP.lcvDelta >= 0 ? 'var(--green)' : 'var(--red)';
-        _txLcv += ` → <span style="color:${_txDClr};font-weight:600;">${_txP.actualLcv.toFixed(1)}</span>`;
+      if (_txP && _txP.aLCVPlus != null) {
+        const _txPClr = _txP.aLCVPlus >= 115 ? 'var(--green)' : _txP.aLCVPlus >= 100 ? 'var(--green)' : _txP.aLCVPlus <= 85 ? 'var(--red)' : 'var(--text2)';
+        _txLcv += ` → <span style="color:${_txPClr};font-weight:600;">${Math.round(_txP.aLCVPlus)}</span>`;
       }
       if (_txP) _txLcv += ')</span>';
       const desc = tx.type === 'add' ? `Added ${tx.player}${_txLcv} from ${tx.from||'FA'}${cbsBadge}` : tx.type === 'drop' ? `Dropped ${tx.player}${_txLcv}${cbsBadge}` : `Traded ${tx.player}${_txLcv} → ${tx.from||'?'}${cbsBadge}`;

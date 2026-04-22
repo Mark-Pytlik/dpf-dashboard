@@ -51,13 +51,15 @@ function calcOptimalLCV(playerNames) {
   const startingSP = sps.slice(0, 5);
   const startingRP = rps.slice(0, 5);
 
+  // startingALCV/totalALCV are sums of (aLCVPlus - 100) so 0 = league-average team
+  // and, e.g., +150 = team is cumulatively 150 wRC+-style points above average.
   let startingLCV = 0, startingALCV = 0;
-  for (const p of Object.values(filled)) { startingLCV += (p.lcv || 0); if (p.actualLcv != null) startingALCV += p.actualLcv; }
-  for (const p of startingSP) { startingLCV += (p.lcv || 0); if (p.actualLcv != null) startingALCV += p.actualLcv; }
-  for (const p of startingRP) { startingLCV += (p.lcv || 0); if (p.actualLcv != null) startingALCV += p.actualLcv; }
+  for (const p of Object.values(filled)) { startingLCV += (p.lcv || 0); if (p.aLCVPlus != null) startingALCV += (p.aLCVPlus - 100); }
+  for (const p of startingSP) { startingLCV += (p.lcv || 0); if (p.aLCVPlus != null) startingALCV += (p.aLCVPlus - 100); }
+  for (const p of startingRP) { startingLCV += (p.lcv || 0); if (p.aLCVPlus != null) startingALCV += (p.aLCVPlus - 100); }
 
   let totalLCV = 0, totalALCV = 0;
-  for (const p of players) { totalLCV += (p.lcv || 0); if (p.actualLcv != null) totalALCV += p.actualLcv; }
+  for (const p of players) { totalLCV += (p.lcv || 0); if (p.aLCVPlus != null) totalALCV += (p.aLCVPlus - 100); }
 
   return { startingLCV, totalLCV, startingALCV, totalALCV, count: players.length };
 }
@@ -99,8 +101,8 @@ function renderLeague() {
     { key: 'startingLCV', label: 'Start LCV', w: '70px', numeric: true, bar: true, tip: 'Projected starting lineup LCV' },
     { key: 'totalLCV', label: 'Total LCV', w: '70px', numeric: true, bar: true, tip: 'Projected total roster LCV' },
     ...(!isDraftMode ? [
-      { key: 'startingALCV', label: 'Start aLCV', w: '75px', numeric: true, bar: true, tip: 'Actual starting lineup LCV from 2026 in-season stats' },
-      { key: 'totalALCV', label: 'Total aLCV', w: '75px', numeric: true, bar: true, tip: 'Actual total roster LCV from 2026 in-season stats' },
+      { key: 'startingALCV', label: 'Start aLCV+', w: '75px', numeric: true, bar: true, tip: 'Starting lineup aLCV+ delta: sum of (aLCVPlus - 100) over starters. 0 = league-average team.' },
+      { key: 'totalALCV', label: 'Total aLCV+', w: '75px', numeric: true, bar: true, tip: 'Full-roster aLCV+ delta: sum of (aLCVPlus - 100) across all rostered players.' },
     ] : []),
     ...(isDraftMode ? [
       { key: 'openRounds', label: 'Open', w: '35px', numeric: true, small: true, tip: 'Open draft rounds (25 minus keeper count)' },
@@ -179,7 +181,7 @@ function renderLeague() {
         { key: 'cost', label: 'Cost', align: 'right', w: '8%' },
         { key: 'yrs', label: 'Yrs', align: 'right', w: '6%' },
         { key: 'lcv', label: 'LCV', align: 'right', w: '10%' },
-        { key: 'alcv', label: 'aLCV', align: 'right', w: '10%', tip: 'Actual LCV from 2026 stats' },
+        { key: 'alcv', label: 'aLCV+', align: 'right', w: '10%', tip: 'aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma.' },
         { key: 'dlcv', label: 'ΔLCV', align: 'right', w: '10%', tip: 'Actual minus Projected LCV' },
         { key: 'pnav', label: 'PNAV', align: 'right', w: '10%' }
       ];
@@ -202,7 +204,7 @@ function renderLeague() {
         return {
           name: n, p, ki, isKeeper: keeperNames.has(n),
           lcvVal: p ? (p.lcv||0) : -99,
-          alcvVal: p && p.actualLcv != null ? p.actualLcv : -99,
+          alcvVal: p && p.aLCVPlus != null ? p.aLCVPlus : -99,
           dlcvVal: p && p.lcvDelta != null ? p.lcvDelta : -99,
           pnavVal: p ? (p.pnav||0) : -99,
           pos: p ? p.primaryPos : '?',
@@ -241,11 +243,12 @@ function renderLeague() {
         html += `<td style="text-align:right;padding:3px 4px;">${keeperStr}</td>`;
         html += `<td style="text-align:right;padding:3px 4px;${costClr}">${costStr}</td>`;
         html += `<td style="text-align:right;padding:3px 4px;">${ki.yearsLeft}</td>`;
-        const alcv = p && p.actualLcv != null ? p.actualLcv.toFixed(1) : '—';
+        const alcv = p && p.aLCVPlus != null ? Math.round(p.aLCVPlus).toString() : '—';
+        const alcvClr = p && p.aLCVPlus != null ? (p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : p.aLCVPlus >= 100 ? 'color:var(--green);' : p.aLCVPlus <= 85 ? 'color:var(--red);' : '') : '';
         const dlcv = p && p.lcvDelta != null ? ((p.lcvDelta > 0 ? '+' : '') + p.lcvDelta.toFixed(1)) : '—';
         const dlcvClr = p && p.lcvDelta != null ? (p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : '';
         html += `<td style="text-align:right;padding:3px 4px;font-weight:600;">${lcv}</td>`;
-        html += `<td style="text-align:right;padding:3px 4px;">${alcv}</td>`;
+        html += `<td style="text-align:right;padding:3px 4px;${alcvClr}">${alcv}</td>`;
         html += `<td style="text-align:right;padding:3px 4px;font-weight:600;${dlcvClr}">${dlcv}</td>`;
         html += `<td style="text-align:right;padding:3px 4px;">${pnav}</td>`;
         html += `</tr>`;
@@ -878,8 +881,8 @@ function renderActionItems() {
 
       hotAgents.forEach(p => {
         const delta = p.lcvDelta !== undefined ? (p.lcvDelta || 0).toFixed(1) : '';
-        const alc = p.actualLcv !== undefined ? (p.actualLcv || 0).toFixed(1) : '';
-        html += `<div style="padding:8px;background:var(--surface2);border-radius:4px;margin-bottom:6px;font-size:11px;"><b>${p.name}</b> <span style="color:var(--text2);">${p.primaryPos}</span>${delta ? ` <span style="color:var(--green);font-weight:600;">+${delta}</span>` : ''}${alc ? ` <span style="color:var(--text2);">(aLCV: ${alc})</span>` : ''}</div>`;
+        const alcPlus = p.aLCVPlus != null ? Math.round(p.aLCVPlus).toString() : '';
+        html += `<div style="padding:8px;background:var(--surface2);border-radius:4px;margin-bottom:6px;font-size:11px;"><b>${p.name}</b> <span style="color:var(--text2);">${p.primaryPos}</span>${delta ? ` <span style="color:var(--green);font-weight:600;">+${delta}</span>` : ''}${alcPlus ? ` <span style="color:var(--text2);">(aLCV+: ${alcPlus})</span>` : ''}</div>`;
       });
       html += '</div>';
     }

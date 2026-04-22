@@ -749,11 +749,10 @@ function _renderAnalyticsInner(section) {
         trade.sent.forEach(tx => {
           const p = _plyrI(tx.player);
           const lcv = p ? (p.lcv||0).toFixed(1) : '?';
-          const alcv = p && p.actualLcv != null ? p.actualLcv.toFixed(1) : null;
-          const dlcv = p && p.lcvDelta != null ? p.lcvDelta : null;
-          const dlcvClr = dlcv != null ? (dlcv >= 0 ? 'var(--green)' : 'var(--red)') : '';
+          const alcvPlus = p && p.aLCVPlus != null ? p.aLCVPlus : null;
+          const alcvClr = alcvPlus != null ? (alcvPlus >= 115 ? 'var(--green)' : alcvPlus >= 100 ? 'var(--green)' : alcvPlus <= 85 ? 'var(--red)' : 'var(--text2)') : 'var(--text2)';
           let stats = `<span style="color:var(--text2);">(${lcv} LCV`;
-          if (alcv != null) stats += ` → <span style="font-weight:600;color:${dlcvClr};">${alcv} aLCV</span>`;
+          if (alcvPlus != null) stats += ` → <span style="font-weight:600;color:${alcvClr};">${Math.round(alcvPlus)} aLCV+</span>`;
           stats += `)</span>`;
           h += `<div style="font-size:11px;padding:2px 0;">${tx.player} ${stats}</div>`;
         });
@@ -765,11 +764,10 @@ function _renderAnalyticsInner(section) {
         trade.received.forEach(tx => {
           const p = _plyrI(tx.player);
           const lcv = p ? (p.lcv||0).toFixed(1) : '?';
-          const alcv = p && p.actualLcv != null ? p.actualLcv.toFixed(1) : null;
-          const dlcv = p && p.lcvDelta != null ? p.lcvDelta : null;
-          const dlcvClr = dlcv != null ? (dlcv >= 0 ? 'var(--green)' : 'var(--red)') : '';
+          const alcvPlus = p && p.aLCVPlus != null ? p.aLCVPlus : null;
+          const alcvClr = alcvPlus != null ? (alcvPlus >= 115 ? 'var(--green)' : alcvPlus >= 100 ? 'var(--green)' : alcvPlus <= 85 ? 'var(--red)' : 'var(--text2)') : 'var(--text2)';
           let stats = `<span style="color:var(--text2);">(${lcv} LCV`;
-          if (alcv != null) stats += ` → <span style="font-weight:600;color:${dlcvClr};">${alcv} aLCV</span>`;
+          if (alcvPlus != null) stats += ` → <span style="font-weight:600;color:${alcvClr};">${Math.round(alcvPlus)} aLCV+</span>`;
           stats += `)</span>`;
           h += `<div style="font-size:11px;padding:2px 0;">${tx.player} ${stats}</div>`;
         });
@@ -783,13 +781,15 @@ function _renderAnalyticsInner(section) {
         const netLCV = recvLCV - sentLCV;
         const netClr = netLCV >= 0 ? 'var(--green)' : 'var(--red)';
         // Actual net (only if at least one player on each side has actual data)
-        let sentALCV = 0, recvALCV = 0, hasActual = false;
-        trade.sent.forEach(tx => { const p = _plyrI(tx.player); if (p && p.actualLcv != null) { sentALCV += p.actualLcv; hasActual = true; } else { sentALCV += p ? (p.lcv||0) : 0; } });
-        trade.received.forEach(tx => { const p = _plyrI(tx.player); if (p && p.actualLcv != null) { recvALCV += p.actualLcv; hasActual = true; } else { recvALCV += p ? (p.lcv||0) : 0; } });
-        const netALCV = recvALCV - sentALCV;
-        const netAClr = netALCV >= 0 ? 'var(--green)' : 'var(--red)';
+        // aLCV+ net: sum of (per-player aLCV+ - 100) so '0' means pool-average on both sides.
+        // Net +25 means received cumulatively 25 wRC+-style points better than sent.
+        let sentAP = 0, recvAP = 0, hasActual = false;
+        trade.sent.forEach(tx => { const p = _plyrI(tx.player); if (p && p.aLCVPlus != null) { sentAP += (p.aLCVPlus - 100); hasActual = true; } });
+        trade.received.forEach(tx => { const p = _plyrI(tx.player); if (p && p.aLCVPlus != null) { recvAP += (p.aLCVPlus - 100); hasActual = true; } });
+        const netAP = recvAP - sentAP;
+        const netAClr = netAP >= 0 ? 'var(--green)' : 'var(--red)';
         let netLine = `Net LCV: <span style="font-weight:700;color:${netClr};">${netLCV>=0?'+':''}${netLCV.toFixed(1)}</span> (projected)`;
-        if (hasActual) netLine += ` · Actual: <span style="font-weight:700;color:${netAClr};">${netALCV>=0?'+':''}${netALCV.toFixed(1)}</span>`;
+        if (hasActual) netLine += ` · Net aLCV+: <span style="font-weight:700;color:${netAClr};">${netAP>=0?'+':''}${Math.round(netAP)}</span>`;
         h += `<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--border);font-size:10px;text-align:right;">${netLine}</div>`;
         h += '</div>';
       });
@@ -822,7 +822,7 @@ function _renderAnalyticsInner(section) {
         h += `<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">`;
         h += `<span style="font-weight:700;font-size:12px;">${inj.name}</span>`;
         h += `<span style="font-size:9px;background:${statusClr};color:#fff;padding:1px 4px;border-radius:3px;">${injInfo.status}</span>`;
-        const _injAlcv = inj.actualLcv != null ? ` → ${inj.actualLcv.toFixed(1)} aLCV` : '';
+        const _injAlcv = inj.p && inj.p.aLCVPlus != null ? ` → ${Math.round(inj.p.aLCVPlus)} aLCV+` : (inj.actualLcv != null ? ` → ${inj.actualLcv.toFixed(1)} aLCV` : '');
         h += `<span style="font-size:10px;color:var(--text2);">${inj.primaryPos} · ${inj.lcv.toFixed(1)} LCV${_injAlcv}</span>`;
         if (injInfo.injury) h += `<span style="font-size:10px;color:var(--text2);">— ${injInfo.injury}</span>`;
         if (injInfo.return) h += `<span style="font-size:10px;color:var(--accent);">ETA: ${injInfo.return}</span>`;
@@ -856,15 +856,15 @@ function _renderAnalyticsInner(section) {
 
         if (topRepl.length > 0) {
           h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-          h += '<tr style="font-size:9px;color:var(--text2);text-transform:uppercase;"><th style="text-align:left;padding:2px 4px;">Replacement</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">aLCV</th><th style="text-align:right;padding:2px 4px;">vs Injured</th><th style="text-align:center;padding:2px 4px;">Source</th></tr>';
+          h += '<tr style="font-size:9px;color:var(--text2);text-transform:uppercase;"><th style="text-align:left;padding:2px 4px;">Replacement</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;" title="aLCV+ on wRC+ scale: 100 = pool avg, 115 = +1sigma">aLCV+</th><th style="text-align:right;padding:2px 4px;">vs Injured</th><th style="text-align:center;padding:2px 4px;">Source</th></tr>';
           topRepl.forEach(r => {
             const diff = r.lcv - inj.lcv;
             const diffClr = diff >= 0 ? 'var(--green)' : 'var(--red)';
             const srcBadge = r.source === 'roster' ? '<span style="font-size:8px;background:var(--accent);color:#fff;padding:1px 3px;border-radius:2px;">ROSTER</span>' : '<span style="font-size:8px;background:var(--green);color:#fff;padding:1px 3px;border-radius:2px;">FA</span>';
             const injTag = r.injured ? ' <span style="color:var(--red);font-size:9px;">⚠ also hurt</span>' : '';
             const _rp = _plyrI(r.name);
-            const _rAlcv = _rp && _rp.actualLcv != null ? _rp.actualLcv.toFixed(1) : '—';
-            const _rAlcvClr = _rp && _rp.actualLcv != null ? (_rp.actualLcv >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
+            const _rAlcv = _rp && _rp.aLCVPlus != null ? Math.round(_rp.aLCVPlus).toString() : '—';
+            const _rAlcvClr = _rp && _rp.aLCVPlus != null ? (_rp.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : _rp.aLCVPlus >= 100 ? 'color:var(--green);' : _rp.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
             h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${r.name}${injTag}</td><td style="padding:3px 4px;text-align:center;">${r.pos}</td><td style="text-align:right;padding:3px 4px;">${r.lcv.toFixed(1)}</td><td style="text-align:right;padding:3px 4px;${_rAlcvClr}">${_rAlcv}</td><td style="text-align:right;padding:3px 4px;color:${diffClr};font-weight:600;">${diff>=0?'+':''}${diff.toFixed(1)}</td><td style="text-align:center;padding:3px 4px;">${srcBadge}</td></tr>`;
           });
           h += '</table>';
@@ -1251,7 +1251,7 @@ function _renderAnalyticsInner(section) {
         h += '<div style="font-weight:700;font-size:12px;margin:8px 0 4px;">Batters — Projected vs Actual</div>';
         h += '<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:11px;">';
         h += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);">';
-        h += '<th style="padding:4px 6px;text-align:left;">Player</th><th style="padding:4px 6px;">Pos</th><th style="padding:4px 6px;">LCV</th><th style="padding:4px 6px;">aLCV</th><th style="padding:4px 6px;">\u0394LCV</th>';
+        h += '<th style="padding:4px 6px;text-align:left;">Player</th><th style="padding:4px 6px;">Pos</th><th style="padding:4px 6px;">LCV</th><th style="padding:4px 6px;" title="aLCV+ on wRC+ scale">aLCV+</th><th style="padding:4px 6px;">\u0394LCV</th>';
         h += '<th style="padding:4px 6px;border-left:2px solid var(--border);">pAVG</th><th style="padding:4px 6px;">aAVG</th>';
         h += '<th style="padding:4px 6px;">pOBP</th><th style="padding:4px 6px;">aOBP</th>';
         h += '<th style="padding:4px 6px;">pSLG</th><th style="padding:4px 6px;">aSLG</th>';
@@ -1263,7 +1263,8 @@ function _renderAnalyticsInner(section) {
         h += '</tr></thead><tbody>';
         bats.forEach((p, i) => {
           const bg = i % 2 === 0 ? 'transparent' : 'var(--surface)';
-          const alcv = p.actualLcv != null ? p.actualLcv.toFixed(1) : '—';
+          const alcv = p.aLCVPlus != null ? Math.round(p.aLCVPlus).toString() : '—';
+          const alcvClr = p.aLCVPlus != null ? (p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : p.aLCVPlus >= 100 ? 'color:var(--green);' : p.aLCVPlus <= 85 ? 'color:var(--red);' : '') : '';
           const dlcv = p.lcvDelta != null ? ((p.lcvDelta > 0 ? '+' : '') + p.lcvDelta.toFixed(1)) : '—';
           const dlcvClr = p.lcvDelta != null ? (p.lcvDelta >= 0 ? 'var(--green)' : 'var(--red)') : 'var(--text2)';
           function _cmpCell(proj, act, isRate) {
@@ -1276,7 +1277,7 @@ function _renderAnalyticsInner(section) {
           h += `<td style="padding:3px 6px;font-weight:600;">${p.name}</td>`;
           h += `<td style="padding:3px 6px;text-align:center;"><span class="pos-badge pos-${p.primaryPos}" style="padding:1px 4px;font-size:9px;">${p.primaryPos}</span></td>`;
           h += `<td style="padding:3px 6px;text-align:right;">${(p.lcv||0).toFixed(1)}</td>`;
-          h += `<td style="padding:3px 6px;text-align:right;font-weight:600;">${alcv}</td>`;
+          h += `<td style="padding:3px 6px;text-align:right;font-weight:600;${alcvClr}">${alcv}</td>`;
           h += `<td style="padding:3px 6px;text-align:right;color:${dlcvClr};font-weight:600;">${dlcv}</td>`;
           h += '<td style="border-left:2px solid var(--border);"></td>';
           // Remove the extra border cell, integrate into first rate pair
@@ -1300,7 +1301,7 @@ function _renderAnalyticsInner(section) {
         h += '<div style="font-weight:700;font-size:12px;margin:12px 0 4px;">Pitchers — Projected vs Actual</div>';
         h += '<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:11px;">';
         h += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);">';
-        h += '<th style="padding:4px 6px;text-align:left;">Player</th><th style="padding:4px 6px;">Pos</th><th style="padding:4px 6px;">LCV</th><th style="padding:4px 6px;">aLCV</th><th style="padding:4px 6px;">\u0394LCV</th>';
+        h += '<th style="padding:4px 6px;text-align:left;">Player</th><th style="padding:4px 6px;">Pos</th><th style="padding:4px 6px;">LCV</th><th style="padding:4px 6px;" title="aLCV+ on wRC+ scale">aLCV+</th><th style="padding:4px 6px;">\u0394LCV</th>';
         h += '<th style="padding:4px 6px;border-left:2px solid var(--border);">pERA</th><th style="padding:4px 6px;">aERA</th>';
         h += '<th style="padding:4px 6px;">pWHIP</th><th style="padding:4px 6px;">aWHIP</th>';
         h += '<th style="padding:4px 6px;border-left:2px solid var(--border);">pK</th><th style="padding:4px 6px;">aK</th>';
@@ -1312,7 +1313,8 @@ function _renderAnalyticsInner(section) {
         h += '</tr></thead><tbody>';
         pits.forEach((p, i) => {
           const bg = i % 2 === 0 ? 'transparent' : 'var(--surface)';
-          const alcv = p.actualLcv != null ? p.actualLcv.toFixed(1) : '—';
+          const alcv = p.aLCVPlus != null ? Math.round(p.aLCVPlus).toString() : '—';
+          const alcvClr = p.aLCVPlus != null ? (p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : p.aLCVPlus >= 100 ? 'color:var(--green);' : p.aLCVPlus <= 85 ? 'color:var(--red);' : '') : '';
           const dlcv = p.lcvDelta != null ? ((p.lcvDelta > 0 ? '+' : '') + p.lcvDelta.toFixed(1)) : '—';
           const dlcvClr = p.lcvDelta != null ? (p.lcvDelta >= 0 ? 'var(--green)' : 'var(--red)') : 'var(--text2)';
           // For ERA/WHIP, lower actual is better (green)
@@ -1330,7 +1332,7 @@ function _renderAnalyticsInner(section) {
           h += `<td style="padding:3px 6px;font-weight:600;">${p.name}</td>`;
           h += `<td style="padding:3px 6px;text-align:center;"><span class="pos-badge pos-${p.primaryPos}" style="padding:1px 4px;font-size:9px;">${p.primaryPos}</span></td>`;
           h += `<td style="padding:3px 6px;text-align:right;">${(p.lcv||0).toFixed(1)}</td>`;
-          h += `<td style="padding:3px 6px;text-align:right;font-weight:600;">${alcv}</td>`;
+          h += `<td style="padding:3px 6px;text-align:right;font-weight:600;${alcvClr}">${alcv}</td>`;
           h += `<td style="padding:3px 6px;text-align:right;color:${dlcvClr};font-weight:600;">${dlcv}</td>`;
           h += `<td style="padding:3px 6px;text-align:right;border-left:2px solid var(--border);">${p.era != null ? parseFloat(p.era).toFixed(2) : '—'}</td>`;
           h += `<td style="padding:3px 6px;text-align:right;${p.s26_era != null && p.s26_era !== '' ? (parseFloat(p.s26_era) <= parseFloat(p.era) ? 'color:var(--green);font-weight:600;' : 'color:var(--red);font-weight:600;') : ''}">${p.s26_era != null && p.s26_era !== '' ? parseFloat(p.s26_era).toFixed(2) : '—'}</td>`;

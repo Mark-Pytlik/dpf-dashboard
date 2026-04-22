@@ -95,7 +95,7 @@ function _renderTransactionsInner(section) {
     ['pos',       'Pos',       'left'],
     ['mlbTeam',   'MLB',       'left'],
     ['lcvVal',    'LCV',       'right'],
-    ['aLcvVal',   'aLCV',      'right', 'Actual LCV from 2026 in-season stats'],
+    ['aLcvVal',   'aLCV+',     'right', 'aLCV+ on wRC+ scale: 100 = pool average (batter/SP/RP), 115 = +1sigma. From 2026 in-season stats.'],
     ['dLcvVal',   'ΔLCV',      'right', 'Actual minus Projected LCV'],
     ['tvVal',     'TV',        'right'],
     ['effective', 'Effective', 'left'],
@@ -126,7 +126,7 @@ function _renderTransactionsInner(section) {
     if (player && tx.mlbTeam && player.team && _nt(player.team) !== _nt(tx.mlbTeam)) player = null;
     tx._player = player;
     tx.lcvVal = player ? (player.lcv || 0) : null;
-    tx.aLcvVal = player && player.actualLcv != null ? player.actualLcv : null;
+    tx.aLcvVal = player && player.aLCVPlus != null ? player.aLCVPlus : null;
     tx.dLcvVal = player && player.lcvDelta != null ? player.lcvDelta : null;
     let tvNum = null;
     if (player) {
@@ -176,11 +176,12 @@ function _renderTransactionsInner(section) {
     html += `<td style="padding:8px 12px;font-size:13px;font-weight:600;">${tx.player}</td>`;
     html += `<td style="padding:8px 12px;"><span class="pos-badge pos-${(tx.pos||'').split(',')[0]}">${tx.pos}</span></td>`;
     html += `<td style="padding:8px 12px;font-size:12px;color:var(--text2);">${tx.mlbTeam}</td>`;
-    const aLcv = tx.aLcvVal != null ? tx.aLcvVal.toFixed(1) : '—';
+    const aLcv = tx.aLcvVal != null ? Math.round(tx.aLcvVal).toString() : '—';
+    const aLcvClr = tx.aLcvVal != null ? (tx.aLcvVal >= 115 ? 'color:var(--green);font-weight:700;' : tx.aLcvVal >= 100 ? 'color:var(--green);' : tx.aLcvVal <= 85 ? 'color:var(--red);' : '') : '';
     const dLcv = tx.dLcvVal != null ? ((tx.dLcvVal > 0 ? '+' : '') + tx.dLcvVal.toFixed(1)) : '—';
     const dLcvClr = tx.dLcvVal != null ? (tx.dLcvVal >= 0 ? 'color:var(--green);' : 'color:var(--red);') : '';
     html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;">${lcv}</td>`;
-    html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;">${aLcv}</td>`;
+    html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;${aLcvClr}">${aLcv}</td>`;
     html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;font-weight:600;${dLcvClr}">${dLcv}</td>`;
     html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;">${tvVal}</td>`;
     html += `<td style="padding:8px 12px;font-size:12px;color:var(--text2);">${tx.effective}</td>`;
