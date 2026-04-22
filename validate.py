@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import os
 import sys
 import unicodedata
@@ -45,6 +46,21 @@ def _strip_accents(s: str) -> str:
         c for c in unicodedata.normalize('NFD', s or '')
         if unicodedata.category(c) != 'Mn'
     ).lower().strip()
+
+
+def _parse_txn_date(s: str):
+    """Parse CBS txn dates like '4/21/26 2:15 AM ET' or '4/5/26 11:30 PM ET'.
+    Returns a naive datetime for sorting. Falls back to datetime.min if unparseable."""
+    if not s:
+        return datetime.min
+    # Strip trailing ' ET' (or any trailing TZ abbrev) for strptime
+    s2 = re.sub(r'\s+[A-Z]{2,4}\s*$', '', s).strip()
+    for fmt in ('%m/%d/%y %I:%M %p', '%m/%d/%Y %I:%M %p'):
+        try:
+            return datetime.strptime(s2, fmt)
+        except ValueError:
+            pass
+    return datetime.min
 
 
 class Report:
@@ -527,7 +543,7 @@ def check_roster_ground_truth(report: Report):
     # Traded from <X>, Activated, Moved to IR. Dropped clears the signal.
     rostered = {}
     ADD_ACTIONS = {'Added', 'Added off Waivers', 'Activated', 'Moved to IR'}
-    for tx in sorted(txns, key=lambda t: t.get('date', '')):
+    for tx in sorted(txns, key=lambda t: _parse_txn_date(t.get('date', ''))):
         team = tx.get('teamName') or tx.get('team')
         for p in tx.get('players', []):
             nm = p.get('name')
@@ -599,6 +615,95 @@ def check_roster_ground_truth(report: Report):
         report.warn(f"{no_signal} rostered players have no txn signal (likely pre-draft keepers or dropped off CBS 30-row cap — roster_sync.py should backfill)")
 
 
+
+def check_data_freshness(report: Report):
+    """Fail if CBS data is stale. Silent staleness is the 'didn't happen
+    last night' bug: the scheduled task died or skipped CBS, nothing
+    committed, dashboard kept serving yesterday's (or last week's) data.
+
+    We check the most-recent transaction date in cbs_transactions.json and
+    the season_status.lastUpdated marker. If EITHER is more than 36 hours
+    old, we warn or error (48h = error) to force a fix.
+
+    36h threshold is deliberately wider than 24h so a single missed cron
+    (e.g. travel, weekend) doesn't fail the deploy; but a second miss
+    does. Adjust STALE_WARN_H / STALE_ERR_H in the constants if needed.
+    """
+    report.section("data freshness")
+    STALE_WARN_H = 36
+    STALE_ERR_H = 72
+
+    from datetime import datetime, timezone, timedelta
+    now = datetime.now(timezone.utc)
+
+    # Most recent CBS transaction date
+    txns = _load_json(CBS_TRANSACTIONS, report) or []
+    latest_tx = None
+    for t in txns:
+        d = (t.get('date') or '').replace(' ', ' ')
+        for fmt in ('%m/%d/%y %I:%M %p ET', '%m/%d/%y %I:%M %p', '%m/%d/%y'):
+            try:
+                dt = datetime.strptime(d, fmt)
+                # Assume ET (UTC-4 during baseball season). Close enough.
+                dt = dt.replace(tzinfo=timezone(timedelta(hours=-4)))
+                if latest_tx is None or dt > latest_tx:
+                    latest_tx = dt
+                break
+            except ValueError:
+                continue
+    if latest_tx:
+        age_h = (now - latest_tx).total_seconds() / 3600
+        print(f"most recent CBS transaction: {latest_tx.isoformat()} ({age_h:.1f}h ago)")
+        if age_h > STALE_ERR_H:
+            report.err(f"CBS transactions haven't refreshed in {age_h:.1f}h (>{STALE_ERR_H}h) — scheduled scrape is broken")
+        elif age_h > STALE_WARN_H:
+            report.warn(f"CBS transactions are {age_h:.1f}h old (>{STALE_WARN_H}h) — check scheduled scrape")
+    else:
+        report.warn("no parseable transaction dates — can't assess CBS freshness")
+
+    # Scheduled-task run status (if the hardened daily task wrote one)
+    try:
+        with open(os.path.join(DATA_DIR, 'last_daily_run.json')) as f:
+            last = json.load(f)
+        pb = last.get('phaseB', {})
+        if pb.get('cbs_auth') == 'missing':
+            report.err("last scheduled run reports CBS auth MISSING — private-league data not refreshing. Sign in to CBS in Chrome and run the task again, or wire scrape_cbs.py --cookies.")
+        elif pb.get('transactions') == 'fail' or pb.get('rosters') == 'fail':
+            report.err(f"last scheduled run had CBS failures: transactions={pb.get('transactions')}, rosters={pb.get('rosters')}")
+        completed = last.get('completedAt')
+        if completed:
+            try:
+                c_dt = datetime.fromisoformat(completed.replace('Z','+00:00'))
+                age_h = (now - c_dt).total_seconds() / 3600
+                if age_h > 36:
+                    report.err(f"last_daily_run.json is {age_h:.1f}h old — scheduled task hasn't completed in over {STALE_WARN_H}h")
+            except ValueError:
+                pass
+    except FileNotFoundError:
+        report.warn("data/last_daily_run.json not present — hardened daily task hasn't run yet, or an older version of the task is still active")
+    except Exception as e:
+        report.warn(f"couldn't read last_daily_run.json: {e}")
+
+    # Season status freshness (periodEnd should be in the future or recent past)
+    try:
+        with open(os.path.join(DATA_DIR, 'season_status.json')) as f:
+            ss = json.load(f)
+        pe = ss.get('periodEnd')
+        if pe:
+            try:
+                pe_dt = datetime.strptime(pe, '%Y-%m-%d').replace(tzinfo=timezone.utc)
+                days_since_end = (now - pe_dt).days
+                if days_since_end > 2:
+                    report.warn(
+                        f"season_status.periodEnd is {days_since_end} days ago — "
+                        f"H2H period data may be stuck (expected to roll over every 2 weeks)"
+                    )
+            except ValueError:
+                pass
+    except Exception:
+        pass
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument('--fail-on-warn', action='store_true')
@@ -614,6 +719,7 @@ def main() -> int:
     check_roster_ground_truth(report)
     inj_list = check_injuries(report)
     check_rostered_injured(report, cfg, inj_list)
+    check_data_freshness(report)
     return report.summary(args.fail_on_warn)
 
 

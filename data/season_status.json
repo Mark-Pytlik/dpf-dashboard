@@ -1,144 +1,99 @@
 {
-  "currentPeriod": 1,
-  "periodStart": "2026-03-25",
-  "periodEnd": "2026-04-12",
-  "opponent": "Yesavage Garden",
-  "opponentTeam": "Yesavage Garden",
+  "currentPeriod": 2,
+  "periodStart": "2026-04-13",
+  "periodEnd": "2026-04-26",
+  "opponent": "Dinosaur Jr Caminero",
+  "opponentTeam": "Dinosaur Jr Caminero",
   "currentScore": {
-    "me": 11,
-    "opp": 5,
-    "tied": 2
+    "me": 10,
+    "opp": 6,
+    "tied": 0
   },
-  "categoryBreakdown": {
-    "batting": {
-      "BA": {
-        "me": 0.232,
-        "opp": 0.228,
-        "winner": "me"
-      },
-      "HR": {
-        "me": 9,
-        "opp": 6,
-        "winner": "me"
-      },
-      "KO": {
-        "me": 66,
-        "opp": 57,
-        "winner": "opp"
-      },
-      "OBP": {
-        "me": 0.341,
-        "opp": 0.309,
-        "winner": "me"
-      },
-      "R": {
-        "me": 37,
-        "opp": 31,
-        "winner": "me"
-      },
-      "RBI": {
-        "me": 26,
-        "opp": 28,
-        "winner": "opp"
-      },
-      "SB": {
-        "me": 1,
-        "opp": 2,
-        "winner": "opp"
-      },
-      "SLG": {
-        "me": 0.37,
-        "opp": 0.338,
-        "winner": "me"
-      }
-    },
-    "pitching": {
-      "ERA": {
-        "me": 2.813,
-        "opp": 3.493,
-        "winner": "me"
-      },
-      "HD": {
-        "me": 4,
-        "opp": 2,
-        "winner": "me"
-      },
-      "HRA": {
-        "me": 8,
-        "opp": 8,
-        "winner": "tied"
-      },
-      "K": {
-        "me": 56,
-        "opp": 88,
-        "winner": "opp"
-      },
-      "QS": {
-        "me": 4,
-        "opp": 3,
-        "winner": "me"
-      },
-      "S": {
-        "me": 4,
-        "opp": 3,
-        "winner": "me"
-      },
-      "W": {
-        "me": 4,
-        "opp": 4,
-        "winner": "tied"
-      },
-      "WHIP": {
-        "me": 1.047,
-        "opp": 1.104,
-        "winner": "me"
-      }
-    }
-  },
+  "categoryBreakdown": {},
   "allMatchups": [
     {
-      "away": "Yesavage Garden",
-      "home": "Okamotomami",
-      "awayScore": 5,
-      "homeScore": 11
-    },
-    {
       "away": "RESCAN",
-      "home": "Before and After Shohei",
-      "awayScore": 4,
-      "homeScore": 12
+      "home": "Okamotomami",
+      "awayScore": 6,
+      "homeScore": 10
     },
     {
-      "away": "Icarus",
-      "home": "A Pete Crow-Armstrong Looked at Me",
+      "away": "Milli",
+      "home": "ROTH",
+      "awayScore": 3.5,
+      "homeScore": 12.5
+    },
+    {
+      "away": "woba",
+      "home": "Fran",
+      "awayScore": 3,
+      "homeScore": 13
+    },
+    {
+      "away": "SHOH",
+      "home": "Icculus",
+      "awayScore": 7,
+      "homeScore": 9
+    },
+    {
+      "away": "PCA",
+      "home": "Drew",
       "awayScore": 10,
       "homeScore": 6
     },
     {
-      "away": "Drew",
-      "home": "Buddy Buddy Buddy All On Base",
+      "away": "BBBaoB",
+      "home": "YSVG",
       "awayScore": 7.5,
       "homeScore": 8.5
-    },
-    {
-      "away": "ROTH",
-      "home": "Fran",
-      "awayScore": 6.5,
-      "homeScore": 9.5
-    },
-    {
-      "away": "Milli",
-      "home": "woba",
-      "awayScore": 10.5,
-      "homeScore": 5.5
     }
   ],
-  "myRecord": "0-0-0",
+  "myRecord": "1-0-0",
   "standings": [
     {
       "team": "Weird Fishes / Arrighetti",
       "mine": false,
-      "w": 0,
+      "w": 1,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Colonel Corbin's Ascent",
+      "mine": false,
+      "w": 1,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Okamotomami",
+      "mine": true,
+      "w": 1,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Everythings McGonigle Green",
+      "mine": false,
+      "w": 1,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Blame it on the Rainiel",
+      "mine": false,
+      "w": 1,
+      "l": 0,
+      "t": 0,
+      "pts": 0
+    },
+    {
+      "team": "Before and After Shohei",
+      "mine": false,
+      "w": 1,
       "l": 0,
       "t": 0,
       "pts": 0
@@ -147,23 +102,7 @@
       "team": "Dinosaur Jr Caminero",
       "mine": false,
       "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Colonel Corbin's Ascent",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Okamotomami",
-      "mine": true,
-      "w": 0,
-      "l": 0,
+      "l": 1,
       "t": 0,
       "pts": 0
     },
@@ -171,7 +110,7 @@
       "team": "Buddy Buddy Buddy All On Base",
       "mine": false,
       "w": 0,
-      "l": 0,
+      "l": 1,
       "t": 0,
       "pts": 0
     },
@@ -179,15 +118,7 @@
       "team": "A Pete Crow-Armstrong Looked at Me",
       "mine": false,
       "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Whoop Whoop that's the sound of Dylan Cease",
-      "mine": false,
-      "w": 0,
-      "l": 0,
+      "l": 1,
       "t": 0,
       "pts": 0
     },
@@ -195,7 +126,7 @@
       "team": "Ballesteros, Let the Rhythm Take You Over",
       "mine": false,
       "w": 0,
-      "l": 0,
+      "l": 1,
       "t": 0,
       "pts": 0
     },
@@ -203,23 +134,7 @@
       "team": "Yesavage Garden",
       "mine": false,
       "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Blame it on the Rainiel",
-      "mine": false,
-      "w": 0,
-      "l": 0,
-      "t": 0,
-      "pts": 0
-    },
-    {
-      "team": "Before and After Shohei",
-      "mine": false,
-      "w": 0,
-      "l": 0,
+      "l": 1,
       "t": 0,
       "pts": 0
     },
@@ -227,11 +142,11 @@
       "team": "Popped A Mahle I'm Sweating",
       "mine": false,
       "w": 0,
-      "l": 0,
+      "l": 1,
       "t": 0,
       "pts": 0
     }
   ],
-  "updated": "2026-04-03T17:08:46Z",
-  "lastUpdated": "2026-04-12 (pre-period 2)"
+  "updated": "2026-04-22T15:31:45Z",
+  "lastUpdated": "2026-04-22 (period 2 in progress)"
 }

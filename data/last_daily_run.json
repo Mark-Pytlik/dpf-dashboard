@@ -1,0 +1,17 @@
+{
+  "startedAt": "2026-04-22T15:32:04Z",
+  "completedAt": "2026-04-22T15:32:04Z",
+  "source": "manual-catchup",
+  "phaseA": {
+    "stats": "skip"
+  },
+  "phaseB": {
+    "cbs_auth": "ok",
+    "transactions": "ok",
+    "rosters": "ok",
+    "injuries": "ok",
+    "news": "skip-stale",
+    "season_status": "ok"
+  },
+  "notes": "Manually caught up after scheduled task failed overnight (4/22/26). Transactions, rosters, injuries refreshed; player_news left at 4/21 scrape; season_status updated to period 2."
+}
