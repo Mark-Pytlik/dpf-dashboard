@@ -1,17 +1,18 @@
 {
-  "startedAt": "2026-04-22T15:32:04Z",
-  "completedAt": "2026-04-22T15:32:04Z",
-  "source": "manual-catchup",
+  "completedAt": "2026-04-22T16:04:52.330704Z",
   "phaseA": {
-    "stats": "skip"
+    "stats": "ok",
+    "injuries": "ok",
+    "news": "ok"
   },
   "phaseB": {
-    "cbs_auth": "ok",
-    "transactions": "ok",
-    "rosters": "ok",
-    "injuries": "ok",
-    "news": "skip-stale",
-    "season_status": "ok"
+    "cbs_auth": "missing",
+    "transactions": "skipped",
+    "rosters": "skipped",
+    "matchup": "skipped"
   },
-  "notes": "Manually caught up after scheduled task failed overnight (4/22/26). Transactions, rosters, injuries refreshed; player_news left at 4/21 scrape; season_status updated to period 2."
+  "notes": [
+    "CBS auth missing: transactions URL returned 'Fumble' 404 page with 'Log In' button visible; no pid_session cookie in browser profile.",
+    "fetch_stuffplus.py ran but pybaseball is not installed in the sandbox (disk full during pip install); non-fatal per task prompt."
+  ]
 }
