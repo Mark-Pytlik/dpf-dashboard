@@ -294,6 +294,21 @@ function render() {
         cls += v >= 110 ? ' val-pos' : v <= 90 ? ' val-neg' : '';
       }
       else if (c.key === 'war') val = val.toFixed(1);
+      else if (c.key === 'aLCVPlus') {
+        // aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma, 85 = -1sigma
+        const v = parseFloat(val);
+        if (!isFinite(v)) { val = '—'; }
+        else {
+          cls += v >= 115 ? ' val-pos' : v <= 85 ? ' val-neg' : '';
+          val = Math.round(v).toString();
+          if (p._splitConfidence) {
+            const confColors = { 'low': '#e88a0a', 'med': '#2563eb', 'high': '#16a34a' };
+            const confTips = { 'low': 'Low sample size', 'med': 'Medium sample size', 'high': 'High sample size' };
+            const dot = `<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${confColors[p._splitConfidence]};margin-right:4px;vertical-align:middle;" title="${confTips[p._splitConfidence]}"></span>`;
+            return `<td class="${cls}">${dot}${val}</td>`;
+          }
+        }
+      }
       else if (c.key === 'lcv' || c.key === 'pnav' || c.key === 'dp' || c.key === 'upside' || c.key === 'trend' || c.key === 'actualLcv') {
         const v = parseFloat(val);
         cls += v >= 0 ? ' val-pos' : ' val-neg';
@@ -311,8 +326,18 @@ function render() {
         cls += v >= 0 ? ' val-pos' : ' val-neg';
         val = (v > 0 ? '+' : '') + v.toFixed(2);
       }
+      else if (c.key === 'recScorePlus') {
+        // Rec+ on wRC+ scale: 100 = pool average, 115 = +1sigma, 85 = -1sigma.
+        // Underlying blend: 60% aLCV + 15% posFlex + 15% age + 10% LCV.
+        const v = parseFloat(val);
+        if (!isFinite(v)) { val = '—'; }
+        else {
+          cls += v >= 115 ? ' val-pos' : v <= 85 ? ' val-neg' : '';
+          val = Math.round(v).toString();
+        }
+      }
       else if (c.key === 'recScore') {
-        // Blended recommendation score: 60% aLCV + 15% posFlex + 15% age + 10% LCV
+        // Raw recScore (kept for any legacy column; new UI uses recScorePlus).
         const v = parseFloat(val);
         if (!isFinite(v)) { val = '—'; }
         else {

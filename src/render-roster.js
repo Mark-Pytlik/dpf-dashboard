@@ -226,7 +226,7 @@ function renderRoster() {
       `<td style="padding:3px 4px;font-size:11px;color:var(--text2);white-space:nowrap;">${p.team||''}</td>` +
       `<td style="padding:3px 4px;font-size:10px;white-space:nowrap;">${(p.pos||p.primaryPos||'').split('/').map(pos => '<span class="pos-badge pos-'+pos+'" style="padding:1px 4px;font-size:9px;margin-right:1px;">'+pos+'</span>').join('')}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;color:${c};font-weight:600;">${(p.lcv||0).toFixed(1)}</td>` +
-      `<td style="padding:3px 4px;text-align:right;font-size:10px;${p.actualLcv != null ? (p.actualLcv >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);'}">${p.actualLcv != null ? p.actualLcv.toFixed(1) : '—'}</td>` +
+      `<td style="padding:3px 4px;text-align:right;font-size:10px;${p.aLCVPlus != null ? (p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : p.aLCVPlus >= 100 ? 'color:var(--text);' : p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);'}">${p.aLCVPlus != null ? Math.round(p.aLCVPlus).toString() : '—'}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:10px;font-weight:600;${p.lcvDelta != null ? (p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);'}">${p.lcvDelta != null ? (p.lcvDelta > 0 ? '+' : '') + p.lcvDelta.toFixed(1) : '—'}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;">${(p.pnav||0).toFixed(1)}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;color:var(--text2);">${p.age||'?'}</td>` +
@@ -449,7 +449,7 @@ function renderRoster() {
     {key:'team',label:'Team',align:'left'},
     {key:'pos',label:'Elig',align:'left'},
     {key:'lcv',label:'LCV',align:'right',tip:'League Category Value: sum of z-scores across 8 league categories'},
-    {key:'actualLcv',label:'aLCV',align:'right',tip:'Actual LCV from 2026 in-season stats'},
+    {key:'aLCVPlus',label:'aLCV+',align:'right',tip:'aLCV+: 100 = pool average, 115 = +1sigma (wRC+ scale). From 2026 in-season stats.'},
     {key:'lcvDelta',label:'ΔLCV',align:'right',tip:'Actual LCV minus Projected LCV'},
     {key:'pnav',label:'PNAV',align:'right',tip:'Positional Need-Adjusted Value: LCV weighted by positional scarcity'},
     {key:'age',label:'Age',align:'right'},
@@ -567,7 +567,7 @@ function renderRoster() {
       if (rsc === 'name') return rsd * a.p.name.localeCompare(b.p.name);
       if (rsc === 'team') return rsd * (a.p.team||'').localeCompare(b.p.team||'');
       if (rsc === 'pos') return rsd * (a.p.pos||'').localeCompare(b.p.pos||'');
-      if (['lcv','pnav','age','actualLcv','lcvDelta'].includes(rsc)) {
+      if (['lcv','pnav','age','actualLcv','aLCVPlus','lcvDelta'].includes(rsc)) {
         av = a.p[rsc] != null ? a.p[rsc] : -Infinity;
         bv = b.p[rsc] != null ? b.p[rsc] : -Infinity;
       }
@@ -897,20 +897,21 @@ function renderRoster() {
           let h = '';
           if (wwTargets.length > 0) {
             h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;" title="Recommendation score: 60% aLCV + 15% posFlex + 15% age + 10% LCV">Rec</th><th style="text-align:right;padding:2px 4px;">aLCV</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">ΔLCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
+            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;" title="Rec+: blended recommendation on wRC+ scale. 100 = pool average, 115 = +1sigma. Blend = 60% aLCV + 15% posFlex + 15% age + 10% LCV.">Rec+</th><th style="text-align:right;padding:2px 4px;" title="aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma">aLCV+</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">ΔLCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
             wwTargets.forEach(t => {
               const keepTag = t.ki.keepable2027 ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>` : '<span style="color:var(--text2);">—</span>';
+              const tRecPlus = t.p.recScorePlus != null ? t.p.recScorePlus : null;
               const why = t.bestNeed > 0.5 ? `fills ${t.bestPos}`
-                : t.rec >= 1.2 ? 'elite score'
-                : t.rec >= 0.6 ? 'strong score'
+                : tRecPlus != null && tRecPlus >= 118 ? 'elite score'
+                : tRecPlus != null && tRecPlus >= 109 ? 'strong score'
                 : t.ki.keepable2027 ? 'keeper value'
                 : 'depth';
-              const _wAlcv = t.p.actualLcv != null ? t.p.actualLcv.toFixed(1) : '—';
-              const _wAlcvClr = t.p.actualLcv != null ? (t.p.actualLcv >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
+              const _wAlcv = t.p.aLCVPlus != null ? Math.round(t.p.aLCVPlus).toString() : '—';
+              const _wAlcvClr = t.p.aLCVPlus != null ? (t.p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : t.p.aLCVPlus >= 100 ? 'color:var(--text);' : t.p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
               const _wDlcv = t.p.lcvDelta != null ? ((t.p.lcvDelta > 0 ? '+' : '') + t.p.lcvDelta.toFixed(1)) : '—';
               const _wDlcvClr = t.p.lcvDelta != null ? (t.p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
-              const _wRec = t.p.recScore != null ? t.p.recScore.toFixed(2) : '—';
-              const _wRecClr = t.p.recScore != null ? (t.p.recScore >= 0.6 ? 'color:var(--green);font-weight:700;' : t.p.recScore >= 0 ? 'color:var(--text);' : 'color:var(--red);') : 'color:var(--text2);';
+              const _wRec = t.p.recScorePlus != null ? Math.round(t.p.recScorePlus).toString() : '—';
+              const _wRecClr = t.p.recScorePlus != null ? (t.p.recScorePlus >= 109 ? 'color:var(--green);font-weight:700;' : t.p.recScorePlus >= 100 ? 'color:var(--text);' : t.p.recScorePlus <= 88 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
               h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.p.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;${_wRecClr}">${_wRec}</td><td style="text-align:right;padding:3px 4px;${_wAlcvClr}">${_wAlcv}</td><td style="text-align:right;padding:3px 4px;color:var(--text2);">${(t.p.lcv||0).toFixed(1)}</td><td style="text-align:right;padding:3px 4px;font-weight:600;${_wDlcvClr}">${_wDlcv}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--accent);">${why}</td></tr>`;
             });
             h += '</table>';
@@ -947,23 +948,24 @@ function renderRoster() {
           let h = '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Players with the lowest combined production + keeper value.</div>';
           if (_dropPlayers.length > 0) {
             h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;" title="Recommendation score: 60% aLCV + 15% posFlex + 15% age + 10% LCV">Rec</th><th style="text-align:right;padding:2px 4px;">aLCV</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">ΔLCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
+            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;" title="Rec+: blended recommendation on wRC+ scale. 100 = pool average, 115 = +1sigma. Blend = 60% aLCV + 15% posFlex + 15% age + 10% LCV.">Rec+</th><th style="text-align:right;padding:2px 4px;" title="aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma">aLCV+</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">ΔLCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
             _dropPlayers.forEach(t => {
               const keepTag = t.ki.keepable2027 ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>` : '<span style="color:var(--red);">NK</span>';
               const reasons = [];
-              if (t.rec <= -0.8) reasons.push('very poor rec');
-              else if (t.rec <= -0.3) reasons.push('weak rec');
-              else if (t.p.actualLcv != null && t.p.actualLcv < -2) reasons.push('underperforming');
+              const dRecPlus = t.p.recScorePlus != null ? t.p.recScorePlus : null;
+              if (dRecPlus != null && dRecPlus <= 88) reasons.push('very poor rec');
+              else if (dRecPlus != null && dRecPlus <= 96) reasons.push('weak rec');
+              else if (t.p.aLCVPlus != null && t.p.aLCVPlus <= 85) reasons.push('underperforming');
               else if (t.lcv < 2) reasons.push('low production');
               if (!t.ki.keepable2027) reasons.push('not keepable');
               if (t.posCount >= 3) reasons.push(`${t.p.primaryPos} surplus (${t.posCount})`);
               const why = reasons.length > 0 ? reasons.slice(0,2).join(', ') : 'marginal value';
-              const _dAlcv = t.p.actualLcv != null ? t.p.actualLcv.toFixed(1) : '—';
-              const _dAlcvClr = t.p.actualLcv != null ? (t.p.actualLcv >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
+              const _dAlcv = t.p.aLCVPlus != null ? Math.round(t.p.aLCVPlus).toString() : '—';
+              const _dAlcvClr = t.p.aLCVPlus != null ? (t.p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : t.p.aLCVPlus >= 100 ? 'color:var(--text);' : t.p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
               const _dDlcv = t.p.lcvDelta != null ? ((t.p.lcvDelta > 0 ? '+' : '') + t.p.lcvDelta.toFixed(1)) : '—';
               const _dDlcvClr = t.p.lcvDelta != null ? (t.p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
-              const _dRec = t.p.recScore != null ? t.p.recScore.toFixed(2) : '—';
-              const _dRecClr = t.p.recScore != null ? (t.p.recScore >= 0.6 ? 'color:var(--green);font-weight:700;' : t.p.recScore >= 0 ? 'color:var(--text);' : 'color:var(--red);') : 'color:var(--text2);';
+              const _dRec = t.p.recScorePlus != null ? Math.round(t.p.recScorePlus).toString() : '—';
+              const _dRecClr = t.p.recScorePlus != null ? (t.p.recScorePlus >= 109 ? 'color:var(--green);font-weight:700;' : t.p.recScorePlus >= 100 ? 'color:var(--text);' : t.p.recScorePlus <= 88 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
               h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;${_dRecClr}">${_dRec}</td><td style="text-align:right;padding:3px 4px;${_dAlcvClr}">${_dAlcv}</td><td style="text-align:right;padding:3px 4px;color:var(--text2);">${t.lcv.toFixed(1)}</td><td style="text-align:right;padding:3px 4px;font-weight:600;${_dDlcvClr}">${_dDlcv}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--red);">${why}</td></tr>`;
             });
             h += '</table>';
@@ -1601,14 +1603,14 @@ function renderRoster() {
 
     let sh = '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Click a player to add them to "I Get"</div>';
     sh += '<table style="width:100%;font-size:10px;border-collapse:collapse;">';
-    sh += '<tr style="color:var(--text2);font-size:9px;"><th style="text-align:left;padding:2px 3px;">Player</th><th style="text-align:left;padding:2px 3px;">Team</th><th style="text-align:center;padding:2px 3px;">Fills</th><th style="text-align:right;padding:2px 3px;" title="Recommendation score: 60% aLCV + 15% posFlex + 15% age + 10% LCV">Rec</th><th style="text-align:right;padding:2px 3px;">aLCV</th><th style="text-align:right;padding:2px 3px;">LCV</th><th style="text-align:center;padding:2px 3px;">Keeper</th><th style="text-align:right;padding:2px 3px;">Fit</th></tr>';
+    sh += '<tr style="color:var(--text2);font-size:9px;"><th style="text-align:left;padding:2px 3px;">Player</th><th style="text-align:left;padding:2px 3px;">Team</th><th style="text-align:center;padding:2px 3px;">Fills</th><th style="text-align:right;padding:2px 3px;" title="Rec+: blended recommendation on wRC+ scale. 100 = pool average, 115 = +1sigma.">Rec+</th><th style="text-align:right;padding:2px 3px;" title="aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma">aLCV+</th><th style="text-align:right;padding:2px 3px;">LCV</th><th style="text-align:center;padding:2px 3px;">Keeper</th><th style="text-align:right;padding:2px 3px;">Fit</th></tr>';
     top12.forEach(c => {
       const keepStr = c.ki.keepable2027 ? `R${c.ki.cost2027} (${c.ki.yearsLeft}yr)` : '<span style="color:var(--red);">N/A</span>';
       const gapStr = c.gap < -1 ? '<span style="color:var(--red);">⚠</span>' : '';
-      const recStr = c.p && c.p.recScore != null ? c.p.recScore.toFixed(2) : '—';
-      const recClr = c.p && c.p.recScore != null ? (c.p.recScore >= 0.6 ? 'color:var(--green);font-weight:700;' : c.p.recScore >= 0 ? 'color:var(--text);' : 'color:var(--red);') : 'color:var(--text2);';
-      const alcvStr = c.p && c.p.actualLcv != null ? c.p.actualLcv.toFixed(1) : '—';
-      const alcvClr = c.p && c.p.actualLcv != null ? (c.p.actualLcv >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
+      const recStr = c.p && c.p.recScorePlus != null ? Math.round(c.p.recScorePlus).toString() : '—';
+      const recClr = c.p && c.p.recScorePlus != null ? (c.p.recScorePlus >= 109 ? 'color:var(--green);font-weight:700;' : c.p.recScorePlus >= 100 ? 'color:var(--text);' : c.p.recScorePlus <= 88 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
+      const alcvStr = c.p && c.p.aLCVPlus != null ? Math.round(c.p.aLCVPlus).toString() : '—';
+      const alcvClr = c.p && c.p.aLCVPlus != null ? (c.p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : c.p.aLCVPlus >= 100 ? 'color:var(--text);' : c.p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
       sh += `<tr class="trade-suggest-row" data-name="${encodeURIComponent(c.name)}" style="cursor:pointer;border-bottom:1px solid var(--border);" onmouseover="this.style.background='rgba(234,179,8,0.1)'" onmouseout="this.style.background=''">`;
       sh += `<td style="padding:3px;font-weight:600;">${c.name}</td>`;
       sh += `<td style="padding:3px;color:var(--text2);">${c.team}</td>`;
@@ -1725,9 +1727,12 @@ function renderRoster() {
         name, p, ki, pr, positions, isPit,
         lcv: p.lcv || 0,
         pnav: p.pnav || 0,
-        // aLCV: current-season actual value. recScore: blended recommendation (60% aLCV + 15% posFlex + 15% age + 10% LCV)
+        // aLCV / aLCVPlus: current-season actual value (raw + wRC+-scale).
+        // recScore / recScorePlus: blended recommendation (raw + wRC+-scale).
         alcv: p.actualLcv,
+        alcvPlus: p.aLCVPlus,
         recScore: p.recScore,
+        recScorePlus: p.recScorePlus,
         primaryPos: p.primaryPos,
         keepable: ki.keepable2027,
         cost2027: ki.cost2027,

@@ -665,6 +665,23 @@ for _, r in pit_pool.iterrows():
 # Critical: pitchers are split into SP vs RP pools before z-scoring.
 # Otherwise SPs get hammered on SV/HLD (they have none) and RPs on QS/K
 # volume, which made starters like Dollander score ~0 despite great rates.
+def _apply_plus_metric(pool, raw_key, plus_key, scale=15.0):
+    """wRC+/OPS+-style: 100 + (x - mean)/std * scale. Integer, per-pool.
+    Players outside the pool (below min_val) don't get a plus value.
+    Returns (mean, std) for debug/logging."""
+    vals = [r[raw_key] for r in pool if isinstance(r.get(raw_key), (int, float))]
+    if len(vals) < 5:
+        return None, None
+    m = sum(vals) / len(vals)
+    s = (sum((v - m) ** 2 for v in vals) / len(vals)) ** 0.5
+    if s <= 0:
+        return m, 0
+    for r in pool:
+        v = r.get(raw_key)
+        if isinstance(v, (int, float)):
+            r[plus_key] = int(round(100 + (v - m) / s * scale))
+    return m, s
+
 def _compute_actual_lcv(records, stat_cols_signs, min_key, min_val):
     """Compute actualLcv in-place for records passing min_val. Single pool."""
     pool = [r for r in records
@@ -687,6 +704,7 @@ def _compute_actual_lcv(records, stat_cols_signs, min_key, min_val):
         if '_alv' in r:
             r['actualLcv'] = round(r.pop('_alv'), 2)
             r['lcvDelta'] = round(r['actualLcv'] - r.get('lcv', 0), 2)
+    _apply_plus_metric([r for r in pool if 'actualLcv' in r], 'actualLcv', 'aLCVPlus')
 
 def _compute_actual_lcv_split(records, sp_stats, rp_stats, role_key, sp_label, min_key, min_val):
     """Compute actualLcv for pitchers, splitting SP vs RP pools so SPs aren't
@@ -717,6 +735,10 @@ def _compute_actual_lcv_split(records, sp_stats, rp_stats, role_key, sp_label, m
         if '_alv' in r:
             r['actualLcv'] = round(r.pop('_alv'), 2)
             r['lcvDelta'] = round(r['actualLcv'] - r.get('lcv', 0), 2)
+    # SP/RP split: each role gets its own aLCV+ pool so a +1.8 SP and +1.8 RP
+    # both map to ~127 within their own role, not against the merged pool.
+    _apply_plus_metric([r for r in sp_pool if 'actualLcv' in r], 'actualLcv', 'aLCVPlus')
+    _apply_plus_metric([r for r in rp_pool if 'actualLcv' in r], 'actualLcv', 'aLCVPlus')
 
 _bat_s26_stats = [
     ('s26_avg', 1), ('s26_hr', 1), ('s26_obp', 1), ('s26_slg', 1),
@@ -806,6 +828,10 @@ def _compute_rec_score(records, pool_filter=None):
             'age':   round(0.15 * z_age, 3),
             'lcv':   round(0.10 * z_lcv, 3),
         }
+    # recScorePlus: 100-anchored, 15 pts per 1σ within the same pool. This is
+    # what we surface in columns/messages — raw recScore stays for internal math.
+    scored = [r for r in elig if (pool_filter is None or pool_filter(r)) and 'recScore' in r]
+    _apply_plus_metric(scored, 'recScore', 'recScorePlus')
 
 # Batters: single pool
 _compute_rec_score(bat_records)

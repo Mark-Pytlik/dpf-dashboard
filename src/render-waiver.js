@@ -226,8 +226,8 @@ function _renderWaiverInner(section) {
     ['Team',   'team',  'width:50px;'],
     ['Age',    'age',   'width:40px;'],
     ['WP',     'wp',    'width:60px;text-align:right;'],
-    ['Rec',    'rec',   'width:55px;text-align:right;'],
-    ['aLCV',   'act',   'width:60px;text-align:right;color:var(--text2);'],
+    ['Rec+',   'rec',   'width:55px;text-align:right;'],
+    ['aLCV+',  'act',   'width:60px;text-align:right;color:var(--text2);'],
     ['LCV',    'proj',  'width:60px;text-align:right;color:var(--text2);'],
     ['14d Δ',  'delta', 'width:60px;text-align:right;'],
     ['Role',   'role',  'width:50px;text-align:right;'],
@@ -280,14 +280,16 @@ function _renderWaiverInner(section) {
     html += `<td style="padding:6px 10px;color:var(--text2);">${p.team || ''}</td>`;
     html += `<td style="padding:6px 10px;color:var(--text2);">${p.age != null ? p.age : ''}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;font-weight:700;color:${wpColor};">${c.wp.toFixed(1)}</td>`;
-    const recVal = (p.recScore != null) ? p.recScore : null;
-    const recClr = recVal != null ? (recVal >= 0.6 ? 'var(--green)' : recVal >= 0 ? 'var(--text)' : 'var(--red)') : 'var(--text2)';
-    const recFmt = recVal != null ? (recVal >= 0 ? '+' : '') + recVal.toFixed(2) : '—';
-    const recWeight = recVal != null && recVal >= 0.6 ? '700' : '600';
-    html += `<td style="padding:6px 10px;text-align:right;font-weight:${recWeight};color:${recClr};" title="Rec = 60% aLCV + 15% posFlex + 15% age + 10% LCV">${recFmt}</td>`;
+    const recPlus = (p.recScorePlus != null) ? p.recScorePlus : null;
+    const recClr = recPlus != null ? (recPlus >= 109 ? 'var(--green)' : recPlus >= 100 ? 'var(--text)' : recPlus <= 88 ? 'var(--red)' : 'var(--text2)') : 'var(--text2)';
+    const recFmt = recPlus != null ? Math.round(recPlus).toString() : '—';
+    const recWeight = recPlus != null && recPlus >= 109 ? '700' : '600';
+    html += `<td style="padding:6px 10px;text-align:right;font-weight:${recWeight};color:${recClr};" title="Rec+ on wRC+ scale: 100 = pool average, 115 = +1sigma. Blend = 60% aLCV + 15% posFlex + 15% age + 10% LCV.">${recFmt}</td>`;
     const projClr = c.proj >= 0 ? 'var(--green)' : 'var(--red)';
-    const actClr  = c.act  >= 0 ? 'var(--green)' : 'var(--red)';
-    html += `<td style="padding:6px 10px;text-align:right;color:${actClr};">${c.act.toFixed(1)}</td>`;
+    const alcvPlus = (p.aLCVPlus != null) ? p.aLCVPlus : null;
+    const actClr = alcvPlus != null ? (alcvPlus >= 115 ? 'var(--green)' : alcvPlus >= 100 ? 'var(--text)' : alcvPlus <= 85 ? 'var(--red)' : 'var(--text2)') : 'var(--text2)';
+    const actFmt = alcvPlus != null ? Math.round(alcvPlus).toString() : '—';
+    html += `<td style="padding:6px 10px;text-align:right;color:${actClr};" title="aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma">${actFmt}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;color:${projClr};">${c.proj.toFixed(1)}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;color:${deltaColor};font-weight:600;">${deltaFmt}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;color:var(--text2);">${c.role ? '+' + c.role.toFixed(1) : '—'}</td>`;
