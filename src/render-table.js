@@ -299,7 +299,7 @@ function render() {
         const v = parseFloat(val);
         if (!isFinite(v)) { val = '—'; }
         else {
-          cls += v >= 115 ? ' val-pos' : v <= 85 ? ' val-neg' : '';
+          cls += v >= 115 ? ' val-pos val-pos-strong' : v >= 100 ? ' val-pos' : v <= 85 ? ' val-neg' : '';
           val = Math.round(v).toString();
           if (p._splitConfidence) {
             const confColors = { 'low': '#e88a0a', 'med': '#2563eb', 'high': '#16a34a' };
@@ -332,7 +332,7 @@ function render() {
         const v = parseFloat(val);
         if (!isFinite(v)) { val = '—'; }
         else {
-          cls += v >= 115 ? ' val-pos' : v <= 85 ? ' val-neg' : '';
+          cls += v >= 115 ? ' val-pos val-pos-strong' : v >= 100 ? ' val-pos' : v <= 85 ? ' val-neg' : '';
           val = Math.round(v).toString();
         }
       }

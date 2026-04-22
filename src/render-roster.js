@@ -226,7 +226,7 @@ function renderRoster() {
       `<td style="padding:3px 4px;font-size:11px;color:var(--text2);white-space:nowrap;">${p.team||''}</td>` +
       `<td style="padding:3px 4px;font-size:10px;white-space:nowrap;">${(p.pos||p.primaryPos||'').split('/').map(pos => '<span class="pos-badge pos-'+pos+'" style="padding:1px 4px;font-size:9px;margin-right:1px;">'+pos+'</span>').join('')}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;color:${c};font-weight:600;">${(p.lcv||0).toFixed(1)}</td>` +
-      `<td style="padding:3px 4px;text-align:right;font-size:10px;${p.aLCVPlus != null ? (p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : p.aLCVPlus >= 100 ? 'color:var(--text);' : p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);'}">${p.aLCVPlus != null ? Math.round(p.aLCVPlus).toString() : '—'}</td>` +
+      `<td style="padding:3px 4px;text-align:right;font-size:10px;${p.aLCVPlus != null ? (p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : p.aLCVPlus >= 100 ? 'color:var(--green);' : p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);'}">${p.aLCVPlus != null ? Math.round(p.aLCVPlus).toString() : '—'}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:10px;font-weight:600;${p.lcvDelta != null ? (p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);'}">${p.lcvDelta != null ? (p.lcvDelta > 0 ? '+' : '') + p.lcvDelta.toFixed(1) : '—'}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;">${(p.pnav||0).toFixed(1)}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;color:var(--text2);">${p.age||'?'}</td>` +
@@ -907,11 +907,11 @@ function renderRoster() {
                 : t.ki.keepable2027 ? 'keeper value'
                 : 'depth';
               const _wAlcv = t.p.aLCVPlus != null ? Math.round(t.p.aLCVPlus).toString() : '—';
-              const _wAlcvClr = t.p.aLCVPlus != null ? (t.p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : t.p.aLCVPlus >= 100 ? 'color:var(--text);' : t.p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
+              const _wAlcvClr = t.p.aLCVPlus != null ? (t.p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : t.p.aLCVPlus >= 100 ? 'color:var(--green);' : t.p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
               const _wDlcv = t.p.lcvDelta != null ? ((t.p.lcvDelta > 0 ? '+' : '') + t.p.lcvDelta.toFixed(1)) : '—';
               const _wDlcvClr = t.p.lcvDelta != null ? (t.p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
               const _wRec = t.p.recScorePlus != null ? Math.round(t.p.recScorePlus).toString() : '—';
-              const _wRecClr = t.p.recScorePlus != null ? (t.p.recScorePlus >= 109 ? 'color:var(--green);font-weight:700;' : t.p.recScorePlus >= 100 ? 'color:var(--text);' : t.p.recScorePlus <= 88 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
+              const _wRecClr = t.p.recScorePlus != null ? (t.p.recScorePlus >= 109 ? 'color:var(--green);font-weight:700;' : t.p.recScorePlus >= 100 ? 'color:var(--green);' : t.p.recScorePlus <= 88 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
               h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.p.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;${_wRecClr}">${_wRec}</td><td style="text-align:right;padding:3px 4px;${_wAlcvClr}">${_wAlcv}</td><td style="text-align:right;padding:3px 4px;color:var(--text2);">${(t.p.lcv||0).toFixed(1)}</td><td style="text-align:right;padding:3px 4px;font-weight:600;${_wDlcvClr}">${_wDlcv}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--accent);">${why}</td></tr>`;
             });
             h += '</table>';
@@ -961,11 +961,11 @@ function renderRoster() {
               if (t.posCount >= 3) reasons.push(`${t.p.primaryPos} surplus (${t.posCount})`);
               const why = reasons.length > 0 ? reasons.slice(0,2).join(', ') : 'marginal value';
               const _dAlcv = t.p.aLCVPlus != null ? Math.round(t.p.aLCVPlus).toString() : '—';
-              const _dAlcvClr = t.p.aLCVPlus != null ? (t.p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : t.p.aLCVPlus >= 100 ? 'color:var(--text);' : t.p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
+              const _dAlcvClr = t.p.aLCVPlus != null ? (t.p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : t.p.aLCVPlus >= 100 ? 'color:var(--green);' : t.p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
               const _dDlcv = t.p.lcvDelta != null ? ((t.p.lcvDelta > 0 ? '+' : '') + t.p.lcvDelta.toFixed(1)) : '—';
               const _dDlcvClr = t.p.lcvDelta != null ? (t.p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
               const _dRec = t.p.recScorePlus != null ? Math.round(t.p.recScorePlus).toString() : '—';
-              const _dRecClr = t.p.recScorePlus != null ? (t.p.recScorePlus >= 109 ? 'color:var(--green);font-weight:700;' : t.p.recScorePlus >= 100 ? 'color:var(--text);' : t.p.recScorePlus <= 88 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
+              const _dRecClr = t.p.recScorePlus != null ? (t.p.recScorePlus >= 109 ? 'color:var(--green);font-weight:700;' : t.p.recScorePlus >= 100 ? 'color:var(--green);' : t.p.recScorePlus <= 88 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
               h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;${_dRecClr}">${_dRec}</td><td style="text-align:right;padding:3px 4px;${_dAlcvClr}">${_dAlcv}</td><td style="text-align:right;padding:3px 4px;color:var(--text2);">${t.lcv.toFixed(1)}</td><td style="text-align:right;padding:3px 4px;font-weight:600;${_dDlcvClr}">${_dDlcv}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--red);">${why}</td></tr>`;
             });
             h += '</table>';
@@ -1608,9 +1608,9 @@ function renderRoster() {
       const keepStr = c.ki.keepable2027 ? `R${c.ki.cost2027} (${c.ki.yearsLeft}yr)` : '<span style="color:var(--red);">N/A</span>';
       const gapStr = c.gap < -1 ? '<span style="color:var(--red);">⚠</span>' : '';
       const recStr = c.p && c.p.recScorePlus != null ? Math.round(c.p.recScorePlus).toString() : '—';
-      const recClr = c.p && c.p.recScorePlus != null ? (c.p.recScorePlus >= 109 ? 'color:var(--green);font-weight:700;' : c.p.recScorePlus >= 100 ? 'color:var(--text);' : c.p.recScorePlus <= 88 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
+      const recClr = c.p && c.p.recScorePlus != null ? (c.p.recScorePlus >= 109 ? 'color:var(--green);font-weight:700;' : c.p.recScorePlus >= 100 ? 'color:var(--green);' : c.p.recScorePlus <= 88 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
       const alcvStr = c.p && c.p.aLCVPlus != null ? Math.round(c.p.aLCVPlus).toString() : '—';
-      const alcvClr = c.p && c.p.aLCVPlus != null ? (c.p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : c.p.aLCVPlus >= 100 ? 'color:var(--text);' : c.p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
+      const alcvClr = c.p && c.p.aLCVPlus != null ? (c.p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : c.p.aLCVPlus >= 100 ? 'color:var(--green);' : c.p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
       sh += `<tr class="trade-suggest-row" data-name="${encodeURIComponent(c.name)}" style="cursor:pointer;border-bottom:1px solid var(--border);" onmouseover="this.style.background='rgba(234,179,8,0.1)'" onmouseout="this.style.background=''">`;
       sh += `<td style="padding:3px;font-weight:600;">${c.name}</td>`;
       sh += `<td style="padding:3px;color:var(--text2);">${c.team}</td>`;

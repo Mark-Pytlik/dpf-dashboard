@@ -281,13 +281,13 @@ function _renderWaiverInner(section) {
     html += `<td style="padding:6px 10px;color:var(--text2);">${p.age != null ? p.age : ''}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;font-weight:700;color:${wpColor};">${c.wp.toFixed(1)}</td>`;
     const recPlus = (p.recScorePlus != null) ? p.recScorePlus : null;
-    const recClr = recPlus != null ? (recPlus >= 109 ? 'var(--green)' : recPlus >= 100 ? 'var(--text)' : recPlus <= 88 ? 'var(--red)' : 'var(--text2)') : 'var(--text2)';
+    const recClr = recPlus != null ? (recPlus >= 109 ? 'var(--green)' : recPlus >= 100 ? 'var(--green)' : recPlus <= 88 ? 'var(--red)' : 'var(--text2)') : 'var(--text2)';
     const recFmt = recPlus != null ? Math.round(recPlus).toString() : '—';
     const recWeight = recPlus != null && recPlus >= 109 ? '700' : '600';
     html += `<td style="padding:6px 10px;text-align:right;font-weight:${recWeight};color:${recClr};" title="Rec+ on wRC+ scale: 100 = pool average, 115 = +1sigma. Blend = 60% aLCV + 15% posFlex + 15% age + 10% LCV.">${recFmt}</td>`;
     const projClr = c.proj >= 0 ? 'var(--green)' : 'var(--red)';
     const alcvPlus = (p.aLCVPlus != null) ? p.aLCVPlus : null;
-    const actClr = alcvPlus != null ? (alcvPlus >= 115 ? 'var(--green)' : alcvPlus >= 100 ? 'var(--text)' : alcvPlus <= 85 ? 'var(--red)' : 'var(--text2)') : 'var(--text2)';
+    const actClr = alcvPlus != null ? (alcvPlus >= 115 ? 'var(--green)' : alcvPlus >= 100 ? 'var(--green)' : alcvPlus <= 85 ? 'var(--red)' : 'var(--text2)') : 'var(--text2)';
     const actFmt = alcvPlus != null ? Math.round(alcvPlus).toString() : '—';
     html += `<td style="padding:6px 10px;text-align:right;color:${actClr};" title="aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma">${actFmt}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;color:${projClr};">${c.proj.toFixed(1)}</td>`;
