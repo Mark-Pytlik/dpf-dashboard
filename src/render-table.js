@@ -311,6 +311,15 @@ function render() {
         cls += v >= 0 ? ' val-pos' : ' val-neg';
         val = (v > 0 ? '+' : '') + v.toFixed(2);
       }
+      else if (c.key === 'recScore') {
+        // Blended recommendation score: 60% aLCV + 15% posFlex + 15% age + 10% LCV
+        const v = parseFloat(val);
+        if (!isFinite(v)) { val = '—'; }
+        else {
+          cls += v >= 0.6 ? ' val-pos' : v <= -0.3 ? ' val-neg' : '';
+          val = (v >= 0 ? '+' : '') + v.toFixed(2);
+        }
+      }
       else if (c.key === 'rollingLcvDelta14') {
         // Always-on 14-day LCV swing vs. projection.
         const v = parseFloat(val);

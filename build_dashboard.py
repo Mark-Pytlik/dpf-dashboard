@@ -659,10 +659,14 @@ for _, r in pit_pool.iterrows():
             pit_records[-1]['dPitching'] = st26['pitching'] - st25['pitching']
 
 # ── Compute actualLcv and lcvDelta from 2026 in-season stats ─────────────
-# actualLcv = same z-score formula as projected LCV but computed over 2026 actuals
-# lcvDelta = actualLcv - projected lcv (positive = outperforming)
+# actualLcv = sum of z-scores across role-appropriate categories, over 2026
+# actuals. lcvDelta = actualLcv - projected lcv.
+#
+# Critical: pitchers are split into SP vs RP pools before z-scoring.
+# Otherwise SPs get hammered on SV/HLD (they have none) and RPs on QS/K
+# volume, which made starters like Dollander score ~0 despite great rates.
 def _compute_actual_lcv(records, stat_cols_signs, min_key, min_val):
-    """Compute actualLcv in-place for records with sufficient stats."""
+    """Compute actualLcv in-place for records passing min_val. Single pool."""
     pool = [r for r in records
             if isinstance(r.get(min_key), (int, float)) and r.get(min_key, 0) >= min_val]
     if len(pool) < 15:
@@ -684,18 +688,132 @@ def _compute_actual_lcv(records, stat_cols_signs, min_key, min_val):
             r['actualLcv'] = round(r.pop('_alv'), 2)
             r['lcvDelta'] = round(r['actualLcv'] - r.get('lcv', 0), 2)
 
+def _compute_actual_lcv_split(records, sp_stats, rp_stats, role_key, sp_label, min_key, min_val):
+    """Compute actualLcv for pitchers, splitting SP vs RP pools so SPs aren't
+    penalized for missing SV/HLD and RPs aren't penalized for low QS/K volume.
+    Each role uses its own category mix and its own z-score pool.
+    """
+    pool = [r for r in records
+            if isinstance(r.get(min_key), (int, float)) and r.get(min_key, 0) >= min_val]
+    if len(pool) < 15:
+        return
+    sp_pool = [r for r in pool if r.get(role_key) == sp_label]
+    rp_pool = [r for r in pool if r.get(role_key) != sp_label]
+    for sub_pool, stat_cols in ((sp_pool, sp_stats), (rp_pool, rp_stats)):
+        sub_pool_eff = sub_pool if len(sub_pool) >= 5 else pool  # fallback
+        for stat, sign in stat_cols:
+            vals = [r[stat] for r in sub_pool_eff if isinstance(r.get(stat), (int, float)) and r.get(stat) != '']
+            if len(vals) < 5:
+                continue
+            m = sum(vals) / len(vals)
+            s = (sum((v - m)**2 for v in vals) / len(vals)) ** 0.5
+            if s == 0:
+                continue
+            for r in sub_pool:
+                v = r.get(stat)
+                if isinstance(v, (int, float)) and v != '':
+                    r['_alv'] = r.get('_alv', 0) + sign * (v - m) / s
+    for r in pool:
+        if '_alv' in r:
+            r['actualLcv'] = round(r.pop('_alv'), 2)
+            r['lcvDelta'] = round(r['actualLcv'] - r.get('lcv', 0), 2)
+
 _bat_s26_stats = [
     ('s26_avg', 1), ('s26_hr', 1), ('s26_obp', 1), ('s26_slg', 1),
     ('s26_r', 1), ('s26_rbi', 1), ('s26_sb', 1), ('s26_so', -1),
 ]
-_pit_s26_stats = [
-    ('s26_era', -1), ('s26_hld', 1), ('s26_hr', -1), ('s26_so', 1),
-    ('s26_sv', 1), ('s26_w', 1), ('s26_whip', -1), ('s26_qs', 1),
+# SP-centric: rates + K volume + W + QS; NO saves/holds
+_pit_s26_sp_stats = [
+    ('s26_era', -1), ('s26_whip', -1), ('s26_hr', -1),
+    ('s26_so', 1), ('s26_w', 1), ('s26_qs', 1),
+]
+# RP-centric: rates + saves + holds + K; NO QS, W de-emphasized (omitted)
+_pit_s26_rp_stats = [
+    ('s26_era', -1), ('s26_whip', -1), ('s26_hr', -1),
+    ('s26_so', 1), ('s26_sv', 1), ('s26_hld', 1),
 ]
 _compute_actual_lcv(bat_records, _bat_s26_stats, 's26_pa', 10)
-_compute_actual_lcv(pit_records, _pit_s26_stats, 's26_ip', 5)
+_compute_actual_lcv_split(
+    pit_records,
+    _pit_s26_sp_stats, _pit_s26_rp_stats,
+    role_key='pos', sp_label='SP',
+    min_key='s26_ip', min_val=5,
+)
 print(f"actualLcv computed for {sum(1 for r in bat_records if 'actualLcv' in r)} batters, "
-      f"{sum(1 for r in pit_records if 'actualLcv' in r)} pitchers")
+      f"{sum(1 for r in pit_records if 'actualLcv' in r)} pitchers "
+      f"(SP/RP pools split)")
+
+
+# ── recScore: blended recommendation score ───────────────────────────────
+# 60% aLCV + 15% posFlex + 15% age + 10% LCV  (each z-scored within pool)
+# Drives Roster / Trade Suggestions / Waiver recommendations.
+def _pos_count(r):
+    """Count distinct eligible positions from 'pos' field.
+    Batters use '/' separator ('1B/3B'), pitchers use single value.
+    DH/U don't count as real positions; same for SP/RP."""
+    import re as _re
+    s = r.get('pos') or ''
+    parts = [p.strip() for p in _re.split(r'[,/]', s) if p.strip()]
+    # DH/U are utility positions with no defensive flexibility
+    real = [p for p in parts if p not in ('DH', 'U', 'UT', 'UTIL')]
+    return max(1, len(real) if real else len(parts))
+
+def _compute_rec_score(records, pool_filter=None):
+    """Compute recScore per player. pool_filter(r) -> bool restricts the
+    normalization pool (used to split SP vs RP so SPs aren't penalized on
+    pos-flex vs RPs of the same count, etc.). Unfiltered records still get
+    a recScore — they're just scored against the combined pool mean."""
+    if not records:
+        return
+    elig = [r for r in records if r.get('actualLcv') is not None]
+    if pool_filter is not None:
+        pool = [r for r in elig if pool_filter(r)]
+        if len(pool) < 10:
+            pool = elig  # fallback
+    else:
+        pool = elig
+    if len(pool) < 5:
+        return
+
+    def _mean_std(vals):
+        if not vals:
+            return 0.0, 1.0
+        m = sum(vals) / len(vals)
+        s = (sum((v - m) ** 2 for v in vals) / len(vals)) ** 0.5
+        return m, (s if s > 0 else 1.0)
+
+    m_a, s_a = _mean_std([r['actualLcv'] for r in pool])
+    m_l, s_l = _mean_std([r.get('lcv', 0) or 0 for r in pool])
+    m_g, s_g = _mean_std([r.get('ageFactor', 1.0) or 1.0 for r in pool])
+    m_p, s_p = _mean_std([_pos_count(r) for r in pool])
+
+    for r in elig:
+        if pool_filter is not None and not pool_filter(r):
+            continue
+        z_alcv = (r['actualLcv'] - m_a) / s_a
+        z_lcv  = ((r.get('lcv', 0) or 0) - m_l) / s_l
+        z_age  = ((r.get('ageFactor', 1.0) or 1.0) - m_g) / s_g
+        z_pos  = (_pos_count(r) - m_p) / s_p
+        r['recScore'] = round(
+            0.60 * z_alcv +
+            0.15 * z_pos +
+            0.15 * z_age +
+            0.10 * z_lcv, 3
+        )
+        r['recBreakdown'] = {
+            'alcv':  round(0.60 * z_alcv, 3),
+            'posFlex': round(0.15 * z_pos, 3),
+            'age':   round(0.15 * z_age, 3),
+            'lcv':   round(0.10 * z_lcv, 3),
+        }
+
+# Batters: single pool
+_compute_rec_score(bat_records)
+# Pitchers: split pool by SP/RP so posFlex/LCV z-scores stay role-appropriate
+_compute_rec_score(pit_records, pool_filter=lambda r: r.get('pos') == 'SP')
+_compute_rec_score(pit_records, pool_filter=lambda r: r.get('pos') != 'SP')
+print(f"recScore computed for {sum(1 for r in bat_records if 'recScore' in r)} batters, "
+      f"{sum(1 for r in pit_records if 'recScore' in r)} pitchers")
 
 # Sanitize NaN/None values before JSON serialization
 import math as _math

@@ -80,6 +80,7 @@ const batCols26A = [
   {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55,tip:'Projected LCV from pre-season projections'},
   {key:'actualLcv',label:'aLCV',w:60,cls:'lcv-col',tip:'Actual LCV: z-score sum from 2026 in-season stats (same scale as projected LCV)'},
   {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual LCV minus Projected LCV. Positive = outperforming projections, negative = underperforming'},
+  {key:'recScore',label:'Rec',w:55,cls:'lcv-col',tip:'Recommendation score: 60% aLCV + 15% positional flexibility + 15% age + 10% projected LCV. Z-scored within type pool (batter vs pitcher, SP vs RP). Used on Roster/Trade/Waiver recs.'},
   {key:'hotCold14',label:'14d',w:50,tip:'Trend over the last 14 days of snapshots: HOT = LCV swing ≥ +2.5, COLD = ≤ -2.5'},
   {key:'rollingLcvDelta14',label:'\u039414d',w:55,tip:'14-day rolling LCV minus projected LCV. Sample-size regressed toward projection.'},
   {key:'s26_pa',label:'PA',w:50}, {key:'s26_avg',label:'AVG',w:55}, {key:'s26_obp',label:'OBP',w:55},
@@ -101,6 +102,7 @@ const pitCols26A = [
   {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55,tip:'Projected LCV from pre-season projections'},
   {key:'actualLcv',label:'aLCV',w:60,cls:'lcv-col',tip:'Actual LCV: z-score sum from 2026 in-season stats (same scale as projected LCV)'},
   {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual LCV minus Projected LCV. Positive = outperforming projections, negative = underperforming'},
+  {key:'recScore',label:'Rec',w:55,cls:'lcv-col',tip:'Recommendation score: 60% aLCV + 15% positional flexibility + 15% age + 10% projected LCV. Z-scored within type pool (SP vs RP). Used on Roster/Trade/Waiver recs.'},
   {key:'hotCold14',label:'14d',w:50,tip:'Trend over the last 14 days of snapshots: HOT = LCV swing ≥ +3.5, COLD = ≤ -3.0 (pitchers move faster)'},
   {key:'rollingLcvDelta14',label:'\u039414d',w:55,tip:'14-day rolling LCV minus projected LCV. Sample-size regressed toward projection.'},
   {key:'s26_ip',label:'IP',w:50}, {key:'s26_era',label:'ERA',w:55}, {key:'s26_whip',label:'WHIP',w:60},
@@ -124,6 +126,7 @@ const allCols26A = [
   {key:'lcv',label:'LCV',w:55,cls:'lcv-col',tip:'Projected LCV'},
   {key:'actualLcv',label:'aLCV',w:60,cls:'lcv-col',tip:'Actual LCV from 2026 in-season stats'},
   {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual minus Projected LCV. Positive = outperforming'},
+  {key:'recScore',label:'Rec',w:55,cls:'lcv-col',tip:'Recommendation score: 60% aLCV + 15% posFlex + 15% age + 10% LCV (z-scored within type pool). Drives Roster/Trade/Waiver recs.'},
   {key:'hotCold14',label:'14d',w:50,tip:'Rolling HOT/COLD over the last 14 snapshots'},
   {key:'rollingLcvDelta14',label:'\u039414d',w:55,tip:'14-day rolling ΔLCV (sample-size regressed)'},
   // Batting core (blank for pitchers)

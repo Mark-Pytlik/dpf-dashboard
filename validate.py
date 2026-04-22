@@ -666,8 +666,26 @@ def check_data_freshness(report: Report):
         with open(os.path.join(DATA_DIR, 'last_daily_run.json')) as f:
             last = json.load(f)
         pb = last.get('phaseB', {})
+        # CBS auth missing only blocks deploy if current CBS data is ALSO stale.
+        # If txns/rosters are fresh (from a manual catch-up or previous run),
+        # the deploy is still safe — the auth issue just needs fixing before
+        # the next scheduled run.
+        tx_stale = False
+        if txns:
+            try:
+                _dates = [_parse_txn_date(t.get('date','')) for t in txns]
+                _latest = max(_dates) if _dates else None
+                if _latest is not None and _latest != datetime.min:
+                    _lat = _latest.replace(tzinfo=None) if _latest.tzinfo else _latest
+                    _now = now.replace(tzinfo=None) if now.tzinfo else now
+                    tx_stale = (_now - _lat).total_seconds() / 3600 > STALE_WARN_H
+            except Exception:
+                tx_stale = False  # be lenient — don't fail validate on parsing quirks
         if pb.get('cbs_auth') == 'missing':
-            report.err("last scheduled run reports CBS auth MISSING — private-league data not refreshing. Sign in to CBS in Chrome and run the task again, or wire scrape_cbs.py --cookies.")
+            if tx_stale:
+                report.err("last scheduled run reports CBS auth MISSING and transactions are stale. Sign in to CBS in Chrome and run the task again, or wire scrape_cbs.py --cookies.")
+            else:
+                report.warn("last scheduled run reports CBS auth missing, but transactions are still fresh — fix auth before the next scheduled run to avoid stale data.")
         elif pb.get('transactions') == 'fail' or pb.get('rosters') == 'fail':
             report.err(f"last scheduled run had CBS failures: transactions={pb.get('transactions')}, rosters={pb.get('rosters')}")
         completed = last.get('completedAt')

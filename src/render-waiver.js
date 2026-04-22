@@ -44,7 +44,12 @@ function _getWaiverState() {
 function _computeWaiverScore(p) {
   const projLcv = p.lcv || 0;
   const actLcv = p.actualLcv != null ? p.actualLcv : projLcv;
-  const baseLcv = actLcv;
+  // recScore: blended 60% aLCV + 15% posFlex + 15% age + 10% LCV (z-scored).
+  // For players without recScore (insufficient sample), fall back to a capped
+  // linear transform of actualLcv/LCV so they're still rankable.
+  const rec = (p.recScore != null)
+    ? p.recScore
+    : Math.max(-2.5, Math.min(2.5, actLcv / 6));
   const delta14 = p.rollingLcvDelta14 != null ? p.rollingLcvDelta14 : 0;
   const conf14 = p._splitConfidence14 != null ? p._splitConfidence14 : 0;
   // Confidence-weight the rolling signal so small-sample blow-ups don't
@@ -76,8 +81,10 @@ function _computeWaiverScore(p) {
     else injPenalty = 0.5;
   }
 
-  const wp = baseLcv * 0.5 + weightedDelta * 1.2 + role - injPenalty;
-  return { wp, base: baseLcv, proj: projLcv, act: actLcv, delta: weightedDelta, role, inj: injPenalty };
+  // WP is now recScore-primary. recScore × 4 puts it on roughly the same
+  // scale as the old LCV-based formula (elite ≈ 8-10 WP).
+  const wp = rec * 4.0 + weightedDelta * 1.2 + role - injPenalty;
+  return { wp, rec, base: actLcv, proj: projLcv, act: actLcv, delta: weightedDelta, role, inj: injPenalty };
 }
 
 // Build a normalized Set of every rostered player across state.drafted,
@@ -157,7 +164,7 @@ function _renderWaiverInner(section) {
   });
 
   // Sort (column-driven; sortBy = column key, sortDir = 'asc' | 'desc')
-  const SCORE_KEYS = { wp: 'wp', proj: 'proj', act: 'act', delta: 'delta', role: 'role', inj: 'inj', lcv: 'base' };
+  const SCORE_KEYS = { wp: 'wp', rec: 'rec', proj: 'proj', act: 'act', delta: 'delta', role: 'role', inj: 'inj', lcv: 'base' };
   const dir = ws.sortDir === 'asc' ? 1 : -1;
   filtered.sort((a, b) => {
     if (SCORE_KEYS[ws.sortBy]) {
@@ -219,8 +226,9 @@ function _renderWaiverInner(section) {
     ['Team',   'team',  'width:50px;'],
     ['Age',    'age',   'width:40px;'],
     ['WP',     'wp',    'width:60px;text-align:right;'],
-    ['LCV',    'proj',  'width:60px;text-align:right;color:var(--text2);'],
+    ['Rec',    'rec',   'width:55px;text-align:right;'],
     ['aLCV',   'act',   'width:60px;text-align:right;color:var(--text2);'],
+    ['LCV',    'proj',  'width:60px;text-align:right;color:var(--text2);'],
     ['14d Δ',  'delta', 'width:60px;text-align:right;'],
     ['Role',   'role',  'width:50px;text-align:right;'],
     ['Inj',    'inj',   'width:50px;text-align:right;'],
@@ -272,10 +280,15 @@ function _renderWaiverInner(section) {
     html += `<td style="padding:6px 10px;color:var(--text2);">${p.team || ''}</td>`;
     html += `<td style="padding:6px 10px;color:var(--text2);">${p.age != null ? p.age : ''}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;font-weight:700;color:${wpColor};">${c.wp.toFixed(1)}</td>`;
+    const recVal = (p.recScore != null) ? p.recScore : null;
+    const recClr = recVal != null ? (recVal >= 0.6 ? 'var(--green)' : recVal >= 0 ? 'var(--text)' : 'var(--red)') : 'var(--text2)';
+    const recFmt = recVal != null ? (recVal >= 0 ? '+' : '') + recVal.toFixed(2) : '—';
+    const recWeight = recVal != null && recVal >= 0.6 ? '700' : '600';
+    html += `<td style="padding:6px 10px;text-align:right;font-weight:${recWeight};color:${recClr};" title="Rec = 60% aLCV + 15% posFlex + 15% age + 10% LCV">${recFmt}</td>`;
     const projClr = c.proj >= 0 ? 'var(--green)' : 'var(--red)';
     const actClr  = c.act  >= 0 ? 'var(--green)' : 'var(--red)';
-    html += `<td style="padding:6px 10px;text-align:right;color:${projClr};">${c.proj.toFixed(1)}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;color:${actClr};">${c.act.toFixed(1)}</td>`;
+    html += `<td style="padding:6px 10px;text-align:right;color:${projClr};">${c.proj.toFixed(1)}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;color:${deltaColor};font-weight:600;">${deltaFmt}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;color:var(--text2);">${c.role ? '+' + c.role.toFixed(1) : '—'}</td>`;
     html += `<td style="padding:6px 10px;text-align:right;color:${c.inj ? 'var(--red)' : 'var(--text2)'};">${c.inj ? '−' + c.inj.toFixed(1) : '—'}</td>`;
@@ -284,16 +297,17 @@ function _renderWaiverInner(section) {
   });
 
   if (filtered.length === 0) {
-    html += '<tr><td colspan="12" style="padding:40px;text-align:center;color:var(--text2);">No available players match these filters.</td></tr>';
+    html += '<tr><td colspan="13" style="padding:40px;text-align:center;color:var(--text2);">No available players match these filters.</td></tr>';
   } else if (filtered.length > cap) {
-    html += `<tr><td colspan="12" style="padding:10px;text-align:center;color:var(--text2);font-size:11px;">Showing top ${cap} of ${filtered.length}. Tighten filters to see more.</td></tr>`;
+    html += `<tr><td colspan="13" style="padding:10px;text-align:center;color:var(--text2);font-size:11px;">Showing top ${cap} of ${filtered.length}. Tighten filters to see more.</td></tr>`;
   }
 
   html += '</tbody></table></div>';
 
   // Explanatory footer
   html += '<div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;font-size:11px;color:var(--text2);line-height:1.5;">';
-  html += '<b>WP formula:</b> 0.5 × season LCV + 1.2 × confidence-weighted 14-day Δ + role upside − injury penalty. ';
+  html += '<b>WP formula:</b> 4.0 × Rec + 1.2 × confidence-weighted 14-day Δ + role upside − injury penalty. ';
+  html += '<b>Rec:</b> 60% aLCV + 15% positional flexibility + 15% age + 10% projected LCV (all z-scored within type pool; SP/RP split). ';
   html += 'Role: closer +4, handcuff +2, 3+ SV pace +1, 5+ HLD pace +0.5, rookie +1. ';
   html += 'Injury: IL/OUT −4, DTD −1.5, Q −0.5.';
   html += '</div>';

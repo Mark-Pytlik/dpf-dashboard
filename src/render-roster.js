@@ -882,27 +882,36 @@ function renderRoster() {
         Object.values(state.leagueTeams || {}).forEach(arr => (arr||[]).forEach(n => _allOwned.add(n)));
         Object.keys(state.drafted || {}).forEach(n => _allOwned.add(n));
         Object.values(LEAGUE_ROOKIES || {}).forEach(arr => (arr||[]).forEach(n => _allOwned.add(n)));
-        const wwTargets = ALL.filter(p => !_allOwned.has(p.name) && (p.lcv||0) >= 1.5).map(p => {
+        const wwTargets = ALL.filter(p => !_allOwned.has(p.name) && ((p.recScore != null && p.recScore >= 0.2) || (p.lcv||0) >= 1.5)).map(p => {
           const positions = (p.pos || p.primaryPos || '').split('/').filter(x => x);
           let bestNeed = 0, bestPos = '';
           positions.forEach(pos => { const gap = _wwNeeds[pos]; if (gap !== undefined && gap < 0 && -gap > bestNeed) { bestNeed = -gap; bestPos = pos; } });
           const ki = getKeeperInfoCached(p.name);
           const keepBonus = ki.keepable2027 ? ki.yearsLeft * 0.3 : 0;
-          return { p, score: bestNeed * 2.5 + (p.lcv||0) * 0.4 + keepBonus, bestPos, bestNeed, ki };
+          // Primary driver: recScore (60% aLCV + 15% posFlex + 15% age + 10% LCV).
+          // Falls back to LCV for players without enough in-season sample.
+          const rec = p.recScore != null ? p.recScore : Math.max(-2, Math.min(2, (p.lcv||0) / 6));
+          return { p, score: bestNeed * 2.5 + rec * 2.0 + keepBonus, bestPos, bestNeed, ki, rec };
         }).filter(x => x.score > 1.0).sort((a,b) => b.score - a.score).slice(0, 8);
         return gmPanel('waiver-wire', 'Waiver Wire Targets', () => {
           let h = '';
           if (wwTargets.length > 0) {
             h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">aLCV</th><th style="text-align:right;padding:2px 4px;">ΔLCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
+            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;" title="Recommendation score: 60% aLCV + 15% posFlex + 15% age + 10% LCV">Rec</th><th style="text-align:right;padding:2px 4px;">aLCV</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">ΔLCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
             wwTargets.forEach(t => {
               const keepTag = t.ki.keepable2027 ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>` : '<span style="color:var(--text2);">—</span>';
-              const why = t.bestNeed > 0.5 ? `fills ${t.bestPos}` : (t.p.lcv||0) >= 4 ? 'high LCV' : t.ki.keepable2027 ? 'keeper value' : 'depth';
+              const why = t.bestNeed > 0.5 ? `fills ${t.bestPos}`
+                : t.rec >= 1.2 ? 'elite score'
+                : t.rec >= 0.6 ? 'strong score'
+                : t.ki.keepable2027 ? 'keeper value'
+                : 'depth';
               const _wAlcv = t.p.actualLcv != null ? t.p.actualLcv.toFixed(1) : '—';
               const _wAlcvClr = t.p.actualLcv != null ? (t.p.actualLcv >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
               const _wDlcv = t.p.lcvDelta != null ? ((t.p.lcvDelta > 0 ? '+' : '') + t.p.lcvDelta.toFixed(1)) : '—';
               const _wDlcvClr = t.p.lcvDelta != null ? (t.p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
-              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.p.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;">${(t.p.lcv||0).toFixed(1)}</td><td style="text-align:right;padding:3px 4px;${_wAlcvClr}">${_wAlcv}</td><td style="text-align:right;padding:3px 4px;font-weight:600;${_wDlcvClr}">${_wDlcv}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--accent);">${why}</td></tr>`;
+              const _wRec = t.p.recScore != null ? t.p.recScore.toFixed(2) : '—';
+              const _wRecClr = t.p.recScore != null ? (t.p.recScore >= 0.6 ? 'color:var(--green);font-weight:700;' : t.p.recScore >= 0 ? 'color:var(--text);' : 'color:var(--red);') : 'color:var(--text2);';
+              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.p.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;${_wRecClr}">${_wRec}</td><td style="text-align:right;padding:3px 4px;${_wAlcvClr}">${_wAlcv}</td><td style="text-align:right;padding:3px 4px;color:var(--text2);">${(t.p.lcv||0).toFixed(1)}</td><td style="text-align:right;padding:3px 4px;font-weight:600;${_wDlcvClr}">${_wDlcv}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--accent);">${why}</td></tr>`;
             });
             h += '</table>';
           } else { h += '<div style="font-size:11px;color:var(--text2);">No strong waiver targets found.</div>'; }
@@ -924,22 +933,28 @@ function renderRoster() {
           const posCount = _posCounts[p.primaryPos] || 0;
           const hasSurplus = posCount >= 3; // 3+ means real surplus
           const isScarcity = posCount <= 1; // only 1 at position
-          let dropScore = (5 - lcv) * 1.5;
+          // Primary driver: negated recScore (low rec = high drop priority).
+          // Falls back to LCV-based penalty for players without recScore.
+          const rec = p.recScore != null ? p.recScore : Math.max(-2, Math.min(2, (lcv - 2.5) / 4));
+          let dropScore = -rec * 2.2;
           if (!ki.keepable2027) dropScore += 1.5; else dropScore -= ki.yearsLeft * 0.5;
           if (hasSurplus) dropScore += (posCount - 2) * 0.8;
           if (isScarcity) dropScore -= 2.0;
           dropScore -= Math.max(0, ki.multiYearSurplus || 0) * 0.8;
-          return { name: n, p, ki, lcv, dropScore, posCount };
+          return { name: n, p, ki, lcv, rec, dropScore, posCount };
         }).filter(Boolean).sort((a,b) => b.dropScore - a.dropScore).slice(0, 5);
         return gmPanel('most-droppable', 'Most Droppable', () => {
           let h = '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Players with the lowest combined production + keeper value.</div>';
           if (_dropPlayers.length > 0) {
             h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">aLCV</th><th style="text-align:right;padding:2px 4px;">ΔLCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
+            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;" title="Recommendation score: 60% aLCV + 15% posFlex + 15% age + 10% LCV">Rec</th><th style="text-align:right;padding:2px 4px;">aLCV</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">ΔLCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
             _dropPlayers.forEach(t => {
               const keepTag = t.ki.keepable2027 ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>` : '<span style="color:var(--red);">NK</span>';
               const reasons = [];
-              if (t.lcv < 2) reasons.push('low production'); else if (t.lcv < 4) reasons.push('below avg production');
+              if (t.rec <= -0.8) reasons.push('very poor rec');
+              else if (t.rec <= -0.3) reasons.push('weak rec');
+              else if (t.p.actualLcv != null && t.p.actualLcv < -2) reasons.push('underperforming');
+              else if (t.lcv < 2) reasons.push('low production');
               if (!t.ki.keepable2027) reasons.push('not keepable');
               if (t.posCount >= 3) reasons.push(`${t.p.primaryPos} surplus (${t.posCount})`);
               const why = reasons.length > 0 ? reasons.slice(0,2).join(', ') : 'marginal value';
@@ -947,7 +962,9 @@ function renderRoster() {
               const _dAlcvClr = t.p.actualLcv != null ? (t.p.actualLcv >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
               const _dDlcv = t.p.lcvDelta != null ? ((t.p.lcvDelta > 0 ? '+' : '') + t.p.lcvDelta.toFixed(1)) : '—';
               const _dDlcvClr = t.p.lcvDelta != null ? (t.p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
-              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;">${t.lcv.toFixed(1)}</td><td style="text-align:right;padding:3px 4px;${_dAlcvClr}">${_dAlcv}</td><td style="text-align:right;padding:3px 4px;font-weight:600;${_dDlcvClr}">${_dDlcv}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--red);">${why}</td></tr>`;
+              const _dRec = t.p.recScore != null ? t.p.recScore.toFixed(2) : '—';
+              const _dRecClr = t.p.recScore != null ? (t.p.recScore >= 0.6 ? 'color:var(--green);font-weight:700;' : t.p.recScore >= 0 ? 'color:var(--text);' : 'color:var(--red);') : 'color:var(--text2);';
+              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;${_dRecClr}">${_dRec}</td><td style="text-align:right;padding:3px 4px;${_dAlcvClr}">${_dAlcv}</td><td style="text-align:right;padding:3px 4px;color:var(--text2);">${t.lcv.toFixed(1)}</td><td style="text-align:right;padding:3px 4px;font-weight:600;${_dDlcvClr}">${_dDlcv}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--red);">${why}</td></tr>`;
             });
             h += '</table>';
           }
@@ -1562,11 +1579,14 @@ function renderRoster() {
         const ki = getKeeperInfoCached(name);
         const keeperScore = ki.keepable2027 ? Math.min(Math.max(0, ki.multiYearSurplus) * 0.3, 2.0) : 0;
         const needScore = Math.max(0, -bestNeed) * 1.2;
-        const lcvScore = Math.min((p.lcv || 0) * 0.12, 1.5);
-        const fitScore = needScore + lcvScore + keeperScore;
+        // Primary driver: recScore (60% aLCV + 15% posFlex + 15% age + 10% LCV).
+        // Fallback to LCV for players w/o in-season sample.
+        const rec = p.recScore != null ? p.recScore : Math.max(-2, Math.min(2, (p.lcv||0) / 6));
+        const recScoreContrib = Math.max(-0.5, Math.min(2.0, rec * 1.5));
+        const fitScore = needScore + recScoreContrib + keeperScore;
 
         if (fitScore > 0.5) {
-          candidates.push({ name, pos: needPos, gap: bestNeed, score: fitScore, lcv: p.lcv||0, team: t.name, ki, primaryPos: p.primaryPos });
+          candidates.push({ name, pos: needPos, gap: bestNeed, score: fitScore, lcv: p.lcv||0, rec, team: t.name, ki, primaryPos: p.primaryPos, p });
         }
       });
     });
@@ -1581,15 +1601,21 @@ function renderRoster() {
 
     let sh = '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Click a player to add them to "I Get"</div>';
     sh += '<table style="width:100%;font-size:10px;border-collapse:collapse;">';
-    sh += '<tr style="color:var(--text2);font-size:9px;"><th style="text-align:left;padding:2px 3px;">Player</th><th style="text-align:left;padding:2px 3px;">Team</th><th style="text-align:center;padding:2px 3px;">Fills</th><th style="text-align:right;padding:2px 3px;">LCV</th><th style="text-align:center;padding:2px 3px;">Keeper</th><th style="text-align:right;padding:2px 3px;">Fit</th></tr>';
+    sh += '<tr style="color:var(--text2);font-size:9px;"><th style="text-align:left;padding:2px 3px;">Player</th><th style="text-align:left;padding:2px 3px;">Team</th><th style="text-align:center;padding:2px 3px;">Fills</th><th style="text-align:right;padding:2px 3px;" title="Recommendation score: 60% aLCV + 15% posFlex + 15% age + 10% LCV">Rec</th><th style="text-align:right;padding:2px 3px;">aLCV</th><th style="text-align:right;padding:2px 3px;">LCV</th><th style="text-align:center;padding:2px 3px;">Keeper</th><th style="text-align:right;padding:2px 3px;">Fit</th></tr>';
     top12.forEach(c => {
       const keepStr = c.ki.keepable2027 ? `R${c.ki.cost2027} (${c.ki.yearsLeft}yr)` : '<span style="color:var(--red);">N/A</span>';
       const gapStr = c.gap < -1 ? '<span style="color:var(--red);">⚠</span>' : '';
+      const recStr = c.p && c.p.recScore != null ? c.p.recScore.toFixed(2) : '—';
+      const recClr = c.p && c.p.recScore != null ? (c.p.recScore >= 0.6 ? 'color:var(--green);font-weight:700;' : c.p.recScore >= 0 ? 'color:var(--text);' : 'color:var(--red);') : 'color:var(--text2);';
+      const alcvStr = c.p && c.p.actualLcv != null ? c.p.actualLcv.toFixed(1) : '—';
+      const alcvClr = c.p && c.p.actualLcv != null ? (c.p.actualLcv >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
       sh += `<tr class="trade-suggest-row" data-name="${encodeURIComponent(c.name)}" style="cursor:pointer;border-bottom:1px solid var(--border);" onmouseover="this.style.background='rgba(234,179,8,0.1)'" onmouseout="this.style.background=''">`;
       sh += `<td style="padding:3px;font-weight:600;">${c.name}</td>`;
       sh += `<td style="padding:3px;color:var(--text2);">${c.team}</td>`;
       sh += `<td style="text-align:center;padding:3px;">${c.pos} ${gapStr}</td>`;
-      sh += `<td style="text-align:right;padding:3px;">${c.lcv.toFixed(1)}</td>`;
+      sh += `<td style="text-align:right;padding:3px;${recClr}">${recStr}</td>`;
+      sh += `<td style="text-align:right;padding:3px;${alcvClr}">${alcvStr}</td>`;
+      sh += `<td style="text-align:right;padding:3px;color:var(--text2);">${c.lcv.toFixed(1)}</td>`;
       sh += `<td style="text-align:center;padding:3px;">${keepStr}</td>`;
       sh += `<td style="text-align:right;padding:3px;font-weight:600;color:var(--accent);">${c.score.toFixed(1)}</td>`;
       sh += '</tr>';
@@ -1699,6 +1725,9 @@ function renderRoster() {
         name, p, ki, pr, positions, isPit,
         lcv: p.lcv || 0,
         pnav: p.pnav || 0,
+        // aLCV: current-season actual value. recScore: blended recommendation (60% aLCV + 15% posFlex + 15% age + 10% LCV)
+        alcv: p.actualLcv,
+        recScore: p.recScore,
         primaryPos: p.primaryPos,
         keepable: ki.keepable2027,
         cost2027: ki.cost2027,
@@ -1709,9 +1738,14 @@ function renderRoster() {
       };
     }
 
-    // Composite trade value: production-first, keeper premium only when surplus justifies the slot
+    // Composite trade value: production-first, keeper premium only when surplus justifies the slot.
+    // "thisYear" now blends projected LCV with actual in-season aLCV so hot/cold starts
+    // move trade value appropriately rather than waiting for projections to stale-update.
     function tradeVal(prof) {
-      const thisYear = prof.lcv;
+      const projLcv = prof.lcv;
+      const alcv = (prof.alcv != null) ? prof.alcv : null;
+      // Blend: 60% aLCV, 40% projected LCV when we have in-season data; otherwise pure projection.
+      const thisYear = alcv != null ? (0.6 * alcv + 0.4 * projLcv) : projLcv;
       const prospVal = prof.prospectVal;
       // Non-keepable: rental value = current production (elite players still command big returns)
       if (!prof.keepable) return thisYear * 0.8 + prospVal;
@@ -1850,9 +1884,12 @@ function renderRoster() {
         // Keeper upside bonus: if they're very keepable and I can benefit
         const keeperBonus = prof.keepable ? prof.yearsLeft * 0.4 + Math.max(0, prof.multiYearSurplus) * 0.3 : 0;
         const gf = goalFit(prof);
-        // wantScore driven by need fit and goals, NOT raw talent
-        // (we want obtainable players who fill gaps, not the league's best hitters)
-        const wantScore = bestNeedHelp * 2.0 + upgradeBonus * 0.8 + keeperBonus + gf * 1.5;
+        // recScore boost: players with strong blended scores (60% aLCV) are more desirable,
+        // even if they don't fill a strict positional need.
+        const rec = prof.recScore != null ? prof.recScore : 0;
+        const recBonus = Math.max(-0.3, Math.min(2.5, rec * 1.3));
+        // wantScore driven by need fit + goals + recScore
+        const wantScore = bestNeedHelp * 2.0 + upgradeBonus * 0.8 + keeperBonus + gf * 1.5 + recBonus;
         return { ...prof, wantScore, goalFit: gf, helpPos: bestNeedPos || upgradePos, needHelp: Math.max(bestNeedHelp, upgradeBonus * 0.5), tv: tradeVal(prof) };
       }).filter(x => {
         // When goals are specified, strongly prefer players that match at least one goal
