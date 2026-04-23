@@ -909,7 +909,7 @@ function renderRoster() {
           let h = '';
           if (wwTargets.length > 0) {
             h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;" title="Rec+: blended recommendation on wRC+ scale. 100 = pool average, 115 = +1sigma.">Rec+</th><th style="text-align:right;padding:2px 4px;" title="aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma">aLCV+</th><th style="text-align:right;padding:2px 4px;" title="14d+: rolling 14-day LCV on the wRC+ scale">14d+</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
+            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;" title="Rec+: blended recommendation on wRC+ scale. 100 = pool average, 115 = +1sigma.">Rec+</th><th style="text-align:right;padding:2px 4px;" title="aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma">aLCV+</th><th style="text-align:right;padding:2px 4px;" title="14d+: rolling 14-day LCV on the wRC+ scale">14d+</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
             wwTargets.forEach(t => {
               const keepTag = t.ki.keepable2027 ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>` : '<span style="color:var(--text2);">—</span>';
               const tRecPlus = t.p.recScorePlus != null ? t.p.recScorePlus : null;
@@ -924,7 +924,8 @@ function renderRoster() {
               const _wRollClr = t.p.rollingLcvPlus14 != null ? (t.p.rollingLcvPlus14 >= 115 ? 'color:var(--green);font-weight:700;' : t.p.rollingLcvPlus14 >= 100 ? 'color:var(--green);' : t.p.rollingLcvPlus14 <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
               const _wRec = t.p.recScorePlus != null ? Math.round(t.p.recScorePlus).toString() : '—';
               const _wRecClr = t.p.recScorePlus != null ? (t.p.recScorePlus >= 109 ? 'color:var(--green);font-weight:700;' : t.p.recScorePlus >= 100 ? 'color:var(--green);' : t.p.recScorePlus <= 88 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
-              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.p.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;${_wRecClr}">${_wRec}</td><td style="text-align:right;padding:3px 4px;${_wAlcvClr}">${_wAlcv}</td><td style="text-align:right;padding:3px 4px;${_wRollClr}">${_wRoll}</td><td style="text-align:right;padding:3px 4px;color:var(--text2);">${(Number.isFinite(t.p.lcvPlus) ? Math.round(t.p.lcvPlus).toString() : '—')}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--accent);">${why}</td></tr>`;
+              const _wPosBadges = (t.p.pos || t.p.primaryPos || '').split('/').filter(Boolean).map(pos => `<span class="pos-badge pos-${pos}" style="padding:1px 4px;font-size:9px;margin-right:1px;">${pos}</span>`).join('');
+              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.p.name}</td><td style="padding:3px 4px;text-align:center;white-space:nowrap;">${_wPosBadges}</td><td style="text-align:right;padding:3px 4px;${_wRecClr}">${_wRec}</td><td style="text-align:right;padding:3px 4px;${_wAlcvClr}">${_wAlcv}</td><td style="text-align:right;padding:3px 4px;${_wRollClr}">${_wRoll}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--accent);">${why}</td></tr>`;
             });
             h += '</table>';
           } else { h += '<div style="font-size:11px;color:var(--text2);">No strong waiver targets found.</div>'; }
@@ -960,7 +961,7 @@ function renderRoster() {
           let h = '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Players with the lowest combined production + keeper value.</div>';
           if (_dropPlayers.length > 0) {
             h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;" title="Rec+: blended recommendation on wRC+ scale. 100 = pool average, 115 = +1sigma.">Rec+</th><th style="text-align:right;padding:2px 4px;" title="aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma">aLCV+</th><th style="text-align:right;padding:2px 4px;" title="14d+: rolling 14-day LCV on the wRC+ scale">14d+</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
+            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;" title="Rec+: blended recommendation on wRC+ scale. 100 = pool average, 115 = +1sigma.">Rec+</th><th style="text-align:right;padding:2px 4px;" title="aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma">aLCV+</th><th style="text-align:right;padding:2px 4px;" title="14d+: rolling 14-day LCV on the wRC+ scale">14d+</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
             _dropPlayers.forEach(t => {
               const keepTag = t.ki.keepable2027 ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>` : '<span style="color:var(--red);">NK</span>';
               const reasons = [];
@@ -978,7 +979,8 @@ function renderRoster() {
               const _dRollClr = t.p.rollingLcvPlus14 != null ? (t.p.rollingLcvPlus14 >= 115 ? 'color:var(--green);font-weight:700;' : t.p.rollingLcvPlus14 >= 100 ? 'color:var(--green);' : t.p.rollingLcvPlus14 <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
               const _dRec = t.p.recScorePlus != null ? Math.round(t.p.recScorePlus).toString() : '—';
               const _dRecClr = t.p.recScorePlus != null ? (t.p.recScorePlus >= 109 ? 'color:var(--green);font-weight:700;' : t.p.recScorePlus >= 100 ? 'color:var(--green);' : t.p.recScorePlus <= 88 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
-              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;${_dRecClr}">${_dRec}</td><td style="text-align:right;padding:3px 4px;${_dAlcvClr}">${_dAlcv}</td><td style="text-align:right;padding:3px 4px;${_dRollClr}">${_dRoll}</td><td style="text-align:right;padding:3px 4px;color:var(--text2);">${(Number.isFinite(t.lcvPlus) ? Math.round(t.lcvPlus).toString() : '—')}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--red);">${why}</td></tr>`;
+              const _dPosBadges = (t.p.pos || t.p.primaryPos || '').split('/').filter(Boolean).map(pos => `<span class="pos-badge pos-${pos}" style="padding:1px 4px;font-size:9px;margin-right:1px;">${pos}</span>`).join('');
+              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.name}</td><td style="padding:3px 4px;text-align:center;white-space:nowrap;">${_dPosBadges}</td><td style="text-align:right;padding:3px 4px;${_dRecClr}">${_dRec}</td><td style="text-align:right;padding:3px 4px;${_dAlcvClr}">${_dAlcv}</td><td style="text-align:right;padding:3px 4px;${_dRollClr}">${_dRoll}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--red);">${why}</td></tr>`;
             });
             h += '</table>';
           }
@@ -1192,22 +1194,20 @@ function renderRoster() {
   if (optBtn) optBtn.addEventListener('click', () => {
     const allNames = [...new Set([...teamPlayers, ...teamMilb])];
     const players = allNames.map(n => _plyrI(n)).filter(Boolean);
-    // Rank by aLCV+ (in-season actual on the wRC+ scale) — falls back to
-    // projected LCV+ when no 2026 stats yet, then to raw lcv as last resort.
+
+    // RANK: aLCV+ only. Players without an aLCV+ (rookies, sub-10-PA) are
+    // ranked by projected LCV+ so unranked-by-aLCV+ players don't all tie at 0.
     function _rank(p) {
-      if (Number.isFinite(p.aLCVPlus))    return p.aLCVPlus;
-      if (Number.isFinite(p.lcvPlus))     return p.lcvPlus;
-      return (p.lcv || 0) * 10 + 100;  // crude scaling so raw-lcv players still order sensibly
+      if (Number.isFinite(p.aLCVPlus)) return p.aLCVPlus;
+      if (Number.isFinite(p.lcvPlus))  return p.lcvPlus - 50;  // demote vs aLCV+'d players
+      return -100;
     }
     const _cmp = (a, b) => _rank(b) - _rank(a);
 
-    // Auto-IL: any player flagged on the IL gets their slot before lineup
-    // selection, so the optimizer doesn't waste an active spot on someone
-    // who can't play. Capped at IL slot count (4).
+    // Auto-IL: anyone with INJURY_MAP status IL or O gets the IL slot first.
     function _isOnIL(name) {
       const inj = (typeof INJURY_MAP !== 'undefined') ? INJURY_MAP.get(name) : null;
-      if (!inj) return false;
-      return inj.status === 'IL' || inj.status === 'O';
+      return inj && (inj.status === 'IL' || inj.status === 'O');
     }
     const nOv = {};
     const used = new Set();
@@ -1215,9 +1215,7 @@ function renderRoster() {
     let ilUsed = 0;
     for (const p of players) {
       if (ilUsed < ilCap && _isOnIL(p.name)) {
-        nOv[p.name] = 'il';
-        used.add(p.name);
-        ilUsed++;
+        nOv[p.name] = 'il'; used.add(p.name); ilUsed++;
       }
     }
 
@@ -1225,16 +1223,106 @@ function renderRoster() {
     const batters = players.filter(p => !['SP','RP'].includes(p.primaryPos) && !used.has(p.name)).sort(_cmp);
     const sps = players.filter(p => p.primaryPos === 'SP' && !used.has(p.name)).sort(_cmp);
     const rps = players.filter(p => p.primaryPos === 'RP' && !used.has(p.name)).sort(_cmp);
-    const bs = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
-    // Pass 1: primary position
-    for (const s of bs) { if (s==='DH') continue; const b = batters.find(p=>p.primaryPos===s&&!used.has(p.name)); if(b){nOv[b.name]=s;used.add(b.name);} }
-    // Pass 2: secondary eligibility
-    for (const s of bs) { if (s==='DH'||Object.values(nOv).filter(v=>v===s).length>=(ROSTER_SLOTS[s]||1)) continue; const b=batters.find(p=>{if(used.has(p.name))return false; return (p.pos||p.primaryPos||'').split('/').includes(s);}); if(b){nOv[b.name]=s;used.add(b.name);} }
-    // Pass 3: highest-aLCV+ remaining batter to DH
-    const dh = batters.find(p => !used.has(p.name)); if(dh){nOv[dh.name]='DH';used.add(dh.name);}
-    sps.slice(0,5).forEach(p=>{nOv[p.name]='SP';used.add(p.name);});
-    rps.slice(0,5).forEach(p=>{nOv[p.name]='RP';used.add(p.name);});
-    allNames.forEach(n=>{if(!used.has(n)&&!nOv[n])nOv[n]='reserve';});
+
+    // ── Hitter assignment with position flexibility ──────────────────────
+    // Maximize total aLCV+ across the 9 hitter slots (C/1B/2B/3B/SS/LF/CF/RF/DH)
+    // subject to position-eligibility constraints. Approach: greedy initial
+    // placement (highest aLCV+ first into best eligible empty slot), then a
+    // swap-improvement pass that handles the "Adell to RF / Marsee to CF"
+    // case — if a bench player B is eligible for an active slot S held by A,
+    // and A can be relocated to ANOTHER eligible slot (empty or held by a
+    // worse player who also has somewhere to go), we do the swap whenever
+    // it raises total aLCV+.
+    const slots = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
+    const assigned = {};                // slot → player
+    const elig = p => (p.pos || p.primaryPos || '').split('/').filter(x => x);
+    const canPlay = (p, s) => s === 'DH' || elig(p).includes(s);
+
+    // Pass 1: highest-aLCV+ player goes into their primary if free
+    for (const p of batters) {
+      const s = p.primaryPos;
+      if (slots.includes(s) && !assigned[s]) { assigned[s] = p; }
+    }
+    // Pass 2: remaining players placed into any eligible empty slot (skip DH for now)
+    for (const p of batters) {
+      if (Object.values(assigned).some(x => x.name === p.name)) continue;
+      for (const s of slots) {
+        if (s === 'DH') continue;
+        if (canPlay(p, s) && !assigned[s]) { assigned[s] = p; break; }
+      }
+    }
+    // Pass 3: DH gets the highest-aLCV+ unassigned hitter
+    if (!assigned['DH']) {
+      const dh = batters.find(p => !Object.values(assigned).some(x => x.name === p.name));
+      if (dh) assigned['DH'] = dh;
+    }
+
+    // Pass 4: SWAP IMPROVEMENT LOOP — covers the position-flex case.
+    // For each starting slot S held by A: if any bench player B has a higher
+    // aLCV+ AND is eligible for S, try to relocate A to (a) another empty
+    // eligible slot, or (b) a slot held by someone with even lower aLCV+
+    // (cascading). If either works, do the swap. Iterate to a fixed point.
+    function _benchHitters() {
+      return batters.filter(p => !Object.values(assigned).some(x => x.name === p.name));
+    }
+    let improved = true, iters = 0;
+    while (improved && iters < 20) {
+      improved = false; iters++;
+      for (const S of slots) {
+        const A = assigned[S];
+        if (!A) continue;
+        for (const B of _benchHitters()) {
+          if (_rank(B) <= _rank(A)) continue;     // B not better → skip
+          if (!canPlay(B, S)) continue;            // B can't play S
+          // Try: move A to an empty eligible slot
+          let movedTo = null;
+          for (const T of slots) {
+            if (T === S) continue;
+            if (!assigned[T] && canPlay(A, T)) { movedTo = T; break; }
+          }
+          if (movedTo) {
+            assigned[movedTo] = A; assigned[S] = B; improved = true; break;
+          }
+          // Try cascading: move A to a slot T held by C with lower aLCV+
+          // than A; relocate C to an empty eligible slot.
+          for (const T of slots) {
+            if (T === S) continue;
+            const C = assigned[T];
+            if (!C) continue;
+            if (!canPlay(A, T)) continue;
+            if (_rank(C) >= _rank(A)) continue;
+            let cMoved = null;
+            for (const U of slots) {
+              if (U === S || U === T) continue;
+              if (!assigned[U] && canPlay(C, U)) { cMoved = U; break; }
+            }
+            if (cMoved) {
+              assigned[cMoved] = C; assigned[T] = A; assigned[S] = B;
+              improved = true; break;
+            }
+            // No empty eligible slot for C — direct bench-out swap is OK if
+            // total improvement is positive: swap nets _rank(B) - _rank(C).
+            if (_rank(B) > _rank(C)) {
+              assigned[T] = A; assigned[S] = B;
+              // C goes to bench (no override set; falls through to reserve)
+              improved = true; break;
+            }
+          }
+          if (improved) break;
+        }
+        if (improved) break;
+      }
+    }
+
+    // Commit hitter assignments
+    for (const [slot, p] of Object.entries(assigned)) {
+      nOv[p.name] = slot; used.add(p.name);
+    }
+    // Pitchers — top 5 SPs and top 5 RPs by aLCV+
+    sps.slice(0, ROSTER_SLOTS.SP || 5).forEach(p => { nOv[p.name] = 'SP'; used.add(p.name); });
+    rps.slice(0, ROSTER_SLOTS.RP || 5).forEach(p => { nOv[p.name] = 'RP'; used.add(p.name); });
+    // Everyone else → reserve
+    allNames.forEach(n => { if (!used.has(n) && !nOv[n]) nOv[n] = 'reserve'; });
     if (isMine) state.rosterOverrides = nOv;
     else state.leagueRosterOverrides[selTeamName] = nOv;
     save();
