@@ -445,19 +445,7 @@ function render() {
         } else if (isKeeper) {
           kp = ` <small style="color:var(--accent)">[K${kpRd ? ' Rd'+kpRd : ''}]</small>`;
         }
-        // Tags: want / avoid / sleeper / bust
-        const tag = state.tags[p.name];
-        const tagMap = {
-          want:    { cls: 'tag-want',    label: 'W', title: 'Want' },
-          avoid:   { cls: 'tag-avoid',   label: 'A', title: 'Avoid' },
-          sleeper: { cls: 'tag-sleeper', label: 'S', title: 'Sleeper' },
-          bust:    { cls: 'tag-bust',    label: 'B', title: 'Bust' },
-          injured: { cls: 'tag-injured', label: 'IL', title: 'Injured' }
-        };
-        let tagHtml = '';
-        if (tag && tagMap[tag]) tagHtml = ` <span class="tag-badge ${tagMap[tag].cls}" title="${tagMap[tag].title}">${tagMap[tag].label}</span>`;
-        // Tag buttons: W=want, A=avoid, IL=injured (sleeper/bust auto-set from BUZZ articles only)
-        const tagBtns = `<span class="tag-btns" style="margin-left:4px;"><button class="tag-btn tag-w" data-player="${encodeURIComponent(p.name)}" data-tag="want" title="Want"${tag==='want'?' style="opacity:1"':''}>W</button><button class="tag-btn tag-a" data-player="${encodeURIComponent(p.name)}" data-tag="avoid" title="Avoid"${tag==='avoid'?' style="opacity:1"':''}>A</button><button class="tag-btn tag-i" data-player="${encodeURIComponent(p.name)}" data-tag="injured" title="Injured"${tag==='injured'?' style="opacity:1"':''}>IL</button></span>`;
+        // (Want/avoid/injured tag UI removed — see commit history if you want it back.)
         // Buzz arrows from expert articles (draft view only)
         let buzz = '';
         if (state._mode === 'draft') {
@@ -483,7 +471,7 @@ function render() {
         }
         if (p._sbBreakout) aBadges += ' <span class="pbadge" title="SB breakout: ' + (p.sprintSpeed||'?') + ' ft/s speed, only ' + (p.sb||0) + ' proj SB" style="background:#7c3aed;color:#fff;">SB</span>';
         aBadges += (p._kAdj || '') + (p._parkBadge || '') + (p._closerBadge || '') + (p._stuffTrend || '') + (p._luckBadge || '');
-        return `<td style="font-weight:600;white-space:nowrap;">${val}${_injBadge(p.name)}${enoR}${aBadges}${tagHtml}${kp}${ownerBadge}${tagBtns}</td>`;
+        return `<td style="font-weight:600;white-space:nowrap;">${val}${_injBadge(p.name)}${enoR}${aBadges}${ownerBadge}${kp}</td>`;
       }
       return `<td class="${cls}">${val}</td>`;
     }).join('')}</tr>`;
