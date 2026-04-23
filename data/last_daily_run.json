@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-04-23T17:28:26.896749Z",
+  "completedAt": "2026-04-23T18:14:25.441863Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -14,9 +14,9 @@
   "notes": [
     "Phase B re-run after user signed in to CBS in Chrome.",
     "League host moved from cbssports.com/fantasy/baseball/league/* to dpf.baseball.cbssports.com \u2014 scrape_cbs.py has dpf2026.baseball.cbssports.com hardcoded which is dead.",
-    "Trade page at /trades had 0 rows \u2014 but 5 trade-from rows came through inside per-team transaction pages.",
-    "Parallel scheduled run also fired today; rebased on top of its commits and superseded its cbs_auth: missing status with this run's cbs_auth: ok.",
-    "fetch_stuffplus.py ran but pybaseball not installed in sandbox; non-fatal.",
-    "Team 7 has been renamed back to 'Everythings McGonigle Green' on CBS."
+    "TXNS source switched to /transactions?print_rows=9999 (one URL, all 209 rows uncapped) instead of per-team /transactions/{id}/all_but_lineup which CBS truncates to ~30 rows. Authoritative file replaces (not merges) cbs_transactions.json so stale phantom rows can age out \u2014 fixed an Andy-Pages-3/21-Dropped phantom that had been propagating via merge_tx.py for days.",
+    "roster_sync.py NOT run this pass \u2014 print-all view is uncapped, so we no longer need synthetic-add backfills; doing so would have generated 312 fake adds.",
+    "Draft URL: /draft/results \u2014 confirmed data/cbs_picks_full.json (372 picks, 60 keepers) matches the live draft room exactly; no refresh needed.",
+    "fetch_stuffplus.py ran but pybaseball not installed in sandbox; non-fatal."
   ]
 }
