@@ -1,19 +1,22 @@
 {
-  "completedAt": "2026-04-23T16:06:01.149291Z",
+  "completedAt": "2026-04-23T17:28:26.896749Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
     "news": "ok"
   },
   "phaseB": {
-    "cbs_auth": "missing",
-    "transactions": "skipped",
-    "rosters": "skipped",
-    "matchup": "skipped"
+    "cbs_auth": "ok",
+    "transactions": "ok",
+    "rosters": "ok",
+    "matchup": "ok"
   },
   "notes": [
-    "fetch_stuffplus.py 403 from FanGraphs (expected)",
-    "Injuries now use team code 'ATH' for Athletics (was 'OAK' in older data); reflects CBS's current labelling.",
-    "CBS auth missing \u2014 probe showed Log In button and 'page has been moved or deleted' error. B2\u2013B5 skipped."
+    "Phase B re-run after user signed in to CBS in Chrome.",
+    "League host moved from cbssports.com/fantasy/baseball/league/* to dpf.baseball.cbssports.com \u2014 scrape_cbs.py has dpf2026.baseball.cbssports.com hardcoded which is dead.",
+    "Trade page at /trades had 0 rows \u2014 but 5 trade-from rows came through inside per-team transaction pages.",
+    "Parallel scheduled run also fired today; rebased on top of its commits and superseded its cbs_auth: missing status with this run's cbs_auth: ok.",
+    "fetch_stuffplus.py ran but pybaseball not installed in sandbox; non-fatal.",
+    "Team 7 has been renamed back to 'Everythings McGonigle Green' on CBS."
   ]
 }

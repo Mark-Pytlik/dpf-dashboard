@@ -9,37 +9,118 @@
     "opp": 6,
     "tied": 0
   },
-  "categoryBreakdown": {},
+  "categoryBreakdown": {
+    "BA": {
+      "me": "0.256",
+      "opp": "0.240",
+      "won": true
+    },
+    "HR": {
+      "me": "15",
+      "opp": "12",
+      "won": true
+    },
+    "RBI": {
+      "me": "53",
+      "opp": "38",
+      "won": true
+    },
+    "R": {
+      "me": "56",
+      "opp": "41",
+      "won": true
+    },
+    "SB": {
+      "me": "9",
+      "opp": "5",
+      "won": true
+    },
+    "KO": {
+      "me": "85",
+      "opp": "73",
+      "won": false
+    },
+    "OBP": {
+      "me": "0.348",
+      "opp": "0.317",
+      "won": true
+    },
+    "SLG": {
+      "me": "0.433",
+      "opp": "0.397",
+      "won": true
+    },
+    "K": {
+      "me": "66",
+      "opp": "74",
+      "won": false
+    },
+    "ERA": {
+      "me": "3.5168",
+      "opp": "3.9023",
+      "won": true
+    },
+    "WHIP": {
+      "me": "1.2227",
+      "opp": "1.1836",
+      "won": false
+    },
+    "W": {
+      "me": "3",
+      "opp": "6",
+      "won": false
+    },
+    "S": {
+      "me": "4",
+      "opp": "1",
+      "won": true
+    },
+    "HD": {
+      "me": "4",
+      "opp": "2",
+      "won": true
+    },
+    "HRA": {
+      "me": "10",
+      "opp": "7",
+      "won": false
+    },
+    "QS": {
+      "me": "5",
+      "opp": "6",
+      "won": false
+    }
+  },
   "allMatchups": [
     {
       "away": "RESCAN",
       "home": "Okamotomami",
-      "awayScore": 6,
-      "homeScore": 10
+      "awayScore": 6.0,
+      "homeScore": 10.0
     },
     {
       "away": "Milli",
       "home": "ROTH",
-      "awayScore": 3.5,
-      "homeScore": 12.5
+      "awayScore": 4.0,
+      "homeScore": 12.0
     },
     {
       "away": "woba",
       "home": "Fran",
-      "awayScore": 3,
-      "homeScore": 13
+      "awayScore": 5.0,
+      "homeScore": 11.0
     },
     {
       "away": "SHOH",
       "home": "Icculus",
-      "awayScore": 7,
-      "homeScore": 9
+      "awayScore": 7.0,
+      "homeScore": 9.0
     },
     {
       "away": "PCA",
       "home": "Drew",
-      "awayScore": 10,
-      "homeScore": 6
+      "awayScore": 9.5,
+      "homeScore": 6.5
     },
     {
       "away": "BBBaoB",
@@ -147,6 +228,6 @@
       "pts": 0
     }
   ],
-  "updated": "2026-04-22T15:31:45Z",
-  "lastUpdated": "2026-04-22 (period 2 in progress)"
+  "updated": "2026-04-23T17:27:39Z",
+  "lastUpdated": "2026-04-23 (period 2 in progress)"
 }
