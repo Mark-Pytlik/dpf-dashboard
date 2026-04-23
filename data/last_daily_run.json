@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-04-22T16:04:52.330704Z",
+  "completedAt": "2026-04-23T13:07:05.719914Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,7 +12,7 @@
     "matchup": "skipped"
   },
   "notes": [
-    "CBS auth missing: transactions URL returned 'Fumble' 404 page with 'Log In' button visible; no pid_session cookie in browser profile.",
-    "fetch_stuffplus.py ran but pybaseball is not installed in the sandbox (disk full during pip install); non-fatal per task prompt."
+    "CBS auth missing: transactions URL returned 'Fumble' 404 page with 'Sign In' link visible; no authed cookies in browser profile.",
+    "fetch_stuffplus.py ran but pybaseball is not installed in the sandbox; non-fatal per task prompt."
   ]
 }
