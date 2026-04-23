@@ -2,6 +2,28 @@
 // Computes actualLcv/lcvDelta for arbitrary time windows using daily cumulative
 // snapshots. The build pipeline embeds snapshot data and LCV z-score parameters.
 //
+// DESIGN RULE (per user direction): the 14d rolling LCV (and any other window)
+// is PURE OBSERVED PERFORMANCE. No projection regression, no Bayesian shrinkage
+// toward priors, no pace multiplier on counting stats. Only what the player
+// actually did in the window, z-scored against everyone else's stats in the
+// same window. Speculation belongs in the projection columns elsewhere on
+// the dashboard, not in any "rolling" or "recent" stat.
+//
+// Per-category weight choices for pitchers (see computePitSplitLcv):
+//   ERA, WHIP, HR allowed: full weight (rate stats — stabilize fast).
+//   SO: full weight (window K count is meaningful).
+//   W (SP): 0.5 weight (over 2-3 starts wins are bullpen + offense noise).
+//   QS (SP): dropped (single-inning swings + park dependence — Coors starters
+//            basically can't get one even pitching well; ERA already captures
+//            the underlying quality).
+//   SV (RP): full weight (observed leverage usage).
+//   HLD (RP): full weight (observed leverage usage).
+//
+// For batters (see computeBatSplitLcv): all 8 league categories at equal
+// weight, matching the league's H2H scoring exactly. AVG/OBP/SLG triple-
+// counts contact ability but that's correct since the league rewards each
+// of those three categories independently.
+//
 // Snapshot format (batting):  [pa, ab, h, hr, r, rbi, sb, so, bb, hbp, sf, x1b, x2b, x3b]
 // Snapshot format (pitching): [ip, w, sv, hld, so, hr, qs, er, h, bb, tbf]
 
@@ -214,11 +236,13 @@ function computePitSplitLcv(player, windowDays) {
       + _zscore(stats.w * pace, psLegacy.w.mean, psLegacy.w.std)
       - _zscore(stats.whip, psLegacy.whip.mean, psLegacy.whip.std)
       + _zscore(stats.qs * pace, psLegacy.qs.mean, psLegacy.qs.std);
-    const reliability = Math.min(1, stats.ip / (player.ip || 150));
+    // Legacy fallback: also pure observed (no projection regression) so
+    // behaviour matches the modern path. lcvDelta is preserved as
+    // metadata only — observed minus projection — but doesn't affect the
+    // rolling LCV value itself.
     const projLcv = player.lcv || 0;
-    const lcv = reliability * rawLcv + (1 - reliability) * projLcv;
     let splitConfidence = stats.ip < 15 ? 'low' : (stats.ip < 40 ? 'med' : 'high');
-    return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - projLcv) * 100) / 100, splitConfidence };
+    return { actualLcv: Math.round(rawLcv * 100) / 100, lcvDelta: Math.round((rawLcv - projLcv) * 100) / 100, splitConfidence };
   }
 
   // 14d LCV is OBSERVED performance only — no projection blending. The pool
