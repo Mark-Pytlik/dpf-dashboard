@@ -131,7 +131,8 @@ const allCols26A = [
   {key:'rollingLcvDelta14',label:'\u039414d',w:55,tip:'14-day rolling ΔLCV (sample-size regressed)'},
   // Batting core (blank for pitchers)
   {key:'s26_pa',label:'PA',w:45}, {key:'s26_avg',label:'AVG',w:50},
-  {key:'s26_hr',label:'HR',w:38}, {key:'s26_r',label:'R',w:38}, {key:'s26_sb',label:'SB',w:38},
+  {key:'s26_hr',label:'HR',w:38}, {key:'s26_r',label:'R',w:38}, {key:'s26_rbi',label:'RBI',w:38},
+  {key:'s26_sb',label:'SB',w:38},
   // Pitching core (blank for batters)
   {key:'s26_ip',label:'IP',w:45}, {key:'s26_era',label:'ERA',w:50},
   {key:'s26_whip',label:'WHIP',w:55}, {key:'s26_so',label:'K',w:38}, {key:'s26_sv',label:'SV',w:38},

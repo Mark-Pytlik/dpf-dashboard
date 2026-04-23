@@ -416,7 +416,29 @@ function render() {
           }
         }
         const kpRd = state.keeperRounds && state.keeperRounds[p.name];
-        const kp = isKeeper ? ` <small style="color:var(--accent)">[K${kpRd ? ' Rd'+kpRd : ''}]</small>` : '';
+        // Keeper indicator:
+        //   - For MY team: show [K{cost}] for every keeper-eligible player (so I can scan
+        //     who's potentially keepable, not just who I've already toggled). Selected
+        //     keepers render bold; eligible-but-not-selected render muted.
+        //   - For other teams: keep the original "selected only" behavior so the chrome
+        //     doesn't get noisy with eligibility info I don't act on.
+        let kp = '';
+        if (isDrafted && state.drafted[p.name] && state.drafted[p.name].mine) {
+          const _ki = (typeof getKeeperInfoCached === 'function')
+            ? getKeeperInfoCached(p.name)
+            : (typeof getKeeperInfo === 'function' ? getKeeperInfo(p.name) : null);
+          if (_ki && _ki.keepable2027) {
+            const _selected = isKeeper;
+            const _round = _ki.cost2027;
+            const _style = _selected
+              ? 'color:var(--accent);font-weight:700;'
+              : 'color:var(--accent);opacity:0.55;';
+            const _title = _selected ? 'Selected as 2027 keeper' : 'Eligible to keep in 2027';
+            kp = ` <small style="${_style}" title="${_title}">[K${_round}]</small>`;
+          }
+        } else if (isKeeper) {
+          kp = ` <small style="color:var(--accent)">[K${kpRd ? ' Rd'+kpRd : ''}]</small>`;
+        }
         // Tags: want / avoid / sleeper / bust
         const tag = state.tags[p.name];
         const tagMap = {
