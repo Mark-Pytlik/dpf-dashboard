@@ -378,52 +378,58 @@ function render() {
         val = (v > 0 ? '+' : '') + v.toFixed(3);
       }
       if (c.key === 'name') {
-        // Owner badge for drafted players
+        // Determine current ownership from the live rosters (NOT draft-time owner).
+        // This matters for traded / waiver-acquired players: a draft pick of mine
+        // who I traded away should show the new owner; a player drafted elsewhere
+        // who I acquired should render as mine. Same source-of-truth used for the
+        // owner pill styling AND the [K] keeper indicator below.
         let ownerBadge = '';
+        let isOnMyTeam = false;
         if (isDrafted) {
           const dInfo = state.drafted[p.name] || {};
+          // Lookup current owner via state.leagueTeams / state.myTeam.
+          const ownerTeam = LEAGUE_TEAMS.find(t => {
+            const pl = t.mine ? (state.myTeam || []) : (state.leagueTeams[t.name] || []);
+            return pl.includes(p.name);
+          });
           let ownerLabel = '';
-          if (dInfo.mine) {
+          if (ownerTeam) {
+            ownerLabel = ownerTeam.owner || ownerTeam.name;
+            isOnMyTeam = !!ownerTeam.mine;
+          } else if (dInfo.mine) {
+            // Roster data missing — trust draft-time mine flag.
             const myT = LEAGUE_TEAMS.find(t => t.mine);
             ownerLabel = myT ? myT.owner : 'My Team';
+            isOnMyTeam = true;
           } else {
-            // Find which team owns this player via roster data or draft picks
-            const ownerTeam = LEAGUE_TEAMS.find(t => {
-              const pl = t.mine ? (state.myTeam || []) : (state.leagueTeams[t.name] || []);
-              return pl.includes(p.name);
-            });
-            if (ownerTeam) {
-              ownerLabel = ownerTeam.owner || ownerTeam.name;
+            // Fallback to draft pick team.
+            const dp = PICK_BY_NAME[p.name];
+            if (dp && dp.team) {
+              const dpTeam = LEAGUE_TEAMS.find(t => t.pick === dp.team || t.name === dp.team);
+              ownerLabel = dpTeam ? (dpTeam.owner || dpTeam.name) : 'Owned';
             } else {
-              // Fallback to draft pick data (dp.team is a pick number 1-12)
-              const dp = PICK_BY_NAME[p.name];
-              if (dp && dp.team) {
-                const dpTeam = LEAGUE_TEAMS.find(t => t.pick === dp.team || t.name === dp.team);
-                ownerLabel = dpTeam ? (dpTeam.owner || dpTeam.name) : 'Owned';
-              } else {
-                ownerLabel = 'Owned';
-              }
+              ownerLabel = 'Owned';
             }
           }
           const rdInfo = dInfo.round ? ' R' + dInfo.round : '';
           const _oParts = ownerLabel.split(' ');
           const shortOwner = _oParts.length > 1 ? _oParts[_oParts.length - 1] : _oParts[0]; // Last name only
-          if (!dInfo.mine) {
+          if (isOnMyTeam) {
+            ownerBadge = ` <span class="owner-badge mine" title="${ownerLabel}">${shortOwner}${rdInfo}</span>`;
+          } else {
             const tc = TEAM_COLORS[ownerLabel] || { bg:'rgba(100,100,100,0.1)', text:'var(--text2)' };
             ownerBadge = ` <span class="owner-badge" title="${ownerLabel}" style="background:${tc.bg};color:${tc.text};border:1px solid ${tc.text}22;">${shortOwner}${rdInfo}</span>`;
-          } else {
-            ownerBadge = ` <span class="owner-badge mine" title="${ownerLabel}">${shortOwner}${rdInfo}</span>`;
           }
         }
         const kpRd = state.keeperRounds && state.keeperRounds[p.name];
         // Keeper indicator:
-        //   - For MY team: show [K{cost}] for every keeper-eligible player (so I can scan
-        //     who's potentially keepable, not just who I've already toggled). Selected
-        //     keepers render bold; eligible-but-not-selected render muted.
-        //   - For other teams: keep the original "selected only" behavior so the chrome
-        //     doesn't get noisy with eligibility info I don't act on.
+        //   - For MY team (current roster, not draft-time): show [K{cost}] for every
+        //     keeper-eligible player. Selected keepers render bold; eligible-but-not-
+        //     selected render muted at 55% opacity.
+        //   - For other teams: keep the original "selected only" behavior so the
+        //     chrome stays quiet for rosters I'm not actively planning around.
         let kp = '';
-        if (isDrafted && state.drafted[p.name] && state.drafted[p.name].mine) {
+        if (isOnMyTeam) {
           const _ki = (typeof getKeeperInfoCached === 'function')
             ? getKeeperInfoCached(p.name)
             : (typeof getKeeperInfo === 'function' ? getKeeperInfo(p.name) : null);
