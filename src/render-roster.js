@@ -956,7 +956,18 @@ function renderRoster() {
           if (isScarcity) dropScore -= 2.0;
           dropScore -= Math.max(0, ki.multiYearSurplus || 0) * 0.8;
           return { name: n, p, ki, lcv, rec, dropScore, posCount };
-        }).filter(Boolean).sort((a,b) => b.dropScore - a.dropScore).slice(0, 5);
+        }).filter(Boolean).filter(t => {
+          // Hard floor: never suggest dropping anyone who is genuinely good.
+          // If either aLCV+ (in-season) OR lcvPlus (projected) is at or above
+          // pool average, the formula has no business recommending them as a
+          // drop candidate. This catches edge cases where some component of
+          // dropScore (e.g., position surplus, low MYS) makes a great player
+          // appear droppable.
+          const a = t.p.aLCVPlus, lp = t.p.lcvPlus;
+          if (Number.isFinite(a)  && a  >= 100) return false;
+          if (Number.isFinite(lp) && lp >= 110) return false;
+          return true;
+        }).sort((a,b) => b.dropScore - a.dropScore).slice(0, 5);
         return gmPanel('most-droppable', 'Most Droppable', () => {
           let h = '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Players with the lowest combined production + keeper value.</div>';
           if (_dropPlayers.length > 0) {

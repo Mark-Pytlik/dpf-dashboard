@@ -924,6 +924,21 @@ _milb_by_team = _resolve_to_team_name(_milb_by_owner, league_config['teams'])
 # JS consumes team-name-keyed dicts (state.js key scheme unchanged)
 league_keepers_json = json.dumps(_keepers_by_team)
 league_milb_keepers_json = json.dumps(_milb_by_team)
+
+# CBS rosters as ground-truth source for end-of-pipeline reconciliation. Any
+# transaction the JS misparses (empty actions, name collisions, timestamps,
+# trades that span days, etc.) gets corrected against this snapshot at load
+# time. cbs_rosters.json is rebuilt by the daily Phase B scrape.
+import os as _os
+_cbs_rosters_path = 'data/cbs_rosters.json'
+if _os.path.exists(_cbs_rosters_path):
+    with open(_cbs_rosters_path) as _f:
+        _cbs_rosters_data = json.load(_f)
+    print(f"CBS rosters loaded: {len(_cbs_rosters_data)} teams, "
+          f"{sum(len(p) for p in _cbs_rosters_data.values())} player slots")
+else:
+    _cbs_rosters_data = {}
+cbs_rosters_json = json.dumps(_cbs_rosters_data)
 _kcount = sum(len(v) for v in _keepers_by_team.values())
 _mcount = sum(len(v) for v in _milb_by_team.values())
 print(f"League config loaded: {len(league_config['teams'])} teams, "
@@ -1095,6 +1110,7 @@ _replacements = {
     '__LEAGUE_ROOKIES_JSON__': league_rookies_json,
     '__LEAGUE_KEEPERS_JSON__': league_keepers_json,
     '__LEAGUE_MILB_KEEPERS_JSON__': league_milb_keepers_json,
+    '__CBS_ROSTERS_JSON__': cbs_rosters_json,
     '__UNTOUCHABLE_JSON__': untouchable_json,
     '__PLAYER_NEWS_JSON__': player_news_json,
     '__INJURIES_JSON__': injuries_json,

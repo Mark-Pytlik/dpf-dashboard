@@ -23,6 +23,10 @@ const BUILD_HASH = '__BUILD_HASH__';
 // re-adding them to state.keepers/state.myTeam on every page load.
 const LEAGUE_KEEPERS = __LEAGUE_KEEPERS_JSON__;         // { teamName: [{name,round}] }
 const LEAGUE_MILB_KEEPERS = __LEAGUE_MILB_KEEPERS_JSON__; // { teamName: [name] }
+// Current CBS roster snapshot {teamName: [playerName, ...]}. Source of truth
+// for who's on whose team RIGHT NOW. Used by draft-data.js after txn replay
+// to reconcile away parsing bugs (empty-action txns, name collisions, etc.).
+const LEAGUE_ROSTERS = __CBS_ROSTERS_JSON__;
 
 // Draft order (pick 1 → pick 12) = reverse of last year's standings
 const LEAGUE_TEAMS = __LEAGUE_TEAMS_JSON__;

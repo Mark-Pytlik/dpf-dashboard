@@ -317,6 +317,61 @@ if (CBS_TRANSACTIONS.length > 0) {
     });
   });
 
+  // ── Reconcile against CBS rosters (ground truth) ────────────────────
+  // After all txns apply, force state.myTeam / state.leagueTeams to match
+  // LEAGUE_ROSTERS exactly. CBS rosters are the authoritative current state;
+  // any txn parsing bug (empty actions, name collisions, weird timestamps,
+  // mojibake team names, etc.) gets corrected here. Without this pass, e.g.
+  // Mick Abel's empty-action 4/10 'add' txn never re-rostered him, so the
+  // dashboard kept showing him as available. Belt-and-suspenders.
+  if (typeof LEAGUE_ROSTERS === 'object' && LEAGUE_ROSTERS && Object.keys(LEAGUE_ROSTERS).length > 0) {
+    const _rosterTeamMap = {}; // playerName → teamName per CBS
+    for (const [teamName, plyrs] of Object.entries(LEAGUE_ROSTERS)) {
+      (plyrs || []).forEach(n => { _rosterTeamMap[n] = teamName; });
+    }
+    let _added = 0, _moved = 0;
+    for (const [playerName, cbsTeamName] of Object.entries(_rosterTeamMap)) {
+      // Resolve CBS team name → league team name (handles renames like
+      // "Whoop Whoop..." → "Everythings McGonigle Green").
+      const resolvedTeam = (typeof CBS_NAME_TO_LEAGUE !== 'undefined' && CBS_NAME_TO_LEAGUE[cbsTeamName])
+        ? CBS_NAME_TO_LEAGUE[cbsTeamName] : cbsTeamName;
+      const myT = LEAGUE_TEAMS.find(t => t.mine);
+      const isMineTeam = !!(myT && myT.name === resolvedTeam);
+
+      // Where does state currently think this player is?
+      let currentTeam = null;
+      if ((state.myTeam || []).includes(playerName)) currentTeam = myT ? myT.name : null;
+      else {
+        for (const t of Object.keys(state.leagueTeams || {})) {
+          if (state.leagueTeams[t].includes(playerName)) { currentTeam = t; break; }
+        }
+      }
+      if (currentTeam === resolvedTeam) continue;  // already correct
+
+      removeFromAllRosters(playerName);
+      addToRoster(playerName, resolvedTeam);
+      // Make sure state.drafted reflects mine-status correctly so UI doesn't
+      // show traded-in / waivered players as "available".
+      if (!state.drafted) state.drafted = {};
+      state.drafted[playerName] = { time: Date.now(), mine: isMineTeam };
+      if (currentTeam) _moved++; else _added++;
+    }
+    // Conversely: any player in state but NOT in any CBS roster should be
+    // dropped (they're free agents per CBS).
+    let _dropped = 0;
+    const _allCbs = new Set(Object.keys(_rosterTeamMap));
+    const allInState = new Set([...(state.myTeam || [])]);
+    for (const t of Object.values(state.leagueTeams || {})) for (const n of t) allInState.add(n);
+    for (const n of allInState) {
+      if (!_allCbs.has(n)) {
+        removeFromAllRosters(n);
+        if (state.drafted && state.drafted[n]) delete state.drafted[n];
+        _dropped++;
+      }
+    }
+    console.log(`Reconciled rosters vs CBS: ${_added} added, ${_moved} moved, ${_dropped} dropped`);
+  }
+
   save();
   console.log(`Applied ${postDraft.length} post-draft CBS transaction(s)`);
 }
