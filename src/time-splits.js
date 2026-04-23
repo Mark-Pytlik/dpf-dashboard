@@ -284,6 +284,35 @@ function _initOriginalLcvValues() {
     else if (split.lcvDelta <= coldThresh) p.hotCold14 = 'COLD';
     else p.hotCold14 = '';
   });
+
+  // Convert rolling 14d LCV to a 100-scale (wRC+ style):
+  //   100 = pool average within type/role, 115 = +1sigma, 85 = -1sigma.
+  // We pool batters together and split SPs from RPs (mirrors how aLCVPlus
+  // is bucketed in build_dashboard.py) so a +1sigma SP and a +1sigma RP
+  // both map to ~115 within their own role rather than getting flattened
+  // by the full pitcher pool.
+  function _meanStd(vals) {
+    if (!vals.length) return null;
+    const m = vals.reduce((s, v) => s + v, 0) / vals.length;
+    const v = vals.reduce((s, v) => s + (v - m) * (v - m), 0) / vals.length;
+    return { mean: m, std: Math.max(Math.sqrt(v), 1e-6) };
+  }
+  function _applyPlus(records, srcKey, dstKey) {
+    const vals = records.map(r => r[srcKey]).filter(v => Number.isFinite(v));
+    const ms = _meanStd(vals);
+    if (!ms) return;
+    records.forEach(r => {
+      const v = r[srcKey];
+      if (Number.isFinite(v)) r[dstKey] = Math.round((100 + (v - ms.mean) / ms.std * 15) * 10) / 10;
+    });
+  }
+  const _withRolling = ALL.filter(p => Number.isFinite(p.rollingLcv14));
+  const _bats = _withRolling.filter(p => p.type === 'BAT');
+  const _sps = _withRolling.filter(p => p.type === 'PIT' && (p.pos === 'SP' || p.primaryPos === 'SP'));
+  const _rps = _withRolling.filter(p => p.type === 'PIT' && p.pos !== 'SP' && p.primaryPos !== 'SP');
+  _applyPlus(_bats, 'rollingLcv14', 'rollingLcvPlus14');
+  _applyPlus(_sps,  'rollingLcv14', 'rollingLcvPlus14');
+  _applyPlus(_rps,  'rollingLcv14', 'rollingLcvPlus14');
 }
 
 // Check if split data is available (more than 1 snapshot date)

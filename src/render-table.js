@@ -346,10 +346,19 @@ function render() {
         }
       }
       else if (c.key === 'rollingLcvDelta14') {
-        // Always-on 14-day LCV swing vs. projection.
+        // Always-on 14-day LCV swing vs. projection (raw delta).
         const v = parseFloat(val);
         cls += v >= 0 ? ' val-pos' : ' val-neg';
         val = (v > 0 ? '+' : '') + v.toFixed(2);
+      }
+      else if (c.key === 'rollingLcvPlus14') {
+        // 14d LCV on the wRC+ scale: 100 = pool avg, 115 = +1sigma, 85 = -1sigma.
+        const v = parseFloat(val);
+        if (!isFinite(v)) { val = '—'; }
+        else {
+          cls += v >= 115 ? ' val-pos val-pos-strong' : v >= 100 ? ' val-pos' : v <= 85 ? ' val-neg' : '';
+          val = Math.round(v).toString();
+        }
       }
       else if (c.key === 'dBarrel' || c.key === 'dHardhit') {
         const v = parseFloat(val);

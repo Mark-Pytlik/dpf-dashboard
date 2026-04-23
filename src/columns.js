@@ -77,12 +77,10 @@ const allCols26 = [
 // 2026 Actual stats columns (s26_ prefixed data)
 const batCols26A = [
   {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:60},
-  {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55,tip:'Projected LCV from pre-season projections'},
-  {key:'aLCVPlus',label:'aLCV+',w:60,cls:'lcv-col',tip:'aLCV+: 100 = pool average (batter / SP / RP), 115 = +1sigma, 85 = -1sigma (wRC+ scale). Derived from 2026 in-season z-scores.'},
-  {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual LCV minus Projected LCV. Positive = outperforming projections, negative = underperforming'},
+  {key:'age',label:'Age',w:40},  {key:'aLCVPlus',label:'aLCV+',w:60,cls:'lcv-col',tip:'aLCV+: 100 = pool average (batter / SP / RP), 115 = +1sigma, 85 = -1sigma (wRC+ scale). Derived from 2026 in-season z-scores.'},
   {key:'recScorePlus',label:'Rec+',w:55,cls:'lcv-col',tip:'Rec+: blended recommendation score on wRC+ scale (100 = pool average, 115 = +1sigma). 60% aLCV + 15% positional flexibility + 15% age + 10% projected LCV, z-scored within type pool. Drives Roster/Trade/Waiver recs.'},
   {key:'hotCold14',label:'14d',w:50,tip:'Trend over the last 14 days of snapshots: HOT = LCV swing ≥ +2.5, COLD = ≤ -2.5'},
-  {key:'rollingLcvDelta14',label:'\u039414d',w:55,tip:'14-day rolling LCV minus projected LCV. Sample-size regressed toward projection.'},
+  {key:'rollingLcvPlus14',label:'14d+',w:60,cls:'lcv-col',tip:'14d+: rolling 14-day LCV on the 100-scale (100 = pool average, 115 = +1sigma). Same wRC+-style scale as aLCV+, but only the last 14 snapshots count.'},
   {key:'s26_pa',label:'PA',w:50}, {key:'s26_avg',label:'AVG',w:55}, {key:'s26_obp',label:'OBP',w:55},
   {key:'s26_slg',label:'SLG',w:55}, {key:'s26_hr',label:'HR',w:45}, {key:'s26_r',label:'R',w:45},
   {key:'s26_rbi',label:'RBI',w:45}, {key:'s26_sb',label:'SB',w:45}, {key:'s26_so',label:'K',w:45},
@@ -99,12 +97,10 @@ const batCols26A = [
 ];
 const pitCols26A = [
   {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:50},
-  {key:'age',label:'Age',w:40}, {key:'lcv',label:'LCV',w:55,tip:'Projected LCV from pre-season projections'},
-  {key:'aLCVPlus',label:'aLCV+',w:60,cls:'lcv-col',tip:'aLCV+: 100 = pool average (batter / SP / RP), 115 = +1sigma, 85 = -1sigma (wRC+ scale). Derived from 2026 in-season z-scores.'},
-  {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual LCV minus Projected LCV. Positive = outperforming projections, negative = underperforming'},
+  {key:'age',label:'Age',w:40},  {key:'aLCVPlus',label:'aLCV+',w:60,cls:'lcv-col',tip:'aLCV+: 100 = pool average (batter / SP / RP), 115 = +1sigma, 85 = -1sigma (wRC+ scale). Derived from 2026 in-season z-scores.'},
   {key:'recScorePlus',label:'Rec+',w:55,cls:'lcv-col',tip:'Rec+: blended recommendation score on wRC+ scale (100 = pool average, 115 = +1sigma). 60% aLCV + 15% posFlex + 15% age + 10% LCV, z-scored within SP/RP pool.'},
   {key:'hotCold14',label:'14d',w:50,tip:'Trend over the last 14 days of snapshots: HOT = LCV swing ≥ +3.5, COLD = ≤ -3.0 (pitchers move faster)'},
-  {key:'rollingLcvDelta14',label:'\u039414d',w:55,tip:'14-day rolling LCV minus projected LCV. Sample-size regressed toward projection.'},
+  {key:'rollingLcvPlus14',label:'14d+',w:60,cls:'lcv-col',tip:'14d+: rolling 14-day LCV on the 100-scale (100 = pool average, 115 = +1sigma). Same wRC+-style scale as aLCV+, but only the last 14 snapshots count.'},
   {key:'s26_ip',label:'IP',w:50}, {key:'s26_era',label:'ERA',w:55}, {key:'s26_whip',label:'WHIP',w:60},
   {key:'s26_fip',label:'FIP',w:50,tip:'2026 FIP = (13×HR + 3×(BB+HBP) − 2×K) / IP + 3.10. ERA estimator that strips luck'},
   {key:'s26_so',label:'K',w:50}, {key:'s26_w',label:'W',w:40}, {key:'s26_sv',label:'SV',w:40},
@@ -123,12 +119,10 @@ const pitCols26A = [
 const allCols26A = [
   {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:60},
   {key:'type',label:'Type',w:50}, {key:'age',label:'Age',w:40},
-  {key:'lcv',label:'LCV',w:55,cls:'lcv-col',tip:'Projected LCV'},
   {key:'aLCVPlus',label:'aLCV+',w:60,cls:'lcv-col',tip:'aLCV+: 100 = pool average, 115 = +1sigma (wRC+ scale). From 2026 stats.'},
-  {key:'lcvDelta',label:'\u0394LCV',w:60,tip:'Actual minus Projected LCV. Positive = outperforming'},
   {key:'recScorePlus',label:'Rec+',w:55,cls:'lcv-col',tip:'Rec+: blended recommendation score on wRC+ scale (100 = pool average, 115 = +1sigma). 60% aLCV + 15% posFlex + 15% age + 10% LCV.'},
   {key:'hotCold14',label:'14d',w:50,tip:'Rolling HOT/COLD over the last 14 snapshots'},
-  {key:'rollingLcvDelta14',label:'\u039414d',w:55,tip:'14-day rolling ΔLCV (sample-size regressed)'},
+  {key:'rollingLcvPlus14',label:'14d+',w:55,cls:'lcv-col',tip:'14d+: rolling 14-day LCV on the 100-scale (100 = pool average, 115 = +1sigma)'},
   // Batting core (blank for pitchers)
   {key:'s26_pa',label:'PA',w:45}, {key:'s26_avg',label:'AVG',w:50},
   {key:'s26_hr',label:'HR',w:38}, {key:'s26_r',label:'R',w:38}, {key:'s26_rbi',label:'RBI',w:38},
