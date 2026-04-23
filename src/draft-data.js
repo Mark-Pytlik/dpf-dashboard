@@ -206,12 +206,21 @@ if (CBS_TRANSACTIONS.length > 0) {
     const teamName = resolveCbsTeam(txn);
     txn.players.forEach(p => {
       const found = _plyrI(p.name);
-      // Cross-check MLB team to avoid name collisions (e.g. Cade Smith NYY vs CLE).
-      // BUT only skip if the pool contains MULTIPLE players with this name. If
-      // there's only one, an mlbTeam mismatch means the player was traded in real
-      // life (Snell SF→LAD, Bregman HOU→CHC, etc.) and the CBS transaction's
-      // mlbTeam is just stale — we MUST still apply the transaction or the player
-      // will remain incorrectly available.
+      // Cross-check MLB team to avoid name collisions (e.g. Cade Smith CLE vs
+      // a fringe Cade Smith NYY who never makes our pool). Two cases trigger:
+      //   1) Pool has MULTIPLE players with this name and the txn's mlbTeam
+      //      doesn't match our pool's team for `found`. → genuine collision.
+      //      Skip — without the team disambiguator we'd guess wrong.
+      //   2) Pool has ONE player and the txn's mlbTeam doesn't match. Could be
+      //      either: (a) a real-life mid-season trade (Snell SF→LAD, etc.) —
+      //      our pool's team is stale and we must apply the txn, OR (b) the
+      //      txn references a DIFFERENT player not in our pool (fringe MLB
+      //      callup with the same name). Discriminator: for a real-life
+      //      trade, the player should currently be on the txn's team's roster;
+      //      for a different-player collision, they won't be. Skip drops where
+      //      the player isn't on the dropping team — that's the case where
+      //      blindly applying would corrupt our state.drafted map and surface
+      //      the player as available when they're actually rostered.
       const _cbsToFg = {KC:'KCR',SF:'SFG',TB:'TBR',WAS:'WSN',AZ:'ARI',CWS:'CHW',SD:'SDP'};
       const _normTeam = t => _cbsToFg[t] || t;
       if (found && p.mlbTeam && found.team && _normTeam(found.team) !== _normTeam(p.mlbTeam)) {
@@ -219,6 +228,21 @@ if (CBS_TRANSACTIONS.length > 0) {
         const _sameNameCount = ALL.filter(pl => pl.name.toLowerCase() === _lcName).length;
         if (_sameNameCount > 1) {
           console.log(`Skipping transaction for ${p.name} (${p.mlbTeam}) — genuine name collision with ${found.team} player`);
+          return;
+        }
+        // ONE player in pool, mlbTeam mismatch. If this is a Drop and the
+        // player isn't on the dropping team's current roster, the txn is
+        // about a different (out-of-pool) player. Skip rather than corrupt
+        // state.drafted.
+        const _txnTeamForCollisionCheck = (typeof resolveCbsTeam === 'function') ? resolveCbsTeam(txn) : (txn.teamName || txn.team || '');
+        const _onDroppingTeam = (() => {
+          const myT = LEAGUE_TEAMS.find(t => t.mine);
+          if (myT && myT.name === _txnTeamForCollisionCheck) return (state.myTeam || []).includes(found.name);
+          const r = state.leagueTeams[_txnTeamForCollisionCheck];
+          return Array.isArray(r) && r.includes(found.name);
+        })();
+        if ((p.action || '') === 'Dropped' && !_onDroppingTeam) {
+          console.log(`Skipping Drop for ${p.name} (txn mlbTeam=${p.mlbTeam}, pool=${found.team}) — not on ${_txnTeamForCollisionCheck}'s roster, so the txn is about a different out-of-pool player.`);
           return;
         }
         // else: single player, real-life trade — fall through and apply
@@ -265,6 +289,16 @@ if (CBS_TRANSACTIONS.length > 0) {
       if (_txFound && p.mlbTeam && _txFound.team && _normTeam2(_txFound.team) !== _normTeam2(p.mlbTeam)) {
         const _lcName2 = p.name.toLowerCase();
         if (ALL.filter(pl => pl.name.toLowerCase() === _lcName2).length > 1) return;
+        // Same out-of-pool collision discriminator as the roster pass — skip
+        // Drops where the player isn't on the dropping team's current roster.
+        const _txnTeamForFeed = (typeof resolveCbsTeam === 'function') ? resolveCbsTeam(txn) : (txn.teamName || txn.team || '');
+        const _onDroppingTeamFeed = (() => {
+          const myT = LEAGUE_TEAMS.find(t => t.mine);
+          if (myT && myT.name === _txnTeamForFeed) return (state.myTeam || []).includes(_txFound.name);
+          const r = state.leagueTeams[_txnTeamForFeed];
+          return Array.isArray(r) && r.includes(_txFound.name);
+        })();
+        if ((p.action || '') === 'Dropped' && !_onDroppingTeamFeed) return;
       }
       const action = p.action || '';
       let txType = 'add';

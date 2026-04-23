@@ -1251,7 +1251,7 @@ function _renderAnalyticsInner(section) {
         h += '<div style="font-weight:700;font-size:12px;margin:8px 0 4px;">Batters — Projected vs Actual</div>';
         h += '<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:11px;">';
         h += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);">';
-        h += '<th style="padding:4px 6px;text-align:left;">Player</th><th style="padding:4px 6px;">Pos</th><th style="padding:4px 6px;">LCV</th><th style="padding:4px 6px;" title="aLCV+ on wRC+ scale">aLCV+</th><th style="padding:4px 6px;">\u0394LCV</th>';
+        h += '<th style="padding:4px 6px;text-align:left;">Player</th><th style="padding:4px 6px;">Pos</th><th style="padding:4px 6px;">LCV</th><th style="padding:4px 6px;" title="aLCV+ on wRC+ scale">aLCV+</th><th style="padding:4px 6px;" title="14d+: rolling 14-day LCV on the wRC+ scale (100 = pool avg, 115 = +1sigma)">14d+</th>';
         h += '<th style="padding:4px 6px;border-left:2px solid var(--border);">pAVG</th><th style="padding:4px 6px;">aAVG</th>';
         h += '<th style="padding:4px 6px;">pOBP</th><th style="padding:4px 6px;">aOBP</th>';
         h += '<th style="padding:4px 6px;">pSLG</th><th style="padding:4px 6px;">aSLG</th>';
@@ -1265,8 +1265,8 @@ function _renderAnalyticsInner(section) {
           const bg = i % 2 === 0 ? 'transparent' : 'var(--surface)';
           const alcv = p.aLCVPlus != null ? Math.round(p.aLCVPlus).toString() : '—';
           const alcvClr = p.aLCVPlus != null ? (p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : p.aLCVPlus >= 100 ? 'color:var(--green);' : p.aLCVPlus <= 85 ? 'color:var(--red);' : '') : '';
-          const dlcv = p.lcvDelta != null ? ((p.lcvDelta > 0 ? '+' : '') + p.lcvDelta.toFixed(1)) : '—';
-          const dlcvClr = p.lcvDelta != null ? (p.lcvDelta >= 0 ? 'var(--green)' : 'var(--red)') : 'var(--text2)';
+          const dlcv = Number.isFinite(p.rollingLcvPlus14) ? Math.round(p.rollingLcvPlus14).toString() : '—';
+          const dlcvClr = Number.isFinite(p.rollingLcvPlus14) ? (p.rollingLcvPlus14 >= 115 ? 'var(--green)' : p.rollingLcvPlus14 >= 100 ? 'var(--green)' : p.rollingLcvPlus14 <= 85 ? 'var(--red)' : 'var(--text2)') : 'var(--text2)';
           function _cmpCell(proj, act, isRate) {
             const pv = proj != null && proj !== '' ? (isRate ? parseFloat(proj).toFixed(3) : proj) : '—';
             const av = act != null && act !== '' ? (isRate ? parseFloat(act).toFixed(3) : act) : '—';
@@ -1301,7 +1301,7 @@ function _renderAnalyticsInner(section) {
         h += '<div style="font-weight:700;font-size:12px;margin:12px 0 4px;">Pitchers — Projected vs Actual</div>';
         h += '<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:11px;">';
         h += '<thead><tr style="background:var(--surface2);font-size:10px;text-transform:uppercase;color:var(--text2);">';
-        h += '<th style="padding:4px 6px;text-align:left;">Player</th><th style="padding:4px 6px;">Pos</th><th style="padding:4px 6px;">LCV</th><th style="padding:4px 6px;" title="aLCV+ on wRC+ scale">aLCV+</th><th style="padding:4px 6px;">\u0394LCV</th>';
+        h += '<th style="padding:4px 6px;text-align:left;">Player</th><th style="padding:4px 6px;">Pos</th><th style="padding:4px 6px;">LCV</th><th style="padding:4px 6px;" title="aLCV+ on wRC+ scale">aLCV+</th><th style="padding:4px 6px;" title="14d+: rolling 14-day LCV on the wRC+ scale (100 = pool avg, 115 = +1sigma)">14d+</th>';
         h += '<th style="padding:4px 6px;border-left:2px solid var(--border);">pERA</th><th style="padding:4px 6px;">aERA</th>';
         h += '<th style="padding:4px 6px;">pWHIP</th><th style="padding:4px 6px;">aWHIP</th>';
         h += '<th style="padding:4px 6px;border-left:2px solid var(--border);">pK</th><th style="padding:4px 6px;">aK</th>';
@@ -1315,8 +1315,8 @@ function _renderAnalyticsInner(section) {
           const bg = i % 2 === 0 ? 'transparent' : 'var(--surface)';
           const alcv = p.aLCVPlus != null ? Math.round(p.aLCVPlus).toString() : '—';
           const alcvClr = p.aLCVPlus != null ? (p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : p.aLCVPlus >= 100 ? 'color:var(--green);' : p.aLCVPlus <= 85 ? 'color:var(--red);' : '') : '';
-          const dlcv = p.lcvDelta != null ? ((p.lcvDelta > 0 ? '+' : '') + p.lcvDelta.toFixed(1)) : '—';
-          const dlcvClr = p.lcvDelta != null ? (p.lcvDelta >= 0 ? 'var(--green)' : 'var(--red)') : 'var(--text2)';
+          const dlcv = Number.isFinite(p.rollingLcvPlus14) ? Math.round(p.rollingLcvPlus14).toString() : '—';
+          const dlcvClr = Number.isFinite(p.rollingLcvPlus14) ? (p.rollingLcvPlus14 >= 115 ? 'var(--green)' : p.rollingLcvPlus14 >= 100 ? 'var(--green)' : p.rollingLcvPlus14 <= 85 ? 'var(--red)' : 'var(--text2)') : 'var(--text2)';
           // For ERA/WHIP, lower actual is better (green)
           function _pitCell(proj, act, isRate, lowerBetter) {
             const pv = proj != null && proj !== '' ? (isRate ? parseFloat(proj).toFixed(2) : proj) : '—';

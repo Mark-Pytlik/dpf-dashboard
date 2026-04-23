@@ -227,7 +227,7 @@ function renderRoster() {
       `<td style="padding:3px 4px;font-size:10px;white-space:nowrap;">${(p.pos||p.primaryPos||'').split('/').map(pos => '<span class="pos-badge pos-'+pos+'" style="padding:1px 4px;font-size:9px;margin-right:1px;">'+pos+'</span>').join('')}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;color:${c};font-weight:600;">${(p.lcv||0).toFixed(1)}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:10px;${p.aLCVPlus != null ? (p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : p.aLCVPlus >= 100 ? 'color:var(--green);' : p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);'}">${p.aLCVPlus != null ? Math.round(p.aLCVPlus).toString() : '—'}</td>` +
-      `<td style="padding:3px 4px;text-align:right;font-size:10px;font-weight:600;${p.lcvDelta != null ? (p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);'}">${p.lcvDelta != null ? (p.lcvDelta > 0 ? '+' : '') + p.lcvDelta.toFixed(1) : '—'}</td>` +
+      `<td style="padding:3px 4px;text-align:right;font-size:10px;font-weight:700;${p.rollingLcvPlus14 != null ? (p.rollingLcvPlus14 >= 115 ? 'color:var(--green);font-weight:800;' : p.rollingLcvPlus14 >= 100 ? 'color:var(--green);' : p.rollingLcvPlus14 <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);'}">${p.rollingLcvPlus14 != null ? Math.round(p.rollingLcvPlus14).toString() : '—'}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;">${(p.pnav||0).toFixed(1)}</td>` +
       `<td style="padding:3px 4px;text-align:right;font-size:11px;color:var(--text2);">${p.age||'?'}</td>` +
       `<td style="padding:3px 4px;text-align:center;font-size:10px;color:${yrsClr};font-weight:600;">${ki.yearsLeft}</td>` +
@@ -450,7 +450,7 @@ function renderRoster() {
     {key:'pos',label:'Elig',align:'left'},
     {key:'lcv',label:'LCV',align:'right',tip:'League Category Value: sum of z-scores across 8 league categories'},
     {key:'aLCVPlus',label:'aLCV+',align:'right',tip:'aLCV+: 100 = pool average, 115 = +1sigma (wRC+ scale). From 2026 in-season stats.'},
-    {key:'lcvDelta',label:'ΔLCV',align:'right',tip:'Actual LCV minus Projected LCV'},
+    {key:'rollingLcvPlus14',label:'14d+',align:'right',tip:'14d+: rolling 14-day LCV on the wRC+ scale (100 = pool avg, 115 = +1sigma). Same scale as aLCV+ but only the last 14 snapshots.'},
     {key:'pnav',label:'PNAV',align:'right',tip:'Positional Need-Adjusted Value: LCV weighted by positional scarcity'},
     {key:'age',label:'Age',align:'right'},
     {key:'_yrsCtrl',label:'Yrs',align:'center',tip:'Years of control remaining'},
@@ -897,7 +897,7 @@ function renderRoster() {
           let h = '';
           if (wwTargets.length > 0) {
             h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;" title="Rec+: blended recommendation on wRC+ scale. 100 = pool average, 115 = +1sigma. Blend = 60% aLCV + 15% posFlex + 15% age + 10% LCV.">Rec+</th><th style="text-align:right;padding:2px 4px;" title="aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma">aLCV+</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">ΔLCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
+            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;" title="Rec+: blended recommendation on wRC+ scale. 100 = pool average, 115 = +1sigma.">Rec+</th><th style="text-align:right;padding:2px 4px;" title="aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma">aLCV+</th><th style="text-align:right;padding:2px 4px;" title="14d+: rolling 14-day LCV on the wRC+ scale">14d+</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
             wwTargets.forEach(t => {
               const keepTag = t.ki.keepable2027 ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>` : '<span style="color:var(--text2);">—</span>';
               const tRecPlus = t.p.recScorePlus != null ? t.p.recScorePlus : null;
@@ -908,11 +908,11 @@ function renderRoster() {
                 : 'depth';
               const _wAlcv = t.p.aLCVPlus != null ? Math.round(t.p.aLCVPlus).toString() : '—';
               const _wAlcvClr = t.p.aLCVPlus != null ? (t.p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : t.p.aLCVPlus >= 100 ? 'color:var(--green);' : t.p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
-              const _wDlcv = t.p.lcvDelta != null ? ((t.p.lcvDelta > 0 ? '+' : '') + t.p.lcvDelta.toFixed(1)) : '—';
-              const _wDlcvClr = t.p.lcvDelta != null ? (t.p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
+              const _wRoll = t.p.rollingLcvPlus14 != null ? Math.round(t.p.rollingLcvPlus14).toString() : '—';
+              const _wRollClr = t.p.rollingLcvPlus14 != null ? (t.p.rollingLcvPlus14 >= 115 ? 'color:var(--green);font-weight:700;' : t.p.rollingLcvPlus14 >= 100 ? 'color:var(--green);' : t.p.rollingLcvPlus14 <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
               const _wRec = t.p.recScorePlus != null ? Math.round(t.p.recScorePlus).toString() : '—';
               const _wRecClr = t.p.recScorePlus != null ? (t.p.recScorePlus >= 109 ? 'color:var(--green);font-weight:700;' : t.p.recScorePlus >= 100 ? 'color:var(--green);' : t.p.recScorePlus <= 88 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
-              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.p.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;${_wRecClr}">${_wRec}</td><td style="text-align:right;padding:3px 4px;${_wAlcvClr}">${_wAlcv}</td><td style="text-align:right;padding:3px 4px;color:var(--text2);">${(t.p.lcv||0).toFixed(1)}</td><td style="text-align:right;padding:3px 4px;font-weight:600;${_wDlcvClr}">${_wDlcv}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--accent);">${why}</td></tr>`;
+              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.p.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;${_wRecClr}">${_wRec}</td><td style="text-align:right;padding:3px 4px;${_wAlcvClr}">${_wAlcv}</td><td style="text-align:right;padding:3px 4px;${_wRollClr}">${_wRoll}</td><td style="text-align:right;padding:3px 4px;color:var(--text2);">${(t.p.lcv||0).toFixed(1)}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--accent);">${why}</td></tr>`;
             });
             h += '</table>';
           } else { h += '<div style="font-size:11px;color:var(--text2);">No strong waiver targets found.</div>'; }
@@ -948,7 +948,7 @@ function renderRoster() {
           let h = '<div style="font-size:10px;color:var(--text2);margin-bottom:4px;">Players with the lowest combined production + keeper value.</div>';
           if (_dropPlayers.length > 0) {
             h += '<table style="width:100%;font-size:11px;border-collapse:collapse;">';
-            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;" title="Rec+: blended recommendation on wRC+ scale. 100 = pool average, 115 = +1sigma. Blend = 60% aLCV + 15% posFlex + 15% age + 10% LCV.">Rec+</th><th style="text-align:right;padding:2px 4px;" title="aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma">aLCV+</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:right;padding:2px 4px;">ΔLCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
+            h += '<tr style="color:var(--text2);font-size:10px;"><th style="text-align:left;padding:2px 4px;">Player</th><th style="padding:2px 4px;">Pos</th><th style="text-align:right;padding:2px 4px;" title="Rec+: blended recommendation on wRC+ scale. 100 = pool average, 115 = +1sigma.">Rec+</th><th style="text-align:right;padding:2px 4px;" title="aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma">aLCV+</th><th style="text-align:right;padding:2px 4px;" title="14d+: rolling 14-day LCV on the wRC+ scale">14d+</th><th style="text-align:right;padding:2px 4px;">LCV</th><th style="text-align:center;padding:2px 4px;">Keep</th><th style="text-align:left;padding:2px 4px;">Why</th></tr>';
             _dropPlayers.forEach(t => {
               const keepTag = t.ki.keepable2027 ? `<span style="color:var(--green);">R${t.ki.cost2027} (${t.ki.yearsLeft}yr)</span>` : '<span style="color:var(--red);">NK</span>';
               const reasons = [];
@@ -962,11 +962,11 @@ function renderRoster() {
               const why = reasons.length > 0 ? reasons.slice(0,2).join(', ') : 'marginal value';
               const _dAlcv = t.p.aLCVPlus != null ? Math.round(t.p.aLCVPlus).toString() : '—';
               const _dAlcvClr = t.p.aLCVPlus != null ? (t.p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : t.p.aLCVPlus >= 100 ? 'color:var(--green);' : t.p.aLCVPlus <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
-              const _dDlcv = t.p.lcvDelta != null ? ((t.p.lcvDelta > 0 ? '+' : '') + t.p.lcvDelta.toFixed(1)) : '—';
-              const _dDlcvClr = t.p.lcvDelta != null ? (t.p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : 'color:var(--text2);';
+              const _dRoll = t.p.rollingLcvPlus14 != null ? Math.round(t.p.rollingLcvPlus14).toString() : '—';
+              const _dRollClr = t.p.rollingLcvPlus14 != null ? (t.p.rollingLcvPlus14 >= 115 ? 'color:var(--green);font-weight:700;' : t.p.rollingLcvPlus14 >= 100 ? 'color:var(--green);' : t.p.rollingLcvPlus14 <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
               const _dRec = t.p.recScorePlus != null ? Math.round(t.p.recScorePlus).toString() : '—';
               const _dRecClr = t.p.recScorePlus != null ? (t.p.recScorePlus >= 109 ? 'color:var(--green);font-weight:700;' : t.p.recScorePlus >= 100 ? 'color:var(--green);' : t.p.recScorePlus <= 88 ? 'color:var(--red);' : 'color:var(--text2);') : 'color:var(--text2);';
-              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;${_dRecClr}">${_dRec}</td><td style="text-align:right;padding:3px 4px;${_dAlcvClr}">${_dAlcv}</td><td style="text-align:right;padding:3px 4px;color:var(--text2);">${t.lcv.toFixed(1)}</td><td style="text-align:right;padding:3px 4px;font-weight:600;${_dDlcvClr}">${_dDlcv}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--red);">${why}</td></tr>`;
+              h += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:3px 4px;font-weight:600;">${t.name}</td><td style="padding:3px 4px;text-align:center;">${t.p.primaryPos}</td><td style="text-align:right;padding:3px 4px;${_dRecClr}">${_dRec}</td><td style="text-align:right;padding:3px 4px;${_dAlcvClr}">${_dAlcv}</td><td style="text-align:right;padding:3px 4px;${_dRollClr}">${_dRoll}</td><td style="text-align:right;padding:3px 4px;color:var(--text2);">${t.lcv.toFixed(1)}</td><td style="text-align:center;padding:3px 4px;font-size:10px;">${keepTag}</td><td style="padding:3px 4px;font-size:10px;color:var(--red);">${why}</td></tr>`;
             });
             h += '</table>';
           }

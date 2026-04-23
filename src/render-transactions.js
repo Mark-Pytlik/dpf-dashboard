@@ -96,7 +96,7 @@ function _renderTransactionsInner(section) {
     ['mlbTeam',   'MLB',       'left'],
     ['lcvVal',    'LCV',       'right'],
     ['aLcvVal',   'aLCV+',     'right', 'aLCV+ on wRC+ scale: 100 = pool average (batter/SP/RP), 115 = +1sigma. From 2026 in-season stats.'],
-    ['dLcvVal',   'ΔLCV',      'right', 'Actual minus Projected LCV'],
+    ['rLcvVal',   '14d+',      'right', '14d+: rolling 14-day LCV on the wRC+ scale (100 = pool avg, 115 = +1sigma).'],
     ['tvVal',     'TV',        'right'],
     ['effective', 'Effective', 'left'],
   ];
@@ -127,7 +127,7 @@ function _renderTransactionsInner(section) {
     tx._player = player;
     tx.lcvVal = player ? (player.lcv || 0) : null;
     tx.aLcvVal = player && player.aLCVPlus != null ? player.aLCVPlus : null;
-    tx.dLcvVal = player && player.lcvDelta != null ? player.lcvDelta : null;
+    tx.rLcvVal = player && Number.isFinite(player.rollingLcvPlus14) ? player.rollingLcvPlus14 : null;
     let tvNum = null;
     if (player) {
       const ki = getKeeperInfoCached(tx.player);
@@ -141,7 +141,7 @@ function _renderTransactionsInner(section) {
   });
 
   // Apply current sort
-  const _NUM_KEYS = new Set(['lcvVal', 'aLcvVal', 'dLcvVal', 'tvVal']);
+  const _NUM_KEYS = new Set(['lcvVal', 'aLcvVal', 'rLcvVal', 'tvVal']);
   const _d = tsort.dir === 'asc' ? 1 : -1;
   allTxns.sort((a, b) => {
     if (tsort.key === 'date') return (a._dateTs - b._dateTs) * _d;
@@ -178,11 +178,11 @@ function _renderTransactionsInner(section) {
     html += `<td style="padding:8px 12px;font-size:12px;color:var(--text2);">${tx.mlbTeam}</td>`;
     const aLcv = tx.aLcvVal != null ? Math.round(tx.aLcvVal).toString() : '—';
     const aLcvClr = tx.aLcvVal != null ? (tx.aLcvVal >= 115 ? 'color:var(--green);font-weight:700;' : tx.aLcvVal >= 100 ? 'color:var(--green);' : tx.aLcvVal <= 85 ? 'color:var(--red);' : '') : '';
-    const dLcv = tx.dLcvVal != null ? ((tx.dLcvVal > 0 ? '+' : '') + tx.dLcvVal.toFixed(1)) : '—';
-    const dLcvClr = tx.dLcvVal != null ? (tx.dLcvVal >= 0 ? 'color:var(--green);' : 'color:var(--red);') : '';
+    const rLcv = tx.rLcvVal != null ? Math.round(tx.rLcvVal).toString() : '—';
+    const rLcvClr = tx.rLcvVal != null ? (tx.rLcvVal >= 115 ? 'color:var(--green);font-weight:700;' : tx.rLcvVal >= 100 ? 'color:var(--green);' : tx.rLcvVal <= 85 ? 'color:var(--red);' : '') : '';
     html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;">${lcv}</td>`;
     html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;${aLcvClr}">${aLcv}</td>`;
-    html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;font-weight:600;${dLcvClr}">${dLcv}</td>`;
+    html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;font-weight:600;${rLcvClr}">${rLcv}</td>`;
     html += `<td style="padding:8px 12px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums;">${tvVal}</td>`;
     html += `<td style="padding:8px 12px;font-size:12px;color:var(--text2);">${tx.effective}</td>`;
     html += '</tr>';

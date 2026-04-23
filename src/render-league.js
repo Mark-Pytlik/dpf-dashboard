@@ -182,7 +182,7 @@ function renderLeague() {
         { key: 'yrs', label: 'Yrs', align: 'right', w: '6%' },
         { key: 'lcv', label: 'LCV', align: 'right', w: '10%' },
         { key: 'alcv', label: 'aLCV+', align: 'right', w: '10%', tip: 'aLCV+ on wRC+ scale: 100 = pool average, 115 = +1sigma.' },
-        { key: 'dlcv', label: 'ΔLCV', align: 'right', w: '10%', tip: 'Actual minus Projected LCV' },
+        { key: 'roll14', label: '14d+', align: 'right', w: '10%', tip: '14d+: rolling 14-day LCV on the wRC+ scale (100 = pool avg, 115 = +1sigma)' },
         { key: 'pnav', label: 'PNAV', align: 'right', w: '10%' }
       ];
 
@@ -205,7 +205,7 @@ function renderLeague() {
           name: n, p, ki, isKeeper: keeperNames.has(n),
           lcvVal: p ? (p.lcv||0) : -99,
           alcvVal: p && p.aLCVPlus != null ? p.aLCVPlus : -99,
-          dlcvVal: p && p.lcvDelta != null ? p.lcvDelta : -99,
+          roll14Val: p && p.rollingLcvPlus14 != null ? p.rollingLcvPlus14 : -99,
           pnavVal: p ? (p.pnav||0) : -99,
           pos: p ? p.primaryPos : '?',
           keeperRd: keeperRd || 0,
@@ -224,7 +224,7 @@ function renderLeague() {
         if (col === 'yrs') return dir * (a.yrsVal - b.yrsVal);
         if (col === 'pnav') return dir * (a.pnavVal - b.pnavVal);
         if (col === 'alcv') return dir * (a.alcvVal - b.alcvVal);
-        if (col === 'dlcv') return dir * (a.dlcvVal - b.dlcvVal);
+        if (col === 'roll14') return dir * (a.roll14Val - b.roll14Val);
         return dir * (a.lcvVal - b.lcvVal); // default: lcv
       });
 
@@ -245,11 +245,11 @@ function renderLeague() {
         html += `<td style="text-align:right;padding:3px 4px;">${ki.yearsLeft}</td>`;
         const alcv = p && p.aLCVPlus != null ? Math.round(p.aLCVPlus).toString() : '—';
         const alcvClr = p && p.aLCVPlus != null ? (p.aLCVPlus >= 115 ? 'color:var(--green);font-weight:700;' : p.aLCVPlus >= 100 ? 'color:var(--green);' : p.aLCVPlus <= 85 ? 'color:var(--red);' : '') : '';
-        const dlcv = p && p.lcvDelta != null ? ((p.lcvDelta > 0 ? '+' : '') + p.lcvDelta.toFixed(1)) : '—';
-        const dlcvClr = p && p.lcvDelta != null ? (p.lcvDelta >= 0 ? 'color:var(--green);' : 'color:var(--red);') : '';
+        const roll14 = p && p.rollingLcvPlus14 != null ? Math.round(p.rollingLcvPlus14).toString() : '—';
+        const roll14Clr = p && p.rollingLcvPlus14 != null ? (p.rollingLcvPlus14 >= 115 ? 'color:var(--green);font-weight:700;' : p.rollingLcvPlus14 >= 100 ? 'color:var(--green);' : p.rollingLcvPlus14 <= 85 ? 'color:var(--red);' : 'color:var(--text2);') : '';
         html += `<td style="text-align:right;padding:3px 4px;font-weight:600;">${lcv}</td>`;
         html += `<td style="text-align:right;padding:3px 4px;${alcvClr}">${alcv}</td>`;
-        html += `<td style="text-align:right;padding:3px 4px;font-weight:600;${dlcvClr}">${dlcv}</td>`;
+        html += `<td style="text-align:right;padding:3px 4px;font-weight:600;${roll14Clr}">${roll14}</td>`;
         html += `<td style="text-align:right;padding:3px 4px;">${pnav}</td>`;
         html += `</tr>`;
       });
@@ -846,19 +846,19 @@ function renderActionItems() {
   if (state._mode === 'season') {
     const coldPlayers = myTeam
       .map(name => ({ name, p: _plyrI(name) }))
-      .filter(x => x.p && x.p.lcvDelta !== undefined && x.p.lcvDelta !== null)
-      .sort((a, b) => (a.p.lcvDelta || 0) - (b.p.lcvDelta || 0))
+      .filter(x => x.p && Number.isFinite(x.p.rollingLcvPlus14))
+      .sort((a, b) => (a.p.rollingLcvPlus14 || 0) - (b.p.rollingLcvPlus14 || 0))
       .slice(0, 3);
 
     if (coldPlayers.length > 0) {
       html += '<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:16px;">';
       html += '<div style="font-weight:700;font-size:12px;margin-bottom:10px;">Cold Players (Drop Candidates)</div>';
-      html += '<div style="font-size:10px;color:var(--text2);margin-bottom:10px;">Players underperforming projections by most:</div>';
+      html += '<div style="font-size:10px;color:var(--text2);margin-bottom:10px;">Players with weakest 14d+ (rolling 14-day LCV on the wRC+ scale):</div>';
 
       coldPlayers.forEach(x => {
-        const delta = (x.p.lcvDelta || 0).toFixed(1);
-        const color = delta < 0 ? 'var(--red)' : 'var(--green)';
-        html += `<div style="padding:8px;background:var(--surface2);border-radius:4px;margin-bottom:6px;font-size:11px;"><b>${x.name}</b> <span style="color:var(--text2);">${x.p.primaryPos}</span> <span style="color:${color};font-weight:600;">Δ${delta}</span></div>`;
+        const v = x.p.rollingLcvPlus14;
+        const color = v >= 100 ? 'var(--green)' : v <= 85 ? 'var(--red)' : 'var(--text2)';
+        html += `<div style="padding:8px;background:var(--surface2);border-radius:4px;margin-bottom:6px;font-size:11px;"><b>${x.name}</b> <span style="color:var(--text2);">${x.p.primaryPos}</span> <span style="color:${color};font-weight:600;">14d+ ${Math.round(v)}</span></div>`;
       });
       html += '</div>';
     }
@@ -870,19 +870,20 @@ function renderActionItems() {
   if (state._mode === 'season') {
     const draftedSet = new Set(Object.keys(state.drafted));
     const hotAgents = ALL
-      .filter(p => !draftedSet.has(p.name))
-      .sort((a, b) => (b.lcvDelta || b.actualLcv || 0) - (a.lcvDelta || a.actualLcv || 0))
+      .filter(p => !draftedSet.has(p.name) && Number.isFinite(p.rollingLcvPlus14))
+      .sort((a, b) => (b.rollingLcvPlus14 || 0) - (a.rollingLcvPlus14 || 0))
       .slice(0, 5);
 
     if (hotAgents.length > 0) {
       html += '<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;">';
       html += '<div style="font-weight:700;font-size:12px;margin-bottom:10px;">Hot Free Agents</div>';
-      html += '<div style="font-size:10px;color:var(--text2);margin-bottom:10px;">Undrafted players with strongest recent performance:</div>';
+      html += '<div style="font-size:10px;color:var(--text2);margin-bottom:10px;">Undrafted players with strongest 14d+ (rolling 14-day LCV on wRC+ scale):</div>';
 
       hotAgents.forEach(p => {
-        const delta = p.lcvDelta !== undefined ? (p.lcvDelta || 0).toFixed(1) : '';
+        const roll = p.rollingLcvPlus14;
         const alcPlus = p.aLCVPlus != null ? Math.round(p.aLCVPlus).toString() : '';
-        html += `<div style="padding:8px;background:var(--surface2);border-radius:4px;margin-bottom:6px;font-size:11px;"><b>${p.name}</b> <span style="color:var(--text2);">${p.primaryPos}</span>${delta ? ` <span style="color:var(--green);font-weight:600;">+${delta}</span>` : ''}${alcPlus ? ` <span style="color:var(--text2);">(aLCV+: ${alcPlus})</span>` : ''}</div>`;
+        const rollClr = roll >= 115 ? 'var(--green);font-weight:700;' : roll >= 100 ? 'var(--green);font-weight:600;' : 'var(--text2);font-weight:600;';
+        html += `<div style="padding:8px;background:var(--surface2);border-radius:4px;margin-bottom:6px;font-size:11px;"><b>${p.name}</b> <span style="color:var(--text2);">${p.primaryPos}</span> <span style="color:${rollClr}">14d+ ${Math.round(roll)}</span>${alcPlus ? ` <span style="color:var(--text2);">(aLCV+: ${alcPlus})</span>` : ''}</div>`;
       });
       html += '</div>';
     }
