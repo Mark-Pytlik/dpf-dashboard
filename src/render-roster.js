@@ -62,6 +62,13 @@ function renderRoster() {
   const ilPlayers = [];
   const autoPool = [];
 
+  // Helper: is this player on the IL per the latest scraped injury feed?
+  function _isOnIL(name) {
+    const inj = (typeof INJURY_MAP !== 'undefined') ? INJURY_MAP.get(name) : null;
+    if (!inj) return false;
+    const s = inj.status;
+    return s === 'IL' || s === 'O';  // Out/IL both occupy an IL slot
+  }
   teamPlayers.forEach(name => {
     const p = _plyrI(name) || { name, primaryPos: '?', elig: '?', lcv:0, pnav:0 };
     const ov = overrides[name];
@@ -69,6 +76,11 @@ function renderRoster() {
     if (ov === 'reserve') { (['SP','RP'].includes(p.primaryPos) ? pitBench : offBench).push(p); return; }
     if (ov && ROSTER_SLOTS[ov] !== undefined) { bySlot[ov].push(p); return; }
     if (ov) { (['SP','RP'].includes(p.primaryPos) ? pitBench : offBench).push(p); return; }
+    // No override: auto-bucket IL players to the IL section (capped at 4 slots).
+    if (_isOnIL(name) && ilPlayers.length < (ROSTER_SLOTS.IL || 4)) {
+      ilPlayers.push(p);
+      return;
+    }
     autoPool.push(p);
   });
 
@@ -1180,14 +1192,45 @@ function renderRoster() {
   if (optBtn) optBtn.addEventListener('click', () => {
     const allNames = [...new Set([...teamPlayers, ...teamMilb])];
     const players = allNames.map(n => _plyrI(n)).filter(Boolean);
-    const batters = players.filter(p => !['SP','RP'].includes(p.primaryPos)).sort((a,b) => (b.lcv||0) - (a.lcv||0));
-    const sps = players.filter(p => p.primaryPos === 'SP').sort((a,b) => (b.lcv||0) - (a.lcv||0));
-    const rps = players.filter(p => p.primaryPos === 'RP').sort((a,b) => (b.lcv||0) - (a.lcv||0));
+    // Rank by aLCV+ (in-season actual on the wRC+ scale) — falls back to
+    // projected LCV+ when no 2026 stats yet, then to raw lcv as last resort.
+    function _rank(p) {
+      if (Number.isFinite(p.aLCVPlus))    return p.aLCVPlus;
+      if (Number.isFinite(p.lcvPlus))     return p.lcvPlus;
+      return (p.lcv || 0) * 10 + 100;  // crude scaling so raw-lcv players still order sensibly
+    }
+    const _cmp = (a, b) => _rank(b) - _rank(a);
+
+    // Auto-IL: any player flagged on the IL gets their slot before lineup
+    // selection, so the optimizer doesn't waste an active spot on someone
+    // who can't play. Capped at IL slot count (4).
+    function _isOnIL(name) {
+      const inj = (typeof INJURY_MAP !== 'undefined') ? INJURY_MAP.get(name) : null;
+      if (!inj) return false;
+      return inj.status === 'IL' || inj.status === 'O';
+    }
     const nOv = {};
     const used = new Set();
+    const ilCap = (ROSTER_SLOTS.IL || 4);
+    let ilUsed = 0;
+    for (const p of players) {
+      if (ilUsed < ilCap && _isOnIL(p.name)) {
+        nOv[p.name] = 'il';
+        used.add(p.name);
+        ilUsed++;
+      }
+    }
+
+    // Healthy pools, ranked by aLCV+
+    const batters = players.filter(p => !['SP','RP'].includes(p.primaryPos) && !used.has(p.name)).sort(_cmp);
+    const sps = players.filter(p => p.primaryPos === 'SP' && !used.has(p.name)).sort(_cmp);
+    const rps = players.filter(p => p.primaryPos === 'RP' && !used.has(p.name)).sort(_cmp);
     const bs = ['C','1B','2B','3B','SS','LF','CF','RF','DH'];
+    // Pass 1: primary position
     for (const s of bs) { if (s==='DH') continue; const b = batters.find(p=>p.primaryPos===s&&!used.has(p.name)); if(b){nOv[b.name]=s;used.add(b.name);} }
+    // Pass 2: secondary eligibility
     for (const s of bs) { if (s==='DH'||Object.values(nOv).filter(v=>v===s).length>=(ROSTER_SLOTS[s]||1)) continue; const b=batters.find(p=>{if(used.has(p.name))return false; return (p.pos||p.primaryPos||'').split('/').includes(s);}); if(b){nOv[b.name]=s;used.add(b.name);} }
+    // Pass 3: highest-aLCV+ remaining batter to DH
     const dh = batters.find(p => !used.has(p.name)); if(dh){nOv[dh.name]='DH';used.add(dh.name);}
     sps.slice(0,5).forEach(p=>{nOv[p.name]='SP';used.add(p.name);});
     rps.slice(0,5).forEach(p=>{nOv[p.name]='RP';used.add(p.name);});

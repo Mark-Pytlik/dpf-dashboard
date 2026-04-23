@@ -144,18 +144,55 @@ def build_index():
 
 
 def build_lcv_stats(index):
-    """LCV z-score normalization params from the latest snapshot's pool."""
-    if not index['dates']:
-        return {'bat': {}, 'pit': {}}
-    latest = index['dates'][-1]
+    """Z-score normalization params for the rolling 14d LCV computed in
+    time-splits.js. Use 14d-WINDOW values across all qualifying players so the
+    pool means match the units of the value being scored (no pace multiplier).
+    Without this, scoring Dollander's paced 21->186 K against the
+    cumulative-season pool's mean of 14.7 gives a +20 sigma blowup that
+    later collapses back to ~80 via regression. Match-units fixes it.
 
-    # Batter pool — same gates as build_dashboard.py (PA >= 200)
+    Pitchers split into SP / RP via a heuristic on cumulative season totals:
+      - SP: any QS in season
+      - RP: no QS but >0 HLD or SV
+      - Other (mop-up / openers / very few IP): pooled with both for
+        normalization to keep std stable.
+    """
+    import datetime as _dt
+    if not index['dates']:
+        return {'bat': {}, 'sp': {}, 'rp': {}}
+
+    sorted_dates = sorted(index['dates'])
+    latest = sorted_dates[-1]
+    target = (_dt.date.fromisoformat(latest) - _dt.timedelta(days=14)).isoformat()
+    earlier_for = None
+    for d in sorted_dates:
+        if d <= target: earlier_for = d
+        else: break
+    # If no snapshot 14+ days back, fall back to earliest available — keeps
+    # window math sane even when we have <14 days of snapshots.
+    if not earlier_for and len(sorted_dates) > 1:
+        earlier_for = sorted_dates[0]
+
+    def window_bat(name, snaps):
+        if earlier_for and earlier_for != latest:
+            l = snaps.get(latest); e = snaps.get(earlier_for)
+            if l and e:
+                return [max(0, l[i] - e[i]) for i in range(len(l))]
+        return snaps.get(latest)
+
+    def window_pit(name, snaps):
+        if earlier_for and earlier_for != latest:
+            l = snaps.get(latest); e = snaps.get(earlier_for)
+            if l and e:
+                return [max(0, l[i] - e[i]) for i in range(len(l))]
+        return snaps.get(latest)
+
     bat_vals = {k: [] for k in ['avg','obp','slg','hr','r','rbi','sb','so']}
     for name, snaps in index['bat'].items():
-        s = snaps.get(latest)
-        if not s: continue
-        pa, ab, h, hr, r, rbi, sb, so, bb, hbp, sf, x1b, x2b, x3b = s
-        if pa < 50: continue   # smaller cutoff for in-season pool
+        win = window_bat(name, snaps)
+        if not win: continue
+        pa, ab, h, hr, r, rbi, sb, so, bb, hbp, sf, x1b, x2b, x3b = win
+        if pa < 30: continue   # 30 PA window minimum
         avg = h/ab if ab else 0
         obp = (h+bb+hbp)/(ab+bb+hbp+sf) if (ab+bb+hbp+sf) else 0
         tb = x1b + 2*x2b + 3*x3b + 4*hr
@@ -164,28 +201,50 @@ def build_lcv_stats(index):
         bat_vals['hr'].append(hr); bat_vals['r'].append(r); bat_vals['rbi'].append(rbi)
         bat_vals['sb'].append(sb); bat_vals['so'].append(so)
 
-    # Pitcher pool (IP >= 10)
-    pit_vals = {k: [] for k in ['era','whip','hld','so','hr','sv','w','qs']}
+    sp_vals = {k: [] for k in ['era','whip','hr','so','w','qs']}
+    rp_vals = {k: [] for k in ['era','whip','hr','so','sv','hld']}
     for name, snaps in index['pit'].items():
-        s = snaps.get(latest)
-        if not s: continue
-        ip, w, sv, hld, so, hr, qs, er, h, bb, tbf = s
-        if ip < 5: continue
+        # Role classification from CUMULATIVE season totals (not window):
+        latest_s = snaps.get(latest)
+        if not latest_s: continue
+        c_ip, c_w, c_sv, c_hld, c_so, c_hr, c_qs, c_er, c_h, c_bb, c_tbf = latest_s
+        if c_qs > 0:
+            role = 'SP'
+        elif c_hld > 0 or c_sv > 0:
+            role = 'RP'
+        else:
+            # Mop-up / opener / TBD — include in both with a higher IP gate so they
+            # don't dominate either pool. Skip for now (keeps the SP/RP pools cleaner).
+            continue
+        win = window_pit(name, snaps)
+        if not win: continue
+        ip, w, sv, hld, so, hr, qs, er, h, bb, tbf = win
+        # IP threshold: 5 IP for SPs (one start), 2 for RPs (couple appearances)
+        min_ip = 5.0 if role == 'SP' else 2.0
+        if ip < min_ip: continue
         era = (er * 9) / ip if ip else 0
         whip = (h + bb) / ip if ip else 0
-        pit_vals['era'].append(era); pit_vals['whip'].append(whip)
-        pit_vals['hld'].append(hld); pit_vals['so'].append(so); pit_vals['hr'].append(hr)
-        pit_vals['sv'].append(sv); pit_vals['w'].append(w); pit_vals['qs'].append(qs)
+        if role == 'SP':
+            sp_vals['era'].append(era); sp_vals['whip'].append(whip)
+            sp_vals['hr'].append(hr); sp_vals['so'].append(so)
+            sp_vals['w'].append(w); sp_vals['qs'].append(qs)
+        else:
+            rp_vals['era'].append(era); rp_vals['whip'].append(whip)
+            rp_vals['hr'].append(hr); rp_vals['so'].append(so)
+            rp_vals['sv'].append(sv); rp_vals['hld'].append(hld)
 
     def stats(vals):
-        if not vals: return {'mean': 0, 'std': 1}
+        if len(vals) < 5: return {'mean': 0, 'std': 1}
         n = len(vals); mean = sum(vals)/n
         var = sum((v-mean)**2 for v in vals)/n
-        return {'mean': mean, 'std': max(var ** 0.5, 1e-6)}
+        return {'mean': round(mean, 4), 'std': round(max(var ** 0.5, 1e-6), 4)}
 
     return {
+        'window_days': 14,
+        'window': {'from': earlier_for, 'to': latest},
         'bat': {k: stats(v) for k, v in bat_vals.items()},
-        'pit': {k: stats(v) for k, v in pit_vals.items()},
+        'sp':  {k: stats(v) for k, v in sp_vals.items()},
+        'rp':  {k: stats(v) for k, v in rp_vals.items()},
     }
 
 
@@ -196,7 +255,7 @@ def main():
     index = build_index()
     print(f"Index: {len(index['dates'])} dates, {len(index['bat'])} batters, {len(index['pit'])} pitchers")
     lcv_stats = build_lcv_stats(index)
-    print(f"LCV stats: bat keys={sorted(lcv_stats['bat'].keys())}, pit keys={sorted(lcv_stats['pit'].keys())}")
+    print(f"LCV stats: bat keys={sorted(lcv_stats['bat'].keys())}, sp keys={sorted(lcv_stats.get('sp', {}).keys())}, rp keys={sorted(lcv_stats.get('rp', {}).keys())} (window {lcv_stats.get('window', {}).get('from')} → {lcv_stats.get('window', {}).get('to')})")
     with open(OUT_INDEX, 'w') as f:
         json.dump(index, f, separators=(',', ':'))
     with open(OUT_LCVSTATS, 'w') as f:

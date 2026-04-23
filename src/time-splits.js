@@ -157,22 +157,23 @@ function computeBatSplitLcv(player, windowDays) {
   const stats = computeBatSplitStats(player.name, windowDays);
   if (!stats || stats.pa < 30) return null;
 
-  const projPa = player.pa || 550; // projected full-season PA
-  const pace = projPa / stats.pa;
   const bs = LCV_STATS.bat;
-
+  // Counting stats raw — the pool means in lcv_stats.json are now from each
+  // batter's actual 14d window, so units match (no pace multiplier needed).
+  // Without this fix, a hot 14d player would get massive z-scores that
+  // collapsed back via regression — same root cause as the Dollander 14d+ bug.
   const rawLcv = _zscore(stats.avg, bs.avg.mean, bs.avg.std)
-    + _zscore(stats.hr * pace, bs.hr.mean, bs.hr.std)
+    + _zscore(stats.hr,  bs.hr.mean,  bs.hr.std)
     + _zscore(stats.obp, bs.obp.mean, bs.obp.std)
     + _zscore(stats.slg, bs.slg.mean, bs.slg.std)
-    + _zscore(stats.r * pace, bs.r.mean, bs.r.std)
-    + _zscore(stats.rbi * pace, bs.rbi.mean, bs.rbi.std)
-    + _zscore(stats.sb * pace, bs.sb.mean, bs.sb.std)
-    - _zscore(stats.so * pace, bs.so.mean, bs.so.std);
+    + _zscore(stats.r,   bs.r.mean,   bs.r.std)
+    + _zscore(stats.rbi, bs.rbi.mean, bs.rbi.std)
+    + _zscore(stats.sb,  bs.sb.mean,  bs.sb.std)
+    - _zscore(stats.so,  bs.so.mean,  bs.so.std);
 
   // Regress toward projected LCV based on sample size.
-  // At 30 PA trust actual ~30%, at 200 PA trust ~80%, at 500+ PA trust ~100%.
-  const reliability = Math.min(1, stats.pa / 500);
+  // 30 PA window ~ trust 30%, 60 PA ~ trust 60%, 100+ PA ~ trust 100%.
+  const reliability = Math.min(1, stats.pa / 100);
   const projLcv = player.lcv || 0;
   const lcv = reliability * rawLcv + (1 - reliability) * projLcv;
 
@@ -190,34 +191,70 @@ function computeBatSplitLcv(player, windowDays) {
  */
 function computePitSplitLcv(player, windowDays) {
   const stats = computePitSplitStats(player.name, windowDays);
-  // IP threshold: 3 IP for RPs (short outings), 10 IP for SPs
-  const minIp = (player.pos === 'RP' || player.primaryPos === 'RP') ? 3.0 : 10.0;
+  const isRP = (player.pos === 'RP' || player.primaryPos === 'RP');
+  // IP threshold: 3 IP for RPs, 10 IP for SPs
+  const minIp = isRP ? 3.0 : 10.0;
   if (!stats || stats.ip < minIp) return null;
 
-  const projIp = player.ip || 150;
-  const pace = projIp / stats.ip;
-  const ps = LCV_STATS.pit;
+  // Use the SP-window pool for SPs, RP-window pool for RPs. The pool means
+  // are computed in build_snapshots_index.py from each pitcher's actual 14d
+  // window stats (NOT cumulative season totals), so units match — no pace
+  // multiplier needed. Without this, paced 21->186 K vs season-cumulative
+  // 14.7 K mean would give Dollander a +20 sigma blowup that later collapsed
+  // to ~80 via regression.
+  const ps = isRP ? LCV_STATS.rp : LCV_STATS.sp;
+  if (!ps || !ps.era) {
+    // Fallback for older lcv_stats (no SP/RP split): use legacy path.
+    const psLegacy = LCV_STATS.pit || {};
+    if (!psLegacy.era) return null;
+    const projIp = player.ip || 150;
+    const pace = projIp / stats.ip;
+    const rawLcv = -_zscore(stats.era, psLegacy.era.mean, psLegacy.era.std)
+      + _zscore(stats.hld * pace, psLegacy.hld.mean, psLegacy.hld.std)
+      - _zscore(stats.hr * pace, psLegacy.hr.mean, psLegacy.hr.std)
+      + _zscore(stats.so * pace, psLegacy.so.mean, psLegacy.so.std)
+      + _zscore(stats.sv * pace, psLegacy.sv.mean, psLegacy.sv.std)
+      + _zscore(stats.w * pace, psLegacy.w.mean, psLegacy.w.std)
+      - _zscore(stats.whip, psLegacy.whip.mean, psLegacy.whip.std)
+      + _zscore(stats.qs * pace, psLegacy.qs.mean, psLegacy.qs.std);
+    const reliability = Math.min(1, stats.ip / (player.ip || 150));
+    const projLcv = player.lcv || 0;
+    const lcv = reliability * rawLcv + (1 - reliability) * projLcv;
+    let splitConfidence = stats.ip < 15 ? 'low' : (stats.ip < 40 ? 'med' : 'high');
+    return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - projLcv) * 100) / 100, splitConfidence };
+  }
 
-  const rawLcv = -_zscore(stats.era, ps.era.mean, ps.era.std)
-    + _zscore(stats.hld * pace, ps.hld.mean, ps.hld.std)
-    - _zscore(stats.hr * pace, ps.hr.mean, ps.hr.std)
-    + _zscore(stats.so * pace, ps.so.mean, ps.so.std)
-    + _zscore(stats.sv * pace, ps.sv.mean, ps.sv.std)
-    + _zscore(stats.w * pace, ps.w.mean, ps.w.std)
-    - _zscore(stats.whip, ps.whip.mean, ps.whip.std)
-    + _zscore(stats.qs * pace, ps.qs.mean, ps.qs.std);
+  // SP formula: ERA, WHIP, HR, SO, W, QS (no SV/HLD)
+  // RP formula: ERA, WHIP, HR, SO, SV, HLD (no W/QS)
+  // All counting stats raw (no pace) — pool is window-based, units match.
+  let rawLcv;
+  if (isRP) {
+    rawLcv = -_zscore(stats.era,  ps.era.mean,  ps.era.std)
+           - _zscore(stats.whip, ps.whip.mean, ps.whip.std)
+           - _zscore(stats.hr,   ps.hr.mean,   ps.hr.std)
+           + _zscore(stats.so,   ps.so.mean,   ps.so.std)
+           + _zscore(stats.sv,   ps.sv.mean,   ps.sv.std)
+           + _zscore(stats.hld,  ps.hld.mean,  ps.hld.std);
+  } else {
+    rawLcv = -_zscore(stats.era,  ps.era.mean,  ps.era.std)
+           - _zscore(stats.whip, ps.whip.mean, ps.whip.std)
+           - _zscore(stats.hr,   ps.hr.mean,   ps.hr.std)
+           + _zscore(stats.so,   ps.so.mean,   ps.so.std)
+           + _zscore(stats.w,    ps.w.mean,    ps.w.std)
+           + _zscore(stats.qs,   ps.qs.mean,   ps.qs.std);
+  }
 
-  // Regress toward projected LCV based on sample size.
-  // At 10 IP trust actual ~10%, at 80 IP trust ~53%, at 150+ IP trust ~100%.
-  const projIpFull = player.ip || 150;
+  // Regress toward projected LCV based on sample size. For a 14d window, an
+  // SP gets ~2 starts (~12 IP) so reliability is moderate; RPs ~3-5 IP so low.
+  // Project full season ~150 IP for SPs / ~70 IP for RPs.
+  const projIpFull = isRP ? 70 : 150;
   const reliability = Math.min(1, stats.ip / projIpFull);
   const projLcv = player.lcv || 0;
   const lcv = reliability * rawLcv + (1 - reliability) * projLcv;
 
-  // Sample size confidence: IP < 15 = low, 15-40 = med, >40 = high
   let splitConfidence = 'high';
-  if (stats.ip < 15) splitConfidence = 'low';
-  else if (stats.ip < 40) splitConfidence = 'med';
+  if (stats.ip < (isRP ? 5 : 15)) splitConfidence = 'low';
+  else if (stats.ip < (isRP ? 12 : 40)) splitConfidence = 'med';
 
   return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - projLcv) * 100) / 100, splitConfidence };
 }
