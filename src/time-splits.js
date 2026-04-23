@@ -158,10 +158,10 @@ function computeBatSplitLcv(player, windowDays) {
   if (!stats || stats.pa < 30) return null;
 
   const bs = LCV_STATS.bat;
-  // Counting stats raw — the pool means in lcv_stats.json are now from each
-  // batter's actual 14d window, so units match (no pace multiplier needed).
-  // Without this fix, a hot 14d player would get massive z-scores that
-  // collapsed back via regression — same root cause as the Dollander 14d+ bug.
+  // OBSERVED 14d performance only. No projection blending — the pool
+  // means in LCV_STATS are from each batter's actual 14d window so units
+  // match. (User direction: the rolling number must be pure observation;
+  // any speculation belongs in the projection columns elsewhere.)
   const rawLcv = _zscore(stats.avg, bs.avg.mean, bs.avg.std)
     + _zscore(stats.hr,  bs.hr.mean,  bs.hr.std)
     + _zscore(stats.obp, bs.obp.mean, bs.obp.std)
@@ -171,11 +171,8 @@ function computeBatSplitLcv(player, windowDays) {
     + _zscore(stats.sb,  bs.sb.mean,  bs.sb.std)
     - _zscore(stats.so,  bs.so.mean,  bs.so.std);
 
-  // Regress toward projected LCV based on sample size.
-  // 30 PA window ~ trust 30%, 60 PA ~ trust 60%, 100+ PA ~ trust 100%.
-  const reliability = Math.min(1, stats.pa / 100);
   const projLcv = player.lcv || 0;
-  const lcv = reliability * rawLcv + (1 - reliability) * projLcv;
+  const lcv = rawLcv;
 
   // Sample size confidence: PA < 50 = low, 50-120 = med, >120 = high
   let splitConfidence = 'high';
@@ -224,9 +221,23 @@ function computePitSplitLcv(player, windowDays) {
     return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - projLcv) * 100) / 100, splitConfidence };
   }
 
-  // SP formula: ERA, WHIP, HR, SO, W, QS (no SV/HLD)
-  // RP formula: ERA, WHIP, HR, SO, SV, HLD (no W/QS)
-  // All counting stats raw (no pace) — pool is window-based, units match.
+  // 14d LCV is OBSERVED performance only — no projection blending. The pool
+  // means/stds in LCV_STATS are already from each pitcher's actual 14d
+  // window (matched units, see build_snapshots_index.py), so a raw z-score
+  // sum here is directly comparable across pitchers.
+  //
+  // Category weights (analyst-tuned for small-window noise):
+  //   ERA, WHIP, HR allowed: full weight — these are rate stats that
+  //     stabilize relatively fast and reflect actual quality.
+  //   SO: full weight — sample size dependent but the K rate within the
+  //     window is meaningful.
+  //   W (SP): 0.5 — wins over 2-3 starts are bullpen + offense noise,
+  //     not the pitcher's quality.
+  //   QS (SP): 0 — drop from rolling. With ~2 starts, QS swings on a
+  //     single bad inning; Coors starters basically can't get them. ERA
+  //     already captures the underlying quality.
+  //   SV (RP): full weight — observed leverage usage.
+  //   HLD (RP): full weight — observed leverage usage.
   let rawLcv;
   if (isRP) {
     rawLcv = -_zscore(stats.era,  ps.era.mean,  ps.era.std)
@@ -240,23 +251,24 @@ function computePitSplitLcv(player, windowDays) {
            - _zscore(stats.whip, ps.whip.mean, ps.whip.std)
            - _zscore(stats.hr,   ps.hr.mean,   ps.hr.std)
            + _zscore(stats.so,   ps.so.mean,   ps.so.std)
-           + _zscore(stats.w,    ps.w.mean,    ps.w.std)
-           + _zscore(stats.qs,   ps.qs.mean,   ps.qs.std);
+           + 0.5 * _zscore(stats.w, ps.w.mean, ps.w.std);
+    // QS dropped from SP rolling formula on purpose (see above).
   }
-
-  // Regress toward projected LCV based on sample size. For a 14d window, an
-  // SP gets ~2 starts (~12 IP) so reliability is moderate; RPs ~3-5 IP so low.
-  // Project full season ~150 IP for SPs / ~70 IP for RPs.
-  const projIpFull = isRP ? 70 : 150;
-  const reliability = Math.min(1, stats.ip / projIpFull);
-  const projLcv = player.lcv || 0;
-  const lcv = reliability * rawLcv + (1 - reliability) * projLcv;
 
   let splitConfidence = 'high';
   if (stats.ip < (isRP ? 5 : 15)) splitConfidence = 'low';
   else if (stats.ip < (isRP ? 12 : 40)) splitConfidence = 'med';
 
-  return { actualLcv: Math.round(lcv * 100) / 100, lcvDelta: Math.round((lcv - projLcv) * 100) / 100, splitConfidence };
+  // Return raw observed LCV — projected LCV is left out of this calculation
+  // entirely. lcvDelta is preserved as a convenience (observed minus
+  // projection) for callers that compare the two, but is no longer used in
+  // the actualLcv value itself.
+  const projLcv = player.lcv || 0;
+  return {
+    actualLcv: Math.round(rawLcv * 100) / 100,
+    lcvDelta: Math.round((rawLcv - projLcv) * 100) / 100,
+    splitConfidence
+  };
 }
 
 /**
