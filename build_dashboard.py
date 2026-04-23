@@ -326,21 +326,25 @@ def resolve_pos(pos_str, name):
     return None
 
 def get_all_positions(name, fg_pos):
-    """Get all eligible positions. CBS is authoritative — if CBS has data for a player,
-    use CBS positions exclusively. Only fall back to FG positions if CBS has no entry."""
+    """Get all eligible positions. CBS is authoritative — uses our league's
+    actual eligibility rule (20 games last year / 10 this year). When CBS
+    has no entry for a player (free agents we haven't tracked), fall back
+    ONLY to their PRIMARY FG position — never to FG's multi-position list,
+    because FG uses a looser eligibility rule and would falsely flag
+    players (e.g. Dominic Smith would show as 1B/RF off the FG list even
+    though he doesn't meet our league's RF eligibility threshold)."""
     cbs_positions = get_cbs_all_positions(name)
     if cbs_positions:
         return cbs_positions
-    # No CBS data — fall back to FG positions
     if pd.isna(fg_pos):
         return ['DH']
+    # No CBS data → use ONLY the first FG position (their primary). Trims
+    # away FG-secondaries that don't meet our league's stricter rule.
     parts = str(fg_pos).split('/')
-    positions = []
-    for part in parts:
-        resolved = resolve_pos(part, name)
-        if resolved and resolved not in positions:
-            positions.append(resolved)
-    return positions if positions else ['DH']
+    if not parts:
+        return ['DH']
+    primary = resolve_pos(parts[0], name)
+    return [primary] if primary else ['DH']
 
 def get_primary_pos(name, fg_pos):
     positions = get_all_positions(name, fg_pos)
