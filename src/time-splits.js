@@ -345,17 +345,11 @@ function _initOriginalLcvValues() {
       : computeBatSplitLcv(p, 14);
     if (!split) return;
     p.rollingLcv14 = split.actualLcv;
-    p.rollingLcvDelta14 = split.lcvDelta;
+    p.rollingLcvDelta14 = split.lcvDelta;  // kept as caller-side metadata only
     p._splitConfidence14 = split.splitConfidence;
-
-    // The HOT/COLD status is the 14-day LCV's swing relative to the
-    // projection. Thresholds are generous for pitchers because their IP-
-    // scaled z-scores move faster.
-    const thresh = p.type === 'PIT' ? 3.5 : 2.5;
-    const coldThresh = p.type === 'PIT' ? -3.0 : -2.5;
-    if (split.lcvDelta >= thresh) p.hotCold14 = 'HOT';
-    else if (split.lcvDelta <= coldThresh) p.hotCold14 = 'COLD';
-    else p.hotCold14 = '';
+    // HOT/COLD set further down once rollingLcvPlus14 is computed — the
+    // categorical label needs to match what's visible in the 14d+ column,
+    // and that's the 100-scale value, not the raw rolling LCV.
   });
 
   // Convert rolling 14d LCV to a 100-scale (wRC+ style):
@@ -386,6 +380,20 @@ function _initOriginalLcvValues() {
   _applyPlus(_bats, 'rollingLcv14', 'rollingLcvPlus14');
   _applyPlus(_sps,  'rollingLcv14', 'rollingLcvPlus14');
   _applyPlus(_rps,  'rollingLcv14', 'rollingLcvPlus14');
+
+  // HOT / COLD label tied to the SAME observed 14d+ value the user sees
+  // in the column. wRC+ thresholds:
+  //   HOT  = 14d+ ≥ 130  (~+2sigma above pool average — clearly elite stretch)
+  //   COLD = 14d+ ≤ 70   (~-2sigma — clearly poor stretch)
+  // Anything in between is left blank. Uses the 100-scale directly so a
+  // 145 14d+ never gets COLD'd just because the projection was higher.
+  ALL.forEach(p => {
+    const v = p.rollingLcvPlus14;
+    if (!Number.isFinite(v)) { p.hotCold14 = ''; return; }
+    if (v >= 130) p.hotCold14 = 'HOT';
+    else if (v <= 70) p.hotCold14 = 'COLD';
+    else p.hotCold14 = '';
+  });
 }
 
 // Check if split data is available (more than 1 snapshot date)
