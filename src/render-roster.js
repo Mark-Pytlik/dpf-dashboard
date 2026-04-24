@@ -1075,7 +1075,7 @@ function renderRoster() {
   } else {
     html += '<div style="max-height:180px;overflow-y:auto;">';
     txns.forEach(tx => {
-      const icon = tx.type === 'add' ? '<span style="color:var(--green);font-weight:700;">+</span>' : tx.type === 'drop' ? '<span style="color:var(--red);font-weight:700;">−</span>' : '<span style="color:var(--accent);font-weight:700;">↔</span>';
+      const icon = tx.type === 'add' ? '<span style="color:var(--green);font-weight:700;">+</span>' : tx.type === 'drop' ? '<span style="color:var(--red);font-weight:700;">−</span>' : tx.type === 'trade' ? '<span style="color:var(--accent);font-weight:700;">↔</span>' : tx.type === 'activate' ? '<span style="color:var(--green);font-weight:700;">↑</span>' : tx.type === 'ir' ? '<span style="color:#e88a0a;font-weight:700;">IL</span>' : '<span style="color:var(--text2);">•</span>';
       const cbsBadge = tx.source === 'CBS' ? ' <span style="font-size:8px;background:var(--accent);color:#fff;padding:1px 3px;border-radius:2px;">CBS</span>' : '';
       const _txP = _plyrI(tx.player);
       let _txLcv = _txP ? ` <span style="color:var(--text2);font-size:9px;">(${(Number.isFinite(_txP.lcvPlus) ? Math.round(_txP.lcvPlus).toString() : '—')}` : '';
@@ -1084,7 +1084,30 @@ function renderRoster() {
         _txLcv += ` → <span style="color:${_txPClr};font-weight:600;">${Math.round(_txP.aLCVPlus)}</span>`;
       }
       if (_txP) _txLcv += ')</span>';
-      const desc = tx.type === 'add' ? `Added ${tx.player}${_txLcv} from ${tx.from||'FA'}${cbsBadge}` : tx.type === 'drop' ? `Dropped ${tx.player}${_txLcv}${cbsBadge}` : `Traded ${tx.player}${_txLcv} → ${tx.from||'?'}${cbsBadge}`;
+      // Resolve the txn semantics correctly:
+      //   tx.from = the team that PERFORMED the action (owner doing add/drop/etc)
+      //   tx.cbsAction = raw CBS action text (e.g. 'Added off Waivers', 'Traded from <Team>')
+      // For TRADES specifically, the SOURCE team is parsed out of cbsAction.
+      const _byTeam = tx.from ? `<span style="color:var(--text2);"> by ${tx.from}</span>` : '';
+      let desc;
+      if (tx.type === 'add') {
+        // 'add' covers both plain Added and Added off Waivers; the source is
+        // the FA pool / waivers, NOT the team that did the add.
+        const _src = (tx.cbsAction === 'Added off Waivers') ? 'waivers' : 'FA';
+        desc = `Added ${tx.player}${_txLcv} from ${_src}${_byTeam}${cbsBadge}`;
+      } else if (tx.type === 'drop') {
+        desc = `Dropped ${tx.player}${_txLcv}${_byTeam}${cbsBadge}`;
+      } else if (tx.type === 'trade') {
+        // CBS encodes 'Traded from <Source>' so cbsAction has the source team.
+        const _srcTeam = (tx.cbsAction || '').replace(/^Traded from\s+/, '').replace(/\u2019/g,"'") || '?';
+        desc = `Traded ${tx.player}${_txLcv}: ${_srcTeam} → ${tx.from||'?'}${cbsBadge}`;
+      } else if (tx.type === 'activate') {
+        desc = `Activated ${tx.player}${_txLcv}${_byTeam}${cbsBadge}`;
+      } else if (tx.type === 'ir') {
+        desc = `Moved ${tx.player}${_txLcv} to IR${_byTeam}${cbsBadge}`;
+      } else {
+        desc = `${tx.cbsAction || tx.type} ${tx.player}${_txLcv}${_byTeam}${cbsBadge}`;
+      }
       html += `<div style="font-size:10px;padding:2px 0;border-bottom:1px solid var(--border);">${icon} <span style="color:var(--text2);">${tx.date||''}</span> ${desc}</div>`;
     });
     html += '</div>';
