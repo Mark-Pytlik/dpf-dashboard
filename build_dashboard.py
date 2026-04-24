@@ -929,13 +929,72 @@ league_milb_keepers_json = json.dumps(_milb_by_team)
 # transaction the JS misparses (empty actions, name collisions, timestamps,
 # trades that span days, etc.) gets corrected against this snapshot at load
 # time. cbs_rosters.json is rebuilt by the daily Phase B scrape.
-import os as _os
+import os as _os, unicodedata as _uni
 _cbs_rosters_path = 'data/cbs_rosters.json'
 if _os.path.exists(_cbs_rosters_path):
     with open(_cbs_rosters_path) as _f:
         _cbs_rosters_data = json.load(_f)
+    # Build MLB-pool name index for normalization. CBS uses ASCII / different
+    # punctuation / shortened names ("Zachary Neto" vs MLB's "Zach Neto",
+    # "Bobby Witt" vs "Bobby Witt Jr.", "C.J. Abrams" vs "CJ Abrams"). The
+    # dashboard's player lookups are keyed on MLB-pool names, so a CBS roster
+    # name that doesn't match exactly results in a player without stats. Map
+    # CBS → MLB at build time so the JS gets canonical names.
+    _mlb_pool_names = set()
+    for _csv in ['data/bat_2026.csv', 'data/pit_2026.csv']:
+        if _os.path.exists(_csv):
+            with open(_csv) as _f:
+                next(_f)
+                for _ln in _f:
+                    _mlb_pool_names.add(_ln.split('|', 1)[0])
+    def _strip(name):
+        nfkd = _uni.normalize('NFKD', name)
+        nfkd = ''.join(c for c in nfkd if not _uni.combining(c))
+        return nfkd.replace('.', '').replace(',', '').replace("'", '').lower().strip()
+    def _no_suffix(name):
+        parts = _strip(name).split()
+        if parts and parts[-1].rstrip('.') in ('jr','sr','ii','iii','iv'):
+            parts = parts[:-1]
+        return ' '.join(parts)
+    _ALIASES = {
+        'zachary': 'zach', 'zach': 'zachary',
+        'matthew': 'matt', 'matt': 'matthew',
+        'michael': 'mike', 'mike': 'michael',
+        'william': 'will', 'will': 'william',
+        'nicholas': 'nick', 'nick': 'nicholas',
+        'andrew': 'andy', 'andy': 'andrew',
+    }
+    _pool_by_strip = {_strip(n): n for n in _mlb_pool_names}
+    _pool_by_no_suffix = {_no_suffix(n): n for n in _mlb_pool_names}
+    def _normalize_to_pool(cbs_name):
+        if cbs_name in _mlb_pool_names: return cbs_name
+        s1 = _strip(cbs_name)
+        if s1 in _pool_by_strip: return _pool_by_strip[s1]
+        s2 = _no_suffix(cbs_name)
+        if s2 in _pool_by_no_suffix: return _pool_by_no_suffix[s2]
+        if s2 in _pool_by_strip: return _pool_by_strip[s2]
+        # First-name alias
+        parts = s2.split()
+        if parts and parts[0] in _ALIASES:
+            alt = ' '.join([_ALIASES[parts[0]]] + parts[1:])
+            if alt in _pool_by_no_suffix: return _pool_by_no_suffix[alt]
+            if alt in _pool_by_strip: return _pool_by_strip[alt]
+        return cbs_name  # not found — leave as-is, the player just won't have stats
+    _renamed = 0; _kept = 0; _missing = []
+    _cbs_rosters_normalized = {}
+    for _team, _plyrs in _cbs_rosters_data.items():
+        _out = []
+        for _p in _plyrs:
+            _norm = _normalize_to_pool(_p)
+            _out.append(_norm)
+            if _norm == _p and _p not in _mlb_pool_names: _missing.append(_p)
+            elif _norm != _p: _renamed += 1
+            else: _kept += 1
+        _cbs_rosters_normalized[_team] = _out
+    _cbs_rosters_data = _cbs_rosters_normalized
     print(f"CBS rosters loaded: {len(_cbs_rosters_data)} teams, "
-          f"{sum(len(p) for p in _cbs_rosters_data.values())} player slots")
+          f"{sum(len(p) for p in _cbs_rosters_data.values())} player slots "
+          f"({_renamed} normalized, {len(_missing)} not in MLB pool)")
 else:
     _cbs_rosters_data = {}
 cbs_rosters_json = json.dumps(_cbs_rosters_data)
