@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-04-24T13:18:24.381385Z",
+  "completedAt": "2026-04-24T16:28:57.550309Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,12 +12,8 @@
     "matchup": "ok"
   },
   "notes": [
-    "CBS auth active via dpf.baseball.cbssports.com (the cbssports.com/fantasy/baseball/league/* URLs 404 \u2014 kept the host-swap fix from previous runs).",
-    "TXNS: 214 raw rows scraped from /transactions?print_rows=9999; cleaner collapsed to 178. Authoritative replace of data/cbs_transactions.json (not merge).",
-    "Team 7 is currently named 'Everythings McGonigle Green' on CBS (previously 'Whoop Whoop that's the sound of Dylan Cease'). Mapped to id 7.",
-    "Rosters: /teams/{id} gives full player names; /teams/roster-grid only has initials so not usable.",
-    "Matchup summary: Period 2 (Apr 13 - Apr 26). Okamotomami vs Dinosaur Jr Caminero (RESCAN) currently 12 - 4. CBS's /scoring/standard/2/4 summary only exposes 10 cats (BA/HR/RBI/R/SB/K/ERA/WHIP/W/S). Preserved yesterday's KO/OBP/SLG/HD/HRA/QS values since no detailed view found; updated the 10 visible ones.",
-    "fetch_stuffplus.py skipped (pybaseball not installed in sandbox; non-fatal as expected).",
-    "CBS player news pagination URL is /players/news/all/both/{N}/ \u2014 /news/{N}/ returns 404."
+    "214 transactions captured from print-all view",
+    "Added NAME_ALIAS 'Jake Junis' -> 'Jakob Junis' (pool uses Jakob)",
+    "Fixed reconciliation pass in src/draft-data.js to canonicalize CBS roster names via _plyrI -- this was causing Cam Schlittler / Louie Varland / Jake Junis to appear as free agents despite being rostered"
   ]
 }
