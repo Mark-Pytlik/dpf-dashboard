@@ -81,6 +81,7 @@ const NAME_ALIASES = {
   // Nickname variants (CBS uses casual form; pool uses formal)
   'Mike Soroka': 'Michael Soroka',
   'Louie Varland': 'Louis Varland',
+  'Jake Junis': 'Jakob Junis',
 };
 // Register aliases in all maps
 Object.entries(NAME_ALIASES).forEach(([alias, canonical]) => {

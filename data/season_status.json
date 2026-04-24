@@ -36,18 +36,18 @@
       "won": true
     },
     "KO": {
-      "me": "85",
-      "opp": "73",
+      "me": "91",
+      "opp": "82",
       "won": false
     },
     "OBP": {
-      "me": "0.348",
+      "me": "0.345",
       "opp": "0.317",
       "won": true
     },
     "SLG": {
-      "me": "0.433",
-      "opp": "0.397",
+      "me": "0.427",
+      "opp": "0.392",
       "won": true
     },
     "K": {
@@ -82,8 +82,8 @@
     },
     "HRA": {
       "me": "10",
-      "opp": "7",
-      "won": false
+      "opp": "12",
+      "won": true
     },
     "QS": {
       "me": "5",
@@ -93,38 +93,38 @@
   },
   "allMatchups": [
     {
-      "away": "RESCAN",
-      "home": "Okamotomami",
-      "awayScore": 4.0,
-      "homeScore": 12.0
+      "away": "Okamotomami",
+      "home": "Dinosaur Jr Caminero",
+      "awayScore": 12.0,
+      "homeScore": 4.0
     },
     {
-      "away": "Milli",
-      "home": "ROTH",
+      "away": "Weird Fishes / Arrighetti",
+      "home": "Colonel Corbin's Ascent",
       "awayScore": 7.0,
       "homeScore": 9.0
     },
     {
-      "away": "woba",
-      "home": "Fran",
+      "away": "Before and After Shohei",
+      "home": "Buddy Buddy Buddy All On Base",
       "awayScore": 5.0,
       "homeScore": 11.0
     },
     {
-      "away": "SHOH",
-      "home": "Icculus",
+      "away": "Blame it on the Rainiel",
+      "home": "Everythings McGonigle Green",
       "awayScore": 5.5,
       "homeScore": 10.5
     },
     {
-      "away": "PCA",
-      "home": "Drew",
+      "away": "A Pete Crow-Armstrong Looked at Me",
+      "home": "Ballesteros, Let the Rhythm Take You Over",
       "awayScore": 10.0,
       "homeScore": 6.0
     },
     {
-      "away": "BBBaoB",
-      "home": "YSVG",
+      "away": "Popped A Mahle I'm Sweating",
+      "home": "Yesavage Garden",
       "awayScore": 8.5,
       "homeScore": 7.5
     }
@@ -228,6 +228,6 @@
       "pts": 0
     }
   ],
-  "updated": "2026-04-24T13:17:51Z",
+  "updated": "2026-04-24T16:27:47.153159Z",
   "lastUpdated": "2026-04-24 (period 2 in progress)"
 }

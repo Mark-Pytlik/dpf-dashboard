@@ -325,9 +325,18 @@ if (CBS_TRANSACTIONS.length > 0) {
   // Mick Abel's empty-action 4/10 'add' txn never re-rostered him, so the
   // dashboard kept showing him as available. Belt-and-suspenders.
   if (typeof LEAGUE_ROSTERS === 'object' && LEAGUE_ROSTERS && Object.keys(LEAGUE_ROSTERS).length > 0) {
-    const _rosterTeamMap = {}; // playerName → teamName per CBS
+    const _rosterTeamMap = {}; // canonical playerName → teamName per CBS
+    // IMPORTANT: normalize CBS roster names through _plyrI so aliases (Louie↔Louis,
+    // Jake↔Jakob, Cam↔Cameron, etc.) map to the canonical pool name used in state.
+    // Otherwise exact-string compare below won't find the player on their team,
+    // the reconciler will dupe-add them under the alias, then drop the canonical
+    // name — surfacing the player as "available" even though CBS has them rostered.
     for (const [teamName, plyrs] of Object.entries(LEAGUE_ROSTERS)) {
-      (plyrs || []).forEach(n => { _rosterTeamMap[n] = teamName; });
+      (plyrs || []).forEach(n => {
+        const f = _plyrI(n);
+        const canon = f ? f.name : n;
+        _rosterTeamMap[canon] = teamName;
+      });
     }
     let _added = 0, _moved = 0;
     for (const [playerName, cbsTeamName] of Object.entries(_rosterTeamMap)) {
