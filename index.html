@@ -841,7 +841,7 @@ const STATE_VERSION = 30;
 // '__BUILD_HASH__' is shipped), the flush never fires and stale state
 // survives across deploys — that was the root cause of the persistent
 // "Kurtz on my team" bug before the 2026-04-18 fix.
-const BUILD_HASH = 'dd665f33c372';
+const BUILD_HASH = 'c6094f9aeb3a';
 
 // ── Keepers: read from league_config.json via build-time JSON injection ──
 // This is the SINGLE SOURCE OF TRUTH for who starts the season on each team.
@@ -3262,13 +3262,13 @@ function render() {
           if (_ki && _ki.keepable2027) {
             const _selected = isKeeper;
             const _round = _ki.cost2027;
-            // Selected keepers: solid accent + bold + subtle pill background.
-            // Eligible-but-not-selected: same accent color but with a clearly
-            // legible weight (was opacity 0.55 — too faint over the row).
-            const _style = _selected
-              ? 'color:#fff;font-weight:700;background:var(--accent);padding:1px 5px;border-radius:3px;'
-              : 'color:var(--accent);font-weight:600;border:1px solid var(--accent);padding:0 4px;border-radius:3px;opacity:0.85;';
-            const _title = _selected ? 'Selected as 2027 keeper' : 'Eligible to keep in 2027';
+            // Single unified style for every keeper-eligible player. Used to
+            // visually distinguish 'selected as 2027 keeper' from 'just
+            // eligible' but the dual style was confusing — readers couldn't
+            // tell the two states apart at a glance and didn't care about
+            // the distinction. Single outlined-accent pill is enough.
+            const _style = 'color:var(--accent);font-weight:600;border:1px solid var(--accent);padding:0 4px;border-radius:3px;';
+            const _title = 'Eligible to keep in 2027' + (_selected ? ' (currently selected as keeper)' : '');
             kp = ` <small style="${_style}" title="${_title}">[K${_round}]</small>`;
           }
         } else if (isKeeper) {
