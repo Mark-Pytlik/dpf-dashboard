@@ -454,12 +454,10 @@ function render() {
           if (_ki && _ki.keepable2027) {
             const _selected = isKeeper;
             const _round = _ki.cost2027;
-            // Single unified style for every keeper-eligible player. Used to
-            // visually distinguish 'selected as 2027 keeper' from 'just
-            // eligible' but the dual style was confusing — readers couldn't
-            // tell the two states apart at a glance and didn't care about
-            // the distinction. Single outlined-accent pill is enough.
-            const _style = 'color:var(--accent);font-weight:600;border:1px solid var(--accent);padding:0 4px;border-radius:3px;';
+            // Single unified style for every keeper-eligible player. Filled
+            // accent pill (white text on accent background) — high contrast,
+            // easy to read at a glance.
+            const _style = 'color:#fff;font-weight:700;background:var(--accent);padding:1px 5px;border-radius:3px;';
             const _title = 'Eligible to keep in 2027' + (_selected ? ' (currently selected as keeper)' : '');
             kp = ` <small style="${_style}" title="${_title}">[K${_round}]</small>`;
           }
