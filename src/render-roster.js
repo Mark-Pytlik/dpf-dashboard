@@ -69,7 +69,15 @@ function renderRoster() {
     const s = inj.status;
     return s === 'IL' || s === 'O';  // Out/IL both occupy an IL slot
   }
+  // Build a set of MiLB/Rookies names so we don't double-count them on the
+  // bench. They render in their own ROOKIES section sourced from teamMilb.
+  // Without this, when state.myTeam (post CBS-roster reconciliation) and
+  // state.milbKeepers both contain a prospect (Condon, Eli Willits, etc.),
+  // the prospect shows up twice: once in ROOKIES and once on bench, eating
+  // a bench slot that shouldn't be eaten.
+  const _milbSet = new Set((teamMilb || []));
   teamPlayers.forEach(name => {
+    if (_milbSet.has(name)) return;          // skip — handled by ROOKIES section
     const p = _plyrI(name) || { name, primaryPos: '?', elig: '?', lcv:0, pnav:0 };
     const ov = overrides[name];
     if (ov === 'il') { ilPlayers.push(p); return; }
@@ -660,7 +668,7 @@ function renderRoster() {
   }
 
   // Minors (always show)
-  html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--accent);">MINORS (${teamMilb.length}/4)</span></div>`;
+  html += `<div style="margin-top:8px;"><span style="font-weight:700;font-size:11px;color:var(--accent);">ROOKIES (${teamMilb.length}/4)</span></div>`;
   html += `<table style="width:100%;border-collapse:collapse;font-size:12px;${rosterView==='player'?'table-layout:fixed;':''}">`;
   html += rosterView === 'player' ? playerBatColgroup : rosterColgroup;
   html += '<tbody>';
