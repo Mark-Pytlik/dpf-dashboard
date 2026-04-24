@@ -1325,6 +1325,44 @@ function renderRoster() {
       }
     }
 
+    // Pass 5: BRIDGE SWAP for position-flex chains.
+    // The 2-way pass misses the case where a bench player B is NOT directly
+    // eligible for slot S (held by lower-rank A), but A's slot S can be
+    // filled by some active "bridge" player M (currently in slot M_slot)
+    // who IS eligible for S, AND B is eligible for M_slot. In that case:
+    // M moves S←M, B moves M_slot←B, A is benched.
+    //   Example: Marsee (CF only, 104) on bench. Caglianone (RF only, 89)
+    //   starts at RF. Adell (CF/RF, 106) starts at CF.
+    //     S=RF, A=Caglianone (89), bridge M=Adell, M_slot=CF, B=Marsee (104).
+    //     Marsee not eligible for RF → 2-way fails.
+    //     But Adell IS eligible for RF, and Marsee IS eligible for CF.
+    //     Net: Adell→RF, Marsee→CF, Caglianone benched. +rank(B)-rank(A).
+    improved = true; iters = 0;
+    while (improved && iters < 20) {
+      improved = false; iters++;
+      const benchH = _benchHitters().sort(_cmp);  // try highest-rank bench first
+      for (const B of benchH) {
+        for (const S of slots) {
+          const A = assigned[S];
+          if (!A || _rank(A) >= _rank(B)) continue;     // need A worse than B
+          if (canPlay(B, S)) continue;                  // 2-way already handled this
+          // Find a bridge M who's eligible for S, currently in some other slot.
+          for (const M_slot of slots) {
+            if (M_slot === S) continue;
+            const M = assigned[M_slot];
+            if (!M || M.name === A.name) continue;
+            if (!canPlay(M, S)) continue;               // M must be able to take S
+            if (!canPlay(B, M_slot)) continue;          // B must be able to take M's old slot
+            assigned[S] = M; assigned[M_slot] = B;      // A is benched (override falls to reserve)
+            improved = true;
+            break;
+          }
+          if (improved) break;
+        }
+        if (improved) break;
+      }
+    }
+
     // Commit hitter assignments
     for (const [slot, p] of Object.entries(assigned)) {
       nOv[p.name] = slot; used.add(p.name);
