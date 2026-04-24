@@ -454,12 +454,11 @@ function render() {
           if (_ki && _ki.keepable2027) {
             const _selected = isKeeper;
             const _round = _ki.cost2027;
-            // Single unified style for every keeper-eligible player. Filled
-            // accent pill (white text on accent background) — high contrast,
-            // easy to read at a glance.
-            const _style = 'color:#fff;font-weight:700;background:var(--accent);padding:1px 5px;border-radius:3px;';
+            // Filled-accent pill, sized to match pbadge (.pbadge in styles.css):
+            //   font-size:8px, padding:1px 3px, radius:2px.
+            const _style = 'display:inline-block;color:#fff;font-weight:600;background:var(--accent);font-size:8px;padding:1px 3px;border-radius:2px;vertical-align:middle;';
             const _title = 'Eligible to keep in 2027' + (_selected ? ' (currently selected as keeper)' : '');
-            kp = ` <small style="${_style}" title="${_title}">[K${_round}]</small>`;
+            kp = ` <span style="${_style}" title="${_title}">K${_round}</span>`;
           }
         } else if (isKeeper) {
           kp = ` <small style="color:var(--accent)">[K${kpRd ? ' Rd'+kpRd : ''}]</small>`;
