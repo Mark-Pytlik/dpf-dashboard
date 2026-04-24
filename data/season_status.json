@@ -5,13 +5,13 @@
   "opponent": "Dinosaur Jr Caminero",
   "opponentTeam": "Dinosaur Jr Caminero",
   "currentScore": {
-    "me": 10,
-    "opp": 6,
+    "me": 12,
+    "opp": 4,
     "tied": 0
   },
   "categoryBreakdown": {
     "BA": {
-      "me": "0.256",
+      "me": "0.253",
       "opp": "0.240",
       "won": true
     },
@@ -26,12 +26,12 @@
       "won": true
     },
     "R": {
-      "me": "56",
+      "me": "59",
       "opp": "41",
       "won": true
     },
     "SB": {
-      "me": "9",
+      "me": "10",
       "opp": "5",
       "won": true
     },
@@ -51,27 +51,27 @@
       "won": true
     },
     "K": {
-      "me": "66",
-      "opp": "74",
+      "me": "68",
+      "opp": "95",
       "won": false
     },
     "ERA": {
-      "me": "3.5168",
-      "opp": "3.9023",
+      "me": "3.4303",
+      "opp": "4.3689",
       "won": true
     },
     "WHIP": {
-      "me": "1.2227",
-      "opp": "1.1836",
-      "won": false
+      "me": "1.2049",
+      "opp": "1.3204",
+      "won": true
     },
     "W": {
       "me": "3",
-      "opp": "6",
+      "opp": "8",
       "won": false
     },
     "S": {
-      "me": "4",
+      "me": "5",
       "opp": "1",
       "won": true
     },
@@ -95,14 +95,14 @@
     {
       "away": "RESCAN",
       "home": "Okamotomami",
-      "awayScore": 6.0,
-      "homeScore": 10.0
+      "awayScore": 4.0,
+      "homeScore": 12.0
     },
     {
       "away": "Milli",
       "home": "ROTH",
-      "awayScore": 4.0,
-      "homeScore": 12.0
+      "awayScore": 7.0,
+      "homeScore": 9.0
     },
     {
       "away": "woba",
@@ -113,20 +113,20 @@
     {
       "away": "SHOH",
       "home": "Icculus",
-      "awayScore": 7.0,
-      "homeScore": 9.0
+      "awayScore": 5.5,
+      "homeScore": 10.5
     },
     {
       "away": "PCA",
       "home": "Drew",
-      "awayScore": 9.5,
-      "homeScore": 6.5
+      "awayScore": 10.0,
+      "homeScore": 6.0
     },
     {
       "away": "BBBaoB",
       "home": "YSVG",
-      "awayScore": 7.5,
-      "homeScore": 8.5
+      "awayScore": 8.5,
+      "homeScore": 7.5
     }
   ],
   "myRecord": "1-0-0",
@@ -228,6 +228,6 @@
       "pts": 0
     }
   ],
-  "updated": "2026-04-23T17:27:39Z",
-  "lastUpdated": "2026-04-23 (period 2 in progress)"
+  "updated": "2026-04-24T13:17:51Z",
+  "lastUpdated": "2026-04-24 (period 2 in progress)"
 }
