@@ -56,7 +56,7 @@ except ImportError:
 
 
 # ── Constants ───────────────────────────────────────────────────────────────
-LEAGUE_HOST = "dpf2026.baseball.cbssports.com"
+LEAGUE_HOST = "dpf.baseball.cbssports.com"  # was dpf2026, fixed 2026-04-25
 LEAGUE_BASE = f"https://{LEAGUE_HOST}"
 
 # 12 league teams. `id` is CBS's stable team identifier and is the source of

@@ -5,8 +5,8 @@
   "opponent": "Dinosaur Jr Caminero",
   "opponentTeam": "Dinosaur Jr Caminero",
   "currentScore": {
-    "me": 12,
-    "opp": 4,
+    "me": 9,
+    "opp": 7,
     "tied": 0
   },
   "categoryBreakdown": {
@@ -228,6 +228,6 @@
       "pts": 0
     }
   ],
-  "updated": "2026-04-24T16:27:47.153159Z",
-  "lastUpdated": "2026-04-24 (period 2 in progress)"
+  "updated": "2026-04-25T16:08:23.828764Z",
+  "lastUpdated": "2026-04-25 (period 2 in progress, score updated from scoreboard)"
 }
