@@ -1,19 +1,19 @@
 {
-  "completedAt": "2026-04-24T16:28:57.550309Z",
+  "completedAt": "2026-04-25T13:04:08.068850Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
     "news": "ok"
   },
   "phaseB": {
-    "cbs_auth": "ok",
-    "transactions": "ok",
-    "rosters": "ok",
-    "matchup": "ok"
+    "cbs_auth": "missing",
+    "transactions": "skipped",
+    "rosters": "skipped",
+    "matchup": "skipped"
   },
   "notes": [
-    "214 transactions captured from print-all view",
-    "Added NAME_ALIAS 'Jake Junis' -> 'Jakob Junis' (pool uses Jakob)",
-    "Fixed reconciliation pass in src/draft-data.js to canonicalize CBS roster names via _plyrI -- this was causing Cam Schlittler / Louie Varland / Jake Junis to appear as free agents despite being rostered"
+    "fetch_stuffplus.py 403/skipped (pybaseball not installed) \u2014 non-fatal as documented.",
+    "CBS league subdomain dpf2026.baseball.cbssports.com redirected to public fantasy hub; no authenticated session in Chrome.",
+    "ACTION NEEDED: run this task interactively after signing in to CBS in Chrome, OR export CBS cookies and wire scrape_cbs.py --cookies into this prompt."
   ]
 }
