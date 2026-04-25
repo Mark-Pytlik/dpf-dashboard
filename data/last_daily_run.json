@@ -1,19 +1,20 @@
 {
-  "completedAt": "2026-04-25T13:04:08.068850Z",
+  "completedAt": "2026-04-25T16:09:20.880074Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
     "news": "ok"
   },
   "phaseB": {
-    "cbs_auth": "missing",
-    "transactions": "skipped",
-    "rosters": "skipped",
-    "matchup": "skipped"
+    "cbs_auth": "ok",
+    "transactions": "ok",
+    "rosters": "ok",
+    "matchup": "partial"
   },
   "notes": [
     "fetch_stuffplus.py 403/skipped (pybaseball not installed) \u2014 non-fatal as documented.",
-    "CBS league subdomain dpf2026.baseball.cbssports.com redirected to public fantasy hub; no authenticated session in Chrome.",
-    "ACTION NEEDED: run this task interactively after signing in to CBS in Chrome, OR export CBS cookies and wire scrape_cbs.py --cookies into this prompt."
+    "LEAGUE_HOST in scrape_cbs.py was stale (dpf2026 \u2192 dpf); fixed.",
+    "User signed in to CBS in Chrome MCP browser; transactions/rosters/scoreboard pulled live.",
+    "Score updated from rendered scoreboard breakdown (OMM 9.0 - DJC 7.0). Per-category breakdown not refreshed \u2014 page is JS-rendered and category data lives on a sub-route I couldn't fully wire up in this session."
   ]
 }
