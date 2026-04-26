@@ -2112,6 +2112,42 @@
     "effective": "3/25/26"
   },
   {
+    "date": "4/26/26 1:49 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "players": [
+      {
+        "name": "Ben Brown",
+        "pos": "SP,RP",
+        "mlbTeam": "CHC",
+        "action": "Activated"
+      }
+    ],
+    "effective": "4/26/26"
+  },
+  {
+    "date": "4/26/26 1:49 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "players": [
+      {
+        "name": "Ben Brown",
+        "pos": "SP,RP",
+        "mlbTeam": "CHC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Joel Kuhnel",
+        "pos": "RP",
+        "mlbTeam": "ATH",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "4/26/26"
+  },
+  {
     "date": "4/18/26 3:03 AM ET",
     "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
@@ -2320,6 +2356,27 @@
       }
     ],
     "effective": "3/25/26"
+  },
+  {
+    "date": "4/26/26 1:49 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "players": [
+      {
+        "name": "Carlos Cortes",
+        "pos": "RF",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Caleb Thielbar",
+        "pos": "RP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "4/26/26"
   },
   {
     "date": "4/23/26 2:49 AM ET",
