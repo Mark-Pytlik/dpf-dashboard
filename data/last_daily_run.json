@@ -1,21 +1,23 @@
 {
-  "completedAt": "2026-04-25T16:32:33.345106Z",
+  "completedAt": "2026-04-26T13:26:56.810412Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
-    "news": "ok",
-    "stuffplus": "skipped (FanGraphs 403, expected)"
+    "news": "ok"
   },
   "phaseB": {
     "cbs_auth": "ok",
-    "transactions": "ok (54 new merged, 192 cleaned)",
-    "rosters": "ok (12 teams)",
-    "matchup": "ok (period 2, OMM 9-7 RESCAN)"
+    "transactions": "ok",
+    "rosters": "ok",
+    "matchup": "ok"
   },
   "notes": [
-    "fetch_stuffplus.py 403 from FanGraphs \u2014 known non-fatal",
-    "Trades page (dpf.baseball.cbssports.com/trades/recent) was empty; relied on per-team transaction pages which already include 'Traded from' rows",
-    "All 6 known transaction action types observed: Added, Added off Waivers, Dropped, Activated, Moved to IR, Traded from <Team> \u2014 no new types",
-    "Standings still show legacy team-7 name 'Everythings McGonigle Green' on CBS overall standings page"
+    "Stats fetched from MLB Stats API (450 batters / 525 pitchers).",
+    "fetch_stuffplus.py 403'd / pybaseball not installed (expected, non-fatal).",
+    "Scraped 237 injuries and 50 news items from public CBS pages.",
+    "CBS auth healthy; pulled 219 raw transactions from print_rows=9999 view.",
+    "merge_tx cleaner consolidated 219 \u2192 182 rows.",
+    "Rosters scraped via /teams/{1..12} JSON-encoded then committed.",
+    "Period 2 in progress; matchup vs Dinosaur Jr Caminero, currently 9-7."
   ]
 }
