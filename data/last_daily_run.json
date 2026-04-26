@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-04-26T13:26:56.810412Z",
+  "completedAt": "2026-04-26T16:23:02.434922Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,12 +12,8 @@
     "matchup": "ok"
   },
   "notes": [
-    "Stats fetched from MLB Stats API (450 batters / 525 pitchers).",
-    "fetch_stuffplus.py 403'd / pybaseball not installed (expected, non-fatal).",
-    "Scraped 237 injuries and 50 news items from public CBS pages.",
-    "CBS auth healthy; pulled 219 raw transactions from print_rows=9999 view.",
-    "merge_tx cleaner consolidated 219 \u2192 182 rows.",
-    "Rosters scraped via /teams/{1..12} JSON-encoded then committed.",
-    "Period 2 in progress; matchup vs Dinosaur Jr Caminero, currently 9-7."
+    "Team renamed: 'Whoop Whoop that's the sound of Dylan Cease' \u2192 'Everythings McGonigle Green' (visible in standings; transactions still use old name)",
+    "fetch_stuffplus.py 403'd as expected (pybaseball not installed)",
+    "categoryBreakdown for OMM matchup retained from prior run (only 10 of 16 categories visible on the matchup page; the 6 hidden ones \u2014 KO, OBP, SLG, HD, HRA, QS \u2014 were not refreshed)"
   ]
 }
