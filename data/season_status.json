@@ -11,72 +11,72 @@
   },
   "categoryBreakdown": {
     "BA": {
-      "me": "0.241",
-      "opp": "0.253",
+      "me": "0.244",
+      "opp": "0.251",
       "won": false
     },
     "HR": {
-      "me": "16",
-      "opp": "19",
+      "me": "18",
+      "opp": "20",
       "won": false
     },
     "RBI": {
-      "me": "60",
-      "opp": "48",
+      "me": "66",
+      "opp": "51",
       "won": true
     },
     "R": {
-      "me": "61",
-      "opp": "50",
+      "me": "67",
+      "opp": "54",
       "won": true
     },
     "SB": {
-      "me": "11",
-      "opp": "5",
+      "me": "12",
+      "opp": "7",
       "won": true
     },
     "KO": {
-      "me": "98",
-      "opp": "88",
+      "me": "106",
+      "opp": "95",
       "won": false
     },
     "OBP": {
-      "me": "0.332",
-      "opp": "0.324",
+      "me": "0.334",
+      "opp": "0.319",
       "won": true
     },
     "SLG": {
-      "me": "0.410",
-      "opp": "0.452",
+      "me": "0.420",
+      "opp": "0.441",
       "won": false
     },
     "K": {
-      "me": "68",
-      "opp": "96",
+      "me": "86",
+      "opp": "110",
       "won": false
     },
     "ERA": {
-      "me": "3.4303",
-      "opp": "4.5145",
+      "me": "3.4688",
+      "opp": "4.8242",
       "won": true
     },
     "WHIP": {
-      "me": "1.2049",
-      "opp": "1.3408",
+      "me": "1.2083",
+      "opp": "1.3660",
       "won": true
     },
     "W": {
-      "me": "3",
+      "me": "4",
       "opp": "8",
       "won": false
     },
     "S": {
-      "me": "5",
+      "me": "6",
       "opp": "1",
       "won": true
     },
     "HD": {
-      "me": "4",
+      "me": "5",
       "opp": "2",
       "won": true
     },
@@ -93,32 +93,32 @@
   },
   "allMatchups": [
     {
+      "away": "Blame it on the Rainiel",
+      "home": "Popped A Mahle I'm Sweating",
+      "awayScore": 7.5,
+      "homeScore": 8.5
+    },
+    {
+      "away": "Ballesteros, Let the Rhythm Take You Over",
+      "home": "Weird Fishes / Arrighetti",
+      "awayScore": 5.0,
+      "homeScore": 11.0
+    },
+    {
+      "away": "Before and After Shohei",
+      "home": "Colonel Corbin's Ascent",
+      "awayScore": 4.5,
+      "homeScore": 11.5
+    },
+    {
       "away": "Okamotomami",
       "home": "Dinosaur Jr Caminero",
       "awayScore": 9.0,
       "homeScore": 7.0
     },
     {
-      "away": "Weird Fishes / Arrighetti",
-      "home": "Colonel Corbin's Ascent",
-      "awayScore": 8.5,
-      "homeScore": 7.5
-    },
-    {
-      "away": "Buddy Buddy Buddy All On Base",
-      "home": "Buddy Buddy Buddy All On Base",
-      "awayScore": 7.0,
-      "homeScore": 9.0
-    },
-    {
-      "away": "Before and After Shohei",
-      "home": "Ballesteros, Let the Rhythm Take You Over",
-      "awayScore": 6.0,
-      "homeScore": 10.0
-    },
-    {
       "away": "A Pete Crow-Armstrong Looked at Me",
-      "home": "Whoop Whoop that's the sound of Dylan Cease",
+      "home": "Everythings McGonigle Green",
       "awayScore": 9.5,
       "homeScore": 6.5
     },
@@ -228,6 +228,6 @@
       "pts": 0
     }
   ],
-  "updated": "2026-04-25T16:32:09.561918Z",
-  "lastUpdated": "2026-04-25 (period 2 in progress, score updated from scoreboard)"
+  "updated": "2026-04-26T13:26:25.210092Z",
+  "lastUpdated": "2026-04-26 (period 2 in progress)"
 }
