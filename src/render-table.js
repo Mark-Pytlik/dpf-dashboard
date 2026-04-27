@@ -360,8 +360,8 @@ function render() {
         cls += v >= 0 ? ' val-pos' : ' val-neg';
         val = (v > 0 ? '+' : '') + v.toFixed(2);
       }
-      else if (c.key === 'rollingLcvPlus14') {
-        // 14d LCV on the wRC+ scale: 100 = pool avg, 115 = +1sigma, 85 = -1sigma.
+      else if (c.key === 'rollingLcvPlus7' || c.key === 'rollingLcvPlus14') {
+        // Rolling LCV on the wRC+ scale: 100 = pool avg, 115 = +1sigma, 85 = -1sigma.
         const v = parseFloat(val);
         if (!isFinite(v)) { val = '—'; }
         else {

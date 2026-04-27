@@ -79,6 +79,7 @@ const batCols26A = [
   {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:60},
   {key:'age',label:'Age',w:40},  {key:'aLCVPlus',label:'aLCV+',w:60,cls:'lcv-col',tip:'aLCV+: 100 = pool average (batter / SP / RP), 115 = +1sigma, 85 = -1sigma (wRC+ scale). Derived from 2026 in-season z-scores.'},
   {key:'recScorePlus',label:'Rec+',w:55,cls:'lcv-col',tip:'Rec+: blended recommendation score on wRC+ scale (100 = pool average, 115 = +1sigma). 60% aLCV + 15% positional flexibility + 15% age + 10% projected LCV, z-scored within type pool. Drives Roster/Trade/Waiver recs.'},
+  {key:'rollingLcvPlus7',label:'7d+',w:60,cls:'lcv-col',tip:'7d+: rolling 7-day LCV on the 100-scale (100 = pool average, 115 = +1sigma). Same wRC+-style scale as 14d+, but only the last 7 snapshots count (10 PA / 5 IP min).'},
   {key:'rollingLcvPlus14',label:'14d+',w:60,cls:'lcv-col',tip:'14d+: rolling 14-day LCV on the 100-scale (100 = pool average, 115 = +1sigma). Same wRC+-style scale as aLCV+, but only the last 14 snapshots count.'},
   {key:'s26_pa',label:'PA',w:50}, {key:'s26_avg',label:'AVG',w:55}, {key:'s26_obp',label:'OBP',w:55},
   {key:'s26_slg',label:'SLG',w:55}, {key:'s26_hr',label:'HR',w:45}, {key:'s26_r',label:'R',w:45},
@@ -98,6 +99,7 @@ const pitCols26A = [
   {key:'name',label:'Player',w:160}, {key:'team',label:'Team',w:50}, {key:'pos',label:'Pos',w:50},
   {key:'age',label:'Age',w:40},  {key:'aLCVPlus',label:'aLCV+',w:60,cls:'lcv-col',tip:'aLCV+: 100 = pool average (batter / SP / RP), 115 = +1sigma, 85 = -1sigma (wRC+ scale). Derived from 2026 in-season z-scores.'},
   {key:'recScorePlus',label:'Rec+',w:55,cls:'lcv-col',tip:'Rec+: blended recommendation score on wRC+ scale (100 = pool average, 115 = +1sigma). 60% aLCV + 15% posFlex + 15% age + 10% LCV, z-scored within SP/RP pool.'},
+  {key:'rollingLcvPlus7',label:'7d+',w:60,cls:'lcv-col',tip:'7d+: rolling 7-day LCV on the 100-scale (100 = pool average, 115 = +1sigma). Same wRC+-style scale as 14d+, but only the last 7 snapshots count (10 PA / 5 IP min).'},
   {key:'rollingLcvPlus14',label:'14d+',w:60,cls:'lcv-col',tip:'14d+: rolling 14-day LCV on the 100-scale (100 = pool average, 115 = +1sigma). Same wRC+-style scale as aLCV+, but only the last 14 snapshots count.'},
   {key:'s26_ip',label:'IP',w:50}, {key:'s26_era',label:'ERA',w:55}, {key:'s26_whip',label:'WHIP',w:60},
   {key:'s26_fip',label:'FIP',w:50,tip:'2026 FIP = (13×HR + 3×(BB+HBP) − 2×K) / IP + 3.10. ERA estimator that strips luck'},
@@ -119,6 +121,7 @@ const allCols26A = [
   {key:'type',label:'Type',w:50}, {key:'age',label:'Age',w:40},
   {key:'aLCVPlus',label:'aLCV+',w:60,cls:'lcv-col',tip:'aLCV+: 100 = pool average, 115 = +1sigma (wRC+ scale). From 2026 stats.'},
   {key:'recScorePlus',label:'Rec+',w:55,cls:'lcv-col',tip:'Rec+: blended recommendation score on wRC+ scale (100 = pool average, 115 = +1sigma). 60% aLCV + 15% posFlex + 15% age + 10% LCV.'},
+  {key:'rollingLcvPlus7',label:'7d+',w:55,cls:'lcv-col',tip:'7d+: rolling 7-day LCV on the 100-scale (100 = pool average, 115 = +1sigma)'},
   {key:'rollingLcvPlus14',label:'14d+',w:55,cls:'lcv-col',tip:'14d+: rolling 14-day LCV on the 100-scale (100 = pool average, 115 = +1sigma)'},
   // Batting core (blank for pitchers)
   {key:'s26_pa',label:'PA',w:45}, {key:'s26_avg',label:'AVG',w:50},

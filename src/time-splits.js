@@ -175,9 +175,10 @@ function computePitSplitStats(playerName, windowDays) {
  * Uses pace-adjusted counting stats relative to projected PA.
  * Returns { actualLcv, lcvDelta, splitConfidence } or null.
  */
-function computeBatSplitLcv(player, windowDays) {
+function computeBatSplitLcv(player, windowDays, opts) {
   const stats = computeBatSplitStats(player.name, windowDays);
-  if (!stats || stats.pa < 30) return null;
+  const minPa = (opts && opts.minPa != null) ? opts.minPa : 30;
+  if (!stats || stats.pa < minPa) return null;
 
   const bs = LCV_STATS.bat;
   // OBSERVED 14d performance only. No projection blending — the pool
@@ -208,11 +209,17 @@ function computeBatSplitLcv(player, windowDays) {
  * Compute actual LCV for a pitcher in a given time window.
  * Returns { actualLcv, lcvDelta, splitConfidence } or null.
  */
-function computePitSplitLcv(player, windowDays) {
+function computePitSplitLcv(player, windowDays, opts) {
   const stats = computePitSplitStats(player.name, windowDays);
   const isRP = (player.pos === 'RP' || player.primaryPos === 'RP');
-  // IP threshold: 3 IP for RPs, 10 IP for SPs
-  const minIp = isRP ? 3.0 : 10.0;
+  // IP threshold: 3 IP for RPs, 10 IP for SPs by default. Callers (e.g. the
+  // 7-day window) may override with opts.minIp / opts.minIpRp.
+  let minIp;
+  if (opts && opts.minIp != null) {
+    minIp = isRP && opts.minIpRp != null ? opts.minIpRp : opts.minIp;
+  } else {
+    minIp = isRP ? 3.0 : 10.0;
+  }
   if (!stats || stats.ip < minIp) return null;
 
   // Use the SP-window pool for SPs, RP-window pool for RPs. The pool means
@@ -340,6 +347,18 @@ function _initOriginalLcvValues() {
     if (p.lcvDelta != null) p._origLcvDelta = p.lcvDelta;
 
     if (!hasRolling) return;
+
+    // 7-day rolling LCV — looser thresholds (10 PA, 5 IP / 3 IP RP) since the
+    // window is half the size of the 14-day pass.
+    const split7 = p.type === 'PIT'
+      ? computePitSplitLcv(p, 7, { minIp: 5.0, minIpRp: 3.0 })
+      : computeBatSplitLcv(p, 7, { minPa: 10 });
+    if (split7) {
+      p.rollingLcv7 = split7.actualLcv;
+      p.rollingLcvDelta7 = split7.lcvDelta;
+      p._splitConfidence7 = split7.splitConfidence;
+    }
+
     const split = p.type === 'PIT'
       ? computePitSplitLcv(p, 14)
       : computeBatSplitLcv(p, 14);
@@ -380,6 +399,17 @@ function _initOriginalLcvValues() {
   _applyPlus(_bats, 'rollingLcv14', 'rollingLcvPlus14');
   _applyPlus(_sps,  'rollingLcv14', 'rollingLcvPlus14');
   _applyPlus(_rps,  'rollingLcv14', 'rollingLcvPlus14');
+
+  // Same wRC+-style scaling for the 7-day rolling LCV → rollingLcvPlus7.
+  // Pool buckets stay the same (BAT / SP / RP) so a +1sigma 7d performance
+  // also lands at ~115 within its own role.
+  const _withRolling7 = ALL.filter(p => Number.isFinite(p.rollingLcv7));
+  const _bats7 = _withRolling7.filter(p => p.type === 'BAT');
+  const _sps7 = _withRolling7.filter(p => p.type === 'PIT' && (p.pos === 'SP' || p.primaryPos === 'SP'));
+  const _rps7 = _withRolling7.filter(p => p.type === 'PIT' && p.pos !== 'SP' && p.primaryPos !== 'SP');
+  _applyPlus(_bats7, 'rollingLcv7', 'rollingLcvPlus7');
+  _applyPlus(_sps7,  'rollingLcv7', 'rollingLcvPlus7');
+  _applyPlus(_rps7,  'rollingLcv7', 'rollingLcvPlus7');
 
   // HOT / COLD label tied to the SAME observed 14d+ value the user sees
   // in the column. wRC+ thresholds:
