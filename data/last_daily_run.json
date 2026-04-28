@@ -1,21 +1,19 @@
 {
-  "completedAt": "2026-04-27T16:30:19.680065Z",
+  "completedAt": "2026-04-28T13:06:28.639602Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
     "news": "ok"
   },
   "phaseB": {
-    "cbs_auth": "ok",
-    "transactions": "partial",
-    "rosters": "ok",
-    "matchup": "partial"
+    "cbs_auth": "missing",
+    "transactions": "skipped",
+    "rosters": "skipped",
+    "matchup": "skipped"
   },
   "notes": [
-    "fetch_stuffplus.py 403'd / pybaseball not installable in sandbox (non-fatal as expected).",
-    "Transactions: scraped per-team pages but couldn't reliably re-import all 205 rows through the browser; merged only the single new 4/27 row into cbs_transactions.json.",
-    "Trades page (/trades/recent) returned no trade tables today \u2014 trades from per-team pages were already in existing data.",
-    "Matchup detail: period 3 confirmed (Apr 27 - May 10) opponent A Pete Crow-Armstrong Looked at Me; categoryBreakdown stored as zeros (period just started, all 8-8); only my own matchup is in allMatchups (other 5 pairs use abbreviated team codes I couldn't resolve confidently).",
-    "Cleaner (tools/clean_transactions.py) was bypassed because it would have collapsed historical 494\u2192195 rows; preserved history by appending the one new row and re-sorting only."
+    "fetch_stuffplus.py skipped (pybaseball not installed) - non-fatal",
+    "CBS league pages returned 'page has been moved or deleted' - no authed session in connected Chrome",
+    "Phase B fully skipped: transactions, rosters, matchup, standings not refreshed"
   ]
 }
