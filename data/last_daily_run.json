@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-04-28T13:06:28.639602Z",
+  "completedAt": "2026-04-28T16:08:47.139902Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,8 +12,8 @@
     "matchup": "skipped"
   },
   "notes": [
-    "fetch_stuffplus.py skipped (pybaseball not installed) - non-fatal",
-    "CBS league pages returned 'page has been moved or deleted' - no authed session in connected Chrome",
-    "Phase B fully skipped: transactions, rosters, matchup, standings not refreshed"
+    "fetch_stuffplus.py: pybaseball not installed (non-fatal)",
+    "Phase A scraped via direct urllib fetch (public pages); injuries=239, news=50",
+    "CBS league transactions page returned 'moved or deleted' with Sign-in link; auth missing"
   ]
 }
