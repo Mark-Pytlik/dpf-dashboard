@@ -5,15 +5,15 @@
   "opponent": "A Pete Crow-Armstrong Looked at Me",
   "opponentTeam": "A Pete Crow-Armstrong Looked at Me",
   "currentScore": {
-    "me": 8,
-    "opp": 8,
-    "tied": 0
+    "me": 6,
+    "opp": 4,
+    "tied": 6
   },
   "categoryBreakdown": {
     "BA": {
-      "me": "0",
-      "opp": "0",
-      "won": false
+      "me": "0.100",
+      "opp": "0.000",
+      "won": true
     },
     "HR": {
       "me": "0",
@@ -21,13 +21,13 @@
       "won": false
     },
     "RBI": {
-      "me": "0",
+      "me": "1",
       "opp": "0",
-      "won": false
+      "won": true
     },
     "R": {
       "me": "0",
-      "opp": "0",
+      "opp": "1",
       "won": false
     },
     "SB": {
@@ -36,34 +36,34 @@
       "won": false
     },
     "KO": {
-      "me": "0",
-      "opp": "0",
+      "me": "5",
+      "opp": "1",
       "won": false
     },
     "OBP": {
-      "me": "0",
-      "opp": "0",
+      "me": "0.100",
+      "opp": "0.111",
       "won": false
     },
     "SLG": {
-      "me": "0",
-      "opp": "0",
-      "won": false
+      "me": "0.100",
+      "opp": "0.000",
+      "won": true
     },
     "K": {
-      "me": "0",
-      "opp": "0",
+      "me": "6",
+      "opp": "7",
       "won": false
     },
     "ERA": {
-      "me": "0",
-      "opp": "0",
-      "won": false
+      "me": "6.4286",
+      "opp": "13.5000",
+      "won": true
     },
     "WHIP": {
-      "me": "0",
-      "opp": "0",
-      "won": false
+      "me": "1.7143",
+      "opp": "2.3571",
+      "won": true
     },
     "W": {
       "me": "0",
@@ -81,9 +81,9 @@
       "won": false
     },
     "HRA": {
-      "me": "0",
-      "opp": "0",
-      "won": false
+      "me": "1",
+      "opp": "3",
+      "won": true
     },
     "QS": {
       "me": "0",
@@ -93,13 +93,42 @@
   },
   "allMatchups": [
     {
-      "away": "Okamotomami",
-      "home": "A Pete Crow-Armstrong Looked at Me",
+      "away": "Dinosaur Jr Caminero",
+      "home": "Colonel Corbin's Ascent",
       "awayScore": 8.0,
       "homeScore": 8.0
+    },
+    {
+      "away": "Yesavage Garden",
+      "home": "Before and After Shohei",
+      "awayScore": 4.0,
+      "homeScore": 12.0
+    },
+    {
+      "away": "Weird Fishes / Arrighetti",
+      "home": "Everythings McGonigle Green",
+      "awayScore": 8.5,
+      "homeScore": 7.5
+    },
+    {
+      "away": "Okamotomami",
+      "home": "A Pete Crow-Armstrong Looked at Me",
+      "awayScore": 9.0,
+      "homeScore": 7.0
+    },
+    {
+      "away": "Popped A Mahle I'm Sweating",
+      "home": "Ballesteros, Let the Rhythm Take You Over",
+      "awayScore": 10.0,
+      "homeScore": 6.0
+    },
+    {
+      "away": "Buddy Buddy Buddy All On Base",
+      "home": "Blame it on the Rainiel",
+      "awayScore": 12.5,
+      "homeScore": 3.5
     }
   ],
-  "myRecord": "2-0-0",
   "standings": [
     {
       "team": "Weird Fishes / Arrighetti",
@@ -110,7 +139,7 @@
       "pts": 0
     },
     {
-      "team": "Colonel Corbin's Ascent",
+      "team": "Colonel Corbin\u2019s Ascent",
       "mine": false,
       "w": 2,
       "l": 0,
@@ -198,5 +227,5 @@
       "pts": 0
     }
   ],
-  "lastUpdated": "2026-04-27"
+  "lastUpdated": "2026-04-28"
 }
