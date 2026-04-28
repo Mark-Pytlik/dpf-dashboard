@@ -1,19 +1,24 @@
 {
-  "completedAt": "2026-04-28T16:08:47.139902Z",
+  "completedAt": "2026-04-28T16:35:48.365129Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
     "news": "ok"
   },
   "phaseB": {
-    "cbs_auth": "missing",
-    "transactions": "skipped",
-    "rosters": "skipped",
-    "matchup": "skipped"
+    "cbs_auth": "ok",
+    "transactions": "ok",
+    "rosters": "ok",
+    "matchup": "ok"
   },
   "notes": [
     "fetch_stuffplus.py: pybaseball not installed (non-fatal)",
     "Phase A scraped via direct urllib fetch (public pages); injuries=239, news=50",
-    "CBS league transactions page returned 'moved or deleted' with Sign-in link; auth missing"
+    "Phase B used correct league URL on dpf.baseball.cbssports.com (not www.cbssports.com/fantasy/baseball/league/...)",
+    "208 transactions scraped from teams 1-12; merge_tx added 55 new (cleaned 550 -> 197)",
+    "12 rosters scraped; roster_sync added 5 synthetic transactions to reconcile drops/adds",
+    "Team 7 name in CBS is now 'Everythings McGonigle Green' (was 'Whoop Whoop that's the sound of Dylan Cease' in merge_tx.py TEAM_IDS)",
+    "Period 3 matchup: Okamotomami 9-7 A Pete Crow-Armstrong Looked at Me; 6 wins, 4 losses, 6 ties across 16 cats",
+    "All 6 matchups + 12-team standings captured in season_status.json"
   ]
 }
