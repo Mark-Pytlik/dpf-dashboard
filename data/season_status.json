@@ -5,64 +5,49 @@
   "opponent": "A Pete Crow-Armstrong Looked at Me",
   "opponentTeam": "A Pete Crow-Armstrong Looked at Me",
   "currentScore": {
-    "me": 6,
-    "opp": 4,
-    "tied": 6
+    "me": 5,
+    "opp": 10,
+    "tied": 1
   },
   "categoryBreakdown": {
     "BA": {
-      "me": "0.100",
-      "opp": "0.000",
-      "won": true
+      "me": "0.120",
+      "opp": "0.286",
+      "won": false
     },
     "HR": {
       "me": "0",
-      "opp": "0",
+      "opp": "1",
       "won": false
     },
     "RBI": {
-      "me": "1",
-      "opp": "0",
-      "won": true
+      "me": "3",
+      "opp": "6",
+      "won": false
     },
     "R": {
-      "me": "0",
-      "opp": "1",
+      "me": "1",
+      "opp": "9",
       "won": false
     },
     "SB": {
-      "me": "0",
-      "opp": "0",
+      "me": "1",
+      "opp": "2",
       "won": false
-    },
-    "KO": {
-      "me": "5",
-      "opp": "1",
-      "won": false
-    },
-    "OBP": {
-      "me": "0.100",
-      "opp": "0.111",
-      "won": false
-    },
-    "SLG": {
-      "me": "0.100",
-      "opp": "0.000",
-      "won": true
     },
     "K": {
-      "me": "6",
-      "opp": "7",
-      "won": false
+      "me": "19",
+      "opp": "8",
+      "won": true
     },
     "ERA": {
-      "me": "6.4286",
-      "opp": "13.5000",
+      "me": "4.5000",
+      "opp": "12.1935",
       "won": true
     },
     "WHIP": {
-      "me": "1.7143",
-      "opp": "2.3571",
+      "me": "1.5556",
+      "opp": "2.3226",
       "won": true
     },
     "W": {
@@ -71,6 +56,21 @@
       "won": false
     },
     "S": {
+      "me": "0",
+      "opp": "1",
+      "won": false
+    },
+    "KO": {
+      "me": "0",
+      "opp": "0",
+      "won": false
+    },
+    "OBP": {
+      "me": "0",
+      "opp": "0",
+      "won": false
+    },
+    "SLG": {
       "me": "0",
       "opp": "0",
       "won": false
@@ -81,9 +81,9 @@
       "won": false
     },
     "HRA": {
-      "me": "1",
-      "opp": "3",
-      "won": true
+      "me": "0",
+      "opp": "0",
+      "won": false
     },
     "QS": {
       "me": "0",
@@ -93,40 +93,40 @@
   },
   "allMatchups": [
     {
-      "away": "Dinosaur Jr Caminero",
-      "home": "Colonel Corbin's Ascent",
-      "awayScore": 8.0,
-      "homeScore": 8.0
+      "away": "Okamotomami",
+      "home": "A Pete Crow-Armstrong Looked at Me",
+      "awayScore": 5.5,
+      "homeScore": 10.5
+    },
+    {
+      "away": "RESCAN",
+      "home": "Icculus",
+      "awayScore": 10.5,
+      "homeScore": 5.5
     },
     {
       "away": "Yesavage Garden",
       "home": "Before and After Shohei",
-      "awayScore": 4.0,
-      "homeScore": 12.0
+      "awayScore": 5.0,
+      "homeScore": 11.0
     },
     {
-      "away": "Weird Fishes / Arrighetti",
-      "home": "Everythings McGonigle Green",
-      "awayScore": 8.5,
-      "homeScore": 7.5
+      "away": "Fran",
+      "home": "Drew",
+      "awayScore": 12.5,
+      "homeScore": 3.5
     },
     {
-      "away": "Okamotomami",
-      "home": "A Pete Crow-Armstrong Looked at Me",
-      "awayScore": 9.0,
-      "homeScore": 7.0
-    },
-    {
-      "away": "Popped A Mahle I'm Sweating",
-      "home": "Ballesteros, Let the Rhythm Take You Over",
+      "away": "ROTH",
+      "home": "woba",
       "awayScore": 10.0,
       "homeScore": 6.0
     },
     {
       "away": "Buddy Buddy Buddy All On Base",
-      "home": "Blame it on the Rainiel",
-      "awayScore": 12.5,
-      "homeScore": 3.5
+      "home": "Milli",
+      "awayScore": 11.0,
+      "homeScore": 5.0
     }
   ],
   "standings": [
@@ -136,15 +136,15 @@
       "w": 2,
       "l": 0,
       "t": 0,
-      "pts": 0
+      "pts": 2.0
     },
     {
-      "team": "Colonel Corbin\u2019s Ascent",
+      "team": "Colonel Corbin's Ascent",
       "mine": false,
       "w": 2,
       "l": 0,
       "t": 0,
-      "pts": 0
+      "pts": 2.0
     },
     {
       "team": "Okamotomami",
@@ -152,7 +152,7 @@
       "w": 2,
       "l": 0,
       "t": 0,
-      "pts": 0
+      "pts": 2.0
     },
     {
       "team": "Blame it on the Rainiel",
@@ -160,7 +160,7 @@
       "w": 2,
       "l": 0,
       "t": 0,
-      "pts": 0
+      "pts": 2.0
     },
     {
       "team": "Buddy Buddy Buddy All On Base",
@@ -168,7 +168,7 @@
       "w": 1,
       "l": 1,
       "t": 0,
-      "pts": 0
+      "pts": 1.0
     },
     {
       "team": "A Pete Crow-Armstrong Looked at Me",
@@ -176,7 +176,7 @@
       "w": 1,
       "l": 1,
       "t": 0,
-      "pts": 0
+      "pts": 1.0
     },
     {
       "team": "Everythings McGonigle Green",
@@ -184,7 +184,7 @@
       "w": 1,
       "l": 1,
       "t": 0,
-      "pts": 0
+      "pts": 1.0
     },
     {
       "team": "Before and After Shohei",
@@ -192,7 +192,7 @@
       "w": 1,
       "l": 1,
       "t": 0,
-      "pts": 0
+      "pts": 1.0
     },
     {
       "team": "Dinosaur Jr Caminero",
@@ -200,7 +200,7 @@
       "w": 0,
       "l": 2,
       "t": 0,
-      "pts": 0
+      "pts": 0.0
     },
     {
       "team": "Ballesteros, Let the Rhythm Take You Over",
@@ -208,7 +208,7 @@
       "w": 0,
       "l": 2,
       "t": 0,
-      "pts": 0
+      "pts": 0.0
     },
     {
       "team": "Yesavage Garden",
@@ -216,7 +216,7 @@
       "w": 0,
       "l": 2,
       "t": 0,
-      "pts": 0
+      "pts": 0.0
     },
     {
       "team": "Popped A Mahle I'm Sweating",
@@ -224,8 +224,8 @@
       "w": 0,
       "l": 2,
       "t": 0,
-      "pts": 0
+      "pts": 0.0
     }
   ],
-  "lastUpdated": "2026-04-28"
+  "lastUpdated": "2026-04-29"
 }
