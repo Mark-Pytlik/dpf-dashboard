@@ -1,19 +1,20 @@
 {
-  "completedAt": "2026-04-29T16:09:23.147197Z",
+  "completedAt": "2026-04-30T13:21:29.432381Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
     "news": "ok"
   },
   "phaseB": {
-    "cbs_auth": "missing",
-    "transactions": "skipped",
-    "rosters": "skipped",
-    "matchup": "skipped"
+    "cbs_auth": "ok",
+    "transactions": "ok",
+    "rosters": "ok",
+    "matchup": "ok"
   },
   "notes": [
-    "fetch_stuffplus.py 403/missing pybaseball \u2014 non-fatal, expected.",
-    "CBS auth missing: /fantasy/baseball/ shows Sign in link, no league links present. Phase B skipped.",
-    "Injuries scraped via static HTML (240 rows); player news scraped 5 pages (49 items)."
+    "fetch_stuffplus.py 403/missing-pkg (non-fatal)",
+    "Team 'Whoop Whoop that's the sound of Dylan Cease' was renamed on CBS to 'Everythings McGonigle Green' (used new name in standings, kept canonical TEAMS[7] for tx/roster mapping)",
+    "Phase B used dpf.baseball.cbssports.com (not www.cbssports.com/fantasy/baseball/league/...) \u2014 the previous URL pattern 404s.",
+    "Trade rows recognized correctly via known-team-name matcher; no unknown action types observed."
   ]
 }
