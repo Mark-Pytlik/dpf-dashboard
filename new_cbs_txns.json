@@ -1,5 +1,18 @@
 [
   {
+    "date": "4/29/26 10:45 AM ET",
+    "teamName": "Weird Fishes / Arrighetti",
+    "teamId": 1,
+    "players": [
+      {
+        "name": "Aaron Nola",
+        "pos": "SP",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
     "date": "4/29/26 3:03 AM ET",
     "teamName": "Weird Fishes / Arrighetti",
     "teamId": 1,
@@ -405,7 +418,7 @@
   },
   {
     "date": "4/27/26 1:59 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -424,7 +437,7 @@
   },
   {
     "date": "4/22/26 2:33 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -443,7 +456,7 @@
   },
   {
     "date": "4/22/26 2:33 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -462,7 +475,7 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -475,7 +488,7 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -488,7 +501,7 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -507,7 +520,7 @@
   },
   {
     "date": "4/20/26 1:56 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -526,7 +539,7 @@
   },
   {
     "date": "4/18/26 3:03 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -545,7 +558,7 @@
   },
   {
     "date": "4/18/26 3:03 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -558,7 +571,7 @@
   },
   {
     "date": "4/17/26 11:33 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -571,7 +584,7 @@
   },
   {
     "date": "4/16/26 2:34 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -590,7 +603,7 @@
   },
   {
     "date": "4/13/26 9:04 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -603,7 +616,7 @@
   },
   {
     "date": "4/13/26 1:59 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -622,7 +635,7 @@
   },
   {
     "date": "4/13/26 1:59 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -641,7 +654,7 @@
   },
   {
     "date": "4/11/26 2:53 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -660,7 +673,7 @@
   },
   {
     "date": "4/10/26 3:09 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -679,7 +692,7 @@
   },
   {
     "date": "4/8/26 3:06 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -698,7 +711,7 @@
   },
   {
     "date": "4/7/26 2:07 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -711,7 +724,7 @@
   },
   {
     "date": "4/7/26 2:07 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -730,7 +743,7 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -743,7 +756,7 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -762,7 +775,7 @@
   },
   {
     "date": "3/31/26 8:48 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -775,7 +788,7 @@
   },
   {
     "date": "3/31/26 2:19 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -788,7 +801,7 @@
   },
   {
     "date": "3/31/26 2:14 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -801,7 +814,7 @@
   },
   {
     "date": "3/28/26 10:59 PM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -820,7 +833,7 @@
   },
   {
     "date": "3/26/26 11:24 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -833,7 +846,7 @@
   },
   {
     "date": "3/25/26 2:55 PM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -846,7 +859,7 @@
   },
   {
     "date": "3/25/26 2:55 PM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -859,7 +872,7 @@
   },
   {
     "date": "3/24/26 1:22 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -872,7 +885,7 @@
   },
   {
     "date": "3/23/26 9:22 AM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Colonel Corbin's Ascent",
     "teamId": 3,
     "players": [
       {
@@ -1091,7 +1104,7 @@
   },
   {
     "date": "3/17/26 12:38 PM ET",
-    "teamName": "Colonel Corbin’s Ascent",
+    "teamName": "Okamotomami",
     "teamId": 4,
     "players": [
       {
@@ -1117,19 +1130,19 @@
         "name": "Jac Caglianone",
         "pos": "RF",
         "mlbTeam": "KC",
-        "action": "Traded from Colonel Corbin’s Ascent"
+        "action": "Traded from Colonel Corbin's Ascent"
       },
       {
         "name": "Vladimir Guerrero Jr.",
         "pos": "1B",
         "mlbTeam": "TOR",
-        "action": "Traded from Colonel Corbin’s Ascent"
+        "action": "Traded from Colonel Corbin's Ascent"
       },
       {
         "name": "Kazuma Okamoto",
         "pos": "3B",
         "mlbTeam": "TOR",
-        "action": "Traded from Colonel Corbin’s Ascent"
+        "action": "Traded from Colonel Corbin's Ascent"
       }
     ]
   },
@@ -1635,7 +1648,7 @@
   },
   {
     "date": "4/22/26 12:37 PM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1648,7 +1661,7 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1661,7 +1674,7 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1680,7 +1693,7 @@
   },
   {
     "date": "4/8/26 3:06 AM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1699,7 +1712,7 @@
   },
   {
     "date": "4/2/26 10:47 AM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1712,7 +1725,7 @@
   },
   {
     "date": "4/1/26 2:51 PM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1725,7 +1738,7 @@
   },
   {
     "date": "4/1/26 2:50 PM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1744,7 +1757,7 @@
   },
   {
     "date": "4/1/26 2:46 PM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1763,7 +1776,7 @@
   },
   {
     "date": "3/27/26 9:34 AM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1776,7 +1789,7 @@
   },
   {
     "date": "3/27/26 2:43 AM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1789,7 +1802,7 @@
   },
   {
     "date": "3/25/26 2:52 PM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1802,7 +1815,7 @@
   },
   {
     "date": "3/25/26 2:51 PM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1815,7 +1828,7 @@
   },
   {
     "date": "3/25/26 2:48 PM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1828,7 +1841,7 @@
   },
   {
     "date": "3/25/26 9:20 AM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1847,7 +1860,7 @@
   },
   {
     "date": "3/25/26 9:18 AM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1866,7 +1879,7 @@
   },
   {
     "date": "3/24/26 10:07 AM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1879,7 +1892,7 @@
   },
   {
     "date": "3/24/26 10:05 AM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1892,7 +1905,7 @@
   },
   {
     "date": "3/24/26 10:04 AM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1905,7 +1918,7 @@
   },
   {
     "date": "3/24/26 10:04 AM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -1918,7 +1931,7 @@
   },
   {
     "date": "3/24/26 10:03 AM ET",
-    "teamName": "Everythings McGonigle Green",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
     "teamId": 7,
     "players": [
       {
@@ -2234,6 +2247,44 @@
         "name": "Evan Carter",
         "pos": "CF",
         "mlbTeam": "TEX",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/30/26 2:03 AM ET",
+    "teamName": "Yesavage Garden",
+    "teamId": 9,
+    "players": [
+      {
+        "name": "Ildemaro Vargas",
+        "pos": "1B,2B",
+        "mlbTeam": "ARI",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jack Leiter",
+        "pos": "SP",
+        "mlbTeam": "TEX",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/30/26 2:03 AM ET",
+    "teamName": "Yesavage Garden",
+    "teamId": 9,
+    "players": [
+      {
+        "name": "Antonio Senzatela",
+        "pos": "SP",
+        "mlbTeam": "COL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Pete Fairbanks",
+        "pos": "RP",
+        "mlbTeam": "MIA",
         "action": "Dropped"
       }
     ]
@@ -2642,6 +2693,25 @@
         "name": "David Bednar",
         "pos": "RP",
         "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/30/26 2:03 AM ET",
+    "teamName": "Blame it on the Rainiel",
+    "teamId": 10,
+    "players": [
+      {
+        "name": "Erick Fedde",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jack Flaherty",
+        "pos": "SP",
+        "mlbTeam": "DET",
         "action": "Dropped"
       }
     ]

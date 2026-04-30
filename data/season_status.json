@@ -11,23 +11,23 @@
   },
   "categoryBreakdown": {
     "BA": {
-      "me": "0.120",
-      "opp": "0.286",
+      "me": "0.202",
+      "opp": "0.268",
       "won": false
     },
     "HR": {
-      "me": "0",
-      "opp": "1",
+      "me": "2",
+      "opp": "4",
       "won": false
     },
     "RBI": {
-      "me": "3",
-      "opp": "6",
+      "me": "11",
+      "opp": "13",
       "won": false
     },
     "R": {
-      "me": "1",
-      "opp": "9",
+      "me": "9",
+      "opp": "15",
       "won": false
     },
     "SB": {
@@ -36,17 +36,17 @@
       "won": false
     },
     "K": {
-      "me": "19",
+      "me": "21",
       "opp": "8",
       "won": true
     },
     "ERA": {
-      "me": "4.5000",
+      "me": "4.1186",
       "opp": "12.1935",
       "won": true
     },
     "WHIP": {
-      "me": "1.5556",
+      "me": "1.5763",
       "opp": "2.3226",
       "won": true
     },
@@ -79,16 +79,6 @@
       "me": "0",
       "opp": "0",
       "won": false
-    },
-    "HRA": {
-      "me": "0",
-      "opp": "0",
-      "won": false
-    },
-    "QS": {
-      "me": "0",
-      "opp": "0",
-      "won": false
     }
   },
   "allMatchups": [
@@ -101,14 +91,14 @@
     {
       "away": "RESCAN",
       "home": "Icculus",
-      "awayScore": 10.5,
-      "homeScore": 5.5
+      "awayScore": 6.5,
+      "homeScore": 9.5
     },
     {
       "away": "Yesavage Garden",
       "home": "Before and After Shohei",
-      "awayScore": 5.0,
-      "homeScore": 11.0
+      "awayScore": 4.5,
+      "homeScore": 11.5
     },
     {
       "away": "Fran",
@@ -119,14 +109,14 @@
     {
       "away": "ROTH",
       "home": "woba",
-      "awayScore": 10.0,
-      "homeScore": 6.0
+      "awayScore": 7.5,
+      "homeScore": 8.5
     },
     {
       "away": "Buddy Buddy Buddy All On Base",
       "home": "Milli",
-      "awayScore": 11.0,
-      "homeScore": 5.0
+      "awayScore": 10.5,
+      "homeScore": 5.5
     }
   ],
   "standings": [
@@ -227,5 +217,5 @@
       "pts": 0.0
     }
   ],
-  "lastUpdated": "2026-04-29"
+  "lastUpdated": "2026-04-30"
 }
