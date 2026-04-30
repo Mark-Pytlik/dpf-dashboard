@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-04-30T13:21:29.432381Z",
+  "completedAt": "2026-04-30T16:18:27.138256Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,9 +12,12 @@
     "matchup": "ok"
   },
   "notes": [
-    "fetch_stuffplus.py 403/missing-pkg (non-fatal)",
-    "Team 'Whoop Whoop that's the sound of Dylan Cease' was renamed on CBS to 'Everythings McGonigle Green' (used new name in standings, kept canonical TEAMS[7] for tx/roster mapping)",
-    "Phase B used dpf.baseball.cbssports.com (not www.cbssports.com/fantasy/baseball/league/...) \u2014 the previous URL pattern 404s.",
-    "Trade rows recognized correctly via known-team-name matcher; no unknown action types observed."
+    "fetch_stuffplus.py 403 (FanGraphs, expected/non-fatal)",
+    "Used dpf.baseball.cbssports.com URL pattern (www.cbssports.com/fantasy/baseball/league/... 404s)",
+    "tx URL: /transactions/{teamId}/all_but_lineup/; roster URL: /teams/{teamId}; matchup URL: /scoring/standard/{period}/{teamId}",
+    "Standings still list 'Everythings McGonigle Green' as the canonical CBS team-7 name; transactions use canonical TEAMS[7]='Whoop Whoop that's the sound of Dylan Cease'",
+    "Captured all 16 cats (BA/HR/RBI/R/SB/KO/OBP/SLG/K/ERA/WHIP/W/S/HD/HRA/QS) for current matchup",
+    "No new transaction action types observed; recognized: Added, Added off Waivers, Dropped, Activated, Moved to IR, Traded from <Team>",
+    "Roster sync emitted 1 synthetic ghost-drop transaction (Aaron Nola off Weird Fishes / Arrighetti)"
   ]
 }
