@@ -5,80 +5,108 @@
   "opponent": "A Pete Crow-Armstrong Looked at Me",
   "opponentTeam": "A Pete Crow-Armstrong Looked at Me",
   "currentScore": {
-    "me": 5,
-    "opp": 10,
-    "tied": 1
+    "me": 4,
+    "opp": 9,
+    "tied": 3,
+    "meHalf": 5.5,
+    "oppHalf": 10.5
   },
   "categoryBreakdown": {
     "BA": {
       "me": "0.202",
       "opp": "0.268",
-      "won": false
+      "won": false,
+      "tied": false
     },
     "HR": {
       "me": "2",
       "opp": "4",
-      "won": false
+      "won": false,
+      "tied": false
     },
     "RBI": {
       "me": "11",
       "opp": "13",
-      "won": false
+      "won": false,
+      "tied": false
     },
     "R": {
       "me": "9",
       "opp": "15",
-      "won": false
+      "won": false,
+      "tied": false
     },
     "SB": {
       "me": "1",
       "opp": "2",
-      "won": false
+      "won": false,
+      "tied": false
+    },
+    "KO": {
+      "me": "28",
+      "opp": "19",
+      "won": false,
+      "tied": false
+    },
+    "OBP": {
+      "me": "0.280",
+      "opp": "0.350",
+      "won": false,
+      "tied": false
+    },
+    "SLG": {
+      "me": "0.298",
+      "opp": "0.479",
+      "won": false,
+      "tied": false
     },
     "K": {
       "me": "21",
       "opp": "8",
-      "won": true
+      "won": true,
+      "tied": false
     },
     "ERA": {
       "me": "4.1186",
       "opp": "12.1935",
-      "won": true
+      "won": true,
+      "tied": false
     },
     "WHIP": {
       "me": "1.5763",
       "opp": "2.3226",
-      "won": true
+      "won": true,
+      "tied": false
     },
     "W": {
       "me": "0",
       "opp": "0",
-      "won": false
+      "won": false,
+      "tied": true
     },
     "S": {
       "me": "0",
       "opp": "1",
-      "won": false
-    },
-    "KO": {
-      "me": "0",
-      "opp": "0",
-      "won": false
-    },
-    "OBP": {
-      "me": "0",
-      "opp": "0",
-      "won": false
-    },
-    "SLG": {
-      "me": "0",
-      "opp": "0",
-      "won": false
+      "won": false,
+      "tied": false
     },
     "HD": {
+      "me": "2",
+      "opp": "0",
+      "won": true,
+      "tied": false
+    },
+    "HRA": {
+      "me": "3",
+      "opp": "3",
+      "won": false,
+      "tied": true
+    },
+    "QS": {
       "me": "0",
       "opp": "0",
-      "won": false
+      "won": false,
+      "tied": true
     }
   },
   "allMatchups": [

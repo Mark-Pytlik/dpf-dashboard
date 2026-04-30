@@ -54,10 +54,8 @@
   {
     "date": "4/30/26 12:00 AM ET",
     "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
     "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: was Dropped on 4/29/26 10:45 AM ET",
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Aaron Nola",
@@ -69,71 +67,24 @@
   {
     "date": "4/30/26 12:00 AM ET",
     "teamId": "9",
-    "team": "Yesavage Garden",
     "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: was Dropped on 4/30/26 2:03 AM ET",
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Jack Leiter",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "4/30/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: was Dropped on 4/30/26 2:03 AM ET",
-    "players": [
+      },
       {
         "name": "Pete Fairbanks",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "4/30/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: was Dropped on 4/30/26 2:03 AM ET",
-    "players": [
-      {
-        "name": "Jack Flaherty",
-        "action": "Added",
-        "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "4/30/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: not on any CBS roster",
-    "players": [
+      },
       {
         "name": "Antonio Senzatela",
         "action": "Dropped",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "4/30/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: not on any CBS roster",
-    "players": [
+      },
       {
         "name": "Ildemaro Vargas",
         "action": "Dropped",
@@ -144,13 +95,31 @@
   {
     "date": "4/30/26 12:00 AM ET",
     "teamId": "10",
-    "team": "Blame it on the Rainiel",
     "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "players": [
+      {
+        "name": "Jack Flaherty",
+        "action": "Added",
+        "synthetic": true
+      },
+      {
+        "name": "Erick Fedde",
+        "action": "Dropped",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "4/30/26 12:00 AM ET",
+    "teamId": "1",
+    "team": "Weird Fishes / Arrighetti",
+    "teamName": "Weird Fishes / Arrighetti",
     "synthetic": true,
     "note": "roster_sync: not on any CBS roster",
     "players": [
       {
-        "name": "Erick Fedde",
+        "name": "Aaron Nola",
         "action": "Dropped",
         "synthetic": true
       }
@@ -5301,6 +5270,26 @@
   },
   {
     "date": "3/17/26 12:38 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Nick Kurtz",
+        "pos": "1B",
+        "mlbTeam": "ATH",
+        "action": "Traded from Okamotomami"
+      },
+      {
+        "name": "Nick Lodolo",
+        "pos": "SP",
+        "mlbTeam": "CIN",
+        "action": "Traded from Okamotomami"
+      }
+    ]
+  },
+  {
+    "date": "3/17/26 12:38 PM ET",
     "teamId": "4",
     "teamName": "Okamotomami",
     "team": "Okamotomami",
@@ -5322,26 +5311,6 @@
         "pos": "3B",
         "mlbTeam": "TOR",
         "action": "Traded from Colonel Corbin's Ascent"
-      }
-    ]
-  },
-  {
-    "date": "3/17/26 12:38 PM ET",
-    "teamId": "3",
-    "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
-    "players": [
-      {
-        "name": "Nick Kurtz",
-        "pos": "1B",
-        "mlbTeam": "ATH",
-        "action": "Traded from Okamotomami"
-      },
-      {
-        "name": "Nick Lodolo",
-        "pos": "SP",
-        "mlbTeam": "CIN",
-        "action": "Traded from Okamotomami"
       }
     ]
   },
