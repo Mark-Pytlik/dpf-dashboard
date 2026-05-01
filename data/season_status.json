@@ -111,139 +111,187 @@
   },
   "allMatchups": [
     {
-      "away": "Okamotomami",
-      "home": "A Pete Crow-Armstrong Looked at Me",
+      "away": "OMM",
+      "home": "PCA",
+      "awayName": "Okamotomami",
+      "homeName": "A Pete Crow-Armstrong Looked at Me",
       "awayScore": 5.5,
       "homeScore": 10.5
     },
     {
       "away": "RESCAN",
       "home": "Icculus",
+      "awayName": "Colonel Corbin's Ascent",
+      "homeName": "Whoop Whoop that's the sound of Dylan Cease",
       "awayScore": 6.5,
       "homeScore": 9.5
     },
     {
-      "away": "Yesavage Garden",
-      "home": "Before and After Shohei",
-      "awayScore": 4.5,
-      "homeScore": 11.5
+      "away": "YSVG",
+      "home": "SHOH",
+      "awayName": "Yesavage Garden",
+      "homeName": "Before and After Shohei",
+      "awayScore": 4.0,
+      "homeScore": 12.0
     },
     {
       "away": "Fran",
       "home": "Drew",
-      "awayScore": 12.5,
-      "homeScore": 3.5
+      "awayName": "Weird Fishes / Arrighetti",
+      "homeName": "Dinosaur Jr Caminero",
+      "awayScore": 15.0,
+      "homeScore": 1.0
     },
     {
       "away": "ROTH",
       "home": "woba",
-      "awayScore": 7.5,
-      "homeScore": 8.5
+      "awayName": "Blame it on the Rainiel",
+      "homeName": "Popped A Mahle I'm Sweating",
+      "awayScore": 11.5,
+      "homeScore": 4.5
     },
     {
-      "away": "Buddy Buddy Buddy All On Base",
+      "away": "BBBaoB",
       "home": "Milli",
-      "awayScore": 10.5,
-      "homeScore": 5.5
+      "awayName": "Buddy Buddy Buddy All On Base",
+      "homeName": "Ballesteros, Let the Rhythm Take You Over",
+      "awayScore": 10.0,
+      "homeScore": 6.0
     }
   ],
   "standings": [
     {
       "team": "Weird Fishes / Arrighetti",
-      "mine": false,
       "w": 2,
       "l": 0,
       "t": 0,
+      "pct": "1.000",
+      "gb": "0",
+      "streak": "W2",
+      "mine": false,
       "pts": 2.0
     },
     {
       "team": "Colonel Corbin's Ascent",
-      "mine": false,
       "w": 2,
       "l": 0,
       "t": 0,
+      "pct": "1.000",
+      "gb": "0",
+      "streak": "W2",
+      "mine": false,
       "pts": 2.0
     },
     {
       "team": "Okamotomami",
-      "mine": true,
       "w": 2,
       "l": 0,
       "t": 0,
+      "pct": "1.000",
+      "gb": "0",
+      "streak": "W2",
+      "mine": true,
       "pts": 2.0
     },
     {
       "team": "Blame it on the Rainiel",
-      "mine": false,
       "w": 2,
       "l": 0,
       "t": 0,
+      "pct": "1.000",
+      "gb": "0",
+      "streak": "W2",
+      "mine": false,
       "pts": 2.0
     },
     {
       "team": "Buddy Buddy Buddy All On Base",
-      "mine": false,
       "w": 1,
       "l": 1,
       "t": 0,
+      "pct": "0.500",
+      "gb": "1",
+      "streak": "W1",
+      "mine": false,
       "pts": 1.0
     },
     {
       "team": "A Pete Crow-Armstrong Looked at Me",
-      "mine": false,
       "w": 1,
       "l": 1,
       "t": 0,
+      "pct": "0.500",
+      "gb": "1",
+      "streak": "W1",
+      "mine": false,
       "pts": 1.0
     },
     {
       "team": "Everythings McGonigle Green",
-      "mine": false,
       "w": 1,
       "l": 1,
       "t": 0,
+      "pct": "0.500",
+      "gb": "1",
+      "streak": "L1",
+      "mine": false,
       "pts": 1.0
     },
     {
       "team": "Before and After Shohei",
-      "mine": false,
       "w": 1,
       "l": 1,
       "t": 0,
+      "pct": "0.500",
+      "gb": "1",
+      "streak": "L1",
+      "mine": false,
       "pts": 1.0
     },
     {
       "team": "Dinosaur Jr Caminero",
-      "mine": false,
       "w": 0,
       "l": 2,
       "t": 0,
+      "pct": "0.000",
+      "gb": "2",
+      "streak": "L2",
+      "mine": false,
       "pts": 0.0
     },
     {
       "team": "Ballesteros, Let the Rhythm Take You Over",
-      "mine": false,
       "w": 0,
       "l": 2,
       "t": 0,
+      "pct": "0.000",
+      "gb": "2",
+      "streak": "L2",
+      "mine": false,
       "pts": 0.0
     },
     {
       "team": "Yesavage Garden",
-      "mine": false,
       "w": 0,
       "l": 2,
       "t": 0,
+      "pct": "0.000",
+      "gb": "2",
+      "streak": "L2",
+      "mine": false,
       "pts": 0.0
     },
     {
       "team": "Popped A Mahle I'm Sweating",
-      "mine": false,
       "w": 0,
       "l": 2,
       "t": 0,
+      "pct": "0.000",
+      "gb": "2",
+      "streak": "L2",
+      "mine": false,
       "pts": 0.0
     }
   ],
-  "lastUpdated": "2026-04-30"
+  "lastUpdated": "2026-05-01"
 }

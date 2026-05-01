@@ -1,5 +1,53 @@
 [
   {
+    "date": "5/1/26 2:03 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Jung Hoo Lee",
+        "pos": "CF,RF",
+        "mlbTeam": "SF",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jordan Westburg",
+        "pos": "3B",
+        "mlbTeam": "BAL",
+        "action": "Dropped"
+      },
+      {
+        "name": "Lawrence Butler",
+        "pos": "CF,RF",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jasson Dominguez",
+        "pos": "LF",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/1/26"
+  },
+  {
+    "date": "5/1/26 12:00 AM ET",
+    "teamId": "1",
+    "team": "Weird Fishes / Arrighetti",
+    "teamName": "Weird Fishes / Arrighetti",
+    "synthetic": true,
+    "note": "roster_sync: not on any CBS roster",
+    "players": [
+      {
+        "name": "Aaron Nola",
+        "action": "Dropped",
+        "synthetic": true
+      }
+    ]
+  },
+  {
     "date": "4/30/26 2:03 AM ET",
     "teamId": "9",
     "teamName": "Yesavage Garden",
@@ -105,21 +153,6 @@
       },
       {
         "name": "Erick Fedde",
-        "action": "Dropped",
-        "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "4/30/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: not on any CBS roster",
-    "players": [
-      {
-        "name": "Aaron Nola",
         "action": "Dropped",
         "synthetic": true
       }
@@ -5270,26 +5303,6 @@
   },
   {
     "date": "3/17/26 12:38 PM ET",
-    "teamId": "3",
-    "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
-    "players": [
-      {
-        "name": "Nick Kurtz",
-        "pos": "1B",
-        "mlbTeam": "ATH",
-        "action": "Traded from Okamotomami"
-      },
-      {
-        "name": "Nick Lodolo",
-        "pos": "SP",
-        "mlbTeam": "CIN",
-        "action": "Traded from Okamotomami"
-      }
-    ]
-  },
-  {
-    "date": "3/17/26 12:38 PM ET",
     "teamId": "4",
     "teamName": "Okamotomami",
     "team": "Okamotomami",
@@ -5311,6 +5324,26 @@
         "pos": "3B",
         "mlbTeam": "TOR",
         "action": "Traded from Colonel Corbin's Ascent"
+      }
+    ]
+  },
+  {
+    "date": "3/17/26 12:38 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Nick Kurtz",
+        "pos": "1B",
+        "mlbTeam": "ATH",
+        "action": "Traded from Okamotomami"
+      },
+      {
+        "name": "Nick Lodolo",
+        "pos": "SP",
+        "mlbTeam": "CIN",
+        "action": "Traded from Okamotomami"
       }
     ]
   },
