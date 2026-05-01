@@ -1,23 +1,20 @@
 {
-  "completedAt": "2026-04-30T16:18:27.138256Z",
+  "completedAt": "2026-05-01T13:05:19.667766Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
     "news": "ok"
   },
   "phaseB": {
-    "cbs_auth": "ok",
-    "transactions": "ok",
-    "rosters": "ok",
-    "matchup": "ok"
+    "cbs_auth": "missing",
+    "transactions": "skipped",
+    "rosters": "skipped",
+    "matchup": "skipped"
   },
   "notes": [
-    "fetch_stuffplus.py 403 (FanGraphs, expected/non-fatal)",
-    "Used dpf.baseball.cbssports.com URL pattern (www.cbssports.com/fantasy/baseball/league/... 404s)",
-    "tx URL: /transactions/{teamId}/all_but_lineup/; roster URL: /teams/{teamId}; matchup URL: /scoring/standard/{period}/{teamId}",
-    "Standings still list 'Everythings McGonigle Green' as the canonical CBS team-7 name; transactions use canonical TEAMS[7]='Whoop Whoop that's the sound of Dylan Cease'",
-    "Captured all 16 cats (BA/HR/RBI/R/SB/KO/OBP/SLG/K/ERA/WHIP/W/S/HD/HRA/QS) for current matchup",
-    "No new transaction action types observed; recognized: Added, Added off Waivers, Dropped, Activated, Moved to IR, Traded from <Team>",
-    "Roster sync emitted 1 synthetic ghost-drop transaction (Aaron Nola off Weird Fishes / Arrighetti)"
+    "fetch_stuffplus.py: pybaseball not installed (non-fatal)",
+    "CBS auth probe: /league/transactions/1/all_but_lineup/ returned 'Whoops! page moved or deleted' and a Sign In button \u2014 user not logged into CBS league session in connected Chrome browser",
+    "243 injuries, 50 player news items scraped from public CBS pages",
+    "ACTION NEEDED: run this task interactively after signing in to CBS in Chrome, OR export CBS cookies and wire scrape_cbs.py --cookies into this prompt"
   ]
 }
