@@ -1,20 +1,21 @@
 {
-  "completedAt": "2026-05-01T13:05:19.667766Z",
+  "completedAt": "2026-05-01T16:30:04.567072Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
     "news": "ok"
   },
   "phaseB": {
-    "cbs_auth": "missing",
-    "transactions": "skipped",
-    "rosters": "skipped",
-    "matchup": "skipped"
+    "cbs_auth": "ok",
+    "transactions": "ok",
+    "rosters": "ok",
+    "matchup": "partial"
   },
   "notes": [
-    "fetch_stuffplus.py: pybaseball not installed (non-fatal)",
-    "CBS auth probe: /league/transactions/1/all_but_lineup/ returned 'Whoops! page moved or deleted' and a Sign In button \u2014 user not logged into CBS league session in connected Chrome browser",
-    "243 injuries, 50 player news items scraped from public CBS pages",
-    "ACTION NEEDED: run this task interactively after signing in to CBS in Chrome, OR export CBS cookies and wire scrape_cbs.py --cookies into this prompt"
+    "Phase A: 459 batters, 543 pitchers, 241 injuries, 49 news items.",
+    "fetch_stuffplus.py non-fatal: pybaseball not installed (expected).",
+    "Phase B: 223 transactions scraped across 12 teams (64 new merged); rosters all 12 teams (389 players); 1 ghost-drop synthetic txn appended (Aaron Nola off Weird Fishes).",
+    "Trades page (/trades/recent) redirected to dashboard \u2014 no separate multi-team trade data; per-team transaction pages already capture trades.",
+    "Matchup categoryBreakdown not refreshed this run \u2014 H2H detail page URL pattern unclear; preserved last-known categoryBreakdown. Top-level scores, opponent, standings, allMatchups updated for period 3 (2026-04-27 to 2026-05-10)."
   ]
 }
