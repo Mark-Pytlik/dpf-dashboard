@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-01T16:30:04.567072Z",
+  "completedAt": "2026-05-02T13:22:23.562575Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -9,13 +9,15 @@
     "cbs_auth": "ok",
     "transactions": "ok",
     "rosters": "ok",
-    "matchup": "partial"
+    "matchup": "ok"
   },
   "notes": [
-    "Phase A: 459 batters, 543 pitchers, 241 injuries, 49 news items.",
+    "Phase A: 459 batters, 548 pitchers, 246 injuries, 49 news items.",
     "fetch_stuffplus.py non-fatal: pybaseball not installed (expected).",
-    "Phase B: 223 transactions scraped across 12 teams (64 new merged); rosters all 12 teams (389 players); 1 ghost-drop synthetic txn appended (Aaron Nola off Weird Fishes).",
-    "Trades page (/trades/recent) redirected to dashboard \u2014 no separate multi-team trade data; per-team transaction pages already capture trades.",
-    "Matchup categoryBreakdown not refreshed this run \u2014 H2H detail page URL pattern unclear; preserved last-known categoryBreakdown. Top-level scores, opponent, standings, allMatchups updated for period 3 (2026-04-27 to 2026-05-10)."
+    "Phase B: 247 transactions scraped via /transactions?print_rows=9999 single-page (REPLACE mode); cleaner consolidated to 202.",
+    "Team 7 renamed: 'Whoop Whoop that's the sound of Dylan Cease' -> 'Everythings McGonigle Green'. Mapped to teamId 7 in scrape; merge_tx.py TEAM_IDS dict still has the old name and should be updated.",
+    "Player news scraper updated to parse from headline format ('Team's Firstname Lastname: ...') since players-annotated section was removed from CBS layout.",
+    "Injury scraper updated: CBS now exposes only 5-column table (no separate IL/DTD column); status code is now inferred from the 'Injury Status' text.",
+    "Period 3 in progress (2026-04-27 to 2026-05-10). Current matchup: Okamotomami 6.0 vs A Pete Crow-Armstrong Looked at Me 10.0. Standings reflect 2-0 record."
   ]
 }
