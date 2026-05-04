@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-04T16:27:21.166512Z",
+  "completedAt": "2026-05-04T16:27:59.125972Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -15,6 +15,8 @@
     "team 7 renamed: 'Whoop Whoop that's the sound of Dylan Cease' -> 'Everythings McGonigle Green'",
     "fetch_stuffplus.py: pybaseball not installed (non-fatal)",
     "roster_sync.py emitted 299 synthetic adds (large because the real transaction log only retains the last ~30 entries per team; expected for early-season state)",
-    "transactions URL host is dpf.baseball.cbssports.com, not www.cbssports.com (skill instructions mention the wrong host but the actual scraper uses the correct one)"
+    "injuries scraper produced doubled-name artifacts; auto-cleaned via tools/clean_injuries.py",
+    "validate.py: OK after injury cleanup",
+    "transactions URL host is dpf.baseball.cbssports.com, not www.cbssports.com (skill instructions reference www; actual host is the dpf subdomain)"
   ]
 }
