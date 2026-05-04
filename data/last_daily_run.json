@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-04T13:17:17.776570Z",
+  "completedAt": "2026-05-04T16:27:21.166512Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,8 +12,9 @@
     "matchup": "ok"
   },
   "notes": [
-    "Team 7 displays as 'Everythings McGonigle Green' (renamed from 'Whoop Whoop that's the sound of Dylan Cease'); merge_tx.py TEAM_IDS still uses old name \u2014 handled inline by adding alias when assigning teamId.",
-    "5 of 6 period-3 matchups stored with CBS 4-char abbrevs (RESCAN, Icculus, YSVG, SHOH, FRAN, DREW, ROTH, WOBA, BBBaO, BMILLI); only the Okamotomami matchup has full team names. Server-rendered category-breakdown header was the reliable source for full names; fetch() in the JS context returned a different (SPA-style) DOM.",
-    "fetch_stuffplus.py reported 'pybaseball not installed' \u2014 non-fatal per skill notes."
+    "team 7 renamed: 'Whoop Whoop that's the sound of Dylan Cease' -> 'Everythings McGonigle Green'",
+    "fetch_stuffplus.py: pybaseball not installed (non-fatal)",
+    "roster_sync.py emitted 299 synthetic adds (large because the real transaction log only retains the last ~30 entries per team; expected for early-season state)",
+    "transactions URL host is dpf.baseball.cbssports.com, not www.cbssports.com (skill instructions mention the wrong host but the actual scraper uses the correct one)"
   ]
 }
