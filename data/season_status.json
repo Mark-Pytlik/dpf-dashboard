@@ -7,255 +7,269 @@
   "currentScore": {
     "me": 7.5,
     "opp": 8.5,
-    "tied": 1,
-    "meHalf": 7.5,
-    "oppHalf": 8.5
+    "tied": 0
   },
   "categoryBreakdown": {
     "BA": {
       "me": "0.236",
       "opp": "0.204",
-      "won": true,
-      "tied": false
+      "won": true
     },
     "HR": {
       "me": "7",
       "opp": "8",
-      "won": false,
-      "tied": false
+      "won": false
     },
     "RBI": {
       "me": "28",
       "opp": "26",
-      "won": true,
-      "tied": false
+      "won": true
     },
     "R": {
       "me": "23",
       "opp": "33",
-      "won": false,
-      "tied": false
+      "won": false
     },
     "SB": {
       "me": "1",
       "opp": "3",
-      "won": false,
-      "tied": false
+      "won": false
     },
     "KO": {
       "me": "58",
       "opp": "52",
-      "won": false,
-      "tied": false
+      "won": false
     },
     "OBP": {
       "me": "0.315",
       "opp": "0.304",
-      "won": true,
-      "tied": false
+      "won": true
     },
     "SLG": {
       "me": "0.351",
       "opp": "0.403",
-      "won": false,
-      "tied": false
+      "won": false
     },
     "K": {
       "me": "45",
       "opp": "41",
-      "won": true,
-      "tied": false
+      "won": true
     },
     "ERA": {
       "me": "3.9767",
       "opp": "6.4038",
-      "won": true,
-      "tied": false
+      "won": true
     },
     "WHIP": {
       "me": "1.3953",
       "opp": "1.7885",
-      "won": true,
-      "tied": false
+      "won": true
     },
     "W": {
       "me": "1",
       "opp": "4",
-      "won": false,
-      "tied": false
+      "won": false
     },
     "S": {
       "me": "1",
       "opp": "3",
-      "won": false,
-      "tied": false
+      "won": false
     },
     "HD": {
       "me": "5",
       "opp": "1",
-      "won": true,
-      "tied": false
+      "won": true
     },
     "HRA": {
       "me": "5",
       "opp": "5",
-      "won": false,
-      "tied": true
+      "won": false
     },
     "QS": {
       "me": "1",
       "opp": "3",
-      "won": false,
-      "tied": false
+      "won": false
     }
   },
   "allMatchups": [
     {
-      "away": "OMM",
+      "matchupId": "4",
+      "away": "Okamotomami",
+      "home": "A Pete Crow-Armstrong Looked at Me",
       "awayScore": 7.5,
-      "home": "PCA",
       "homeScore": 8.5
     },
     {
+      "matchupId": "1",
       "away": "RESCAN",
-      "awayScore": 6.5,
       "home": "Icculus",
-      "homeScore": 9.5
+      "awayScore": 6.0,
+      "homeScore": 10.0
     },
     {
+      "matchupId": "2",
       "away": "YSVG",
-      "awayScore": 9.0,
       "home": "SHOH",
+      "awayScore": 9.0,
       "homeScore": 7.0
     },
     {
-      "away": "Fran",
+      "matchupId": "3",
+      "away": "FRAN",
+      "home": "DREW",
       "awayScore": 10.5,
-      "home": "Drew",
       "homeScore": 5.5
     },
     {
+      "matchupId": "5",
       "away": "ROTH",
+      "home": "WOBA",
       "awayScore": 11.5,
-      "home": "woba",
       "homeScore": 4.5
     },
     {
-      "away": "BBBaoB",
+      "matchupId": "6",
+      "away": "BBBaO",
+      "home": "BMILLI",
       "awayScore": 8.0,
-      "home": "Milli",
       "homeScore": 8.0
     }
   ],
+  "myRecord": "2-0-0",
   "standings": [
     {
       "team": "Weird Fishes / Arrighetti",
+      "mine": false,
       "w": 2,
       "l": 0,
       "t": 0,
       "pct": "1.000",
       "gb": "0",
-      "streak": "W2"
+      "streak": "W2",
+      "pts": 0
     },
     {
       "team": "Colonel Corbin's Ascent",
+      "mine": false,
       "w": 2,
       "l": 0,
       "t": 0,
       "pct": "1.000",
       "gb": "0",
-      "streak": "W2"
+      "streak": "W2",
+      "pts": 0
     },
     {
       "team": "Okamotomami",
+      "mine": true,
       "w": 2,
       "l": 0,
       "t": 0,
       "pct": "1.000",
       "gb": "0",
-      "streak": "W2"
+      "streak": "W2",
+      "pts": 0
     },
     {
       "team": "Blame it on the Rainiel",
+      "mine": false,
       "w": 2,
       "l": 0,
       "t": 0,
       "pct": "1.000",
       "gb": "0",
-      "streak": "W2"
+      "streak": "W2",
+      "pts": 0
     },
     {
       "team": "Buddy Buddy Buddy All On Base",
+      "mine": false,
       "w": 1,
       "l": 1,
       "t": 0,
       "pct": "0.500",
       "gb": "1",
-      "streak": "W1"
+      "streak": "W1",
+      "pts": 0
     },
     {
       "team": "A Pete Crow-Armstrong Looked at Me",
+      "mine": false,
       "w": 1,
       "l": 1,
       "t": 0,
       "pct": "0.500",
       "gb": "1",
-      "streak": "W1"
+      "streak": "W1",
+      "pts": 0
     },
     {
       "team": "Everythings McGonigle Green",
+      "mine": false,
       "w": 1,
       "l": 1,
       "t": 0,
       "pct": "0.500",
       "gb": "1",
-      "streak": "L1"
+      "streak": "L1",
+      "pts": 0
     },
     {
       "team": "Before and After Shohei",
+      "mine": false,
       "w": 1,
       "l": 1,
       "t": 0,
       "pct": "0.500",
       "gb": "1",
-      "streak": "L1"
+      "streak": "L1",
+      "pts": 0
     },
     {
       "team": "Dinosaur Jr Caminero",
+      "mine": false,
       "w": 0,
       "l": 2,
       "t": 0,
       "pct": "0.000",
       "gb": "2",
-      "streak": "L2"
+      "streak": "L2",
+      "pts": 0
     },
     {
       "team": "Ballesteros, Let the Rhythm Take You Over",
+      "mine": false,
       "w": 0,
       "l": 2,
       "t": 0,
       "pct": "0.000",
       "gb": "2",
-      "streak": "L2"
+      "streak": "L2",
+      "pts": 0
     },
     {
       "team": "Yesavage Garden",
+      "mine": false,
       "w": 0,
       "l": 2,
       "t": 0,
       "pct": "0.000",
       "gb": "2",
-      "streak": "L2"
+      "streak": "L2",
+      "pts": 0
     },
     {
       "team": "Popped A Mahle I'm Sweating",
+      "mine": false,
       "w": 0,
       "l": 2,
       "t": 0,
       "pct": "0.000",
       "gb": "2",
-      "streak": "L2"
+      "streak": "L2",
+      "pts": 0
     }
   ],
-  "lastUpdated": "2026-05-04"
+  "updated": "2026-05-04T13:16:50.965126Z",
+  "lastUpdated": "2026-05-04 (period 3 in progress)"
 }
