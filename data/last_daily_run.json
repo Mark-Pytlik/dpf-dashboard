@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-02T16:30:37.560270Z",
+  "completedAt": "2026-05-04T02:31:56.756943Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,14 +12,19 @@
     "matchup": "ok"
   },
   "notes": [
-    "Phase A: 459 batters, 548 pitchers, 245 injuries scraped.",
-    "Player news: only 10 items captured (down from 49 yesterday). CBS removed page-N pagination from /fantasy/baseball/players/news/ \u2014 '/?page=2' now returns same content as page 1, and pages 2-5 path-style 404s. Static HTML only exposes 10 items (more loaded via JS / 'Show more'). Consider adding a JS-rendered scrape via Claude-in-Chrome if more news items are needed.",
-    "User-reported: position eligibilities were stale (last updated 4/23). Rebuilt cbs_positions.json from CURRENT roster pages \u2014 corrected 47 stale entries (e.g. DH\u2192U for Yordan Alvarez/Schwarber, Bo Bichette SS\u21923B,SS, Brett Baty 3B\u21921B,2B,3B,RF, Brendan Donovan 2B\u21922B,3B, etc.) and added 137 newly tracked players. cbs_positions.json is no longer a manually curated file \u2014 it's now refreshed daily from /teams/{1..12} roster scrapes.",
-    "Transactions: 248 rows scraped via /transactions?print_rows=9999. Action types observed: Activated, Added, Added off Waivers, Dropped, Moved to IR, Traded from <Team>. All known.",
-    "Rosters: 12 teams, 394 players total (29-36 each). cbs_rosters.json overwritten.",
-    "Period 3 in progress (2026-04-27 to 2026-05-10). Current matchup: Okamotomami 6.0 vs A Pete Crow-Armstrong Looked at Me 10.0 (unchanged from yesterday's snapshot \u2014 score moves slowly in head-to-head categories format). Standings updated: 2-0 record for Okamotomami.",
+    "Phase A: 463 batters, 558 pitchers, 247 injuries, 47 news items.",
+    "Player news: scraped via XHR endpoint /fantasy/baseball/players/news/all/both/content/xhr/?page=N \u2014 restored full pagination (47 items vs yesterday's 10). Page 1 from main HTML, pages 2-5 from XHR endpoint that returns JSON wrapping HTML.",
+    "Transactions: 254 rows scraped via /transactions/{id}/all_but_lineup/?print_rows=9999. Action types observed: Activated, Added, Added off Waivers, Dropped, Moved to IR, Traded from <Team>. All known.",
+    "Transactions data retrieval used a chunked sessionStorage relay because Chrome MCP truncates JS results around 1000 chars. Encoded as line-delimited <<index>> markers; each chunk passed through pipe-separated player records.",
+    "merge_tx.py: 74 new merged \u2192 216 cleaned (288 pre-clean, dropped 72).",
+    "Rosters: 12 teams, 391 players total (28-34 each).",
+    "roster_sync.py: 2 synthetic transactions added (Elmer Rodriguez add + ghost-drop of Elmer Rodriguez-Cruz on Ballesteros).",
+    "Period 3 in progress (2026-04-27 to 2026-05-10). Current matchup: Okamotomami 7.5 vs A Pete Crow-Armstrong Looked at Me 8.5 (improved from yesterday's 6.0-10.0).",
+    "Standings: tied 1st (2-0-0) for Okamotomami, alongside Weird Fishes / Arrighetti, Colonel Corbin's Ascent, and Blame it on the Rainiel.",
+    "Category breakdown now exposes 16 categories (BA, HR, RBI, R, SB, KO, OBP, SLG, K, ERA, WHIP, W, S, HD, HRA, QS) \u2014 previously stored just 6. season_status.json now contains the full 16-cat slate.",
+    "Note: CBS team 7 displayed as 'Everythings McGonigle Green' (cbs_rosters.json + standings preserve this name).",
     "fetch_stuffplus.py non-fatal: pybaseball not installed (expected).",
-    "merge_tx.py: 68 new transactions merged (570 pre-clean \u2192 214 cleaned).",
-    "roster_sync.py: 300 synthetic transactions added to cover roster differences."
+    "cbs_positions.json: 2 new entries added; existing 519 preserved.",
+    "Trades page: /trades/ on dpf-host renders the league home, not a trades list \u2014 trades are captured per-team via the transactions pages (Traded from <Team> action) so this is non-blocking."
   ]
 }
