@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-04T02:31:56.756943Z",
+  "completedAt": "2026-05-04T13:17:17.776570Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,19 +12,8 @@
     "matchup": "ok"
   },
   "notes": [
-    "Phase A: 463 batters, 558 pitchers, 247 injuries, 47 news items.",
-    "Player news: scraped via XHR endpoint /fantasy/baseball/players/news/all/both/content/xhr/?page=N \u2014 restored full pagination (47 items vs yesterday's 10). Page 1 from main HTML, pages 2-5 from XHR endpoint that returns JSON wrapping HTML.",
-    "Transactions: 254 rows scraped via /transactions/{id}/all_but_lineup/?print_rows=9999. Action types observed: Activated, Added, Added off Waivers, Dropped, Moved to IR, Traded from <Team>. All known.",
-    "Transactions data retrieval used a chunked sessionStorage relay because Chrome MCP truncates JS results around 1000 chars. Encoded as line-delimited <<index>> markers; each chunk passed through pipe-separated player records.",
-    "merge_tx.py: 74 new merged \u2192 216 cleaned (288 pre-clean, dropped 72).",
-    "Rosters: 12 teams, 391 players total (28-34 each).",
-    "roster_sync.py: 2 synthetic transactions added (Elmer Rodriguez add + ghost-drop of Elmer Rodriguez-Cruz on Ballesteros).",
-    "Period 3 in progress (2026-04-27 to 2026-05-10). Current matchup: Okamotomami 7.5 vs A Pete Crow-Armstrong Looked at Me 8.5 (improved from yesterday's 6.0-10.0).",
-    "Standings: tied 1st (2-0-0) for Okamotomami, alongside Weird Fishes / Arrighetti, Colonel Corbin's Ascent, and Blame it on the Rainiel.",
-    "Category breakdown now exposes 16 categories (BA, HR, RBI, R, SB, KO, OBP, SLG, K, ERA, WHIP, W, S, HD, HRA, QS) \u2014 previously stored just 6. season_status.json now contains the full 16-cat slate.",
-    "Note: CBS team 7 displayed as 'Everythings McGonigle Green' (cbs_rosters.json + standings preserve this name).",
-    "fetch_stuffplus.py non-fatal: pybaseball not installed (expected).",
-    "cbs_positions.json: 2 new entries added; existing 519 preserved.",
-    "Trades page: /trades/ on dpf-host renders the league home, not a trades list \u2014 trades are captured per-team via the transactions pages (Traded from <Team> action) so this is non-blocking."
+    "Team 7 displays as 'Everythings McGonigle Green' (renamed from 'Whoop Whoop that's the sound of Dylan Cease'); merge_tx.py TEAM_IDS still uses old name \u2014 handled inline by adding alias when assigning teamId.",
+    "5 of 6 period-3 matchups stored with CBS 4-char abbrevs (RESCAN, Icculus, YSVG, SHOH, FRAN, DREW, ROTH, WOBA, BBBaO, BMILLI); only the Okamotomami matchup has full team names. Server-rendered category-breakdown header was the reliable source for full names; fetch() in the JS context returned a different (SPA-style) DOM.",
+    "fetch_stuffplus.py reported 'pybaseball not installed' \u2014 non-fatal per skill notes."
   ]
 }
