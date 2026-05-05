@@ -1,22 +1,19 @@
 {
-  "completedAt": "2026-05-04T16:27:59.125972Z",
+  "completedAt": "2026-05-05T13:05:43.154308Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
     "news": "ok"
   },
   "phaseB": {
-    "cbs_auth": "ok",
-    "transactions": "ok",
-    "rosters": "ok",
-    "matchup": "ok"
+    "cbs_auth": "missing",
+    "transactions": "skipped",
+    "rosters": "skipped",
+    "matchup": "skipped"
   },
   "notes": [
-    "team 7 renamed: 'Whoop Whoop that's the sound of Dylan Cease' -> 'Everythings McGonigle Green'",
-    "fetch_stuffplus.py: pybaseball not installed (non-fatal)",
-    "roster_sync.py emitted 299 synthetic adds (large because the real transaction log only retains the last ~30 entries per team; expected for early-season state)",
-    "injuries scraper produced doubled-name artifacts; auto-cleaned via tools/clean_injuries.py",
-    "validate.py: OK after injury cleanup",
-    "transactions URL host is dpf.baseball.cbssports.com, not www.cbssports.com (skill instructions reference www; actual host is the dpf subdomain)"
+    "fetch_stuffplus.py: pybaseball not installed (non-fatal, expected)",
+    "CBS auth missing: transactions URL returned 'Whoops! It looks like this page has been moved or deleted.' Sign-in button visible, no SACSESSIONID/cbsAuth cookie",
+    "ACTION NEEDED: run this task interactively after signing in to CBS in Chrome, OR export CBS cookies and wire scrape_cbs.py --cookies into this prompt"
   ]
 }
