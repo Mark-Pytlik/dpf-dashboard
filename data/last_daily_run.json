@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-05T13:05:43.154308Z",
+  "completedAt": "2026-05-05T16:05:15.908113Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,8 +12,7 @@
     "matchup": "skipped"
   },
   "notes": [
-    "fetch_stuffplus.py: pybaseball not installed (non-fatal, expected)",
-    "CBS auth missing: transactions URL returned 'Whoops! It looks like this page has been moved or deleted.' Sign-in button visible, no SACSESSIONID/cbsAuth cookie",
-    "ACTION NEEDED: run this task interactively after signing in to CBS in Chrome, OR export CBS cookies and wire scrape_cbs.py --cookies into this prompt"
+    "stuffplus fetch 403 (pybaseball not installed) \u2014 non-fatal",
+    "CBS league URLs (cbssports.com/fantasy/baseball/league/transactions/1/all_but_lineup/, fantasy.cbssports.com/baseball/leagues/transactions, /fantasy/baseball/my-teams/) all returned 'Whoops! It looks like this page has been moved or deleted.' Auth or league URL pattern needs refresh."
   ]
 }
