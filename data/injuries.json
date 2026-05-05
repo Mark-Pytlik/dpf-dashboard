@@ -112,7 +112,7 @@
     "returnDate": "Probable for May 5"
   },
   {
-    "name": "Ronald Acuna Jr.",
+    "name": "Jr. Ronald Acuna Jr.",
     "team": "ATL",
     "pos": "RF",
     "status": "IL",
@@ -280,12 +280,12 @@
     "returnDate": "Expected to be out until at least May 25"
   },
   {
-    "name": "Danny Coulombe",
+    "name": "Justin Slaten",
     "team": "BOS",
     "pos": "RP",
     "status": "IL",
-    "injury": "Neck",
-    "returnDate": "Expected to be out until at least May 17"
+    "injury": "Oblique",
+    "returnDate": "Expected to be out until at least May 7"
   },
   {
     "name": "Patrick Sandoval",
@@ -294,6 +294,14 @@
     "status": "IL",
     "injury": "Biceps",
     "returnDate": "Expected to be out until at least Jun 1"
+  },
+  {
+    "name": "Danny Coulombe",
+    "team": "BOS",
+    "pos": "RP",
+    "status": "IL",
+    "injury": "Neck",
+    "returnDate": "Expected to be out until at least May 17"
   },
   {
     "name": "Ranger Suarez",
@@ -310,14 +318,6 @@
     "status": "IL",
     "injury": "Hamstring",
     "returnDate": "Expected to be out until at least May 6"
-  },
-  {
-    "name": "Justin Slaten",
-    "team": "BOS",
-    "pos": "RP",
-    "status": "IL",
-    "injury": "Oblique",
-    "returnDate": "Expected to be out until at least May 5"
   },
   {
     "name": "Garrett Crochet",
@@ -520,7 +520,7 @@
     "returnDate": "Expected to be out until at least Jul 1, 2027"
   },
   {
-    "name": "K. Bush",
+    "name": "Ky Bush",
     "team": "CHW",
     "pos": "P",
     "status": "IL",
@@ -624,7 +624,7 @@
     "returnDate": "Expected to be out until at least May 24"
   },
   {
-    "name": "R. Petit",
+    "name": "RJ Petit",
     "team": "COL",
     "pos": "SP",
     "status": "IL",
@@ -648,14 +648,6 @@
     "returnDate": "Expected to be out until at least Jun 1"
   },
   {
-    "name": "Zach McKinstry",
-    "team": "DET",
-    "pos": "3B",
-    "status": "IL",
-    "injury": "Hip",
-    "returnDate": "Expected to be out until at least May 5"
-  },
-  {
     "name": "Tarik Skubal",
     "team": "DET",
     "pos": "SP",
@@ -670,6 +662,14 @@
     "status": "IL",
     "injury": "Side",
     "returnDate": "Probable for May 5"
+  },
+  {
+    "name": "Zach McKinstry",
+    "team": "DET",
+    "pos": "3B",
+    "status": "IL",
+    "injury": "Hip",
+    "returnDate": "Expected to be out until at least May 5"
   },
   {
     "name": "Beau Brieske",
@@ -784,20 +784,20 @@
     "returnDate": "Expected to be out until at least May 11"
   },
   {
-    "name": "Nick Allen",
-    "team": "HOU",
-    "pos": "SS",
-    "status": "IL",
-    "injury": "Back",
-    "returnDate": "Expected to be out until at least May 5"
-  },
-  {
     "name": "Jake Meyers",
     "team": "HOU",
     "pos": "CF",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least May 22"
+  },
+  {
+    "name": "Nick Allen",
+    "team": "HOU",
+    "pos": "SS",
+    "status": "IL",
+    "injury": "Back",
+    "returnDate": "Expected to be out until at least May 5"
   },
   {
     "name": "Joey Loperfido",
@@ -936,6 +936,14 @@
     "returnDate": "Expected to be out until at least Feb 1"
   },
   {
+    "name": "Yusei Kikuchi",
+    "team": "LAA",
+    "pos": "SP",
+    "status": "IL",
+    "injury": "Shoulder",
+    "returnDate": "Expected to be out until at least Jun 2"
+  },
+  {
     "name": "Kirby Yates",
     "team": "LAA",
     "pos": "RP",
@@ -944,12 +952,12 @@
     "returnDate": "Expected to be out until at least May 5"
   },
   {
-    "name": "Yusei Kikuchi",
+    "name": "Walbert Urena",
     "team": "LAA",
     "pos": "SP",
     "status": "IL",
-    "injury": "Shoulder",
-    "returnDate": "Expected to be out until at least May 15"
+    "injury": "Leg",
+    "returnDate": "Expected to be out until at least May 6"
   },
   {
     "name": "Ryan Johnson",
@@ -958,14 +966,6 @@
     "status": "IL",
     "injury": "Hamstring",
     "returnDate": "Expected to be out until at least May 15"
-  },
-  {
-    "name": "Walbert Urena",
-    "team": "LAA",
-    "pos": "SP",
-    "status": "IL",
-    "injury": "Leg",
-    "returnDate": "Expected to be out until at least May 6"
   },
   {
     "name": "Alek Manoah",
@@ -1148,7 +1148,7 @@
     "team": "MIL",
     "pos": "SP",
     "status": "IL",
-    "injury": "Wrist",
+    "injury": "Shoulder",
     "returnDate": "Expected to be out until at least Jun 1"
   },
   {
@@ -1608,20 +1608,20 @@
     "returnDate": "Expected to be out until at least May 16"
   },
   {
-    "name": "Will Wilson",
-    "team": "SEA",
-    "pos": "SS",
-    "status": "IL",
-    "injury": "Thumb",
-    "returnDate": "Expected to be out until at least Jun 10"
-  },
-  {
     "name": "Patrick Wisdom",
     "team": "SEA",
     "pos": "3B",
     "status": "IL",
     "injury": "Oblique",
     "returnDate": "Expected to be out until at least May 8"
+  },
+  {
+    "name": "Will Wilson",
+    "team": "SEA",
+    "pos": "SS",
+    "status": "IL",
+    "injury": "Thumb",
+    "returnDate": "Expected to be out until at least Jun 10"
   },
   {
     "name": "Matt Brash",
@@ -1688,6 +1688,14 @@
     "returnDate": "Expected to be out until at least May 29"
   },
   {
+    "name": "Ricardo Genoves",
+    "team": "TB",
+    "pos": "C",
+    "status": "IL",
+    "injury": "Undisclosed",
+    "returnDate": "Expected to be out until at least May 5"
+  },
+  {
     "name": "Gavin Lux",
     "team": "TB",
     "pos": "SS",
@@ -1702,14 +1710,6 @@
     "status": "IL",
     "injury": "Forearm",
     "returnDate": "Expected to be out until at least May 22"
-  },
-  {
-    "name": "Ricardo Genoves",
-    "team": "TB",
-    "pos": "C",
-    "status": "IL",
-    "injury": "Undisclosed",
-    "returnDate": "Expected to be out until at least May 5"
   },
   {
     "name": "Joe Boyle",
@@ -1913,7 +1913,7 @@
   },
   {
     "name": "Cole Henry",
-    "team": "WAS",
+    "team": "WSH",
     "pos": "RP",
     "status": "IL",
     "injury": "Shoulder",
@@ -1921,7 +1921,7 @@
   },
   {
     "name": "Luis Garcia",
-    "team": "WAS",
+    "team": "WSH",
     "pos": "2B",
     "status": "IL",
     "injury": "Wrist",
@@ -1929,7 +1929,7 @@
   },
   {
     "name": "Clayton Beeter",
-    "team": "WAS",
+    "team": "WSH",
     "pos": "RP",
     "status": "IL",
     "injury": "Forearm",
@@ -1937,7 +1937,7 @@
   },
   {
     "name": "Ken Waldichuk",
-    "team": "WAS",
+    "team": "WSH",
     "pos": "SP",
     "status": "IL",
     "injury": "Elbow",
@@ -1945,7 +1945,7 @@
   },
   {
     "name": "Josiah Gray",
-    "team": "WAS",
+    "team": "WSH",
     "pos": "SP",
     "status": "IL",
     "injury": "Elbow",
@@ -1953,7 +1953,7 @@
   },
   {
     "name": "Trevor Williams",
-    "team": "WAS",
+    "team": "WSH",
     "pos": "SP",
     "status": "IL",
     "injury": "Elbow",
@@ -1961,7 +1961,7 @@
   },
   {
     "name": "Davidjohn Herz",
-    "team": "WAS",
+    "team": "WSH",
     "pos": "P",
     "status": "IL",
     "injury": "Elbow",
