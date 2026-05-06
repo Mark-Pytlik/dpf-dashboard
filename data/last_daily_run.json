@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-05T16:05:15.908113Z",
+  "completedAt": "2026-05-06T13:05:59.780673Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,7 +12,8 @@
     "matchup": "skipped"
   },
   "notes": [
-    "stuffplus fetch 403 (pybaseball not installed) \u2014 non-fatal",
-    "CBS league URLs (cbssports.com/fantasy/baseball/league/transactions/1/all_but_lineup/, fantasy.cbssports.com/baseball/leagues/transactions, /fantasy/baseball/my-teams/) all returned 'Whoops! It looks like this page has been moved or deleted.' Auth or league URL pattern needs refresh."
+    "fetch_stuffplus 403 / pybaseball not installed \u2014 expected, non-fatal",
+    "Claude-in-Chrome extension not connected and no exported CBS cookies available; Phase B fully skipped.",
+    "ACTION NEEDED: run interactively after signing in to CBS in Chrome, or export CBS cookies and wire scrape_cbs.py --cookies into this skill."
   ]
 }
