@@ -283,6 +283,38 @@
     ]
   },
   {
+    "date": "5/5/26 2:44 AM ET",
+    "teamName": "Dinosaur Jr Caminero",
+    "teamId": 2,
+    "players": [
+      {
+        "name": "Daniel Lynch",
+        "pos": "RP",
+        "mlbTeam": "KC",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamName": "Dinosaur Jr Caminero",
+    "teamId": 2,
+    "players": [
+      {
+        "name": "Daniel Lynch",
+        "pos": "RP",
+        "mlbTeam": "KC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Taylor Rogers",
+        "pos": "RP",
+        "mlbTeam": "MIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
     "date": "4/22/26 12:34 PM ET",
     "teamName": "Dinosaur Jr Caminero",
     "teamId": 2,
@@ -438,6 +470,57 @@
         "name": "Shane Drohan",
         "pos": "SP",
         "mlbTeam": "MIL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/6/26 9:12 AM ET",
+    "teamName": "Colonel Corbin's Ascent",
+    "teamId": 3,
+    "players": [
+      {
+        "name": "Kai-Wei Teng",
+        "pos": "SP,RP",
+        "mlbTeam": "HOU",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/6/26 2:23 AM ET",
+    "teamName": "Colonel Corbin's Ascent",
+    "teamId": 3,
+    "players": [
+      {
+        "name": "Pedro Ramirez",
+        "pos": "3B",
+        "mlbTeam": "CHC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Cooper Ingle",
+        "pos": "C",
+        "mlbTeam": "CLE",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamName": "Colonel Corbin's Ascent",
+    "teamId": 3,
+    "players": [
+      {
+        "name": "Kai-Wei Teng",
+        "pos": "SP,RP",
+        "mlbTeam": "HOU",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Braden Montgomery",
+        "pos": "CF",
+        "mlbTeam": "CHW",
         "action": "Dropped"
       }
     ]
@@ -904,51 +987,6 @@
         "pos": "SP",
         "mlbTeam": "HOU",
         "action": "Added"
-      }
-    ]
-  },
-  {
-    "date": "3/31/26 2:19 AM ET",
-    "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
-    "players": [
-      {
-        "name": "Randy Vasquez",
-        "pos": "SP",
-        "mlbTeam": "SD",
-        "action": "Added"
-      }
-    ]
-  },
-  {
-    "date": "3/31/26 2:14 AM ET",
-    "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
-    "players": [
-      {
-        "name": "Logan Henderson",
-        "pos": "SP",
-        "mlbTeam": "MIL",
-        "action": "Dropped"
-      }
-    ]
-  },
-  {
-    "date": "3/28/26 10:59 PM ET",
-    "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
-    "players": [
-      {
-        "name": "Erik Sabrowski",
-        "pos": "RP",
-        "mlbTeam": "CLE",
-        "action": "Added"
-      },
-      {
-        "name": "Carlos Estevez",
-        "pos": "RP",
-        "mlbTeam": "KC",
-        "action": "Dropped"
       }
     ]
   },
@@ -1748,6 +1786,32 @@
     ]
   },
   {
+    "date": "5/6/26 11:51 AM ET",
+    "teamName": "Everythings McGonigle Green",
+    "teamId": 7,
+    "players": [
+      {
+        "name": "Ryan Pepiot",
+        "pos": "SP",
+        "mlbTeam": "TB",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamName": "Everythings McGonigle Green",
+    "teamId": 7,
+    "players": [
+      {
+        "name": "Drew Anderson",
+        "pos": "RP",
+        "mlbTeam": "DET",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
     "date": "4/22/26 12:37 PM ET",
     "teamName": "Everythings McGonigle Green",
     "teamId": 7,
@@ -2039,6 +2103,19 @@
         "name": "Jose Butto",
         "pos": "RP",
         "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/6/26 8:32 AM ET",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
+    "players": [
+      {
+        "name": "Elmer Rodriguez",
+        "pos": "SP",
+        "mlbTeam": "NYY",
         "action": "Dropped"
       }
     ]
@@ -2934,6 +3011,51 @@
     ]
   },
   {
+    "date": "5/6/26 7:36 AM ET",
+    "teamName": "Blame it on the Rainiel",
+    "teamId": 10,
+    "players": [
+      {
+        "name": "Tyler Kinley",
+        "pos": "RP",
+        "mlbTeam": "ATL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/6/26 2:23 AM ET",
+    "teamName": "Blame it on the Rainiel",
+    "teamId": 10,
+    "players": [
+      {
+        "name": "Peter Lambert",
+        "pos": "RP",
+        "mlbTeam": "HOU",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamName": "Blame it on the Rainiel",
+    "teamId": 10,
+    "players": [
+      {
+        "name": "Bailey Ober",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Erick Fedde",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
     "date": "5/2/26 7:58 AM ET",
     "teamName": "Blame it on the Rainiel",
     "teamId": 10,
@@ -3116,6 +3238,44 @@
         "name": "Adolis Garcia",
         "pos": "RF",
         "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamName": "Before and After Shohei",
+    "teamId": 11,
+    "players": [
+      {
+        "name": "Max Meyer",
+        "pos": "SP",
+        "mlbTeam": "MIA",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jack Perkins",
+        "pos": "SP",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamName": "Before and After Shohei",
+    "teamId": 11,
+    "players": [
+      {
+        "name": "Connor Prielipp",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Alejandro Kirk",
+        "pos": "C",
+        "mlbTeam": "TOR",
         "action": "Dropped"
       }
     ]
@@ -3454,13 +3614,58 @@
     ]
   },
   {
+    "date": "5/5/26 2:44 AM ET",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
+    "players": [
+      {
+        "name": "Carson Kelly",
+        "pos": "C",
+        "mlbTeam": "CHC",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
+    "players": [
+      {
+        "name": "Carson Kelly",
+        "pos": "C",
+        "mlbTeam": "CHC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Francisco Alvarez",
+        "pos": "C",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/4/26 5:51 PM ET",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
+    "players": [
+      {
+        "name": "Quinn Priester",
+        "pos": "SP",
+        "mlbTeam": "MIL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
     "date": "5/2/26 7:58 AM ET",
     "teamName": "Popped A Mahle I'm Sweating",
     "teamId": 12,
     "players": [
       {
         "name": "Spencer Steer",
-        "pos": "1B,LF",
+        "pos": "1B,LF,RF",
         "mlbTeam": "CIN",
         "action": "Added off Waivers"
       },
@@ -3792,7 +3997,7 @@
     "players": [
       {
         "name": "Jordan Beck",
-        "pos": "LF",
+        "pos": "LF,RF",
         "mlbTeam": "COL",
         "action": "Dropped"
       }
