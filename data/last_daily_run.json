@@ -1,21 +1,20 @@
 {
-  "completedAt": "2026-05-06T16:29:15.802692Z",
+  "completedAt": "2026-05-07T13:13:58.560145Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
     "news": "ok"
   },
   "phaseB": {
-    "cbs_auth": "ok",
-    "transactions": "ok",
-    "rosters": "ok",
-    "matchup": "ok"
+    "cbs_auth": "missing",
+    "transactions": "skipped",
+    "rosters": "skipped",
+    "matchup": "skipped"
   },
   "notes": [
-    "fetch_stuffplus.py 403 / pybaseball not installed \u2014 expected, non-fatal",
-    "Team 7 renamed: 'Whoop Whoop that\u2019s the sound of Dylan Cease' \u2192 'Everythings McGonigle Green' (roster_sync flagged the old name during ghost-drop pass)",
-    "Phase B URL pattern: dpf.baseball.cbssports.com/transactions/{teamId}/all_but_lineup/ and /teams/{teamId}/roster (current; not the legacy www.cbssports.com URLs in the skill)",
-    "Action types observed (all already handled): Added, Added off Waivers, Dropped, Activated, Moved to IR, Traded from <Team>",
-    "allMatchups field omitted from season_status.json this run (only currentMatchup + standings refreshed)"
+    "fetch_stuffplus.py non-fatal: pybaseball not installed (FanGraphs blocked anyway)",
+    "CBS league pages return 404 / unauthenticated 'Log In' state \u2014 Phase B skipped per protocol",
+    "Injuries: 244 records scraped from public CBS injuries page",
+    "News: 50 records scraped from public CBS player news pages 1-5"
   ]
 }
