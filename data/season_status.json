@@ -13,257 +13,272 @@
     "BA": {
       "me": "0.248",
       "opp": "0.226",
-      "won": true
+      "won": true,
+      "lowerBetter": false
     },
     "HR": {
       "me": "14",
       "opp": "13",
-      "won": true
+      "won": true,
+      "lowerBetter": false
     },
     "RBI": {
       "me": "45",
       "opp": "39",
-      "won": true
+      "won": true,
+      "lowerBetter": false
     },
     "R": {
       "me": "35",
       "opp": "50",
-      "won": false
+      "won": false,
+      "lowerBetter": false
     },
     "SB": {
       "me": "3",
       "opp": "7",
-      "won": false
-    },
-    "KO": {
-      "me": "82",
-      "opp": "74",
-      "won": false
-    },
-    "OBP": {
-      "me": "0.327",
-      "opp": "0.319",
-      "won": true
-    },
-    "SLG": {
-      "me": "0.413",
-      "opp": "0.426",
-      "won": false
+      "won": false,
+      "lowerBetter": false
     },
     "K": {
       "me": "73",
       "opp": "69",
-      "won": true
+      "won": true,
+      "lowerBetter": false
     },
     "ERA": {
       "me": "4.5222",
       "opp": "5.5301",
-      "won": true
+      "won": true,
+      "lowerBetter": true
     },
     "WHIP": {
       "me": "1.4631",
       "opp": "1.6747",
-      "won": true
+      "won": true,
+      "lowerBetter": true
     },
     "W": {
       "me": "3",
       "opp": "6",
-      "won": false
+      "won": false,
+      "lowerBetter": false
     },
     "S": {
       "me": "1",
       "opp": "4",
-      "won": false
+      "won": false,
+      "lowerBetter": false
+    },
+    "KO": {
+      "me": "82",
+      "opp": "74",
+      "won": false,
+      "stale": true
+    },
+    "OBP": {
+      "me": "0.327",
+      "opp": "0.319",
+      "won": true,
+      "stale": true
+    },
+    "SLG": {
+      "me": "0.413",
+      "opp": "0.426",
+      "won": false,
+      "stale": true
     },
     "HD": {
       "me": "7",
       "opp": "1",
-      "won": true
+      "won": true,
+      "stale": true
     },
     "HRA": {
       "me": "9",
       "opp": "8",
-      "won": false
+      "won": false,
+      "stale": true
     },
     "QS": {
       "me": "2",
       "opp": "4",
-      "won": false
+      "won": false,
+      "stale": true
     }
   },
+  "categoryNote": "10 visible categories (BA, HR, RBI, R, SB, K, ERA, WHIP, W, S); scoreboard score 8-8 reflects full league scoring",
   "allMatchups": [
     {
-      "away": "Okamotomami",
-      "home": "A Pete Crow-Armstrong Looked at Me",
-      "awayScore": 8.0,
-      "homeScore": 8.0
+      "home": {
+        "team": "OMM",
+        "score": 8.0
+      },
+      "away": {
+        "team": "PCA",
+        "score": 8.0
+      }
     },
     {
-      "away": "Dinosaur Jr Caminero",
-      "home": "Colonel Corbin's Ascent",
-      "awayScore": 8.0,
-      "homeScore": 8.0
+      "home": {
+        "team": "RESCAN",
+        "score": 8.0
+      },
+      "away": {
+        "team": "Icculus",
+        "score": 8.0
+      }
     },
     {
-      "away": "Yesavage Garden",
-      "home": "Before and After Shohei",
-      "awayScore": 6.0,
-      "homeScore": 10.0
+      "home": {
+        "team": "YSVG",
+        "score": 6.0
+      },
+      "away": {
+        "team": "SHOH",
+        "score": 10.0
+      }
     },
     {
-      "away": "Weird Fishes / Arrighetti",
-      "home": "Blame it on the Rainiel",
-      "awayScore": 8.0,
-      "homeScore": 8.0
+      "home": {
+        "team": "Fran",
+        "score": 8.0
+      },
+      "away": {
+        "team": "Drew",
+        "score": 8.0
+      }
     },
     {
-      "away": "Popped A Mahle I'm Sweating",
-      "home": "Ballesteros, Let the Rhythm Take You Over",
-      "awayScore": 10.5,
-      "homeScore": 5.5
+      "home": {
+        "team": "ROTH",
+        "score": 10.5
+      },
+      "away": {
+        "team": "woba",
+        "score": 5.5
+      }
     },
     {
-      "away": "Buddy Buddy Buddy All On Base",
-      "home": "Everythings McGonigle Green",
-      "awayScore": 6.0,
-      "homeScore": 10.0
+      "home": {
+        "team": "BBBaoB",
+        "score": 6.0
+      },
+      "away": {
+        "team": "Milli",
+        "score": 10.0
+      }
     }
   ],
-  "myRecord": "2-0-0",
   "standings": [
     {
       "team": "Weird Fishes / Arrighetti",
-      "mine": false,
-      "w": 2,
-      "l": 0,
-      "t": 0,
-      "pts": 2.0,
-      "pct": 1.0,
-      "gb": 0.0,
+      "W": 2,
+      "L": 0,
+      "T": 0,
+      "PCT": 1.0,
+      "GB": 0,
       "streak": "W2"
     },
     {
       "team": "Colonel Corbin's Ascent",
-      "mine": false,
-      "w": 2,
-      "l": 0,
-      "t": 0,
-      "pts": 2.0,
-      "pct": 1.0,
-      "gb": 0.0,
+      "W": 2,
+      "L": 0,
+      "T": 0,
+      "PCT": 1.0,
+      "GB": 0,
       "streak": "W2"
     },
     {
       "team": "Okamotomami",
-      "mine": true,
-      "w": 2,
-      "l": 0,
-      "t": 0,
-      "pts": 2.0,
-      "pct": 1.0,
-      "gb": 0.0,
+      "W": 2,
+      "L": 0,
+      "T": 0,
+      "PCT": 1.0,
+      "GB": 0,
       "streak": "W2"
     },
     {
       "team": "Blame it on the Rainiel",
-      "mine": false,
-      "w": 2,
-      "l": 0,
-      "t": 0,
-      "pts": 2.0,
-      "pct": 1.0,
-      "gb": 0.0,
+      "W": 2,
+      "L": 0,
+      "T": 0,
+      "PCT": 1.0,
+      "GB": 0,
       "streak": "W2"
     },
     {
       "team": "Buddy Buddy Buddy All On Base",
-      "mine": false,
-      "w": 1,
-      "l": 1,
-      "t": 0,
-      "pts": 1.0,
-      "pct": 0.5,
-      "gb": 1.0,
+      "W": 1,
+      "L": 1,
+      "T": 0,
+      "PCT": 0.5,
+      "GB": 1,
       "streak": "W1"
     },
     {
       "team": "A Pete Crow-Armstrong Looked at Me",
-      "mine": false,
-      "w": 1,
-      "l": 1,
-      "t": 0,
-      "pts": 1.0,
-      "pct": 0.5,
-      "gb": 1.0,
+      "W": 1,
+      "L": 1,
+      "T": 0,
+      "PCT": 0.5,
+      "GB": 1,
       "streak": "W1"
     },
     {
       "team": "Everythings McGonigle Green",
-      "mine": false,
-      "w": 1,
-      "l": 1,
-      "t": 0,
-      "pts": 1.0,
-      "pct": 0.5,
-      "gb": 1.0,
+      "W": 1,
+      "L": 1,
+      "T": 0,
+      "PCT": 0.5,
+      "GB": 1,
       "streak": "L1"
     },
     {
       "team": "Before and After Shohei",
-      "mine": false,
-      "w": 1,
-      "l": 1,
-      "t": 0,
-      "pts": 1.0,
-      "pct": 0.5,
-      "gb": 1.0,
+      "W": 1,
+      "L": 1,
+      "T": 0,
+      "PCT": 0.5,
+      "GB": 1,
       "streak": "L1"
     },
     {
       "team": "Dinosaur Jr Caminero",
-      "mine": false,
-      "w": 0,
-      "l": 2,
-      "t": 0,
-      "pts": 0.0,
-      "pct": 0.0,
-      "gb": 2.0,
+      "W": 0,
+      "L": 2,
+      "T": 0,
+      "PCT": 0.0,
+      "GB": 2,
       "streak": "L2"
     },
     {
       "team": "Ballesteros, Let the Rhythm Take You Over",
-      "mine": false,
-      "w": 0,
-      "l": 2,
-      "t": 0,
-      "pts": 0.0,
-      "pct": 0.0,
-      "gb": 2.0,
+      "W": 0,
+      "L": 2,
+      "T": 0,
+      "PCT": 0.0,
+      "GB": 2,
       "streak": "L2"
     },
     {
       "team": "Yesavage Garden",
-      "mine": false,
-      "w": 0,
-      "l": 2,
-      "t": 0,
-      "pts": 0.0,
-      "pct": 0.0,
-      "gb": 2.0,
+      "W": 0,
+      "L": 2,
+      "T": 0,
+      "PCT": 0.0,
+      "GB": 2,
       "streak": "L2"
     },
     {
       "team": "Popped A Mahle I'm Sweating",
-      "mine": false,
-      "w": 0,
-      "l": 2,
-      "t": 0,
-      "pts": 0.0,
-      "pct": 0.0,
-      "gb": 2.0,
+      "W": 0,
+      "L": 2,
+      "T": 0,
+      "PCT": 0.0,
+      "GB": 2,
       "streak": "L2"
     }
   ],
-  "updated": "2026-05-08T13:16:58.186204Z",
-  "lastUpdated": "2026-05-08 (period 3 in progress)"
+  "lastUpdated": "2026-05-08"
 }

@@ -1,9 +1,8 @@
 [
   {
     "date": "5/8/26 8:40 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "5/8/26",
     "players": [
       {
@@ -16,9 +15,8 @@
   },
   {
     "date": "5/8/26 7:49 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "5/8/26",
     "players": [
       {
@@ -31,9 +29,8 @@
   },
   {
     "date": "5/8/26 5:34 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "5/8/26",
     "players": [
       {
@@ -52,9 +49,8 @@
   },
   {
     "date": "5/7/26 12:43 PM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "5/8/26",
     "players": [
       {
@@ -67,9 +63,8 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "5/7/26",
     "players": [
       {
@@ -82,9 +77,8 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "5/7/26",
     "players": [
       {
@@ -97,9 +91,8 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "5/7/26",
     "players": [
       {
@@ -112,9 +105,8 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "5/7/26",
     "players": [
       {
@@ -133,9 +125,8 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "5/7/26",
     "players": [
       {
@@ -148,9 +139,8 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "5/7/26",
     "players": [
       {
@@ -169,9 +159,8 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "5/7/26",
     "players": [
       {
@@ -190,9 +179,8 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "5/7/26",
     "players": [
       {
@@ -205,9 +193,8 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "5/7/26",
     "players": [
       {
@@ -226,9 +213,8 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "5/7/26",
     "players": [
       {
@@ -247,9 +233,8 @@
   },
   {
     "date": "5/6/26 11:51 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "5/6/26",
     "players": [
       {
@@ -262,9 +247,8 @@
   },
   {
     "date": "5/6/26 9:12 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "5/6/26",
     "players": [
       {
@@ -277,9 +261,8 @@
   },
   {
     "date": "5/6/26 8:32 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "5/6/26",
     "players": [
       {
@@ -292,9 +275,8 @@
   },
   {
     "date": "5/6/26 7:36 AM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "5/6/26",
     "players": [
       {
@@ -307,9 +289,8 @@
   },
   {
     "date": "5/6/26 2:23 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "5/6/26",
     "players": [
       {
@@ -328,9 +309,8 @@
   },
   {
     "date": "5/6/26 2:23 AM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "5/6/26",
     "players": [
       {
@@ -343,9 +323,8 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "5/5/26",
     "players": [
       {
@@ -364,9 +343,8 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "5/5/26",
     "players": [
       {
@@ -385,9 +363,8 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "5/5/26",
     "players": [
       {
@@ -406,9 +383,8 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "5/5/26",
     "players": [
       {
@@ -427,9 +403,8 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "5/5/26",
     "players": [
       {
@@ -442,9 +417,8 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "5/5/26",
     "players": [
       {
@@ -463,9 +437,8 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
-    "teamId": "2",
     "teamName": "Dinosaur Jr Caminero",
-    "team": "Dinosaur Jr Caminero",
+    "teamId": 2,
     "effective": "5/5/26",
     "players": [
       {
@@ -478,9 +451,8 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "5/5/26",
     "players": [
       {
@@ -493,9 +465,8 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
-    "teamId": "2",
     "teamName": "Dinosaur Jr Caminero",
-    "team": "Dinosaur Jr Caminero",
+    "teamId": 2,
     "effective": "5/5/26",
     "players": [
       {
@@ -514,9 +485,8 @@
   },
   {
     "date": "5/4/26 5:51 PM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "5/5/26",
     "players": [
       {
@@ -529,9 +499,8 @@
   },
   {
     "date": "5/4/26 10:24 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "5/4/26",
     "players": [
       {
@@ -544,9 +513,8 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "5/4/26",
     "players": [
       {
@@ -565,9 +533,8 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "5/4/26",
     "players": [
       {
@@ -586,9 +553,8 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "5/4/26",
     "players": [
       {
@@ -607,9 +573,8 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "5/4/26",
     "players": [
       {
@@ -622,9 +587,8 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "5/4/26",
     "players": [
       {
@@ -643,9 +607,8 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "5/4/26",
     "players": [
       {
@@ -664,9 +627,8 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "5/4/26",
     "players": [
       {
@@ -679,9 +641,8 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "5/4/26",
     "players": [
       {
@@ -700,9 +661,8 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "5/4/26",
     "players": [
       {
@@ -715,9 +675,8 @@
   },
   {
     "date": "5/3/26 9:33 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "5/3/26",
     "players": [
       {
@@ -730,9 +689,8 @@
   },
   {
     "date": "5/3/26 2:18 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "5/3/26",
     "players": [
       {
@@ -751,9 +709,8 @@
   },
   {
     "date": "5/3/26 2:18 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "5/3/26",
     "players": [
       {
@@ -772,9 +729,8 @@
   },
   {
     "date": "5/3/26 2:18 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "5/3/26",
     "players": [
       {
@@ -793,9 +749,8 @@
   },
   {
     "date": "5/2/26 7:58 AM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "5/2/26",
     "players": [
       {
@@ -808,9 +763,8 @@
   },
   {
     "date": "5/2/26 7:58 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "5/2/26",
     "players": [
       {
@@ -823,9 +777,8 @@
   },
   {
     "date": "5/2/26 7:58 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "5/2/26",
     "players": [
       {
@@ -838,9 +791,8 @@
   },
   {
     "date": "5/2/26 7:58 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "5/2/26",
     "players": [
       {
@@ -859,9 +811,8 @@
   },
   {
     "date": "5/2/26 7:58 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "5/2/26",
     "players": [
       {
@@ -880,9 +831,8 @@
   },
   {
     "date": "5/2/26 7:58 AM ET",
-    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "team": "Buddy Buddy Buddy All On Base",
+    "teamId": 5,
     "effective": "5/2/26",
     "players": [
       {
@@ -895,9 +845,8 @@
   },
   {
     "date": "5/1/26 4:11 PM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "5/1/26",
     "players": [
       {
@@ -910,9 +859,8 @@
   },
   {
     "date": "5/1/26 2:00 PM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "5/1/26",
     "players": [
       {
@@ -925,9 +873,8 @@
   },
   {
     "date": "5/1/26 2:03 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "5/1/26",
     "players": [
       {
@@ -946,9 +893,8 @@
   },
   {
     "date": "5/1/26 2:03 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "5/1/26",
     "players": [
       {
@@ -967,9 +913,8 @@
   },
   {
     "date": "4/30/26 2:03 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/30/26",
     "players": [
       {
@@ -988,9 +933,8 @@
   },
   {
     "date": "4/30/26 2:03 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/30/26",
     "players": [
       {
@@ -1009,9 +953,8 @@
   },
   {
     "date": "4/30/26 2:03 AM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "4/30/26",
     "players": [
       {
@@ -1030,9 +973,8 @@
   },
   {
     "date": "4/29/26 10:45 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "4/29/26",
     "players": [
       {
@@ -1045,9 +987,8 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/29/26",
     "players": [
       {
@@ -1060,9 +1001,8 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/29/26",
     "players": [
       {
@@ -1075,9 +1015,8 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "4/29/26",
     "players": [
       {
@@ -1090,9 +1029,8 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "4/29/26",
     "players": [
       {
@@ -1105,9 +1043,8 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/29/26",
     "players": [
       {
@@ -1120,9 +1057,8 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "4/29/26",
     "players": [
       {
@@ -1141,9 +1077,8 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/29/26",
     "players": [
       {
@@ -1156,9 +1091,8 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "4/29/26",
     "players": [
       {
@@ -1177,9 +1111,8 @@
   },
   {
     "date": "4/28/26 8:29 PM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/29/26",
     "players": [
       {
@@ -1192,9 +1125,8 @@
   },
   {
     "date": "4/28/26 5:59 PM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/28/26",
     "players": [
       {
@@ -1207,9 +1139,8 @@
   },
   {
     "date": "4/28/26 5:59 PM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/28/26",
     "players": [
       {
@@ -1222,9 +1153,8 @@
   },
   {
     "date": "4/28/26 9:16 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "4/28/26",
     "players": [
       {
@@ -1237,9 +1167,8 @@
   },
   {
     "date": "4/28/26 3:06 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/28/26",
     "players": [
       {
@@ -1258,9 +1187,8 @@
   },
   {
     "date": "4/28/26 3:06 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/28/26",
     "players": [
       {
@@ -1279,9 +1207,8 @@
   },
   {
     "date": "4/27/26 1:59 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/27/26",
     "players": [
       {
@@ -1300,9 +1227,8 @@
   },
   {
     "date": "4/26/26 1:49 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/26/26",
     "players": [
       {
@@ -1321,9 +1247,8 @@
   },
   {
     "date": "4/26/26 1:49 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/26/26",
     "players": [
       {
@@ -1336,9 +1261,8 @@
   },
   {
     "date": "4/26/26 1:49 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/26/26",
     "players": [
       {
@@ -1357,9 +1281,8 @@
   },
   {
     "date": "4/25/26 9:03 AM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "4/25/26",
     "players": [
       {
@@ -1372,9 +1295,8 @@
   },
   {
     "date": "4/25/26 3:18 AM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "4/25/26",
     "players": [
       {
@@ -1393,9 +1315,8 @@
   },
   {
     "date": "4/24/26 1:44 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "4/24/26",
     "players": [
       {
@@ -1414,9 +1335,8 @@
   },
   {
     "date": "4/24/26 1:44 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "4/24/26",
     "players": [
       {
@@ -1429,9 +1349,8 @@
   },
   {
     "date": "4/24/26 1:44 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "4/24/26",
     "players": [
       {
@@ -1444,9 +1363,8 @@
   },
   {
     "date": "4/24/26 1:44 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "4/24/26",
     "players": [
       {
@@ -1465,9 +1383,8 @@
   },
   {
     "date": "4/24/26 1:44 AM ET",
-    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "team": "Buddy Buddy Buddy All On Base",
+    "teamId": 5,
     "effective": "4/24/26",
     "players": [
       {
@@ -1486,9 +1403,8 @@
   },
   {
     "date": "4/23/26 7:29 AM ET",
-    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "team": "Buddy Buddy Buddy All On Base",
+    "teamId": 5,
     "effective": "4/23/26",
     "players": [
       {
@@ -1501,9 +1417,8 @@
   },
   {
     "date": "4/23/26 2:49 AM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "4/23/26",
     "players": [
       {
@@ -1522,9 +1437,8 @@
   },
   {
     "date": "4/23/26 2:49 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/23/26",
     "players": [
       {
@@ -1543,9 +1457,8 @@
   },
   {
     "date": "4/23/26 2:49 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "4/23/26",
     "players": [
       {
@@ -1558,9 +1471,8 @@
   },
   {
     "date": "4/23/26 2:49 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "4/23/26",
     "players": [
       {
@@ -1579,9 +1491,8 @@
   },
   {
     "date": "4/22/26 12:37 PM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "4/23/26",
     "players": [
       {
@@ -1594,9 +1505,8 @@
   },
   {
     "date": "4/22/26 12:34 PM ET",
-    "teamId": "2",
     "teamName": "Dinosaur Jr Caminero",
-    "team": "Dinosaur Jr Caminero",
+    "teamId": 2,
     "effective": "4/23/26",
     "players": [
       {
@@ -1609,9 +1519,8 @@
   },
   {
     "date": "4/22/26 10:24 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "4/22/26",
     "players": [
       {
@@ -1624,9 +1533,8 @@
   },
   {
     "date": "4/22/26 2:33 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/22/26",
     "players": [
       {
@@ -1645,9 +1553,8 @@
   },
   {
     "date": "4/22/26 2:33 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/22/26",
     "players": [
       {
@@ -1666,9 +1573,8 @@
   },
   {
     "date": "4/22/26 2:33 AM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "4/22/26",
     "players": [
       {
@@ -1681,9 +1587,8 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "4/21/26",
     "players": [
       {
@@ -1702,9 +1607,8 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "4/21/26",
     "players": [
       {
@@ -1723,9 +1627,8 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/21/26",
     "players": [
       {
@@ -1738,9 +1641,8 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/21/26",
     "players": [
       {
@@ -1753,9 +1655,8 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "4/21/26",
     "players": [
       {
@@ -1774,9 +1675,8 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/21/26",
     "players": [
       {
@@ -1795,9 +1695,8 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "4/21/26",
     "players": [
       {
@@ -1816,9 +1715,8 @@
   },
   {
     "date": "4/20/26 1:56 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/20/26",
     "players": [
       {
@@ -1837,9 +1735,8 @@
   },
   {
     "date": "4/20/26 1:56 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "4/20/26",
     "players": [
       {
@@ -1858,9 +1755,8 @@
   },
   {
     "date": "4/20/26 1:56 AM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "4/20/26",
     "players": [
       {
@@ -1879,9 +1775,8 @@
   },
   {
     "date": "4/19/26 4:05 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "4/19/26",
     "players": [
       {
@@ -1894,9 +1789,8 @@
   },
   {
     "date": "4/19/26 4:05 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/19/26",
     "players": [
       {
@@ -1915,9 +1809,8 @@
   },
   {
     "date": "4/19/26 4:05 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "4/19/26",
     "players": [
       {
@@ -1936,9 +1829,8 @@
   },
   {
     "date": "4/18/26 3:03 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/18/26",
     "players": [
       {
@@ -1957,9 +1849,8 @@
   },
   {
     "date": "4/18/26 3:03 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "4/18/26",
     "players": [
       {
@@ -1978,9 +1869,8 @@
   },
   {
     "date": "4/18/26 3:03 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/18/26",
     "players": [
       {
@@ -1993,9 +1883,8 @@
   },
   {
     "date": "4/18/26 3:03 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/18/26",
     "players": [
       {
@@ -2008,9 +1897,8 @@
   },
   {
     "date": "4/17/26 11:33 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/17/26",
     "players": [
       {
@@ -2023,9 +1911,8 @@
   },
   {
     "date": "4/17/26 1:45 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/17/26",
     "players": [
       {
@@ -2044,9 +1931,8 @@
   },
   {
     "date": "4/17/26 1:45 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "4/17/26",
     "players": [
       {
@@ -2065,9 +1951,8 @@
   },
   {
     "date": "4/17/26 1:45 AM ET",
-    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "team": "Buddy Buddy Buddy All On Base",
+    "teamId": 5,
     "effective": "4/17/26",
     "players": [
       {
@@ -2086,9 +1971,8 @@
   },
   {
     "date": "4/16/26 2:34 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/16/26",
     "players": [
       {
@@ -2107,9 +1991,8 @@
   },
   {
     "date": "4/16/26 2:34 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "4/16/26",
     "players": [
       {
@@ -2122,9 +2005,8 @@
   },
   {
     "date": "4/16/26 2:34 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "4/16/26",
     "players": [
       {
@@ -2143,9 +2025,8 @@
   },
   {
     "date": "4/16/26 2:34 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/16/26",
     "players": [
       {
@@ -2164,9 +2045,8 @@
   },
   {
     "date": "4/15/26 1:46 AM ET",
-    "teamId": "2",
     "teamName": "Dinosaur Jr Caminero",
-    "team": "Dinosaur Jr Caminero",
+    "teamId": 2,
     "effective": "4/15/26",
     "players": [
       {
@@ -2185,9 +2065,8 @@
   },
   {
     "date": "4/15/26 1:46 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/15/26",
     "players": [
       {
@@ -2200,9 +2079,8 @@
   },
   {
     "date": "4/15/26 1:46 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/15/26",
     "players": [
       {
@@ -2221,9 +2099,8 @@
   },
   {
     "date": "4/15/26 1:46 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "4/15/26",
     "players": [
       {
@@ -2236,9 +2113,8 @@
   },
   {
     "date": "4/15/26 1:46 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "4/15/26",
     "players": [
       {
@@ -2257,9 +2133,8 @@
   },
   {
     "date": "4/15/26 1:46 AM ET",
-    "teamId": "2",
     "teamName": "Dinosaur Jr Caminero",
-    "team": "Dinosaur Jr Caminero",
+    "teamId": 2,
     "effective": "4/15/26",
     "players": [
       {
@@ -2272,9 +2147,8 @@
   },
   {
     "date": "4/15/26 1:46 AM ET",
-    "teamId": "2",
     "teamName": "Dinosaur Jr Caminero",
-    "team": "Dinosaur Jr Caminero",
+    "teamId": 2,
     "effective": "4/15/26",
     "players": [
       {
@@ -2293,9 +2167,8 @@
   },
   {
     "date": "4/14/26 3:45 PM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "4/14/26",
     "players": [
       {
@@ -2308,9 +2181,8 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/14/26",
     "players": [
       {
@@ -2329,9 +2201,8 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "4/14/26",
     "players": [
       {
@@ -2350,9 +2221,8 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/14/26",
     "players": [
       {
@@ -2371,9 +2241,8 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "4/14/26",
     "players": [
       {
@@ -2392,9 +2261,8 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "4/14/26",
     "players": [
       {
@@ -2407,9 +2275,8 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "4/14/26",
     "players": [
       {
@@ -2428,9 +2295,8 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "4/14/26",
     "players": [
       {
@@ -2449,9 +2315,8 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
-    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "team": "Buddy Buddy Buddy All On Base",
+    "teamId": 5,
     "effective": "4/14/26",
     "players": [
       {
@@ -2464,9 +2329,8 @@
   },
   {
     "date": "4/13/26 1:49 PM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "4/13/26",
     "players": [
       {
@@ -2479,9 +2343,8 @@
   },
   {
     "date": "4/13/26 9:04 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/13/26",
     "players": [
       {
@@ -2494,9 +2357,8 @@
   },
   {
     "date": "4/13/26 1:59 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/13/26",
     "players": [
       {
@@ -2515,9 +2377,8 @@
   },
   {
     "date": "4/13/26 1:59 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/13/26",
     "players": [
       {
@@ -2536,9 +2397,8 @@
   },
   {
     "date": "4/13/26 1:59 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "4/13/26",
     "players": [
       {
@@ -2551,9 +2411,8 @@
   },
   {
     "date": "4/13/26 1:59 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "4/13/26",
     "players": [
       {
@@ -2572,9 +2431,8 @@
   },
   {
     "date": "4/13/26 1:59 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/13/26",
     "players": [
       {
@@ -2593,9 +2451,8 @@
   },
   {
     "date": "4/12/26 2:28 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/12/26",
     "players": [
       {
@@ -2614,9 +2471,8 @@
   },
   {
     "date": "4/12/26 2:28 AM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "4/12/26",
     "players": [
       {
@@ -2629,9 +2485,8 @@
   },
   {
     "date": "4/11/26 10:02 AM ET",
-    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "team": "Buddy Buddy Buddy All On Base",
+    "teamId": 5,
     "effective": "4/11/26",
     "players": [
       {
@@ -2644,9 +2499,8 @@
   },
   {
     "date": "4/11/26 2:53 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/11/26",
     "players": [
       {
@@ -2665,9 +2519,8 @@
   },
   {
     "date": "4/11/26 2:53 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/11/26",
     "players": [
       {
@@ -2680,9 +2533,8 @@
   },
   {
     "date": "4/11/26 2:53 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/11/26",
     "players": [
       {
@@ -2701,9 +2553,8 @@
   },
   {
     "date": "4/10/26 7:24 PM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "4/11/26",
     "players": [
       {
@@ -2716,9 +2567,8 @@
   },
   {
     "date": "4/10/26 11:33 AM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "4/10/26",
     "players": [
       {
@@ -2731,9 +2581,8 @@
   },
   {
     "date": "4/10/26 3:09 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/10/26",
     "players": [
       {
@@ -2752,9 +2601,8 @@
   },
   {
     "date": "4/10/26 3:09 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/10/26",
     "players": [
       {
@@ -2773,9 +2621,8 @@
   },
   {
     "date": "4/10/26 3:09 AM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "4/10/26",
     "players": [
       {
@@ -2788,9 +2635,8 @@
   },
   {
     "date": "4/10/26 3:09 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "4/10/26",
     "players": [
       {
@@ -2809,9 +2655,8 @@
   },
   {
     "date": "4/10/26 3:09 AM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "4/10/26",
     "players": [
       {
@@ -2830,9 +2675,8 @@
   },
   {
     "date": "4/9/26 2:11 PM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "4/10/26",
     "players": [
       {
@@ -2845,9 +2689,8 @@
   },
   {
     "date": "4/9/26 1:46 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/9/26",
     "players": [
       {
@@ -2866,9 +2709,8 @@
   },
   {
     "date": "4/9/26 1:46 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "4/9/26",
     "players": [
       {
@@ -2887,9 +2729,8 @@
   },
   {
     "date": "4/8/26 3:06 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/8/26",
     "players": [
       {
@@ -2902,9 +2743,8 @@
   },
   {
     "date": "4/8/26 3:06 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/8/26",
     "players": [
       {
@@ -2923,9 +2763,8 @@
   },
   {
     "date": "4/8/26 3:06 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/8/26",
     "players": [
       {
@@ -2944,9 +2783,8 @@
   },
   {
     "date": "4/8/26 3:06 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "4/8/26",
     "players": [
       {
@@ -2965,9 +2803,8 @@
   },
   {
     "date": "4/8/26 3:06 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "4/8/26",
     "players": [
       {
@@ -2986,9 +2823,8 @@
   },
   {
     "date": "4/8/26 3:06 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "4/8/26",
     "players": [
       {
@@ -3007,9 +2843,8 @@
   },
   {
     "date": "4/7/26 2:07 AM ET",
-    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "team": "Buddy Buddy Buddy All On Base",
+    "teamId": 5,
     "effective": "4/7/26",
     "players": [
       {
@@ -3028,9 +2863,8 @@
   },
   {
     "date": "4/7/26 2:07 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "4/7/26",
     "players": [
       {
@@ -3049,9 +2883,8 @@
   },
   {
     "date": "4/7/26 2:07 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/7/26",
     "players": [
       {
@@ -3064,9 +2897,8 @@
   },
   {
     "date": "4/7/26 2:07 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/7/26",
     "players": [
       {
@@ -3085,9 +2917,8 @@
   },
   {
     "date": "4/7/26 2:07 AM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "4/7/26",
     "players": [
       {
@@ -3106,9 +2937,8 @@
   },
   {
     "date": "4/7/26 2:07 AM ET",
-    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "team": "Buddy Buddy Buddy All On Base",
+    "teamId": 5,
     "effective": "4/7/26",
     "players": [
       {
@@ -3121,9 +2951,8 @@
   },
   {
     "date": "4/6/26 1:57 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/6/26",
     "players": [
       {
@@ -3136,9 +2965,8 @@
   },
   {
     "date": "4/6/26 1:57 AM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "4/6/26",
     "players": [
       {
@@ -3157,9 +2985,8 @@
   },
   {
     "date": "4/6/26 1:57 AM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "4/6/26",
     "players": [
       {
@@ -3178,9 +3005,8 @@
   },
   {
     "date": "4/5/26 1:48 AM ET",
-    "teamId": "2",
     "teamName": "Dinosaur Jr Caminero",
-    "team": "Dinosaur Jr Caminero",
+    "teamId": 2,
     "effective": "4/5/26",
     "players": [
       {
@@ -3199,9 +3025,8 @@
   },
   {
     "date": "4/5/26 1:48 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "4/5/26",
     "players": [
       {
@@ -3220,9 +3045,8 @@
   },
   {
     "date": "4/5/26 1:48 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "4/5/26",
     "players": [
       {
@@ -3241,9 +3065,8 @@
   },
   {
     "date": "4/5/26 1:48 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "4/5/26",
     "players": [
       {
@@ -3256,9 +3079,8 @@
   },
   {
     "date": "4/5/26 1:48 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "4/5/26",
     "players": [
       {
@@ -3271,9 +3093,8 @@
   },
   {
     "date": "4/5/26 1:48 AM ET",
-    "teamId": "2",
     "teamName": "Dinosaur Jr Caminero",
-    "team": "Dinosaur Jr Caminero",
+    "teamId": 2,
     "effective": "4/5/26",
     "players": [
       {
@@ -3286,9 +3107,8 @@
   },
   {
     "date": "4/5/26 1:48 AM ET",
-    "teamId": "2",
     "teamName": "Dinosaur Jr Caminero",
-    "team": "Dinosaur Jr Caminero",
+    "teamId": 2,
     "effective": "4/5/26",
     "players": [
       {
@@ -3307,9 +3127,8 @@
   },
   {
     "date": "4/4/26 3:40 PM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "4/5/26",
     "players": [
       {
@@ -3322,9 +3141,8 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "4/4/26",
     "players": [
       {
@@ -3343,9 +3161,8 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "4/4/26",
     "players": [
       {
@@ -3358,9 +3175,8 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "4/4/26",
     "players": [
       {
@@ -3379,9 +3195,8 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/4/26",
     "players": [
       {
@@ -3394,9 +3209,8 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "4/4/26",
     "players": [
       {
@@ -3415,9 +3229,8 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "4/4/26",
     "players": [
       {
@@ -3436,9 +3249,8 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "4/4/26",
     "players": [
       {
@@ -3457,9 +3269,8 @@
   },
   {
     "date": "4/3/26 2:03 AM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "4/3/26",
     "players": [
       {
@@ -3478,9 +3289,8 @@
   },
   {
     "date": "4/2/26 10:47 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "4/2/26",
     "players": [
       {
@@ -3493,9 +3303,8 @@
   },
   {
     "date": "4/1/26 2:51 PM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "4/2/26",
     "players": [
       {
@@ -3508,9 +3317,8 @@
   },
   {
     "date": "4/1/26 2:50 PM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "4/2/26",
     "players": [
       {
@@ -3529,9 +3337,8 @@
   },
   {
     "date": "4/1/26 2:46 PM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "4/2/26",
     "players": [
       {
@@ -3550,9 +3357,8 @@
   },
   {
     "date": "3/31/26 10:39 PM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "4/1/26",
     "players": [
       {
@@ -3571,9 +3377,8 @@
   },
   {
     "date": "3/31/26 8:48 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/31/26",
     "players": [
       {
@@ -3586,9 +3391,8 @@
   },
   {
     "date": "3/31/26 2:19 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/31/26",
     "players": [
       {
@@ -3601,9 +3405,8 @@
   },
   {
     "date": "3/31/26 2:14 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/31/26",
     "players": [
       {
@@ -3616,9 +3419,8 @@
   },
   {
     "date": "3/30/26 6:29 PM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "3/31/26",
     "players": [
       {
@@ -3631,9 +3433,8 @@
   },
   {
     "date": "3/30/26 6:23 PM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "3/31/26",
     "players": [
       {
@@ -3646,9 +3447,8 @@
   },
   {
     "date": "3/30/26 9:19 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "3/30/26",
     "players": [
       {
@@ -3661,9 +3461,8 @@
   },
   {
     "date": "3/30/26 9:18 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "3/30/26",
     "players": [
       {
@@ -3676,9 +3475,8 @@
   },
   {
     "date": "3/29/26 11:29 PM ET",
-    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "team": "Buddy Buddy Buddy All On Base",
+    "teamId": 5,
     "effective": "3/30/26",
     "players": [
       {
@@ -3691,9 +3489,8 @@
   },
   {
     "date": "3/29/26 10:21 PM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "3/30/26",
     "players": [
       {
@@ -3712,9 +3509,8 @@
   },
   {
     "date": "3/28/26 10:59 PM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/29/26",
     "players": [
       {
@@ -3733,9 +3529,8 @@
   },
   {
     "date": "3/27/26 3:15 PM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "3/27/26",
     "players": [
       {
@@ -3748,9 +3543,8 @@
   },
   {
     "date": "3/27/26 3:12 PM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "3/27/26",
     "players": [
       {
@@ -3763,9 +3557,8 @@
   },
   {
     "date": "3/27/26 3:10 PM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "3/27/26",
     "players": [
       {
@@ -3784,9 +3577,8 @@
   },
   {
     "date": "3/27/26 9:34 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "3/27/26",
     "players": [
       {
@@ -3799,9 +3591,8 @@
   },
   {
     "date": "3/27/26 2:43 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "3/27/26",
     "players": [
       {
@@ -3814,9 +3605,8 @@
   },
   {
     "date": "3/26/26 11:24 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/26/26",
     "players": [
       {
@@ -3829,9 +3619,8 @@
   },
   {
     "date": "3/26/26 7:32 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "3/26/26",
     "players": [
       {
@@ -3844,9 +3633,8 @@
   },
   {
     "date": "3/25/26 10:46 PM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "3/26/26",
     "players": [
       {
@@ -3859,9 +3647,8 @@
   },
   {
     "date": "3/25/26 2:58 PM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "3/25/26",
     "players": [
       {
@@ -3880,9 +3667,8 @@
   },
   {
     "date": "3/25/26 2:55 PM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -3895,9 +3681,8 @@
   },
   {
     "date": "3/25/26 2:55 PM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -3910,9 +3695,8 @@
   },
   {
     "date": "3/25/26 2:52 PM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "3/25/26",
     "players": [
       {
@@ -3925,9 +3709,8 @@
   },
   {
     "date": "3/25/26 2:52 PM ET",
-    "teamId": "2",
     "teamName": "Dinosaur Jr Caminero",
-    "team": "Dinosaur Jr Caminero",
+    "teamId": 2,
     "effective": "3/25/26",
     "players": [
       {
@@ -3946,9 +3729,8 @@
   },
   {
     "date": "3/25/26 2:51 PM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "3/25/26",
     "players": [
       {
@@ -3961,9 +3743,8 @@
   },
   {
     "date": "3/25/26 2:51 PM ET",
-    "teamId": "2",
     "teamName": "Dinosaur Jr Caminero",
-    "team": "Dinosaur Jr Caminero",
+    "teamId": 2,
     "effective": "3/25/26",
     "players": [
       {
@@ -3976,9 +3757,8 @@
   },
   {
     "date": "3/25/26 2:50 PM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "3/25/26",
     "players": [
       {
@@ -3991,9 +3771,8 @@
   },
   {
     "date": "3/25/26 2:48 PM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "3/25/26",
     "players": [
       {
@@ -4006,9 +3785,8 @@
   },
   {
     "date": "3/25/26 2:24 PM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "3/25/26",
     "players": [
       {
@@ -4021,9 +3799,8 @@
   },
   {
     "date": "3/25/26 1:37 PM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "3/25/26",
     "players": [
       {
@@ -4036,9 +3813,8 @@
   },
   {
     "date": "3/25/26 9:20 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "3/25/26",
     "players": [
       {
@@ -4057,9 +3833,8 @@
   },
   {
     "date": "3/25/26 9:18 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "3/25/26",
     "players": [
       {
@@ -4078,9 +3853,8 @@
   },
   {
     "date": "3/25/26 9:04 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "3/25/26",
     "players": [
       {
@@ -4093,9 +3867,8 @@
   },
   {
     "date": "3/24/26 12:56 PM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "3/25/26",
     "players": [
       {
@@ -4108,9 +3881,8 @@
   },
   {
     "date": "3/24/26 12:54 PM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "3/25/26",
     "players": [
       {
@@ -4123,9 +3895,8 @@
   },
   {
     "date": "3/24/26 12:47 PM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "3/25/26",
     "players": [
       {
@@ -4144,9 +3915,8 @@
   },
   {
     "date": "3/24/26 12:45 PM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "3/25/26",
     "players": [
       {
@@ -4165,9 +3935,8 @@
   },
   {
     "date": "3/24/26 12:34 PM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "3/25/26",
     "players": [
       {
@@ -4180,9 +3949,8 @@
   },
   {
     "date": "3/24/26 11:56 AM ET",
-    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "team": "Before and After Shohei",
+    "teamId": 11,
     "effective": "3/25/26",
     "players": [
       {
@@ -4195,9 +3963,8 @@
   },
   {
     "date": "3/24/26 10:07 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "3/25/26",
     "players": [
       {
@@ -4210,9 +3977,8 @@
   },
   {
     "date": "3/24/26 10:07 AM ET",
-    "teamId": "2",
     "teamName": "Dinosaur Jr Caminero",
-    "team": "Dinosaur Jr Caminero",
+    "teamId": 2,
     "effective": "3/25/26",
     "players": [
       {
@@ -4225,9 +3991,8 @@
   },
   {
     "date": "3/24/26 10:05 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "3/25/26",
     "players": [
       {
@@ -4240,9 +4005,8 @@
   },
   {
     "date": "3/24/26 10:04 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "3/25/26",
     "players": [
       {
@@ -4255,9 +4019,8 @@
   },
   {
     "date": "3/24/26 10:04 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "3/25/26",
     "players": [
       {
@@ -4270,9 +4033,8 @@
   },
   {
     "date": "3/24/26 10:03 AM ET",
-    "teamId": "",
     "teamName": "Everythings McGonigle Green",
-    "team": "Everythings McGonigle Green",
+    "teamId": 7,
     "effective": "3/25/26",
     "players": [
       {
@@ -4285,9 +4047,8 @@
   },
   {
     "date": "3/24/26 1:22 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -4300,9 +4061,8 @@
   },
   {
     "date": "3/23/26 10:00 PM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "3/25/26",
     "players": [
       {
@@ -4321,9 +4081,8 @@
   },
   {
     "date": "3/23/26 1:30 PM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "3/25/26",
     "players": [
       {
@@ -4336,9 +4095,8 @@
   },
   {
     "date": "3/23/26 1:24 PM ET",
-    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "teamId": 8,
     "effective": "3/25/26",
     "players": [
       {
@@ -4351,9 +4109,8 @@
   },
   {
     "date": "3/23/26 9:22 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -4366,9 +4123,8 @@
   },
   {
     "date": "3/23/26 1:09 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -4387,9 +4143,8 @@
   },
   {
     "date": "3/23/26 1:09 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -4408,9 +4163,8 @@
   },
   {
     "date": "3/22/26 5:44 PM ET",
-    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "team": "Buddy Buddy Buddy All On Base",
+    "teamId": 5,
     "effective": "3/25/26",
     "players": [
       {
@@ -4423,9 +4177,8 @@
   },
   {
     "date": "3/21/26 10:13 PM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "3/25/26",
     "players": [
       {
@@ -4438,9 +4191,8 @@
   },
   {
     "date": "3/21/26 11:24 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "3/25/26",
     "players": [
       {
@@ -4453,9 +4205,8 @@
   },
   {
     "date": "3/21/26 11:22 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "3/25/26",
     "players": [
       {
@@ -4468,9 +4219,8 @@
   },
   {
     "date": "3/21/26 12:45 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -4489,9 +4239,8 @@
   },
   {
     "date": "3/21/26 12:09 AM ET",
-    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "team": "Buddy Buddy Buddy All On Base",
+    "teamId": 5,
     "effective": "3/25/26",
     "players": [
       {
@@ -4504,9 +4253,8 @@
   },
   {
     "date": "3/21/26 12:06 AM ET",
-    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "team": "Buddy Buddy Buddy All On Base",
+    "teamId": 5,
     "effective": "3/25/26",
     "players": [
       {
@@ -4519,9 +4267,8 @@
   },
   {
     "date": "3/20/26 11:16 PM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "3/25/26",
     "players": [
       {
@@ -4534,9 +4281,8 @@
   },
   {
     "date": "3/20/26 10:36 PM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "3/25/26",
     "players": [
       {
@@ -4549,9 +4295,8 @@
   },
   {
     "date": "3/20/26 10:31 PM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "3/25/26",
     "players": [
       {
@@ -4564,9 +4309,8 @@
   },
   {
     "date": "3/20/26 7:07 PM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "3/25/26",
     "players": [
       {
@@ -4579,9 +4323,8 @@
   },
   {
     "date": "3/20/26 7:06 PM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "3/25/26",
     "players": [
       {
@@ -4594,9 +4337,8 @@
   },
   {
     "date": "3/20/26 7:06 PM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "3/25/26",
     "players": [
       {
@@ -4609,9 +4351,8 @@
   },
   {
     "date": "3/20/26 7:04 PM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "3/25/26",
     "players": [
       {
@@ -4624,9 +4365,8 @@
   },
   {
     "date": "3/20/26 7:04 PM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "3/25/26",
     "players": [
       {
@@ -4639,9 +4379,8 @@
   },
   {
     "date": "3/20/26 1:11 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -4654,9 +4393,8 @@
   },
   {
     "date": "3/19/26 11:27 PM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -4669,9 +4407,8 @@
   },
   {
     "date": "3/19/26 11:17 PM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "3/25/26",
     "players": [
       {
@@ -4684,9 +4421,8 @@
   },
   {
     "date": "3/19/26 2:35 PM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "3/25/26",
     "players": [
       {
@@ -4699,9 +4435,8 @@
   },
   {
     "date": "3/19/26 11:44 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "3/25/26",
     "players": [
       {
@@ -4714,9 +4449,8 @@
   },
   {
     "date": "3/19/26 11:40 AM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "3/25/26",
     "players": [
       {
@@ -4729,9 +4463,8 @@
   },
   {
     "date": "3/19/26 7:55 AM ET",
-    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "team": "Blame it on the Rainiel",
+    "teamId": 10,
     "effective": "3/25/26",
     "players": [
       {
@@ -4744,9 +4477,8 @@
   },
   {
     "date": "3/19/26 7:25 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "3/25/26",
     "players": [
       {
@@ -4759,9 +4491,8 @@
   },
   {
     "date": "3/19/26 7:24 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "3/25/26",
     "players": [
       {
@@ -4774,9 +4505,8 @@
   },
   {
     "date": "3/19/26 7:24 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "3/25/26",
     "players": [
       {
@@ -4789,9 +4519,8 @@
   },
   {
     "date": "3/19/26 7:23 AM ET",
-    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamId": 6,
     "effective": "3/25/26",
     "players": [
       {
@@ -4804,9 +4533,8 @@
   },
   {
     "date": "3/19/26 3:16 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -4819,9 +4547,8 @@
   },
   {
     "date": "3/19/26 3:16 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -4834,9 +4561,8 @@
   },
   {
     "date": "3/19/26 3:14 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -4849,9 +4575,8 @@
   },
   {
     "date": "3/19/26 3:06 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -4864,9 +4589,8 @@
   },
   {
     "date": "3/19/26 3:05 AM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -4879,9 +4603,8 @@
   },
   {
     "date": "3/19/26 1:23 AM ET",
-    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "team": "Buddy Buddy Buddy All On Base",
+    "teamId": 5,
     "effective": "3/25/26",
     "players": [
       {
@@ -4894,9 +4617,8 @@
   },
   {
     "date": "3/18/26 10:06 PM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "3/25/26",
     "players": [
       {
@@ -4909,9 +4631,8 @@
   },
   {
     "date": "3/18/26 10:05 PM ET",
-    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
+    "teamId": 12,
     "effective": "3/25/26",
     "players": [
       {
@@ -4924,9 +4645,8 @@
   },
   {
     "date": "3/18/26 10:14 AM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "3/25/26",
     "players": [
       {
@@ -4939,9 +4659,8 @@
   },
   {
     "date": "3/17/26 1:54 PM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "3/25/26",
     "players": [
       {
@@ -4954,9 +4673,8 @@
   },
   {
     "date": "3/17/26 12:49 PM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -4969,9 +4687,8 @@
   },
   {
     "date": "3/17/26 12:43 PM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -4984,9 +4701,8 @@
   },
   {
     "date": "3/17/26 12:38 PM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -5005,9 +4721,8 @@
   },
   {
     "date": "3/17/26 12:38 PM ET",
-    "teamId": "4",
     "teamName": "Okamotomami",
-    "team": "Okamotomami",
+    "teamId": 4,
     "effective": "3/25/26",
     "players": [
       {
@@ -5032,9 +4747,8 @@
   },
   {
     "date": "3/16/26 1:42 PM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -5047,9 +4761,8 @@
   },
   {
     "date": "3/16/26 12:55 PM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -5068,9 +4781,8 @@
   },
   {
     "date": "3/16/26 12:10 PM ET",
-    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
+    "teamId": 3,
     "effective": "3/25/26",
     "players": [
       {
@@ -5089,9 +4801,8 @@
   },
   {
     "date": "3/15/26 7:26 PM ET",
-    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "team": "Weird Fishes / Arrighetti",
+    "teamId": 1,
     "effective": "3/25/26",
     "players": [
       {
@@ -5104,9 +4815,8 @@
   },
   {
     "date": "3/15/26 5:18 PM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "3/25/26",
     "players": [
       {
@@ -5119,9 +4829,8 @@
   },
   {
     "date": "3/15/26 5:15 PM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "3/25/26",
     "players": [
       {
@@ -5134,9 +4843,8 @@
   },
   {
     "date": "3/14/26 3:28 PM ET",
-    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "team": "Yesavage Garden",
+    "teamId": 9,
     "effective": "3/25/26",
     "players": [
       {
