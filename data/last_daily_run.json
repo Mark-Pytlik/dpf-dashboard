@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-08T13:17:24.085662Z",
+  "completedAt": "2026-05-08T16:16:42.328178Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -13,10 +13,13 @@
   },
   "notes": [
     "Phase A: stuffplus skipped (pybaseball not installed; non-fatal)",
-    "Phase A: 252 injuries, 50 player news items",
-    "Phase B: 292 raw transactions from /transactions?print_rows=9999, cleaner reduced to 231",
-    "Phase B: 12 rosters scraped (386 total players); roster_sync skipped per current SKILL guidance",
-    "Phase B: period 3 (Apr 27 - May 10) Okamotomami vs A Pete Crow-Armstrong Looked at Me, score 8.0-8.0",
-    "Phase B: standings unchanged from prior run (no completed matchups since)"
+    "Phase A: 251 injuries, 50 player news items",
+    "Phase B: CBS auth via dpf.baseball.cbssports.com (skill URL pattern is outdated; actual league subdomain works)",
+    "Phase B: 292 raw transactions; merge_tx cleaned to 229 + roster_sync added 287 synthetics \u2192 516 total",
+    "Phase B: 12 rosters scraped (386 total players)",
+    "Phase B: period 3 (Apr 27 - May 10) Okamotomami vs A Pete Crow-Armstrong Looked at Me, scoreboard 8.0-8.0",
+    "Phase B: visible matchup table showed only 10 cats (BA/HR/RBI/R/SB/K/ERA/WHIP/W/S); 6 cats from prior run preserved as stale",
+    "Phase B: standings: 4 teams 2-0-0, 4 teams 1-1-0, 4 teams 0-2-0",
+    "No new transaction action types observed."
   ]
 }
