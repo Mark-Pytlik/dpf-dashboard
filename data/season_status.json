@@ -1,1 +1,269 @@
-{"currentPeriod":3,"periodStart":"MON, APR 27","periodEnd":"SUN, MAY 10","opponent":"A Pete Crow-Armstrong Looked at Me","currentScore":{"own":8,"opponent":8},"categoryBreakdown":{"BA":{"own":0.246,"opp":0.233},"HR":{"own":13,"opp":12},"RBI":{"own":43,"opp":37},"R":{"own":33,"opp":45},"SB":{"own":3,"opp":6},"K":{"own":73,"opp":62},"ERA":{"own":4.5672,"opp":5.1372},"WHIP":{"own":1.4478,"opp":1.5796},"W":{"own":3,"opp":6},"S":{"own":1,"opp":4}},"allMatchups":[{"team1":"Okamotomami","abbr1":"OMM","score1":8,"team2":"A Pete Crow-Armstrong Looked at Me","abbr2":"PCA","score2":8},{"team1":"Dinosaur Jr Caminero","abbr1":"RESCAN","score1":8,"team2":"Colonel Corbin's Ascent","abbr2":"Icculus","score2":8},{"team1":"Yesavage Garden","abbr1":"YSVG","score1":6,"team2":"Before and After Shohei","abbr2":"SHOH","score2":10},{"team1":"Weird Fishes / Arrighetti","abbr1":"Fran","score1":8.5,"team2":"Blame it on the Rainiel","abbr2":"Drew","score2":7.5},{"team1":"Popped A Mahle I'm Sweating","abbr1":"ROTH","score1":12,"team2":"Ballesteros, Let the Rhythm Take You Over","abbr2":"woba","score2":4},{"team1":"Buddy Buddy Buddy All On Base","abbr1":"BBBaoB","score1":6.5,"team2":"Everythings McGonigle Green","abbr2":"Milli","score2":9.5}],"standings":[{"team":"Weird Fishes / Arrighetti","W":2,"L":0,"T":0,"PCT":1,"GB":0,"streak":"W2"},{"team":"Colonel Corbin's Ascent","W":2,"L":0,"T":0,"PCT":1,"GB":0,"streak":"W2"},{"team":"Okamotomami","W":2,"L":0,"T":0,"PCT":1,"GB":0,"streak":"W2"},{"team":"Blame it on the Rainiel","W":2,"L":0,"T":0,"PCT":1,"GB":0,"streak":"W2"},{"team":"Buddy Buddy Buddy All On Base","W":1,"L":1,"T":0,"PCT":0.5,"GB":1,"streak":"W1"},{"team":"A Pete Crow-Armstrong Looked at Me","W":1,"L":1,"T":0,"PCT":0.5,"GB":1,"streak":"W1"},{"team":"Everythings McGonigle Green","W":1,"L":1,"T":0,"PCT":0.5,"GB":1,"streak":"L1"},{"team":"Before and After Shohei","W":1,"L":1,"T":0,"PCT":0.5,"GB":1,"streak":"L1"},{"team":"Dinosaur Jr Caminero","W":0,"L":2,"T":0,"PCT":0,"GB":2,"streak":"L2"},{"team":"Ballesteros, Let the Rhythm Take You Over","W":0,"L":2,"T":0,"PCT":0,"GB":2,"streak":"L2"},{"team":"Yesavage Garden","W":0,"L":2,"T":0,"PCT":0,"GB":2,"streak":"L2"},{"team":"Popped A Mahle I'm Sweating","W":0,"L":2,"T":0,"PCT":0,"GB":2,"streak":"L2"}],"lastUpdated":"2026-05-07"}
+{
+  "currentPeriod": 3,
+  "periodStart": "2026-04-27",
+  "periodEnd": "2026-05-10",
+  "opponent": "A Pete Crow-Armstrong Looked at Me",
+  "opponentTeam": "A Pete Crow-Armstrong Looked at Me",
+  "currentScore": {
+    "me": 8.0,
+    "opp": 8.0,
+    "tied": 0
+  },
+  "categoryBreakdown": {
+    "BA": {
+      "me": "0.248",
+      "opp": "0.226",
+      "won": true
+    },
+    "HR": {
+      "me": "14",
+      "opp": "13",
+      "won": true
+    },
+    "RBI": {
+      "me": "45",
+      "opp": "39",
+      "won": true
+    },
+    "R": {
+      "me": "35",
+      "opp": "50",
+      "won": false
+    },
+    "SB": {
+      "me": "3",
+      "opp": "7",
+      "won": false
+    },
+    "KO": {
+      "me": "82",
+      "opp": "74",
+      "won": false
+    },
+    "OBP": {
+      "me": "0.327",
+      "opp": "0.319",
+      "won": true
+    },
+    "SLG": {
+      "me": "0.413",
+      "opp": "0.426",
+      "won": false
+    },
+    "K": {
+      "me": "73",
+      "opp": "69",
+      "won": true
+    },
+    "ERA": {
+      "me": "4.5222",
+      "opp": "5.5301",
+      "won": true
+    },
+    "WHIP": {
+      "me": "1.4631",
+      "opp": "1.6747",
+      "won": true
+    },
+    "W": {
+      "me": "3",
+      "opp": "6",
+      "won": false
+    },
+    "S": {
+      "me": "1",
+      "opp": "4",
+      "won": false
+    },
+    "HD": {
+      "me": "7",
+      "opp": "1",
+      "won": true
+    },
+    "HRA": {
+      "me": "9",
+      "opp": "8",
+      "won": false
+    },
+    "QS": {
+      "me": "2",
+      "opp": "4",
+      "won": false
+    }
+  },
+  "allMatchups": [
+    {
+      "away": "Okamotomami",
+      "home": "A Pete Crow-Armstrong Looked at Me",
+      "awayScore": 8.0,
+      "homeScore": 8.0
+    },
+    {
+      "away": "Dinosaur Jr Caminero",
+      "home": "Colonel Corbin's Ascent",
+      "awayScore": 8.0,
+      "homeScore": 8.0
+    },
+    {
+      "away": "Yesavage Garden",
+      "home": "Before and After Shohei",
+      "awayScore": 6.0,
+      "homeScore": 10.0
+    },
+    {
+      "away": "Weird Fishes / Arrighetti",
+      "home": "Blame it on the Rainiel",
+      "awayScore": 8.0,
+      "homeScore": 8.0
+    },
+    {
+      "away": "Popped A Mahle I'm Sweating",
+      "home": "Ballesteros, Let the Rhythm Take You Over",
+      "awayScore": 10.5,
+      "homeScore": 5.5
+    },
+    {
+      "away": "Buddy Buddy Buddy All On Base",
+      "home": "Everythings McGonigle Green",
+      "awayScore": 6.0,
+      "homeScore": 10.0
+    }
+  ],
+  "myRecord": "2-0-0",
+  "standings": [
+    {
+      "team": "Weird Fishes / Arrighetti",
+      "mine": false,
+      "w": 2,
+      "l": 0,
+      "t": 0,
+      "pts": 2.0,
+      "pct": 1.0,
+      "gb": 0.0,
+      "streak": "W2"
+    },
+    {
+      "team": "Colonel Corbin's Ascent",
+      "mine": false,
+      "w": 2,
+      "l": 0,
+      "t": 0,
+      "pts": 2.0,
+      "pct": 1.0,
+      "gb": 0.0,
+      "streak": "W2"
+    },
+    {
+      "team": "Okamotomami",
+      "mine": true,
+      "w": 2,
+      "l": 0,
+      "t": 0,
+      "pts": 2.0,
+      "pct": 1.0,
+      "gb": 0.0,
+      "streak": "W2"
+    },
+    {
+      "team": "Blame it on the Rainiel",
+      "mine": false,
+      "w": 2,
+      "l": 0,
+      "t": 0,
+      "pts": 2.0,
+      "pct": 1.0,
+      "gb": 0.0,
+      "streak": "W2"
+    },
+    {
+      "team": "Buddy Buddy Buddy All On Base",
+      "mine": false,
+      "w": 1,
+      "l": 1,
+      "t": 0,
+      "pts": 1.0,
+      "pct": 0.5,
+      "gb": 1.0,
+      "streak": "W1"
+    },
+    {
+      "team": "A Pete Crow-Armstrong Looked at Me",
+      "mine": false,
+      "w": 1,
+      "l": 1,
+      "t": 0,
+      "pts": 1.0,
+      "pct": 0.5,
+      "gb": 1.0,
+      "streak": "W1"
+    },
+    {
+      "team": "Everythings McGonigle Green",
+      "mine": false,
+      "w": 1,
+      "l": 1,
+      "t": 0,
+      "pts": 1.0,
+      "pct": 0.5,
+      "gb": 1.0,
+      "streak": "L1"
+    },
+    {
+      "team": "Before and After Shohei",
+      "mine": false,
+      "w": 1,
+      "l": 1,
+      "t": 0,
+      "pts": 1.0,
+      "pct": 0.5,
+      "gb": 1.0,
+      "streak": "L1"
+    },
+    {
+      "team": "Dinosaur Jr Caminero",
+      "mine": false,
+      "w": 0,
+      "l": 2,
+      "t": 0,
+      "pts": 0.0,
+      "pct": 0.0,
+      "gb": 2.0,
+      "streak": "L2"
+    },
+    {
+      "team": "Ballesteros, Let the Rhythm Take You Over",
+      "mine": false,
+      "w": 0,
+      "l": 2,
+      "t": 0,
+      "pts": 0.0,
+      "pct": 0.0,
+      "gb": 2.0,
+      "streak": "L2"
+    },
+    {
+      "team": "Yesavage Garden",
+      "mine": false,
+      "w": 0,
+      "l": 2,
+      "t": 0,
+      "pts": 0.0,
+      "pct": 0.0,
+      "gb": 2.0,
+      "streak": "L2"
+    },
+    {
+      "team": "Popped A Mahle I'm Sweating",
+      "mine": false,
+      "w": 0,
+      "l": 2,
+      "t": 0,
+      "pts": 0.0,
+      "pct": 0.0,
+      "gb": 2.0,
+      "streak": "L2"
+    }
+  ],
+  "updated": "2026-05-08T13:16:58.186204Z",
+  "lastUpdated": "2026-05-08 (period 3 in progress)"
+}

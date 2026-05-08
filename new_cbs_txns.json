@@ -1,1 +1,5156 @@
-[{"date":"5/7/26 2:33 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Jack Perkins","pos":"RP","mlbTeam":"ATH","action":"Activated"}],"isTrade":false},{"date":"5/7/26 2:33 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Jack Perkins","pos":"RP","mlbTeam":"ATH","action":"Added off Waivers"},{"name":"Emilio Pagan","pos":"RP","mlbTeam":"CIN","action":"Dropped"}],"isTrade":false},{"date":"5/3/26 9:33 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Walbert Urena","pos":"SP","mlbTeam":"LAA","action":"Dropped"}],"isTrade":false},{"date":"5/2/26 7:58 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Walbert Urena","pos":"SP","mlbTeam":"LAA","action":"Added off Waivers"}],"isTrade":false},{"date":"4/29/26 10:45 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Aaron Nola","pos":"SP","mlbTeam":"PHI","action":"Dropped"}],"isTrade":false},{"date":"4/29/26 3:03 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Isaac Paredes","pos":"3B","mlbTeam":"HOU","action":"Added off Waivers"}],"isTrade":false},{"date":"4/28/26 9:16 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Trevor Story","pos":"SS","mlbTeam":"BOS","action":"Dropped"}],"isTrade":false},{"date":"4/22/26 10:24 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Yainer Diaz","pos":"C","mlbTeam":"HOU","action":"Dropped"}],"isTrade":false},{"date":"4/18/26 3:03 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Louie Varland","pos":"RP","mlbTeam":"TOR","action":"Added off Waivers"},{"name":"Matt Shaw","pos":"3B,RF","mlbTeam":"CHC","action":"Dropped"}],"isTrade":false},{"date":"4/16/26 2:34 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Dillon Dingler","pos":"C","mlbTeam":"DET","action":"Added off Waivers"},{"name":"Jose Fernandez","pos":"SS","mlbTeam":"ARI","action":"Dropped"}],"isTrade":false},{"date":"4/14/26 3:10 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Matt Shaw","pos":"3B,RF","mlbTeam":"CHC","action":"Added off Waivers"},{"name":"Victor Vodnik","pos":"RP","mlbTeam":"COL","action":"Dropped"}],"isTrade":false},{"date":"4/13/26 1:59 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Victor Vodnik","pos":"RP","mlbTeam":"COL","action":"Added off Waivers"}],"isTrade":false},{"date":"4/5/26 1:48 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Jose Fernandez","pos":"SS","mlbTeam":"ARI","action":"Added off Waivers"},{"name":"Jose Alvarado","pos":"RP","mlbTeam":"PHI","action":"Dropped"}],"isTrade":false},{"date":"4/4/26 3:06 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Aaron Ashby","pos":"RP","mlbTeam":"MIL","action":"Added off Waivers"},{"name":"Caleb Durbin","pos":"3B","mlbTeam":"BOS","action":"Dropped"}],"isTrade":false},{"date":"3/25/26 2:58 PM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Jose Alvarado","pos":"RP","mlbTeam":"PHI","action":"Added"},{"name":"Gabe Speier","pos":"RP","mlbTeam":"SEA","action":"Dropped"}],"isTrade":false},{"date":"3/21/26 11:24 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Trent Grisham","pos":"CF","mlbTeam":"NYY","action":"Dropped"}],"isTrade":false},{"date":"3/21/26 11:22 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Otto Lopez","pos":"2B,SS","mlbTeam":"MIA","action":"Dropped"}],"isTrade":false},{"date":"3/19/26 2:35 PM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Matt Strahm","pos":"RP","mlbTeam":"KC","action":"Dropped"}],"isTrade":false},{"date":"3/19/26 11:44 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Nolan Schanuel","pos":"1B","mlbTeam":"LAA","action":"Dropped"}],"isTrade":false},{"date":"3/19/26 11:40 AM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Sean Manaea","pos":"SP","mlbTeam":"NYM","action":"Dropped"}],"isTrade":false},{"date":"3/15/26 7:26 PM ET","teamName":"Weird Fishes / Arrighetti","teamId":1,"players":[{"name":"Lars Nootbaar","pos":"LF,RF","mlbTeam":"STL","action":"Dropped"}],"isTrade":false},{"date":"5/5/26 2:44 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"players":[{"name":"Daniel Lynch","pos":"RP","mlbTeam":"KC","action":"Activated"}],"isTrade":false},{"date":"5/5/26 2:44 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"players":[{"name":"Daniel Lynch","pos":"RP","mlbTeam":"KC","action":"Added off Waivers"},{"name":"Taylor Rogers","pos":"RP","mlbTeam":"MIN","action":"Dropped"}],"isTrade":false},{"date":"4/22/26 12:34 PM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"players":[{"name":"David Peterson","pos":"SP","mlbTeam":"NYM","action":"Dropped"}],"isTrade":false},{"date":"4/15/26 1:46 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"players":[{"name":"David Peterson","pos":"SP","mlbTeam":"NYM","action":"Added off Waivers"},{"name":"Chris Bassitt","pos":"SP","mlbTeam":"BAL","action":"Dropped"}],"isTrade":false},{"date":"4/15/26 1:46 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"players":[{"name":"Angel Martinez","pos":"2B,LF,CF","mlbTeam":"CLE","action":"Activated"}],"isTrade":false},{"date":"4/15/26 1:46 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"players":[{"name":"Angel Martinez","pos":"2B,LF,CF","mlbTeam":"CLE","action":"Added off Waivers"},{"name":"Andres Gimenez","pos":"2B,SS","mlbTeam":"TOR","action":"Dropped"}],"isTrade":false},{"date":"4/5/26 1:48 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"players":[{"name":"Mitch Keller","pos":"SP","mlbTeam":"PIT","action":"Added off Waivers"},{"name":"Slade Cecconi","pos":"SP","mlbTeam":"CLE","action":"Dropped"}],"isTrade":false},{"date":"4/5/26 1:48 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"players":[{"name":"Andres Gimenez","pos":"2B,SS","mlbTeam":"TOR","action":"Activated"}],"isTrade":false},{"date":"4/5/26 1:48 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"players":[{"name":"Andres Gimenez","pos":"2B,SS","mlbTeam":"TOR","action":"Added off Waivers"},{"name":"Jorge Polanco","pos":"2B","mlbTeam":"NYM","action":"Dropped"}],"isTrade":false},{"date":"3/25/26 2:52 PM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"players":[{"name":"Jorge Polanco","pos":"2B","mlbTeam":"NYM","action":"Added"},{"name":"Brayan Bello","pos":"SP","mlbTeam":"BOS","action":"Dropped"}],"isTrade":false},{"date":"3/25/26 2:51 PM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"players":[{"name":"Orion Kerkering","pos":"RP","mlbTeam":"PHI","action":"Dropped"}],"isTrade":false},{"date":"3/24/26 10:07 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"players":[{"name":"Shane Drohan","pos":"SP","mlbTeam":"MIL","action":"Dropped"}],"isTrade":false},{"date":"5/7/26 2:33 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Anthony Eyanson","pos":"SP","mlbTeam":"BOS","action":"Added off Waivers"}],"isTrade":false},{"date":"5/7/26 2:33 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Lazaro Montes","pos":"RF","mlbTeam":"SEA","action":"Activated"}],"isTrade":false},{"date":"5/7/26 2:33 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Lazaro Montes","pos":"RF","mlbTeam":"SEA","action":"Added off Waivers"},{"name":"Lawrence Butler","pos":"CF,RF","mlbTeam":"ATH","action":"Dropped"}],"isTrade":false},{"date":"5/6/26 9:12 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Kai-Wei Teng","pos":"SP,RP","mlbTeam":"HOU","action":"Dropped"}],"isTrade":false},{"date":"5/6/26 2:23 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Pedro Ramirez","pos":"3B","mlbTeam":"CHC","action":"Added off Waivers"},{"name":"Cooper Ingle","pos":"C","mlbTeam":"CLE","action":"Dropped"}],"isTrade":false},{"date":"5/5/26 2:44 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Kai-Wei Teng","pos":"SP,RP","mlbTeam":"HOU","action":"Added off Waivers"},{"name":"Braden Montgomery","pos":"CF","mlbTeam":"CHW","action":"Dropped"}],"isTrade":false},{"date":"5/4/26 2:18 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Logan Henderson","pos":"SP","mlbTeam":"MIL","action":"Added off Waivers"},{"name":"Jeremiah Jackson","pos":"2B,RF","mlbTeam":"BAL","action":"Dropped"}],"isTrade":false},{"date":"5/4/26 2:18 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Braden Montgomery","pos":"CF","mlbTeam":"CHW","action":"Added off Waivers"},{"name":"Jung Hoo Lee","pos":"CF,RF","mlbTeam":"SF","action":"Dropped"}],"isTrade":false},{"date":"5/4/26 2:18 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Cooper Ingle","pos":"C","mlbTeam":"CLE","action":"Added off Waivers"},{"name":"Randy Vasquez","pos":"SP","mlbTeam":"SD","action":"Dropped"}],"isTrade":false},{"date":"5/1/26 2:03 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Jung Hoo Lee","pos":"CF,RF","mlbTeam":"SF","action":"Added off Waivers"},{"name":"Jordan Westburg","pos":"3B","mlbTeam":"BAL","action":"Dropped"}],"isTrade":false},{"date":"5/1/26 2:03 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Lawrence Butler","pos":"CF,RF","mlbTeam":"ATH","action":"Added off Waivers"},{"name":"Jasson Dominguez","pos":"LF","mlbTeam":"NYY","action":"Dropped"}],"isTrade":false},{"date":"4/27/26 1:59 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Jasson Dominguez","pos":"LF","mlbTeam":"NYY","action":"Added off Waivers"},{"name":"Brenton Doyle","pos":"CF","mlbTeam":"COL","action":"Dropped"}],"isTrade":false},{"date":"4/22/26 2:33 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Juan Morillo","pos":"RP","mlbTeam":"ARI","action":"Added off Waivers"},{"name":"Will Vest","pos":"RP","mlbTeam":"DET","action":"Dropped"}],"isTrade":false},{"date":"4/22/26 2:33 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Dalton Rushing","pos":"C","mlbTeam":"LAD","action":"Added off Waivers"},{"name":"Sam Antonacci","pos":"2B,LF","mlbTeam":"CHW","action":"Dropped"}],"isTrade":false},{"date":"4/21/26 2:15 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Brenton Doyle","pos":"CF","mlbTeam":"COL","action":"Added off Waivers"}],"isTrade":false},{"date":"4/21/26 2:15 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Josh Jung","pos":"3B","mlbTeam":"TEX","action":"Activated"}],"isTrade":false},{"date":"4/21/26 2:15 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Josh Jung","pos":"3B","mlbTeam":"TEX","action":"Added off Waivers"},{"name":"Mauricio Dubon","pos":"2B,3B,SS,LF","mlbTeam":"ATL","action":"Dropped"}],"isTrade":false},{"date":"4/20/26 1:56 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Jeremiah Jackson","pos":"2B,RF","mlbTeam":"BAL","action":"Added off Waivers"},{"name":"Antonio Senzatela","pos":"SP,RP","mlbTeam":"COL","action":"Dropped"}],"isTrade":false},{"date":"4/18/26 3:03 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Antonio Senzatela","pos":"SP,RP","mlbTeam":"COL","action":"Added off Waivers"},{"name":"Isaac Paredes","pos":"3B","mlbTeam":"HOU","action":"Dropped"}],"isTrade":false},{"date":"4/18/26 3:03 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Franklin Arias","pos":"SS","mlbTeam":"BOS","action":"Added off Waivers"}],"isTrade":false},{"date":"4/17/26 11:33 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Nasim Nunez","pos":"2B,SS","mlbTeam":"WAS","action":"Dropped"}],"isTrade":false},{"date":"4/16/26 2:34 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Mauricio Dubon","pos":"2B,3B,SS,LF","mlbTeam":"ATL","action":"Added off Waivers"},{"name":"Mark Vientos","pos":"1B,3B","mlbTeam":"NYM","action":"Dropped"}],"isTrade":false},{"date":"4/13/26 9:04 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"James Tibbs","pos":"RF","mlbTeam":"LAD","action":"Dropped"}],"isTrade":false},{"date":"4/13/26 1:59 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Sam Antonacci","pos":"2B,LF","mlbTeam":"CHW","action":"Added off Waivers"},{"name":"Jung Hoo Lee","pos":"CF,RF","mlbTeam":"SF","action":"Dropped"}],"isTrade":false},{"date":"4/13/26 1:59 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Noah Schultz","pos":"SP","mlbTeam":"CHW","action":"Added off Waivers"},{"name":"Andrew Kittredge","pos":"RP","mlbTeam":"BAL","action":"Dropped"}],"isTrade":false},{"date":"4/11/26 2:53 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Jung Hoo Lee","pos":"CF,RF","mlbTeam":"SF","action":"Added off Waivers"},{"name":"Chad Patrick","pos":"SP","mlbTeam":"MIL","action":"Dropped"}],"isTrade":false},{"date":"4/10/26 3:09 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"James Tibbs","pos":"RF","mlbTeam":"LAD","action":"Added off Waivers"},{"name":"Bryson Stott","pos":"2B","mlbTeam":"PHI","action":"Dropped"}],"isTrade":false},{"date":"4/8/26 3:06 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Mark Vientos","pos":"1B,3B","mlbTeam":"NYM","action":"Added off Waivers"},{"name":"Alec Bohm","pos":"3B","mlbTeam":"PHI","action":"Dropped"}],"isTrade":false},{"date":"4/7/26 2:07 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Emmet Sheehan","pos":"SP","mlbTeam":"LAD","action":"Activated"}],"isTrade":false},{"date":"4/7/26 2:07 AM ET","teamName":"Colonel Corbin's Ascent","teamId":3,"players":[{"name":"Emmet Sheehan","pos":"SP","mlbTeam":"LAD","action":"Added off Waivers"},{"name":"Lance McCullers","pos":"SP","mlbTeam":"HOU","action":"Dropped"}],"isTrade":false},{"date":"4/25/26 3:18 AM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Mason Montgomery","pos":"RP","mlbTeam":"PIT","action":"Added off Waivers"},{"name":"Matthew Liberatore","pos":"SP","mlbTeam":"STL","action":"Dropped"}],"isTrade":false},{"date":"4/23/26 2:49 AM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Chase Dollander","pos":"SP","mlbTeam":"COL","action":"Added off Waivers"},{"name":"Giancarlo Stanton","pos":"DH","mlbTeam":"NYY","action":"Dropped"}],"isTrade":false},{"date":"4/22/26 2:33 AM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Dylan Lee","pos":"RP","mlbTeam":"ATL","action":"Added off Waivers"}],"isTrade":false},{"date":"4/10/26 11:33 AM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Mick Abel","pos":"SP","mlbTeam":"MIN","action":""}],"isTrade":false},{"date":"4/10/26 3:09 AM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Liam Hicks","pos":"C,1B","mlbTeam":"MIA","action":"Activated"}],"isTrade":false},{"date":"4/10/26 3:09 AM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Liam Hicks","pos":"C,1B","mlbTeam":"MIA","action":"Added off Waivers"},{"name":"Gabriel Moreno","pos":"C","mlbTeam":"ARI","action":"Dropped"}],"isTrade":false},{"date":"4/9/26 2:11 PM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Mick Abel","pos":"SP","mlbTeam":"MIN","action":"Dropped"}],"isTrade":false},{"date":"4/7/26 2:07 AM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Giancarlo Stanton","pos":"DH","mlbTeam":"NYY","action":"Added off Waivers"},{"name":"Heliot Ramos","pos":"LF","mlbTeam":"SF","action":"Dropped"}],"isTrade":false},{"date":"3/20/26 7:07 PM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Luis Arraez","pos":"1B,2B","mlbTeam":"SF","action":"Dropped"}],"isTrade":false},{"date":"3/20/26 7:06 PM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Royce Lewis","pos":"3B","mlbTeam":"MIN","action":"Dropped"}],"isTrade":false},{"date":"3/20/26 7:06 PM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Jeff McNeil","pos":"2B,CF","mlbTeam":"ATH","action":"Dropped"}],"isTrade":false},{"date":"3/20/26 7:04 PM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Yusei Kikuchi","pos":"SP","mlbTeam":"LAA","action":"Dropped"}],"isTrade":false},{"date":"3/20/26 7:04 PM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Joey Cantillo","pos":"SP,RP","mlbTeam":"CLE","action":"Dropped"}],"isTrade":false},{"date":"3/17/26 1:54 PM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Graham Ashcraft","pos":"RP","mlbTeam":"CIN","action":"Dropped"}],"isTrade":false},{"date":"3/17/26 12:38 PM ET","teamName":"Colonel Corbin's Ascent","teamId":4,"players":[{"name":"Nick Kurtz","pos":"1B","mlbTeam":"ATH","action":"Traded from Okamotomami"},{"name":"Nick Lodolo","pos":"SP","mlbTeam":"CIN","action":"Traded from Okamotomami"}],"isTrade":false},{"date":"3/17/26 12:38 PM ET","teamName":"Okamotomami","teamId":4,"players":[{"name":"Jac Caglianone","pos":"RF","mlbTeam":"KC","action":"Traded from Colonel Corbin's Ascent"},{"name":"Vladimir Guerrero Jr.","pos":"1B","mlbTeam":"TOR","action":"Traded from Colonel Corbin's Ascent"},{"name":"Kazuma Okamoto","pos":"3B","mlbTeam":"TOR","action":"Traded from Colonel Corbin's Ascent"}],"isTrade":false},{"date":"5/2/26 7:58 AM ET","teamName":"Buddy Buddy Buddy All On Base","teamId":5,"players":[{"name":"Nick Martinez","pos":"SP,RP","mlbTeam":"TB","action":"Added off Waivers"}],"isTrade":false},{"date":"4/24/26 1:44 AM ET","teamName":"Buddy Buddy Buddy All On Base","teamId":5,"players":[{"name":"Oswald Peraza","pos":"2B,3B","mlbTeam":"LAA","action":"Added off Waivers"},{"name":"Brady House","pos":"3B","mlbTeam":"WAS","action":"Dropped"}],"isTrade":false},{"date":"4/23/26 7:29 AM ET","teamName":"Buddy Buddy Buddy All On Base","teamId":5,"players":[{"name":"Max Muncy","pos":"2B,3B","mlbTeam":"ATH","action":"Dropped"}],"isTrade":false},{"date":"4/17/26 1:45 AM ET","teamName":"Buddy Buddy Buddy All On Base","teamId":5,"players":[{"name":"Brady House","pos":"3B","mlbTeam":"WAS","action":"Added off Waivers"},{"name":"Miguel Vargas","pos":"1B,3B","mlbTeam":"CHW","action":"Dropped"}],"isTrade":false},{"date":"4/14/26 3:10 AM ET","teamName":"Buddy Buddy Buddy All On Base","teamId":5,"players":[{"name":"Max Muncy","pos":"2B,3B","mlbTeam":"ATH","action":"Added off Waivers"}],"isTrade":false},{"date":"4/11/26 10:02 AM ET","teamName":"Buddy Buddy Buddy All On Base","teamId":5,"players":[{"name":"Brady Singer","pos":"SP","mlbTeam":"CIN","action":"Dropped"}],"isTrade":false},{"date":"4/7/26 2:07 AM ET","teamName":"Buddy Buddy Buddy All On Base","teamId":5,"players":[{"name":"Miguel Vargas","pos":"1B,3B","mlbTeam":"CHW","action":"Added off Waivers"},{"name":"Addison Barger","pos":"3B,RF","mlbTeam":"TOR","action":"Dropped"}],"isTrade":false},{"date":"4/7/26 2:07 AM ET","teamName":"Buddy Buddy Buddy All On Base","teamId":5,"players":[{"name":"Christian Walker","pos":"1B","mlbTeam":"HOU","action":"Added off Waivers"}],"isTrade":false},{"date":"3/29/26 11:29 PM ET","teamName":"Buddy Buddy Buddy All On Base","teamId":5,"players":[{"name":"Royce Lewis","pos":"3B","mlbTeam":"MIN","action":"Added"}],"isTrade":false},{"date":"3/22/26 5:44 PM ET","teamName":"Buddy Buddy Buddy All On Base","teamId":5,"players":[{"name":"Willi Castro","pos":"2B,3B,LF,RF","mlbTeam":"COL","action":"Dropped"}],"isTrade":false},{"date":"3/21/26 12:09 AM ET","teamName":"Buddy Buddy Buddy All On Base","teamId":5,"players":[{"name":"David Peterson","pos":"SP","mlbTeam":"NYM","action":"Dropped"}],"isTrade":false},{"date":"3/21/26 12:06 AM ET","teamName":"Buddy Buddy Buddy All On Base","teamId":5,"players":[{"name":"Jung Hoo Lee","pos":"CF,RF","mlbTeam":"SF","action":"Dropped"}],"isTrade":false},{"date":"3/19/26 1:23 AM ET","teamName":"Buddy Buddy Buddy All On Base","teamId":5,"players":[{"name":"Braxton Garrett","pos":"SP","mlbTeam":"MIA","action":"Dropped"}],"isTrade":false},{"date":"5/7/26 2:33 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Sean Burke","pos":"SP","mlbTeam":"CHW","action":"Added off Waivers"},{"name":"Noah Cameron","pos":"SP","mlbTeam":"KC","action":"Dropped"}],"isTrade":false},{"date":"5/2/26 7:58 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Jacob Latz","pos":"SP,RP","mlbTeam":"TEX","action":"Activated"}],"isTrade":false},{"date":"5/2/26 7:58 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Jacob Latz","pos":"SP,RP","mlbTeam":"TEX","action":"Added off Waivers"},{"name":"Hunter Gaddis","pos":"RP","mlbTeam":"CLE","action":"Dropped"}],"isTrade":false},{"date":"4/29/26 3:03 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Spencer Arrighetti","pos":"SP","mlbTeam":"HOU","action":"Activated"}],"isTrade":false},{"date":"4/29/26 3:03 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Spencer Arrighetti","pos":"SP","mlbTeam":"HOU","action":"Added off Waivers"},{"name":"Luis Castillo","pos":"SP","mlbTeam":"SEA","action":"Dropped"}],"isTrade":false},{"date":"4/24/26 1:44 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Justin Wrobleski","pos":"SP,RP","mlbTeam":"LAD","action":"Added off Waivers"},{"name":"Spencer Arrighetti","pos":"SP","mlbTeam":"HOU","action":"Dropped"}],"isTrade":false},{"date":"4/24/26 1:44 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Enyel De Los Santos","pos":"RP","mlbTeam":"HOU","action":"Activated"}],"isTrade":false},{"date":"4/24/26 1:44 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Enyel De Los Santos","pos":"RP","mlbTeam":"HOU","action":"Added off Waivers"},{"name":"Bryan King","pos":"RP","mlbTeam":"HOU","action":"Dropped"}],"isTrade":false},{"date":"4/21/26 2:15 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Tyler Alexander","pos":"SP,RP","mlbTeam":"TEX","action":"Added off Waivers"},{"name":"Aaron Civale","pos":"SP","mlbTeam":"ATH","action":"Dropped"}],"isTrade":false},{"date":"4/21/26 2:15 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Andres Gimenez","pos":"2B,SS","mlbTeam":"TOR","action":"Added off Waivers"},{"name":"Kerry Carpenter","pos":"LF,RF","mlbTeam":"DET","action":"Dropped"}],"isTrade":false},{"date":"4/21/26 2:15 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Spencer Arrighetti","pos":"SP","mlbTeam":"HOU","action":"Added off Waivers"},{"name":"Andrew Abbott","pos":"SP","mlbTeam":"CIN","action":"Dropped"}],"isTrade":false},{"date":"4/21/26 2:15 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Blake Treinen","pos":"RP","mlbTeam":"LAD","action":"Added off Waivers"},{"name":"Corbin Burnes","pos":"SP","mlbTeam":"ARI","action":"Dropped"}],"isTrade":false},{"date":"4/17/26 1:45 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Aaron Civale","pos":"SP","mlbTeam":"ATH","action":"Added off Waivers"},{"name":"Tyler Mahle","pos":"SP","mlbTeam":"SF","action":"Dropped"}],"isTrade":false},{"date":"4/14/26 3:10 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Jeffrey Springs","pos":"SP","mlbTeam":"ATH","action":"Added off Waivers"},{"name":"Hunter Harvey","pos":"RP","mlbTeam":"CHC","action":"Dropped"}],"isTrade":false},{"date":"4/10/26 3:09 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Joey Cantillo","pos":"SP,RP","mlbTeam":"CLE","action":"Added off Waivers"},{"name":"Shane Smith","pos":"SP","mlbTeam":"CHW","action":"Dropped"}],"isTrade":false},{"date":"4/7/26 2:07 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Seth Lugo","pos":"SP","mlbTeam":"KC","action":"Added off Waivers"},{"name":"Jesus Sanchez","pos":"LF,RF","mlbTeam":"TOR","action":"Dropped"}],"isTrade":false},{"date":"4/5/26 1:48 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Jesus Sanchez","pos":"LF,RF","mlbTeam":"TOR","action":"Added off Waivers"}],"isTrade":false},{"date":"3/26/26 7:32 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Tyler Mahle","pos":"SP","mlbTeam":"SF","action":"Added"}],"isTrade":false},{"date":"3/24/26 12:34 PM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Bryan King","pos":"RP","mlbTeam":"HOU","action":"Added"}],"isTrade":false},{"date":"3/19/26 7:25 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Max Meyer","pos":"SP","mlbTeam":"MIA","action":"Dropped"}],"isTrade":false},{"date":"3/19/26 7:24 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Giancarlo Stanton","pos":"DH","mlbTeam":"NYY","action":"Dropped"}],"isTrade":false},{"date":"3/19/26 7:24 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Tyler Stephenson","pos":"C","mlbTeam":"CIN","action":"Dropped"}],"isTrade":false},{"date":"3/19/26 7:23 AM ET","teamName":"A Pete Crow-Armstrong Looked at Me","teamId":6,"players":[{"name":"Spencer Arrighetti","pos":"SP","mlbTeam":"HOU","action":"Dropped"}],"isTrade":false},{"date":"5/6/26 11:51 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Ryan Pepiot","pos":"SP","mlbTeam":"TB","action":"Dropped"}],"isTrade":false},{"date":"5/5/26 2:44 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Drew Anderson","pos":"RP","mlbTeam":"DET","action":"Added off Waivers"}],"isTrade":false},{"date":"4/22/26 12:37 PM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Adolis Garcia","pos":"RF","mlbTeam":"PHI","action":"Dropped"}],"isTrade":false},{"date":"4/14/26 3:10 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Adolis Garcia","pos":"RF","mlbTeam":"PHI","action":"Activated"}],"isTrade":false},{"date":"4/14/26 3:10 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Adolis Garcia","pos":"RF","mlbTeam":"PHI","action":"Added off Waivers"},{"name":"Noelvi Marte","pos":"3B,RF","mlbTeam":"CIN","action":"Dropped"}],"isTrade":false},{"date":"4/8/26 3:06 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Noelvi Marte","pos":"3B,RF","mlbTeam":"CIN","action":"Added off Waivers"},{"name":"Cody Ponce","pos":"RP","mlbTeam":"TOR","action":"Dropped"}],"isTrade":false},{"date":"4/2/26 10:47 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Willy Adames","pos":"SS","mlbTeam":"SF","action":"Dropped"}],"isTrade":false},{"date":"4/1/26 2:51 PM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Hogan Harris","pos":"RP","mlbTeam":"ATH","action":"Added"}],"isTrade":false},{"date":"4/1/26 2:50 PM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Taj Bradley","pos":"SP","mlbTeam":"MIN","action":"Added"},{"name":"Payton Tolle","pos":"RP","mlbTeam":"BOS","action":"Dropped"}],"isTrade":false},{"date":"4/1/26 2:46 PM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Colt Keith","pos":"2B,3B","mlbTeam":"DET","action":"Added"},{"name":"Josh Jung","pos":"3B","mlbTeam":"TEX","action":"Dropped"}],"isTrade":false},{"date":"3/27/26 9:34 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Javier Assad","pos":"SP","mlbTeam":"CHC","action":"Dropped"}],"isTrade":false},{"date":"3/27/26 2:43 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Javier Assad","pos":"SP","mlbTeam":"CHC","action":"Added off Waivers"}],"isTrade":false},{"date":"3/25/26 2:52 PM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Ryan Zeferjahn","pos":"RP","mlbTeam":"LAA","action":"Added"}],"isTrade":false},{"date":"3/25/26 2:51 PM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Yusei Kikuchi","pos":"SP","mlbTeam":"LAA","action":"Added"}],"isTrade":false},{"date":"3/25/26 2:48 PM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Mike Soroka","pos":"SP","mlbTeam":"ARI","action":"Added"}],"isTrade":false},{"date":"3/25/26 9:20 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Trent Grisham","pos":"CF","mlbTeam":"NYY","action":"Added"},{"name":"Andrew Benintendi","pos":"LF","mlbTeam":"CHW","action":"Dropped"}],"isTrade":false},{"date":"3/25/26 9:18 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Andrew Benintendi","pos":"LF","mlbTeam":"CHW","action":"Added"},{"name":"Andrew Vaughn","pos":"1B","mlbTeam":"MIL","action":"Dropped"}],"isTrade":false},{"date":"3/24/26 10:07 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Javier Assad","pos":"SP","mlbTeam":"CHC","action":"Dropped"}],"isTrade":false},{"date":"3/24/26 10:05 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Carson Whisenhunt","pos":"SP","mlbTeam":"SF","action":"Dropped"}],"isTrade":false},{"date":"3/24/26 10:04 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Cade Smith","pos":"SP","mlbTeam":"NYY","action":"Dropped"}],"isTrade":false},{"date":"3/24/26 10:04 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Josue Briceno","pos":"C","mlbTeam":"DET","action":"Dropped"}],"isTrade":false},{"date":"3/24/26 10:03 AM ET","teamName":"Everythings McGonigle Green","teamId":7,"players":[{"name":"Jose Butto","pos":"RP","mlbTeam":"SF","action":"Dropped"}],"isTrade":false},{"date":"5/6/26 8:32 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Elmer Rodriguez","pos":"SP","mlbTeam":"NYY","action":"Dropped"}],"isTrade":false},{"date":"5/4/26 10:24 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Kyle Isbel","pos":"CF","mlbTeam":"KC","action":"Dropped"}],"isTrade":false},{"date":"5/4/26 2:18 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Gabe Speier","pos":"RP","mlbTeam":"SEA","action":"Added off Waivers"},{"name":"Jared Koenig","pos":"RP","mlbTeam":"MIL","action":"Dropped"}],"isTrade":false},{"date":"5/4/26 2:18 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Kody Funderburk","pos":"RP","mlbTeam":"MIN","action":"Activated"}],"isTrade":false},{"date":"5/4/26 2:18 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Kody Funderburk","pos":"RP","mlbTeam":"MIN","action":"Added off Waivers"},{"name":"Cole Sands","pos":"RP","mlbTeam":"MIN","action":"Dropped"}],"isTrade":false},{"date":"5/4/26 2:18 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Jordan Westburg","pos":"3B","mlbTeam":"BAL","action":"Added off Waivers"}],"isTrade":false},{"date":"4/29/26 3:03 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Orion Kerkering","pos":"RP","mlbTeam":"PHI","action":"Added off Waivers"}],"isTrade":false},{"date":"4/29/26 3:03 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Matt Shaw","pos":"3B,RF","mlbTeam":"CHC","action":"Added off Waivers"}],"isTrade":false},{"date":"4/29/26 3:03 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Foster Griffin","pos":"SP,RP","mlbTeam":"WAS","action":"Activated"}],"isTrade":false},{"date":"4/29/26 3:03 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Foster Griffin","pos":"SP,RP","mlbTeam":"WAS","action":"Added off Waivers"}],"isTrade":false},{"date":"4/28/26 8:29 PM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Kodai Senga","pos":"SP","mlbTeam":"NYM","action":"Dropped"}],"isTrade":false},{"date":"4/28/26 5:59 PM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Ryne Nelson","pos":"SP,RP","mlbTeam":"ARI","action":"Dropped"}],"isTrade":false},{"date":"4/28/26 5:59 PM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Justin Steele","pos":"SP","mlbTeam":"CHC","action":"Dropped"}],"isTrade":false},{"date":"4/26/26 1:49 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Ben Brown","pos":"SP,RP","mlbTeam":"CHC","action":"Activated"}],"isTrade":false},{"date":"4/26/26 1:49 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Ben Brown","pos":"SP,RP","mlbTeam":"CHC","action":"Added off Waivers"},{"name":"Joel Kuhnel","pos":"RP","mlbTeam":"ATH","action":"Dropped"}],"isTrade":false},{"date":"4/18/26 3:03 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Joel Kuhnel","pos":"RP","mlbTeam":"ATH","action":"Added off Waivers"}],"isTrade":false},{"date":"4/11/26 2:53 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Cole Sands","pos":"RP","mlbTeam":"MIN","action":"Activated"}],"isTrade":false},{"date":"4/11/26 2:53 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Cole Sands","pos":"RP","mlbTeam":"MIN","action":"Added off Waivers"},{"name":"Matt Svanson","pos":"RP","mlbTeam":"STL","action":"Dropped"}],"isTrade":false},{"date":"4/8/26 3:06 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Mark Leiter","pos":"RP","mlbTeam":"ATH","action":"Activated"}],"isTrade":false},{"date":"4/8/26 3:06 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Mark Leiter","pos":"RP","mlbTeam":"ATH","action":"Added off Waivers"},{"name":"Jared Koenig","pos":"RP","mlbTeam":"MIL","action":"Moved to IR"}],"isTrade":false},{"date":"4/6/26 1:57 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Kyle Isbel","pos":"CF","mlbTeam":"KC","action":"Activated"}],"isTrade":false},{"date":"4/6/26 1:57 AM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Kyle Isbel","pos":"CF","mlbTeam":"KC","action":"Added off Waivers"},{"name":"Brenton Doyle","pos":"CF","mlbTeam":"COL","action":"Dropped"}],"isTrade":false},{"date":"3/24/26 12:54 PM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Marcelo Mayer","pos":"2B,3B","mlbTeam":"BOS","action":"Dropped"}],"isTrade":false},{"date":"3/24/26 12:47 PM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Jared Koenig","pos":"RP","mlbTeam":"MIL","action":"Added"},{"name":"Jose Ferrer","pos":"RP","mlbTeam":"SEA","action":"Dropped"}],"isTrade":false},{"date":"3/24/26 12:45 PM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Matt Strahm","pos":"RP","mlbTeam":"KC","action":"Added"},{"name":"Edwin Uceta","pos":"RP","mlbTeam":"TB","action":"Dropped"}],"isTrade":false},{"date":"3/23/26 1:30 PM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Coby Mayo","pos":"1B,3B","mlbTeam":"BAL","action":"Dropped"}],"isTrade":false},{"date":"3/23/26 1:24 PM ET","teamName":"Ballesteros, Let the Rhythm Take You Over","teamId":8,"players":[{"name":"Evan Carter","pos":"CF","mlbTeam":"TEX","action":"Dropped"}],"isTrade":false},{"date":"5/4/26 2:18 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Ian Seymour","pos":"SP,RP","mlbTeam":"TB","action":"Activated"}],"isTrade":false},{"date":"5/4/26 2:18 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Ian Seymour","pos":"SP,RP","mlbTeam":"TB","action":"Added off Waivers"},{"name":"Antonio Senzatela","pos":"SP,RP","mlbTeam":"COL","action":"Dropped"}],"isTrade":false},{"date":"5/1/26 4:11 PM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Edward Florentino","pos":"CF","mlbTeam":"PIT","action":""}],"isTrade":false},{"date":"5/1/26 2:00 PM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Edward Florentino","pos":"CF","mlbTeam":"PIT","action":"Dropped"}],"isTrade":false},{"date":"4/30/26 2:03 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Ildemaro Vargas","pos":"1B,2B","mlbTeam":"ARI","action":"Added off Waivers"},{"name":"Jack Leiter","pos":"SP","mlbTeam":"TEX","action":"Dropped"}],"isTrade":false},{"date":"4/30/26 2:03 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Antonio Senzatela","pos":"SP,RP","mlbTeam":"COL","action":"Added off Waivers"},{"name":"Pete Fairbanks","pos":"RP","mlbTeam":"MIA","action":"Dropped"}],"isTrade":false},{"date":"4/28/26 3:06 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Payton Tolle","pos":"RP","mlbTeam":"BOS","action":"Added off Waivers"},{"name":"Lawrence Butler","pos":"CF,RF","mlbTeam":"ATH","action":"Dropped"}],"isTrade":false},{"date":"4/28/26 3:06 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Jeremiah Estrada","pos":"RP","mlbTeam":"SD","action":"Added off Waivers"},{"name":"Marcus Semien","pos":"2B","mlbTeam":"NYM","action":"Dropped"}],"isTrade":false},{"date":"4/26/26 1:49 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Carlos Cortes","pos":"RF","mlbTeam":"ATH","action":"Added off Waivers"},{"name":"Caleb Thielbar","pos":"RP","mlbTeam":"CHC","action":"Dropped"}],"isTrade":false},{"date":"4/23/26 2:49 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Caleb Thielbar","pos":"RP","mlbTeam":"CHC","action":"Added off Waivers"},{"name":"Ben Brown","pos":"SP,RP","mlbTeam":"CHC","action":"Dropped"}],"isTrade":false},{"date":"4/19/26 4:05 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Ben Brown","pos":"SP,RP","mlbTeam":"CHC","action":"Added off Waivers"},{"name":"Luis Severino","pos":"SP","mlbTeam":"ATH","action":"Dropped"}],"isTrade":false},{"date":"4/17/26 1:45 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Will Warren","pos":"SP","mlbTeam":"NYY","action":"Added off Waivers"},{"name":"Isaac Mattson","pos":"RP","mlbTeam":"PIT","action":"Dropped"}],"isTrade":false},{"date":"4/16/26 2:34 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Isaac Mattson","pos":"RP","mlbTeam":"PIT","action":"Added off Waivers"},{"name":"Tyler Wells","pos":"SP,RP","mlbTeam":"BAL","action":"Dropped"}],"isTrade":false},{"date":"4/15/26 1:46 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Rico Garcia","pos":"RP","mlbTeam":"BAL","action":"Activated"}],"isTrade":false},{"date":"4/15/26 1:46 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Rico Garcia","pos":"RP","mlbTeam":"BAL","action":"Added off Waivers"},{"name":"Ryne Stanek","pos":"RP","mlbTeam":"STL","action":"Dropped"}],"isTrade":false},{"date":"4/14/26 3:10 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Tyler Wells","pos":"SP,RP","mlbTeam":"BAL","action":"Added off Waivers"},{"name":"Jackson Jobe","pos":"SP","mlbTeam":"DET","action":"Dropped"}],"isTrade":false},{"date":"4/14/26 3:10 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Seth Hernandez","pos":"SP","mlbTeam":"PIT","action":"Added off Waivers"},{"name":"Gage Jump","pos":"SP","mlbTeam":"ATH","action":"Dropped"}],"isTrade":false},{"date":"4/13/26 1:59 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Luis Severino","pos":"SP","mlbTeam":"ATH","action":"Added off Waivers"},{"name":"Jeremiah Estrada","pos":"RP","mlbTeam":"SD","action":"Dropped"}],"isTrade":false},{"date":"4/12/26 2:28 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Ryne Stanek","pos":"RP","mlbTeam":"STL","action":"Added off Waivers"},{"name":"Tyler Alexander","pos":"SP,RP","mlbTeam":"TEX","action":"Dropped"}],"isTrade":false},{"date":"4/10/26 3:09 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Tyler Alexander","pos":"SP,RP","mlbTeam":"TEX","action":"Added off Waivers"},{"name":"Max Muncy","pos":"2B,3B","mlbTeam":"ATH","action":"Dropped"}],"isTrade":false},{"date":"4/9/26 1:46 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Max Muncy","pos":"2B,3B","mlbTeam":"ATH","action":"Added off Waivers"},{"name":"Will Warren","pos":"SP","mlbTeam":"NYY","action":"Dropped"}],"isTrade":false},{"date":"4/8/26 3:06 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Will Warren","pos":"SP","mlbTeam":"NYY","action":"Added off Waivers"},{"name":"Cole Sands","pos":"RP","mlbTeam":"MIN","action":"Dropped"}],"isTrade":false},{"date":"3/30/26 9:19 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Cole Sands","pos":"RP","mlbTeam":"MIN","action":"Added"}],"isTrade":false},{"date":"3/30/26 9:18 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Anthony Volpe","pos":"SS","mlbTeam":"NYY","action":"Dropped"}],"isTrade":false},{"date":"3/25/26 2:24 PM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Dylan Lee","pos":"RP","mlbTeam":"ATL","action":"Dropped"}],"isTrade":false},{"date":"3/25/26 9:04 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Ha-seong Kim","pos":"SS","mlbTeam":"ATL","action":"Dropped"}],"isTrade":false},{"date":"3/18/26 10:14 AM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Joe Boyle","pos":"SP","mlbTeam":"TB","action":"Dropped"}],"isTrade":false},{"date":"3/15/26 5:18 PM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Joe Boyle","pos":"SP","mlbTeam":"TB","action":"Added"}],"isTrade":false},{"date":"3/15/26 5:15 PM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"Dylan Lee","pos":"RP","mlbTeam":"ATL","action":"Added"}],"isTrade":false},{"date":"3/14/26 3:28 PM ET","teamName":"Yesavage Garden","teamId":9,"players":[{"name":"C.J. Abrams","pos":"SS","mlbTeam":"WAS","action":""},{"name":"David Bednar","pos":"RP","mlbTeam":"NYY","action":""}],"isTrade":false},{"date":"5/7/26 2:33 AM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Antonio Senzatela","pos":"SP,RP","mlbTeam":"COL","action":"Activated"}],"isTrade":false},{"date":"5/7/26 2:33 AM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Antonio Senzatela","pos":"SP,RP","mlbTeam":"COL","action":"Added off Waivers"},{"name":"Ryan Walker","pos":"RP","mlbTeam":"SF","action":"Dropped"}],"isTrade":false},{"date":"5/7/26 2:33 AM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Miguel Vargas","pos":"1B,3B","mlbTeam":"CHW","action":"Activated"}],"isTrade":false},{"date":"5/7/26 2:33 AM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Miguel Vargas","pos":"1B,3B","mlbTeam":"CHW","action":"Added off Waivers"},{"name":"Carlos Correa","pos":"3B,SS","mlbTeam":"HOU","action":"Dropped"}],"isTrade":false},{"date":"5/6/26 7:36 AM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Tyler Kinley","pos":"RP","mlbTeam":"ATL","action":"Dropped"}],"isTrade":false},{"date":"5/6/26 2:23 AM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Peter Lambert","pos":"RP","mlbTeam":"HOU","action":"Added off Waivers"}],"isTrade":false},{"date":"5/5/26 2:44 AM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Bailey Ober","pos":"SP","mlbTeam":"MIN","action":"Added off Waivers"},{"name":"Erick Fedde","pos":"SP","mlbTeam":"CHW","action":"Dropped"}],"isTrade":false},{"date":"5/2/26 7:58 AM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Tyler Kinley","pos":"RP","mlbTeam":"ATL","action":"Added off Waivers"}],"isTrade":false},{"date":"4/30/26 2:03 AM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Erick Fedde","pos":"SP","mlbTeam":"CHW","action":"Added off Waivers"},{"name":"Jack Flaherty","pos":"SP","mlbTeam":"DET","action":"Dropped"}],"isTrade":false},{"date":"4/25/26 9:03 AM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Tim Hill","pos":"RP","mlbTeam":"NYY","action":"Dropped"}],"isTrade":false},{"date":"4/20/26 1:56 AM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Brandon Marsh","pos":"LF,CF","mlbTeam":"PHI","action":"Added off Waivers"},{"name":"Colton Cowser","pos":"LF,CF,RF","mlbTeam":"BAL","action":"Dropped"}],"isTrade":false},{"date":"4/14/26 3:45 PM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Dustin May","pos":"SP","mlbTeam":"STL","action":"Dropped"}],"isTrade":false},{"date":"4/12/26 2:28 AM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Luis Arraez","pos":"1B,2B","mlbTeam":"SF","action":"Added off Waivers"}],"isTrade":false},{"date":"4/6/26 1:57 AM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Tim Hill","pos":"RP","mlbTeam":"NYY","action":"Added off Waivers"},{"name":"George Soriano","pos":"RP","mlbTeam":"STL","action":"Dropped"}],"isTrade":false},{"date":"3/30/26 6:29 PM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Kyle Manzardo","pos":"1B","mlbTeam":"CLE","action":"Dropped"}],"isTrade":false},{"date":"3/30/26 6:23 PM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Jordan Walker","pos":"RF","mlbTeam":"STL","action":"Added"}],"isTrade":false},{"date":"3/21/26 10:13 PM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"George Soriano","pos":"RP","mlbTeam":"STL","action":"Added"}],"isTrade":false},{"date":"3/20/26 10:36 PM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Jameson Taillon","pos":"SP","mlbTeam":"CHC","action":"Dropped"}],"isTrade":false},{"date":"3/20/26 10:31 PM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Alec Bohm","pos":"3B","mlbTeam":"PHI","action":"Dropped"}],"isTrade":false},{"date":"3/19/26 7:55 AM ET","teamName":"Blame it on the Rainiel","teamId":10,"players":[{"name":"Adolis Garcia","pos":"RF","mlbTeam":"PHI","action":"Dropped"}],"isTrade":false},{"date":"5/5/26 2:44 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Max Meyer","pos":"SP","mlbTeam":"MIA","action":"Added off Waivers"},{"name":"Jack Perkins","pos":"SP","mlbTeam":"PHI","action":"Dropped"}],"isTrade":false},{"date":"5/5/26 2:44 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Connor Prielipp","pos":"SP","mlbTeam":"MIN","action":"Added off Waivers"},{"name":"Alejandro Kirk","pos":"C","mlbTeam":"TOR","action":"Dropped"}],"isTrade":false},{"date":"5/3/26 2:18 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Nasim Nunez","pos":"2B,SS","mlbTeam":"WAS","action":"Added off Waivers"},{"name":"Miguel Vargas","pos":"1B,3B","mlbTeam":"CHW","action":"Dropped"}],"isTrade":false},{"date":"5/3/26 2:18 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Jack Leiter","pos":"SP","mlbTeam":"TEX","action":"Added off Waivers"},{"name":"Slade Cecconi","pos":"SP","mlbTeam":"CLE","action":"Dropped"}],"isTrade":false},{"date":"5/3/26 2:18 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Jack Perkins","pos":"SP","mlbTeam":"PHI","action":"Added off Waivers"},{"name":"Keaton Winn","pos":"RP","mlbTeam":"SF","action":"Dropped"}],"isTrade":false},{"date":"4/24/26 1:44 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Miguel Vargas","pos":"1B,3B","mlbTeam":"CHW","action":"Added off Waivers"}],"isTrade":false},{"date":"4/23/26 2:49 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Ryan Jeffers","pos":"C","mlbTeam":"MIN","action":"Activated"}],"isTrade":false},{"date":"4/23/26 2:49 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Ryan Jeffers","pos":"C","mlbTeam":"MIN","action":"Added off Waivers"},{"name":"J.T. Realmuto","pos":"C","mlbTeam":"PHI","action":"Dropped"}],"isTrade":false},{"date":"4/19/26 4:05 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Keaton Winn","pos":"RP","mlbTeam":"SF","action":"Activated"}],"isTrade":false},{"date":"4/19/26 4:05 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Keaton Winn","pos":"RP","mlbTeam":"SF","action":"Added off Waivers"},{"name":"Jordan Romano","pos":"RP","mlbTeam":"LAA","action":"Dropped"}],"isTrade":false},{"date":"4/14/26 3:10 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Slade Cecconi","pos":"SP","mlbTeam":"CLE","action":"Added off Waivers"},{"name":"Cade Cavalli","pos":"SP","mlbTeam":"WAS","action":"Dropped"}],"isTrade":false},{"date":"4/10/26 7:24 PM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Josh H. Smith","pos":"1B,2B,3B,SS","mlbTeam":"TEX","action":"Dropped"}],"isTrade":false},{"date":"4/9/26 1:46 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Janson Junk","pos":"SP","mlbTeam":"MIA","action":"Added off Waivers"},{"name":"Cade Horton","pos":"SP","mlbTeam":"CHC","action":"Dropped"}],"isTrade":false},{"date":"4/5/26 1:48 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"J.T. Realmuto","pos":"C","mlbTeam":"PHI","action":"Added off Waivers"}],"isTrade":false},{"date":"4/4/26 3:40 PM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Joe Musgrove","pos":"SP","mlbTeam":"SD","action":"Dropped"}],"isTrade":false},{"date":"4/4/26 3:06 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Caleb Kilian","pos":"SP,RP","mlbTeam":"SF","action":"Added off Waivers"},{"name":"Emmet Sheehan","pos":"SP","mlbTeam":"LAD","action":"Dropped"}],"isTrade":false},{"date":"3/29/26 10:21 PM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Emerson Hancock","pos":"SP","mlbTeam":"SEA","action":"Added"},{"name":"Jacob Latz","pos":"SP,RP","mlbTeam":"TEX","action":"Dropped"}],"isTrade":false},{"date":"3/27/26 3:15 PM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"George Lombard","pos":"SS","mlbTeam":"NYY","action":"Added"}],"isTrade":false},{"date":"3/27/26 3:12 PM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Tanner McDougal","pos":"SP","mlbTeam":"CHW","action":"Added"}],"isTrade":false},{"date":"3/27/26 3:10 PM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Jordan Romano","pos":"RP","mlbTeam":"LAA","action":"Added"},{"name":"Louie Varland","pos":"RP","mlbTeam":"TOR","action":"Dropped"}],"isTrade":false},{"date":"3/25/26 2:50 PM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Jack Dreyer","pos":"SP,RP","mlbTeam":"LAD","action":"Dropped"}],"isTrade":false},{"date":"3/24/26 12:56 PM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Hunter Barco","pos":"RP","mlbTeam":"PIT","action":"Dropped"}],"isTrade":false},{"date":"3/24/26 11:56 AM ET","teamName":"Before and After Shohei","teamId":11,"players":[{"name":"Johan Oviedo","pos":"SP","mlbTeam":"BOS","action":"Dropped"}],"isTrade":false},{"date":"5/5/26 2:44 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Carson Kelly","pos":"C","mlbTeam":"CHC","action":"Activated"}],"isTrade":false},{"date":"5/5/26 2:44 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Carson Kelly","pos":"C","mlbTeam":"CHC","action":"Added off Waivers"},{"name":"Francisco Alvarez","pos":"C","mlbTeam":"NYM","action":"Dropped"}],"isTrade":false},{"date":"5/4/26 5:51 PM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Quinn Priester","pos":"SP","mlbTeam":"MIL","action":"Dropped"}],"isTrade":false},{"date":"5/2/26 7:58 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Spencer Steer","pos":"1B,LF,RF","mlbTeam":"CIN","action":"Added off Waivers"},{"name":"Nathan Church","pos":"LF,CF","mlbTeam":"STL","action":"Dropped"}],"isTrade":false},{"date":"4/29/26 3:03 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Nathan Church","pos":"LF,CF","mlbTeam":"STL","action":"Added off Waivers"},{"name":"Owen Caissie","pos":"RF","mlbTeam":"MIA","action":"Dropped"}],"isTrade":false},{"date":"4/20/26 1:56 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Otto Lopez","pos":"2B,SS","mlbTeam":"MIA","action":"Added off Waivers"},{"name":"TJ Rumfield","pos":"1B","mlbTeam":"COL","action":"Dropped"}],"isTrade":false},{"date":"4/16/26 2:34 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Davis Martin","pos":"SP","mlbTeam":"CHW","action":"Added off Waivers"}],"isTrade":false},{"date":"4/15/26 1:46 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Jake Junis","pos":"RP","mlbTeam":"TEX","action":"Activated"}],"isTrade":false},{"date":"4/15/26 1:46 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Jake Junis","pos":"RP","mlbTeam":"TEX","action":"Added off Waivers"},{"name":"Luke Weaver","pos":"RP","mlbTeam":"NYM","action":"Dropped"}],"isTrade":false},{"date":"4/13/26 1:49 PM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Kirby Yates","pos":"RP","mlbTeam":"LAA","action":"Dropped"}],"isTrade":false},{"date":"4/13/26 1:59 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Ramon Laureano","pos":"LF,RF","mlbTeam":"SD","action":"Added off Waivers"},{"name":"Joe Boyle","pos":"SP","mlbTeam":"TB","action":"Dropped"}],"isTrade":false},{"date":"4/8/26 3:06 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Bryce Elder","pos":"SP","mlbTeam":"ATL","action":"Added off Waivers"},{"name":"Ramon Laureano","pos":"LF,RF","mlbTeam":"SD","action":"Dropped"}],"isTrade":false},{"date":"4/5/26 1:48 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Joe Boyle","pos":"SP","mlbTeam":"TB","action":"Added off Waivers"},{"name":"Cristian Javier","pos":"SP","mlbTeam":"HOU","action":"Dropped"}],"isTrade":false},{"date":"4/4/26 3:06 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"TJ Rumfield","pos":"1B","mlbTeam":"COL","action":"Added off Waivers"},{"name":"Carson Williams","pos":"SS","mlbTeam":"TB","action":"Dropped"}],"isTrade":false},{"date":"4/4/26 3:06 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Graham Ashcraft","pos":"RP","mlbTeam":"CIN","action":"Activated"}],"isTrade":false},{"date":"4/4/26 3:06 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Graham Ashcraft","pos":"RP","mlbTeam":"CIN","action":"Added off Waivers"},{"name":"Chris Martin","pos":"RP","mlbTeam":"TEX","action":"Dropped"}],"isTrade":false},{"date":"4/3/26 2:03 AM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Paul Sewald","pos":"RP","mlbTeam":"ARI","action":"Added off Waivers"},{"name":"Kevin Ginkel","pos":"RP","mlbTeam":"ARI","action":"Dropped"}],"isTrade":false},{"date":"3/31/26 10:39 PM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Owen Caissie","pos":"RF","mlbTeam":"MIA","action":"Added"},{"name":"Noelvi Marte","pos":"3B,RF","mlbTeam":"CIN","action":"Dropped"}],"isTrade":false},{"date":"3/25/26 10:46 PM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Carson Williams","pos":"SS","mlbTeam":"TB","action":"Added"}],"isTrade":false},{"date":"3/25/26 1:37 PM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Chris Martin","pos":"RP","mlbTeam":"TEX","action":"Added"}],"isTrade":false},{"date":"3/23/26 10:00 PM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Ben Joyce","pos":"RP","mlbTeam":"LAA","action":"Added"},{"name":"Brooks Raley","pos":"RP","mlbTeam":"NYM","action":"Dropped"}],"isTrade":false},{"date":"3/20/26 11:16 PM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Jorge Polanco","pos":"2B","mlbTeam":"NYM","action":"Dropped"}],"isTrade":false},{"date":"3/19/26 11:17 PM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Alfredo Duno","pos":"C","mlbTeam":"CIN","action":"Dropped"}],"isTrade":false},{"date":"3/18/26 10:06 PM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"Jordan Beck","pos":"LF,RF","mlbTeam":"COL","action":"Dropped"}],"isTrade":false},{"date":"3/18/26 10:05 PM ET","teamName":"Popped A Mahle I'm Sweating","teamId":12,"players":[{"name":"TJ Rumfield","pos":"1B","mlbTeam":"COL","action":"Dropped"}],"isTrade":false}]
+[
+  {
+    "date": "5/8/26 8:40 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "5/8/26",
+    "players": [
+      {
+        "name": "Pedro Ramirez",
+        "pos": "3B",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/8/26 7:49 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "5/8/26",
+    "players": [
+      {
+        "name": "Andres Gimenez",
+        "pos": "2B,SS",
+        "mlbTeam": "TOR",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/8/26 5:34 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "5/8/26",
+    "players": [
+      {
+        "name": "Nate Lowe",
+        "pos": "1B",
+        "mlbTeam": "CIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Matthew Boyd",
+        "pos": "SP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/7/26 12:43 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "5/8/26",
+    "players": [
+      {
+        "name": "Anthony Eyanson",
+        "pos": "SP",
+        "mlbTeam": "BOS",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/7/26 2:33 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "5/7/26",
+    "players": [
+      {
+        "name": "Antonio Senzatela",
+        "pos": "SP,RP",
+        "mlbTeam": "COL",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "5/7/26 2:33 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "5/7/26",
+    "players": [
+      {
+        "name": "Anthony Eyanson",
+        "pos": "SP",
+        "mlbTeam": "BOS",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "5/7/26 2:33 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "5/7/26",
+    "players": [
+      {
+        "name": "Lazaro Montes",
+        "pos": "RF",
+        "mlbTeam": "SEA",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "5/7/26 2:33 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "5/7/26",
+    "players": [
+      {
+        "name": "Antonio Senzatela",
+        "pos": "SP,RP",
+        "mlbTeam": "COL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Ryan Walker",
+        "pos": "RP",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/7/26 2:33 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "5/7/26",
+    "players": [
+      {
+        "name": "Miguel Vargas",
+        "pos": "1B,3B",
+        "mlbTeam": "CHW",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "5/7/26 2:33 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "5/7/26",
+    "players": [
+      {
+        "name": "Lazaro Montes",
+        "pos": "RF",
+        "mlbTeam": "SEA",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Lawrence Butler",
+        "pos": "CF,RF",
+        "mlbTeam": "ATH",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/7/26 2:33 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "5/7/26",
+    "players": [
+      {
+        "name": "Miguel Vargas",
+        "pos": "1B,3B",
+        "mlbTeam": "CHW",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Carlos Correa",
+        "pos": "3B,SS",
+        "mlbTeam": "HOU",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/7/26 2:33 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "5/7/26",
+    "players": [
+      {
+        "name": "Jack Perkins",
+        "pos": "RP",
+        "mlbTeam": "ATH",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "5/7/26 2:33 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "5/7/26",
+    "players": [
+      {
+        "name": "Jack Perkins",
+        "pos": "RP",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Emilio Pagan",
+        "pos": "RP",
+        "mlbTeam": "CIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/7/26 2:33 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "5/7/26",
+    "players": [
+      {
+        "name": "Sean Burke",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Noah Cameron",
+        "pos": "SP",
+        "mlbTeam": "KC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/6/26 11:51 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "5/6/26",
+    "players": [
+      {
+        "name": "Ryan Pepiot",
+        "pos": "SP",
+        "mlbTeam": "TB",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/6/26 9:12 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "5/6/26",
+    "players": [
+      {
+        "name": "Kai-Wei Teng",
+        "pos": "SP,RP",
+        "mlbTeam": "HOU",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/6/26 8:32 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "5/6/26",
+    "players": [
+      {
+        "name": "Elmer Rodriguez",
+        "pos": "SP",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/6/26 7:36 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "5/6/26",
+    "players": [
+      {
+        "name": "Tyler Kinley",
+        "pos": "RP",
+        "mlbTeam": "ATL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/6/26 2:23 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "5/6/26",
+    "players": [
+      {
+        "name": "Pedro Ramirez",
+        "pos": "3B",
+        "mlbTeam": "CHC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Cooper Ingle",
+        "pos": "C",
+        "mlbTeam": "CLE",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/6/26 2:23 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "5/6/26",
+    "players": [
+      {
+        "name": "Peter Lambert",
+        "pos": "RP",
+        "mlbTeam": "HOU",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "5/5/26",
+    "players": [
+      {
+        "name": "Max Meyer",
+        "pos": "SP",
+        "mlbTeam": "MIA",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jack Perkins",
+        "pos": "SP",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "5/5/26",
+    "players": [
+      {
+        "name": "Kai-Wei Teng",
+        "pos": "SP,RP",
+        "mlbTeam": "HOU",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Braden Montgomery",
+        "pos": "CF",
+        "mlbTeam": "CHW",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "5/5/26",
+    "players": [
+      {
+        "name": "Connor Prielipp",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Alejandro Kirk",
+        "pos": "C",
+        "mlbTeam": "TOR",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "5/5/26",
+    "players": [
+      {
+        "name": "Bailey Ober",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Erick Fedde",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "5/5/26",
+    "players": [
+      {
+        "name": "Carson Kelly",
+        "pos": "C",
+        "mlbTeam": "CHC",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "5/5/26",
+    "players": [
+      {
+        "name": "Carson Kelly",
+        "pos": "C",
+        "mlbTeam": "CHC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Francisco Alvarez",
+        "pos": "C",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "effective": "5/5/26",
+    "players": [
+      {
+        "name": "Daniel Lynch",
+        "pos": "RP",
+        "mlbTeam": "KC",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "5/5/26",
+    "players": [
+      {
+        "name": "Drew Anderson",
+        "pos": "RP",
+        "mlbTeam": "DET",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "effective": "5/5/26",
+    "players": [
+      {
+        "name": "Daniel Lynch",
+        "pos": "RP",
+        "mlbTeam": "KC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Taylor Rogers",
+        "pos": "RP",
+        "mlbTeam": "MIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/4/26 5:51 PM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "5/5/26",
+    "players": [
+      {
+        "name": "Quinn Priester",
+        "pos": "SP",
+        "mlbTeam": "MIL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/4/26 10:24 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "5/4/26",
+    "players": [
+      {
+        "name": "Kyle Isbel",
+        "pos": "CF",
+        "mlbTeam": "KC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/4/26 2:18 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "5/4/26",
+    "players": [
+      {
+        "name": "Logan Henderson",
+        "pos": "SP",
+        "mlbTeam": "MIL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jeremiah Jackson",
+        "pos": "2B,RF",
+        "mlbTeam": "BAL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/4/26 2:18 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "5/4/26",
+    "players": [
+      {
+        "name": "Gabe Speier",
+        "pos": "RP",
+        "mlbTeam": "SEA",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jared Koenig",
+        "pos": "RP",
+        "mlbTeam": "MIL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/4/26 2:18 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "5/4/26",
+    "players": [
+      {
+        "name": "Braden Montgomery",
+        "pos": "CF",
+        "mlbTeam": "CHW",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jung Hoo Lee",
+        "pos": "CF,RF",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/4/26 2:18 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "5/4/26",
+    "players": [
+      {
+        "name": "Kody Funderburk",
+        "pos": "RP",
+        "mlbTeam": "MIN",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "5/4/26 2:18 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "5/4/26",
+    "players": [
+      {
+        "name": "Kody Funderburk",
+        "pos": "RP",
+        "mlbTeam": "MIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Cole Sands",
+        "pos": "RP",
+        "mlbTeam": "MIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/4/26 2:18 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "5/4/26",
+    "players": [
+      {
+        "name": "Cooper Ingle",
+        "pos": "C",
+        "mlbTeam": "CLE",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Randy Vasquez",
+        "pos": "SP",
+        "mlbTeam": "SD",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/4/26 2:18 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "5/4/26",
+    "players": [
+      {
+        "name": "Ian Seymour",
+        "pos": "SP,RP",
+        "mlbTeam": "TB",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "5/4/26 2:18 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "5/4/26",
+    "players": [
+      {
+        "name": "Ian Seymour",
+        "pos": "SP,RP",
+        "mlbTeam": "TB",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Antonio Senzatela",
+        "pos": "SP,RP",
+        "mlbTeam": "COL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/4/26 2:18 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "5/4/26",
+    "players": [
+      {
+        "name": "Jordan Westburg",
+        "pos": "3B",
+        "mlbTeam": "BAL",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "5/3/26 9:33 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "5/3/26",
+    "players": [
+      {
+        "name": "Walbert Urena",
+        "pos": "SP",
+        "mlbTeam": "LAA",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/3/26 2:18 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "5/3/26",
+    "players": [
+      {
+        "name": "Nasim Nunez",
+        "pos": "2B,SS",
+        "mlbTeam": "WAS",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Miguel Vargas",
+        "pos": "1B,3B",
+        "mlbTeam": "CHW",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/3/26 2:18 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "5/3/26",
+    "players": [
+      {
+        "name": "Jack Leiter",
+        "pos": "SP",
+        "mlbTeam": "TEX",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Slade Cecconi",
+        "pos": "SP",
+        "mlbTeam": "CLE",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/3/26 2:18 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "5/3/26",
+    "players": [
+      {
+        "name": "Jack Perkins",
+        "pos": "SP",
+        "mlbTeam": "PHI",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Keaton Winn",
+        "pos": "RP",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/2/26 7:58 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "5/2/26",
+    "players": [
+      {
+        "name": "Tyler Kinley",
+        "pos": "RP",
+        "mlbTeam": "ATL",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "5/2/26 7:58 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "5/2/26",
+    "players": [
+      {
+        "name": "Jacob Latz",
+        "pos": "SP,RP",
+        "mlbTeam": "TEX",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "5/2/26 7:58 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "5/2/26",
+    "players": [
+      {
+        "name": "Walbert Urena",
+        "pos": "SP",
+        "mlbTeam": "LAA",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "5/2/26 7:58 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "5/2/26",
+    "players": [
+      {
+        "name": "Jacob Latz",
+        "pos": "SP,RP",
+        "mlbTeam": "TEX",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Hunter Gaddis",
+        "pos": "RP",
+        "mlbTeam": "CLE",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/2/26 7:58 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "5/2/26",
+    "players": [
+      {
+        "name": "Spencer Steer",
+        "pos": "1B,LF,RF",
+        "mlbTeam": "CIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Nathan Church",
+        "pos": "LF,CF",
+        "mlbTeam": "STL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/2/26 7:58 AM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "effective": "5/2/26",
+    "players": [
+      {
+        "name": "Nick Martinez",
+        "pos": "SP,RP",
+        "mlbTeam": "TB",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "5/1/26 4:11 PM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "5/1/26",
+    "players": [
+      {
+        "name": "Edward Florentino",
+        "pos": "CF",
+        "mlbTeam": "PIT",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "5/1/26 2:00 PM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "5/1/26",
+    "players": [
+      {
+        "name": "Edward Florentino",
+        "pos": "CF",
+        "mlbTeam": "PIT",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/1/26 2:03 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "5/1/26",
+    "players": [
+      {
+        "name": "Jung Hoo Lee",
+        "pos": "CF,RF",
+        "mlbTeam": "SF",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jordan Westburg",
+        "pos": "3B",
+        "mlbTeam": "BAL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "5/1/26 2:03 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "5/1/26",
+    "players": [
+      {
+        "name": "Lawrence Butler",
+        "pos": "CF,RF",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jasson Dominguez",
+        "pos": "LF",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/30/26 2:03 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/30/26",
+    "players": [
+      {
+        "name": "Ildemaro Vargas",
+        "pos": "1B,2B",
+        "mlbTeam": "ARI",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jack Leiter",
+        "pos": "SP",
+        "mlbTeam": "TEX",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/30/26 2:03 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/30/26",
+    "players": [
+      {
+        "name": "Antonio Senzatela",
+        "pos": "SP,RP",
+        "mlbTeam": "COL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Pete Fairbanks",
+        "pos": "RP",
+        "mlbTeam": "MIA",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/30/26 2:03 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "4/30/26",
+    "players": [
+      {
+        "name": "Erick Fedde",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jack Flaherty",
+        "pos": "SP",
+        "mlbTeam": "DET",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/29/26 10:45 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "4/29/26",
+    "players": [
+      {
+        "name": "Aaron Nola",
+        "pos": "SP",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/29/26 3:03 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/29/26",
+    "players": [
+      {
+        "name": "Orion Kerkering",
+        "pos": "RP",
+        "mlbTeam": "PHI",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/29/26 3:03 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/29/26",
+    "players": [
+      {
+        "name": "Matt Shaw",
+        "pos": "3B,RF",
+        "mlbTeam": "CHC",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/29/26 3:03 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "4/29/26",
+    "players": [
+      {
+        "name": "Isaac Paredes",
+        "pos": "3B",
+        "mlbTeam": "HOU",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/29/26 3:03 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "4/29/26",
+    "players": [
+      {
+        "name": "Spencer Arrighetti",
+        "pos": "SP",
+        "mlbTeam": "HOU",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/29/26 3:03 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/29/26",
+    "players": [
+      {
+        "name": "Foster Griffin",
+        "pos": "SP,RP",
+        "mlbTeam": "WAS",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/29/26 3:03 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "4/29/26",
+    "players": [
+      {
+        "name": "Spencer Arrighetti",
+        "pos": "SP",
+        "mlbTeam": "HOU",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Luis Castillo",
+        "pos": "SP",
+        "mlbTeam": "SEA",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/29/26 3:03 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/29/26",
+    "players": [
+      {
+        "name": "Foster Griffin",
+        "pos": "SP,RP",
+        "mlbTeam": "WAS",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/29/26 3:03 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/29/26",
+    "players": [
+      {
+        "name": "Nathan Church",
+        "pos": "LF,CF",
+        "mlbTeam": "STL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Owen Caissie",
+        "pos": "RF",
+        "mlbTeam": "MIA",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/28/26 8:29 PM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/29/26",
+    "players": [
+      {
+        "name": "Kodai Senga",
+        "pos": "SP",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/28/26 5:59 PM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/28/26",
+    "players": [
+      {
+        "name": "Ryne Nelson",
+        "pos": "SP,RP",
+        "mlbTeam": "ARI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/28/26 5:59 PM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/28/26",
+    "players": [
+      {
+        "name": "Justin Steele",
+        "pos": "SP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/28/26 9:16 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "4/28/26",
+    "players": [
+      {
+        "name": "Trevor Story",
+        "pos": "SS",
+        "mlbTeam": "BOS",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/28/26 3:06 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/28/26",
+    "players": [
+      {
+        "name": "Payton Tolle",
+        "pos": "RP",
+        "mlbTeam": "BOS",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Lawrence Butler",
+        "pos": "CF,RF",
+        "mlbTeam": "ATH",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/28/26 3:06 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/28/26",
+    "players": [
+      {
+        "name": "Jeremiah Estrada",
+        "pos": "RP",
+        "mlbTeam": "SD",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Marcus Semien",
+        "pos": "2B",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/27/26 1:59 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/27/26",
+    "players": [
+      {
+        "name": "Jasson Dominguez",
+        "pos": "LF",
+        "mlbTeam": "NYY",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Brenton Doyle",
+        "pos": "CF",
+        "mlbTeam": "COL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/26/26 1:49 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/26/26",
+    "players": [
+      {
+        "name": "Carlos Cortes",
+        "pos": "RF",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Caleb Thielbar",
+        "pos": "RP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/26/26 1:49 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/26/26",
+    "players": [
+      {
+        "name": "Ben Brown",
+        "pos": "SP,RP",
+        "mlbTeam": "CHC",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/26/26 1:49 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/26/26",
+    "players": [
+      {
+        "name": "Ben Brown",
+        "pos": "SP,RP",
+        "mlbTeam": "CHC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Joel Kuhnel",
+        "pos": "RP",
+        "mlbTeam": "ATH",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/25/26 9:03 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "4/25/26",
+    "players": [
+      {
+        "name": "Tim Hill",
+        "pos": "RP",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/25/26 3:18 AM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "4/25/26",
+    "players": [
+      {
+        "name": "Mason Montgomery",
+        "pos": "RP",
+        "mlbTeam": "PIT",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Matthew Liberatore",
+        "pos": "SP",
+        "mlbTeam": "STL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/24/26 1:44 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "4/24/26",
+    "players": [
+      {
+        "name": "Justin Wrobleski",
+        "pos": "SP,RP",
+        "mlbTeam": "LAD",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Spencer Arrighetti",
+        "pos": "SP",
+        "mlbTeam": "HOU",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/24/26 1:44 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "4/24/26",
+    "players": [
+      {
+        "name": "Miguel Vargas",
+        "pos": "1B,3B",
+        "mlbTeam": "CHW",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/24/26 1:44 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "4/24/26",
+    "players": [
+      {
+        "name": "Enyel De Los Santos",
+        "pos": "RP",
+        "mlbTeam": "HOU",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/24/26 1:44 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "4/24/26",
+    "players": [
+      {
+        "name": "Enyel De Los Santos",
+        "pos": "RP",
+        "mlbTeam": "HOU",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Bryan King",
+        "pos": "RP",
+        "mlbTeam": "HOU",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/24/26 1:44 AM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "effective": "4/24/26",
+    "players": [
+      {
+        "name": "Oswald Peraza",
+        "pos": "2B,3B",
+        "mlbTeam": "LAA",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Brady House",
+        "pos": "3B",
+        "mlbTeam": "WAS",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/23/26 7:29 AM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "effective": "4/23/26",
+    "players": [
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/23/26 2:49 AM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "4/23/26",
+    "players": [
+      {
+        "name": "Chase Dollander",
+        "pos": "SP",
+        "mlbTeam": "COL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Giancarlo Stanton",
+        "pos": "DH",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/23/26 2:49 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/23/26",
+    "players": [
+      {
+        "name": "Caleb Thielbar",
+        "pos": "RP",
+        "mlbTeam": "CHC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Ben Brown",
+        "pos": "SP,RP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/23/26 2:49 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "4/23/26",
+    "players": [
+      {
+        "name": "Ryan Jeffers",
+        "pos": "C",
+        "mlbTeam": "MIN",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/23/26 2:49 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "4/23/26",
+    "players": [
+      {
+        "name": "Ryan Jeffers",
+        "pos": "C",
+        "mlbTeam": "MIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "J.T. Realmuto",
+        "pos": "C",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/22/26 12:37 PM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "4/23/26",
+    "players": [
+      {
+        "name": "Adolis Garcia",
+        "pos": "RF",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/22/26 12:34 PM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "effective": "4/23/26",
+    "players": [
+      {
+        "name": "David Peterson",
+        "pos": "SP",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/22/26 10:24 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "4/22/26",
+    "players": [
+      {
+        "name": "Yainer Diaz",
+        "pos": "C",
+        "mlbTeam": "HOU",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/22/26 2:33 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/22/26",
+    "players": [
+      {
+        "name": "Juan Morillo",
+        "pos": "RP",
+        "mlbTeam": "ARI",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Will Vest",
+        "pos": "RP",
+        "mlbTeam": "DET",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/22/26 2:33 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/22/26",
+    "players": [
+      {
+        "name": "Dalton Rushing",
+        "pos": "C",
+        "mlbTeam": "LAD",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Sam Antonacci",
+        "pos": "2B,LF",
+        "mlbTeam": "CHW",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/22/26 2:33 AM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "4/22/26",
+    "players": [
+      {
+        "name": "Dylan Lee",
+        "pos": "RP",
+        "mlbTeam": "ATL",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/21/26 2:15 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "4/21/26",
+    "players": [
+      {
+        "name": "Tyler Alexander",
+        "pos": "SP,RP",
+        "mlbTeam": "TEX",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Aaron Civale",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/21/26 2:15 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "4/21/26",
+    "players": [
+      {
+        "name": "Andres Gimenez",
+        "pos": "2B,SS",
+        "mlbTeam": "TOR",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Kerry Carpenter",
+        "pos": "LF,RF",
+        "mlbTeam": "DET",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/21/26 2:15 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/21/26",
+    "players": [
+      {
+        "name": "Brenton Doyle",
+        "pos": "CF",
+        "mlbTeam": "COL",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/21/26 2:15 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/21/26",
+    "players": [
+      {
+        "name": "Josh Jung",
+        "pos": "3B",
+        "mlbTeam": "TEX",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/21/26 2:15 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "4/21/26",
+    "players": [
+      {
+        "name": "Spencer Arrighetti",
+        "pos": "SP",
+        "mlbTeam": "HOU",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Andrew Abbott",
+        "pos": "SP",
+        "mlbTeam": "CIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/21/26 2:15 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/21/26",
+    "players": [
+      {
+        "name": "Josh Jung",
+        "pos": "3B",
+        "mlbTeam": "TEX",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Mauricio Dubon",
+        "pos": "2B,3B,SS,LF",
+        "mlbTeam": "ATL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/21/26 2:15 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "4/21/26",
+    "players": [
+      {
+        "name": "Blake Treinen",
+        "pos": "RP",
+        "mlbTeam": "LAD",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Corbin Burnes",
+        "pos": "SP",
+        "mlbTeam": "ARI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/20/26 1:56 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/20/26",
+    "players": [
+      {
+        "name": "Jeremiah Jackson",
+        "pos": "2B,RF",
+        "mlbTeam": "BAL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Antonio Senzatela",
+        "pos": "SP,RP",
+        "mlbTeam": "COL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/20/26 1:56 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/20/26",
+    "players": [
+      {
+        "name": "Otto Lopez",
+        "pos": "2B,SS",
+        "mlbTeam": "MIA",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "TJ Rumfield",
+        "pos": "1B",
+        "mlbTeam": "COL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/20/26 1:56 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "4/20/26",
+    "players": [
+      {
+        "name": "Brandon Marsh",
+        "pos": "LF,CF",
+        "mlbTeam": "PHI",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Colton Cowser",
+        "pos": "LF,CF,RF",
+        "mlbTeam": "BAL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/19/26 4:05 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "4/19/26",
+    "players": [
+      {
+        "name": "Keaton Winn",
+        "pos": "RP",
+        "mlbTeam": "SF",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/19/26 4:05 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/19/26",
+    "players": [
+      {
+        "name": "Ben Brown",
+        "pos": "SP,RP",
+        "mlbTeam": "CHC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Luis Severino",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/19/26 4:05 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "4/19/26",
+    "players": [
+      {
+        "name": "Keaton Winn",
+        "pos": "RP",
+        "mlbTeam": "SF",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jordan Romano",
+        "pos": "RP",
+        "mlbTeam": "LAA",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/18/26 3:03 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/18/26",
+    "players": [
+      {
+        "name": "Antonio Senzatela",
+        "pos": "SP,RP",
+        "mlbTeam": "COL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Isaac Paredes",
+        "pos": "3B",
+        "mlbTeam": "HOU",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/18/26 3:03 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "4/18/26",
+    "players": [
+      {
+        "name": "Louie Varland",
+        "pos": "RP",
+        "mlbTeam": "TOR",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Matt Shaw",
+        "pos": "3B,RF",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/18/26 3:03 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/18/26",
+    "players": [
+      {
+        "name": "Franklin Arias",
+        "pos": "SS",
+        "mlbTeam": "BOS",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/18/26 3:03 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/18/26",
+    "players": [
+      {
+        "name": "Joel Kuhnel",
+        "pos": "RP",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/17/26 11:33 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/17/26",
+    "players": [
+      {
+        "name": "Nasim Nunez",
+        "pos": "2B,SS",
+        "mlbTeam": "WAS",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/17/26 1:45 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/17/26",
+    "players": [
+      {
+        "name": "Will Warren",
+        "pos": "SP",
+        "mlbTeam": "NYY",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Isaac Mattson",
+        "pos": "RP",
+        "mlbTeam": "PIT",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/17/26 1:45 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "4/17/26",
+    "players": [
+      {
+        "name": "Aaron Civale",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Tyler Mahle",
+        "pos": "SP",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/17/26 1:45 AM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "effective": "4/17/26",
+    "players": [
+      {
+        "name": "Brady House",
+        "pos": "3B",
+        "mlbTeam": "WAS",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Miguel Vargas",
+        "pos": "1B,3B",
+        "mlbTeam": "CHW",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/16/26 2:34 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/16/26",
+    "players": [
+      {
+        "name": "Isaac Mattson",
+        "pos": "RP",
+        "mlbTeam": "PIT",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Tyler Wells",
+        "pos": "SP,RP",
+        "mlbTeam": "BAL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/16/26 2:34 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/16/26",
+    "players": [
+      {
+        "name": "Davis Martin",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/16/26 2:34 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "4/16/26",
+    "players": [
+      {
+        "name": "Dillon Dingler",
+        "pos": "C",
+        "mlbTeam": "DET",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jose Fernandez",
+        "pos": "SS",
+        "mlbTeam": "ARI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/16/26 2:34 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/16/26",
+    "players": [
+      {
+        "name": "Mauricio Dubon",
+        "pos": "2B,3B,SS,LF",
+        "mlbTeam": "ATL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Mark Vientos",
+        "pos": "1B,3B",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/15/26 1:46 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "effective": "4/15/26",
+    "players": [
+      {
+        "name": "David Peterson",
+        "pos": "SP",
+        "mlbTeam": "NYM",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Chris Bassitt",
+        "pos": "SP",
+        "mlbTeam": "BAL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/15/26 1:46 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/15/26",
+    "players": [
+      {
+        "name": "Rico Garcia",
+        "pos": "RP",
+        "mlbTeam": "BAL",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/15/26 1:46 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/15/26",
+    "players": [
+      {
+        "name": "Rico Garcia",
+        "pos": "RP",
+        "mlbTeam": "BAL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Ryne Stanek",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/15/26 1:46 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/15/26",
+    "players": [
+      {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/15/26 1:46 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/15/26",
+    "players": [
+      {
+        "name": "Jake Junis",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Luke Weaver",
+        "pos": "RP",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/15/26 1:46 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "effective": "4/15/26",
+    "players": [
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF,RF",
+        "mlbTeam": "CLE",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/15/26 1:46 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "effective": "4/15/26",
+    "players": [
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF,RF",
+        "mlbTeam": "CLE",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Andres Gimenez",
+        "pos": "2B,SS",
+        "mlbTeam": "TOR",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/14/26 3:45 PM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "4/14/26",
+    "players": [
+      {
+        "name": "Dustin May",
+        "pos": "SP",
+        "mlbTeam": "STL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/14/26 3:10 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/14/26",
+    "players": [
+      {
+        "name": "Tyler Wells",
+        "pos": "SP,RP",
+        "mlbTeam": "BAL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jackson Jobe",
+        "pos": "SP",
+        "mlbTeam": "DET",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/14/26 3:10 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "4/14/26",
+    "players": [
+      {
+        "name": "Matt Shaw",
+        "pos": "3B,RF",
+        "mlbTeam": "CHC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Victor Vodnik",
+        "pos": "RP",
+        "mlbTeam": "COL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/14/26 3:10 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/14/26",
+    "players": [
+      {
+        "name": "Seth Hernandez",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Gage Jump",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/14/26 3:10 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "4/14/26",
+    "players": [
+      {
+        "name": "Slade Cecconi",
+        "pos": "SP",
+        "mlbTeam": "CLE",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Cade Cavalli",
+        "pos": "SP",
+        "mlbTeam": "WAS",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/14/26 3:10 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "4/14/26",
+    "players": [
+      {
+        "name": "Adolis Garcia",
+        "pos": "RF",
+        "mlbTeam": "PHI",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/14/26 3:10 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "4/14/26",
+    "players": [
+      {
+        "name": "Adolis Garcia",
+        "pos": "RF",
+        "mlbTeam": "PHI",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Noelvi Marte",
+        "pos": "3B,RF",
+        "mlbTeam": "CIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/14/26 3:10 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "4/14/26",
+    "players": [
+      {
+        "name": "Jeffrey Springs",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Hunter Harvey",
+        "pos": "RP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/14/26 3:10 AM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "effective": "4/14/26",
+    "players": [
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/13/26 1:49 PM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/13/26",
+    "players": [
+      {
+        "name": "Kirby Yates",
+        "pos": "RP",
+        "mlbTeam": "LAA",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/13/26 9:04 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/13/26",
+    "players": [
+      {
+        "name": "James Tibbs",
+        "pos": "RF",
+        "mlbTeam": "LAD",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/13/26 1:59 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/13/26",
+    "players": [
+      {
+        "name": "Sam Antonacci",
+        "pos": "2B,LF",
+        "mlbTeam": "CHW",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jung Hoo Lee",
+        "pos": "CF,RF",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/13/26 1:59 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/13/26",
+    "players": [
+      {
+        "name": "Noah Schultz",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Andrew Kittredge",
+        "pos": "RP",
+        "mlbTeam": "BAL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/13/26 1:59 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "4/13/26",
+    "players": [
+      {
+        "name": "Victor Vodnik",
+        "pos": "RP",
+        "mlbTeam": "COL",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/13/26 1:59 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/13/26",
+    "players": [
+      {
+        "name": "Ramon Laureano",
+        "pos": "LF,RF",
+        "mlbTeam": "SD",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Joe Boyle",
+        "pos": "SP",
+        "mlbTeam": "TB",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/13/26 1:59 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/13/26",
+    "players": [
+      {
+        "name": "Luis Severino",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jeremiah Estrada",
+        "pos": "RP",
+        "mlbTeam": "SD",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/12/26 2:28 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/12/26",
+    "players": [
+      {
+        "name": "Ryne Stanek",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Tyler Alexander",
+        "pos": "SP,RP",
+        "mlbTeam": "TEX",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/12/26 2:28 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "4/12/26",
+    "players": [
+      {
+        "name": "Luis Arraez",
+        "pos": "1B,2B",
+        "mlbTeam": "SF",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/11/26 10:02 AM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "effective": "4/11/26",
+    "players": [
+      {
+        "name": "Brady Singer",
+        "pos": "SP",
+        "mlbTeam": "CIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/11/26 2:53 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/11/26",
+    "players": [
+      {
+        "name": "Jung Hoo Lee",
+        "pos": "CF,RF",
+        "mlbTeam": "SF",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Chad Patrick",
+        "pos": "SP",
+        "mlbTeam": "MIL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/11/26 2:53 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/11/26",
+    "players": [
+      {
+        "name": "Cole Sands",
+        "pos": "RP",
+        "mlbTeam": "MIN",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/11/26 2:53 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/11/26",
+    "players": [
+      {
+        "name": "Cole Sands",
+        "pos": "RP",
+        "mlbTeam": "MIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Matt Svanson",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/10/26 7:24 PM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "4/11/26",
+    "players": [
+      {
+        "name": "Josh H. Smith",
+        "pos": "1B,2B,3B,SS",
+        "mlbTeam": "TEX",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/10/26 11:33 AM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "4/10/26",
+    "players": [
+      {
+        "name": "Mick Abel",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "4/10/26 3:09 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/10/26",
+    "players": [
+      {
+        "name": "Tyler Alexander",
+        "pos": "SP,RP",
+        "mlbTeam": "TEX",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/10/26 3:09 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/10/26",
+    "players": [
+      {
+        "name": "James Tibbs",
+        "pos": "RF",
+        "mlbTeam": "LAD",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Bryson Stott",
+        "pos": "2B",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/10/26 3:09 AM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "4/10/26",
+    "players": [
+      {
+        "name": "Liam Hicks",
+        "pos": "C,1B",
+        "mlbTeam": "MIA",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/10/26 3:09 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "4/10/26",
+    "players": [
+      {
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Shane Smith",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/10/26 3:09 AM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "4/10/26",
+    "players": [
+      {
+        "name": "Liam Hicks",
+        "pos": "C,1B",
+        "mlbTeam": "MIA",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Gabriel Moreno",
+        "pos": "C",
+        "mlbTeam": "ARI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/9/26 2:11 PM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "4/10/26",
+    "players": [
+      {
+        "name": "Mick Abel",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/9/26 1:46 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/9/26",
+    "players": [
+      {
+        "name": "Max Muncy",
+        "pos": "2B,3B",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Will Warren",
+        "pos": "SP",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/9/26 1:46 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "4/9/26",
+    "players": [
+      {
+        "name": "Janson Junk",
+        "pos": "SP",
+        "mlbTeam": "MIA",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Cade Horton",
+        "pos": "SP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/8/26 3:06 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/8/26",
+    "players": [
+      {
+        "name": "Mark Leiter",
+        "pos": "RP",
+        "mlbTeam": "ATH",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/8/26 3:06 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/8/26",
+    "players": [
+      {
+        "name": "Mark Vientos",
+        "pos": "1B,3B",
+        "mlbTeam": "NYM",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Alec Bohm",
+        "pos": "3B",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/8/26 3:06 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/8/26",
+    "players": [
+      {
+        "name": "Mark Leiter",
+        "pos": "RP",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jared Koenig",
+        "pos": "RP",
+        "mlbTeam": "MIL",
+        "action": "Moved to IR"
+      }
+    ]
+  },
+  {
+    "date": "4/8/26 3:06 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/8/26",
+    "players": [
+      {
+        "name": "Bryce Elder",
+        "pos": "SP",
+        "mlbTeam": "ATL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Ramon Laureano",
+        "pos": "LF,RF",
+        "mlbTeam": "SD",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/8/26 3:06 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "4/8/26",
+    "players": [
+      {
+        "name": "Noelvi Marte",
+        "pos": "3B,RF",
+        "mlbTeam": "CIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Cody Ponce",
+        "pos": "RP",
+        "mlbTeam": "TOR",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/8/26 3:06 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "4/8/26",
+    "players": [
+      {
+        "name": "Will Warren",
+        "pos": "SP",
+        "mlbTeam": "NYY",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Cole Sands",
+        "pos": "RP",
+        "mlbTeam": "MIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/7/26 2:07 AM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "effective": "4/7/26",
+    "players": [
+      {
+        "name": "Miguel Vargas",
+        "pos": "1B,3B",
+        "mlbTeam": "CHW",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Addison Barger",
+        "pos": "3B,RF",
+        "mlbTeam": "TOR",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/7/26 2:07 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "4/7/26",
+    "players": [
+      {
+        "name": "Seth Lugo",
+        "pos": "SP",
+        "mlbTeam": "KC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jesus Sanchez",
+        "pos": "LF,RF",
+        "mlbTeam": "TOR",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/7/26 2:07 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/7/26",
+    "players": [
+      {
+        "name": "Emmet Sheehan",
+        "pos": "SP",
+        "mlbTeam": "LAD",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/7/26 2:07 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/7/26",
+    "players": [
+      {
+        "name": "Emmet Sheehan",
+        "pos": "SP",
+        "mlbTeam": "LAD",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Lance McCullers",
+        "pos": "SP",
+        "mlbTeam": "HOU",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/7/26 2:07 AM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "4/7/26",
+    "players": [
+      {
+        "name": "Giancarlo Stanton",
+        "pos": "DH",
+        "mlbTeam": "NYY",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Heliot Ramos",
+        "pos": "LF",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/7/26 2:07 AM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "effective": "4/7/26",
+    "players": [
+      {
+        "name": "Christian Walker",
+        "pos": "1B",
+        "mlbTeam": "HOU",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/6/26 1:57 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/6/26",
+    "players": [
+      {
+        "name": "Kyle Isbel",
+        "pos": "CF",
+        "mlbTeam": "KC",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/6/26 1:57 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "4/6/26",
+    "players": [
+      {
+        "name": "Tim Hill",
+        "pos": "RP",
+        "mlbTeam": "NYY",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "George Soriano",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/6/26 1:57 AM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "4/6/26",
+    "players": [
+      {
+        "name": "Kyle Isbel",
+        "pos": "CF",
+        "mlbTeam": "KC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Brenton Doyle",
+        "pos": "CF",
+        "mlbTeam": "COL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "effective": "4/5/26",
+    "players": [
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Slade Cecconi",
+        "pos": "SP",
+        "mlbTeam": "CLE",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/5/26",
+    "players": [
+      {
+        "name": "Joe Boyle",
+        "pos": "SP",
+        "mlbTeam": "TB",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Cristian Javier",
+        "pos": "SP",
+        "mlbTeam": "HOU",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "4/5/26",
+    "players": [
+      {
+        "name": "Jose Fernandez",
+        "pos": "SS",
+        "mlbTeam": "ARI",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jose Alvarado",
+        "pos": "RP",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "4/5/26",
+    "players": [
+      {
+        "name": "J.T. Realmuto",
+        "pos": "C",
+        "mlbTeam": "PHI",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "4/5/26",
+    "players": [
+      {
+        "name": "Jesus Sanchez",
+        "pos": "LF,RF",
+        "mlbTeam": "TOR",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "effective": "4/5/26",
+    "players": [
+      {
+        "name": "Andres Gimenez",
+        "pos": "2B,SS",
+        "mlbTeam": "TOR",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "effective": "4/5/26",
+    "players": [
+      {
+        "name": "Andres Gimenez",
+        "pos": "2B,SS",
+        "mlbTeam": "TOR",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jorge Polanco",
+        "pos": "2B",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/4/26 3:40 PM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "4/5/26",
+    "players": [
+      {
+        "name": "Joe Musgrove",
+        "pos": "SP",
+        "mlbTeam": "SD",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/4/26 3:06 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/4/26",
+    "players": [
+      {
+        "name": "TJ Rumfield",
+        "pos": "1B",
+        "mlbTeam": "COL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Carson Williams",
+        "pos": "SS",
+        "mlbTeam": "TB",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/4/26 3:06 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/4/26",
+    "players": [
+      {
+        "name": "Graham Ashcraft",
+        "pos": "RP",
+        "mlbTeam": "CIN",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/4/26 3:06 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/4/26",
+    "players": [
+      {
+        "name": "Graham Ashcraft",
+        "pos": "RP",
+        "mlbTeam": "CIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Chris Martin",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/4/26 3:06 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/4/26",
+    "players": [
+      {
+        "name": "Bryan Baker",
+        "pos": "RP",
+        "mlbTeam": "TB",
+        "action": "Activated"
+      }
+    ]
+  },
+  {
+    "date": "4/4/26 3:06 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "4/4/26",
+    "players": [
+      {
+        "name": "Bryan Baker",
+        "pos": "RP",
+        "mlbTeam": "TB",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Phil Maton",
+        "pos": "RP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/4/26 3:06 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "4/4/26",
+    "players": [
+      {
+        "name": "Aaron Ashby",
+        "pos": "RP",
+        "mlbTeam": "MIL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Caleb Durbin",
+        "pos": "3B",
+        "mlbTeam": "BOS",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/4/26 3:06 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "4/4/26",
+    "players": [
+      {
+        "name": "Caleb Kilian",
+        "pos": "SP,RP",
+        "mlbTeam": "SF",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Emmet Sheehan",
+        "pos": "SP",
+        "mlbTeam": "LAD",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/3/26 2:03 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/3/26",
+    "players": [
+      {
+        "name": "Paul Sewald",
+        "pos": "RP",
+        "mlbTeam": "ARI",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Kevin Ginkel",
+        "pos": "RP",
+        "mlbTeam": "ARI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/2/26 10:47 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "4/2/26",
+    "players": [
+      {
+        "name": "Willy Adames",
+        "pos": "SS",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/1/26 2:51 PM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "4/2/26",
+    "players": [
+      {
+        "name": "Hogan Harris",
+        "pos": "RP",
+        "mlbTeam": "ATH",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "4/1/26 2:50 PM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "4/2/26",
+    "players": [
+      {
+        "name": "Taj Bradley",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "action": "Added"
+      },
+      {
+        "name": "Payton Tolle",
+        "pos": "RP",
+        "mlbTeam": "BOS",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "4/1/26 2:46 PM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "4/2/26",
+    "players": [
+      {
+        "name": "Colt Keith",
+        "pos": "2B,3B",
+        "mlbTeam": "DET",
+        "action": "Added"
+      },
+      {
+        "name": "Josh Jung",
+        "pos": "3B",
+        "mlbTeam": "TEX",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/31/26 10:39 PM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "4/1/26",
+    "players": [
+      {
+        "name": "Owen Caissie",
+        "pos": "RF",
+        "mlbTeam": "MIA",
+        "action": "Added"
+      },
+      {
+        "name": "Noelvi Marte",
+        "pos": "3B,RF",
+        "mlbTeam": "CIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/31/26 8:48 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/31/26",
+    "players": [
+      {
+        "name": "Lance McCullers",
+        "pos": "SP",
+        "mlbTeam": "HOU",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/31/26 2:19 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/31/26",
+    "players": [
+      {
+        "name": "Randy Vasquez",
+        "pos": "SP",
+        "mlbTeam": "SD",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/31/26 2:14 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/31/26",
+    "players": [
+      {
+        "name": "Logan Henderson",
+        "pos": "SP",
+        "mlbTeam": "MIL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/30/26 6:29 PM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "3/31/26",
+    "players": [
+      {
+        "name": "Kyle Manzardo",
+        "pos": "1B",
+        "mlbTeam": "CLE",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/30/26 6:23 PM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "3/31/26",
+    "players": [
+      {
+        "name": "Jordan Walker",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/30/26 9:19 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "3/30/26",
+    "players": [
+      {
+        "name": "Cole Sands",
+        "pos": "RP",
+        "mlbTeam": "MIN",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/30/26 9:18 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "3/30/26",
+    "players": [
+      {
+        "name": "Anthony Volpe",
+        "pos": "SS",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/29/26 11:29 PM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "effective": "3/30/26",
+    "players": [
+      {
+        "name": "Royce Lewis",
+        "pos": "3B",
+        "mlbTeam": "MIN",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/29/26 10:21 PM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "3/30/26",
+    "players": [
+      {
+        "name": "Emerson Hancock",
+        "pos": "SP",
+        "mlbTeam": "SEA",
+        "action": "Added"
+      },
+      {
+        "name": "Jacob Latz",
+        "pos": "SP,RP",
+        "mlbTeam": "TEX",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/28/26 10:59 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/29/26",
+    "players": [
+      {
+        "name": "Erik Sabrowski",
+        "pos": "RP",
+        "mlbTeam": "CLE",
+        "action": "Added"
+      },
+      {
+        "name": "Carlos Estevez",
+        "pos": "RP",
+        "mlbTeam": "KC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/27/26 3:15 PM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "3/27/26",
+    "players": [
+      {
+        "name": "George Lombard",
+        "pos": "SS",
+        "mlbTeam": "NYY",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/27/26 3:12 PM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "3/27/26",
+    "players": [
+      {
+        "name": "Tanner McDougal",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/27/26 3:10 PM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "3/27/26",
+    "players": [
+      {
+        "name": "Jordan Romano",
+        "pos": "RP",
+        "mlbTeam": "LAA",
+        "action": "Added"
+      },
+      {
+        "name": "Louie Varland",
+        "pos": "RP",
+        "mlbTeam": "TOR",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/27/26 9:34 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "3/27/26",
+    "players": [
+      {
+        "name": "Javier Assad",
+        "pos": "SP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/27/26 2:43 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "3/27/26",
+    "players": [
+      {
+        "name": "Javier Assad",
+        "pos": "SP",
+        "mlbTeam": "CHC",
+        "action": "Added off Waivers"
+      }
+    ]
+  },
+  {
+    "date": "3/26/26 11:24 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/26/26",
+    "players": [
+      {
+        "name": "A.J. Minter",
+        "pos": "RP",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/26/26 7:32 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "3/26/26",
+    "players": [
+      {
+        "name": "Tyler Mahle",
+        "pos": "SP",
+        "mlbTeam": "SF",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 10:46 PM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "3/26/26",
+    "players": [
+      {
+        "name": "Carson Williams",
+        "pos": "SS",
+        "mlbTeam": "TB",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 2:58 PM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Jose Alvarado",
+        "pos": "RP",
+        "mlbTeam": "PHI",
+        "action": "Added"
+      },
+      {
+        "name": "Gabe Speier",
+        "pos": "RP",
+        "mlbTeam": "SEA",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 2:55 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "A.J. Minter",
+        "pos": "RP",
+        "mlbTeam": "NYM",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 2:55 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Andrew Kittredge",
+        "pos": "RP",
+        "mlbTeam": "BAL",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 2:52 PM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Ryan Zeferjahn",
+        "pos": "RP",
+        "mlbTeam": "LAA",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 2:52 PM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Jorge Polanco",
+        "pos": "2B",
+        "mlbTeam": "NYM",
+        "action": "Added"
+      },
+      {
+        "name": "Brayan Bello",
+        "pos": "SP",
+        "mlbTeam": "BOS",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 2:51 PM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Yusei Kikuchi",
+        "pos": "SP",
+        "mlbTeam": "LAA",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 2:51 PM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Orion Kerkering",
+        "pos": "RP",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 2:50 PM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Jack Dreyer",
+        "pos": "SP,RP",
+        "mlbTeam": "LAD",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 2:48 PM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Mike Soroka",
+        "pos": "SP",
+        "mlbTeam": "ARI",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 2:24 PM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Dylan Lee",
+        "pos": "RP",
+        "mlbTeam": "ATL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 1:37 PM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Chris Martin",
+        "pos": "RP",
+        "mlbTeam": "TEX",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 9:20 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Trent Grisham",
+        "pos": "CF",
+        "mlbTeam": "NYY",
+        "action": "Added"
+      },
+      {
+        "name": "Andrew Benintendi",
+        "pos": "LF",
+        "mlbTeam": "CHW",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 9:18 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Andrew Benintendi",
+        "pos": "LF",
+        "mlbTeam": "CHW",
+        "action": "Added"
+      },
+      {
+        "name": "Andrew Vaughn",
+        "pos": "1B",
+        "mlbTeam": "MIL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/25/26 9:04 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Ha-seong Kim",
+        "pos": "SS",
+        "mlbTeam": "ATL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/24/26 12:56 PM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Hunter Barco",
+        "pos": "RP",
+        "mlbTeam": "PIT",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/24/26 12:54 PM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Marcelo Mayer",
+        "pos": "2B,3B",
+        "mlbTeam": "BOS",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/24/26 12:47 PM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Jared Koenig",
+        "pos": "RP",
+        "mlbTeam": "MIL",
+        "action": "Added"
+      },
+      {
+        "name": "Jose Ferrer",
+        "pos": "RP",
+        "mlbTeam": "SEA",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/24/26 12:45 PM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Matt Strahm",
+        "pos": "RP",
+        "mlbTeam": "KC",
+        "action": "Added"
+      },
+      {
+        "name": "Edwin Uceta",
+        "pos": "RP",
+        "mlbTeam": "TB",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/24/26 12:34 PM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Bryan King",
+        "pos": "RP",
+        "mlbTeam": "HOU",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/24/26 11:56 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Johan Oviedo",
+        "pos": "SP",
+        "mlbTeam": "BOS",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/24/26 10:07 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Javier Assad",
+        "pos": "SP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/24/26 10:07 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Shane Drohan",
+        "pos": "SP",
+        "mlbTeam": "MIL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/24/26 10:05 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Carson Whisenhunt",
+        "pos": "SP",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/24/26 10:04 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Cade Smith",
+        "pos": "SP",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/24/26 10:04 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Josue Briceno",
+        "pos": "C",
+        "mlbTeam": "DET",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/24/26 10:03 AM ET",
+    "teamId": "",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Jose Butto",
+        "pos": "RP",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/24/26 1:22 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Nasim Nunez",
+        "pos": "2B,SS",
+        "mlbTeam": "WAS",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/23/26 10:00 PM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Ben Joyce",
+        "pos": "RP",
+        "mlbTeam": "LAA",
+        "action": "Added"
+      },
+      {
+        "name": "Brooks Raley",
+        "pos": "RP",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/23/26 1:30 PM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Coby Mayo",
+        "pos": "1B,3B",
+        "mlbTeam": "BAL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/23/26 1:24 PM ET",
+    "teamId": "8",
+    "teamName": "Ballesteros, Let the Rhythm Take You Over",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Evan Carter",
+        "pos": "CF",
+        "mlbTeam": "TEX",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/23/26 9:22 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Royce Lewis",
+        "pos": "3B",
+        "mlbTeam": "MIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/23/26 1:09 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Alec Bohm",
+        "pos": "3B",
+        "mlbTeam": "PHI",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Carlos Lagrange",
+        "pos": "SP",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/23/26 1:09 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Royce Lewis",
+        "pos": "3B",
+        "mlbTeam": "MIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jasson Dominguez",
+        "pos": "LF",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/22/26 5:44 PM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Willi Castro",
+        "pos": "2B,3B,LF,RF",
+        "mlbTeam": "COL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/21/26 10:13 PM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "George Soriano",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/21/26 11:24 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Trent Grisham",
+        "pos": "CF",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/21/26 11:22 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Otto Lopez",
+        "pos": "2B,SS",
+        "mlbTeam": "MIA",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/21/26 12:45 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Didier Fuentes",
+        "pos": "SP",
+        "mlbTeam": "ATL",
+        "action": "Added"
+      },
+      {
+        "name": "Roki Sasaki",
+        "pos": "SP",
+        "mlbTeam": "LAD",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/21/26 12:09 AM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "David Peterson",
+        "pos": "SP",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/21/26 12:06 AM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Jung Hoo Lee",
+        "pos": "CF,RF",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/20/26 11:16 PM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Jorge Polanco",
+        "pos": "2B",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/20/26 10:36 PM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Jameson Taillon",
+        "pos": "SP",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/20/26 10:31 PM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Alec Bohm",
+        "pos": "3B",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/20/26 7:07 PM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Luis Arraez",
+        "pos": "1B,2B",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/20/26 7:06 PM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Royce Lewis",
+        "pos": "3B",
+        "mlbTeam": "MIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/20/26 7:06 PM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Jeff McNeil",
+        "pos": "2B,CF",
+        "mlbTeam": "ATH",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/20/26 7:04 PM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Yusei Kikuchi",
+        "pos": "SP",
+        "mlbTeam": "LAA",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/20/26 7:04 PM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Joey Cantillo",
+        "pos": "SP,RP",
+        "mlbTeam": "CLE",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/20/26 1:11 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Carlos Lagrange",
+        "pos": "SP",
+        "mlbTeam": "NYY",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 11:27 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "George Lombard",
+        "pos": "SS",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 11:17 PM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Alfredo Duno",
+        "pos": "C",
+        "mlbTeam": "CIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 2:35 PM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Matt Strahm",
+        "pos": "RP",
+        "mlbTeam": "KC",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 11:44 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Nolan Schanuel",
+        "pos": "1B",
+        "mlbTeam": "LAA",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 11:40 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Sean Manaea",
+        "pos": "SP",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 7:55 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Adolis Garcia",
+        "pos": "RF",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 7:25 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Max Meyer",
+        "pos": "SP",
+        "mlbTeam": "MIA",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 7:24 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Giancarlo Stanton",
+        "pos": "DH",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 7:24 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Tyler Stephenson",
+        "pos": "C",
+        "mlbTeam": "CIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 7:23 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Spencer Arrighetti",
+        "pos": "SP",
+        "mlbTeam": "HOU",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 3:16 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Camilo Doval",
+        "pos": "RP",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 3:16 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Colt Keith",
+        "pos": "2B,3B",
+        "mlbTeam": "DET",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 3:14 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Shawn Armstrong",
+        "pos": "RP",
+        "mlbTeam": "CLE",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 3:06 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Nasim Nunez",
+        "pos": "2B,SS",
+        "mlbTeam": "WAS",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 3:05 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Carson Williams",
+        "pos": "SS",
+        "mlbTeam": "TB",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/19/26 1:23 AM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Braxton Garrett",
+        "pos": "SP",
+        "mlbTeam": "MIA",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/18/26 10:06 PM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Jordan Beck",
+        "pos": "LF,RF",
+        "mlbTeam": "COL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/18/26 10:05 PM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "TJ Rumfield",
+        "pos": "1B",
+        "mlbTeam": "COL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/18/26 10:14 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Joe Boyle",
+        "pos": "SP",
+        "mlbTeam": "TB",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/17/26 1:54 PM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Graham Ashcraft",
+        "pos": "RP",
+        "mlbTeam": "CIN",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/17/26 12:49 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Chad Patrick",
+        "pos": "SP",
+        "mlbTeam": "MIL",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/17/26 12:43 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Nasim Nunez",
+        "pos": "2B,SS",
+        "mlbTeam": "WAS",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/17/26 12:38 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Nick Kurtz",
+        "pos": "1B",
+        "mlbTeam": "ATH",
+        "action": "Traded from Okamotomami"
+      },
+      {
+        "name": "Nick Lodolo",
+        "pos": "SP",
+        "mlbTeam": "CIN",
+        "action": "Traded from Okamotomami"
+      }
+    ]
+  },
+  {
+    "date": "3/17/26 12:38 PM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Jac Caglianone",
+        "pos": "RF",
+        "mlbTeam": "KC",
+        "action": "Traded from Colonel Corbin's Ascent"
+      },
+      {
+        "name": "Vladimir Guerrero Jr.",
+        "pos": "1B",
+        "mlbTeam": "TOR",
+        "action": "Traded from Colonel Corbin's Ascent"
+      },
+      {
+        "name": "Kazuma Okamoto",
+        "pos": "3B",
+        "mlbTeam": "TOR",
+        "action": "Traded from Colonel Corbin's Ascent"
+      }
+    ]
+  },
+  {
+    "date": "3/16/26 1:42 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Phil Maton",
+        "pos": "RP",
+        "mlbTeam": "CHC",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/16/26 12:55 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Ryan Sloan",
+        "pos": "SP",
+        "mlbTeam": "SEA",
+        "action": "Added"
+      },
+      {
+        "name": "Hogan Harris",
+        "pos": "RP",
+        "mlbTeam": "ATH",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/16/26 12:10 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Bryson Stott",
+        "pos": "2B",
+        "mlbTeam": "PHI",
+        "action": "Added"
+      },
+      {
+        "name": "Owen Caissie",
+        "pos": "RF",
+        "mlbTeam": "MIA",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/15/26 7:26 PM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Lars Nootbaar",
+        "pos": "LF,RF",
+        "mlbTeam": "STL",
+        "action": "Dropped"
+      }
+    ]
+  },
+  {
+    "date": "3/15/26 5:18 PM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Joe Boyle",
+        "pos": "SP",
+        "mlbTeam": "TB",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/15/26 5:15 PM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "Dylan Lee",
+        "pos": "RP",
+        "mlbTeam": "ATL",
+        "action": "Added"
+      }
+    ]
+  },
+  {
+    "date": "3/14/26 3:28 PM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "effective": "3/25/26",
+    "players": [
+      {
+        "name": "C.J. Abrams",
+        "pos": "SS",
+        "mlbTeam": "WAS",
+        "action": "Added"
+      },
+      {
+        "name": "David Bednar",
+        "pos": "RP",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ]
+  }
+]
