@@ -25,6 +25,7 @@ TEAM_IDS = {
     "Buddy Buddy Buddy All On Base": 5,
     "A Pete Crow-Armstrong Looked at Me": 6,
     "Whoop Whoop that's the sound of Dylan Cease": 7,
+    "Everythings McGonigle Green": 7,
     "Ballesteros, Let the Rhythm Take You Over": 8,
     "Yesavage Garden": 9,
     "Blame it on the Rainiel": 10,

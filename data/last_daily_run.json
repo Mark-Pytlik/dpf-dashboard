@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-07T16:29:08.795546Z",
+  "completedAt": "2026-05-08T13:17:24.085662Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -13,9 +13,10 @@
   },
   "notes": [
     "Phase A: stuffplus skipped (pybaseball not installed; non-fatal)",
-    "Phase B: 262 raw transactions across 12 teams; merge_tx cleaned to 244",
-    "Phase B: 12 rosters scraped (389 total players), roster_sync added 13 synthetic txns",
-    "Phase B: trades-recent and transactions/trade pages had 0 rows (no recent trades)",
-    "Phase B: period 3 (Apr 27-May 10) Okamotomami vs A Pete Crow-Armstrong Looked at Me, score 8-8"
+    "Phase A: 252 injuries, 50 player news items",
+    "Phase B: 292 raw transactions from /transactions?print_rows=9999, cleaner reduced to 231",
+    "Phase B: 12 rosters scraped (386 total players); roster_sync skipped per current SKILL guidance",
+    "Phase B: period 3 (Apr 27 - May 10) Okamotomami vs A Pete Crow-Armstrong Looked at Me, score 8.0-8.0",
+    "Phase B: standings unchanged from prior run (no completed matchups since)"
   ]
 }
