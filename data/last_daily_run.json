@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-08T16:16:42.328178Z",
+  "completedAt": "2026-05-10T13:19:10.567586Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,14 +12,11 @@
     "matchup": "ok"
   },
   "notes": [
-    "Phase A: stuffplus skipped (pybaseball not installed; non-fatal)",
-    "Phase A: 251 injuries, 50 player news items",
-    "Phase B: CBS auth via dpf.baseball.cbssports.com (skill URL pattern is outdated; actual league subdomain works)",
-    "Phase B: 292 raw transactions; merge_tx cleaned to 229 + roster_sync added 287 synthetics \u2192 516 total",
-    "Phase B: 12 rosters scraped (386 total players)",
-    "Phase B: period 3 (Apr 27 - May 10) Okamotomami vs A Pete Crow-Armstrong Looked at Me, scoreboard 8.0-8.0",
-    "Phase B: visible matchup table showed only 10 cats (BA/HR/RBI/R/SB/K/ERA/WHIP/W/S); 6 cats from prior run preserved as stale",
-    "Phase B: standings: 4 teams 2-0-0, 4 teams 1-1-0, 4 teams 0-2-0",
-    "No new transaction action types observed."
+    "fetch_stuffplus.py 403'd on FanGraphs (expected/non-fatal)",
+    "Period 3 (Apr 27 - May 10), Okamotomami 9-7 vs PCA",
+    "roster_sync detected 7 missing-add and 8 ghost-drop reconciliations (synthetic txns added)",
+    "Scraped 272 transactions across teams 1-12 (cleaner consolidated to 251)",
+    "Trades page not separately scraped; trades captured via per-team transaction pages (Traded from <Team> action)",
+    "player_news scraped 48 unique items across 5 pages (5 pages requested, 48 unique after dedup)"
   ]
 }

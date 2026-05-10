@@ -1,0 +1,15 @@
+[
+{"date":"5/10/26 2:35 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"effective":"5/10/26","players":[{"name":"Anthony Eyanson","pos":"SP","mlbTeam":"BOS","action":"Added off Waivers"},{"name":"Brody Hopkins","pos":"SP","mlbTeam":"TB","action":"Dropped"}]},
+{"date":"5/5/26 2:44 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"effective":"5/5/26","players":[{"name":"Daniel Lynch","pos":"RP","mlbTeam":"KC","action":"Activated"}]},
+{"date":"5/5/26 2:44 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"effective":"5/5/26","players":[{"name":"Daniel Lynch","pos":"RP","mlbTeam":"KC","action":"Added off Waivers"},{"name":"Taylor Rogers","pos":"RP","mlbTeam":"MIN","action":"Dropped"}]},
+{"date":"4/22/26 12:34 PM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"effective":"4/23/26","players":[{"name":"David Peterson","pos":"SP","mlbTeam":"NYM","action":"Dropped"}]},
+{"date":"4/15/26 1:46 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"effective":"4/15/26","players":[{"name":"David Peterson","pos":"SP","mlbTeam":"NYM","action":"Added off Waivers"},{"name":"Chris Bassitt","pos":"SP","mlbTeam":"BAL","action":"Dropped"}]},
+{"date":"4/15/26 1:46 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"effective":"4/15/26","players":[{"name":"Angel Martinez","pos":"2B,LF,CF,RF","mlbTeam":"CLE","action":"Activated"}]},
+{"date":"4/15/26 1:46 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"effective":"4/15/26","players":[{"name":"Angel Martinez","pos":"2B,LF,CF,RF","mlbTeam":"CLE","action":"Added off Waivers"},{"name":"Andres Gimenez","pos":"2B,SS","mlbTeam":"TOR","action":"Dropped"}]},
+{"date":"4/5/26 1:48 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"effective":"4/5/26","players":[{"name":"Mitch Keller","pos":"SP","mlbTeam":"PIT","action":"Added off Waivers"},{"name":"Slade Cecconi","pos":"SP","mlbTeam":"CLE","action":"Dropped"}]},
+{"date":"4/5/26 1:48 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"effective":"4/5/26","players":[{"name":"Andres Gimenez","pos":"2B,SS","mlbTeam":"TOR","action":"Activated"}]},
+{"date":"4/5/26 1:48 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"effective":"4/5/26","players":[{"name":"Andres Gimenez","pos":"2B,SS","mlbTeam":"TOR","action":"Added off Waivers"},{"name":"Jorge Polanco","pos":"2B","mlbTeam":"NYM","action":"Dropped"}]},
+{"date":"3/25/26 2:52 PM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"effective":"3/25/26","players":[{"name":"Jorge Polanco","pos":"2B","mlbTeam":"NYM","action":"Added"},{"name":"Brayan Bello","pos":"SP","mlbTeam":"BOS","action":"Dropped"}]},
+{"date":"3/25/26 2:51 PM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"effective":"3/25/26","players":[{"name":"Orion Kerkering","pos":"RP","mlbTeam":"PHI","action":"Dropped"}]},
+{"date":"3/24/26 10:07 AM ET","teamName":"Dinosaur Jr Caminero","teamId":2,"effective":"3/25/26","players":[{"name":"Shane Drohan","pos":"SP","mlbTeam":"MIL","action":"Dropped"}]}
+]
