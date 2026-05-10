@@ -1,5 +1,416 @@
 [
   {
+    "date": "5/10/26 2:35 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "Anthony Eyanson",
+        "pos": "SP",
+        "mlbTeam": "BOS",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Brody Hopkins",
+        "pos": "SP",
+        "mlbTeam": "TB",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/10/26"
+  },
+  {
+    "date": "5/10/26 2:35 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Brooks Lee",
+        "pos": "2B,3B,SS",
+        "mlbTeam": "MIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Lazaro Montes",
+        "pos": "RF",
+        "mlbTeam": "SEA",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/10/26"
+  },
+  {
+    "date": "5/10/26 2:35 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "players": [
+      {
+        "name": "Addison Barger",
+        "pos": "3B,RF",
+        "mlbTeam": "TOR",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Matt Chapman",
+        "pos": "3B",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/10/26"
+  },
+  {
+    "date": "5/10/26 2:35 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "players": [
+      {
+        "name": "Kevin Kelly",
+        "pos": "RP",
+        "mlbTeam": "TB",
+        "action": "Activated"
+      },
+      {
+        "name": "Bennett Sousa",
+        "pos": "RP",
+        "mlbTeam": "HOU",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/10/26"
+  },
+  {
+    "date": "5/10/26 2:35 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "players": [
+      {
+        "name": "Michael McGreevy",
+        "pos": "SP",
+        "mlbTeam": "STL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Ramon Laureano",
+        "pos": "LF,RF",
+        "mlbTeam": "SD",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/10/26"
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "2",
+    "team": "Dinosaur Jr Caminero",
+    "teamName": "Dinosaur Jr Caminero",
+    "synthetic": true,
+    "note": "roster_sync: was Dropped on 5/10/26 2:35 AM ET",
+    "players": [
+      {
+        "name": "Brody Hopkins",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "3",
+    "team": "Colonel Corbin's Ascent",
+    "teamName": "Colonel Corbin's Ascent",
+    "synthetic": true,
+    "note": "roster_sync: was Dropped on 5/10/26 2:35 AM ET",
+    "players": [
+      {
+        "name": "Lazaro Montes",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "5",
+    "team": "Buddy Buddy Buddy All On Base",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "synthetic": true,
+    "note": "roster_sync: was Dropped on 5/9/26 6:42 AM ET",
+    "players": [
+      {
+        "name": "Reynaldo Lopez",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "6",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "synthetic": true,
+    "note": "roster_sync: was Dropped on 5/9/26 7:35 AM ET",
+    "players": [
+      {
+        "name": "Rhett Lowder",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "9",
+    "team": "Yesavage Garden",
+    "teamName": "Yesavage Garden",
+    "synthetic": true,
+    "note": "roster_sync: was Dropped on 5/10/26 2:35 AM ET",
+    "players": [
+      {
+        "name": "Matt Chapman",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "10",
+    "team": "Blame it on the Rainiel",
+    "teamName": "Blame it on the Rainiel",
+    "synthetic": true,
+    "note": "roster_sync: was Dropped on 5/10/26 2:35 AM ET",
+    "players": [
+      {
+        "name": "Bennett Sousa",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "12",
+    "team": "Popped A Mahle I'm Sweating",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "synthetic": true,
+    "note": "roster_sync: was Dropped on 5/10/26 2:35 AM ET",
+    "players": [
+      {
+        "name": "Ramon Laureano",
+        "action": "Added",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "3",
+    "team": "Colonel Corbin's Ascent",
+    "teamName": "Colonel Corbin's Ascent",
+    "synthetic": true,
+    "note": "roster_sync: not on any CBS roster",
+    "players": [
+      {
+        "name": "Jack Dreyer",
+        "action": "Dropped",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "9",
+    "team": "Yesavage Garden",
+    "teamName": "Yesavage Garden",
+    "synthetic": true,
+    "note": "roster_sync: not on any CBS roster",
+    "players": [
+      {
+        "name": "Addison Barger",
+        "action": "Dropped",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "3",
+    "team": "Colonel Corbin's Ascent",
+    "teamName": "Colonel Corbin's Ascent",
+    "synthetic": true,
+    "note": "roster_sync: not on any CBS roster",
+    "players": [
+      {
+        "name": "Marcus Semien",
+        "action": "Dropped",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "10",
+    "team": "Blame it on the Rainiel",
+    "teamName": "Blame it on the Rainiel",
+    "synthetic": true,
+    "note": "roster_sync: not on any CBS roster",
+    "players": [
+      {
+        "name": "Braden Montgomery",
+        "action": "Dropped",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "2",
+    "team": "Dinosaur Jr Caminero",
+    "teamName": "Dinosaur Jr Caminero",
+    "synthetic": true,
+    "note": "roster_sync: not on any CBS roster",
+    "players": [
+      {
+        "name": "Anthony Eyanson",
+        "action": "Dropped",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "6",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "synthetic": true,
+    "note": "roster_sync: not on any CBS roster",
+    "players": [
+      {
+        "name": "Brent Headrick",
+        "action": "Dropped",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "3",
+    "team": "Colonel Corbin's Ascent",
+    "teamName": "Colonel Corbin's Ascent",
+    "synthetic": true,
+    "note": "roster_sync: not on any CBS roster",
+    "players": [
+      {
+        "name": "Brooks Lee",
+        "action": "Dropped",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 12:00 AM ET",
+    "teamId": "12",
+    "team": "Popped A Mahle I'm Sweating",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "synthetic": true,
+    "note": "roster_sync: not on any CBS roster",
+    "players": [
+      {
+        "name": "Michael McGreevy",
+        "action": "Dropped",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/9/26 7:35 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "players": [
+      {
+        "name": "Rhett Lowder",
+        "pos": "SP",
+        "mlbTeam": "CIN",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/9/26"
+  },
+  {
+    "date": "5/9/26 6:42 AM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "players": [
+      {
+        "name": "Reynaldo Lopez",
+        "pos": "SP",
+        "mlbTeam": "ATL",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/9/26"
+  },
+  {
+    "date": "5/9/26 2:33 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Marcus Semien",
+        "pos": "2B",
+        "mlbTeam": "NYM",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jack Dreyer",
+        "pos": "SP,RP",
+        "mlbTeam": "LAD",
+        "action": "Added off Waivers"
+      }
+    ],
+    "effective": "5/9/26"
+  },
+  {
+    "date": "5/9/26 2:33 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "players": [
+      {
+        "name": "Brent Headrick",
+        "pos": "RP",
+        "mlbTeam": "NYY",
+        "action": "Added off Waivers"
+      }
+    ],
+    "effective": "5/9/26"
+  },
+  {
+    "date": "5/9/26 2:33 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "players": [
+      {
+        "name": "Braden Montgomery",
+        "pos": "CF",
+        "mlbTeam": "CHW",
+        "action": "Added off Waivers"
+      }
+    ],
+    "effective": "5/9/26"
+  },
+  {
     "date": "5/8/26 8:40 AM ET",
     "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
@@ -53,341 +464,119 @@
   {
     "date": "5/8/26 12:00 AM ET",
     "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
     "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Adley Rutschman",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Freddie Freeman",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Luke Keaschall",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Manny Machado",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Colson Montgomery",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Chandler Simpson",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Mike Trout",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ryan O'Hearn",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Kyle Schwarber",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Travis Bazzana",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Justin Crawford",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ceddanne Rafaela",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Teoscar Hernandez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Josue De Paula",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Braxton Ashcraft",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Dylan Cease",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Parker Messick",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Cameron Schlittler",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Spencer Strider",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Dennis Santana",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: was Dropped on 3/24/26 10:04 AM ET",
-    "players": [
+      },
       {
         "name": "Cade Smith",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Andrew Painter",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Trevor Rogers",
         "action": "Added",
@@ -398,431 +587,149 @@
   {
     "date": "5/8/26 12:00 AM ET",
     "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
     "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
+    "team": "Dinosaur Jr Caminero",
     "players": [
       {
         "name": "Samuel Basallo",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Yandy Diaz",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Junior Caminero",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Gunnar Henderson",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Taylor Ward",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Julio Rodriguez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Fernando Tatis Jr.",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Munetaka Murakami",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Willson Contreras",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Brandon Nimmo",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Kyle Teel",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jackson Holliday",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Josuar De Jesus Gonzalez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Leo De Vries",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Aidan Miller",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Max Fried",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Kyle Harrison",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Cristopher Sanchez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ranger Suarez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Tyler Holton",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Grant Taylor",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Alex Vesia",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Garrett Whitlock",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Bubba Chandler",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Michael Wacha",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Zack Wheeler",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jacob deGrom",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Josh Hader",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "2",
-    "team": "Dinosaur Jr Caminero",
-    "teamName": "Dinosaur Jr Caminero",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Brody Hopkins",
         "action": "Added",
@@ -833,266 +740,94 @@
   {
     "date": "5/8/26 12:00 AM ET",
     "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
     "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Brice Turang",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "JJ Wetherholt",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Tyler Soderstrom",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jackson Chourio",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Corbin Carroll",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ben Rice",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Wyatt Langford",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Luis Robert",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Bryce Rainer",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Eduardo Quintero",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Sonny Gray",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jacob Misiorowski",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Robbie Ray",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Riley O'Brien",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Tanner Scott",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Tyler Glasnow",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Freddy Peralta",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Cole Ragans",
         "action": "Added",
@@ -1103,341 +838,119 @@
   {
     "date": "5/8/26 12:00 AM ET",
     "teamId": "4",
-    "team": "Okamotomami",
     "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Drake Baldwin",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Gleyber Torres",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Zachary Neto",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "James Wood",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jo Adell",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "George Springer",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ernie Clement",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jakob Marsee",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Austin Riley",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ethan Holliday",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Eli Willits",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Charlie Condon",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Max Clark",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Tanner Bibee",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Shane McClanahan",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jose Soriano",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Yoshinobu Yamamoto",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jhoan Duran",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Mason Miller",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Tyler Rogers",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "MacKenzie Gore",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Griffin Jax",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "4",
-    "team": "Okamotomami",
-    "teamName": "Okamotomami",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "JoJo Romero",
         "action": "Added",
@@ -1448,431 +961,149 @@
   {
     "date": "5/8/26 12:00 AM ET",
     "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Cal Raleigh",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Nico Hoerner",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Xander Bogaerts",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Alec Burleson",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Michael Harris",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Wilyer Abreu",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Yordan Alvarez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Josh Naylor",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jacob Wilson",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ian Happ",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ronald Acuna Jr.",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jacob Reimer",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Caleb Bonemer",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Kyle Bradish",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Michael King",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jesus Luzardo",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Chris Sale",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Bryan Abreu",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jason Adam",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Garrett Cleavinger",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Fernando Cruz",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Abner Uribe",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Reynaldo Lopez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jared Jones",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Casey Mize",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Matt Brash",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Robert Garcia",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Quinn Mathews",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Robby Snelling",
         "action": "Added",
@@ -1883,326 +1114,114 @@
   {
     "date": "5/8/26 12:00 AM ET",
     "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Hunter Goodman",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Sal Stewart",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Brendan Donovan",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Alex Bregman",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Elly De La Cruz",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Bryan Reynolds",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Pete Crow-Armstrong",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Mickey Moniak",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Bryce Harper",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Daylen Lile",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Mookie Betts",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Edwin Arroyo",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Colt Emerson",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jesus Made",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Sebastian Walcott",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Lucas Erceg",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Trevor Megill",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Rhett Lowder",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Bryan Woo",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Shane Bieber",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Blake Snell",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Edwin Diaz",
         "action": "Added",
@@ -2213,356 +1232,124 @@
   {
     "date": "5/8/26 12:00 AM ET",
     "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
+    "team": "Whoop Whoop that's the sound of Dylan Cease",
     "players": [
       {
         "name": "Salvador Perez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Spencer Torkelson",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Xavier Edwards",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jazz Chisholm",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Konnor Griffin",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Kyle Stowers",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Cody Bellinger",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Juan Soto",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Bo Bichette",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Agustin Ramirez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Geraldo Perdomo",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Kevin McGonigle",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Luis Pena",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Walker Jenkins",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Kris Bubic",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Brandon Sproat",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ryan Weathers",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Kenley Jansen",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Justin Sterner",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "George Kirby",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Raisel Iglesias",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Gerrit Cole",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Nick Pivetta",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "7",
-    "team": "Everythings McGonigle Green",
-    "teamName": "Everythings McGonigle Green",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Zebby Matthews",
         "action": "Added",
@@ -2573,341 +1360,119 @@
   {
     "date": "5/8/26 12:00 AM ET",
     "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Carter Jensen",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Vinnie Pasquantino",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Matt McLain",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Bobby Witt",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Dylan Beavers",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Steven Kwan",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Aaron Judge",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Moises Ballesteros",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Will Smith",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Brett Baty",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Kyle Tucker",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Eugenio Suarez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ralphy Velazquez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Zyhir Hope",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Emmanuel Rodriguez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Michael Burrows",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Zac Gallen",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Paul Skenes",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Logan Webb",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Daniel Palencia",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Garrett Crochet",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Clayton Beeter",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "8",
-    "team": "Ballesteros, Let the Rhythm Take You Over",
-    "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Thomas White",
         "action": "Added",
@@ -2918,356 +1483,124 @@
   {
     "date": "5/8/26 12:00 AM ET",
     "teamId": "9",
-    "team": "Yesavage Garden",
     "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "William Contreras",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Pete Alonso",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: was Dropped on 4/23/26 7:29 AM ET",
-    "players": [
+      },
       {
         "name": "Max Muncy",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Riley Greene",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Daulton Varsho",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jose Caballero",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jose Altuve",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Brent Rooker",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Matt Chapman",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jeremy Pena",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jett Williams",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Reid Detmers",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Clay Holmes",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Eury Perez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Seranthony Dominguez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jeff Hoffman",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Robert Suarez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Drew Rasmussen",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Joe Ryan",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Trey Yesavage",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Hunter Brown",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Carlos Rodon",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Grayson Rodriguez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "9",
-    "team": "Yesavage Garden",
-    "teamName": "Yesavage Garden",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Kade Anderson",
         "action": "Added",
@@ -3278,386 +1611,134 @@
   {
     "date": "5/8/26 12:00 AM ET",
     "teamId": "10",
-    "team": "Blame it on the Rainiel",
     "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Shea Langeliers",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Michael Busch",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ketel Marte",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Corey Seager",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Oneil Cruz",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ivan Herrera",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Dansby Swanson",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Roman Anthony",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jarren Duran",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jordan Lawlar",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Rainiel Rodriguez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ryan Waldschmidt",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Chase Burns",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Nathan Eovaldi",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Kevin Gausman",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Eduardo Rodriguez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Aroldis Chapman",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Brad Keller",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Bennett Sousa",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Sandy Alcantara",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Logan Gilbert",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Merrill Kelly",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Bryce Miller",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ryan Helsley",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Liam Doyle",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Hagen Smith",
         "action": "Added",
@@ -3668,356 +1749,124 @@
   {
     "date": "5/8/26 12:00 AM ET",
     "teamId": "11",
-    "team": "Before and After Shohei",
     "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Matt Olson",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ozzie Albies",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Maikel Garcia",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Andy Pages",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jackson Merrill",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Cam Smith",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Shohei Ohtani",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Ezequiel Tovar",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Chase DeLauter",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Seiya Suzuki",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Francisco Lindor",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Tommy Troy",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Spencer Jones",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Edward Cabrera",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Connelly Early",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: was Dropped on 3/14/26 3:28 PM ET",
-    "players": [
+      },
       {
         "name": "David Bednar",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Adrian Morejon",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Andres Munoz",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Gregory Soto",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Shane Baz",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Landen Roupp",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Hunter Greene",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Spencer Schwellenbach",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "11",
-    "team": "Before and After Shohei",
-    "teamName": "Before and After Shohei",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Tarik Skubal",
         "action": "Added",
@@ -4028,326 +1877,114 @@
   {
     "date": "5/8/26 12:00 AM ET",
     "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
     "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Jonathan Aranda",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Brandon Lowe",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jose Ramirez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Trea Turner",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Randy Arozarena",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Byron Buxton",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Sal Frelick",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Carson Benge",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Rafael Devers",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Bryce Eldridge",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Christian Yelich",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "A.J. Ewing",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Dylan Crews",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Shota Imanaga",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Nolan McLean",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Gavin Williams",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Tony Santillan",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Devin Williams",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Framber Valdez",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Tatsuya Imai",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Brandon Woodruff",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/8/26 12:00 AM ET",
-    "teamId": "12",
-    "team": "Popped A Mahle I'm Sweating",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
-    "players": [
+      },
       {
         "name": "Jonah Tong",
         "action": "Added",
@@ -8554,26 +6191,6 @@
   },
   {
     "date": "3/17/26 12:38 PM ET",
-    "teamId": "3",
-    "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
-    "players": [
-      {
-        "name": "Nick Kurtz",
-        "pos": "1B",
-        "mlbTeam": "ATH",
-        "action": "Traded from Okamotomami"
-      },
-      {
-        "name": "Nick Lodolo",
-        "pos": "SP",
-        "mlbTeam": "CIN",
-        "action": "Traded from Okamotomami"
-      }
-    ]
-  },
-  {
-    "date": "3/17/26 12:38 PM ET",
     "teamId": "4",
     "teamName": "Okamotomami",
     "team": "Okamotomami",
@@ -8595,6 +6212,26 @@
         "pos": "3B",
         "mlbTeam": "TOR",
         "action": "Traded from Colonel Corbin's Ascent"
+      }
+    ]
+  },
+  {
+    "date": "3/17/26 12:38 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Nick Kurtz",
+        "pos": "1B",
+        "mlbTeam": "ATH",
+        "action": "Traded from Okamotomami"
+      },
+      {
+        "name": "Nick Lodolo",
+        "pos": "SP",
+        "mlbTeam": "CIN",
+        "action": "Traded from Okamotomami"
       }
     ]
   },

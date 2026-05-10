@@ -5,128 +5,128 @@
   "opponent": "A Pete Crow-Armstrong Looked at Me",
   "opponentTeam": "A Pete Crow-Armstrong Looked at Me",
   "currentScore": {
-    "me": 8.0,
-    "opp": 8.0,
+    "me": 9.0,
+    "opp": 7.0,
     "tied": 0
   },
   "categoryBreakdown": {
     "BA": {
-      "me": "0.248",
-      "opp": "0.226",
+      "me": "0.254",
+      "opp": "0.234",
       "won": true,
       "lowerBetter": false
     },
     "HR": {
-      "me": "14",
-      "opp": "13",
+      "me": "16",
+      "opp": "14",
       "won": true,
       "lowerBetter": false
     },
     "RBI": {
-      "me": "45",
-      "opp": "39",
+      "me": "53",
+      "opp": "44",
       "won": true,
       "lowerBetter": false
     },
     "R": {
-      "me": "35",
-      "opp": "50",
+      "me": "47",
+      "opp": "54",
       "won": false,
       "lowerBetter": false
     },
     "SB": {
       "me": "3",
-      "opp": "7",
+      "opp": "9",
       "won": false,
       "lowerBetter": false
     },
+    "KO": {
+      "me": "98",
+      "opp": "90",
+      "won": false,
+      "lowerBetter": true
+    },
+    "OBP": {
+      "me": "0.339",
+      "opp": "0.321",
+      "won": true,
+      "lowerBetter": false
+    },
+    "SLG": {
+      "me": "0.415",
+      "opp": "0.414",
+      "won": true,
+      "lowerBetter": false
+    },
     "K": {
-      "me": "73",
-      "opp": "69",
+      "me": "93",
+      "opp": "80",
       "won": true,
       "lowerBetter": false
     },
     "ERA": {
-      "me": "4.5222",
-      "opp": "5.5301",
+      "me": "4.0876",
+      "opp": "5.8821",
       "won": true,
       "lowerBetter": true
     },
     "WHIP": {
-      "me": "1.4631",
-      "opp": "1.6747",
+      "me": "1.3984",
+      "opp": "1.6929",
       "won": true,
       "lowerBetter": true
     },
     "W": {
       "me": "3",
-      "opp": "6",
+      "opp": "7",
       "won": false,
       "lowerBetter": false
     },
     "S": {
-      "me": "1",
+      "me": "2",
       "opp": "4",
       "won": false,
       "lowerBetter": false
-    },
-    "KO": {
-      "me": "82",
-      "opp": "74",
-      "won": false,
-      "stale": true
-    },
-    "OBP": {
-      "me": "0.327",
-      "opp": "0.319",
-      "won": true,
-      "stale": true
-    },
-    "SLG": {
-      "me": "0.413",
-      "opp": "0.426",
-      "won": false,
-      "stale": true
     },
     "HD": {
       "me": "7",
       "opp": "1",
       "won": true,
-      "stale": true
+      "lowerBetter": false
     },
     "HRA": {
-      "me": "9",
-      "opp": "8",
+      "me": "11",
+      "opp": "10",
       "won": false,
-      "stale": true
+      "lowerBetter": true
     },
     "QS": {
-      "me": "2",
+      "me": "3",
       "opp": "4",
       "won": false,
-      "stale": true
+      "lowerBetter": false
     }
   },
-  "categoryNote": "10 visible categories (BA, HR, RBI, R, SB, K, ERA, WHIP, W, S); scoreboard score 8-8 reflects full league scoring",
+  "categoryNote": "16-cat breakdown from /scoring/standard; scoreboard score 9-7",
   "allMatchups": [
     {
       "home": {
         "team": "OMM",
-        "score": 8.0
+        "score": 9.0
       },
       "away": {
         "team": "PCA",
-        "score": 8.0
+        "score": 7.0
       }
     },
     {
       "home": {
         "team": "RESCAN",
-        "score": 8.0
+        "score": 7.5
       },
       "away": {
         "team": "Icculus",
-        "score": 8.0
+        "score": 8.5
       }
     },
     {
@@ -142,31 +142,31 @@
     {
       "home": {
         "team": "Fran",
-        "score": 8.0
+        "score": 12.5
       },
       "away": {
         "team": "Drew",
-        "score": 8.0
+        "score": 3.5
       }
     },
     {
       "home": {
         "team": "ROTH",
-        "score": 10.5
+        "score": 13.0
       },
       "away": {
         "team": "woba",
-        "score": 5.5
+        "score": 3.0
       }
     },
     {
       "home": {
         "team": "BBBaoB",
-        "score": 6.0
+        "score": 5.5
       },
       "away": {
         "team": "Milli",
-        "score": 10.0
+        "score": 10.5
       }
     }
   ],
@@ -280,5 +280,5 @@
       "streak": "L2"
     }
   ],
-  "lastUpdated": "2026-05-08"
+  "lastUpdated": "2026-05-10"
 }
