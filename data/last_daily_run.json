@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-10T13:19:10.567586Z",
+  "completedAt": "2026-05-10T16:22:29.776879Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,11 +12,10 @@
     "matchup": "ok"
   },
   "notes": [
-    "fetch_stuffplus.py 403'd on FanGraphs (expected/non-fatal)",
-    "Period 3 (Apr 27 - May 10), Okamotomami 9-7 vs PCA",
-    "roster_sync detected 7 missing-add and 8 ghost-drop reconciliations (synthetic txns added)",
-    "Scraped 272 transactions across teams 1-12 (cleaner consolidated to 251)",
-    "Trades page not separately scraped; trades captured via per-team transaction pages (Traded from <Team> action)",
-    "player_news scraped 48 unique items across 5 pages (5 pages requested, 48 unique after dedup)"
+    "stuff_plus fetch failed (pybaseball not installed) - non-fatal as expected",
+    "MLB stats unchanged from previous run (no games played yet today, or earlier run captured all data)",
+    "Added 8 synthetic transactions via roster_sync (3 NEW ADDs, 4 MISSING ADDs, 3 GHOST DROPs)",
+    "Period 3 ends today 5/10 - matchup unchanged from morning run (BA shifted 0.254\u21920.256)",
+    "All actions seen are recognized: Activated, Added, Added off Waivers, Dropped, Moved to IR, Traded from <Team>"
   ]
 }
