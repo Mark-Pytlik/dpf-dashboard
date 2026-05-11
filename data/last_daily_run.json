@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-10T16:22:29.776879Z",
+  "completedAt": "2026-05-11T13:32:49.352694Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -9,13 +9,12 @@
     "cbs_auth": "ok",
     "transactions": "ok",
     "rosters": "ok",
-    "matchup": "ok"
+    "matchup": "partial"
   },
   "notes": [
-    "stuff_plus fetch failed (pybaseball not installed) - non-fatal as expected",
-    "MLB stats unchanged from previous run (no games played yet today, or earlier run captured all data)",
-    "Added 8 synthetic transactions via roster_sync (3 NEW ADDs, 4 MISSING ADDs, 3 GHOST DROPs)",
-    "Period 3 ends today 5/10 - matchup unchanged from morning run (BA shifted 0.254\u21920.256)",
-    "All actions seen are recognized: Activated, Added, Added off Waivers, Dropped, Moved to IR, Traded from <Team>"
+    "Period 4 just started today (2026-05-11); no scoreboard yet, so allMatchups + categoryBreakdown left empty",
+    "Standings table fetched fresh; current opponent for Okamotomami is 'Popped A Mahle I'm Sweating'",
+    "fetch_stuffplus.py 403'd as expected (FanGraphs blocks); non-fatal",
+    "/trades subdomain redirects to league home \u2014 no open trades, trades show as 'Traded from X' in /transactions per-team feed"
   ]
 }
