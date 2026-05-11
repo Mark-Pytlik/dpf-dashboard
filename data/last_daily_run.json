@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-11T13:32:49.352694Z",
+  "completedAt": "2026-05-11T16:19:24.986008Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -9,12 +9,13 @@
     "cbs_auth": "ok",
     "transactions": "ok",
     "rosters": "ok",
-    "matchup": "partial"
+    "matchup": "ok"
   },
   "notes": [
-    "Period 4 just started today (2026-05-11); no scoreboard yet, so allMatchups + categoryBreakdown left empty",
-    "Standings table fetched fresh; current opponent for Okamotomami is 'Popped A Mahle I'm Sweating'",
-    "fetch_stuffplus.py 403'd as expected (FanGraphs blocks); non-fatal",
-    "/trades subdomain redirects to league home \u2014 no open trades, trades show as 'Traded from X' in /transactions per-team feed"
+    "fetch_stuffplus 403 from FanGraphs (expected, non-fatal)",
+    "Roster URL changed from /roster/N/ (trends page) to /teams/N (actual roster).",
+    "Used incremental diff for new_cbs_txns.json: 10 entries since 5/10, 1 truly new after dedup against cbs_transactions.json.",
+    "season_status: currentPeriod 4 ongoing since 5/11 (today); no category-level scores yet because period just started.",
+    "Standings unchanged from yesterday."
   ]
 }
