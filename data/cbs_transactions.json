@@ -1,5 +1,86 @@
 [
   {
+    "date": "5/11/26 2:41 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Henry Bolte",
+        "pos": "RF",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Dalton Rushing",
+        "pos": "C",
+        "mlbTeam": "LAD",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/11/26"
+  },
+  {
+    "date": "5/11/26 2:41 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "players": [
+      {
+        "name": "Pete Fairbanks",
+        "pos": "RP",
+        "mlbTeam": "MIA",
+        "action": "Added off Waivers"
+      }
+    ],
+    "effective": "5/11/26"
+  },
+  {
+    "date": "5/11/26 12:00 AM ET",
+    "teamId": "5",
+    "team": "Buddy Buddy Buddy All On Base",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "synthetic": true,
+    "note": "roster_sync: not on any CBS roster",
+    "players": [
+      {
+        "name": "Reynaldo Lopez",
+        "action": "Dropped",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/11/26 12:00 AM ET",
+    "teamId": "6",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "synthetic": true,
+    "note": "roster_sync: not on any CBS roster",
+    "players": [
+      {
+        "name": "Rhett Lowder",
+        "action": "Dropped",
+        "synthetic": true
+      }
+    ]
+  },
+  {
+    "date": "5/10/26 5:43 PM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "players": [
+      {
+        "name": "Spencer Jones",
+        "pos": "CF",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/11/26"
+  },
+  {
     "date": "5/10/26 10:49 AM ET",
     "teamId": "9",
     "teamName": "Yesavage Garden",
@@ -150,12 +231,12 @@
       },
       {
         "name": "Jack Dreyer",
-        "action": "Dropped",
+        "action": "Added",
         "synthetic": true
       },
       {
         "name": "Marcus Semien",
-        "action": "Dropped",
+        "action": "Added",
         "synthetic": true
       },
       {
@@ -191,7 +272,7 @@
       },
       {
         "name": "Brent Headrick",
-        "action": "Dropped",
+        "action": "Added",
         "synthetic": true
       }
     ]
@@ -227,7 +308,7 @@
       },
       {
         "name": "Braden Montgomery",
-        "action": "Dropped",
+        "action": "Added",
         "synthetic": true
       }
     ]
@@ -253,118 +334,16 @@
   {
     "date": "5/10/26 12:00 AM ET",
     "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
     "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: no prior transaction",
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Cam Schlittler",
         "action": "Added",
         "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/10/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: was Dropped on 5/10/26 12:00 AM ET",
-    "players": [
-      {
-        "name": "Marcus Semien",
-        "action": "Added",
-        "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/10/26 12:00 AM ET",
-    "teamId": "3",
-    "team": "Colonel Corbin's Ascent",
-    "teamName": "Colonel Corbin's Ascent",
-    "synthetic": true,
-    "note": "roster_sync: was Dropped on 5/10/26 12:00 AM ET",
-    "players": [
-      {
-        "name": "Jack Dreyer",
-        "action": "Added",
-        "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/10/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: was Dropped on 5/10/26 12:00 AM ET",
-    "players": [
-      {
-        "name": "Brent Headrick",
-        "action": "Added",
-        "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/10/26 12:00 AM ET",
-    "teamId": "10",
-    "team": "Blame it on the Rainiel",
-    "teamName": "Blame it on the Rainiel",
-    "synthetic": true,
-    "note": "roster_sync: was Dropped on 5/10/26 12:00 AM ET",
-    "players": [
-      {
-        "name": "Braden Montgomery",
-        "action": "Added",
-        "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/10/26 12:00 AM ET",
-    "teamId": "1",
-    "team": "Weird Fishes / Arrighetti",
-    "teamName": "Weird Fishes / Arrighetti",
-    "synthetic": true,
-    "note": "roster_sync: not on any CBS roster",
-    "players": [
+      },
       {
         "name": "Cameron Schlittler",
-        "action": "Dropped",
-        "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/10/26 12:00 AM ET",
-    "teamId": "5",
-    "team": "Buddy Buddy Buddy All On Base",
-    "teamName": "Buddy Buddy Buddy All On Base",
-    "synthetic": true,
-    "note": "roster_sync: not on any CBS roster",
-    "players": [
-      {
-        "name": "Reynaldo Lopez",
-        "action": "Dropped",
-        "synthetic": true
-      }
-    ]
-  },
-  {
-    "date": "5/10/26 12:00 AM ET",
-    "teamId": "6",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "synthetic": true,
-    "note": "roster_sync: not on any CBS roster",
-    "players": [
-      {
-        "name": "Rhett Lowder",
         "action": "Dropped",
         "synthetic": true
       }
@@ -6232,26 +6211,6 @@
   },
   {
     "date": "3/17/26 12:38 PM ET",
-    "teamId": "3",
-    "teamName": "Colonel Corbin's Ascent",
-    "team": "Colonel Corbin's Ascent",
-    "players": [
-      {
-        "name": "Nick Kurtz",
-        "pos": "1B",
-        "mlbTeam": "ATH",
-        "action": "Traded from Okamotomami"
-      },
-      {
-        "name": "Nick Lodolo",
-        "pos": "SP",
-        "mlbTeam": "CIN",
-        "action": "Traded from Okamotomami"
-      }
-    ]
-  },
-  {
-    "date": "3/17/26 12:38 PM ET",
     "teamId": "4",
     "teamName": "Okamotomami",
     "team": "Okamotomami",
@@ -6273,6 +6232,26 @@
         "pos": "3B",
         "mlbTeam": "TOR",
         "action": "Traded from Colonel Corbin's Ascent"
+      }
+    ]
+  },
+  {
+    "date": "3/17/26 12:38 PM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Nick Kurtz",
+        "pos": "1B",
+        "mlbTeam": "ATH",
+        "action": "Traded from Okamotomami"
+      },
+      {
+        "name": "Nick Lodolo",
+        "pos": "SP",
+        "mlbTeam": "CIN",
+        "action": "Traded from Okamotomami"
       }
     ]
   },
