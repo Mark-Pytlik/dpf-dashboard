@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-11T16:19:24.986008Z",
+  "completedAt": "2026-05-12T13:17:25.177728Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,10 +12,7 @@
     "matchup": "ok"
   },
   "notes": [
-    "fetch_stuffplus 403 from FanGraphs (expected, non-fatal)",
-    "Roster URL changed from /roster/N/ (trends page) to /teams/N (actual roster).",
-    "Used incremental diff for new_cbs_txns.json: 10 entries since 5/10, 1 truly new after dedup against cbs_transactions.json.",
-    "season_status: currentPeriod 4 ongoing since 5/11 (today); no category-level scores yet because period just started.",
-    "Standings unchanged from yesterday."
+    "Transactions scraped from print_rows=9999 (310 raw rows, 245 after cleaner).",
+    "Period 4 matchup vs Popped A Mahle I'm Sweating (me 2.5, opp 13.5)."
   ]
 }
