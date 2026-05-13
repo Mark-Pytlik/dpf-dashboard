@@ -4697,5 +4697,89 @@
       }
     ],
     "effective": "5/12/26"
+  },
+  {
+    "date": "5/12/26 6:00 PM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "players": [
+      {
+        "name": "Nate Lowe",
+        "pos": "1B",
+        "mlbTeam": "CIN",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/12/26"
+  },
+  {
+    "date": "5/12/26 10:34 PM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "players": [
+      {
+        "name": "Tatsuya Imai",
+        "pos": "SP",
+        "mlbTeam": "HOU",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/13/26"
+  },
+  {
+    "date": "5/13/26 2:34 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "players": [
+      {
+        "name": "Ha-seong Kim",
+        "pos": "SS",
+        "mlbTeam": "ATL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jeff Hoffman",
+        "pos": "RP",
+        "mlbTeam": "TOR",
+        "action": "Dropped"
+      },
+      {
+        "name": "Carlos Cortes",
+        "pos": "RF",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Addison Barger",
+        "pos": "3B,RF",
+        "mlbTeam": "TOR",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/13/26"
+  },
+  {
+    "date": "5/13/26 2:34 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Willy Adames",
+        "pos": "SS",
+        "mlbTeam": "SF",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Marcus Semien",
+        "pos": "2B",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/13/26"
   }
 ]
