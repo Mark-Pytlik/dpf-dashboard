@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-12T13:17:25.177728Z",
+  "completedAt": "2026-05-13T13:13:41.506298Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,7 +12,8 @@
     "matchup": "ok"
   },
   "notes": [
-    "Transactions scraped from print_rows=9999 (310 raw rows, 245 after cleaner).",
-    "Period 4 matchup vs Popped A Mahle I'm Sweating (me 2.5, opp 13.5)."
+    "fetch_stuffplus.py skipped: pybaseball not installed (non-fatal)",
+    "All transaction actions recognized; no new types.",
+    "All 12 team names mapped to teamIds."
   ]
 }
