@@ -1,9 +1,10 @@
 {
-  "completedAt": "2026-05-13T13:13:41.506298Z",
+  "completedAt": "2026-05-14T13:15:39.047669Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
-    "news": "ok"
+    "news": "ok",
+    "snapshotsIndex": "ok"
   },
   "phaseB": {
     "cbs_auth": "ok",
@@ -12,8 +13,10 @@
     "matchup": "ok"
   },
   "notes": [
-    "fetch_stuffplus.py skipped: pybaseball not installed (non-fatal)",
-    "All transaction actions recognized; no new types.",
-    "All 12 team names mapped to teamIds."
+    "Phase A snapshots index: 33 dates loaded (window 2026-04-30 \u2192 2026-05-14).",
+    "Phase B: 322 raw transaction rows scraped via dpf.baseball.cbssports.com/transactions?print_rows=9999; cleaner consolidated to 254 rows.",
+    "12/12 rosters fetched. 383 players total.",
+    "Period 4 in progress (May 11 - May 24). Okamotomami (3-0-0) currently trailing Popped A Mahle 6.0-10.0.",
+    "fetch_stuffplus.py failed (pybaseball not installed) \u2014 non-fatal as expected."
   ]
 }
