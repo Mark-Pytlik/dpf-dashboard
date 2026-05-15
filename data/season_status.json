@@ -5,14 +5,14 @@
   "opponent": "Popped A Mahle I'm Sweating",
   "opponentTeam": "Popped A Mahle I'm Sweating",
   "currentScore": {
-    "me": 6.0,
-    "opp": 10.0,
+    "me": 4.0,
+    "opp": 12.0,
     "tied": 0
   },
   "categoryBreakdown": {
     "BA": {
-      "me": "0.153",
-      "opp": "0.338",
+      "me": "0.157",
+      "opp": "0.316",
       "won": false
     },
     "HR": {
@@ -22,56 +22,56 @@
     },
     "RBI": {
       "me": "6",
-      "opp": "13",
+      "opp": "14",
       "won": false
     },
     "R": {
       "me": "12",
-      "opp": "20",
+      "opp": "22",
       "won": false
     },
     "SB": {
       "me": "0",
-      "opp": "6",
+      "opp": "7",
       "won": false
     },
     "KO": {
-      "me": "24",
-      "opp": "17",
+      "me": "31",
+      "opp": "21",
       "won": false
     },
     "OBP": {
-      "me": "0.255",
-      "opp": "0.440",
+      "me": "0.256",
+      "opp": "0.412",
       "won": false
     },
     "SLG": {
-      "me": "0.306",
-      "opp": "0.595",
+      "me": "0.284",
+      "opp": "0.516",
       "won": false
     },
     "K": {
-      "me": "23",
-      "opp": "13",
+      "me": "29",
+      "opp": "23",
       "won": true
     },
     "ERA": {
-      "me": "2.6471",
-      "opp": "4.9091",
-      "won": true
+      "me": "3.9194",
+      "opp": "3.9036",
+      "won": false
     },
     "WHIP": {
-      "me": "0.8235",
-      "opp": "1.0227",
-      "won": true
+      "me": "1.2581",
+      "opp": "1.0843",
+      "won": false
     },
     "W": {
       "me": "0",
-      "opp": "0",
+      "opp": "1",
       "won": false
     },
     "S": {
-      "me": "2",
+      "me": "3",
       "opp": "1",
       "won": true
     },
@@ -81,13 +81,13 @@
       "won": true
     },
     "HRA": {
-      "me": "3",
-      "opp": "3",
-      "won": false
+      "me": "4",
+      "opp": "5",
+      "won": true
     },
     "QS": {
       "me": "0",
-      "opp": "1",
+      "opp": "3",
       "won": false
     }
   },
@@ -101,8 +101,8 @@
     {
       "away": "Everythings McGonigle Green",
       "home": "Blame it on the Rainiel",
-      "awayScore": 8.0,
-      "homeScore": 8.0
+      "awayScore": 5.5,
+      "homeScore": 10.5
     },
     {
       "away": "Before and After Shohei",
@@ -113,20 +113,20 @@
     {
       "away": "Yesavage Garden",
       "home": "Dinosaur Jr Caminero",
-      "awayScore": 11.0,
-      "homeScore": 5.0
+      "awayScore": 9.5,
+      "homeScore": 6.5
     },
     {
       "away": "Popped A Mahle I'm Sweating",
       "home": "Okamotomami",
-      "awayScore": 10.0,
-      "homeScore": 6.0
+      "awayScore": 12.0,
+      "homeScore": 4.0
     },
     {
       "away": "Weird Fishes / Arrighetti",
       "home": "Colonel Corbin's Ascent",
-      "awayScore": 7.0,
-      "homeScore": 9.0
+      "awayScore": 8.5,
+      "homeScore": 7.5
     }
   ],
   "myRecord": "3-0-0",
@@ -264,6 +264,6 @@
       "pts": 0
     }
   ],
-  "updated": "2026-05-14T16:21:07.130112Z",
-  "lastUpdated": "2026-05-14 (period 4 in progress)"
+  "updated": "2026-05-15T13:17:04.435319Z",
+  "lastUpdated": "2026-05-15 (period 4 in progress)"
 }
