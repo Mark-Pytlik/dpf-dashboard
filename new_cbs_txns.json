@@ -1,260 +1,9 @@
 [
   {
-    "date": "5/13/26 6:32 PM ET",
-    "teamName": "Dinosaur Jr Caminero",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "Jazz Chisholm",
-        "pos": "2B,3B",
-        "mlbTeam": "NYY",
-        "action": "Traded from Everythings McGonigle Green"
-      }
-    ],
-    "effective": "5/14/26"
-  },
-  {
-    "date": "5/13/26 6:32 PM ET",
-    "teamName": "Everythings McGonigle Green",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "Willson Contreras",
-        "pos": "1B",
-        "mlbTeam": "BOS",
-        "action": "Traded from Dinosaur Jr Caminero"
-      }
-    ],
-    "effective": "5/14/26"
-  },
-  {
-    "date": "5/10/26 2:35 AM ET",
-    "teamName": "Dinosaur Jr Caminero",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "Anthony Eyanson",
-        "pos": "SP",
-        "mlbTeam": "BOS",
-        "action": "Added off Waivers"
-      },
-      {
-        "name": "Brody Hopkins",
-        "pos": "SP",
-        "mlbTeam": "TB",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "5/10/26"
-  },
-  {
-    "date": "5/5/26 2:44 AM ET",
-    "teamName": "Dinosaur Jr Caminero",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "Daniel Lynch",
-        "pos": "RP",
-        "mlbTeam": "KC",
-        "action": "Activated"
-      }
-    ],
-    "effective": "5/5/26"
-  },
-  {
-    "date": "5/5/26 2:44 AM ET",
-    "teamName": "Dinosaur Jr Caminero",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "Daniel Lynch",
-        "pos": "RP",
-        "mlbTeam": "KC",
-        "action": "Added off Waivers"
-      },
-      {
-        "name": "Taylor Rogers",
-        "pos": "RP",
-        "mlbTeam": "MIN",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "5/5/26"
-  },
-  {
-    "date": "4/22/26 12:34 PM ET",
-    "teamName": "Dinosaur Jr Caminero",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "David Peterson",
-        "pos": "SP",
-        "mlbTeam": "NYM",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "4/23/26"
-  },
-  {
-    "date": "4/15/26 1:46 AM ET",
-    "teamName": "Dinosaur Jr Caminero",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "David Peterson",
-        "pos": "SP",
-        "mlbTeam": "NYM",
-        "action": "Added off Waivers"
-      },
-      {
-        "name": "Chris Bassitt",
-        "pos": "SP",
-        "mlbTeam": "BAL",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "4/15/26"
-  },
-  {
-    "date": "4/15/26 1:46 AM ET",
-    "teamName": "Dinosaur Jr Caminero",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "Angel Martinez",
-        "pos": "2B,LF,CF,RF",
-        "mlbTeam": "CLE",
-        "action": "Activated"
-      }
-    ],
-    "effective": "4/15/26"
-  },
-  {
-    "date": "4/15/26 1:46 AM ET",
-    "teamName": "Dinosaur Jr Caminero",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "Angel Martinez",
-        "pos": "2B,LF,CF,RF",
-        "mlbTeam": "CLE",
-        "action": "Added off Waivers"
-      },
-      {
-        "name": "Andres Gimenez",
-        "pos": "2B,SS",
-        "mlbTeam": "TOR",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "4/15/26"
-  },
-  {
-    "date": "4/5/26 1:48 AM ET",
-    "teamName": "Dinosaur Jr Caminero",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "Mitch Keller",
-        "pos": "SP",
-        "mlbTeam": "PIT",
-        "action": "Added off Waivers"
-      },
-      {
-        "name": "Slade Cecconi",
-        "pos": "SP",
-        "mlbTeam": "CLE",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "4/5/26"
-  },
-  {
-    "date": "4/5/26 1:48 AM ET",
-    "teamName": "Dinosaur Jr Caminero",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "Andres Gimenez",
-        "pos": "2B,SS",
-        "mlbTeam": "TOR",
-        "action": "Activated"
-      }
-    ],
-    "effective": "4/5/26"
-  },
-  {
-    "date": "4/5/26 1:48 AM ET",
-    "teamName": "Dinosaur Jr Caminero",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "Andres Gimenez",
-        "pos": "2B,SS",
-        "mlbTeam": "TOR",
-        "action": "Added off Waivers"
-      },
-      {
-        "name": "Jorge Polanco",
-        "pos": "2B",
-        "mlbTeam": "NYM",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "4/5/26"
-  },
-  {
-    "date": "3/25/26 2:52 PM ET",
-    "teamName": "Dinosaur Jr Caminero",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "Jorge Polanco",
-        "pos": "2B",
-        "mlbTeam": "NYM",
-        "action": "Added"
-      },
-      {
-        "name": "Brayan Bello",
-        "pos": "SP",
-        "mlbTeam": "BOS",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/25/26 2:51 PM ET",
-    "teamName": "Dinosaur Jr Caminero",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "Orion Kerkering",
-        "pos": "RP",
-        "mlbTeam": "PHI",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/24/26 10:07 AM ET",
-    "teamName": "Dinosaur Jr Caminero",
-    "teamId": 2,
-    "players": [
-      {
-        "name": "Shane Drohan",
-        "pos": "SP",
-        "mlbTeam": "MIL",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
     "date": "5/14/26 2:02 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Kaelen Culpepper",
@@ -267,8 +16,9 @@
   },
   {
     "date": "5/13/26 12:39 PM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Isaac Paredes",
@@ -281,8 +31,9 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Jack Perkins",
@@ -295,8 +46,9 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Jack Perkins",
@@ -315,8 +67,9 @@
   },
   {
     "date": "5/3/26 9:33 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Walbert Urena",
@@ -329,8 +82,9 @@
   },
   {
     "date": "5/2/26 7:58 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Walbert Urena",
@@ -343,8 +97,9 @@
   },
   {
     "date": "4/29/26 10:45 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Aaron Nola",
@@ -357,8 +112,9 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Isaac Paredes",
@@ -371,8 +127,9 @@
   },
   {
     "date": "4/28/26 9:16 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Trevor Story",
@@ -385,8 +142,9 @@
   },
   {
     "date": "4/22/26 10:24 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Yainer Diaz",
@@ -399,8 +157,9 @@
   },
   {
     "date": "4/18/26 3:03 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Louie Varland",
@@ -419,8 +178,9 @@
   },
   {
     "date": "4/16/26 2:34 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Dillon Dingler",
@@ -439,8 +199,9 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Matt Shaw",
@@ -459,8 +220,9 @@
   },
   {
     "date": "4/13/26 1:59 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Victor Vodnik",
@@ -473,8 +235,9 @@
   },
   {
     "date": "4/5/26 1:48 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Jose Fernandez",
@@ -493,8 +256,9 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Aaron Ashby",
@@ -513,8 +277,9 @@
   },
   {
     "date": "3/25/26 2:58 PM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Jose Alvarado",
@@ -533,8 +298,9 @@
   },
   {
     "date": "3/21/26 11:24 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Trent Grisham",
@@ -547,8 +313,9 @@
   },
   {
     "date": "3/21/26 11:22 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Otto Lopez",
@@ -561,8 +328,9 @@
   },
   {
     "date": "3/19/26 2:35 PM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Matt Strahm",
@@ -575,8 +343,9 @@
   },
   {
     "date": "3/19/26 11:44 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Nolan Schanuel",
@@ -589,8 +358,9 @@
   },
   {
     "date": "3/19/26 11:40 AM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Sean Manaea",
@@ -603,8 +373,9 @@
   },
   {
     "date": "3/15/26 7:26 PM ET",
+    "teamId": "1",
     "teamName": "Weird Fishes / Arrighetti",
-    "teamId": 1,
+    "team": "Weird Fishes / Arrighetti",
     "players": [
       {
         "name": "Lars Nootbaar",
@@ -616,9 +387,319 @@
     "effective": "3/25/26"
   },
   {
-    "date": "5/13/26 2:34 AM ET",
+    "date": "5/15/26 2:34 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "Mike Sirota",
+        "pos": "CF",
+        "mlbTeam": "LAD",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Brandon Nimmo",
+        "pos": "LF,RF",
+        "mlbTeam": "TEX",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/15/26"
+  },
+  {
+    "date": "5/13/26 6:32 PM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "Jazz Chisholm",
+        "pos": "2B,3B",
+        "mlbTeam": "NYY",
+        "action": "Traded from Everythings McGonigle Green"
+      }
+    ],
+    "effective": "5/14/26"
+  },
+  {
+    "date": "5/13/26 6:32 PM ET",
+    "teamId": "2",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
+    "players": [
+      {
+        "name": "Willson Contreras",
+        "pos": "1B",
+        "mlbTeam": "BOS",
+        "action": "Traded from Dinosaur Jr Caminero"
+      }
+    ],
+    "effective": "5/14/26"
+  },
+  {
+    "date": "5/10/26 2:35 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "Anthony Eyanson",
+        "pos": "SP",
+        "mlbTeam": "BOS",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Brody Hopkins",
+        "pos": "SP",
+        "mlbTeam": "TB",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/10/26"
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "Daniel Lynch",
+        "pos": "RP",
+        "mlbTeam": "KC",
+        "action": "Activated"
+      }
+    ],
+    "effective": "5/5/26"
+  },
+  {
+    "date": "5/5/26 2:44 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "Daniel Lynch",
+        "pos": "RP",
+        "mlbTeam": "KC",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Taylor Rogers",
+        "pos": "RP",
+        "mlbTeam": "MIN",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/5/26"
+  },
+  {
+    "date": "4/22/26 12:34 PM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "David Peterson",
+        "pos": "SP",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "4/23/26"
+  },
+  {
+    "date": "4/15/26 1:46 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "David Peterson",
+        "pos": "SP",
+        "mlbTeam": "NYM",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Chris Bassitt",
+        "pos": "SP",
+        "mlbTeam": "BAL",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "4/15/26"
+  },
+  {
+    "date": "4/15/26 1:46 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF,RF",
+        "mlbTeam": "CLE",
+        "action": "Activated"
+      }
+    ],
+    "effective": "4/15/26"
+  },
+  {
+    "date": "4/15/26 1:46 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "Angel Martinez",
+        "pos": "2B,LF,CF,RF",
+        "mlbTeam": "CLE",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Andres Gimenez",
+        "pos": "2B,SS",
+        "mlbTeam": "TOR",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "4/15/26"
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "Mitch Keller",
+        "pos": "SP",
+        "mlbTeam": "PIT",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Slade Cecconi",
+        "pos": "SP",
+        "mlbTeam": "CLE",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "4/5/26"
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "Andres Gimenez",
+        "pos": "2B,SS",
+        "mlbTeam": "TOR",
+        "action": "Activated"
+      }
+    ],
+    "effective": "4/5/26"
+  },
+  {
+    "date": "4/5/26 1:48 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "Andres Gimenez",
+        "pos": "2B,SS",
+        "mlbTeam": "TOR",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Jorge Polanco",
+        "pos": "2B",
+        "mlbTeam": "NYM",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "4/5/26"
+  },
+  {
+    "date": "3/25/26 2:52 PM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "Jorge Polanco",
+        "pos": "2B",
+        "mlbTeam": "NYM",
+        "action": "Added"
+      },
+      {
+        "name": "Brayan Bello",
+        "pos": "SP",
+        "mlbTeam": "BOS",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "3/25/26"
+  },
+  {
+    "date": "3/25/26 2:51 PM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "Orion Kerkering",
+        "pos": "RP",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "3/25/26"
+  },
+  {
+    "date": "3/24/26 10:07 AM ET",
+    "teamId": "2",
+    "teamName": "Dinosaur Jr Caminero",
+    "team": "Dinosaur Jr Caminero",
+    "players": [
+      {
+        "name": "Shane Drohan",
+        "pos": "SP",
+        "mlbTeam": "MIL",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "3/25/26"
+  },
+  {
+    "date": "5/15/26 2:34 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Cole Carrigg",
+        "pos": "CF",
+        "mlbTeam": "COL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Brooks Lee",
+        "pos": "2B,3B,SS",
+        "mlbTeam": "MIN",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/15/26"
+  },
+  {
+    "date": "5/13/26 2:34 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Willy Adames",
@@ -637,8 +718,9 @@
   },
   {
     "date": "5/11/26 2:41 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Henry Bolte",
@@ -657,8 +739,9 @@
   },
   {
     "date": "5/10/26 2:35 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Brooks Lee",
@@ -677,8 +760,9 @@
   },
   {
     "date": "5/9/26 2:33 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Marcus Semien",
@@ -691,8 +775,9 @@
   },
   {
     "date": "5/9/26 2:33 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Jack Dreyer",
@@ -705,8 +790,9 @@
   },
   {
     "date": "5/8/26 8:40 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Pedro Ramirez",
@@ -719,8 +805,9 @@
   },
   {
     "date": "5/7/26 12:43 PM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Anthony Eyanson",
@@ -733,8 +820,9 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Anthony Eyanson",
@@ -747,8 +835,9 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Lazaro Montes",
@@ -761,8 +850,9 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Lazaro Montes",
@@ -781,8 +871,9 @@
   },
   {
     "date": "5/6/26 9:12 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Kai-Wei Teng",
@@ -795,8 +886,9 @@
   },
   {
     "date": "5/6/26 2:23 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Pedro Ramirez",
@@ -815,8 +907,9 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Kai-Wei Teng",
@@ -835,8 +928,9 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Logan Henderson",
@@ -855,8 +949,9 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Braden Montgomery",
@@ -875,8 +970,9 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Cooper Ingle",
@@ -895,8 +991,9 @@
   },
   {
     "date": "5/1/26 2:03 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Jung Hoo Lee",
@@ -915,8 +1012,9 @@
   },
   {
     "date": "5/1/26 2:03 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Lawrence Butler",
@@ -935,8 +1033,9 @@
   },
   {
     "date": "4/27/26 1:59 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Jasson Dominguez",
@@ -955,8 +1054,9 @@
   },
   {
     "date": "4/22/26 2:33 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Juan Morillo",
@@ -975,8 +1075,9 @@
   },
   {
     "date": "4/22/26 2:33 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Dalton Rushing",
@@ -995,8 +1096,9 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Brenton Doyle",
@@ -1009,8 +1111,9 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Josh Jung",
@@ -1023,8 +1126,9 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Josh Jung",
@@ -1043,8 +1147,9 @@
   },
   {
     "date": "4/20/26 1:56 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Jeremiah Jackson",
@@ -1063,8 +1168,9 @@
   },
   {
     "date": "4/18/26 3:03 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Antonio Senzatela",
@@ -1083,8 +1189,9 @@
   },
   {
     "date": "4/18/26 3:03 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Franklin Arias",
@@ -1097,8 +1204,9 @@
   },
   {
     "date": "4/17/26 11:33 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Nasim Nunez",
@@ -1111,8 +1219,9 @@
   },
   {
     "date": "4/16/26 2:34 AM ET",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Mauricio Dubon",
@@ -1130,23 +1239,10 @@
     "effective": "4/16/26"
   },
   {
-    "date": "4/13/26 9:04 AM ET",
-    "teamName": "Colonel Corbin's Ascent",
-    "teamId": 3,
-    "players": [
-      {
-        "name": "James Tibbs",
-        "pos": "RF",
-        "mlbTeam": "LAD",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "4/13/26"
-  },
-  {
     "date": "4/25/26 3:18 AM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Mason Montgomery",
@@ -1165,8 +1261,9 @@
   },
   {
     "date": "4/23/26 2:49 AM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Chase Dollander",
@@ -1185,8 +1282,9 @@
   },
   {
     "date": "4/22/26 2:33 AM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Dylan Lee",
@@ -1199,8 +1297,9 @@
   },
   {
     "date": "4/10/26 11:33 AM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Mick Abel",
@@ -1213,8 +1312,9 @@
   },
   {
     "date": "4/10/26 3:09 AM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Liam Hicks",
@@ -1227,8 +1327,9 @@
   },
   {
     "date": "4/10/26 3:09 AM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Liam Hicks",
@@ -1247,8 +1348,9 @@
   },
   {
     "date": "4/9/26 2:11 PM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Mick Abel",
@@ -1261,8 +1363,9 @@
   },
   {
     "date": "4/7/26 2:07 AM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Giancarlo Stanton",
@@ -1281,8 +1384,9 @@
   },
   {
     "date": "3/20/26 7:07 PM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Luis Arraez",
@@ -1295,8 +1399,9 @@
   },
   {
     "date": "3/20/26 7:06 PM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Royce Lewis",
@@ -1309,8 +1414,9 @@
   },
   {
     "date": "3/20/26 7:06 PM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Jeff McNeil",
@@ -1323,8 +1429,9 @@
   },
   {
     "date": "3/20/26 7:04 PM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Yusei Kikuchi",
@@ -1337,8 +1444,9 @@
   },
   {
     "date": "3/20/26 7:04 PM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Joey Cantillo",
@@ -1351,8 +1459,9 @@
   },
   {
     "date": "3/17/26 1:54 PM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Graham Ashcraft",
@@ -1365,8 +1474,9 @@
   },
   {
     "date": "3/17/26 12:38 PM ET",
+    "teamId": "4",
     "teamName": "Colonel Corbin's Ascent",
-    "teamId": 4,
+    "team": "Colonel Corbin's Ascent",
     "players": [
       {
         "name": "Nick Kurtz",
@@ -1385,8 +1495,9 @@
   },
   {
     "date": "3/17/26 12:38 PM ET",
+    "teamId": "4",
     "teamName": "Okamotomami",
-    "teamId": 4,
+    "team": "Okamotomami",
     "players": [
       {
         "name": "Jac Caglianone",
@@ -1411,8 +1522,9 @@
   },
   {
     "date": "5/9/26 6:42 AM ET",
+    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "teamId": 5,
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Reynaldo Lopez",
@@ -1425,8 +1537,9 @@
   },
   {
     "date": "5/2/26 7:58 AM ET",
+    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "teamId": 5,
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Nick Martinez",
@@ -1439,8 +1552,9 @@
   },
   {
     "date": "4/24/26 1:44 AM ET",
+    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "teamId": 5,
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Oswald Peraza",
@@ -1459,8 +1573,9 @@
   },
   {
     "date": "4/23/26 7:29 AM ET",
+    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "teamId": 5,
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Max Muncy",
@@ -1473,8 +1588,9 @@
   },
   {
     "date": "4/17/26 1:45 AM ET",
+    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "teamId": 5,
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Brady House",
@@ -1493,8 +1609,9 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
+    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "teamId": 5,
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Max Muncy",
@@ -1507,8 +1624,9 @@
   },
   {
     "date": "4/11/26 10:02 AM ET",
+    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "teamId": 5,
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Brady Singer",
@@ -1521,8 +1639,9 @@
   },
   {
     "date": "4/7/26 2:07 AM ET",
+    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "teamId": 5,
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Miguel Vargas",
@@ -1541,8 +1660,9 @@
   },
   {
     "date": "4/7/26 2:07 AM ET",
+    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "teamId": 5,
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Christian Walker",
@@ -1555,8 +1675,9 @@
   },
   {
     "date": "3/29/26 11:29 PM ET",
+    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "teamId": 5,
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Royce Lewis",
@@ -1569,8 +1690,9 @@
   },
   {
     "date": "3/22/26 5:44 PM ET",
+    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "teamId": 5,
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Willi Castro",
@@ -1583,8 +1705,9 @@
   },
   {
     "date": "3/21/26 12:09 AM ET",
+    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "teamId": 5,
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "David Peterson",
@@ -1597,8 +1720,9 @@
   },
   {
     "date": "3/21/26 12:06 AM ET",
+    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "teamId": 5,
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Jung Hoo Lee",
@@ -1611,8 +1735,9 @@
   },
   {
     "date": "3/19/26 1:23 AM ET",
+    "teamId": "5",
     "teamName": "Buddy Buddy Buddy All On Base",
-    "teamId": 5,
+    "team": "Buddy Buddy Buddy All On Base",
     "players": [
       {
         "name": "Braxton Garrett",
@@ -1625,8 +1750,9 @@
   },
   {
     "date": "5/12/26 6:00 PM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Nate Lowe",
@@ -1639,8 +1765,9 @@
   },
   {
     "date": "5/9/26 7:35 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Rhett Lowder",
@@ -1653,8 +1780,9 @@
   },
   {
     "date": "5/9/26 2:33 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Brent Headrick",
@@ -1667,8 +1795,9 @@
   },
   {
     "date": "5/8/26 7:49 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Andres Gimenez",
@@ -1681,8 +1810,9 @@
   },
   {
     "date": "5/8/26 5:34 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Nate Lowe",
@@ -1701,8 +1831,9 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Sean Burke",
@@ -1721,8 +1852,9 @@
   },
   {
     "date": "5/2/26 7:58 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Jacob Latz",
@@ -1735,8 +1867,9 @@
   },
   {
     "date": "5/2/26 7:58 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Jacob Latz",
@@ -1755,8 +1888,9 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Spencer Arrighetti",
@@ -1769,8 +1903,9 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Spencer Arrighetti",
@@ -1789,8 +1924,9 @@
   },
   {
     "date": "4/24/26 1:44 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Justin Wrobleski",
@@ -1809,8 +1945,9 @@
   },
   {
     "date": "4/24/26 1:44 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Enyel De Los Santos",
@@ -1823,8 +1960,9 @@
   },
   {
     "date": "4/24/26 1:44 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Enyel De Los Santos",
@@ -1843,8 +1981,9 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Tyler Alexander",
@@ -1863,8 +2002,9 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Andres Gimenez",
@@ -1883,8 +2023,9 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Spencer Arrighetti",
@@ -1903,8 +2044,9 @@
   },
   {
     "date": "4/21/26 2:15 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Blake Treinen",
@@ -1923,8 +2065,9 @@
   },
   {
     "date": "4/17/26 1:45 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Aaron Civale",
@@ -1943,8 +2086,9 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Jeffrey Springs",
@@ -1963,8 +2107,9 @@
   },
   {
     "date": "4/10/26 3:09 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Joey Cantillo",
@@ -1983,8 +2128,9 @@
   },
   {
     "date": "4/7/26 2:07 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Seth Lugo",
@@ -2003,8 +2149,9 @@
   },
   {
     "date": "4/5/26 1:48 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Jesus Sanchez",
@@ -2017,8 +2164,9 @@
   },
   {
     "date": "3/26/26 7:32 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Tyler Mahle",
@@ -2031,8 +2179,9 @@
   },
   {
     "date": "3/24/26 12:34 PM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Bryan King",
@@ -2045,8 +2194,9 @@
   },
   {
     "date": "3/19/26 7:25 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Max Meyer",
@@ -2059,8 +2209,9 @@
   },
   {
     "date": "3/19/26 7:24 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Giancarlo Stanton",
@@ -2073,8 +2224,9 @@
   },
   {
     "date": "3/19/26 7:24 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Tyler Stephenson",
@@ -2087,8 +2239,9 @@
   },
   {
     "date": "3/19/26 7:23 AM ET",
+    "teamId": "6",
     "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "teamId": 6,
+    "team": "A Pete Crow-Armstrong Looked at Me",
     "players": [
       {
         "name": "Spencer Arrighetti",
@@ -2100,9 +2253,31 @@
     "effective": "3/25/26"
   },
   {
-    "date": "5/14/26 2:02 AM ET",
+    "date": "5/15/26 2:34 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
+    "players": [
+      {
+        "name": "J.J. Bleday",
+        "pos": "LF,CF,RF",
+        "mlbTeam": "CIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Colt Keith",
+        "pos": "2B,3B",
+        "mlbTeam": "DET",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/15/26"
+  },
+  {
+    "date": "5/14/26 2:02 AM ET",
+    "teamId": "7",
+    "teamName": "Everythings McGonigle Green",
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Dalton Rushing",
@@ -2121,8 +2296,9 @@
   },
   {
     "date": "5/13/26 6:32 PM ET",
+    "teamId": "7",
     "teamName": "Dinosaur Jr Caminero",
-    "teamId": 7,
+    "team": "Dinosaur Jr Caminero",
     "players": [
       {
         "name": "Jazz Chisholm",
@@ -2135,8 +2311,9 @@
   },
   {
     "date": "5/13/26 6:32 PM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Willson Contreras",
@@ -2149,8 +2326,9 @@
   },
   {
     "date": "5/6/26 11:51 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Ryan Pepiot",
@@ -2163,8 +2341,9 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Drew Anderson",
@@ -2177,8 +2356,9 @@
   },
   {
     "date": "4/22/26 12:37 PM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Adolis Garcia",
@@ -2191,8 +2371,9 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Adolis Garcia",
@@ -2205,8 +2386,9 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Adolis Garcia",
@@ -2225,8 +2407,9 @@
   },
   {
     "date": "4/8/26 3:06 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Noelvi Marte",
@@ -2245,8 +2428,9 @@
   },
   {
     "date": "4/2/26 10:47 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Willy Adames",
@@ -2259,8 +2443,9 @@
   },
   {
     "date": "4/1/26 2:51 PM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Hogan Harris",
@@ -2273,8 +2458,9 @@
   },
   {
     "date": "4/1/26 2:50 PM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Taj Bradley",
@@ -2293,8 +2479,9 @@
   },
   {
     "date": "4/1/26 2:46 PM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Colt Keith",
@@ -2313,8 +2500,9 @@
   },
   {
     "date": "3/27/26 9:34 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Javier Assad",
@@ -2327,8 +2515,9 @@
   },
   {
     "date": "3/27/26 2:43 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Javier Assad",
@@ -2341,8 +2530,9 @@
   },
   {
     "date": "3/25/26 2:52 PM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Ryan Zeferjahn",
@@ -2355,8 +2545,9 @@
   },
   {
     "date": "3/25/26 2:51 PM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Yusei Kikuchi",
@@ -2369,8 +2560,9 @@
   },
   {
     "date": "3/25/26 2:48 PM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Mike Soroka",
@@ -2383,8 +2575,9 @@
   },
   {
     "date": "3/25/26 9:20 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Trent Grisham",
@@ -2403,8 +2596,9 @@
   },
   {
     "date": "3/25/26 9:18 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Andrew Benintendi",
@@ -2423,8 +2617,9 @@
   },
   {
     "date": "3/24/26 10:07 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Javier Assad",
@@ -2437,8 +2632,9 @@
   },
   {
     "date": "3/24/26 10:05 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Carson Whisenhunt",
@@ -2451,8 +2647,9 @@
   },
   {
     "date": "3/24/26 10:04 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Cade Smith",
@@ -2465,8 +2662,9 @@
   },
   {
     "date": "3/24/26 10:04 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Josue Briceno",
@@ -2479,8 +2677,9 @@
   },
   {
     "date": "3/24/26 10:03 AM ET",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
-    "teamId": 7,
+    "team": "Everythings McGonigle Green",
     "players": [
       {
         "name": "Jose Butto",
@@ -2493,8 +2692,9 @@
   },
   {
     "date": "5/6/26 8:32 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Elmer Rodriguez",
@@ -2507,8 +2707,9 @@
   },
   {
     "date": "5/4/26 10:24 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Kyle Isbel",
@@ -2521,8 +2722,9 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Gabe Speier",
@@ -2541,8 +2743,9 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Kody Funderburk",
@@ -2555,8 +2758,9 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Kody Funderburk",
@@ -2575,8 +2779,9 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Jordan Westburg",
@@ -2589,8 +2794,9 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Orion Kerkering",
@@ -2603,8 +2809,9 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Matt Shaw",
@@ -2617,8 +2824,9 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Foster Griffin",
@@ -2631,8 +2839,9 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Foster Griffin",
@@ -2645,8 +2854,9 @@
   },
   {
     "date": "4/28/26 8:29 PM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Kodai Senga",
@@ -2659,8 +2869,9 @@
   },
   {
     "date": "4/28/26 5:59 PM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Ryne Nelson",
@@ -2673,8 +2884,9 @@
   },
   {
     "date": "4/28/26 5:59 PM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Justin Steele",
@@ -2687,8 +2899,9 @@
   },
   {
     "date": "4/26/26 1:49 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Ben Brown",
@@ -2701,8 +2914,9 @@
   },
   {
     "date": "4/26/26 1:49 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Ben Brown",
@@ -2721,8 +2935,9 @@
   },
   {
     "date": "4/18/26 3:03 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Joel Kuhnel",
@@ -2735,8 +2950,9 @@
   },
   {
     "date": "4/11/26 2:53 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Cole Sands",
@@ -2749,8 +2965,9 @@
   },
   {
     "date": "4/11/26 2:53 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Cole Sands",
@@ -2769,8 +2986,9 @@
   },
   {
     "date": "4/8/26 3:06 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Mark Leiter",
@@ -2783,8 +3001,9 @@
   },
   {
     "date": "4/8/26 3:06 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Mark Leiter",
@@ -2803,8 +3022,9 @@
   },
   {
     "date": "4/6/26 1:57 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Kyle Isbel",
@@ -2817,8 +3037,9 @@
   },
   {
     "date": "4/6/26 1:57 AM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Kyle Isbel",
@@ -2837,8 +3058,9 @@
   },
   {
     "date": "3/24/26 12:54 PM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Marcelo Mayer",
@@ -2851,8 +3073,9 @@
   },
   {
     "date": "3/24/26 12:47 PM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Jared Koenig",
@@ -2871,8 +3094,9 @@
   },
   {
     "date": "3/24/26 12:45 PM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Matt Strahm",
@@ -2891,8 +3115,9 @@
   },
   {
     "date": "3/23/26 1:30 PM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Coby Mayo",
@@ -2905,8 +3130,9 @@
   },
   {
     "date": "3/23/26 1:24 PM ET",
+    "teamId": "8",
     "teamName": "Ballesteros, Let the Rhythm Take You Over",
-    "teamId": 8,
+    "team": "Ballesteros, Let the Rhythm Take You Over",
     "players": [
       {
         "name": "Evan Carter",
@@ -2919,8 +3145,9 @@
   },
   {
     "date": "5/13/26 2:34 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Ha-seong Kim",
@@ -2939,8 +3166,9 @@
   },
   {
     "date": "5/13/26 2:34 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Carlos Cortes",
@@ -2959,8 +3187,9 @@
   },
   {
     "date": "5/11/26 2:41 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Pete Fairbanks",
@@ -2973,8 +3202,9 @@
   },
   {
     "date": "5/10/26 10:49 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Carlos Cortes",
@@ -2987,8 +3217,9 @@
   },
   {
     "date": "5/10/26 2:35 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Addison Barger",
@@ -3007,8 +3238,9 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Ian Seymour",
@@ -3021,8 +3253,9 @@
   },
   {
     "date": "5/4/26 2:18 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Ian Seymour",
@@ -3041,8 +3274,9 @@
   },
   {
     "date": "5/1/26 4:11 PM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Edward Florentino",
@@ -3055,8 +3289,9 @@
   },
   {
     "date": "5/1/26 2:00 PM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Edward Florentino",
@@ -3069,8 +3304,9 @@
   },
   {
     "date": "4/30/26 2:03 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Ildemaro Vargas",
@@ -3089,8 +3325,9 @@
   },
   {
     "date": "4/30/26 2:03 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Antonio Senzatela",
@@ -3109,8 +3346,9 @@
   },
   {
     "date": "4/28/26 3:06 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Payton Tolle",
@@ -3129,8 +3367,9 @@
   },
   {
     "date": "4/28/26 3:06 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Jeremiah Estrada",
@@ -3149,8 +3388,9 @@
   },
   {
     "date": "4/26/26 1:49 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Carlos Cortes",
@@ -3169,8 +3409,9 @@
   },
   {
     "date": "4/23/26 2:49 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Caleb Thielbar",
@@ -3189,8 +3430,9 @@
   },
   {
     "date": "4/19/26 4:05 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Ben Brown",
@@ -3209,8 +3451,9 @@
   },
   {
     "date": "4/17/26 1:45 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Will Warren",
@@ -3229,8 +3472,9 @@
   },
   {
     "date": "4/16/26 2:34 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Isaac Mattson",
@@ -3249,8 +3493,9 @@
   },
   {
     "date": "4/15/26 1:46 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Rico Garcia",
@@ -3263,8 +3508,9 @@
   },
   {
     "date": "4/15/26 1:46 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Rico Garcia",
@@ -3283,8 +3529,9 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Tyler Wells",
@@ -3303,8 +3550,9 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Seth Hernandez",
@@ -3323,8 +3571,9 @@
   },
   {
     "date": "4/13/26 1:59 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Luis Severino",
@@ -3343,8 +3592,9 @@
   },
   {
     "date": "4/12/26 2:28 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Ryne Stanek",
@@ -3363,8 +3613,9 @@
   },
   {
     "date": "4/10/26 3:09 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Tyler Alexander",
@@ -3383,8 +3634,9 @@
   },
   {
     "date": "4/9/26 1:46 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Max Muncy",
@@ -3403,8 +3655,9 @@
   },
   {
     "date": "4/8/26 3:06 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Will Warren",
@@ -3423,8 +3676,9 @@
   },
   {
     "date": "3/30/26 9:19 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Cole Sands",
@@ -3437,8 +3691,9 @@
   },
   {
     "date": "3/30/26 9:18 AM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Anthony Volpe",
@@ -3451,8 +3706,9 @@
   },
   {
     "date": "3/25/26 2:24 PM ET",
+    "teamId": "9",
     "teamName": "Yesavage Garden",
-    "teamId": 9,
+    "team": "Yesavage Garden",
     "players": [
       {
         "name": "Dylan Lee",
@@ -3465,8 +3721,9 @@
   },
   {
     "date": "5/13/26 10:49 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Jarren Duran",
@@ -3479,8 +3736,9 @@
   },
   {
     "date": "5/10/26 2:35 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Kevin Kelly",
@@ -3493,8 +3751,9 @@
   },
   {
     "date": "5/10/26 2:35 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Kevin Kelly",
@@ -3513,8 +3772,9 @@
   },
   {
     "date": "5/9/26 2:33 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Braden Montgomery",
@@ -3527,8 +3787,9 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Antonio Senzatela",
@@ -3541,8 +3802,9 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Antonio Senzatela",
@@ -3561,8 +3823,9 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Miguel Vargas",
@@ -3575,8 +3838,9 @@
   },
   {
     "date": "5/7/26 2:33 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Miguel Vargas",
@@ -3595,8 +3859,9 @@
   },
   {
     "date": "5/6/26 7:36 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Tyler Kinley",
@@ -3609,8 +3874,9 @@
   },
   {
     "date": "5/6/26 2:23 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Peter Lambert",
@@ -3623,8 +3889,9 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Bailey Ober",
@@ -3643,8 +3910,9 @@
   },
   {
     "date": "5/2/26 7:58 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Tyler Kinley",
@@ -3657,8 +3925,9 @@
   },
   {
     "date": "4/30/26 2:03 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Erick Fedde",
@@ -3677,8 +3946,9 @@
   },
   {
     "date": "4/25/26 9:03 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Tim Hill",
@@ -3691,8 +3961,9 @@
   },
   {
     "date": "4/20/26 1:56 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Brandon Marsh",
@@ -3711,8 +3982,9 @@
   },
   {
     "date": "4/14/26 3:45 PM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Dustin May",
@@ -3725,8 +3997,9 @@
   },
   {
     "date": "4/12/26 2:28 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Luis Arraez",
@@ -3739,8 +4012,9 @@
   },
   {
     "date": "4/6/26 1:57 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Tim Hill",
@@ -3759,8 +4033,9 @@
   },
   {
     "date": "3/30/26 6:29 PM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Kyle Manzardo",
@@ -3773,8 +4048,9 @@
   },
   {
     "date": "3/30/26 6:23 PM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Jordan Walker",
@@ -3787,8 +4063,9 @@
   },
   {
     "date": "3/21/26 10:13 PM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "George Soriano",
@@ -3801,8 +4078,9 @@
   },
   {
     "date": "3/20/26 10:36 PM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Jameson Taillon",
@@ -3815,8 +4093,9 @@
   },
   {
     "date": "3/20/26 10:31 PM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Alec Bohm",
@@ -3829,8 +4108,9 @@
   },
   {
     "date": "3/19/26 7:55 AM ET",
+    "teamId": "10",
     "teamName": "Blame it on the Rainiel",
-    "teamId": 10,
+    "team": "Blame it on the Rainiel",
     "players": [
       {
         "name": "Adolis Garcia",
@@ -3843,8 +4123,9 @@
   },
   {
     "date": "5/10/26 5:43 PM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Spencer Jones",
@@ -3857,8 +4138,9 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Max Meyer",
@@ -3877,8 +4159,9 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Connor Prielipp",
@@ -3897,8 +4180,9 @@
   },
   {
     "date": "5/3/26 2:18 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Nasim Nunez",
@@ -3917,8 +4201,9 @@
   },
   {
     "date": "5/3/26 2:18 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Jack Leiter",
@@ -3937,8 +4222,9 @@
   },
   {
     "date": "5/3/26 2:18 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Jack Perkins",
@@ -3957,8 +4243,9 @@
   },
   {
     "date": "4/24/26 1:44 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Miguel Vargas",
@@ -3971,8 +4258,9 @@
   },
   {
     "date": "4/23/26 2:49 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Ryan Jeffers",
@@ -3985,8 +4273,9 @@
   },
   {
     "date": "4/23/26 2:49 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Ryan Jeffers",
@@ -4005,8 +4294,9 @@
   },
   {
     "date": "4/19/26 4:05 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Keaton Winn",
@@ -4019,8 +4309,9 @@
   },
   {
     "date": "4/19/26 4:05 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Keaton Winn",
@@ -4039,8 +4330,9 @@
   },
   {
     "date": "4/14/26 3:10 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Slade Cecconi",
@@ -4059,8 +4351,9 @@
   },
   {
     "date": "4/10/26 7:24 PM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Josh H. Smith",
@@ -4073,8 +4366,9 @@
   },
   {
     "date": "4/9/26 1:46 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Janson Junk",
@@ -4093,8 +4387,9 @@
   },
   {
     "date": "4/5/26 1:48 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "J.T. Realmuto",
@@ -4107,8 +4402,9 @@
   },
   {
     "date": "4/4/26 3:40 PM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Joe Musgrove",
@@ -4121,8 +4417,9 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Caleb Kilian",
@@ -4141,8 +4438,9 @@
   },
   {
     "date": "3/29/26 10:21 PM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Emerson Hancock",
@@ -4161,8 +4459,9 @@
   },
   {
     "date": "3/27/26 3:15 PM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "George Lombard",
@@ -4175,8 +4474,9 @@
   },
   {
     "date": "3/27/26 3:12 PM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Tanner McDougal",
@@ -4189,8 +4489,9 @@
   },
   {
     "date": "3/27/26 3:10 PM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Jordan Romano",
@@ -4209,8 +4510,9 @@
   },
   {
     "date": "3/25/26 2:50 PM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Jack Dreyer",
@@ -4223,8 +4525,9 @@
   },
   {
     "date": "3/24/26 12:56 PM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Hunter Barco",
@@ -4237,8 +4540,9 @@
   },
   {
     "date": "3/24/26 11:56 AM ET",
+    "teamId": "11",
     "teamName": "Before and After Shohei",
-    "teamId": 11,
+    "team": "Before and After Shohei",
     "players": [
       {
         "name": "Johan Oviedo",
@@ -4251,8 +4555,9 @@
   },
   {
     "date": "5/13/26 11:01 PM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Spencer Steer",
@@ -4265,8 +4570,9 @@
   },
   {
     "date": "5/12/26 10:34 PM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Tatsuya Imai",
@@ -4279,12 +4585,13 @@
   },
   {
     "date": "5/12/26 3:37 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Austin Martin",
-        "pos": "LF",
+        "pos": "LF,RF",
         "mlbTeam": "MIN",
         "action": "Added off Waivers"
       }
@@ -4293,8 +4600,9 @@
   },
   {
     "date": "5/12/26 12:53 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Sal Frelick",
@@ -4307,8 +4615,9 @@
   },
   {
     "date": "5/10/26 2:35 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Michael McGreevy",
@@ -4327,8 +4636,9 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Carson Kelly",
@@ -4341,8 +4651,9 @@
   },
   {
     "date": "5/5/26 2:44 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Carson Kelly",
@@ -4361,8 +4672,9 @@
   },
   {
     "date": "5/4/26 5:51 PM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Quinn Priester",
@@ -4375,8 +4687,9 @@
   },
   {
     "date": "5/2/26 7:58 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Spencer Steer",
@@ -4395,8 +4708,9 @@
   },
   {
     "date": "4/29/26 3:03 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Nathan Church",
@@ -4415,8 +4729,9 @@
   },
   {
     "date": "4/20/26 1:56 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Otto Lopez",
@@ -4435,8 +4750,9 @@
   },
   {
     "date": "4/16/26 2:34 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Davis Martin",
@@ -4449,8 +4765,9 @@
   },
   {
     "date": "4/15/26 1:46 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Jake Junis",
@@ -4463,8 +4780,9 @@
   },
   {
     "date": "4/15/26 1:46 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Jake Junis",
@@ -4483,8 +4801,9 @@
   },
   {
     "date": "4/13/26 1:49 PM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Kirby Yates",
@@ -4497,8 +4816,9 @@
   },
   {
     "date": "4/13/26 1:59 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Ramon Laureano",
@@ -4517,8 +4837,9 @@
   },
   {
     "date": "4/8/26 3:06 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Bryce Elder",
@@ -4537,8 +4858,9 @@
   },
   {
     "date": "4/5/26 1:48 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Joe Boyle",
@@ -4557,8 +4879,9 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "TJ Rumfield",
@@ -4577,8 +4900,9 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Graham Ashcraft",
@@ -4591,8 +4915,9 @@
   },
   {
     "date": "4/4/26 3:06 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Graham Ashcraft",
@@ -4611,8 +4936,9 @@
   },
   {
     "date": "4/3/26 2:03 AM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Paul Sewald",
@@ -4631,8 +4957,9 @@
   },
   {
     "date": "3/31/26 10:39 PM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Owen Caissie",
@@ -4651,8 +4978,9 @@
   },
   {
     "date": "3/25/26 10:46 PM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Carson Williams",
@@ -4665,8 +4993,9 @@
   },
   {
     "date": "3/25/26 1:37 PM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Chris Martin",
@@ -4679,8 +5008,9 @@
   },
   {
     "date": "3/23/26 10:00 PM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Ben Joyce",
@@ -4699,8 +5029,9 @@
   },
   {
     "date": "3/20/26 11:16 PM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Jorge Polanco",
@@ -4713,8 +5044,9 @@
   },
   {
     "date": "3/19/26 11:17 PM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Alfredo Duno",
@@ -4727,8 +5059,9 @@
   },
   {
     "date": "3/18/26 10:06 PM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "Jordan Beck",
@@ -4741,8 +5074,9 @@
   },
   {
     "date": "3/18/26 10:05 PM ET",
+    "teamId": "12",
     "teamName": "Popped A Mahle I'm Sweating",
-    "teamId": 12,
+    "team": "Popped A Mahle I'm Sweating",
     "players": [
       {
         "name": "TJ Rumfield",
