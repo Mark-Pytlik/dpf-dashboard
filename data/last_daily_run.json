@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-14T16:21:32.818939Z",
+  "completedAt": "2026-05-15T13:17:29.063226Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -13,12 +13,9 @@
     "matchup": "ok"
   },
   "notes": [
-    "fetch_stuffplus.py: pybaseball not installed, skipped (expected non-fatal)",
-    "Transactions URL in task spec (www.cbssports.com/fantasy/baseball/league/...) returns 404; actual league subdomain is dpf.baseball.cbssports.com/.",
-    "Player news scrape returned 41 unique items across 5 pages (page-level rendering returns 10/page).",
-    "Snapshot bat_2026-05-14.csv pre-existed from morning run; overwritten.",
-    "Trades page (/trades/recent) showed league-home dashboard rather than a trades table \u2014 no separate trade rows captured; trades show up inline in transactions as 'Traded from <Team>'.",
-    "Roster contents identical to morning run (order-only diff); roster_sync.py added 276 synthetic adds (normal afternoon-run behaviour vs cleaned morning baseline).",
-    "season_status.json category scores unchanged from 6am \u2014 only timestamps refreshed."
+    "fetch_stuffplus.py: pybaseball not installed (expected, non-fatal)",
+    "Transactions: 325 raw rows -> 257 cleaned",
+    "Period 4 in progress (5/11-5/24); Okamotomami losing 4-12 to Popped A Mahle I'm Sweating mid-period",
+    "Standings record from completed periods 1-3: 3-0-0"
   ]
 }
