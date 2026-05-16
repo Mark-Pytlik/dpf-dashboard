@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-15T16:19:11.067639Z",
+  "completedAt": "2026-05-16T13:42:37.694969Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -13,8 +13,10 @@
     "matchup": "ok"
   },
   "notes": [
-    "Cookies extracted from Chrome session and passed to curl for headless CBS scraping",
-    "fetch_stuffplus.py reported 'pybaseball not installed' (non-fatal, expected)",
-    "roster_sync.py added 275 synthetic Added transactions (initial-draft rosters not present in CBS txn log)"
+    "Transactions: 331 rows scraped from print_rows=9999, cleaner consolidated to 262.",
+    "All action types were recognized \u2014 no new action types observed.",
+    "Rosters: 12 teams scraped via fetch().",
+    "Matchup: period 4, vs Popped A Mahle I'm Sweating, current score me=4.5 opp=11.5 (Okamotomami 3-0-0).",
+    "Standings + category breakdown captured."
   ]
 }
