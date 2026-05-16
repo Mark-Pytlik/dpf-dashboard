@@ -83,7 +83,7 @@
     "HRA": {
       "me": "5",
       "opp": "5",
-      "won": false
+      "won": "0.5"
     },
     "QS": {
       "me": "1",
@@ -93,46 +93,40 @@
   },
   "allMatchups": [
     {
-      "matchupId": 1,
-      "away": "Everythings McGonigle Green",
-      "home": "Buddy Buddy Buddy All On Base",
-      "awayScore": 9.5,
-      "homeScore": 6.5
-    },
-    {
-      "matchupId": 2,
-      "away": "Weird Fishes / Arrighetti",
-      "home": "Colonel Corbin's Ascent",
-      "awayScore": 5,
-      "homeScore": 11
-    },
-    {
-      "matchupId": 3,
-      "away": "Before and After Shohei",
-      "home": "A Pete Crow-Armstrong Looked at Me",
-      "awayScore": 3.5,
-      "homeScore": 12.5
-    },
-    {
-      "matchupId": 4,
-      "away": "Yesavage Garden",
-      "home": "Dinosaur Jr Caminero",
-      "awayScore": 10.5,
-      "homeScore": 5.5
-    },
-    {
-      "matchupId": 5,
-      "away": "Popped A Mahle I'm Sweating",
-      "home": "Okamotomami",
+      "away": "ROTH",
+      "home": "OMM",
       "awayScore": 11.5,
       "homeScore": 4.5
     },
     {
-      "matchupId": 6,
-      "away": "Ballesteros, Let the Rhythm Take You Over",
-      "home": "Blame it on the Rainiel",
-      "awayScore": 10,
-      "homeScore": 6
+      "away": "woba",
+      "home": "BBBaoB",
+      "awayScore": 9.5,
+      "homeScore": 6.5
+    },
+    {
+      "away": "Drew",
+      "home": "Milli",
+      "awayScore": 5.0,
+      "homeScore": 11.0
+    },
+    {
+      "away": "SHOH",
+      "home": "PCA",
+      "awayScore": 3.5,
+      "homeScore": 12.5
+    },
+    {
+      "away": "YSVG",
+      "home": "RESCAN",
+      "awayScore": 10.5,
+      "homeScore": 5.5
+    },
+    {
+      "away": "Fran",
+      "home": "Icculus",
+      "awayScore": 10.0,
+      "homeScore": 6.0
     }
   ],
   "myRecord": "3-0-0",
@@ -143,9 +137,6 @@
       "w": 3,
       "l": 0,
       "t": 0,
-      "pct": "1.000",
-      "gb": "0",
-      "streak": "W3",
       "pts": 0
     },
     {
@@ -154,9 +145,6 @@
       "w": 3,
       "l": 0,
       "t": 0,
-      "pct": "1.000",
-      "gb": "0",
-      "streak": "W3",
       "pts": 0
     },
     {
@@ -165,9 +153,6 @@
       "w": 3,
       "l": 0,
       "t": 0,
-      "pct": "1.000",
-      "gb": "0",
-      "streak": "W3",
       "pts": 0
     },
     {
@@ -176,9 +161,6 @@
       "w": 2,
       "l": 1,
       "t": 0,
-      "pct": "0.667",
-      "gb": "1",
-      "streak": "L1",
       "pts": 0
     },
     {
@@ -187,9 +169,6 @@
       "w": 1,
       "l": 1,
       "t": 1,
-      "pct": "0.500",
-      "gb": "1.5",
-      "streak": "T1",
       "pts": 0
     },
     {
@@ -198,9 +177,6 @@
       "w": 1,
       "l": 2,
       "t": 0,
-      "pct": "0.333",
-      "gb": "2",
-      "streak": "W1",
       "pts": 0
     },
     {
@@ -209,9 +185,6 @@
       "w": 1,
       "l": 2,
       "t": 0,
-      "pct": "0.333",
-      "gb": "2",
-      "streak": "L1",
       "pts": 0
     },
     {
@@ -220,9 +193,6 @@
       "w": 1,
       "l": 2,
       "t": 0,
-      "pct": "0.333",
-      "gb": "2",
-      "streak": "L1",
       "pts": 0
     },
     {
@@ -231,9 +201,6 @@
       "w": 1,
       "l": 2,
       "t": 0,
-      "pct": "0.333",
-      "gb": "2",
-      "streak": "L2",
       "pts": 0
     },
     {
@@ -242,9 +209,6 @@
       "w": 1,
       "l": 2,
       "t": 0,
-      "pct": "0.333",
-      "gb": "2",
-      "streak": "W1",
       "pts": 0
     },
     {
@@ -253,9 +217,6 @@
       "w": 0,
       "l": 2,
       "t": 1,
-      "pct": "0.167",
-      "gb": "2.5",
-      "streak": "T1",
       "pts": 0
     },
     {
@@ -264,12 +225,9 @@
       "w": 0,
       "l": 3,
       "t": 0,
-      "pct": "0.000",
-      "gb": "3",
-      "streak": "L3",
       "pts": 0
     }
   ],
-  "updated": "2026-05-16T13:41:35.861Z",
+  "updated": "2026-05-16T16:09:12.115043Z",
   "lastUpdated": "2026-05-16 (period 4 in progress)"
 }
