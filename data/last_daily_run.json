@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-16T13:42:37.694969Z",
+  "completedAt": "2026-05-16T16:09:31.951000Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -13,10 +13,9 @@
     "matchup": "ok"
   },
   "notes": [
-    "Transactions: 331 rows scraped from print_rows=9999, cleaner consolidated to 262.",
-    "All action types were recognized \u2014 no new action types observed.",
-    "Rosters: 12 teams scraped via fetch().",
-    "Matchup: period 4, vs Popped A Mahle I'm Sweating, current score me=4.5 opp=11.5 (Okamotomami 3-0-0).",
-    "Standings + category breakdown captured."
+    "fetch_stuffplus 403/missing-package: non-fatal (expected)",
+    "transactions: 331 raw rows scraped, cleaner consolidated to 262",
+    "no new action types encountered (Added, Added off Waivers, Dropped, Activated, Moved to IR, Traded from)",
+    "skipped roster_sync.py per skill instructions (print-all view is uncapped)"
   ]
 }
