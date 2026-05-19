@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-19T15:42:34.276202Z",
+  "completedAt": "2026-05-19T16:18:54.426517Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -13,9 +13,12 @@
     "matchup": "ok"
   },
   "notes": [
-    "fetch_stuffplus.py: non-fatal \u2014 pybaseball missing in env",
-    "Player news: pagination URL pattern is /fantasy/baseball/players/news/all/both/{page}/",
-    "Trades-only league URL /trades/ is the waivers page; per-team transaction pages already include Traded from/to actions",
-    "roster_sync.py added 291 synthetic transactions from roster reconciliation (large drift; expected after long gap)"
+    "Skill SKILL.md listed CBS URLs at www.cbssports.com but real league is at dpf.baseball.cbssports.com. Used the dpf subdomain.",
+    "fetch_stuffplus.py 403'd (pybaseball missing) - expected non-fatal.",
+    "Team 7 renamed: 'Whoop Whoop that's the sound of Dylan Cease' \u2192 'Everythings McGonigle Green'. cbs_rosters.json key updated.",
+    "Used GitHub Contents API via Chrome to shuttle scraped JSON (302 txns, 12 rosters) from authed browser into the sandbox.",
+    "Transactions cleaner shrank 668 \u2192 287 rows; consistent with prior daily-run noise.",
+    "Roster sync reported 5 missing-add / 5 ghost-drop pairs (10 synthetic transactions). All flagged from today's 2:36 AM ET wave.",
+    "Trades page is /transactions/trade (trade proposal UI); historical trades captured via per-team 'Traded from X' rows."
   ]
 }
