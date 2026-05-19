@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-17T16:26:57.430571Z",
+  "completedAt": "2026-05-19T15:42:34.276202Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -12,5 +12,10 @@
     "rosters": "ok",
     "matchup": "ok"
   },
-  "notes": []
+  "notes": [
+    "fetch_stuffplus.py: non-fatal \u2014 pybaseball missing in env",
+    "Player news: pagination URL pattern is /fantasy/baseball/players/news/all/both/{page}/",
+    "Trades-only league URL /trades/ is the waivers page; per-team transaction pages already include Traded from/to actions",
+    "roster_sync.py added 291 synthetic transactions from roster reconciliation (large drift; expected after long gap)"
+  ]
 }
