@@ -439,7 +439,7 @@
   },
   {
     "date": "5/13/26 6:32 PM ET",
-    "teamId": "2",
+    "teamId": "7",
     "teamName": "Everythings McGonigle Green",
     "team": "Everythings McGonigle Green",
     "players": [
@@ -1266,6 +1266,27 @@
     "effective": "4/18/26"
   },
   {
+    "date": "5/20/26 3:07 AM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "players": [
+      {
+        "name": "Carlos Cortes",
+        "pos": "RF",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "JoJo Romero",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/20/26"
+  },
+  {
     "date": "5/19/26 2:36 AM ET",
     "teamId": "4",
     "teamName": "Okamotomami",
@@ -1567,7 +1588,7 @@
   },
   {
     "date": "3/17/26 12:38 PM ET",
-    "teamId": "4",
+    "teamId": "3",
     "teamName": "Colonel Corbin's Ascent",
     "team": "Colonel Corbin's Ascent",
     "players": [
@@ -1596,16 +1617,16 @@
         "name": "Jac Caglianone",
         "pos": "RF",
         "mlbTeam": "KC",
-        "action": "Traded from Colonel Corbin's Ascent"
+        "action": "Traded from Colonel"
       },
       {
-        "name": "Vladimir Guerrero Jr.",
+        "name": "Corbin's AscentVladimir Guerrero Jr.",
         "pos": "1B",
         "mlbTeam": "TOR",
-        "action": "Traded from Colonel Corbin's Ascent"
+        "action": "Traded from Colonel"
       },
       {
-        "name": "Kazuma Okamoto",
+        "name": "Corbin's AscentKazuma Okamoto",
         "pos": "3B",
         "mlbTeam": "TOR",
         "action": "Traded from Colonel Corbin's Ascent"
@@ -1897,6 +1918,21 @@
       }
     ],
     "effective": "3/25/26"
+  },
+  {
+    "date": "5/20/26 3:07 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "players": [
+      {
+        "name": "Jacob Gonzalez",
+        "pos": "2B",
+        "mlbTeam": "CHW",
+        "action": "Added off Waivers"
+      }
+    ],
+    "effective": "5/20/26"
   },
   {
     "date": "5/18/26 1:59 AM ET",
@@ -2424,21 +2460,6 @@
     "effective": "3/25/26"
   },
   {
-    "date": "3/19/26 7:24 AM ET",
-    "teamId": "6",
-    "teamName": "A Pete Crow-Armstrong Looked at Me",
-    "team": "A Pete Crow-Armstrong Looked at Me",
-    "players": [
-      {
-        "name": "Giancarlo Stanton",
-        "pos": "DH",
-        "mlbTeam": "NYY",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
     "date": "5/18/26 1:59 AM ET",
     "teamId": "7",
     "teamName": "Everythings McGonigle Green",
@@ -2503,7 +2524,7 @@
   },
   {
     "date": "5/13/26 6:32 PM ET",
-    "teamId": "7",
+    "teamId": "2",
     "teamName": "Dinosaur Jr Caminero",
     "team": "Dinosaur Jr Caminero",
     "players": [
@@ -4002,6 +4023,21 @@
     "effective": "4/9/26"
   },
   {
+    "date": "5/20/26 3:07 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "players": [
+      {
+        "name": "Scott Barlow",
+        "pos": "RP",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      }
+    ],
+    "effective": "5/20/26"
+  },
+  {
     "date": "5/13/26 10:49 AM ET",
     "teamId": "10",
     "teamName": "Blame it on the Rainiel",
@@ -4402,6 +4438,42 @@
       }
     ],
     "effective": "3/25/26"
+  },
+  {
+    "date": "5/20/26 3:07 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "players": [
+      {
+        "name": "Gabriel Moreno",
+        "pos": "C",
+        "mlbTeam": "ARI",
+        "action": "Activated"
+      }
+    ],
+    "effective": "5/20/26"
+  },
+  {
+    "date": "5/20/26 3:07 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "players": [
+      {
+        "name": "Gabriel Moreno",
+        "pos": "C",
+        "mlbTeam": "ARI",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Ryan Jeffers",
+        "pos": "C",
+        "mlbTeam": "MIN",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/20/26"
   },
   {
     "date": "5/10/26 5:43 PM ET",
@@ -4834,6 +4906,21 @@
       }
     ],
     "effective": "3/25/26"
+  },
+  {
+    "date": "5/19/26 11:00 PM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "players": [
+      {
+        "name": "Austin Martin",
+        "pos": "LF,RF",
+        "mlbTeam": "MIN",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/20/26"
   },
   {
     "date": "5/16/26 2:34 AM ET",
@@ -5355,21 +5442,6 @@
         "name": "Jorge Polanco",
         "pos": "2B",
         "mlbTeam": "NYM",
-        "action": "Dropped"
-      }
-    ],
-    "effective": "3/25/26"
-  },
-  {
-    "date": "3/19/26 11:17 PM ET",
-    "teamId": "12",
-    "teamName": "Popped A Mahle I'm Sweating",
-    "team": "Popped A Mahle I'm Sweating",
-    "players": [
-      {
-        "name": "Alfredo Duno",
-        "pos": "C",
-        "mlbTeam": "CIN",
         "action": "Dropped"
       }
     ],

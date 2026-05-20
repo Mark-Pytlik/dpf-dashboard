@@ -135,11 +135,7 @@
       "homeScore": 12.0
     }
   ],
-  "myRecord": {
-    "W": 3,
-    "L": 0,
-    "T": 0
-  },
+  "myRecord": "3-0-0",
   "standings": [
     {
       "team": "Weird Fishes / Arrighetti",
@@ -250,6 +246,6 @@
       "streak": "L3"
     }
   ],
-  "updated": "2026-05-19T16:18:25.100094Z",
-  "lastUpdated": "2026-05-19"
+  "updated": "2026-05-20T16:14:41.501834Z",
+  "lastUpdated": "2026-05-20"
 }
