@@ -5,65 +5,65 @@
   "opponent": "Popped A Mahle I'm Sweating",
   "opponentTeam": "Popped A Mahle I'm Sweating",
   "currentScore": {
-    "me": 5.5,
-    "opp": 10.5,
-    "tied": 1
+    "me": 6.0,
+    "opp": 10.0,
+    "tied": 0
   },
   "categoryBreakdown": {
     "BA": {
-      "me": "0.201",
-      "opp": "0.313",
+      "me": "0.199",
+      "opp": "0.309",
       "won": false
     },
     "HR": {
-      "me": "9",
-      "opp": "9",
+      "me": "11",
+      "opp": "12",
       "won": false
     },
     "RBI": {
-      "me": "23",
-      "opp": "39",
+      "me": "32",
+      "opp": "46",
       "won": false
     },
     "R": {
-      "me": "31",
-      "opp": "41",
+      "me": "37",
+      "opp": "53",
       "won": false
     },
     "SB": {
-      "me": "0",
-      "opp": "14",
+      "me": "1",
+      "opp": "19",
       "won": false
     },
     "KO": {
-      "me": "59",
-      "opp": "51",
+      "me": "76",
+      "opp": "63",
       "won": false
     },
     "OBP": {
-      "me": "0.293",
-      "opp": "0.388",
+      "me": "0.286",
+      "opp": "0.390",
       "won": false
     },
     "SLG": {
-      "me": "0.362",
-      "opp": "0.507",
+      "me": "0.351",
+      "opp": "0.509",
       "won": false
     },
     "K": {
-      "me": "62",
-      "opp": "48",
+      "me": "75",
+      "opp": "62",
       "won": true
     },
     "ERA": {
-      "me": "4.5000",
-      "opp": "5.1702",
+      "me": "3.9320",
+      "opp": "5.1840",
       "won": true
     },
     "WHIP": {
-      "me": "1.3077",
-      "opp": "1.2766",
-      "won": false
+      "me": "1.1650",
+      "opp": "1.3320",
+      "won": true
     },
     "W": {
       "me": "1",
@@ -72,22 +72,22 @@
     },
     "S": {
       "me": "6",
-      "opp": "3",
+      "opp": "5",
       "won": true
     },
     "HD": {
-      "me": "2",
-      "opp": "1",
+      "me": "3",
+      "opp": "2",
       "won": true
     },
     "HRA": {
-      "me": "7",
-      "opp": "11",
+      "me": "9",
+      "opp": "16",
       "won": true
     },
     "QS": {
-      "me": "2",
-      "opp": "6",
+      "me": "3",
+      "opp": "7",
       "won": false
     }
   },
@@ -96,15 +96,15 @@
       "mid": 1,
       "away": "Ballesteros, Let the Rhythm Take You Over",
       "home": "Buddy Buddy Buddy All On Base",
-      "awayScore": 7.0,
-      "homeScore": 9.0
+      "awayScore": 7.5,
+      "homeScore": 8.5
     },
     {
       "mid": 2,
       "away": "Everythings McGonigle Green",
       "home": "Blame it on the Rainiel",
-      "awayScore": 3.5,
-      "homeScore": 12.5
+      "awayScore": 9.0,
+      "homeScore": 7.0
     },
     {
       "mid": 3,
@@ -124,8 +124,8 @@
       "mid": 5,
       "away": "Popped A Mahle I'm Sweating",
       "home": "Okamotomami",
-      "awayScore": 10.5,
-      "homeScore": 5.5
+      "awayScore": 10.0,
+      "homeScore": 6.0
     },
     {
       "mid": 6,
@@ -246,6 +246,6 @@
       "streak": "L3"
     }
   ],
-  "updated": "2026-05-20T16:14:41.501834Z",
-  "lastUpdated": "2026-05-20"
+  "updated": "2026-05-21T16:10:22.513581Z",
+  "lastUpdated": "2026-05-21"
 }
