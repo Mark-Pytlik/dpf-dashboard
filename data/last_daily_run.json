@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-20T16:15:16.571483Z",
+  "completedAt": "2026-05-21T16:10:44.699154Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -10,12 +10,13 @@
     "cbs_auth": "ok",
     "transactions": "ok",
     "rosters": "ok",
-    "matchup": "partial"
+    "matchup": "ok"
   },
   "notes": [
-    "fetch_stuffplus.py non-fatal (pybaseball missing).",
-    "Scoreboard shows 'Period 3 Recap' (ROTH 10 - OMM 6); matchup/period for Period 4 ambiguous, preserved existing currentPeriod=4 and opponent='Popped A Mahle I'm Sweating'. Standings/myRecord refreshed from fresh scrape.",
-    "Used GitHub Contents API via Chrome to shuttle scraped JSON (306 txns, 12 rosters) from authed browser to sandbox; cleaner consolidated to 287 rows.",
-    "Roster sync emitted 29 synthetic transactions (ghost-drops / missing-adds, consistent with prior daily-run noise)."
+    "fetch_stuffplus.py failed (pybaseball not installed) \u2014 non-fatal, FanGraphs Stuff+ stats not refreshed",
+    "Transactions: 359 raw \u2192 280 after merge_tx cleaner. No new action types detected.",
+    "Rosters: 387 total players across 12 teams from dpf.baseball.cbssports.com/teams/{id}",
+    "Period 4 in progress (May 11\u201324); Okamotomami trailing Popped A Mahle I'm Sweating 6-10",
+    "Snapshots index rebuilt: 40 dates, window 2026-05-07 \u2192 2026-05-21"
   ]
 }
