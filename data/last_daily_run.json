@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-21T16:10:44.699154Z",
+  "completedAt": "2026-05-22T13:06:02.964649Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -7,16 +7,16 @@
     "snapshotsIndex": "ok"
   },
   "phaseB": {
-    "cbs_auth": "ok",
-    "transactions": "ok",
-    "rosters": "ok",
-    "matchup": "ok"
+    "cbs_auth": "missing",
+    "transactions": "skipped",
+    "rosters": "skipped",
+    "matchup": "skipped"
   },
   "notes": [
-    "fetch_stuffplus.py failed (pybaseball not installed) \u2014 non-fatal, FanGraphs Stuff+ stats not refreshed",
-    "Transactions: 359 raw \u2192 280 after merge_tx cleaner. No new action types detected.",
-    "Rosters: 387 total players across 12 teams from dpf.baseball.cbssports.com/teams/{id}",
-    "Period 4 in progress (May 11\u201324); Okamotomami trailing Popped A Mahle I'm Sweating 6-10",
-    "Snapshots index rebuilt: 40 dates, window 2026-05-07 \u2192 2026-05-21"
+    "CBS league pages return 'Whoops! It looks like this page has been moved or deleted' \u2014 auth session not present in browser",
+    "fetch_stuffplus.py: pybaseball not installed (non-fatal, expected)",
+    "Injuries: 254 across 30 teams (parsed via direct HTTP, not Chrome)",
+    "Player news: 49 unique items from pages 1-5 (XHR JSON endpoint)",
+    "Snapshots index rebuilt: 41 dates"
   ]
 }
