@@ -21,7 +21,7 @@ concurrency:
 jobs:
   build-deploy:
     # Skip runs triggered by the bot's own data-refresh commits to avoid cascade.
-    if: github.event_name != 'push' || (github.actor != 'github-actions[bot]' && !startsWith(github.event.head_commit.message, 'chore: daily'))
+    if: "github.event_name != 'push' || (github.actor != 'github-actions[bot]' && !startsWith(github.event.head_commit.message, 'chore: daily'))"
     runs-on: ubuntu-latest
     environment:
       name: github-pages
