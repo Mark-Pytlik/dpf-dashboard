@@ -635,7 +635,7 @@
     "players": [
       {
         "name": "Didier Fuentes",
-        "pos": "SP",
+        "pos": "SP,RP",
         "mlbTeam": "ATL",
         "action": "Added"
       },
@@ -5408,5 +5408,173 @@
       }
     ],
     "effective": "5/20/26"
+  },
+  {
+    "date": "5/21/26 7:16 PM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "players": [
+      {
+        "name": "Robby Snelling",
+        "pos": "SP",
+        "mlbTeam": "MIA",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/22/26"
+  },
+  {
+    "date": "5/22/26 2:02 AM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "players": [
+      {
+        "name": "Brayan Rocchio",
+        "pos": "2B,SS",
+        "mlbTeam": "CLE",
+        "action": "Activated"
+      },
+      {
+        "name": "Dansby Swanson",
+        "pos": "SS",
+        "mlbTeam": "CHC",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/22/26"
+  },
+  {
+    "date": "5/22/26 2:02 AM ET",
+    "teamId": "7",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
+    "team": "Whoop Whoop that's the sound of Dylan Cease",
+    "players": [
+      {
+        "name": "Theo Gillen",
+        "pos": "CF",
+        "mlbTeam": "TB",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Ethan Salas",
+        "pos": "C",
+        "mlbTeam": "SD",
+        "action": "Added off Waivers"
+      }
+    ],
+    "effective": "5/22/26"
+  },
+  {
+    "date": "5/22/26 2:02 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "players": [
+      {
+        "name": "Ian Seymour",
+        "pos": "SP,RP",
+        "mlbTeam": "TB",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Bryson Stott",
+        "pos": "2B",
+        "mlbTeam": "PHI",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/22/26"
+  },
+  {
+    "date": "5/23/26 2:36 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "players": [
+      {
+        "name": "J.T. Ginn",
+        "pos": "SP",
+        "mlbTeam": "ATH",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Seth Lugo",
+        "pos": "SP",
+        "mlbTeam": "KC",
+        "action": "Dropped"
+      },
+      {
+        "name": "Andrew Abbott",
+        "pos": "SP",
+        "mlbTeam": "CIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Sean Burke",
+        "pos": "SP",
+        "mlbTeam": "CHW",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/23/26"
+  },
+  {
+    "date": "5/23/26 2:36 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "players": [
+      {
+        "name": "JoJo Romero",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Ian Seymour",
+        "pos": "SP,RP",
+        "mlbTeam": "TB",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/23/26"
+  },
+  {
+    "date": "5/23/26 2:36 AM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "players": [
+      {
+        "name": "Braydon Fisher",
+        "pos": "RP",
+        "mlbTeam": "TOR",
+        "action": "Activated"
+      },
+      {
+        "name": "Graham Ashcraft",
+        "pos": "RP",
+        "mlbTeam": "CIN",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/23/26"
+  },
+  {
+    "date": "5/23/26 11:54 AM ET",
+    "teamId": "7",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
+    "team": "Whoop Whoop that's the sound of Dylan Cease",
+    "players": [
+      {
+        "name": "Drew Anderson",
+        "pos": "RP",
+        "mlbTeam": "DET",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/23/26"
   }
 ]
