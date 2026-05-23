@@ -1,20 +1,21 @@
 {
-  "completedAt": "2026-05-23T13:08:44.435421Z",
+  "completedAt": "2026-05-23T16:47:11.035810Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
-    "news": "ok",
-    "snapshotsIndex": "ok"
+    "news": "ok"
   },
   "phaseB": {
-    "cbs_auth": "missing",
-    "transactions": "skipped",
-    "rosters": "skipped",
-    "matchup": "skipped"
+    "cbs_auth": "ok",
+    "transactions": "ok",
+    "rosters": "ok",
+    "matchup": "ok"
   },
   "notes": [
-    "Phase B skipped: CBS league URLs returned 'Whoops!' page \u2014 not signed in to CBS in this browser session.",
-    "fetch_stuffplus.py 403'd on FanGraphs (expected, non-fatal).",
-    "Snapshots index rebuilt: 42 dates, 549 batters, 657 pitchers."
+    "fetch_stuffplus.py: pybaseball not installed (non-fatal, expected)",
+    "371 transactions scraped, 288 after dedup",
+    "12 rosters captured, 387 total roster slots",
+    "Period 4 matchup: losing 4.5-11.5 to Popped A Mahle Im Sweating",
+    "Standings: Okamotomami 3-0-0, tied first place"
   ]
 }
