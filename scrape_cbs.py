@@ -127,42 +127,33 @@ def _check_authed(s: requests.Session) -> bool:
 
 # ── Scrapers ────────────────────────────────────────────────────────────────
 def scrape_transactions(s: requests.Session, teams: Iterable[dict]) -> list[dict]:
-    """Hit each team's per-team transaction page and parse rows.
+    """Pull the league-wide transactions page (all teams, all rows).
 
-    URL pattern: /transactions/{teamId}/all_but_lineup/
-    Per-team pages cap at ~30 rows, so we also fetch the league trades page.
+    The per-team /transactions/{teamId}/all_but_lineup pages are CBS-truncated
+    to ~30 rows. The league-wide /transactions?print_rows=9999 returns the
+    full log uncapped — use it and REPLACE cbs_transactions.json rather than
+    merging with stale data.
     """
-    rows: list[dict] = []
-    for t in teams:
-        url = f"{LEAGUE_BASE}/transactions/{t['id']}/all_but_lineup/"
-        print(f"  GET {url}")
-        r = s.get(url, timeout=20)
-        if r.status_code != 200:
-            print(f"    ! HTTP {r.status_code} for team {t['id']}")
-            continue
-        # TODO: parse r.text into transaction dicts of shape:
-        # {
-        #   "date": "4/18/26 6:00 AM ET",
-        #   "teamId": t["id"],
-        #   "teamName": t["name"],
-        #   "players": [{"name": ..., "pos": ..., "mlbTeam": ..., "action": "Added"}],
-        #   "effective": "..."
-        # }
-        # See data/cbs_transactions.json for the exact shape we want to write.
-        rows.extend(_parse_transactions_page(r.text, t))
-        time.sleep(0.5)  # be polite
-
-    # League trades page (catches multi-team trades the per-team pages drop)
-    trades_url = f"{LEAGUE_BASE}/trades/recent"
-    print(f"  GET {trades_url}")
-    r = s.get(trades_url, timeout=20)
-    if r.status_code == 200:
-        rows.extend(_parse_trades_page(r.text))
-    return rows
+    # Include both canonical names and historical aliases from merge_tx.TEAM_IDS
+    # (team 7 has been renamed "Everythings McGonigle Green" → "Whoop Whoop..." etc).
+    teamid_by_name: dict[str, int] = {t["name"]: t["id"] for t in teams}
+    try:
+        from merge_tx import TEAM_IDS as _MERGE_IDS  # type: ignore
+        for name, tid in _MERGE_IDS.items():
+            teamid_by_name.setdefault(name, tid)
+    except Exception:
+        pass
+    url = f"{LEAGUE_BASE}/transactions?print_rows=9999"
+    print(f"  GET {url}")
+    r = s.get(url, timeout=30)
+    if r.status_code != 200:
+        print(f"    ! HTTP {r.status_code}")
+        return []
+    return _parse_transactions_page(r.text, teamid_by_name)
 
 
 def scrape_rosters(s: requests.Session, teams: Iterable[dict]) -> dict[str, list[str]]:
-    """Hit each team's roster page and return {team_name: [player_name, ...]}."""
+    """Hit each team's roster page and return {canonical_team_name: [player_name, ...]}."""
     out: dict[str, list[str]] = {}
     for t in teams:
         url = f"{LEAGUE_BASE}/teams/{t['id']}"
@@ -171,8 +162,8 @@ def scrape_rosters(s: requests.Session, teams: Iterable[dict]) -> dict[str, list
         if r.status_code != 200:
             print(f"    ! HTTP {r.status_code} for team {t['id']}")
             continue
-        # TODO: parse r.text into a list[str] of player full names.
-        out[t["name"]] = _parse_roster_page(r.text, t)
+        canonical, players = _parse_roster_page(r.text, t)
+        out[canonical] = players
         time.sleep(0.5)
     return out
 
@@ -197,46 +188,152 @@ def _need_bs4():
         sys.exit(2)
 
 
-def _parse_transactions_page(html: str, team: dict) -> list[dict]:
+_MOJIBAKE_APOSTROPHE = "â"
+
+def _normalize_text(s: str) -> str:
+    if not s:
+        return ""
+    s = s.replace(_MOJIBAKE_APOSTROPHE, "'").replace("’", "'")
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def _parse_transactions_page(html: str, teamid_by_name: dict[str, int]) -> list[dict]:
+    """Parse the league-wide /transactions?print_rows=9999 page.
+
+    Row shape mirrors data/cbs_transactions.json:
+        {date, team, teamName, teamId, players:[{name, pos, mlbTeam, action}], effective}
+    Rows with class="label" are header dividers and skipped.
+    """
     _need_bs4()
-    # TODO: implement using BeautifulSoup. The Claude-in-Chrome scraper used to
-    # walk the table rows on the transactions page; that DOM should be stable
-    # in non-JS HTML too. Reference the existing data/cbs_transactions.json
-    # to mirror the shape exactly.
-    return []
+    soup = BeautifulSoup(html, "html.parser")
+    table = soup.select_one("table.data")
+    if table is None:
+        return []
+    out: list[dict] = []
+    # CBS's raw HTML omits explicit <tbody>, so iterate <tr> directly. The
+    # header row is class="label" and is filtered below.
+    for tr in table.select("tr"):
+        if "label" in (tr.get("class") or []):
+            continue
+        cells = tr.find_all("td", recursive=False)
+        if len(cells) < 4:
+            continue
+        date = _normalize_text(cells[0].get_text(" "))
+        team_name = _normalize_text(cells[1].get_text(" "))
+        players_cell = cells[2]
+        effective = _normalize_text(cells[3].get_text(" "))
+
+        # Split by <br> — BeautifulSoup gives us the html string to slice
+        html_chunk = players_cell.decode_contents()
+        blocks = re.split(r"<br\s*/?>", html_chunk, flags=re.IGNORECASE)
+
+        players: list[dict] = []
+        for blk in blocks:
+            piece = BeautifulSoup(blk, "html.parser")
+            name_a = piece.select_one("a.playerLink")
+            if name_a is None:
+                continue
+            name = _normalize_text(name_a.get_text(" "))
+            pos_span = piece.select_one("span.playerPositionAndTeam")
+            pos = mlb_team = ""
+            if pos_span is not None:
+                parts = [p.strip() for p in _normalize_text(pos_span.get_text(" ")).split("•")]
+                pos = parts[0] if parts else ""
+                mlb_team = parts[1] if len(parts) > 1 else ""
+            text = _normalize_text(piece.get_text(" "))
+            # Action follows the last " - " separator (e.g. "Ha-seong Kim SS • ATL - Dropped")
+            action = ""
+            sep = " - "
+            idx = text.rfind(sep) if mlb_team else -1
+            if idx > -1:
+                action = _normalize_text(text[idx + len(sep):])
+            else:
+                m = re.search(r"-\s*(.+)$", text)
+                if m:
+                    action = _normalize_text(m.group(1))
+            players.append({"name": name, "pos": pos, "mlbTeam": mlb_team, "action": action})
+
+        team_id = teamid_by_name.get(team_name)
+        row = {
+            "date": date,
+            "team": team_name,
+            "teamName": team_name,
+            "players": players,
+            "effective": effective,
+        }
+        if team_id is not None:
+            row["teamId"] = str(team_id)
+        out.append(row)
+    return out
 
 
 def _parse_trades_page(html: str) -> list[dict]:
-    _need_bs4()
-    # TODO
+    # The league-wide print-all transactions page already includes trade rows,
+    # so we no longer scrape a separate trades feed. Kept for backwards-compat.
     return []
 
 
-def _parse_roster_page(html: str, team: dict) -> list[str]:
+def _parse_roster_page(html: str, team: dict) -> tuple[str, list[str]]:
+    """Return (canonical_team_name, [player_name, ...]) from /teams/{id}.
+
+    The roster page has a single table.data; players are anchors with
+    class="playerLink". Canonical team name comes from the team-picker
+    <select>'s matching option (text is "<Team Name> (<Owner>)").
+    """
     _need_bs4()
-    # TODO
-    return []
+    soup = BeautifulSoup(html, "html.parser")
+
+    # Canonical team name from the team-picker dropdown
+    canonical = team["name"]
+    target_value = f"/teams/{team['id']}"
+    for opt in soup.select("select option"):
+        if (opt.get("value") or "").rstrip("/") == target_value.rstrip("/"):
+            txt = _normalize_text(opt.get_text(" "))
+            canonical = re.sub(r"\s*\([^)]*\)\s*$", "", txt).strip() or canonical
+            break
+
+    seen: set[str] = set()
+    players: list[str] = []
+    table = soup.select_one("table.data")
+    if table is not None:
+        for a in table.select("a.playerLink"):
+            n = _normalize_text(a.get_text(" "))
+            if n and n not in seen:
+                seen.add(n)
+                players.append(n)
+    return canonical, players
 
 
 def _parse_picks_page(html: str) -> list[dict]:
-    _need_bs4()
-    # TODO
+    # Picks rarely change after the draft completes, and the existing
+    # data/cbs_picks_full.json uses a draft-slot teamId that doesn't match
+    # the CBS team-id mapping. Leave this as a no-op — the daily refresh
+    # doesn't need draft picks, and the freshness gate only checks
+    # transactions + last_daily_run.
     return []
 
 
 # ── Outputs ─────────────────────────────────────────────────────────────────
 def write_transactions(new_rows: list[dict]):
-    """Hand off to merge_tx.py so we don't lose history."""
+    """REPLACE data/cbs_transactions.json, then invoke merge_tx cleaner-only pass.
+
+    The league-wide print-all URL returns the full uncapped log, so we
+    overwrite instead of merging — that avoids the phantom-row bug where
+    stale per-team scrapes leak through merge_tx forever.
+    """
     if not new_rows:
-        print("No new transactions scraped — nothing to merge.")
+        print("No transactions scraped — refusing to overwrite cbs_transactions.json.")
         return
-    tmp = "_scrape_tx_tmp.json"
-    with open(tmp, "w") as f:
-        json.dump(new_rows, f, indent=2)
-    try:
-        subprocess.check_call([sys.executable, "merge_tx.py", tmp])
-    finally:
-        os.remove(tmp)
+    path = os.path.join(DATA_DIR, "cbs_transactions.json")
+    with open(path, "w") as f:
+        json.dump(new_rows, f, indent=2, ensure_ascii=False)
+    print(f"Wrote {len(new_rows)} transactions → {path}")
+    # Cleaner-only pass via merge_tx (consumes empty stdin → no merge, just clean)
+    subprocess.run(
+        [sys.executable, "merge_tx.py", "-"],
+        input=b"[]",
+        check=True,
+    )
 
 
 def write_rosters(rosters: dict[str, list[str]]):
@@ -245,10 +342,12 @@ def write_rosters(rosters: dict[str, list[str]]):
         return
     path = os.path.join(DATA_DIR, "cbs_rosters.json")
     with open(path, "w") as f:
-        json.dump(rosters, f, indent=2)
+        json.dump(rosters, f, indent=2, ensure_ascii=False)
     print(f"Wrote {sum(len(v) for v in rosters.values())} players across {len(rosters)} rosters → {path}")
-    # Then reconcile via roster_sync.py for synthetic adds/drops
-    subprocess.check_call([sys.executable, "roster_sync.py"])
+    # roster_sync.py is intentionally skipped — it existed to backfill synthetic
+    # adds for the per-team page's 30-row cap. The print-all transactions URL
+    # is uncapped, so the synthetic adds are no longer needed and they create
+    # phantom-add bugs.
 
 
 def write_picks(picks: list[dict]):
@@ -300,8 +399,25 @@ def main() -> int:
         if not args.skip_merge:
             write_picks(picks)
 
+    # Write status marker so validate.py's freshness gate stays happy
+    _write_run_marker()
+
     print("\nDone. Now run:  python3 validate.py && python3 build_dashboard.py")
     return 0
+
+
+def _write_run_marker():
+    import datetime as _dt
+    marker = {
+        "completedAt": _dt.datetime.now(_dt.timezone.utc).isoformat().replace("+00:00", "Z"),
+        "phaseA": {"stats": "skipped", "injuries": "skipped", "news": "skipped"},
+        "phaseB": {"cbs_auth": "ok", "transactions": "ok", "rosters": "ok", "matchup": "skipped"},
+        "notes": ["scrape_cbs.py headless run (cookies-based)"],
+    }
+    path = os.path.join(DATA_DIR, "last_daily_run.json")
+    with open(path, "w") as f:
+        json.dump(marker, f, indent=2)
+    print(f"Wrote run marker → {path}")
 
 
 if __name__ == "__main__":

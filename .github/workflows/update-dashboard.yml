@@ -29,7 +29,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install pandas numpy pybaseball
+        run: pip install pandas numpy pybaseball requests beautifulsoup4
 
       - name: Fetch 2026 stats (saves daily snapshots to data/snapshots/)
         run: python fetch_stats.py
@@ -43,11 +43,25 @@ jobs:
         run: python fetch_stuffplus.py
         continue-on-error: true  # Don't fail the deploy if FanGraphs is down
 
+      - name: Scrape CBS league (transactions + rosters) via cookies
+        env:
+          CBS_COOKIES_JSON: ${{ secrets.CBS_COOKIES_JSON }}
+        run: |
+          if [ -z "$CBS_COOKIES_JSON" ]; then
+            echo "CBS_COOKIES_JSON secret not set — skipping CBS scrape"
+            exit 0
+          fi
+          printf '%s' "$CBS_COOKIES_JSON" > /tmp/cbs-cookies.json
+          python scrape_cbs.py transactions --cookies /tmp/cbs-cookies.json
+          python scrape_cbs.py rosters      --cookies /tmp/cbs-cookies.json
+          rm -f /tmp/cbs-cookies.json
+        continue-on-error: true  # Don't block deploy if CBS cookies expire — validate.py's freshness gate will flag it
+
       - name: Commit daily snapshots back to repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/snapshots/ data/bat_statcast_2026.csv data/stuff_plus_2026.csv data/savant_percentiles_bat_2026.csv data/savant_percentiles_pit_2026.csv || true
+          git add data/snapshots/ data/bat_statcast_2026.csv data/stuff_plus_2026.csv data/savant_percentiles_bat_2026.csv data/savant_percentiles_pit_2026.csv data/cbs_transactions.json data/cbs_rosters.json data/last_daily_run.json || true
           if git diff --cached --quiet; then
             echo "No new snapshot files to commit"
           else
