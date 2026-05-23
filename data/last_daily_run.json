@@ -1,21 +1,17 @@
 {
-  "completedAt": "2026-05-23T16:47:11.035810Z",
+  "completedAt": "2026-05-23T20:28:22.779366Z",
   "phaseA": {
-    "stats": "ok",
-    "injuries": "ok",
-    "news": "ok"
+    "stats": "skipped",
+    "injuries": "skipped",
+    "news": "skipped"
   },
   "phaseB": {
     "cbs_auth": "ok",
     "transactions": "ok",
     "rosters": "ok",
-    "matchup": "ok"
+    "matchup": "skipped"
   },
   "notes": [
-    "fetch_stuffplus.py: pybaseball not installed (non-fatal, expected)",
-    "371 transactions scraped, 288 after dedup",
-    "12 rosters captured, 387 total roster slots",
-    "Period 4 matchup: losing 4.5-11.5 to Popped A Mahle Im Sweating",
-    "Standings: Okamotomami 3-0-0, tied first place"
+    "scrape_cbs.py headless run (cookies-based)"
   ]
 }

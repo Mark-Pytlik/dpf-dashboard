@@ -5576,5 +5576,20 @@
       }
     ],
     "effective": "5/23/26"
+  },
+  {
+    "date": "5/23/26 12:53 PM ET",
+    "teamId": "12",
+    "teamName": "Popped A Mahle I'm Sweating",
+    "team": "Popped A Mahle I'm Sweating",
+    "players": [
+      {
+        "name": "Bryce Eldridge",
+        "pos": "DH",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/23/26"
   }
 ]
