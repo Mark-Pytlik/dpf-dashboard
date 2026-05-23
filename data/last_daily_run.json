@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-23T20:28:22.779366Z",
+  "completedAt": "2026-05-23T20:39:05.341605Z",
   "phaseA": {
     "stats": "skipped",
     "injuries": "skipped",
@@ -9,7 +9,7 @@
     "cbs_auth": "ok",
     "transactions": "ok",
     "rosters": "ok",
-    "matchup": "skipped"
+    "matchup": "ok"
   },
   "notes": [
     "scrape_cbs.py headless run (cookies-based)"
