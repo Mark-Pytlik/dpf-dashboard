@@ -1,5 +1,5 @@
 {
-  "completedAt": "2026-05-22T13:06:02.964649Z",
+  "completedAt": "2026-05-23T13:08:44.435421Z",
   "phaseA": {
     "stats": "ok",
     "injuries": "ok",
@@ -13,10 +13,8 @@
     "matchup": "skipped"
   },
   "notes": [
-    "CBS league pages return 'Whoops! It looks like this page has been moved or deleted' \u2014 auth session not present in browser",
-    "fetch_stuffplus.py: pybaseball not installed (non-fatal, expected)",
-    "Injuries: 254 across 30 teams (parsed via direct HTTP, not Chrome)",
-    "Player news: 49 unique items from pages 1-5 (XHR JSON endpoint)",
-    "Snapshots index rebuilt: 41 dates"
+    "Phase B skipped: CBS league URLs returned 'Whoops!' page \u2014 not signed in to CBS in this browser session.",
+    "fetch_stuffplus.py 403'd on FanGraphs (expected, non-fatal).",
+    "Snapshots index rebuilt: 42 dates, 549 batters, 657 pitchers."
   ]
 }
