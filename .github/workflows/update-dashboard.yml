@@ -13,8 +13,15 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  # Only one run at a time per branch; cancel any in-progress overlap to avoid push races.
+  group: update-dashboard-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-deploy:
+    # Skip runs triggered by the bot's own data-refresh commits to avoid cascade.
+    if: github.event_name != 'push' || (github.actor != 'github-actions[bot]' && !startsWith(github.event.head_commit.message, 'chore: daily'))
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -67,7 +74,15 @@ jobs:
             echo "No new snapshot files to commit"
           else
             git commit -m "chore: daily stat + Savant + Stuff+ refresh $(date -u +%Y-%m-%d)"
-            git push
+            # Retry on race: if another concurrent run pushed first, rebase and try again.
+            for i in 1 2 3; do
+              if git push; then
+                break
+              fi
+              echo "push attempt $i failed, rebasing and retrying..."
+              git pull --rebase origin main || true
+              sleep $((i * 3))
+            done
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
