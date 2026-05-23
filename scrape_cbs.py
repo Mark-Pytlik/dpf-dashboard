@@ -85,6 +85,14 @@ USER_AGENT = (
 
 DATA_DIR = "data"
 
+# Owner-team for season_status: drives "opponent" / "currentScore" / "categoryBreakdown".
+MY_TEAM_ID = 4   # Okamotomami
+MY_TEAM_NAME = "Okamotomami"
+
+# Bi-weekly H2H periods start the Monday of opening week.
+SEASON_PERIOD_START = "2026-03-30"
+SEASON_PERIOD_DAYS = 14
+
 
 # ── Auth helpers ────────────────────────────────────────────────────────────
 def load_cookies(path: str | None, session_token: str | None) -> dict:
@@ -166,6 +174,74 @@ def scrape_rosters(s: requests.Session, teams: Iterable[dict]) -> dict[str, list
         out[canonical] = players
         time.sleep(0.5)
     return out
+
+
+def scrape_season_status(s: requests.Session, teams: Iterable[dict]) -> dict | None:
+    """Refresh /standings/overall + period metadata in season_status.json.
+
+    The matchup category breakdown lives on /scoring/standard/{p}/{m} pages,
+    which CBS renders client-side from a per-player stat blob — replicating
+    that aggregation in Python is out of scope. So we read the existing
+    season_status.json and only update the fields we can scrape headlessly:
+    standings, myRecord, periodStart/End, currentPeriod, lastUpdated. The
+    in-period categoryBreakdown / currentScore / allMatchups are preserved
+    from the previous (typically local Chrome-MCP) run and roll forward
+    until the next local refresh.
+    """
+    # Standings
+    print(f"  GET {LEAGUE_BASE}/standings/overall")
+    r = s.get(f"{LEAGUE_BASE}/standings/overall", timeout=20)
+    if r.status_code != 200:
+        print(f"    ! HTTP {r.status_code} for standings")
+        return None
+    standings = _parse_standings_page(r.text)
+    if not standings:
+        print("    ! parsed 0 standings rows — refusing to overwrite season_status.json")
+        return None
+
+    # Period number computed from schedule (bi-weekly Mondays from SEASON_PERIOD_START)
+    from datetime import date, datetime, timedelta, timezone as _tz
+    start_d = datetime.strptime(SEASON_PERIOD_START, "%Y-%m-%d").date()
+    days_in = (date.today() - start_d).days
+    period = max(1, days_in // SEASON_PERIOD_DAYS + 1)
+    period_start = start_d + timedelta(days=(period - 1) * SEASON_PERIOD_DAYS)
+    period_end = period_start + timedelta(days=SEASON_PERIOD_DAYS - 1)
+    print(f"  Inferred current period: {period} ({period_start} → {period_end})")
+
+    # My record from standings
+    my_record = ""
+    for row in standings:
+        if row["team"].upper() == MY_TEAM_NAME.upper():
+            my_record = f"{row['W']}-{row['L']}-{row['T']}"
+            break
+
+    # Load existing season_status.json so we preserve fields we can't scrape
+    existing: dict = {}
+    try:
+        with open(os.path.join(DATA_DIR, "season_status.json")) as f:
+            existing = json.load(f)
+    except FileNotFoundError:
+        pass
+    except Exception as e:
+        print(f"    ! couldn't read existing season_status.json: {e}")
+
+    return {
+        "currentPeriod": period,
+        "periodStart": period_start.isoformat(),
+        "periodEnd": period_end.isoformat(),
+        # Preserved from prior local run — refreshes when you run the
+        # interactive (Chrome-MCP) daily task locally.
+        "opponent": existing.get("opponent", ""),
+        "opponentTeam": existing.get("opponentTeam", ""),
+        "currentScore": existing.get("currentScore", {"me": 0, "opp": 0, "tied": 0}),
+        "categoryBreakdown": existing.get("categoryBreakdown", {}),
+        "allMatchups": existing.get("allMatchups", []),
+        # Headless-refreshed
+        "myRecord": my_record,
+        "standings": standings,
+        "updated": datetime.now(_tz.utc).isoformat().replace("+00:00", "Z"),
+        "lastUpdated": f"{date.today().isoformat()} (period {period} in progress, standings only — category breakdown from last local run)",
+    }
 
 
 def scrape_picks(s: requests.Session) -> list[dict]:
@@ -304,6 +380,124 @@ def _parse_roster_page(html: str, team: dict) -> tuple[str, list[str]]:
     return canonical, players
 
 
+def _parse_standings_page(html: str) -> list[dict]:
+    _need_bs4()
+    soup = BeautifulSoup(html, "html.parser")
+    table = soup.select_one("table.data")
+    out: list[dict] = []
+    if table is None:
+        return out
+    rows = table.select("tr")
+    # First non-header row is row index 1 ("TEAM | W | L | T | PCT | GB | STREAK")
+    for tr in rows[1:]:
+        cells = [_normalize_text(c.get_text(" ")) for c in tr.find_all("td", recursive=False)]
+        if len(cells) < 7:
+            continue
+        team, w, l, t, pct, gb, streak = cells[:7]
+        try:
+            row = {
+                "team": team,
+                "W": int(w),
+                "L": int(l),
+                "T": int(t),
+                "PCT": float(pct),
+                "GB": float(gb),
+                "streak": streak,
+            }
+        except ValueError:
+            continue
+        out.append(row)
+    return out
+
+
+def _parse_scoreboard_links(html: str) -> tuple[int | None, list[int]]:
+    _need_bs4()
+    soup = BeautifulSoup(html, "html.parser")
+    period: int | None = None
+    seen: set[int] = set()
+    ids: list[int] = []
+    for a in soup.select('a[href*="/scoring/standard/"]'):
+        m = re.match(r".*?/scoring/standard/(\d+)/(\d+)", a.get("href") or "")
+        if not m:
+            continue
+        if period is None:
+            period = int(m.group(1))
+        mid = int(m.group(2))
+        if mid not in seen:
+            seen.add(mid)
+            ids.append(mid)
+    return period, ids
+
+
+def _parse_matchup_page(html: str) -> dict | None:
+    """Return {names: (away, home), scores: (away, home), cats: [row, ...]}.
+
+    Cats rows are the inner Category Breakdown rows with shape
+    [left_won, left_value, category, right_value, right_won]. "TOTAL" row's
+    value cells are blank but result cells hold the totals.
+    """
+    _need_bs4()
+    soup = BeautifulSoup(html, "html.parser")
+    cat_table = None
+    for t in soup.select("table.data"):
+        if "Category Breakdown" in t.get_text(" "):
+            cat_table = t
+            break
+    if cat_table is None:
+        return None
+    rows = cat_table.select("tr")
+    names: tuple[str, str] | None = None
+    scores: tuple[float, float] | None = None
+    cats: list[list[str]] = []
+    for tr in rows:
+        cells = [_normalize_text(c.get_text(" ")) for c in tr.find_all("td", recursive=False)]
+        if not cells:
+            continue
+        if len(cells) == 2 and names is None:
+            names = (cells[0], cells[1])
+            continue
+        if len(cells) == 5:
+            cats.append(cells)
+            if cells[2].upper() == "TOTAL":
+                try:
+                    scores = (float(cells[0]), float(cells[4]))
+                except ValueError:
+                    pass
+    if names is None or scores is None:
+        return None
+    # Filter category rows (drop headers like ["RESULT","VALUE","CATEGORY","VALUE","RESULT"] and TOTAL)
+    cleaned = [r for r in cats if r[2].upper() not in ("CATEGORY", "TOTAL")]
+    return {"names": names, "scores": scores, "cats": cleaned}
+
+
+def _build_my_breakdown(cats: list[list[str]], am_home: bool) -> dict:
+    """Translate [left_won, left_val, CAT, right_val, right_won] into the
+    season_status.json shape: {CAT: {me, opp, won}}. The 'home' team appears
+    on the right side of the breakdown table; 'away' on the left.
+    """
+    out: dict = {}
+    for r in cats:
+        left_won, left_val, cat, right_val, right_won = r
+        if am_home:
+            me_val, opp_val = right_val, left_val
+            me_won_raw, opp_won_raw = right_won, left_won
+        else:
+            me_val, opp_val = left_val, right_val
+            me_won_raw, opp_won_raw = left_won, right_won
+        try:
+            me_won_f = float(me_won_raw)
+            if me_won_f == 1.0:
+                won = True
+            elif me_won_f == 0.0:
+                won = False
+            else:
+                won = "tied"
+        except ValueError:
+            won = False
+        out[cat] = {"me": me_val, "opp": opp_val, "won": won}
+    return out
+
+
 def _parse_picks_page(html: str) -> list[dict]:
     # Picks rarely change after the draft completes, and the existing
     # data/cbs_picks_full.json uses a draft-slot teamId that doesn't match
@@ -350,6 +544,16 @@ def write_rosters(rosters: dict[str, list[str]]):
     # phantom-add bugs.
 
 
+def write_season_status(status: dict | None):
+    if not status:
+        print("No season status scraped — refusing to overwrite season_status.json.")
+        return
+    path = os.path.join(DATA_DIR, "season_status.json")
+    with open(path, "w") as f:
+        json.dump(status, f, indent=2, ensure_ascii=False)
+    print(f"Wrote season status period {status.get('currentPeriod')} → {path}")
+
+
 def write_picks(picks: list[dict]):
     if not picks:
         print("No picks scraped — nothing to write.")
@@ -363,7 +567,7 @@ def write_picks(picks: list[dict]):
 # ── CLI ─────────────────────────────────────────────────────────────────────
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("mode", choices=["transactions", "rosters", "picks", "all", "check-auth"])
+    parser.add_argument("mode", choices=["transactions", "rosters", "matchup", "picks", "all", "check-auth"])
     parser.add_argument("--cookies", help="path to JSON cookies export")
     parser.add_argument("--session-token", help="raw pid_session cookie value")
     parser.add_argument("--skip-merge", action="store_true",
@@ -394,6 +598,10 @@ def main() -> int:
         rosters = scrape_rosters(s, TEAMS)
         if not args.skip_merge:
             write_rosters(rosters)
+    if args.mode in ("matchup", "all"):
+        status = scrape_season_status(s, TEAMS)
+        if not args.skip_merge:
+            write_season_status(status)
     if args.mode in ("picks", "all"):
         picks = scrape_picks(s)
         if not args.skip_merge:
@@ -411,7 +619,7 @@ def _write_run_marker():
     marker = {
         "completedAt": _dt.datetime.now(_dt.timezone.utc).isoformat().replace("+00:00", "Z"),
         "phaseA": {"stats": "skipped", "injuries": "skipped", "news": "skipped"},
-        "phaseB": {"cbs_auth": "ok", "transactions": "ok", "rosters": "ok", "matchup": "skipped"},
+        "phaseB": {"cbs_auth": "ok", "transactions": "ok", "rosters": "ok", "matchup": "ok"},
         "notes": ["scrape_cbs.py headless run (cookies-based)"],
     }
     path = os.path.join(DATA_DIR, "last_daily_run.json")
