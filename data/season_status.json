@@ -1,7 +1,7 @@
 {
-  "currentPeriod": 4,
-  "periodStart": "2026-05-11",
-  "periodEnd": "2026-05-24",
+  "currentPeriod": 5,
+  "periodStart": "2026-05-25",
+  "periodEnd": "2026-06-07",
   "opponent": "Popped A Mahle I'm Sweating",
   "opponentTeam": "Popped A Mahle I'm Sweating",
   "currentScore": {
@@ -135,117 +135,117 @@
       "homeScore": 10.0
     }
   ],
-  "myRecord": "3-0-0",
+  "myRecord": "3-1-0",
   "standings": [
+    {
+      "team": "Blame it on the Rainiel",
+      "W": 4,
+      "L": 0,
+      "T": 0,
+      "PCT": 1.0,
+      "GB": 0.0,
+      "streak": "W4"
+    },
     {
       "team": "Weird Fishes / Arrighetti",
       "W": 3,
-      "L": 0,
-      "T": 0,
-      "PCT": 1.0,
-      "GB": 0.0,
-      "streak": "W3"
-    },
-    {
-      "team": "Okamotomami",
-      "W": 3,
-      "L": 0,
-      "T": 0,
-      "PCT": 1.0,
-      "GB": 0.0,
-      "streak": "W3"
-    },
-    {
-      "team": "Blame it on the Rainiel",
-      "W": 3,
-      "L": 0,
-      "T": 0,
-      "PCT": 1.0,
-      "GB": 0.0,
-      "streak": "W3"
-    },
-    {
-      "team": "Colonel Corbin's Ascent",
-      "W": 2,
       "L": 1,
       "T": 0,
-      "PCT": 0.667,
+      "PCT": 0.75,
       "GB": 1.0,
       "streak": "L1"
     },
     {
-      "team": "Before and After Shohei",
-      "W": 1,
+      "team": "Colonel Corbin's Ascent",
+      "W": 3,
       "L": 1,
-      "T": 1,
-      "PCT": 0.5,
-      "GB": 1.5,
-      "streak": "T1"
+      "T": 0,
+      "PCT": 0.75,
+      "GB": 1.0,
+      "streak": "W1"
+    },
+    {
+      "team": "Okamotomami",
+      "W": 3,
+      "L": 1,
+      "T": 0,
+      "PCT": 0.75,
+      "GB": 1.0,
+      "streak": "L1"
     },
     {
       "team": "Dinosaur Jr Caminero",
-      "W": 1,
+      "W": 2,
       "L": 2,
       "T": 0,
-      "PCT": 0.333,
+      "PCT": 0.5,
+      "GB": 2.0,
+      "streak": "W2"
+    },
+    {
+      "team": "Buddy Buddy Buddy All On Base",
+      "W": 2,
+      "L": 2,
+      "T": 0,
+      "PCT": 0.5,
       "GB": 2.0,
       "streak": "W1"
     },
     {
-      "team": "Buddy Buddy Buddy All On Base",
-      "W": 1,
+      "team": "A Pete Crow-Armstrong Looked at Me",
+      "W": 2,
       "L": 2,
       "T": 0,
-      "PCT": 0.333,
+      "PCT": 0.5,
       "GB": 2.0,
-      "streak": "L1"
+      "streak": "W1"
     },
     {
-      "team": "A Pete Crow-Armstrong Looked at Me",
-      "W": 1,
+      "team": "Popped A Mahle I'm Sweating",
+      "W": 2,
       "L": 2,
       "T": 0,
-      "PCT": 0.333,
+      "PCT": 0.5,
       "GB": 2.0,
+      "streak": "W2"
+    },
+    {
+      "team": "Before and After Shohei",
+      "W": 1,
+      "L": 2,
+      "T": 1,
+      "PCT": 0.375,
+      "GB": 2.5,
       "streak": "L1"
     },
     {
       "team": "Everythings McGonigle Green",
       "W": 1,
-      "L": 2,
+      "L": 3,
       "T": 0,
-      "PCT": 0.333,
-      "GB": 2.0,
-      "streak": "L2"
-    },
-    {
-      "team": "Popped A Mahle I'm Sweating",
-      "W": 1,
-      "L": 2,
-      "T": 0,
-      "PCT": 0.333,
-      "GB": 2.0,
-      "streak": "W1"
+      "PCT": 0.25,
+      "GB": 3.0,
+      "streak": "L3"
     },
     {
       "team": "Yesavage Garden",
       "W": 0,
-      "L": 2,
+      "L": 3,
       "T": 1,
-      "PCT": 0.167,
-      "GB": 2.5,
-      "streak": "T1"
+      "PCT": 0.125,
+      "GB": 3.5,
+      "streak": "L1"
     },
     {
       "team": "Ballesteros, Let the Rhythm Take You Over",
       "W": 0,
-      "L": 3,
+      "L": 4,
       "T": 0,
       "PCT": 0.0,
-      "GB": 3.0,
-      "streak": "L3"
+      "GB": 4.0,
+      "streak": "L4"
     }
   ],
-  "updated": "2026-05-24T11:15:31.064083Z",
-  "lastUpdated": "2026-05-24 (period 4 in progress, standings only — category breakdown from last local run)"
+  "updated": "2026-05-25T13:00:08.899326Z",
+  "lastUpdated": "2026-05-25 (period 5 in progress, standings only — category breakdown from last local run)"
 }

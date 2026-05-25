@@ -5612,5 +5612,86 @@
       }
     ],
     "effective": "5/24/26"
+  },
+  {
+    "date": "5/25/26 2:01 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Austin Martin",
+        "pos": "LF,RF",
+        "mlbTeam": "MIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Didier Fuentes",
+        "pos": "SP,RP",
+        "mlbTeam": "ATL",
+        "action": "Dropped"
+      },
+      {
+        "name": "Brandon Nimmo",
+        "pos": "LF,RF",
+        "mlbTeam": "TEX",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Willy Adames",
+        "pos": "SS",
+        "mlbTeam": "SF",
+        "action": "Dropped"
+      },
+      {
+        "name": "Spencer Steer",
+        "pos": "1B,LF,RF",
+        "mlbTeam": "CIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Brooks Lee",
+        "pos": "2B,3B,SS",
+        "mlbTeam": "MIN",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/25/26"
+  },
+  {
+    "date": "5/25/26 2:01 AM ET",
+    "teamId": "9",
+    "teamName": "Yesavage Garden",
+    "team": "Yesavage Garden",
+    "players": [
+      {
+        "name": "Jeff Hoffman",
+        "pos": "RP",
+        "mlbTeam": "TOR",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "JoJo Romero",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/25/26"
+  },
+  {
+    "date": "5/25/26 2:01 AM ET",
+    "teamId": "4",
+    "teamName": "Okamotomami",
+    "team": "Okamotomami",
+    "players": [
+      {
+        "name": "Alejandro Kirk",
+        "pos": "C",
+        "mlbTeam": "TOR",
+        "action": "Added off Waivers"
+      }
+    ],
+    "effective": "5/25/26"
   }
 ]
