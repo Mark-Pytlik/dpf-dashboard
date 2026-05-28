@@ -896,7 +896,7 @@
     "players": [
       {
         "name": "Shane Drohan",
-        "pos": "SP",
+        "pos": "SP,RP",
         "mlbTeam": "MIL",
         "action": "Dropped"
       }
@@ -1805,7 +1805,7 @@
     "players": [
       {
         "name": "Jose Fernandez",
-        "pos": "1B,SS",
+        "pos": "1B,3B,SS",
         "mlbTeam": "ARI",
         "action": "Added off Waivers"
       },
@@ -2741,7 +2741,7 @@
       },
       {
         "name": "Jose Fernandez",
-        "pos": "1B,SS",
+        "pos": "1B,3B,SS",
         "mlbTeam": "ARI",
         "action": "Dropped"
       }
@@ -5807,5 +5807,80 @@
       }
     ],
     "effective": "5/27/26"
+  },
+  {
+    "date": "5/28/26 2:05 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Didier Fuentes",
+        "pos": "SP,RP",
+        "mlbTeam": "ATL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Henry Bolte",
+        "pos": "CF,RF",
+        "mlbTeam": "ATH",
+        "action": "Dropped"
+      },
+      {
+        "name": "Chad Patrick",
+        "pos": "SP",
+        "mlbTeam": "MIL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Cole Carrigg",
+        "pos": "CF",
+        "mlbTeam": "COL",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/28/26"
+  },
+  {
+    "date": "5/28/26 2:05 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "players": [
+      {
+        "name": "Bryan King",
+        "pos": "RP",
+        "mlbTeam": "HOU",
+        "action": "Activated"
+      },
+      {
+        "name": "Brent Headrick",
+        "pos": "RP",
+        "mlbTeam": "NYY",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/28/26"
+  },
+  {
+    "date": "5/28/26 2:05 AM ET",
+    "teamId": "7",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
+    "team": "Whoop Whoop that's the sound of Dylan Cease",
+    "players": [
+      {
+        "name": "Joshua Baez",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Theo Gillen",
+        "pos": "CF",
+        "mlbTeam": "TB",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/28/26"
   }
 ]
