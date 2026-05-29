@@ -5882,5 +5882,68 @@
       }
     ],
     "effective": "5/28/26"
+  },
+  {
+    "date": "5/29/26 1:56 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Noelvi Marte",
+        "pos": "3B,RF",
+        "mlbTeam": "CIN",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Bryce Rainer",
+        "pos": "SS",
+        "mlbTeam": "DET",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/29/26"
+  },
+  {
+    "date": "5/29/26 1:56 AM ET",
+    "teamId": "6",
+    "teamName": "A Pete Crow-Armstrong Looked at Me",
+    "team": "A Pete Crow-Armstrong Looked at Me",
+    "players": [
+      {
+        "name": "Yoendrys Gomez",
+        "pos": "SP,RP",
+        "mlbTeam": "MIN",
+        "action": "Activated"
+      },
+      {
+        "name": "Tyler Alexander",
+        "pos": "SP,RP",
+        "mlbTeam": "TEX",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/29/26"
+  },
+  {
+    "date": "5/29/26 1:56 AM ET",
+    "teamId": "7",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
+    "team": "Whoop Whoop that's the sound of Dylan Cease",
+    "players": [
+      {
+        "name": "Angel Genao",
+        "pos": "SS",
+        "mlbTeam": "CLE",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Joshua Baez",
+        "pos": "RF",
+        "mlbTeam": "STL",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "5/29/26"
   }
 ]
