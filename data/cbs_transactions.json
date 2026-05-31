@@ -6062,5 +6062,20 @@
       }
     ],
     "effective": "5/30/26"
+  },
+  {
+    "date": "5/31/26 2:39 AM ET",
+    "teamId": "1",
+    "teamName": "Weird Fishes / Arrighetti",
+    "team": "Weird Fishes / Arrighetti",
+    "players": [
+      {
+        "name": "Isaac Paredes",
+        "pos": "3B",
+        "mlbTeam": "HOU",
+        "action": "Added off Waivers"
+      }
+    ],
+    "effective": "5/31/26"
   }
 ]
