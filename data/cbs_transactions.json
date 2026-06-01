@@ -5159,7 +5159,7 @@
     "players": [
       {
         "name": "Casey Schmitt",
-        "pos": "1B,2B,3B",
+        "pos": "1B,2B,3B,LF",
         "mlbTeam": "SF",
         "action": "Activated"
       },
@@ -6077,5 +6077,122 @@
       }
     ],
     "effective": "5/31/26"
+  },
+  {
+    "date": "5/31/26 5:29 PM ET",
+    "teamId": "10",
+    "teamName": "Blame it on the Rainiel",
+    "team": "Blame it on the Rainiel",
+    "players": [
+      {
+        "name": "Bailey Ober",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "6/1/26"
+  },
+  {
+    "date": "6/1/26 2:06 AM ET",
+    "teamId": "5",
+    "teamName": "Buddy Buddy Buddy All On Base",
+    "team": "Buddy Buddy Buddy All On Base",
+    "players": [
+      {
+        "name": "Martin Perez",
+        "pos": "SP",
+        "mlbTeam": "ATL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Kyle Bradish",
+        "pos": "SP",
+        "mlbTeam": "BAL",
+        "action": "Dropped"
+      },
+      {
+        "name": "Gordon Graceffo",
+        "pos": "RP",
+        "mlbTeam": "STL",
+        "action": "Activated"
+      },
+      {
+        "name": "Garrett Cleavinger",
+        "pos": "RP",
+        "mlbTeam": "TB",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "6/1/26"
+  },
+  {
+    "date": "6/1/26 2:06 AM ET",
+    "teamId": "11",
+    "teamName": "Before and After Shohei",
+    "team": "Before and After Shohei",
+    "players": [
+      {
+        "name": "Roki Sasaki",
+        "pos": "SP",
+        "mlbTeam": "LAD",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Connor Prielipp",
+        "pos": "SP",
+        "mlbTeam": "MIN",
+        "action": "Dropped"
+      },
+      {
+        "name": "Christian Scott",
+        "pos": "SP",
+        "mlbTeam": "NYM",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Janson Junk",
+        "pos": "SP",
+        "mlbTeam": "MIA",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "6/1/26"
+  },
+  {
+    "date": "6/1/26 2:06 AM ET",
+    "teamId": "3",
+    "teamName": "Colonel Corbin's Ascent",
+    "team": "Colonel Corbin's Ascent",
+    "players": [
+      {
+        "name": "Luis Lara",
+        "pos": "CF",
+        "mlbTeam": "MIL",
+        "action": "Added off Waivers"
+      },
+      {
+        "name": "Chad Patrick",
+        "pos": "SP",
+        "mlbTeam": "MIL",
+        "action": "Dropped"
+      }
+    ],
+    "effective": "6/1/26"
+  },
+  {
+    "date": "6/1/26 2:06 AM ET",
+    "teamId": "7",
+    "teamName": "Whoop Whoop that's the sound of Dylan Cease",
+    "team": "Whoop Whoop that's the sound of Dylan Cease",
+    "players": [
+      {
+        "name": "Taylor Clarke",
+        "pos": "RP",
+        "mlbTeam": "ARI",
+        "action": "Added off Waivers"
+      }
+    ],
+    "effective": "6/1/26"
   }
 ]
